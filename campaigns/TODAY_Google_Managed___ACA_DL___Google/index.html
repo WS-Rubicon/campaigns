@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Managed - ACA DL - Google - TODAY'S Performance</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', sans-serif; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white; margin: 0; padding: 20px;
+        }
+        .container { max-width: 1000px; margin: 0 auto; }
+        .header { text-align: center; margin-bottom: 30px; }
+        .live-badge { 
+            background: #ff4444; padding: 5px 15px; border-radius: 20px; 
+            font-size: 14px; animation: pulse 2s infinite;
+        }
+        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.7; } 100% { opacity: 1; } }
+        .metrics { 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+            gap: 20px; margin: 30px 0;
+        }
+        .metric {
+            background: rgba(255,255,255,0.15); padding: 20px; border-radius: 10px; text-align: center;
+        }
+        .metric-value { font-size: 2rem; font-weight: bold; color: #4ecdc4; }
+        .claude-analysis {
+            background: rgba(0,0,0,0.3); padding: 20px; border-radius: 10px; margin: 20px 0;
+        }
+        .timestamp { 
+            position: fixed; top: 10px; right: 10px; 
+            background: rgba(0,0,0,0.8); padding: 10px; border-radius: 5px; font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="timestamp">
+        Last Updated: 7/28/2025, 4:37:37 PM<br>
+        Data: TODAY
+    </div>
+    
+    <div class="container">
+        <div class="header">
+            <div class="live-badge">🔴 LIVE DATA</div>
+            <h1>Google Managed - ACA DL - Google</h1>
+            <h2>📅 TODAY'S PERFORMANCE</h2>
+        </div>
+        
+        <div class="metrics">
+            <div class="metric">
+                <div class="metric-value">191</div>
+                <div>Conversions TODAY</div>
+            </div>
+            <div class="metric">
+                <div class="metric-value">$2160.00</div>
+                <div>Revenue TODAY</div>
+            </div>
+            <div class="metric">
+                <div class="metric-value">$2160.00</div>
+                <div>Profit TODAY</div>
+            </div>
+            <div class="metric">
+                <div class="metric-value">2/5</div>
+                <div>AI Urgency Level</div>
+            </div>
+        </div>
+        
+        <div class="claude-analysis">
+            <h3>🤖 Claude AI Analysis</h3>
+            <p><strong>Assessment:</strong> Excellent</p>
+            <p><strong>Recommended Action:</strong> increase</p>
+            <p><strong>AI Insight:</strong> This campaign is performing exceptionally well with a 20% conversion rate and positive profit of $2,160. The 2.00% CTR indicates strong audience targeting and ad creative. Primary focus should be on scaling this winning campaign by increasing budget 50% while making minor landing page optimizations to push conversion rate even higher. The combination of good CTR and excellent conversion rate suggests both traffic quality and landing page are working well together. Low urgency since performance is strong, but quick action on scaling could significantly increase profits.</p>
+            <p><strong>Priority:</strong> 2/5 urgency</p>
+        </div>
+        
+        <div style="text-align: center; margin-top: 40px;">
+            <p>📊 Real-time campaign analysis • 🤖 Powered by Claude AI</p>
+            <p>Updated: 7/28/2025, 4:37:37 PM</p>
+        </div>
+    </div>
+    
+    <script>
+        // Auto-refresh every 5 minutes for live data
+        setTimeout(() => location.reload(), 300000);
+    </script>
+</body>
+</html>
