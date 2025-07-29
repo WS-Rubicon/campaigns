@@ -39,5 +39,16 @@
       "clicks": 1000
     },
     "campaign": "Wesley - MVA (Auto) - CBot - Newsbreak"
+  },
+  {
+    "version": "v1",
+    "timestamp": "2025-07-29T09:09:25.311Z",
+    "summary": "Enhanced urgency with timer, stronger red CTA, action-focused copy, scarcity messaging",
+    "performance": {
+      "cr": 2.9,
+      "profit": 300,
+      "clicks": 1000
+    },
+    "campaign": "Wesley - MVA (Auto) - CBot - Newsbreak"
   }
 ]
