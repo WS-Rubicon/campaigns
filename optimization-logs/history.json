@@ -28,5 +28,16 @@
       "profit": 40,
       "clicks": 300
     }
+  },
+  {
+    "version": "v1",
+    "timestamp": "2025-07-29T08:56:16.223Z",
+    "summary": "Enhanced urgency messaging, stronger CTA copy, trust signals, and improved button color",
+    "performance": {
+      "cr": 2.9,
+      "profit": 300,
+      "clicks": 1000
+    },
+    "campaign": "Wesley - MVA (Auto) - CBot - Newsbreak"
   }
 ]
