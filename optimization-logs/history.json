@@ -70,5 +70,15 @@
       "profit": 300,
       "clicks": 1000
     }
+  },
+  {
+    "filename": "at2.html",
+    "timestamp": "2025-07-29T09:35:07.837Z",
+    "summary": "Added urgency countdown, scarcity messaging, specific discount, social proof, guarantee",
+    "performance": {
+      "cr": 0.4,
+      "profit": -50,
+      "clicks": 500
+    }
   }
 ]
