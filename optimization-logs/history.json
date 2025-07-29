@@ -80,5 +80,15 @@
       "profit": -50,
       "clicks": 500
     }
+  },
+  {
+    "filename": "at3.html",
+    "timestamp": "2025-07-29T09:35:19.605Z",
+    "summary": "Added urgency timer, scarcity elements, social proof numbers, and benefit-focused copy",
+    "performance": {
+      "cr": 1.33,
+      "profit": 40,
+      "clicks": 300
+    }
   }
 ]
