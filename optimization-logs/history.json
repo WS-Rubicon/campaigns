@@ -8,5 +8,15 @@
       "profit": 300,
       "clicks": 1000
     }
+  },
+  {
+    "version": "v2",
+    "timestamp": "2025-07-29T08:10:13.000Z",
+    "summary": "Added specific numbers, urgency timer, social proof, guarantee, pulsing CTA",
+    "performance": {
+      "cr": 0.4,
+      "profit": -50,
+      "clicks": 500
+    }
   }
 ]
