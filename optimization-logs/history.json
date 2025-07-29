@@ -18,5 +18,15 @@
       "profit": -50,
       "clicks": 500
     }
+  },
+  {
+    "version": "v3",
+    "timestamp": "2025-07-29T08:10:26.800Z",
+    "summary": "Added urgency timer, benefit-focused headline, specific testimonial, guarantee",
+    "performance": {
+      "cr": 1.33,
+      "profit": 40,
+      "clicks": 300
+    }
   }
 ]
