@@ -60,5 +60,15 @@
       "profit": 300,
       "clicks": 1000
     }
+  },
+  {
+    "filename": "at1.html",
+    "timestamp": "2025-07-29T09:34:52.547Z",
+    "summary": "Added urgency, changed CTA to orange, improved microcopy with social proof and emojis",
+    "performance": {
+      "cr": 2.9,
+      "profit": 300,
+      "clicks": 1000
+    }
   }
 ]
