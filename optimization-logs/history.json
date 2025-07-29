@@ -50,5 +50,15 @@
       "clicks": 1000
     },
     "campaign": "Wesley - MVA (Auto) - CBot - Newsbreak"
+  },
+  {
+    "filename": "at1.html",
+    "timestamp": "2025-07-29T09:28:57.760Z",
+    "summary": "Basic optimization applied",
+    "performance": {
+      "cr": 2.9,
+      "profit": 300,
+      "clicks": 1000
+    }
   }
 ]
