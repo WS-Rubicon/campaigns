@@ -668,11 +668,17 @@
           "landingPage": "Wesley - ACA_AC3 - Facebook",
           "cr": 0,
           "profit": -56.0252
+        },
+        {
+          "timestamp": "2025-07-31T20:13:04.605Z",
+          "landingPage": "Wesley - ACA_AC4 - Facebook",
+          "cr": 1.5,
+          "profit": -2.7353000000000023
         }
       ],
       "bestPerformance": {
         "landingPage": "Wesley - ACA_AC4 - Facebook",
-        "cr": 1.05,
+        "cr": 1.5,
         "elements": {
           "headline": "Grocery Prices SKYROCKET 47% in 2025",
           "subheadline": "",
@@ -704,7 +710,7 @@
           "error": true
         }
       },
-      "avgCR": 0.31124999999999997
+      "avgCR": 0.4433333333333333
     },
     "68493ea00fa42444709cf7a8": {
       "performances": [
