@@ -28,6 +28,34 @@
         "conversions": 0,
         "cr": 0
       }
+    },
+    "testimonial": {
+      "path": "assets/images/te_testimonial_1753947291614.png",
+      "prompt": {
+        "title": "Satisfied Medicare Beneficiary Portrait",
+        "prompt": "Close portrait of a genuine 72-year-old man with kind eyes and natural smile lines, wearing a comfortable polo shirt. Shot against a softly blurred living room background with warm, diffused window light illuminating his face from the side. His expression conveys genuine satisfaction and peace of mind. The lighting emphasizes his authentic features while maintaining dignity and warmth.\n      \nTechnical Requirements:\n- Aspect ratio: 1:1\n- Resolution: 400x400\n- Style: Photorealistic, professional\n85mm lens equivalent, f/2.0 for beautiful bokeh,Soft window light with white reflector fill,ISO 100 for maximum quality,Slight upward angle for dignity,Natural skin tones, minimal retouching\n\nNo airbrushing, no forced smiles, no studio lighting, no corporate feel",
+        "metadata": {
+          "stylingNotes": [
+            "Real person aesthetic, not model",
+            "Natural grooming, everyday appearance",
+            "Comfortable, age-appropriate clothing",
+            "Genuine, unforced expression",
+            "Dignified presentation"
+          ],
+          "environment": [
+            "Home setting visible but blurred",
+            "Warm, inviting color palette",
+            "No distracting elements",
+            "Natural light primary source"
+          ]
+        }
+      },
+      "generatedAt": "2025-07-31T07:34:52.106Z",
+      "performance": {
+        "views": 0,
+        "conversions": 0,
+        "cr": 0
+      }
     }
   }
 }
