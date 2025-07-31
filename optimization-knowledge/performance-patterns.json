@@ -3185,6 +3185,50 @@
         "hourOfDay": 13,
         "season": "summer"
       }
+    },
+    {
+      "timestamp": "2025-07-31T20:40:17.316Z",
+      "campaign": "Wesley - ACA",
+      "landingPage": "Wesley - ACA_AC3 - Facebook",
+      "stats": {
+        "landingName": "Wesley - ACA_AC3 - Facebook",
+        "landingId": "688b5068d5a3f208487c5a77",
+        "campaignName": "Wesley - ACA Form (Grocery) CBot - Facebook",
+        "clicks": 200,
+        "conversions": 0,
+        "cr": 0,
+        "revenue": 0,
+        "cost": 61.8645,
+        "profit": -61.8645,
+        "roi": -100,
+        "cpc": 0.3093,
+        "cpa": 0
+      },
+      "elements": {
+        "headline": "Unknown",
+        "subheadline": "\n                Fresh USDA Prime Beef • Haagen-Dazs Ice Cream • Organic Strawberries • All Yours!\n            ",
+        "cta": "Unknown",
+        "urgency": "",
+        "trustElements": [],
+        "colorScheme": {
+          "primary": "#3b82f6",
+          "accent": "#ef4444"
+        },
+        "hasVideo": false,
+        "formFields": [],
+        "funnelDepth": 1,
+        "images": {
+          "hero": null,
+          "testimonials": [],
+          "trustBadges": [],
+          "benefitIcons": []
+        }
+      },
+      "context": {
+        "dayOfWeek": 4,
+        "hourOfDay": 13,
+        "season": "summer"
+      }
     }
   ],
   "recognizedTrends": {
@@ -3302,7 +3346,8 @@
         8.47,
         6.45,
         15.28,
-        3.9
+        3.9,
+        0
       ],
       "avgCR": 0
     }
