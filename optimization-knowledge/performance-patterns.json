@@ -1402,6 +1402,50 @@
         "hourOfDay": 12,
         "season": "summer"
       }
+    },
+    {
+      "timestamp": "2025-07-31T19:48:42.692Z",
+      "campaign": "Wesley - Auto",
+      "landingPage": "Wesley - Auto_wa4 - Facebook",
+      "stats": {
+        "landingName": "Wesley - Auto_wa4 - Facebook",
+        "landingId": "688b5212d9b33467d51e2dae",
+        "campaignName": "Wesley - Auto CBot - Facebook",
+        "clicks": 52,
+        "conversions": 4,
+        "cr": 7.69,
+        "revenue": 9.8917,
+        "cost": 45.0966,
+        "profit": -35.2049,
+        "roi": -78.07,
+        "cpc": 0.8672,
+        "cpa": 11.27
+      },
+      "elements": {
+        "headline": "Unknown",
+        "subheadline": "",
+        "cta": "Unknown",
+        "urgency": "",
+        "trustElements": [],
+        "colorScheme": {
+          "primary": "#3b82f6",
+          "accent": "#ef4444"
+        },
+        "hasVideo": false,
+        "formFields": [],
+        "funnelDepth": 1,
+        "images": {
+          "hero": null,
+          "testimonials": [],
+          "trustBadges": [],
+          "benefitIcons": []
+        }
+      },
+      "context": {
+        "dayOfWeek": 4,
+        "hourOfDay": 12,
+        "season": "summer"
+      }
     }
   ],
   "recognizedTrends": {
@@ -1470,7 +1514,8 @@
         0,
         0,
         0,
-        7.84
+        7.84,
+        7.69
       ],
       "avgCR": 0
     }
@@ -1491,9 +1536,10 @@
         26.25,
         26.25,
         26.25,
-        7.84
+        7.84,
+        7.69
       ],
-      "avgCR": 23.94875
+      "avgCR": 22.142222222222223
     }
   }
 }
