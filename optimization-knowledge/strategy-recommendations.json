@@ -1,5 +1,5 @@
 {
-  "updated": "2025-07-31T08:32:41.230Z",
+  "updated": "2025-07-31T08:45:21.068Z",
   "universal": [],
   "byType": {
     "medicare": {
@@ -7,9 +7,9 @@
         [
           "Unknown",
           {
-            "uses": 15,
-            "totalCR": 63.08,
-            "avgCR": 4.205333333333333,
+            "uses": 21,
+            "totalCR": 90.35,
+            "avgCR": 4.302380952380952,
             "campaigns": [
               {
                 "campaign": "Test Medicare Benefits Cbot",
@@ -85,6 +85,36 @@
                 "campaign": "Wesley",
                 "cr": 2.76,
                 "date": "2025-07-31T08:32:36.301Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:45:04.164Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:45:06.247Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 26.25,
+                "date": "2025-07-31T08:45:08.491Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:45:10.667Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:45:12.822Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 1.02,
+                "date": "2025-07-31T08:45:15.001Z"
               }
             ]
           }
@@ -124,9 +154,9 @@
         [
           "Unknown",
           {
-            "uses": 15,
-            "totalCR": 63.08,
-            "avgCR": 4.205333333333333,
+            "uses": 21,
+            "totalCR": 90.35,
+            "avgCR": 4.302380952380952,
             "campaigns": [
               {
                 "campaign": "Test Medicare Benefits Cbot",
@@ -202,6 +232,36 @@
                 "campaign": "Wesley",
                 "cr": 2.76,
                 "date": "2025-07-31T08:32:36.301Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:45:04.164Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:45:06.247Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 26.25,
+                "date": "2025-07-31T08:45:08.491Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:45:10.667Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:45:12.822Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 1.02,
+                "date": "2025-07-31T08:45:15.001Z"
               }
             ]
           }
