@@ -135,13 +135,13 @@
       }
     },
     "trustBadge": {
-      "path": "assets/images/we_trustBadge_1753994530060.png",
+      "path": "assets/images/we_trustBadge_1753994637885.png",
       "prompt": {
         "title": "aca trustBadge",
         "prompt": "Generic trust badge with checkmark and shield design, professional blue colors.",
         "dalle_prompt": "Generic trust badge with checkmark and shield design, professional blue colors."
       },
-      "generatedAt": "2025-07-31T20:42:12.248Z",
+      "generatedAt": "2025-07-31T20:44:00.486Z",
       "generator": "dall-e-3",
       "performance": {
         "views": 0,
