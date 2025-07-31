@@ -255,7 +255,7 @@
             display: inline-block;
             padding: 14px 28px;
             background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-            color: white;
+            color: white !important;
             text-decoration: none;
             border-radius: 12px;
             font-weight: 600;
@@ -263,8 +263,10 @@
             transition: all 0.3s;
             box-shadow: 0 4px 12px rgba(16,185,129,0.3);
             cursor: pointer;
-            position: relative;
-            z-index: 10;
+            border: none;
+            font-size: 15px;
+            line-height: 1.4;
+            -webkit-tap-highlight-color: transparent;
         }
         
         .cta-button:hover {
@@ -405,9 +407,9 @@
                 <div class="message-bubble">
                     Click below to secure your rate before it expires:
                     <br><br>
-                    <button onclick="window.location.href='https://hpkpn.ttrk.io/click'" class="cta-button">
+                    <a href="https://hpkpn.ttrk.io/click" class="cta-button" id="ctaButton">
                         Get My $25/Month Rate →
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -498,6 +500,15 @@
                     setTimeout(() => {
                         document.getElementById('response3').style.display = 'block';
                         chatMessages.scrollTop = chatMessages.scrollHeight;
+                        
+                        // Add click event listener to CTA button after it's visible
+                        const ctaBtn = document.getElementById('ctaButton');
+                        if (ctaBtn) {
+                            ctaBtn.addEventListener('click', function(e) {
+                                e.preventDefault();
+                                window.location.href = 'https://hpkpn.ttrk.io/click';
+                            });
+                        }
                     }, 800);
                 }, 3500);
             }
