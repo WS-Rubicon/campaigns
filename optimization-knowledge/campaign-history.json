@@ -193,6 +193,12 @@
           "landingPage": "Wesley - Auto CBot - Facebook - Wesley - Auto V1- CBot - Newsbreak",
           "cr": 0,
           "profit": 0
+        },
+        {
+          "timestamp": "2025-07-31T09:02:46.760Z",
+          "landingPage": "Wesley - Auto CBot - Facebook - Wesley - Auto V2 - Facebook",
+          "cr": 0,
+          "profit": -103.7087
         }
       ],
       "bestPerformance": {
@@ -215,7 +221,7 @@
           "error": true
         }
       },
-      "avgCR": 4.159523809523809
+      "avgCR": 3.9704545454545452
     }
   },
   "crossCampaignLearnings": {}
