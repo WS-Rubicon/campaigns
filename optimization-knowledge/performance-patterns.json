@@ -3229,6 +3229,50 @@
         "hourOfDay": 13,
         "season": "summer"
       }
+    },
+    {
+      "timestamp": "2025-07-31T20:40:20.663Z",
+      "campaign": "Wesley - ACA",
+      "landingPage": "Wesley - ACA_AC4 - Facebook",
+      "stats": {
+        "landingName": "Wesley - ACA_AC4 - Facebook",
+        "landingId": "688b5081a465830e09c0ac6c",
+        "campaignName": "Wesley - ACA Form (Grocery) CBot - Facebook",
+        "clicks": 207,
+        "conversions": 3,
+        "cr": 1.45,
+        "revenue": 60,
+        "cost": 68.0782,
+        "profit": -8.078199999999995,
+        "roi": -11.87,
+        "cpc": 0.3289,
+        "cpa": 22.69
+      },
+      "elements": {
+        "headline": "Grocery Prices SKYROCKET 47% in 2025",
+        "subheadline": "",
+        "cta": "Unknown",
+        "urgency": "",
+        "trustElements": [],
+        "colorScheme": {
+          "primary": "#3b82f6",
+          "accent": "#ef4444"
+        },
+        "hasVideo": false,
+        "formFields": [],
+        "funnelDepth": 1,
+        "images": {
+          "hero": null,
+          "testimonials": [],
+          "trustBadges": [],
+          "benefitIcons": []
+        }
+      },
+      "context": {
+        "dayOfWeek": 4,
+        "hourOfDay": 13,
+        "season": "summer"
+      }
     }
   ],
   "recognizedTrends": {
@@ -3347,7 +3391,8 @@
         6.45,
         15.28,
         3.9,
-        0
+        0,
+        1.45
       ],
       "avgCR": 0
     }
