@@ -58,7 +58,7 @@
       }
     },
     "trustBadge": {
-      "path": "assets/images/te_trustBadge_1753947166636.png",
+      "path": "assets/images/te_trustBadge_1753947172843.png",
       "prompt": {
         "title": "Professional Service Benefits",
         "prompt": "Professional yet approachable scene showing a diverse person in their 40s looking confidently at camera while reviewing positive information on a modern tablet. Bright, clean office or home environment with natural light. Their expression shows satisfaction and smart decision-making. Documents on desk show graphs trending upward.\n      \nTechnical Requirements:\n- Aspect ratio: 1:1\n- Resolution: 200x200\n- Style: Photorealistic, professional\n35mm lens, f/2.8,Natural light supplemented with soft fill,ISO 200,Eye-level angle,Clean, modern color grade\n\nNo stock photo clichés, no fake smiles, no sterile environments",
@@ -78,7 +78,7 @@
           ]
         }
       },
-      "generatedAt": "2025-07-31T07:32:47.138Z",
+      "generatedAt": "2025-07-31T07:32:53.278Z",
       "performance": {
         "views": 0,
         "conversions": 0,
