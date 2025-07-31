@@ -1,192 +1,361 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Healthcare Costs Too Much? Not Anymore</title>
-  <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
-  
-  <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f5f5f5;
-    }
-    .hero {
-      background-image: linear-gradient(rgba(33,33,33,0.8), rgba(33,33,33,0.8)), url('//assets/images/placeholder-hero.jpg');
-      background-size: cover;
-      background-position: center;
-      min-height: 500px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      text-align: center;
-    }
-    .hero-content h1 {
-      font-size: 3.5rem;
-      margin-bottom: 20px;
-    }
-    .subsidy-box {
-      background: rgba(255,255,255,0.95);
-      color: #333;
-      padding: 30px 50px;
-      border-radius: 20px;
-      display: inline-block;
-      margin-top: 30px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    }
-    .subsidy-amount {
-      font-size: 3rem;
-      color: #00c853;
-      font-weight: bold;
-      margin: 10px 0;
-    }
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 40px 20px;
-    }
-    .eligibility-section {
-      background: white;
-      padding: 50px;
-      border-radius: 20px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      margin: 40px 0;
-    }
-    .coverage-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-      margin-top: 40px;
-    }
-    .coverage-item {
-      text-align: center;
-      padding: 20px;
-    }
-    .coverage-icon {
-      font-size: 3rem;
-      margin-bottom: 15px;
-    }
-    .testimonials {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      margin: 40px 0;
-    }
-    .testimonial {
-      background: white;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-    .testimonial img {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      margin-bottom: 20px;
-    }
-    .cta-button {
-      display: inline-block;
-      background: #4caf50;
-      color: white;
-      padding: 20px 50px;
-      text-decoration: none;
-      border-radius: 50px;
-      font-size: 1.3rem;
-      font-weight: bold;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    }
-    .cta-button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-    }
-    .deadline-banner {
-      background: linear-gradient(90deg, #d32f2f, #f44336);
-      color: white;
-      padding: 20px;
-      text-align: center;
-      font-weight: bold;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      font-size: 1.2rem;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>WARNING: Grocery Prices Hit Record High - Get $500/Month Relief</title>
+    <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #212529;
+            line-height: 1.5;
+            min-width: 320px;
+        }
+        
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: white;
+            padding: 25px 0;
+            text-align: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            display: inline-block;
+            text-decoration: none;
+        }
+        
+        .logo img {
+            display: block;
+            height: 60px;
+            width: auto;
+        }
+        
+        .main-content {
+            background-color: white;
+            padding: 40px 0 60px;
+            margin-bottom: 0;
+        }
+        
+        .warning-box {
+            background-color: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .warning-text {
+            color: #856404;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        
+        .crisis-headline {
+            color: #dc3545;
+            font-size: 38px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 0 20px;
+            line-height: 1.1;
+        }
+        
+        .relief-headline {
+            font-size: 30px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #000000;
+            padding: 0 20px;
+            line-height: 1.2;
+        }
+        
+        .relief-headline .amount {
+            color: #28a745;
+            font-size: 36px;
+        }
+        
+        .urgency-text {
+            font-size: 18px;
+            text-align: center;
+            color: #dc3545;
+            margin-bottom: 25px;
+            padding: 0 20px;
+            font-weight: 600;
+        }
+        
+        .hero-image {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 0 20px;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .grocery-facts {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 30px 20px;
+        }
+        
+        .fact-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #dc3545;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .fact-item {
+            font-size: 16px;
+            color: #495057;
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .fact-item:before {
+            content: "⚠️";
+            position: absolute;
+            left: 0;
+        }
+        
+        .cta-section {
+            text-align: center;
+            margin: 40px 0;
+            padding: 0 20px;
+        }
+        
+        .cta-title {
+            font-size: 26px;
+            font-weight: 700;
+            color: #0d6efd;
+            margin-bottom: 20px;
+        }
+        
+        .countdown-box {
+            background-color: #dc3545;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .question {
+            font-size: 20px;
+            color: #212529;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+        
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 340px;
+            margin: 0 auto;
+        }
+        
+        .btn {
+            padding: 18px 32px;
+            font-size: 19px;
+            font-weight: 600;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            transition: all 0.2s;
+            -webkit-tap-highlight-color: transparent;
+            width: 100%;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+        }
+        
+        .btn-yes {
+            background-color: #28a745;
+            color: white;
+            animation: pulse 2s infinite;
+        }
+        
+        .btn-yes:hover {
+            background-color: #218838;
+        }
+        
+        .btn-no {
+            background-color: #6c757d;
+            color: white;
+        }
+        
+        .btn-no:hover {
+            background-color: #5c636a;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(40, 167, 69, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(40, 167, 69, 0);
+            }
+        }
+        
+        footer {
+            background-color: #495057;
+            color: #ced4da;
+            padding: 35px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            gap: 20px;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .footer-links a {
+            color: #ced4da;
+            text-decoration: none;
+            font-size: 14px;
+            padding: 5px;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 480px) {
+            .crisis-headline {
+                font-size: 28px;
+            }
+            
+            .relief-headline {
+                font-size: 24px;
+            }
+            
+            .relief-headline .amount {
+                font-size: 30px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="deadline-banner">
-    🔔 Last Chance for 2024 Coverage!
-  </div>
-  
-  <div class="hero">
-    <div class="hero-content">
-      <h1>Healthcare Costs Too Much? Not Anymore</h1>
-      <p style="font-size: 1.5rem;">New subsidies mean most pay nothing</p>
-      <div class="subsidy-box">
-        <p>Average Monthly Savings:</p>
-        <div class="subsidy-amount">$445</div>
-        <p>See your personalized subsidy amount →</p>
-      </div>
-    </div>
-  </div>
-  
-  <div class="container">
-    <div class="eligibility-section">
-      <h2 style="text-align: center; color: #333; font-size: 2.5rem;">Full Coverage Includes:</h2>
-      <div class="coverage-grid">
-        <div class="coverage-item">
-          <div class="coverage-icon">🏥</div>
-          <h3>Doctor Visits</h3>
-          <p>Primary care & specialists</p>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <a href="https://hpkpn.ttrk.io/click" class="logo">
+                <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1753955621/Screenshot_2025-07-31_024951_yo3fm3.png" alt="Healthcare Pronto">
+            </a>
         </div>
-        <div class="coverage-item">
-          <div class="coverage-icon">💊</div>
-          <h3>Prescriptions</h3>
-          <p>Generic & brand medications</p>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="warning-box">
+                <p class="warning-text">⚠️ URGENT: Limited Grocery Cards Available in Your Area</p>
+            </div>
+            
+            <h1 class="crisis-headline">Grocery Prices SKYROCKET 47% in 2025</h1>
+            
+            <h2 class="relief-headline">
+                Emergency Relief: <span class="amount">$500/Month</span> Grocery Cards Now Available
+            </h2>
+            
+            <p class="urgency-text">
+                WARNING: Only 127 cards left for Las Vegas residents today!
+            </p>
+            
+            <div class="hero-image">
+                <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1753955622/Screenshot_2025-07-31_024853_dysuc0.png" alt="Woman with groceries and savings">
+            </div>
+            
+            <div class="grocery-facts">
+                <h3 class="fact-title">The Grocery Crisis Is Real:</h3>
+                <div class="fact-item">Milk prices up 62% since last year</div>
+                <div class="fact-item">Bread costs $4.79 per loaf (was $2.99)</div>
+                <div class="fact-item">Average family spends $1,847/month on groceries</div>
+                <div class="fact-item">87% of Americans struggling to afford food</div>
+            </div>
+            
+            <div class="cta-section">
+                <div class="countdown-box">
+                    ⏰ Registration Closes at Midnight Tonight!
+                </div>
+                <h3 class="cta-title">Claim Your $500 Monthly Grocery Card NOW</h3>
+                <p class="question">Is your household income under $50,000/year?</p>
+                <div class="button-group">
+                    <a href="https://hpkpn.ttrk.io/click" class="btn btn-yes">YES - Claim My Card!</a>
+                    <a href="https://hpkpn.ttrk.io/click" class="btn btn-no">No</a>
+                </div>
+            </div>
+            
         </div>
-        <div class="coverage-item">
-          <div class="coverage-icon">🚑</div>
-          <h3>Emergency Care</h3>
-          <p>ER & urgent care visits</p>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div style="color: #ced4da;">&copy; 2025 Consumer Pronto</div>
+                <div class="footer-links">
+                    <a href="https://hpkpn.ttrk.io/click">Privacy Policy</a>
+                    <a href="https://hpkpn.ttrk.io/click">Terms Of Service</a>
+                </div>
+            </div>
         </div>
-        <div class="coverage-item">
-          <div class="coverage-icon">🧠</div>
-          <h3>Mental Health</h3>
-          <p>Therapy & counseling</p>
-        </div>
-      </div>
-    </div>
-    
-    <div class="testimonials">
-      
-    </div>
-    
-    <div style="background: #e3f2fd; padding: 40px; border-radius: 20px; text-align: center; margin: 40px 0;">
-      <h2 style="color: #1565c0; margin-bottom: 20px;">3 Easy Steps to Coverage</h2>
-      <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 30px; margin: 30px 0;">
-        <div style="flex: 1; min-width: 200px;">
-          <div style="font-size: 3rem; color: #1565c0; font-weight: bold;">1</div>
-          <p>Answer a few questions</p>
-        </div>
-        <div style="flex: 1; min-width: 200px;">
-          <div style="font-size: 3rem; color: #1565c0; font-weight: bold;">2</div>
-          <p>See your subsidy amount</p>
-        </div>
-        <div style="flex: 1; min-width: 200px;">
-          <div style="font-size: 3rem; color: #1565c0; font-weight: bold;">3</div>
-          <p>Choose your plan</p>
-        </div>
-      </div>
-      <a href="https://hpkpn.ttrk.io/click" class="cta-button">Calculate My Savings →</a>
-    </div>
-  </div>
-  
-  <script>
-    // Track page load
-    console.log('ACA landing page v4 loaded');
-  </script>
+    </footer>
 </body>
 </html>
