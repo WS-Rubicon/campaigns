@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lower Your Car Insurance</title>
+    <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
     <style>
         * {
             margin: 0;
@@ -19,6 +20,8 @@
             align-items: center;
             justify-content: center;
             padding: 20px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
         
         .container {
@@ -42,6 +45,7 @@
             height: 200%;
             background: radial-gradient(circle, rgba(0,102,204,0.05) 0%, transparent 70%);
             animation: pulse 4s ease-in-out infinite;
+            pointer-events: none;
         }
         
         @keyframes pulse {
@@ -63,7 +67,7 @@
         }
         
         h1 {
-            font-size: 32px;
+            font-size: clamp(26px, 5vw, 32px);
             font-weight: 700;
             color: #1a1a1a;
             margin-bottom: 16px;
@@ -99,6 +103,8 @@
             text-decoration: none;
             position: relative;
             z-index: 1;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
         }
         
         .button-yes {
@@ -112,6 +118,10 @@
             box-shadow: 0 6px 20px rgba(0,102,204,0.4);
         }
         
+        .button-yes:active {
+            transform: translateY(0);
+        }
+        
         .button-no {
             background: #f5f5f5;
             color: #999;
@@ -122,28 +132,83 @@
             background: #eeeeee;
         }
         
-        @media (max-width: 480px) {
-            .container {
-                padding: 40px 20px;
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
             }
+            
+            .container {
+                padding: 40px 24px;
+                border-radius: 16px;
+            }
+            
             h1 {
-                font-size: 28px;
+                font-size: 26px;
+            }
+            
+            .subtext {
+                font-size: 16px;
+                margin-bottom: 32px;
+            }
+            
+            .button {
+                padding: 16px 24px;
+                font-size: 17px;
+            }
+        }
+        
+        /* Small mobile */
+        @media (max-width: 375px) {
+            .container {
+                padding: 32px 20px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            .stat-badge {
+                font-size: 11px;
+                padding: 6px 12px;
+            }
+        }
+        
+        /* Desktop optimizations */
+        @media (min-width: 1024px) {
+            .container {
+                padding: 70px 50px;
+                max-width: 520px;
+            }
+            
+            h1 {
+                font-size: 36px;
+                margin-bottom: 20px;
+            }
+            
+            .subtext {
+                font-size: 20px;
+            }
+            
+            .button {
+                font-size: 19px;
+                padding: 20px 40px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="stat-badge">Based on 2024 Insurance Data</div>
+        <div class="stat-badge">Based on 2025 Insurance Data</div>
         <h1>87% of Drivers Overpay by <span class="highlight">$500+</span> Per Year</h1>
         <p class="subtext">Find out in 60 seconds</p>
         
-        <button class="button button-yes" onclick="window.location.href='YOUR_OFFER_URL'">
+        <a href="https://hpkpn.ttrk.io/click" class="button button-yes">
             Show Me My Savings
-        </button>
-        <button class="button button-no" onclick="window.location.href='YOUR_OFFER_URL'">
+        </a>
+        <a href="https://hpkpn.ttrk.io/click" class="button button-no">
             I'm Good With Overpaying
-        </button>
+        </a>
     </div>
 </body>
 </html>
