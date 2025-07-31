@@ -743,6 +743,37 @@
         }
       },
       "avgCR": 0
+    },
+    "66c6573e98b206ae1014e12c": {
+      "performances": [
+        {
+          "timestamp": "2025-07-31T20:12:51.301Z",
+          "landingPage": "66c6573e98b206ae1014e12c",
+          "cr": 25.77,
+          "profit": -106.71289999999999
+        }
+      ],
+      "bestPerformance": {
+        "landingPage": "66c6573e98b206ae1014e12c",
+        "cr": 25.77,
+        "elements": {
+          "headline": "Unknown",
+          "cta": "Unknown",
+          "images": {},
+          "error": true
+        }
+      },
+      "worstPerformance": {
+        "landingPage": "66c6573e98b206ae1014e12c",
+        "cr": 25.77,
+        "elements": {
+          "headline": "Unknown",
+          "cta": "Unknown",
+          "images": {},
+          "error": true
+        }
+      },
+      "avgCR": 25.77
     }
   },
   "crossCampaignLearnings": {}
