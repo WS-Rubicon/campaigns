@@ -1564,6 +1564,50 @@
         "hourOfDay": 12,
         "season": "summer"
       }
+    },
+    {
+      "timestamp": "2025-07-31T19:48:53.282Z",
+      "campaign": "Wesley - Auto",
+      "landingPage": "Wesley - Auto_wa5 - Facebook",
+      "stats": {
+        "landingName": "Wesley - Auto_wa5 - Facebook",
+        "landingId": "688b52268a1e0bebecf59033",
+        "campaignName": "Wesley - Auto CBot - Facebook",
+        "clicks": 70,
+        "conversions": 3,
+        "cr": 4.29,
+        "revenue": 10.31,
+        "cost": 44.4489,
+        "profit": -34.1389,
+        "roi": -76.8,
+        "cpc": 0.635,
+        "cpa": 14.82
+      },
+      "elements": {
+        "headline": "Unknown",
+        "subheadline": "",
+        "cta": "Get My $25/Month Rate →",
+        "urgency": "",
+        "trustElements": [],
+        "colorScheme": {
+          "primary": "#3b82f6",
+          "accent": "#ef4444"
+        },
+        "hasVideo": false,
+        "formFields": [],
+        "funnelDepth": 1,
+        "images": {
+          "hero": null,
+          "testimonials": [],
+          "trustBadges": [],
+          "benefitIcons": []
+        }
+      },
+      "context": {
+        "dayOfWeek": 4,
+        "hourOfDay": 12,
+        "season": "summer"
+      }
     }
   ],
   "recognizedTrends": {
@@ -1636,7 +1680,8 @@
         7.69,
         3.51,
         0,
-        13.43
+        13.43,
+        4.29
       ],
       "avgCR": 0
     }
@@ -1663,6 +1708,32 @@
         13.43
       ],
       "avgCR": 19.656363636363636
+    },
+    "Unknown_Get My $25/Month Rate →": {
+      "combination": {
+        "headline": "Unknown",
+        "subheadline": "",
+        "cta": "Get My $25/Month Rate →",
+        "urgency": "",
+        "trustElements": [],
+        "colorScheme": {
+          "primary": "#3b82f6",
+          "accent": "#ef4444"
+        },
+        "hasVideo": false,
+        "formFields": [],
+        "funnelDepth": 1,
+        "images": {
+          "hero": null,
+          "testimonials": [],
+          "trustBadges": [],
+          "benefitIcons": []
+        }
+      },
+      "performances": [
+        4.29
+      ],
+      "avgCR": 4.29
     }
   }
 }
