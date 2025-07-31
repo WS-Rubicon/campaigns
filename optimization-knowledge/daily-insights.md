@@ -4,7 +4,10 @@
 
 ### Performance Patterns Discovered
 
-#### ⭐ Exceptional Performers (5)
+#### ⭐ Exceptional Performers (6)
+- **Wesley - Auto CBot - Facebook - Wesley - Auto V1 - Facebook**: 26.25% CR
+  - Headline: "Unknown"
+  - CTA: "Unknown"
 - **Wesley - Auto CBot - Facebook - Wesley - Auto V1 - Facebook**: 26.25% CR
   - Headline: "Unknown"
   - CTA: "Unknown"
@@ -21,7 +24,15 @@
   - Headline: "Unknown"
   - CTA: "Unknown"
 
-#### ⚠️ Underperformers (20)
+#### ⚠️ Underperformers (24)
+- **Wesley - Auto CBot - Facebook - Wesley - Auto V1- CBot - Newsbreak**: 0% CR
+  - Issues: Missing urgency element, No hero image
+- **Wesley - Auto CBot - Facebook - Wesley - Auto V2 - Facebook**: 0% CR
+  - Issues: Missing urgency element, No hero image
+- **Wesley - ACA Form (Grocery) CBot - Facebook - Wesley - ACA (G) I7 - Facebook**: 0% CR
+  - Issues: Missing urgency element, No hero image
+- **Wesley - ACA Form (Grocery) CBot - Facebook - Wesley - ACA C5 - Facebook**: 0% CR
+  - Issues: Missing urgency element, No hero image
 - **Wesley - Auto CBot - Facebook - Wesley - Auto V1- CBot - Newsbreak**: 0% CR
   - Issues: Missing urgency element, No hero image
 - **Wesley - Auto CBot - Facebook - Wesley - Auto V2 - Facebook**: 0% CR
