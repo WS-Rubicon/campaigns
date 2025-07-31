@@ -429,6 +429,37 @@
         }
       },
       "avgCR": 0.34
+    },
+    "Wesley - Auto V1- CBot": {
+      "performances": [
+        {
+          "timestamp": "2025-07-31T19:16:19.337Z",
+          "landingPage": "Wesley - Auto V1- CBot - Newsbreak",
+          "cr": 0,
+          "profit": 0
+        }
+      ],
+      "bestPerformance": {
+        "landingPage": "Wesley - Auto V1- CBot - Newsbreak",
+        "cr": 0,
+        "elements": {
+          "headline": "Unknown",
+          "cta": "Unknown",
+          "images": {},
+          "error": true
+        }
+      },
+      "worstPerformance": {
+        "landingPage": "Wesley - Auto V1- CBot - Newsbreak",
+        "cr": 0,
+        "elements": {
+          "headline": "Unknown",
+          "cta": "Unknown",
+          "images": {},
+          "error": true
+        }
+      },
+      "avgCR": 0
     }
   },
   "crossCampaignLearnings": {}
