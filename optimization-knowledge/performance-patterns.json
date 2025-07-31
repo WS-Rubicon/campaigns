@@ -1072,6 +1072,34 @@
         "hourOfDay": 2,
         "season": "summer"
       }
+    },
+    {
+      "timestamp": "2025-07-31T09:30:52.167Z",
+      "campaign": "Wesley (general)",
+      "landingPage": "Wesley - ACA Form (Grocery) CBot - Facebook - Wesley - ACA (G) I7P - Facebook",
+      "stats": {
+        "landingName": "Wesley - ACA Form (Grocery) CBot - Facebook - Wesley - ACA (G) I7P - Facebook",
+        "clicks": 3529,
+        "conversions": 36,
+        "cr": 1.02,
+        "revenue": 720,
+        "cost": 1301.5699,
+        "profit": -581.5699,
+        "roi": -44.68,
+        "cpc": 0.3688,
+        "cpa": 36.15
+      },
+      "elements": {
+        "headline": "Unknown",
+        "cta": "Unknown",
+        "images": {},
+        "error": true
+      },
+      "context": {
+        "dayOfWeek": 4,
+        "hourOfDay": 2,
+        "season": "summer"
+      }
     }
   ],
   "recognizedTrends": {
@@ -1124,7 +1152,8 @@
         0,
         26.25,
         0,
-        0
+        0,
+        1.02
       ],
       "avgCR": 0
     }
