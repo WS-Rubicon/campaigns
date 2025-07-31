@@ -175,6 +175,12 @@
           "landingPage": "Wesley - ACA Form (Grocery) CBot - Facebook - Wesley - ACA (G) I7 - Facebook",
           "cr": 0,
           "profit": 0
+        },
+        {
+          "timestamp": "2025-07-31T08:45:12.822Z",
+          "landingPage": "Wesley - ACA Form (Grocery) CBot - Facebook - Wesley - ACA C5 - Facebook",
+          "cr": 0,
+          "profit": 0
         }
       ],
       "bestPerformance": {
@@ -197,7 +203,7 @@
           "error": true
         }
       },
-      "avgCR": 4.796111111111111
+      "avgCR": 4.543684210526315
     }
   },
   "crossCampaignLearnings": {}
