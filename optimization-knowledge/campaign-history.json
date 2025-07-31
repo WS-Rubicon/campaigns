@@ -608,6 +608,12 @@
           "landingPage": "Wesley - ACA_AC2 - Facebook",
           "cr": 0.5,
           "profit": -44.51649999999999
+        },
+        {
+          "timestamp": "2025-07-31T19:49:17.671Z",
+          "landingPage": "Wesley - ACA_AC1 - Facebook",
+          "cr": 0.44,
+          "profit": -46.909499999999994
         }
       ],
       "bestPerformance": {
@@ -644,7 +650,7 @@
           "error": true
         }
       },
-      "avgCR": 0.41
+      "avgCR": 0.415
     }
   },
   "crossCampaignLearnings": {}
