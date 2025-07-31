@@ -105,13 +105,13 @@
   },
   "Wesley - ACA": {
     "hero": {
-      "path": "assets/images/we_hero_1753994448867.png",
+      "path": "assets/images/we_hero_1753994554670.png",
       "prompt": {
         "title": "aca hero",
         "prompt": "Photorealistic image of a diverse professional (age 35-50) looking confident while using a tablet in a bright, modern office. Natural lighting, positive atmosphere, business casual attire. No text or logos.",
         "dalle_prompt": "Photorealistic image of a diverse professional (age 35-50) looking confident while using a tablet in a bright, modern office. Natural lighting, positive atmosphere, business casual attire. No text or logos."
       },
-      "generatedAt": "2025-07-31T20:40:54.272Z",
+      "generatedAt": "2025-07-31T20:42:40.239Z",
       "generator": "dall-e-3",
       "performance": {
         "views": 0,
