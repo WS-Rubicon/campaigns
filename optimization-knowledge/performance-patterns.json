@@ -1328,6 +1328,36 @@
         "hourOfDay": 12,
         "season": "summer"
       }
+    },
+    {
+      "timestamp": "2025-07-31T19:48:36.535Z",
+      "campaign": "Wesley - Auto CBot",
+      "landingPage": "Wesley - Auto V1- CBot - Newsbreak",
+      "stats": {
+        "landingName": "Wesley - Auto V1- CBot - Newsbreak",
+        "landingId": "68493ea00fa42444709cf7a8",
+        "campaignName": "Wesley - Auto CBot - Facebook",
+        "clicks": 1,
+        "conversions": 0,
+        "cr": 0,
+        "revenue": 0,
+        "cost": 0,
+        "profit": 0,
+        "roi": 0,
+        "cpc": 0,
+        "cpa": 0
+      },
+      "elements": {
+        "headline": "Unknown",
+        "cta": "Unknown",
+        "images": {},
+        "error": true
+      },
+      "context": {
+        "dayOfWeek": 4,
+        "hourOfDay": 12,
+        "season": "summer"
+      }
     }
   ],
   "recognizedTrends": {
@@ -1393,6 +1423,7 @@
     },
     "4_12": {
       "performances": [
+        0,
         0,
         0
       ],
