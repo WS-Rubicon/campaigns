@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <meta name="format-detection" content="telephone=no">
-    <title>Monthly Benefits - $500/Month Allowance</title>
+    <title>Wesley - ACA_AC1 - Facebook - Special Offer</title>
     <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
     <style>
         * {
@@ -27,7 +27,6 @@
             padding: 0 20px;
         }
         
-        /* Header */
         header {
             background-color: white;
             padding: 25px 0;
@@ -46,16 +45,30 @@
             width: auto;
         }
         
-        /* Main Content */
         .main-content {
             background-color: white;
             padding: 40px 0 60px;
             margin-bottom: 0;
         }
         
-        .breaking {
+        .warning-box {
+            background-color: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .warning-text {
+            color: #856404;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        
+        .crisis-headline {
             color: #dc3545;
-            font-size: 42px;
+            font-size: 38px;
             font-weight: 700;
             text-align: center;
             margin-bottom: 20px;
@@ -63,8 +76,8 @@
             line-height: 1.1;
         }
         
-        .headline {
-            font-size: 32px;
+        .relief-headline {
+            font-size: 30px;
             font-weight: 700;
             text-align: center;
             margin-bottom: 20px;
@@ -73,22 +86,23 @@
             line-height: 1.2;
         }
         
-        .headline .open {
+        .relief-headline .amount {
             color: #28a745;
+            font-size: 36px;
         }
         
-        .subheadline {
+        .urgency-text {
             font-size: 18px;
             text-align: center;
-            color: #495057;
-            margin-bottom: 35px;
+            color: #dc3545;
+            margin-bottom: 25px;
             padding: 0 20px;
-            font-weight: 400;
+            font-weight: 600;
         }
         
         .hero-image {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             padding: 0 20px;
         }
         
@@ -100,6 +114,35 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
         
+        .grocery-facts {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 30px 20px;
+        }
+        
+        .fact-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #dc3545;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .fact-item {
+            font-size: 16px;
+            color: #495057;
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .fact-item:before {
+            content: "⚠️";
+            position: absolute;
+            left: 0;
+        }
+        
         .cta-section {
             text-align: center;
             margin: 40px 0;
@@ -108,16 +151,26 @@
         
         .cta-title {
             font-size: 26px;
-            font-weight: 600;
+            font-weight: 700;
             color: #0d6efd;
             margin-bottom: 20px;
+        }
+        
+        .countdown-box {
+            background-color: #dc3545;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            font-size: 18px;
+            font-weight: 600;
         }
         
         .question {
             font-size: 20px;
             color: #212529;
             margin-bottom: 25px;
-            font-weight: 400;
+            font-weight: 600;
         }
         
         .button-group {
@@ -153,12 +206,13 @@
         }
         
         .btn-yes {
-            background-color: #0d6efd;
+            background-color: #28a745;
             color: white;
+            animation: pulse 2s infinite;
         }
         
         .btn-yes:hover {
-            background-color: #0b5ed7;
+            background-color: #218838;
         }
         
         .btn-no {
@@ -170,7 +224,18 @@
             background-color: #5c636a;
         }
         
-        /* Footer */
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(40, 167, 69, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(40, 167, 69, 0);
+            }
+        }
+        
         footer {
             background-color: #495057;
             color: #ced4da;
@@ -206,50 +271,17 @@
             text-decoration: underline;
         }
         
-        .fact-checkers {
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid #6c757d;
-        }
-        
-        .fact-checkers-title {
-            font-weight: 600;
-            margin-bottom: 10px;
-            font-size: 14px;
-            color: #ced4da;
-        }
-        
-        .fact-checkers-links {
-            display: flex;
-            gap: 18px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .fact-checkers-links a {
-            font-size: 13px;
-            padding: 3px;
-            color: #ced4da;
-            text-decoration: none;
-        }
-        
-        .fact-checkers-links a:hover {
-            color: white;
-            text-decoration: underline;
-        }
-        
-        /* Responsive adjustments */
         @media (max-width: 480px) {
-            .breaking {
-                font-size: 32px;
+            .crisis-headline {
+                font-size: 28px;
             }
             
-            .headline {
-                font-size: 26px;
-            }
-            
-            .cta-title {
+            .relief-headline {
                 font-size: 24px;
+            }
+            
+            .relief-headline .amount {
+                font-size: 30px;
             }
             
             .footer-content {
@@ -272,25 +304,40 @@
     <!-- Main Content -->
     <main class="main-content">
         <div class="container">
-            <h1 class="breaking">BREAKING: Biggest Monthly Relief in 2025</h1>
+            <div class="warning-box">
+                <p class="warning-text">⚠️ URGENT: Limited Grocery Cards Available in Your Area</p>
+            </div>
             
-            <h2 class="headline">
-                $500/Month Allowance: <span class="open">OPEN</span>
+            <h1 class="crisis-headline">Grocery Prices SKYROCKET 47% in 2025</h1>
+            
+            <h2 class="relief-headline">
+                Emergency Relief: <span class="amount">$500/Month</span> Grocery Cards Now Available
             </h2>
             
-            <p class="subheadline">
-                Americans can now claim $500 a month for medical, groceries, and utilities.
+            <p class="urgency-text">
+                WARNING: Only 127 cards left for Las Vegas residents today!
             </p>
             
             <div class="hero-image">
-                <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1753955622/Screenshot_2025-07-31_024853_dysuc0.png" alt="Woman showing benefits with groceries, money and cards">
+                <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1753955622/Screenshot_2025-07-31_024853_dysuc0.png" alt="Woman with groceries and savings">
+            </div>
+            
+            <div class="grocery-facts">
+                <h3 class="fact-title">The Grocery Crisis Is Real:</h3>
+                <div class="fact-item">Milk prices up 62% since last year</div>
+                <div class="fact-item">Bread costs $4.79 per loaf (was $2.99)</div>
+                <div class="fact-item">Average family spends $1,847/month on groceries</div>
+                <div class="fact-item">87% of Americans struggling to afford food</div>
             </div>
             
             <div class="cta-section">
-                <h3 class="cta-title">Claim Your Monthly Benefits Today</h3>
-                <p class="question">Do you make under $50,000 a year?</p>
+                <div class="countdown-box">
+                    ⏰ Registration Closes at Midnight Tonight!
+                </div>
+                <h3 class="cta-title">Claim Your $500 Monthly Grocery Card NOW</h3>
+                <p class="question">Is your household income under $50,000/year?</p>
                 <div class="button-group">
-                    <a href="https://hpkpn.ttrk.io/click" class="btn btn-yes">Yes</a>
+                    <a href="https://hpkpn.ttrk.io/click" class="btn btn-yes">YES - Claim My Card!</a>
                     <a href="https://hpkpn.ttrk.io/click" class="btn btn-no">No</a>
                 </div>
             </div>
@@ -306,17 +353,6 @@
                 <div class="footer-links">
                     <a href="https://hpkpn.ttrk.io/click">Privacy Policy</a>
                     <a href="https://hpkpn.ttrk.io/click">Terms Of Service</a>
-                </div>
-            </div>
-            
-            <div class="fact-checkers">
-                <div class="fact-checkers-title">Fact Checkers:</div>
-                <div class="fact-checkers-links">
-                    <a href="https://hpkpn.ttrk.io/click">AM Better</a>
-                    <a href="https://hpkpn.ttrk.io/click">UnitedHealth</a>
-                    <a href="https://hpkpn.ttrk.io/click">CMS.GOV</a>
-                    <a href="https://hpkpn.ttrk.io/click">IRS</a>
-                    <a href="https://hpkpn.ttrk.io/click">TaxPayer.IRS</a>
                 </div>
             </div>
         </div>
