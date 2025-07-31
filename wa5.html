@@ -251,31 +251,36 @@
             font-size: 24px;
         }
         
-        .cta-button {
+        /* CTA Button - Pure CSS, no JavaScript needed */
+        a.cta-button {
             display: inline-block;
             padding: 14px 28px;
             background: linear-gradient(135deg, #10b981 0%, #059669 100%);
             color: white !important;
-            text-decoration: none;
+            text-decoration: none !important;
             border-radius: 12px;
             font-weight: 600;
             margin-top: 8px;
             transition: all 0.3s;
             box-shadow: 0 4px 12px rgba(16,185,129,0.3);
             cursor: pointer;
-            border: none;
             font-size: 15px;
             line-height: 1.4;
-            -webkit-tap-highlight-color: transparent;
+            text-align: center;
         }
         
-        .cta-button:hover {
+        a.cta-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(16,185,129,0.4);
+            color: white !important;
         }
         
-        .cta-button:active {
+        a.cta-button:active {
             transform: translateY(0);
+        }
+        
+        a.cta-button:visited {
+            color: white !important;
         }
         
         /* Mobile optimizations */
@@ -313,6 +318,12 @@
                 padding: 16px;
                 padding-bottom: max(16px, env(safe-area-inset-bottom));
             }
+            
+            a.cta-button {
+                display: block;
+                width: 100%;
+                text-align: center;
+            }
         }
         
         /* Desktop optimizations */
@@ -331,7 +342,7 @@
                 padding: 14px 20px;
             }
             
-            .cta-button {
+            a.cta-button {
                 padding: 16px 32px;
                 font-size: 17px;
             }
@@ -407,9 +418,7 @@
                 <div class="message-bubble">
                     Click below to secure your rate before it expires:
                     <br><br>
-                    <a href="https://hpkpn.ttrk.io/click" class="cta-button" id="ctaButton">
-                        Get My $25/Month Rate →
-                    </a>
+                    <a href="https://hpkpn.ttrk.io/click" class="cta-button">Get My $25/Month Rate →</a>
                 </div>
             </div>
         </div>
@@ -500,15 +509,6 @@
                     setTimeout(() => {
                         document.getElementById('response3').style.display = 'block';
                         chatMessages.scrollTop = chatMessages.scrollHeight;
-                        
-                        // Add click event listener to CTA button after it's visible
-                        const ctaBtn = document.getElementById('ctaButton');
-                        if (ctaBtn) {
-                            ctaBtn.addEventListener('click', function(e) {
-                                e.preventDefault();
-                                window.location.href = 'https://hpkpn.ttrk.io/click';
-                            });
-                        }
                     }, 800);
                 }, 3500);
             }
