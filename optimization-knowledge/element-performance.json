@@ -11,6 +11,18 @@
           "date": "2025-07-31T07:18:20.900Z"
         }
       ]
+    },
+    "Unknown": {
+      "uses": 1,
+      "totalCR": 3,
+      "avgCR": 3,
+      "campaigns": [
+        {
+          "campaign": "Test Medicare Benefits Cbot",
+          "cr": 3,
+          "date": "2025-07-31T07:35:09.006Z"
+        }
+      ]
     }
   },
   "ctas": {
@@ -23,6 +35,18 @@
           "campaign": "Test Medicare Campaign Cbot",
           "cr": 3,
           "date": "2025-07-31T07:18:20.900Z"
+        }
+      ]
+    },
+    "Unknown": {
+      "uses": 1,
+      "totalCR": 3,
+      "avgCR": 3,
+      "campaigns": [
+        {
+          "campaign": "Test Medicare Benefits Cbot",
+          "cr": 3,
+          "date": "2025-07-31T07:35:09.006Z"
         }
       ]
     }
