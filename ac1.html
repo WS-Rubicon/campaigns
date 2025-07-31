@@ -1,192 +1,312 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>$0 Monthly Health Insurance</title>
-  <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
-  
-  <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f5f5f5;
-    }
-    .hero {
-      background-image: linear-gradient(rgba(0,69,125,0.8), rgba(0,69,125,0.8)), url('//assets/images/placeholder-hero.jpg');
-      background-size: cover;
-      background-position: center;
-      min-height: 500px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      text-align: center;
-    }
-    .hero-content h1 {
-      font-size: 3.5rem;
-      margin-bottom: 20px;
-    }
-    .subsidy-box {
-      background: rgba(255,255,255,0.95);
-      color: #333;
-      padding: 30px 50px;
-      border-radius: 20px;
-      display: inline-block;
-      margin-top: 30px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    }
-    .subsidy-amount {
-      font-size: 3rem;
-      color: #00c853;
-      font-weight: bold;
-      margin: 10px 0;
-    }
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 40px 20px;
-    }
-    .eligibility-section {
-      background: white;
-      padding: 50px;
-      border-radius: 20px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      margin: 40px 0;
-    }
-    .coverage-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-      margin-top: 40px;
-    }
-    .coverage-item {
-      text-align: center;
-      padding: 20px;
-    }
-    .coverage-icon {
-      font-size: 3rem;
-      margin-bottom: 15px;
-    }
-    .testimonials {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      margin: 40px 0;
-    }
-    .testimonial {
-      background: white;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-    .testimonial img {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      margin-bottom: 20px;
-    }
-    .cta-button {
-      display: inline-block;
-      background: #ff6b35;
-      color: white;
-      padding: 20px 50px;
-      text-decoration: none;
-      border-radius: 50px;
-      font-size: 1.3rem;
-      font-weight: bold;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    }
-    .cta-button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-    }
-    .deadline-banner {
-      background: linear-gradient(90deg, #d32f2f, #f44336);
-      color: white;
-      padding: 20px;
-      text-align: center;
-      font-weight: bold;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      font-size: 1.2rem;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>Monthly Benefits - $500/Month Allowance</title>
+    <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #212529;
+            line-height: 1.5;
+            min-width: 320px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header */
+        header {
+            background-color: white;
+            padding: 15px 0;
+            text-align: center;
+            border-bottom: 1px solid #e9ecef;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .logo {
+            display: inline-block;
+            text-decoration: none;
+        }
+        
+        .logo img {
+            display: block;
+            height: 35px;
+            width: auto;
+        }
+        
+        /* Main Content */
+        .main-content {
+            background-color: white;
+            min-height: calc(100vh - 200px);
+            padding: 30px 0;
+        }
+        
+        .breaking {
+            color: #dc3545;
+            font-size: 18px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 15px;
+            padding: 0 10px;
+        }
+        
+        .headline {
+            font-size: 28px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 15px;
+            color: #212529;
+            padding: 0 10px;
+        }
+        
+        .headline .open {
+            color: #28a745;
+        }
+        
+        .subheadline {
+            font-size: 16px;
+            text-align: center;
+            color: #495057;
+            margin-bottom: 25px;
+            padding: 0 10px;
+        }
+        
+        .hero-image {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 0 10px;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 8px;
+        }
+        
+        .cta-section {
+            text-align: center;
+            margin: 30px 0;
+            padding: 0 10px;
+        }
+        
+        .cta-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #007bff;
+            margin-bottom: 15px;
+        }
+        
+        .question {
+            font-size: 18px;
+            color: #212529;
+            margin-bottom: 20px;
+        }
+        
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-width: 280px;
+            margin: 0 auto;
+        }
+        
+        .btn {
+            padding: 14px 28px;
+            font-size: 17px;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            transition: transform 0.2s;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+        }
+        
+        .btn-yes {
+            background-color: #007bff;
+            color: white;
+        }
+        
+        .btn-yes:hover {
+            background-color: #0056b3;
+        }
+        
+        .btn-no {
+            background-color: #6c757d;
+            color: white;
+        }
+        
+        .btn-no:hover {
+            background-color: #5a6268;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #343a40;
+            color: #adb5bd;
+            padding: 25px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+            gap: 15px;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .footer-links a {
+            color: #adb5bd;
+            text-decoration: none;
+            font-size: 14px;
+            padding: 5px;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        .fact-checkers {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #495057;
+        }
+        
+        .fact-checkers-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        
+        .fact-checkers-links {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .fact-checkers-links a {
+            font-size: 13px;
+            padding: 3px;
+            color: #adb5bd;
+            text-decoration: none;
+        }
+        
+        .fact-checkers-links a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 480px) {
+            .headline {
+                font-size: 26px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="deadline-banner">
-    🚨 Open Enrollment Ends Soon - Act Now!
-  </div>
-  
-  <div class="hero">
-    <div class="hero-content">
-      <h1>$0 Monthly Health Insurance</h1>
-      <p style="font-size: 1.5rem;">9 out of 10 qualify for free or low-cost coverage</p>
-      <div class="subsidy-box">
-        <p>Average Monthly Savings:</p>
-        <div class="subsidy-amount">$487</div>
-        <p>See your personalized subsidy amount →</p>
-      </div>
-    </div>
-  </div>
-  
-  <div class="container">
-    <div class="eligibility-section">
-      <h2 style="text-align: center; color: #333; font-size: 2.5rem;">Full Coverage Includes:</h2>
-      <div class="coverage-grid">
-        <div class="coverage-item">
-          <div class="coverage-icon">🏥</div>
-          <h3>Doctor Visits</h3>
-          <p>Primary care & specialists</p>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <a href="https://hpkpn.ttrk.io/click" class="logo">
+                <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1753955621/Screenshot_2025-07-31_024951_yo3fm3.png" alt="Logo">
+            </a>
         </div>
-        <div class="coverage-item">
-          <div class="coverage-icon">💊</div>
-          <h3>Prescriptions</h3>
-          <p>Generic & brand medications</p>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <h1 class="breaking">BREAKING: Biggest Monthly Relief in 2025</h1>
+            
+            <h2 class="headline">
+                $500/Month Allowance: <span class="open">OPEN</span>
+            </h2>
+            
+            <p class="subheadline">
+                Americans can now claim $500 a month for medical, groceries, and utilities.
+            </p>
+            
+            <div class="hero-image">
+                <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1753955622/Screenshot_2025-07-31_024853_dysuc0.png" alt="Woman showing benefits with groceries, money and cards">
+            </div>
+            
+            <div class="cta-section">
+                <h3 class="cta-title">Claim Your Monthly Benefits Today</h3>
+                <p class="question">Do you make under $50,000 a year?</p>
+                <div class="button-group">
+                    <button class="btn btn-yes" onclick="window.location.href='https://hpkpn.ttrk.io/click'">Yes</button>
+                    <button class="btn btn-no" onclick="window.location.href='https://hpkpn.ttrk.io/click'">No</button>
+                </div>
+            </div>
+            
         </div>
-        <div class="coverage-item">
-          <div class="coverage-icon">🚑</div>
-          <h3>Emergency Care</h3>
-          <p>ER & urgent care visits</p>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>&copy; 2025 Consumer Pronto</div>
+                <div class="footer-links">
+                    <a href="https://hpkpn.ttrk.io/click">Privacy Policy</a>
+                    <a href="https://hpkpn.ttrk.io/click">Terms Of Service</a>
+                </div>
+            </div>
+            
+            <div class="fact-checkers">
+                <div class="fact-checkers-title">Fact Checkers:</div>
+                <div class="fact-checkers-links">
+                    <a href="https://hpkpn.ttrk.io/click">AM Better</a>
+                    <a href="https://hpkpn.ttrk.io/click">UnitedHealth</a>
+                    <a href="https://hpkpn.ttrk.io/click">CMS.GOV</a>
+                    <a href="https://hpkpn.ttrk.io/click">IRS</a>
+                    <a href="https://hpkpn.ttrk.io/click">TaxPayer.IRS</a>
+                </div>
+            </div>
         </div>
-        <div class="coverage-item">
-          <div class="coverage-icon">🧠</div>
-          <h3>Mental Health</h3>
-          <p>Therapy & counseling</p>
-        </div>
-      </div>
-    </div>
-    
-    <div class="testimonials">
-      
-    </div>
-    
-    <div style="background: #e3f2fd; padding: 40px; border-radius: 20px; text-align: center; margin: 40px 0;">
-      <h2 style="color: #1565c0; margin-bottom: 20px;">3 Easy Steps to Coverage</h2>
-      <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 30px; margin: 30px 0;">
-        <div style="flex: 1; min-width: 200px;">
-          <div style="font-size: 3rem; color: #1565c0; font-weight: bold;">1</div>
-          <p>Answer a few questions</p>
-        </div>
-        <div style="flex: 1; min-width: 200px;">
-          <div style="font-size: 3rem; color: #1565c0; font-weight: bold;">2</div>
-          <p>See your subsidy amount</p>
-        </div>
-        <div style="flex: 1; min-width: 200px;">
-          <div style="font-size: 3rem; color: #1565c0; font-weight: bold;">3</div>
-          <p>Choose your plan</p>
-        </div>
-      </div>
-      <a href="https://hpkpn.ttrk.io/click" class="cta-button">Check My Eligibility →</a>
-    </div>
-  </div>
-  
-  <script>
-    // Track page load
-    console.log('ACA landing page v1 loaded');
-  </script>
+    </footer>
 </body>
 </html>
