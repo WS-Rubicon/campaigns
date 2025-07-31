@@ -1,19 +1,21 @@
 {
   "patterns": [
     {
-      "timestamp": "2025-07-31T07:18:20.900Z",
-      "campaign": "Test Medicare Campaign Cbot",
-      "landingPage": "tm1",
+      "timestamp": "2025-07-31T07:35:09.006Z",
+      "campaign": "Test Medicare Benefits Cbot",
+      "landingPage": "Test Medicare Benefits Cbot - TM1",
       "stats": {
+        "landingName": "Test Medicare Benefits Cbot - TM1",
         "clicks": 100,
         "conversions": 3,
         "cr": 3,
         "profit": 150
       },
       "elements": {
-        "headline": "Save 70% on Medicare",
-        "cta": "Get Free Quote",
-        "urgency": "Limited time offer"
+        "headline": "Unknown",
+        "cta": "Unknown",
+        "images": {},
+        "error": true
       },
       "context": {
         "dayOfWeek": 4,
