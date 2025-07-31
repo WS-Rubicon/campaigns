@@ -504,6 +504,12 @@
           "landingPage": "Wesley - Auto_wa1 - Facebook",
           "cr": 13.43,
           "profit": -13.7515
+        },
+        {
+          "timestamp": "2025-07-31T19:48:53.282Z",
+          "landingPage": "Wesley - Auto_wa5 - Facebook",
+          "cr": 4.29,
+          "profit": -34.1389
         }
       ],
       "bestPerformance": {
@@ -540,7 +546,7 @@
           "error": true
         }
       },
-      "avgCR": 6.494
+      "avgCR": 6.126666666666666
     }
   },
   "crossCampaignLearnings": {}
