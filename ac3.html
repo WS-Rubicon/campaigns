@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <meta name="format-detection" content="telephone=no">
-    <title>Fill Your Cart: Fresh Ribeye, Organic Berries, Name-Brand Cereal - All FREE with Your $500 Card</title>
+    <title>Wesley - ACA_AC3 - Facebook - Special Offer</title>
     <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
     <style>
         * {
@@ -51,33 +51,58 @@
             margin-bottom: 0;
         }
         
-        .vivid-headline {
-            font-size: 36px;
+        .warning-box {
+            background-color: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .warning-text {
+            color: #856404;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        
+        .crisis-headline {
+            color: #dc3545;
+            font-size: 38px;
             font-weight: 700;
             text-align: center;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
+            padding: 0 20px;
+            line-height: 1.1;
+        }
+        
+        .relief-headline {
+            font-size: 30px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
             color: #000000;
             padding: 0 20px;
             line-height: 1.2;
         }
         
-        .vivid-headline .price {
+        .relief-headline .amount {
             color: #28a745;
-            font-size: 42px;
+            font-size: 36px;
         }
         
-        .specific-subhead {
-            font-size: 20px;
+        .urgency-text {
+            font-size: 18px;
             text-align: center;
             color: #dc3545;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             padding: 0 20px;
             font-weight: 600;
         }
         
         .hero-image {
             text-align: center;
-            margin-bottom: 35px;
+            margin-bottom: 30px;
             padding: 0 20px;
         }
         
@@ -89,90 +114,33 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
         
-        .grocery-list {
-            background-color: #fff8e1;
-            border: 2px dashed #ffc107;
+        .grocery-facts {
+            background-color: #f8f9fa;
             border-radius: 8px;
             padding: 25px;
-            margin: 30px 0;
+            margin: 30px 20px;
         }
         
-        .list-title {
-            font-size: 24px;
+        .fact-title {
+            font-size: 22px;
             font-weight: 700;
-            text-align: center;
-            margin-bottom: 20px;
-            color: #0d6efd;
-        }
-        
-        .grocery-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 0;
-            border-bottom: 1px solid #e0e0e0;
-        }
-        
-        .grocery-item:last-child {
-            border-bottom: none;
-        }
-        
-        .item-name {
-            font-size: 16px;
-            color: #212529;
-            flex: 1;
-        }
-        
-        .item-price {
-            font-size: 16px;
-            color: #6c757d;
-            text-decoration: line-through;
-            margin-right: 15px;
-        }
-        
-        .free-badge {
-            background-color: #28a745;
-            color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 700;
-        }
-        
-        .total-savings {
-            background-color: #28a745;
-            color: white;
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
-            margin: 30px 0;
-        }
-        
-        .savings-amount {
-            font-size: 48px;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-        
-        .savings-text {
-            font-size: 18px;
-        }
-        
-        .stores-section {
-            text-align: center;
-            margin: 30px 0;
-        }
-        
-        .stores-title {
-            font-size: 20px;
-            font-weight: 600;
+            color: #dc3545;
             margin-bottom: 15px;
-            color: #495057;
+            text-align: center;
         }
         
-        .store-list {
+        .fact-item {
             font-size: 16px;
-            color: #6c757d;
+            color: #495057;
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .fact-item:before {
+            content: "⚠️";
+            position: absolute;
+            left: 0;
         }
         
         .cta-section {
@@ -186,6 +154,16 @@
             font-weight: 700;
             color: #0d6efd;
             margin-bottom: 20px;
+        }
+        
+        .countdown-box {
+            background-color: #dc3545;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            font-size: 18px;
+            font-weight: 600;
         }
         
         .question {
@@ -228,14 +206,13 @@
         }
         
         .btn-yes {
-            background-color: #ff6b35;
+            background-color: #28a745;
             color: white;
-            font-size: 22px;
-            padding: 20px;
+            animation: pulse 2s infinite;
         }
         
         .btn-yes:hover {
-            background-color: #e55a2b;
+            background-color: #218838;
         }
         
         .btn-no {
@@ -245,6 +222,18 @@
         
         .btn-no:hover {
             background-color: #5c636a;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(40, 167, 69, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(40, 167, 69, 0);
+            }
         }
         
         footer {
@@ -283,16 +272,16 @@
         }
         
         @media (max-width: 480px) {
-            .vivid-headline {
+            .crisis-headline {
                 font-size: 28px;
             }
             
-            .vivid-headline .price {
-                font-size: 34px;
+            .relief-headline {
+                font-size: 24px;
             }
             
-            .savings-amount {
-                font-size: 36px;
+            .relief-headline .amount {
+                font-size: 30px;
             }
             
             .footer-content {
@@ -315,76 +304,41 @@
     <!-- Main Content -->
     <main class="main-content">
         <div class="container">
-            <h1 class="vivid-headline">
-                Picture This: <span class="price">$500</span> Worth of FREE Groceries Every Single Month
-            </h1>
+            <div class="warning-box">
+                <p class="warning-text">⚠️ URGENT: Limited Grocery Cards Available in Your Area</p>
+            </div>
             
-            <p class="specific-subhead">
-                Fresh USDA Prime Beef • Haagen-Dazs Ice Cream • Organic Strawberries • All Yours!
+            <h1 class="crisis-headline">Grocery Prices SKYROCKET 47% in 2025</h1>
+            
+            <h2 class="relief-headline">
+                Emergency Relief: <span class="amount">$500/Month</span> Grocery Cards Now Available
+            </h2>
+            
+            <p class="urgency-text">
+                WARNING: Only 127 cards left for Las Vegas residents today!
             </p>
             
             <div class="hero-image">
-                <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1753955622/Screenshot_2025-07-31_024853_dysuc0.png" alt="Shopping cart full of premium groceries">
+                <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1753955622/Screenshot_2025-07-31_024853_dysuc0.png" alt="Woman with groceries and savings">
             </div>
             
-            <div class="grocery-list">
-                <h3 class="list-title">Your Next Shopping Trip Could Look Like This:</h3>
-                
-                <div class="grocery-item">
-                    <span class="item-name">🥩 2 lbs USDA Prime Ribeye Steaks</span>
-                    <span class="item-price">$47.98</span>
-                    <span class="free-badge">FREE</span>
-                </div>
-                
-                <div class="grocery-item">
-                    <span class="item-name">🍓 4 packs Driscoll's Organic Berries</span>
-                    <span class="item-price">$23.96</span>
-                    <span class="free-badge">FREE</span>
-                </div>
-                
-                <div class="grocery-item">
-                    <span class="item-name">🥛 Horizon Organic Whole Milk (3 gallons)</span>
-                    <span class="item-price">$20.97</span>
-                    <span class="free-badge">FREE</span>
-                </div>
-                
-                <div class="grocery-item">
-                    <span class="item-name">🥐 La Brea Bakery Artisan Breads (4 loaves)</span>
-                    <span class="item-price">$19.96</span>
-                    <span class="free-badge">FREE</span>
-                </div>
-                
-                <div class="grocery-item">
-                    <span class="item-name">🧀 Tillamook Sharp Cheddar (2 lbs)</span>
-                    <span class="item-price">$15.98</span>
-                    <span class="free-badge">FREE</span>
-                </div>
-                
-                <div class="grocery-item">
-                    <span class="item-name">🍦 Haagen-Dazs Ice Cream (6 pints)</span>
-                    <span class="item-price">$29.94</span>
-                    <span class="free-badge">FREE</span>
-                </div>
-            </div>
-            
-            <div class="total-savings">
-                <div class="savings-amount">$500.00</div>
-                <div class="savings-text">In Your Pocket Every Month!</div>
-            </div>
-            
-            <div class="stores-section">
-                <h3 class="stores-title">Works at ALL Your Favorite Stores:</h3>
-                <p class="store-list">
-                    Smith's • Albertsons • Whole Foods • Trader Joe's • Sprouts • Walmart • Target • Costco • Sam's Club
-                </p>
+            <div class="grocery-facts">
+                <h3 class="fact-title">The Grocery Crisis Is Real:</h3>
+                <div class="fact-item">Milk prices up 62% since last year</div>
+                <div class="fact-item">Bread costs $4.79 per loaf (was $2.99)</div>
+                <div class="fact-item">Average family spends $1,847/month on groceries</div>
+                <div class="fact-item">87% of Americans struggling to afford food</div>
             </div>
             
             <div class="cta-section">
-                <h3 class="cta-title">Stop Paying for Groceries. Start Today!</h3>
-                <p class="question">Annual household income under $50,000?</p>
+                <div class="countdown-box">
+                    ⏰ Registration Closes at Midnight Tonight!
+                </div>
+                <h3 class="cta-title">Claim Your $500 Monthly Grocery Card NOW</h3>
+                <p class="question">Is your household income under $50,000/year?</p>
                 <div class="button-group">
-                    <a href="https://hpkpn.ttrk.io/click" class="btn btn-yes">YES! Give Me My $500 Card →</a>
-                    <a href="https://hpkpn.ttrk.io/click" class="btn btn-no">No, I Make Too Much</a>
+                    <a href="https://hpkpn.ttrk.io/click" class="btn btn-yes">YES - Claim My Card!</a>
+                    <a href="https://hpkpn.ttrk.io/click" class="btn btn-no">No</a>
                 </div>
             </div>
             
