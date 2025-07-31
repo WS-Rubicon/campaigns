@@ -85,5 +85,22 @@
         "cr": 0
       }
     }
+  },
+  "Test Medicare Campaign": {
+    "hero": {
+      "path": "assets/images/te_hero_1753948458895.png",
+      "prompt": {
+        "title": "medicare hero",
+        "prompt": "Photorealistic image of a happy, healthy senior couple (late 60s) sitting at their bright kitchen table, reviewing healthcare documents on a tablet. Natural morning light, warm atmosphere. The woman has silver hair and glasses, the man is smiling. Modern but cozy home setting. No text or logos.",
+        "dalle_prompt": "Photorealistic image of a happy, healthy senior couple (late 60s) sitting at their bright kitchen table, reviewing healthcare documents on a tablet. Natural morning light, warm atmosphere. The woman has silver hair and glasses, the man is smiling. Modern but cozy home setting. No text or logos."
+      },
+      "generatedAt": "2025-07-31T07:54:19.571Z",
+      "generator": "dall-e-3",
+      "performance": {
+        "views": 0,
+        "conversions": 0,
+        "cr": 0
+      }
+    }
   }
 }
