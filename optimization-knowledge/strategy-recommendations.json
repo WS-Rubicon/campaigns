@@ -1,0 +1,115 @@
+{
+  "updated": "2025-07-31T08:06:48.398Z",
+  "universal": [],
+  "byType": {
+    "medicare": {
+      "headlines": [
+        [
+          "Save 70% on Medicare",
+          {
+            "uses": 1,
+            "totalCR": 3,
+            "avgCR": 3,
+            "campaigns": [
+              {
+                "campaign": "Test Medicare Campaign Cbot",
+                "cr": 3,
+                "date": "2025-07-31T07:18:20.900Z"
+              }
+            ]
+          }
+        ],
+        [
+          "Unknown",
+          {
+            "uses": 1,
+            "totalCR": 3,
+            "avgCR": 3,
+            "campaigns": [
+              {
+                "campaign": "Test Medicare Benefits Cbot",
+                "cr": 3,
+                "date": "2025-07-31T07:35:09.006Z"
+              }
+            ]
+          }
+        ],
+        [
+          "Save 70% on Medicare Supplements",
+          {
+            "uses": 1,
+            "totalCR": 3,
+            "avgCR": 3,
+            "campaigns": [
+              {
+                "campaign": "Test Medicare Benefits Cbot",
+                "cr": 3,
+                "date": "2025-07-31T07:38:46.671Z"
+              }
+            ]
+          }
+        ]
+      ],
+      "ctas": [
+        [
+          "Get Free Quote",
+          {
+            "uses": 1,
+            "totalCR": 3,
+            "avgCR": 3,
+            "campaigns": [
+              {
+                "campaign": "Test Medicare Campaign Cbot",
+                "cr": 3,
+                "date": "2025-07-31T07:18:20.900Z"
+              }
+            ]
+          }
+        ],
+        [
+          "Unknown",
+          {
+            "uses": 1,
+            "totalCR": 3,
+            "avgCR": 3,
+            "campaigns": [
+              {
+                "campaign": "Test Medicare Benefits Cbot",
+                "cr": 3,
+                "date": "2025-07-31T07:35:09.006Z"
+              }
+            ]
+          }
+        ],
+        [
+          "Get My Free Quote →",
+          {
+            "uses": 1,
+            "totalCR": 3,
+            "avgCR": 3,
+            "campaigns": [
+              {
+                "campaign": "Test Medicare Benefits Cbot",
+                "cr": 3,
+                "date": "2025-07-31T07:38:46.671Z"
+              }
+            ]
+          }
+        ]
+      ]
+    },
+    "final_expense": {
+      "headlines": [],
+      "ctas": []
+    },
+    "dental": {
+      "headlines": [],
+      "ctas": []
+    },
+    "aca": {
+      "headlines": [],
+      "ctas": []
+    }
+  },
+  "nextTests": []
+}
