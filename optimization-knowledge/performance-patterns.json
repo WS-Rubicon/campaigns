@@ -1,0 +1,34 @@
+{
+  "patterns": [
+    {
+      "timestamp": "2025-07-31T07:18:20.900Z",
+      "campaign": "Test Medicare Campaign Cbot",
+      "landingPage": "tm1",
+      "stats": {
+        "clicks": 100,
+        "conversions": 3,
+        "cr": 3,
+        "profit": 150
+      },
+      "elements": {
+        "headline": "Save 70% on Medicare",
+        "cta": "Get Free Quote",
+        "urgency": "Limited time offer"
+      },
+      "context": {
+        "dayOfWeek": 4,
+        "hourOfDay": 0,
+        "season": "summer"
+      }
+    }
+  ],
+  "recognizedTrends": {
+    "4_0": {
+      "performances": [
+        3
+      ],
+      "avgCR": 0
+    }
+  },
+  "successFactors": {}
+}
