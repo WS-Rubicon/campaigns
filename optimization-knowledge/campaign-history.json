@@ -492,6 +492,12 @@
           "landingPage": "Wesley - Auto_wa2 - Facebook",
           "cr": 3.51,
           "profit": -37.1407
+        },
+        {
+          "timestamp": "2025-07-31T19:48:47.606Z",
+          "landingPage": "Wesley - Auto V2 - Facebook",
+          "cr": 0,
+          "profit": -103.7555
         }
       ],
       "bestPerformance": {
@@ -519,30 +525,16 @@
         }
       },
       "worstPerformance": {
-        "landingPage": "Wesley - Auto_wa2 - Facebook",
-        "cr": 3.51,
+        "landingPage": "Wesley - Auto V2 - Facebook",
+        "cr": 0,
         "elements": {
           "headline": "Unknown",
-          "subheadline": "",
           "cta": "Unknown",
-          "urgency": "",
-          "trustElements": [],
-          "colorScheme": {
-            "primary": "#3b82f6",
-            "accent": "#ef4444"
-          },
-          "hasVideo": false,
-          "formFields": [],
-          "funnelDepth": 1,
-          "images": {
-            "hero": null,
-            "testimonials": [],
-            "trustBadges": [],
-            "benefitIcons": []
-          }
+          "images": {},
+          "error": true
         }
       },
-      "avgCR": 6.346666666666667
+      "avgCR": 4.76
     }
   },
   "crossCampaignLearnings": {}
