@@ -23,6 +23,18 @@
           "date": "2025-07-31T07:35:09.006Z"
         }
       ]
+    },
+    "Save 70% on Medicare Supplements": {
+      "uses": 1,
+      "totalCR": 3,
+      "avgCR": 3,
+      "campaigns": [
+        {
+          "campaign": "Test Medicare Benefits Cbot",
+          "cr": 3,
+          "date": "2025-07-31T07:38:46.671Z"
+        }
+      ]
     }
   },
   "ctas": {
@@ -47,6 +59,18 @@
           "campaign": "Test Medicare Benefits Cbot",
           "cr": 3,
           "date": "2025-07-31T07:35:09.006Z"
+        }
+      ]
+    },
+    "Get My Free Quote →": {
+      "uses": 1,
+      "totalCR": 3,
+      "avgCR": 3,
+      "campaigns": [
+        {
+          "campaign": "Test Medicare Benefits Cbot",
+          "cr": 3,
+          "date": "2025-07-31T07:38:46.671Z"
         }
       ]
     }
