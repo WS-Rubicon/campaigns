@@ -486,6 +486,12 @@
           "landingPage": "Wesley - Auto_wa4 - Facebook",
           "cr": 7.69,
           "profit": -35.2049
+        },
+        {
+          "timestamp": "2025-07-31T19:48:45.541Z",
+          "landingPage": "Wesley - Auto_wa2 - Facebook",
+          "cr": 3.51,
+          "profit": -37.1407
         }
       ],
       "bestPerformance": {
@@ -513,8 +519,8 @@
         }
       },
       "worstPerformance": {
-        "landingPage": "Wesley - Auto_wa4 - Facebook",
-        "cr": 7.69,
+        "landingPage": "Wesley - Auto_wa2 - Facebook",
+        "cr": 3.51,
         "elements": {
           "headline": "Unknown",
           "subheadline": "",
@@ -536,7 +542,7 @@
           }
         }
       },
-      "avgCR": 7.765000000000001
+      "avgCR": 6.346666666666667
     }
   },
   "crossCampaignLearnings": {}
