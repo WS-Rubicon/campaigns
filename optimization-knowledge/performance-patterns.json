@@ -2111,6 +2111,50 @@
         "hourOfDay": 13,
         "season": "summer"
       }
+    },
+    {
+      "timestamp": "2025-07-31T20:12:39.739Z",
+      "campaign": "Wesley - Auto",
+      "landingPage": "Wesley - Auto_wa1 - Facebook",
+      "stats": {
+        "landingName": "Wesley - Auto_wa1 - Facebook",
+        "landingId": "688b51a7d5a3f208487cbd1a",
+        "campaignName": "Wesley - Auto CBot - Facebook",
+        "clicks": 70,
+        "conversions": 9,
+        "cr": 12.86,
+        "revenue": 36.589,
+        "cost": 59.0683,
+        "profit": -22.479300000000002,
+        "roi": -38.06,
+        "cpc": 0.8438,
+        "cpa": 6.56
+      },
+      "elements": {
+        "headline": "Unknown",
+        "subheadline": "",
+        "cta": "Unknown",
+        "urgency": "",
+        "trustElements": [],
+        "colorScheme": {
+          "primary": "#3b82f6",
+          "accent": "#ef4444"
+        },
+        "hasVideo": false,
+        "formFields": [],
+        "funnelDepth": 1,
+        "images": {
+          "hero": null,
+          "testimonials": [],
+          "trustBadges": [],
+          "benefitIcons": []
+        }
+      },
+      "context": {
+        "dayOfWeek": 4,
+        "hourOfDay": 13,
+        "season": "summer"
+      }
     }
   ],
   "recognizedTrends": {
@@ -2202,7 +2246,8 @@
         0,
         9.26,
         6.9,
-        6.56
+        6.56,
+        12.86
       ],
       "avgCR": 0
     }
@@ -2230,9 +2275,10 @@
         25.77,
         9.26,
         6.9,
-        6.56
+        6.56,
+        12.86
       ],
-      "avgCR": 17.647333333333332
+      "avgCR": 17.348125
     },
     "Unknown_Get My $25/Month Rate →": {
       "combination": {
