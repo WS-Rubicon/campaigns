@@ -2435,6 +2435,50 @@
         "hourOfDay": 13,
         "season": "summer"
       }
+    },
+    {
+      "timestamp": "2025-07-31T20:13:07.569Z",
+      "campaign": "Wesley - ACA",
+      "landingPage": "Wesley - ACA_AC2 - Facebook",
+      "stats": {
+        "landingName": "Wesley - ACA_AC2 - Facebook",
+        "landingId": "688b50118f42a181c48ff188",
+        "campaignName": "Wesley - ACA Form (Grocery) CBot - Facebook",
+        "clicks": 206,
+        "conversions": 1,
+        "cr": 0.49,
+        "revenue": 20,
+        "cost": 65.4481,
+        "profit": -45.4481,
+        "roi": -69.44,
+        "cpc": 0.3177,
+        "cpa": 65.45
+      },
+      "elements": {
+        "headline": "Unknown",
+        "subheadline": "\n                Join thousands of American families who never worry about grocery bills again\n            ",
+        "cta": "Unknown",
+        "urgency": "",
+        "trustElements": [],
+        "colorScheme": {
+          "primary": "#3b82f6",
+          "accent": "#ef4444"
+        },
+        "hasVideo": false,
+        "formFields": [],
+        "funnelDepth": 1,
+        "images": {
+          "hero": null,
+          "testimonials": [],
+          "trustBadges": [],
+          "benefitIcons": []
+        }
+      },
+      "context": {
+        "dayOfWeek": 4,
+        "hourOfDay": 13,
+        "season": "summer"
+      }
     }
   ],
   "recognizedTrends": {
@@ -2535,7 +2579,8 @@
         1.04,
         0,
         0,
-        1.5
+        1.5,
+        0.49
       ],
       "avgCR": 0
     }
