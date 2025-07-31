@@ -1490,6 +1490,36 @@
         "hourOfDay": 12,
         "season": "summer"
       }
+    },
+    {
+      "timestamp": "2025-07-31T19:48:47.606Z",
+      "campaign": "Wesley - Auto",
+      "landingPage": "Wesley - Auto V2 - Facebook",
+      "stats": {
+        "landingName": "Wesley - Auto V2 - Facebook",
+        "landingId": "66e7e1b2418246d4a67aa367",
+        "campaignName": "Wesley - Auto CBot - Facebook",
+        "clicks": 57,
+        "conversions": 0,
+        "cr": 0,
+        "revenue": 0,
+        "cost": 103.7555,
+        "profit": -103.7555,
+        "roi": -100,
+        "cpc": 1.8203,
+        "cpa": 0
+      },
+      "elements": {
+        "headline": "Unknown",
+        "cta": "Unknown",
+        "images": {},
+        "error": true
+      },
+      "context": {
+        "dayOfWeek": 4,
+        "hourOfDay": 12,
+        "season": "summer"
+      }
     }
   ],
   "recognizedTrends": {
@@ -1560,7 +1590,8 @@
         0,
         7.84,
         7.69,
-        3.51
+        3.51,
+        0
       ],
       "avgCR": 0
     }
