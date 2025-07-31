@@ -4,7 +4,7 @@
 
 ### Performance Patterns Discovered
 
-#### ⭐ Exceptional Performers (13)
+#### ⭐ Exceptional Performers (29)
 - **Wesley - Auto CBot - Facebook - Wesley - Auto V1 - Facebook**: 26.25% CR
   - Headline: "Unknown"
   - CTA: "Unknown"
@@ -44,8 +44,56 @@
 - **Wesley - Auto V1 - Facebook**: 25.77% CR
   - Headline: "Unknown"
   - CTA: "Unknown"
+- **Wesley - Auto_wa3 - Facebook**: 9.26% CR
+  - Headline: "Unknown"
+  - CTA: "Unknown"
+- **Wesley - Auto_wa4 - Facebook**: 6.9% CR
+  - Headline: "Unknown"
+  - CTA: "Unknown"
+- **Wesley - Auto_wa2 - Facebook**: 6.56% CR
+  - Headline: "Unknown"
+  - CTA: "Unknown"
+- **Wesley - Auto_wa1 - Facebook**: 12.86% CR
+  - Headline: "Unknown"
+  - CTA: "Unknown"
+- **Wesley - Auto_wa5 - Facebook**: 4.23% CR
+  - Headline: "Unknown"
+  - CTA: "Get My $25/Month Rate →"
+- **66c6573e98b206ae1014e12c**: 25.77% CR
+  - Headline: "Unknown"
+  - CTA: "Unknown"
+- **Wesley - Auto_wa3 - Facebook**: 9.09% CR
+  - Headline: "Unknown"
+  - CTA: "Unknown"
+- **Wesley - Auto_wa4 - Facebook**: 8.47% CR
+  - Headline: "Unknown"
+  - CTA: "Unknown"
+- **Wesley - Auto_wa2 - Facebook**: 6.56% CR
+  - Headline: "Unknown"
+  - CTA: "Unknown"
+- **Wesley - Auto_wa5 - Facebook**: 4.17% CR
+  - Headline: "Unknown"
+  - CTA: "Get My $25/Month Rate →"
+- **Wesley - Auto_wa1 - Facebook**: 12.5% CR
+  - Headline: "Unknown"
+  - CTA: "Unknown"
+- **Wesley - Auto_wa3 - Facebook**: 8.77% CR
+  - Headline: "Unknown"
+  - CTA: "Unknown"
+- **Wesley - Auto_wa4 - Facebook**: 8.47% CR
+  - Headline: "Unknown"
+  - CTA: "Unknown"
+- **Wesley - Auto_wa2 - Facebook**: 6.45% CR
+  - Headline: "Unknown"
+  - CTA: "Unknown"
+- **Wesley - Auto_wa1 - Facebook**: 15.28% CR
+  - Headline: "Unknown"
+  - CTA: "Unknown"
+- **Wesley - Auto_wa5 - Facebook**: 3.9% CR
+  - Headline: "Unknown"
+  - CTA: "Get My $25/Month Rate →"
 
-#### ⚠️ Underperformers (38)
+#### ⚠️ Underperformers (51)
 - **Wesley - Auto CBot - Facebook - Wesley - Auto V1- CBot - Newsbreak**: 0% CR
   - Issues: Missing urgency element, No hero image
 - **Wesley - Auto CBot - Facebook - Wesley - Auto V2 - Facebook**: 0% CR
@@ -122,6 +170,32 @@
   - Issues: Missing urgency element, No hero image
 - **Wesley - ACA_AC1 - Facebook**: 0.44% CR
   - Issues: Missing urgency element, No hero image
+- **68493ea00fa42444709cf7a8**: 0% CR
+  - Issues: Missing urgency element, No hero image
+- **66e7e1b2418246d4a67aa367**: 0% CR
+  - Issues: Missing urgency element, No hero image
+- **Wesley - ACA (G) I7 - Facebook**: 0% CR
+  - Issues: Missing urgency element, No hero image
+- **Wesley - ACA C5 - Facebook**: 0% CR
+  - Issues: Missing urgency element, No hero image
+- **Wesley - ACA_AC3 - Facebook**: 0% CR
+  - Issues: Missing urgency element, No hero image
+- **Wesley - ACA_AC2 - Facebook**: 0.49% CR
+  - Issues: Missing urgency element, No hero image
+- **Wesley - ACA_AC5 - Facebook**: 0.49% CR
+  - Issues: Missing urgency element, No hero image
+- **Wesley - ACA_AC1 - Facebook**: 0.85% CR
+  - Issues: Missing urgency element, No hero image
+- **Wesley - ACA_AC3 - Facebook**: 0% CR
+  - Issues: Missing urgency element, No hero image
+- **Wesley - ACA_AC2 - Facebook**: 0.48% CR
+  - Issues: Missing urgency element, No hero image
+- **Wesley - ACA_AC1 - Facebook**: 0.83% CR
+  - Issues: Missing urgency element, No hero image
+- **Wesley - ACA_AC3 - Facebook**: 0% CR
+  - Issues: Missing urgency element, No hero image
+- **Wesley - ACA_AC2 - Facebook**: 0.47% CR
+  - Issues: Missing urgency element, No hero image
 
 ## 📸 Image Performance Insights
 
@@ -132,4 +206,4 @@
 
 ## 📈 Recommendations
 
-- 🏆 Top performing combination: Unknown_Unknown (20.17% avg CR)
+- 🏆 Top performing combination: Unknown_Unknown (15.16% avg CR)
