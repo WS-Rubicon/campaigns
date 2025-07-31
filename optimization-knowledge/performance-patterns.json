@@ -204,6 +204,34 @@
         "hourOfDay": 1,
         "season": "summer"
       }
+    },
+    {
+      "timestamp": "2025-07-31T08:23:29.531Z",
+      "campaign": "Wesley",
+      "landingPage": "Wesley - MVA (Auto) - CBot - Newsbreak - Wesley - Auto V1- CBot - Newsbreak",
+      "stats": {
+        "landingName": "Wesley - MVA (Auto) - CBot - Newsbreak - Wesley - Auto V1- CBot - Newsbreak",
+        "clicks": 2570,
+        "conversions": 71,
+        "cr": 2.76,
+        "revenue": 412.76,
+        "cost": 933.1499,
+        "profit": -520.3899,
+        "roi": -55.77,
+        "cpc": 0.3631,
+        "cpa": 13.14
+      },
+      "elements": {
+        "headline": "Unknown",
+        "cta": "Unknown",
+        "images": {},
+        "error": true
+      },
+      "context": {
+        "dayOfWeek": 4,
+        "hourOfDay": 1,
+        "season": "summer"
+      }
     }
   ],
   "recognizedTrends": {
@@ -220,7 +248,8 @@
         26.25,
         0,
         0,
-        1.03
+        1.03,
+        2.76
       ],
       "avgCR": 0
     }
