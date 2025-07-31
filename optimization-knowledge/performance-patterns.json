@@ -3317,6 +3317,50 @@
         "hourOfDay": 13,
         "season": "summer"
       }
+    },
+    {
+      "timestamp": "2025-07-31T20:40:27.005Z",
+      "campaign": "Wesley - ACA",
+      "landingPage": "Wesley - ACA_AC1 - Facebook",
+      "stats": {
+        "landingName": "Wesley - ACA_AC1 - Facebook",
+        "landingId": "6524c566f883120001861800",
+        "campaignName": "Wesley - ACA Form (Grocery) CBot - Facebook",
+        "clicks": 247,
+        "conversions": 3,
+        "cr": 1.21,
+        "revenue": 60,
+        "cost": 71.7786,
+        "profit": -11.778599999999997,
+        "roi": -16.41,
+        "cpc": 0.2906,
+        "cpa": 23.93
+      },
+      "elements": {
+        "headline": "BREAKING: Biggest Monthly Relief in 2025",
+        "subheadline": "\n                Americans can now claim $500 a month for medical, groceries, and utilities.\n            ",
+        "cta": "Unknown",
+        "urgency": "",
+        "trustElements": [],
+        "colorScheme": {
+          "primary": "#3b82f6",
+          "accent": "#ef4444"
+        },
+        "hasVideo": false,
+        "formFields": [],
+        "funnelDepth": 1,
+        "images": {
+          "hero": null,
+          "testimonials": [],
+          "trustBadges": [],
+          "benefitIcons": []
+        }
+      },
+      "context": {
+        "dayOfWeek": 4,
+        "hourOfDay": 13,
+        "season": "summer"
+      }
     }
   ],
   "recognizedTrends": {
@@ -3437,7 +3481,8 @@
         3.9,
         0,
         1.45,
-        0.47
+        0.47,
+        1.21
       ],
       "avgCR": 0
     }
