@@ -2479,6 +2479,52 @@
         "hourOfDay": 13,
         "season": "summer"
       }
+    },
+    {
+      "timestamp": "2025-07-31T20:13:10.446Z",
+      "campaign": "Wesley - ACA",
+      "landingPage": "Wesley - ACA_AC5 - Facebook",
+      "stats": {
+        "landingName": "Wesley - ACA_AC5 - Facebook",
+        "landingId": "688b5095d9b33467d51dd0d5",
+        "campaignName": "Wesley - ACA Form (Grocery) CBot - Facebook",
+        "clicks": 206,
+        "conversions": 1,
+        "cr": 0.49,
+        "revenue": 20,
+        "cost": 69.0482,
+        "profit": -49.048199999999994,
+        "roi": -71.03,
+        "cpc": 0.3352,
+        "cpa": 69.05
+      },
+      "elements": {
+        "headline": "Unknown",
+        "subheadline": "\n                More Than Money: Transform Your Family's Health & Future\n            ",
+        "cta": "Unknown",
+        "urgency": "",
+        "trustElements": [
+          "\";\n            position: absolute;\n            left: 0;\n            font-weight: 700;\n        }\n        \n        .cta-section {\n            text-align: center;\n            margin: 40px 0;\n            padding: 0 20px;\n        }\n        \n        .cta-title {\n            font-size: 26px;\n            font-weight: 700;\n            color: #0d6efd;\n            margin-bottom: 20px;\n        }\n        \n        .secure-note {\n            font-size: 16px;\n            color: #28a745;\n            margin-bottom: 20px;\n            font-weight: 600;\n        }\n        \n        .secure-note:before {\n            content: \"🔒 \";\n        }\n        \n        .question {\n            font-size: 20px;\n            color: #212529;\n            margin-bottom: 25px;\n            font-weight: 600;\n        }\n        \n        .button-group {\n            display: flex;\n            flex-direction: column;\n            gap: 15px;\n            max-width: 340px;\n            margin: 0 auto;\n        }\n        \n        .btn {\n            padding: 18px 32px;\n            font-size: 19px;\n            font-weight: 600;\n            border: none;\n            border-radius: 12px;\n            cursor: pointer;\n            text-decoration: none;\n            display: block;\n            text-align: center;\n            transition: all 0.2s;\n            -webkit-tap-highlight-color: transparent;\n            width: 100%;\n        }\n        \n        .btn:hover {\n            transform: translateY(-2px);\n            box-shadow: 0 4px 12px rgba(0,0,0,0.15);\n        }\n        \n        .btn:active {\n            transform: translateY(0);\n        }\n        \n        .btn-yes {\n            background-color: #1976d2;\n            color: white;\n        }\n        \n        .btn-yes:hover {\n            background-color: #1565c0;\n        }\n        \n        .btn-no {\n            background-color: #6c757d;\n            color: white;\n        }\n        \n        .btn-no:hover {\n            background-color: #5c636a;\n        }\n        \n        footer {\n            background-color: #495057;\n            color: #ced4da;\n            padding: 35px 0;\n            text-align: center;\n        }\n        \n        .footer-content {\n            display: flex;\n            justify-content: space-between;\n            align-items: center;\n            flex-wrap: wrap;\n            margin-bottom: 20px;\n            gap: 20px;\n        }\n        \n        .footer-links {\n            display: flex;\n            gap: 20px;\n            flex-wrap: wrap;\n            justify-content: center;\n        }\n        \n        .footer-links a {\n            color: #ced4da;\n            text-decoration: none;\n            font-size: 14px;\n            padding: 5px;\n        }\n        \n        .footer-links a:hover {\n            color: white;\n            text-decoration: underline;\n        }\n        \n        @media (max-width: 480px) {\n            .official-headline {\n                font-size: 28px;\n            }\n            \n            .benefit-title-text {\n                font-size: 16px;\n            }\n            \n            .footer-content {\n                flex-direction: column;\n                gap: 15px;\n            }\n        }\n    "
+        ],
+        "colorScheme": {
+          "primary": "#3b82f6",
+          "accent": "#ef4444"
+        },
+        "hasVideo": false,
+        "formFields": [],
+        "funnelDepth": 1,
+        "images": {
+          "hero": null,
+          "testimonials": [],
+          "trustBadges": [],
+          "benefitIcons": []
+        }
+      },
+      "context": {
+        "dayOfWeek": 4,
+        "hourOfDay": 13,
+        "season": "summer"
+      }
     }
   ],
   "recognizedTrends": {
@@ -2580,6 +2626,7 @@
         0,
         0,
         1.5,
+        0.49,
         0.49
       ],
       "avgCR": 0
