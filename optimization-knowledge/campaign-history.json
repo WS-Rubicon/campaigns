@@ -28,6 +28,37 @@
         }
       },
       "avgCR": 3
+    },
+    "Test Medicare Benefits Cbot": {
+      "performances": [
+        {
+          "timestamp": "2025-07-31T07:35:09.006Z",
+          "landingPage": "Test Medicare Benefits Cbot - TM1",
+          "cr": 3,
+          "profit": 150
+        }
+      ],
+      "bestPerformance": {
+        "landingPage": "Test Medicare Benefits Cbot - TM1",
+        "cr": 3,
+        "elements": {
+          "headline": "Unknown",
+          "cta": "Unknown",
+          "images": {},
+          "error": true
+        }
+      },
+      "worstPerformance": {
+        "landingPage": "Test Medicare Benefits Cbot - TM1",
+        "cr": 3,
+        "elements": {
+          "headline": "Unknown",
+          "cta": "Unknown",
+          "images": {},
+          "error": true
+        }
+      },
+      "avgCR": 3
     }
   },
   "crossCampaignLearnings": {}
