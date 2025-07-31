@@ -13,9 +13,9 @@
       ]
     },
     "Unknown": {
-      "uses": 65,
-      "totalCR": 286.72,
-      "avgCR": 4.411076923076924,
+      "uses": 66,
+      "totalCR": 299.58000000000004,
+      "avgCR": 4.53909090909091,
       "campaigns": [
         {
           "campaign": "Test Medicare Benefits Cbot",
@@ -341,6 +341,11 @@
           "campaign": "Wesley - Auto",
           "cr": 6.56,
           "date": "2025-07-31T20:12:36.491Z"
+        },
+        {
+          "campaign": "Wesley - Auto",
+          "cr": 12.86,
+          "date": "2025-07-31T20:12:39.739Z"
         }
       ]
     },
@@ -395,9 +400,9 @@
       ]
     },
     "Unknown": {
-      "uses": 66,
-      "totalCR": 283.92,
-      "avgCR": 4.301818181818182,
+      "uses": 67,
+      "totalCR": 296.78000000000003,
+      "avgCR": 4.429552238805971,
       "campaigns": [
         {
           "campaign": "Test Medicare Benefits Cbot",
@@ -728,6 +733,11 @@
           "campaign": "Wesley - Auto",
           "cr": 6.56,
           "date": "2025-07-31T20:12:36.491Z"
+        },
+        {
+          "campaign": "Wesley - Auto",
+          "cr": 12.86,
+          "date": "2025-07-31T20:12:39.739Z"
         }
       ]
     },
