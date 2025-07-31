@@ -1,0 +1,33 @@
+{
+  "Test Medicare Campaign Cbot": {
+    "hero": {
+      "path": "assets/images/te_hero_1753946480401.png",
+      "prompt": {
+        "title": "Active Senior Couple Reviewing Benefits",
+        "prompt": "A warm, authentic scene captures a healthy senior couple in their late 60s sitting at their kitchen table, natural morning light streaming through windows. The woman, with silver hair and reading glasses, points to a tablet screen showing healthcare benefits while her husband smiles, holding a coffee mug. Papers with visible text 'Medicare Savings' are spread on the wooden table. Their expressions show relief and satisfaction. The modern but cozy kitchen has plants and family photos visible in soft focus background, creating a homey atmosphere that resonates with security and smart decision-making.\n      \nTechnical Requirements:\n- Aspect ratio: 16:9\n- Resolution: 1920x1080\n- Style: Photorealistic, professional\n35mm lens equivalent, f/2.8 aperture for shallow depth of field,Natural window light, 5500K color temperature,ISO 200 for minimal noise,Eye-level angle, documentary style framing,Soft contrast, slightly warm color grade\n\nNo corporate stock photo aesthetics, no perfectly styled models, no sterile environments, no unrealistic technology, no brand logos",
+        "metadata": {
+          "stylingNotes": [
+            "Authentic, non-model appearance for relatability",
+            "Casual but neat clothing (button-down shirt, comfortable sweater)",
+            "Genuine expressions, not overly posed",
+            "Tablet/papers positioned naturally, not staged",
+            "Background suggests middle-class comfort"
+          ],
+          "environment": [
+            "Kitchen table as central element",
+            "Tablet displaying benefits chart",
+            "Coffee mugs and reading glasses",
+            "Medicare-related documents (tastefully visible)",
+            "Window light creating warm atmosphere"
+          ]
+        }
+      },
+      "generatedAt": "2025-07-31T07:21:21.073Z",
+      "performance": {
+        "views": 0,
+        "conversions": 0,
+        "cr": 0
+      }
+    }
+  }
+}
