@@ -13,9 +13,9 @@
       ]
     },
     "Unknown": {
-      "uses": 66,
-      "totalCR": 299.58000000000004,
-      "avgCR": 4.53909090909091,
+      "uses": 67,
+      "totalCR": 303.81000000000006,
+      "avgCR": 4.534477611940299,
       "campaigns": [
         {
           "campaign": "Test Medicare Benefits Cbot",
@@ -346,6 +346,11 @@
           "campaign": "Wesley - Auto",
           "cr": 12.86,
           "date": "2025-07-31T20:12:39.739Z"
+        },
+        {
+          "campaign": "Wesley - Auto",
+          "cr": 4.23,
+          "date": "2025-07-31T20:12:42.854Z"
         }
       ]
     },
@@ -754,14 +759,19 @@
       ]
     },
     "Get My $25/Month Rate →": {
-      "uses": 1,
-      "totalCR": 4.29,
-      "avgCR": 4.29,
+      "uses": 2,
+      "totalCR": 8.52,
+      "avgCR": 4.26,
       "campaigns": [
         {
           "campaign": "Wesley - Auto",
           "cr": 4.29,
           "date": "2025-07-31T19:48:53.282Z"
+        },
+        {
+          "campaign": "Wesley - Auto",
+          "cr": 4.23,
+          "date": "2025-07-31T20:12:42.854Z"
         }
       ]
     }
