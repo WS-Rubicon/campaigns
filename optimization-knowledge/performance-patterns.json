@@ -1,7 +1,7 @@
 {
   "patterns": [
     {
-      "timestamp": "2025-07-31T07:35:09.006Z",
+      "timestamp": "2025-07-31T07:38:46.671Z",
       "campaign": "Test Medicare Benefits Cbot",
       "landingPage": "Test Medicare Benefits Cbot - TM1",
       "stats": {
@@ -12,10 +12,24 @@
         "profit": 150
       },
       "elements": {
-        "headline": "Unknown",
-        "cta": "Unknown",
-        "images": {},
-        "error": true
+        "headline": "Save 70% on Medicare Supplements",
+        "subheadline": "",
+        "cta": "Get My Free Quote →",
+        "urgency": "\n    ⚡ Special Enrollment Period Ends in 48 Hours - Act Now!\n  ",
+        "trustElements": [],
+        "colorScheme": {
+          "primary": "#3b82f6",
+          "accent": "#ef4444"
+        },
+        "hasVideo": false,
+        "formFields": [],
+        "funnelDepth": 1,
+        "images": {
+          "hero": null,
+          "testimonials": [],
+          "trustBadges": [],
+          "benefitIcons": []
+        }
       },
       "context": {
         "dayOfWeek": 4,
