@@ -464,9 +464,9 @@
       ]
     },
     "BREAKING: Biggest Monthly Relief in 2025": {
-      "uses": 2,
-      "totalCR": 1.29,
-      "avgCR": 0.645,
+      "uses": 3,
+      "totalCR": 2.12,
+      "avgCR": 0.7066666666666667,
       "campaigns": [
         {
           "campaign": "Wesley - ACA",
@@ -477,6 +477,11 @@
           "campaign": "Wesley - ACA",
           "cr": 0.85,
           "date": "2025-07-31T20:13:13.681Z"
+        },
+        {
+          "campaign": "Wesley - ACA",
+          "cr": 0.83,
+          "date": "2025-07-31T20:26:49.258Z"
         }
       ]
     }
@@ -495,9 +500,9 @@
       ]
     },
     "Unknown": {
-      "uses": 84,
-      "totalCR": 365.4900000000001,
-      "avgCR": 4.35107142857143,
+      "uses": 85,
+      "totalCR": 366.3200000000001,
+      "avgCR": 4.309647058823531,
       "campaigns": [
         {
           "campaign": "Test Medicare Benefits Cbot",
@@ -918,6 +923,11 @@
           "campaign": "Wesley - ACA",
           "cr": 0.48,
           "date": "2025-07-31T20:26:46.235Z"
+        },
+        {
+          "campaign": "Wesley - ACA",
+          "cr": 0.83,
+          "date": "2025-07-31T20:26:49.258Z"
         }
       ]
     },
