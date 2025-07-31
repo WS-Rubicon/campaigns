@@ -15,7 +15,7 @@
         
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background-color: #ffffff;
+            background-color: #f8f9fa;
             color: #212529;
             line-height: 1.5;
             min-width: 320px;
@@ -32,6 +32,7 @@
             background-color: white;
             padding: 25px 0;
             text-align: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
         
         .logo {
@@ -49,19 +50,21 @@
         .main-content {
             background-color: white;
             padding: 40px 0 60px;
+            margin-bottom: 0;
         }
         
         .breaking {
             color: #dc3545;
-            font-size: 20px;
+            font-size: 42px;
             font-weight: 700;
             text-align: center;
             margin-bottom: 20px;
             padding: 0 20px;
+            line-height: 1.1;
         }
         
         .headline {
-            font-size: 36px;
+            font-size: 32px;
             font-weight: 700;
             text-align: center;
             margin-bottom: 20px;
@@ -77,7 +80,7 @@
         .subheadline {
             font-size: 18px;
             text-align: center;
-            color: #6c757d;
+            color: #495057;
             margin-bottom: 35px;
             padding: 0 20px;
             font-weight: 400;
@@ -91,9 +94,10 @@
         
         .hero-image img {
             width: 100%;
-            max-width: 440px;
+            max-width: 500px;
             height: auto;
             border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
         
         .cta-section {
@@ -103,14 +107,14 @@
         }
         
         .cta-title {
-            font-size: 28px;
+            font-size: 26px;
             font-weight: 600;
-            color: #007bff;
+            color: #0d6efd;
             margin-bottom: 20px;
         }
         
         .question {
-            font-size: 19px;
+            font-size: 20px;
             color: #212529;
             margin-bottom: 25px;
             font-weight: 400;
@@ -120,16 +124,16 @@
             display: flex;
             flex-direction: column;
             gap: 15px;
-            max-width: 320px;
+            max-width: 340px;
             margin: 0 auto;
         }
         
         .btn {
-            padding: 16px 32px;
-            font-size: 18px;
+            padding: 18px 32px;
+            font-size: 19px;
             font-weight: 600;
             border: none;
-            border-radius: 8px;
+            border-radius: 12px;
             cursor: pointer;
             text-decoration: none;
             display: block;
@@ -149,12 +153,12 @@
         }
         
         .btn-yes {
-            background-color: #007bff;
+            background-color: #0d6efd;
             color: white;
         }
         
         .btn-yes:hover {
-            background-color: #0056b3;
+            background-color: #0b5ed7;
         }
         
         .btn-no {
@@ -163,13 +167,13 @@
         }
         
         .btn-no:hover {
-            background-color: #5a6268;
+            background-color: #5c636a;
         }
         
         /* Footer */
         footer {
-            background-color: #343a40;
-            color: #adb5bd;
+            background-color: #495057;
+            color: #ced4da;
             padding: 35px 0;
             text-align: center;
         }
@@ -191,7 +195,7 @@
         }
         
         .footer-links a {
-            color: #adb5bd;
+            color: #ced4da;
             text-decoration: none;
             font-size: 14px;
             padding: 5px;
@@ -205,14 +209,14 @@
         .fact-checkers {
             margin-top: 20px;
             padding-top: 20px;
-            border-top: 1px solid #495057;
+            border-top: 1px solid #6c757d;
         }
         
         .fact-checkers-title {
             font-weight: 600;
             margin-bottom: 10px;
             font-size: 14px;
-            color: #adb5bd;
+            color: #ced4da;
         }
         
         .fact-checkers-links {
@@ -225,7 +229,7 @@
         .fact-checkers-links a {
             font-size: 13px;
             padding: 3px;
-            color: #adb5bd;
+            color: #ced4da;
             text-decoration: none;
         }
         
@@ -236,12 +240,12 @@
         
         /* Responsive adjustments */
         @media (max-width: 480px) {
-            .headline {
-                font-size: 30px;
+            .breaking {
+                font-size: 32px;
             }
             
-            .breaking {
-                font-size: 18px;
+            .headline {
+                font-size: 26px;
             }
             
             .cta-title {
@@ -298,7 +302,7 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div>&copy; 2025 Consumer Pronto</div>
+                <div style="color: #ced4da;">&copy; 2025 Consumer Pronto</div>
                 <div class="footer-links">
                     <a href="https://hpkpn.ttrk.io/click">Privacy Policy</a>
                     <a href="https://hpkpn.ttrk.io/click">Terms Of Service</a>
