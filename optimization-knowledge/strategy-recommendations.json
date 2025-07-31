@@ -1,12 +1,14 @@
 {
-  "updated": "2025-07-31T09:30:58.608Z",
+  "updated": "2025-07-31T09:36:39.746Z",
   "universal": [
     {
       "element": "Unknown_Unknown",
-      "avgCR": "4.45",
+      "avgCR": "4.46",
       "campaigns": [
         "Wesley",
-        "Wesley (general)"
+        "Wesley (general)",
+        "Wesley - Auto CBot",
+        "Wesley - ACA Form (Grocery) CBot"
       ]
     }
   ],
@@ -16,9 +18,9 @@
         [
           "Unknown",
           {
-            "uses": 39,
-            "totalCR": 172.16000000000003,
-            "avgCR": 4.414358974358975,
+            "uses": 45,
+            "totalCR": 199.43000000000004,
+            "avgCR": 4.4317777777777785,
             "campaigns": [
               {
                 "campaign": "Test Medicare Benefits Cbot",
@@ -214,6 +216,36 @@
                 "campaign": "Wesley (general)",
                 "cr": 1.02,
                 "date": "2025-07-31T09:30:52.167Z"
+              },
+              {
+                "campaign": "Wesley - Auto CBot",
+                "cr": 0,
+                "date": "2025-07-31T09:36:19.776Z"
+              },
+              {
+                "campaign": "Wesley - Auto CBot",
+                "cr": 0,
+                "date": "2025-07-31T09:36:21.751Z"
+              },
+              {
+                "campaign": "Wesley - Auto CBot",
+                "cr": 26.25,
+                "date": "2025-07-31T09:36:23.885Z"
+              },
+              {
+                "campaign": "Wesley - ACA Form (Grocery) CBot",
+                "cr": 0,
+                "date": "2025-07-31T09:36:29.435Z"
+              },
+              {
+                "campaign": "Wesley - ACA Form (Grocery) CBot",
+                "cr": 0,
+                "date": "2025-07-31T09:36:31.627Z"
+              },
+              {
+                "campaign": "Wesley - ACA Form (Grocery) CBot",
+                "cr": 1.02,
+                "date": "2025-07-31T09:36:33.795Z"
               }
             ]
           }
@@ -253,9 +285,9 @@
         [
           "Unknown",
           {
-            "uses": 39,
-            "totalCR": 172.16000000000003,
-            "avgCR": 4.414358974358975,
+            "uses": 45,
+            "totalCR": 199.43000000000004,
+            "avgCR": 4.4317777777777785,
             "campaigns": [
               {
                 "campaign": "Test Medicare Benefits Cbot",
@@ -451,6 +483,36 @@
                 "campaign": "Wesley (general)",
                 "cr": 1.02,
                 "date": "2025-07-31T09:30:52.167Z"
+              },
+              {
+                "campaign": "Wesley - Auto CBot",
+                "cr": 0,
+                "date": "2025-07-31T09:36:19.776Z"
+              },
+              {
+                "campaign": "Wesley - Auto CBot",
+                "cr": 0,
+                "date": "2025-07-31T09:36:21.751Z"
+              },
+              {
+                "campaign": "Wesley - Auto CBot",
+                "cr": 26.25,
+                "date": "2025-07-31T09:36:23.885Z"
+              },
+              {
+                "campaign": "Wesley - ACA Form (Grocery) CBot",
+                "cr": 0,
+                "date": "2025-07-31T09:36:29.435Z"
+              },
+              {
+                "campaign": "Wesley - ACA Form (Grocery) CBot",
+                "cr": 0,
+                "date": "2025-07-31T09:36:31.627Z"
+              },
+              {
+                "campaign": "Wesley - ACA Form (Grocery) CBot",
+                "cr": 1.02,
+                "date": "2025-07-31T09:36:33.795Z"
               }
             ]
           }
@@ -496,12 +558,956 @@
       "ctas": []
     },
     "aca": {
-      "headlines": [],
-      "ctas": []
+      "headlines": [
+        [
+          "Unknown",
+          {
+            "uses": 45,
+            "totalCR": 199.43000000000004,
+            "avgCR": 4.4317777777777785,
+            "campaigns": [
+              {
+                "campaign": "Test Medicare Benefits Cbot",
+                "cr": 3,
+                "date": "2025-07-31T07:35:09.006Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:23:17.241Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:23:19.310Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 26.25,
+                "date": "2025-07-31T08:23:21.327Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:23:23.391Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:23:25.298Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 1.03,
+                "date": "2025-07-31T08:23:27.326Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 2.76,
+                "date": "2025-07-31T08:23:29.531Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:32:23.552Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:32:25.803Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 26.25,
+                "date": "2025-07-31T08:32:27.963Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:32:30.069Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:32:32.112Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 1.03,
+                "date": "2025-07-31T08:32:34.239Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 2.76,
+                "date": "2025-07-31T08:32:36.301Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:45:04.164Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:45:06.247Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 26.25,
+                "date": "2025-07-31T08:45:08.491Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:45:10.667Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:45:12.822Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 1.02,
+                "date": "2025-07-31T08:45:15.001Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T09:02:44.547Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T09:02:46.760Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 26.25,
+                "date": "2025-07-31T09:02:48.927Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T09:02:51.235Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T09:02:53.356Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 1.02,
+                "date": "2025-07-31T09:02:55.282Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T09:14:58.838Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T09:15:01.454Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 26.25,
+                "date": "2025-07-31T09:15:03.957Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T09:15:06.285Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T09:15:09.160Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 1.02,
+                "date": "2025-07-31T09:15:11.485Z"
+              },
+              {
+                "campaign": "Wesley (general)",
+                "cr": 0,
+                "date": "2025-07-31T09:30:41.737Z"
+              },
+              {
+                "campaign": "Wesley (general)",
+                "cr": 0,
+                "date": "2025-07-31T09:30:43.793Z"
+              },
+              {
+                "campaign": "Wesley (general)",
+                "cr": 26.25,
+                "date": "2025-07-31T09:30:46.056Z"
+              },
+              {
+                "campaign": "Wesley (general)",
+                "cr": 0,
+                "date": "2025-07-31T09:30:48.133Z"
+              },
+              {
+                "campaign": "Wesley (general)",
+                "cr": 0,
+                "date": "2025-07-31T09:30:50.102Z"
+              },
+              {
+                "campaign": "Wesley (general)",
+                "cr": 1.02,
+                "date": "2025-07-31T09:30:52.167Z"
+              },
+              {
+                "campaign": "Wesley - Auto CBot",
+                "cr": 0,
+                "date": "2025-07-31T09:36:19.776Z"
+              },
+              {
+                "campaign": "Wesley - Auto CBot",
+                "cr": 0,
+                "date": "2025-07-31T09:36:21.751Z"
+              },
+              {
+                "campaign": "Wesley - Auto CBot",
+                "cr": 26.25,
+                "date": "2025-07-31T09:36:23.885Z"
+              },
+              {
+                "campaign": "Wesley - ACA Form (Grocery) CBot",
+                "cr": 0,
+                "date": "2025-07-31T09:36:29.435Z"
+              },
+              {
+                "campaign": "Wesley - ACA Form (Grocery) CBot",
+                "cr": 0,
+                "date": "2025-07-31T09:36:31.627Z"
+              },
+              {
+                "campaign": "Wesley - ACA Form (Grocery) CBot",
+                "cr": 1.02,
+                "date": "2025-07-31T09:36:33.795Z"
+              }
+            ]
+          }
+        ]
+      ],
+      "ctas": [
+        [
+          "Unknown",
+          {
+            "uses": 45,
+            "totalCR": 199.43000000000004,
+            "avgCR": 4.4317777777777785,
+            "campaigns": [
+              {
+                "campaign": "Test Medicare Benefits Cbot",
+                "cr": 3,
+                "date": "2025-07-31T07:35:09.006Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:23:17.241Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:23:19.310Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 26.25,
+                "date": "2025-07-31T08:23:21.327Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:23:23.391Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:23:25.298Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 1.03,
+                "date": "2025-07-31T08:23:27.326Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 2.76,
+                "date": "2025-07-31T08:23:29.531Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:32:23.552Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:32:25.803Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 26.25,
+                "date": "2025-07-31T08:32:27.963Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:32:30.069Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:32:32.112Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 1.03,
+                "date": "2025-07-31T08:32:34.239Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 2.76,
+                "date": "2025-07-31T08:32:36.301Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:45:04.164Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:45:06.247Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 26.25,
+                "date": "2025-07-31T08:45:08.491Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:45:10.667Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:45:12.822Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 1.02,
+                "date": "2025-07-31T08:45:15.001Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T09:02:44.547Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T09:02:46.760Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 26.25,
+                "date": "2025-07-31T09:02:48.927Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T09:02:51.235Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T09:02:53.356Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 1.02,
+                "date": "2025-07-31T09:02:55.282Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T09:14:58.838Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T09:15:01.454Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 26.25,
+                "date": "2025-07-31T09:15:03.957Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T09:15:06.285Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T09:15:09.160Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 1.02,
+                "date": "2025-07-31T09:15:11.485Z"
+              },
+              {
+                "campaign": "Wesley (general)",
+                "cr": 0,
+                "date": "2025-07-31T09:30:41.737Z"
+              },
+              {
+                "campaign": "Wesley (general)",
+                "cr": 0,
+                "date": "2025-07-31T09:30:43.793Z"
+              },
+              {
+                "campaign": "Wesley (general)",
+                "cr": 26.25,
+                "date": "2025-07-31T09:30:46.056Z"
+              },
+              {
+                "campaign": "Wesley (general)",
+                "cr": 0,
+                "date": "2025-07-31T09:30:48.133Z"
+              },
+              {
+                "campaign": "Wesley (general)",
+                "cr": 0,
+                "date": "2025-07-31T09:30:50.102Z"
+              },
+              {
+                "campaign": "Wesley (general)",
+                "cr": 1.02,
+                "date": "2025-07-31T09:30:52.167Z"
+              },
+              {
+                "campaign": "Wesley - Auto CBot",
+                "cr": 0,
+                "date": "2025-07-31T09:36:19.776Z"
+              },
+              {
+                "campaign": "Wesley - Auto CBot",
+                "cr": 0,
+                "date": "2025-07-31T09:36:21.751Z"
+              },
+              {
+                "campaign": "Wesley - Auto CBot",
+                "cr": 26.25,
+                "date": "2025-07-31T09:36:23.885Z"
+              },
+              {
+                "campaign": "Wesley - ACA Form (Grocery) CBot",
+                "cr": 0,
+                "date": "2025-07-31T09:36:29.435Z"
+              },
+              {
+                "campaign": "Wesley - ACA Form (Grocery) CBot",
+                "cr": 0,
+                "date": "2025-07-31T09:36:31.627Z"
+              },
+              {
+                "campaign": "Wesley - ACA Form (Grocery) CBot",
+                "cr": 1.02,
+                "date": "2025-07-31T09:36:33.795Z"
+              }
+            ]
+          }
+        ]
+      ]
     },
     "auto": {
-      "headlines": [],
-      "ctas": []
+      "headlines": [
+        [
+          "Unknown",
+          {
+            "uses": 45,
+            "totalCR": 199.43000000000004,
+            "avgCR": 4.4317777777777785,
+            "campaigns": [
+              {
+                "campaign": "Test Medicare Benefits Cbot",
+                "cr": 3,
+                "date": "2025-07-31T07:35:09.006Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:23:17.241Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:23:19.310Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 26.25,
+                "date": "2025-07-31T08:23:21.327Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:23:23.391Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:23:25.298Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 1.03,
+                "date": "2025-07-31T08:23:27.326Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 2.76,
+                "date": "2025-07-31T08:23:29.531Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:32:23.552Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:32:25.803Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 26.25,
+                "date": "2025-07-31T08:32:27.963Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:32:30.069Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:32:32.112Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 1.03,
+                "date": "2025-07-31T08:32:34.239Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 2.76,
+                "date": "2025-07-31T08:32:36.301Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:45:04.164Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:45:06.247Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 26.25,
+                "date": "2025-07-31T08:45:08.491Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:45:10.667Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:45:12.822Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 1.02,
+                "date": "2025-07-31T08:45:15.001Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T09:02:44.547Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T09:02:46.760Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 26.25,
+                "date": "2025-07-31T09:02:48.927Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T09:02:51.235Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T09:02:53.356Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 1.02,
+                "date": "2025-07-31T09:02:55.282Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T09:14:58.838Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T09:15:01.454Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 26.25,
+                "date": "2025-07-31T09:15:03.957Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T09:15:06.285Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T09:15:09.160Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 1.02,
+                "date": "2025-07-31T09:15:11.485Z"
+              },
+              {
+                "campaign": "Wesley (general)",
+                "cr": 0,
+                "date": "2025-07-31T09:30:41.737Z"
+              },
+              {
+                "campaign": "Wesley (general)",
+                "cr": 0,
+                "date": "2025-07-31T09:30:43.793Z"
+              },
+              {
+                "campaign": "Wesley (general)",
+                "cr": 26.25,
+                "date": "2025-07-31T09:30:46.056Z"
+              },
+              {
+                "campaign": "Wesley (general)",
+                "cr": 0,
+                "date": "2025-07-31T09:30:48.133Z"
+              },
+              {
+                "campaign": "Wesley (general)",
+                "cr": 0,
+                "date": "2025-07-31T09:30:50.102Z"
+              },
+              {
+                "campaign": "Wesley (general)",
+                "cr": 1.02,
+                "date": "2025-07-31T09:30:52.167Z"
+              },
+              {
+                "campaign": "Wesley - Auto CBot",
+                "cr": 0,
+                "date": "2025-07-31T09:36:19.776Z"
+              },
+              {
+                "campaign": "Wesley - Auto CBot",
+                "cr": 0,
+                "date": "2025-07-31T09:36:21.751Z"
+              },
+              {
+                "campaign": "Wesley - Auto CBot",
+                "cr": 26.25,
+                "date": "2025-07-31T09:36:23.885Z"
+              },
+              {
+                "campaign": "Wesley - ACA Form (Grocery) CBot",
+                "cr": 0,
+                "date": "2025-07-31T09:36:29.435Z"
+              },
+              {
+                "campaign": "Wesley - ACA Form (Grocery) CBot",
+                "cr": 0,
+                "date": "2025-07-31T09:36:31.627Z"
+              },
+              {
+                "campaign": "Wesley - ACA Form (Grocery) CBot",
+                "cr": 1.02,
+                "date": "2025-07-31T09:36:33.795Z"
+              }
+            ]
+          }
+        ]
+      ],
+      "ctas": [
+        [
+          "Unknown",
+          {
+            "uses": 45,
+            "totalCR": 199.43000000000004,
+            "avgCR": 4.4317777777777785,
+            "campaigns": [
+              {
+                "campaign": "Test Medicare Benefits Cbot",
+                "cr": 3,
+                "date": "2025-07-31T07:35:09.006Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:23:17.241Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:23:19.310Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 26.25,
+                "date": "2025-07-31T08:23:21.327Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:23:23.391Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:23:25.298Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 1.03,
+                "date": "2025-07-31T08:23:27.326Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 2.76,
+                "date": "2025-07-31T08:23:29.531Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:32:23.552Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:32:25.803Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 26.25,
+                "date": "2025-07-31T08:32:27.963Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:32:30.069Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:32:32.112Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 1.03,
+                "date": "2025-07-31T08:32:34.239Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 2.76,
+                "date": "2025-07-31T08:32:36.301Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:45:04.164Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:45:06.247Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 26.25,
+                "date": "2025-07-31T08:45:08.491Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:45:10.667Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T08:45:12.822Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 1.02,
+                "date": "2025-07-31T08:45:15.001Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T09:02:44.547Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T09:02:46.760Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 26.25,
+                "date": "2025-07-31T09:02:48.927Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T09:02:51.235Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T09:02:53.356Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 1.02,
+                "date": "2025-07-31T09:02:55.282Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T09:14:58.838Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T09:15:01.454Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 26.25,
+                "date": "2025-07-31T09:15:03.957Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T09:15:06.285Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 0,
+                "date": "2025-07-31T09:15:09.160Z"
+              },
+              {
+                "campaign": "Wesley",
+                "cr": 1.02,
+                "date": "2025-07-31T09:15:11.485Z"
+              },
+              {
+                "campaign": "Wesley (general)",
+                "cr": 0,
+                "date": "2025-07-31T09:30:41.737Z"
+              },
+              {
+                "campaign": "Wesley (general)",
+                "cr": 0,
+                "date": "2025-07-31T09:30:43.793Z"
+              },
+              {
+                "campaign": "Wesley (general)",
+                "cr": 26.25,
+                "date": "2025-07-31T09:30:46.056Z"
+              },
+              {
+                "campaign": "Wesley (general)",
+                "cr": 0,
+                "date": "2025-07-31T09:30:48.133Z"
+              },
+              {
+                "campaign": "Wesley (general)",
+                "cr": 0,
+                "date": "2025-07-31T09:30:50.102Z"
+              },
+              {
+                "campaign": "Wesley (general)",
+                "cr": 1.02,
+                "date": "2025-07-31T09:30:52.167Z"
+              },
+              {
+                "campaign": "Wesley - Auto CBot",
+                "cr": 0,
+                "date": "2025-07-31T09:36:19.776Z"
+              },
+              {
+                "campaign": "Wesley - Auto CBot",
+                "cr": 0,
+                "date": "2025-07-31T09:36:21.751Z"
+              },
+              {
+                "campaign": "Wesley - Auto CBot",
+                "cr": 26.25,
+                "date": "2025-07-31T09:36:23.885Z"
+              },
+              {
+                "campaign": "Wesley - ACA Form (Grocery) CBot",
+                "cr": 0,
+                "date": "2025-07-31T09:36:29.435Z"
+              },
+              {
+                "campaign": "Wesley - ACA Form (Grocery) CBot",
+                "cr": 0,
+                "date": "2025-07-31T09:36:31.627Z"
+              },
+              {
+                "campaign": "Wesley - ACA Form (Grocery) CBot",
+                "cr": 1.02,
+                "date": "2025-07-31T09:36:33.795Z"
+              }
+            ]
+          }
+        ]
+      ]
     }
   },
   "nextTests": [
