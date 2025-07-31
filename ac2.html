@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <meta name="format-detection" content="telephone=no">
-    <title>Wesley - ACA_AC2 - Facebook - Special Offer</title>
+    <title>47,892 American Families Already Getting $500/Month for Groceries</title>
     <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
     <style>
         * {
@@ -51,33 +51,23 @@
             margin-bottom: 0;
         }
         
-        .warning-box {
-            background-color: #fff3cd;
-            border: 2px solid #ffc107;
-            border-radius: 8px;
+        .social-proof-banner {
+            background: linear-gradient(to right, #28a745, #20c997);
+            color: white;
             padding: 15px;
-            margin-bottom: 20px;
             text-align: center;
-        }
-        
-        .warning-text {
-            color: #856404;
-            font-size: 16px;
+            margin-bottom: 25px;
             font-weight: 600;
+            font-size: 16px;
         }
         
-        .crisis-headline {
-            color: #dc3545;
-            font-size: 38px;
+        .counter {
+            font-size: 24px;
             font-weight: 700;
-            text-align: center;
-            margin-bottom: 20px;
-            padding: 0 20px;
-            line-height: 1.1;
         }
         
-        .relief-headline {
-            font-size: 30px;
+        .main-headline {
+            font-size: 36px;
             font-weight: 700;
             text-align: center;
             margin-bottom: 20px;
@@ -86,23 +76,22 @@
             line-height: 1.2;
         }
         
-        .relief-headline .amount {
+        .main-headline .highlight {
             color: #28a745;
-            font-size: 36px;
         }
         
-        .urgency-text {
-            font-size: 18px;
+        .subheadline {
+            font-size: 20px;
             text-align: center;
-            color: #dc3545;
-            margin-bottom: 25px;
+            color: #495057;
+            margin-bottom: 30px;
             padding: 0 20px;
-            font-weight: 600;
+            font-weight: 500;
         }
         
         .hero-image {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
             padding: 0 20px;
         }
         
@@ -114,33 +103,65 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
         
-        .grocery-facts {
+        .testimonial-section {
             background-color: #f8f9fa;
             border-radius: 8px;
             padding: 25px;
-            margin: 30px 20px;
+            margin: 30px 0;
         }
         
-        .fact-title {
+        .testimonial-title {
             font-size: 22px;
             font-weight: 700;
-            color: #dc3545;
-            margin-bottom: 15px;
             text-align: center;
+            margin-bottom: 20px;
+            color: #0d6efd;
         }
         
-        .fact-item {
+        .testimonial {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .testimonial-text {
             font-size: 16px;
-            color: #495057;
+            color: #212529;
             margin-bottom: 10px;
-            padding-left: 25px;
-            position: relative;
+            font-style: italic;
         }
         
-        .fact-item:before {
-            content: "⚠️";
-            position: absolute;
-            left: 0;
+        .testimonial-author {
+            font-size: 14px;
+            color: #6c757d;
+            font-weight: 600;
+        }
+        
+        .stats-section {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 30px 0;
+            gap: 20px;
+        }
+        
+        .stat-box {
+            text-align: center;
+            flex: 1;
+            min-width: 150px;
+        }
+        
+        .stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: #28a745;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: #6c757d;
         }
         
         .cta-section {
@@ -153,17 +174,13 @@
             font-size: 26px;
             font-weight: 700;
             color: #0d6efd;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
         
-        .countdown-box {
-            background-color: #dc3545;
-            color: white;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 25px;
+        .join-text {
             font-size: 18px;
-            font-weight: 600;
+            color: #495057;
+            margin-bottom: 20px;
         }
         
         .question {
@@ -206,13 +223,12 @@
         }
         
         .btn-yes {
-            background-color: #28a745;
+            background-color: #0d6efd;
             color: white;
-            animation: pulse 2s infinite;
         }
         
         .btn-yes:hover {
-            background-color: #218838;
+            background-color: #0b5ed7;
         }
         
         .btn-no {
@@ -222,18 +238,6 @@
         
         .btn-no:hover {
             background-color: #5c636a;
-        }
-        
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7);
-            }
-            70% {
-                box-shadow: 0 0 0 10px rgba(40, 167, 69, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(40, 167, 69, 0);
-            }
         }
         
         footer {
@@ -272,15 +276,11 @@
         }
         
         @media (max-width: 480px) {
-            .crisis-headline {
+            .main-headline {
                 font-size: 28px;
             }
             
-            .relief-headline {
-                font-size: 24px;
-            }
-            
-            .relief-headline .amount {
+            .stat-number {
                 font-size: 30px;
             }
             
@@ -290,6 +290,30 @@
             }
         }
     </style>
+    <script>
+        // Simple counter animation
+        function animateCounter() {
+            const counter = document.querySelector('.counter');
+            if (!counter) return;
+            
+            const target = 2847;
+            const duration = 2000; // 2 seconds
+            const increment = target / (duration / 16); // 60fps
+            let current = 2700; // Start slightly below
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                counter.textContent = Math.floor(current).toLocaleString();
+            }, 16);
+        }
+
+        // Run when page loads
+        document.addEventListener('DOMContentLoaded', animateCounter);
+    </script>
 </head>
 <body>
     <!-- Header -->
@@ -304,41 +328,63 @@
     <!-- Main Content -->
     <main class="main-content">
         <div class="container">
-            <div class="warning-box">
-                <p class="warning-text">⚠️ URGENT: Limited Grocery Cards Available in Your Area</p>
+            <div class="social-proof-banner">
+                🔥 <span class="counter">2,847</span> Americans claimed their card in the last 24 hours!
             </div>
             
-            <h1 class="crisis-headline">Grocery Prices SKYROCKET 47% in 2025</h1>
+            <h1 class="main-headline">
+                47,892 American Families Already Get <span class="highlight">$500/Month</span> for Groceries
+            </h1>
             
-            <h2 class="relief-headline">
-                Emergency Relief: <span class="amount">$500/Month</span> Grocery Cards Now Available
-            </h2>
-            
-            <p class="urgency-text">
-                WARNING: Only 127 cards left for Las Vegas residents today!
+            <p class="subheadline">
+                Join thousands of American families who never worry about grocery bills again
             </p>
             
             <div class="hero-image">
-                <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1753955622/Screenshot_2025-07-31_024853_dysuc0.png" alt="Woman with groceries and savings">
+                <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1753955622/Screenshot_2025-07-31_024853_dysuc0.png" alt="Happy family with grocery savings">
             </div>
             
-            <div class="grocery-facts">
-                <h3 class="fact-title">The Grocery Crisis Is Real:</h3>
-                <div class="fact-item">Milk prices up 62% since last year</div>
-                <div class="fact-item">Bread costs $4.79 per loaf (was $2.99)</div>
-                <div class="fact-item">Average family spends $1,847/month on groceries</div>
-                <div class="fact-item">87% of Americans struggling to afford food</div>
+            <div class="stats-section">
+                <div class="stat-box">
+                    <div class="stat-number">47,892</div>
+                    <div class="stat-label">Active Card Holders</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">$500</div>
+                    <div class="stat-label">Monthly Benefit</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">4.9★</div>
+                    <div class="stat-label">User Rating</div>
+                </div>
+            </div>
+            
+            <div class="testimonial-section">
+                <h3 class="testimonial-title">What Your Fellow Americans Are Saying:</h3>
+                
+                <div class="testimonial">
+                    <p class="testimonial-text">"I save $487 every month on groceries! This card changed my life. I can finally afford fresh produce for my kids."</p>
+                    <p class="testimonial-author">— Maria S., Phoenix, AZ (claimed 3 weeks ago)</p>
+                </div>
+                
+                <div class="testimonial">
+                    <p class="testimonial-text">"Why didn't I sign up sooner? My neighbor told me about it and now we both save hundreds on groceries!"</p>
+                    <p class="testimonial-author">— Robert Chen, Dallas, TX (claimed yesterday)</p>
+                </div>
+                
+                <div class="testimonial">
+                    <p class="testimonial-text">"Works at every major grocery store. I use mine at Kroger, Safeway, and even Whole Foods!"</p>
+                    <p class="testimonial-author">— Angela Davis, Miami, FL (active member since January)</p>
+                </div>
             </div>
             
             <div class="cta-section">
-                <div class="countdown-box">
-                    ⏰ Registration Closes at Midnight Tonight!
-                </div>
-                <h3 class="cta-title">Claim Your $500 Monthly Grocery Card NOW</h3>
-                <p class="question">Is your household income under $50,000/year?</p>
+                <h3 class="cta-title">Don't Be Left Behind!</h3>
+                <p class="join-text">Your neighbors are already saving. What are you waiting for?</p>
+                <p class="question">Do you qualify? (Income under $50,000/year)</p>
                 <div class="button-group">
-                    <a href="https://hpkpn.ttrk.io/click" class="btn btn-yes">YES - Claim My Card!</a>
-                    <a href="https://hpkpn.ttrk.io/click" class="btn btn-no">No</a>
+                    <a href="https://hpkpn.ttrk.io/click" class="btn btn-yes">Yes - Join 47,892 Americans!</a>
+                    <a href="https://hpkpn.ttrk.io/click" class="btn btn-no">No, I Don't Qualify</a>
                 </div>
             </div>
             
