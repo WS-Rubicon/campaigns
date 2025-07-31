@@ -1,0 +1,34 @@
+{
+  "campaigns": {
+    "Test Medicare Campaign Cbot": {
+      "performances": [
+        {
+          "timestamp": "2025-07-31T07:18:20.900Z",
+          "landingPage": "tm1",
+          "cr": 3,
+          "profit": 150
+        }
+      ],
+      "bestPerformance": {
+        "landingPage": "tm1",
+        "cr": 3,
+        "elements": {
+          "headline": "Save 70% on Medicare",
+          "cta": "Get Free Quote",
+          "urgency": "Limited time offer"
+        }
+      },
+      "worstPerformance": {
+        "landingPage": "tm1",
+        "cr": 3,
+        "elements": {
+          "headline": "Save 70% on Medicare",
+          "cta": "Get Free Quote",
+          "urgency": "Limited time offer"
+        }
+      },
+      "avgCR": 3
+    }
+  },
+  "crossCampaignLearnings": {}
+}
