@@ -118,6 +118,21 @@
         "conversions": 0,
         "cr": 0
       }
+    },
+    "testimonial": {
+      "path": "assets/images/we_testimonial_1753994470955.png",
+      "prompt": {
+        "title": "aca testimonial",
+        "prompt": "Professional portrait of a satisfied customer (age 30-60) with authentic expression, business casual clothing, warm lighting.",
+        "dalle_prompt": "Professional portrait of a satisfied customer (age 30-60) with authentic expression, business casual clothing, warm lighting."
+      },
+      "generatedAt": "2025-07-31T20:41:14.690Z",
+      "generator": "dall-e-3",
+      "performance": {
+        "views": 0,
+        "conversions": 0,
+        "cr": 0
+      }
     }
   }
 }
