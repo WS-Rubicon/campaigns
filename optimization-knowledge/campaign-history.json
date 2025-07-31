@@ -782,6 +782,12 @@
           "landingPage": "Wesley - ACA_AC3 - Facebook",
           "cr": 0,
           "profit": -61.8645
+        },
+        {
+          "timestamp": "2025-07-31T20:40:20.663Z",
+          "landingPage": "Wesley - ACA_AC4 - Facebook",
+          "cr": 1.45,
+          "profit": -8.078199999999995
         }
       ],
       "bestPerformance": {
@@ -818,7 +824,7 @@
           "error": true
         }
       },
-      "avgCR": 0.5058823529411764
+      "avgCR": 0.5583333333333332
     },
     "68493ea00fa42444709cf7a8": {
       "performances": [
