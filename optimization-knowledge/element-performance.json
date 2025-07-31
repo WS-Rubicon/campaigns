@@ -397,14 +397,19 @@
       ]
     },
     "Grocery Prices SKYROCKET 47% in 2025": {
-      "uses": 1,
-      "totalCR": 1.05,
-      "avgCR": 1.05,
+      "uses": 2,
+      "totalCR": 2.55,
+      "avgCR": 1.275,
       "campaigns": [
         {
           "campaign": "Wesley - ACA",
           "cr": 1.05,
           "date": "2025-07-31T19:49:08.497Z"
+        },
+        {
+          "campaign": "Wesley - ACA",
+          "cr": 1.5,
+          "date": "2025-07-31T20:13:04.605Z"
         }
       ]
     },
@@ -435,9 +440,9 @@
       ]
     },
     "Unknown": {
-      "uses": 73,
-      "totalCR": 323.59000000000003,
-      "avgCR": 4.432739726027398,
+      "uses": 74,
+      "totalCR": 325.09000000000003,
+      "avgCR": 4.393108108108109,
       "campaigns": [
         {
           "campaign": "Test Medicare Benefits Cbot",
@@ -803,6 +808,11 @@
           "campaign": "Wesley - ACA",
           "cr": 0,
           "date": "2025-07-31T20:13:01.501Z"
+        },
+        {
+          "campaign": "Wesley - ACA",
+          "cr": 1.5,
+          "date": "2025-07-31T20:13:04.605Z"
         }
       ]
     },
