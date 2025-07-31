@@ -547,11 +547,17 @@
           "landingPage": "Wesley - ACA (G) I7 - Facebook",
           "cr": 0,
           "profit": 0
+        },
+        {
+          "timestamp": "2025-07-31T19:49:00.005Z",
+          "landingPage": "Wesley - ACA (G) I7P - Facebook",
+          "cr": 1.04,
+          "profit": -587.6261
         }
       ],
       "bestPerformance": {
-        "landingPage": "Wesley - ACA (G) I7 - Facebook",
-        "cr": 0,
+        "landingPage": "Wesley - ACA (G) I7P - Facebook",
+        "cr": 1.04,
         "elements": {
           "headline": "Unknown",
           "cta": "Unknown",
@@ -569,7 +575,7 @@
           "error": true
         }
       },
-      "avgCR": 0
+      "avgCR": 0.52
     }
   },
   "crossCampaignLearnings": {}
