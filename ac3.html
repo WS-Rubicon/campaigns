@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <meta name="format-detection" content="telephone=no">
-    <title>47,892 Las Vegas Families Already Getting $500/Month for Groceries</title>
+    <title>Fill Your Cart: Fresh Ribeye, Organic Berries, Name-Brand Cereal - All FREE with Your $500 Card</title>
     <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
     <style>
         * {
@@ -51,42 +51,28 @@
             margin-bottom: 0;
         }
         
-        .social-proof-banner {
-            background: linear-gradient(to right, #28a745, #20c997);
-            color: white;
-            padding: 15px;
-            text-align: center;
-            margin-bottom: 25px;
-            font-weight: 600;
-            font-size: 16px;
-        }
-        
-        .counter {
-            font-size: 24px;
-            font-weight: 700;
-        }
-        
-        .main-headline {
+        .vivid-headline {
             font-size: 36px;
             font-weight: 700;
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             color: #000000;
             padding: 0 20px;
             line-height: 1.2;
         }
         
-        .main-headline .highlight {
+        .vivid-headline .price {
             color: #28a745;
+            font-size: 42px;
         }
         
-        .subheadline {
+        .specific-subhead {
             font-size: 20px;
             text-align: center;
-            color: #495057;
+            color: #dc3545;
             margin-bottom: 30px;
             padding: 0 20px;
-            font-weight: 500;
+            font-weight: 600;
         }
         
         .hero-image {
@@ -103,64 +89,89 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
         
-        .testimonial-section {
-            background-color: #f8f9fa;
+        .grocery-list {
+            background-color: #fff8e1;
+            border: 2px dashed #ffc107;
             border-radius: 8px;
             padding: 25px;
             margin: 30px 0;
         }
         
-        .testimonial-title {
-            font-size: 22px;
+        .list-title {
+            font-size: 24px;
             font-weight: 700;
             text-align: center;
             margin-bottom: 20px;
             color: #0d6efd;
         }
         
-        .testimonial {
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        .grocery-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #e0e0e0;
         }
         
-        .testimonial-text {
+        .grocery-item:last-child {
+            border-bottom: none;
+        }
+        
+        .item-name {
             font-size: 16px;
             color: #212529;
-            margin-bottom: 10px;
-            font-style: italic;
-        }
-        
-        .testimonial-author {
-            font-size: 14px;
-            color: #6c757d;
-            font-weight: 600;
-        }
-        
-        .stats-section {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            margin: 30px 0;
-            gap: 20px;
-        }
-        
-        .stat-box {
-            text-align: center;
             flex: 1;
-            min-width: 150px;
         }
         
-        .stat-number {
-            font-size: 36px;
-            font-weight: 700;
-            color: #28a745;
+        .item-price {
+            font-size: 16px;
+            color: #6c757d;
+            text-decoration: line-through;
+            margin-right: 15px;
         }
         
-        .stat-label {
+        .free-badge {
+            background-color: #28a745;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
             font-size: 14px;
+            font-weight: 700;
+        }
+        
+        .total-savings {
+            background-color: #28a745;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .savings-amount {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .savings-text {
+            font-size: 18px;
+        }
+        
+        .stores-section {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .stores-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #495057;
+        }
+        
+        .store-list {
+            font-size: 16px;
             color: #6c757d;
         }
         
@@ -174,12 +185,6 @@
             font-size: 26px;
             font-weight: 700;
             color: #0d6efd;
-            margin-bottom: 15px;
-        }
-        
-        .join-text {
-            font-size: 18px;
-            color: #495057;
             margin-bottom: 20px;
         }
         
@@ -223,12 +228,14 @@
         }
         
         .btn-yes {
-            background-color: #0d6efd;
+            background-color: #ff6b35;
             color: white;
+            font-size: 22px;
+            padding: 20px;
         }
         
         .btn-yes:hover {
-            background-color: #0b5ed7;
+            background-color: #e55a2b;
         }
         
         .btn-no {
@@ -276,12 +283,16 @@
         }
         
         @media (max-width: 480px) {
-            .main-headline {
+            .vivid-headline {
                 font-size: 28px;
             }
             
-            .stat-number {
-                font-size: 30px;
+            .vivid-headline .price {
+                font-size: 34px;
+            }
+            
+            .savings-amount {
+                font-size: 36px;
             }
             
             .footer-content {
@@ -304,63 +315,76 @@
     <!-- Main Content -->
     <main class="main-content">
         <div class="container">
-            <div class="social-proof-banner">
-                🔥 <span class="counter">2,847</span> Las Vegas residents claimed their card in the last 24 hours!
-            </div>
-            
-            <h1 class="main-headline">
-                47,892 Neighbors Already Get <span class="highlight">$500/Month</span> for Groceries
+            <h1 class="vivid-headline">
+                Picture This: <span class="price">$500</span> Worth of FREE Groceries Every Single Month
             </h1>
             
-            <p class="subheadline">
-                Join thousands of Las Vegas families who never worry about grocery bills again
+            <p class="specific-subhead">
+                Fresh USDA Prime Beef • Haagen-Dazs Ice Cream • Organic Strawberries • All Yours!
             </p>
             
             <div class="hero-image">
-                <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1753955622/Screenshot_2025-07-31_024853_dysuc0.png" alt="Happy family with grocery savings">
+                <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1753955622/Screenshot_2025-07-31_024853_dysuc0.png" alt="Shopping cart full of premium groceries">
             </div>
             
-            <div class="stats-section">
-                <div class="stat-box">
-                    <div class="stat-number">47,892</div>
-                    <div class="stat-label">Active Card Holders</div>
+            <div class="grocery-list">
+                <h3 class="list-title">Your Next Shopping Trip Could Look Like This:</h3>
+                
+                <div class="grocery-item">
+                    <span class="item-name">🥩 2 lbs USDA Prime Ribeye Steaks</span>
+                    <span class="item-price">$47.98</span>
+                    <span class="free-badge">FREE</span>
                 </div>
-                <div class="stat-box">
-                    <div class="stat-number">$500</div>
-                    <div class="stat-label">Monthly Benefit</div>
+                
+                <div class="grocery-item">
+                    <span class="item-name">🍓 4 packs Driscoll's Organic Berries</span>
+                    <span class="item-price">$23.96</span>
+                    <span class="free-badge">FREE</span>
                 </div>
-                <div class="stat-box">
-                    <div class="stat-number">4.9★</div>
-                    <div class="stat-label">User Rating</div>
+                
+                <div class="grocery-item">
+                    <span class="item-name">🥛 Horizon Organic Whole Milk (3 gallons)</span>
+                    <span class="item-price">$20.97</span>
+                    <span class="free-badge">FREE</span>
+                </div>
+                
+                <div class="grocery-item">
+                    <span class="item-name">🥐 La Brea Bakery Artisan Breads (4 loaves)</span>
+                    <span class="item-price">$19.96</span>
+                    <span class="free-badge">FREE</span>
+                </div>
+                
+                <div class="grocery-item">
+                    <span class="item-name">🧀 Tillamook Sharp Cheddar (2 lbs)</span>
+                    <span class="item-price">$15.98</span>
+                    <span class="free-badge">FREE</span>
+                </div>
+                
+                <div class="grocery-item">
+                    <span class="item-name">🍦 Haagen-Dazs Ice Cream (6 pints)</span>
+                    <span class="item-price">$29.94</span>
+                    <span class="free-badge">FREE</span>
                 </div>
             </div>
             
-            <div class="testimonial-section">
-                <h3 class="testimonial-title">What Your Neighbors Are Saying:</h3>
-                
-                <div class="testimonial">
-                    <p class="testimonial-text">"I save $487 every month on groceries! This card changed my life. I can finally afford fresh produce for my kids."</p>
-                    <p class="testimonial-author">— Maria S., North Las Vegas (claimed 3 weeks ago)</p>
-                </div>
-                
-                <div class="testimonial">
-                    <p class="testimonial-text">"Why didn't I sign up sooner? My neighbor told me about it and now we both save hundreds on groceries!"</p>
-                    <p class="testimonial-author">— Robert Chen, Henderson (claimed yesterday)</p>
-                </div>
-                
-                <div class="testimonial">
-                    <p class="testimonial-text">"Works at every major grocery store. I use mine at Smith's, Albertsons, and even Whole Foods!"</p>
-                    <p class="testimonial-author">— Angela Davis, Summerlin (active member since January)</p>
-                </div>
+            <div class="total-savings">
+                <div class="savings-amount">$500.00</div>
+                <div class="savings-text">In Your Pocket Every Month!</div>
+            </div>
+            
+            <div class="stores-section">
+                <h3 class="stores-title">Works at ALL Your Favorite Stores:</h3>
+                <p class="store-list">
+                    Smith's • Albertsons • Whole Foods • Trader Joe's • Sprouts • Walmart • Target • Costco • Sam's Club
+                </p>
             </div>
             
             <div class="cta-section">
-                <h3 class="cta-title">Don't Be the Only One Missing Out!</h3>
-                <p class="join-text">Your neighbors are already saving. What are you waiting for?</p>
-                <p class="question">Do you qualify? (Income under $50,000/year)</p>
+                <h3 class="cta-title">Stop Paying for Groceries. Start Today!</h3>
+                <p class="question">Annual household income under $50,000?</p>
                 <div class="button-group">
-                    <a href="https://hpkpn.ttrk.io/click" class="btn btn-yes">Yes - Join 47,892 Others!</a>
-                    <a href="https://hpkpn.ttrk.io/click" class="btn btn-no">No, I Don't Qualify</a>
+                    <a href="https://hpkpn.ttrk.io/click" class="btn btn-yes">YES! Give Me My $500 Card →</a>
+                    <a href="https://hpkpn.ttrk.io/click" class="btn btn-no">No, I Make Too Much</a>
                 </div>
             </div>
             
