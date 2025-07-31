@@ -148,6 +148,34 @@
         "hourOfDay": 1,
         "season": "summer"
       }
+    },
+    {
+      "timestamp": "2025-07-31T08:23:25.298Z",
+      "campaign": "Wesley",
+      "landingPage": "Wesley - ACA Form (Grocery) CBot - Facebook - Wesley - ACA C5 - Facebook",
+      "stats": {
+        "landingName": "Wesley - ACA Form (Grocery) CBot - Facebook - Wesley - ACA C5 - Facebook",
+        "clicks": 1,
+        "conversions": 0,
+        "cr": 0,
+        "revenue": 0,
+        "cost": 0,
+        "profit": 0,
+        "roi": 0,
+        "cpc": 0,
+        "cpa": 0
+      },
+      "elements": {
+        "headline": "Unknown",
+        "cta": "Unknown",
+        "images": {},
+        "error": true
+      },
+      "context": {
+        "dayOfWeek": 4,
+        "hourOfDay": 1,
+        "season": "summer"
+      }
     }
   ],
   "recognizedTrends": {
@@ -162,6 +190,7 @@
         0,
         0,
         26.25,
+        0,
         0
       ],
       "avgCR": 0
