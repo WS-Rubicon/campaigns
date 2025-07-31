@@ -282,6 +282,37 @@
         }
       },
       "avgCR": 4.4340625000000005
+    },
+    "Wesley (general)": {
+      "performances": [
+        {
+          "timestamp": "2025-07-31T09:30:41.737Z",
+          "landingPage": "Wesley - Auto CBot - Facebook - Wesley - Auto V1- CBot - Newsbreak",
+          "cr": 0,
+          "profit": 0
+        }
+      ],
+      "bestPerformance": {
+        "landingPage": "Wesley - Auto CBot - Facebook - Wesley - Auto V1- CBot - Newsbreak",
+        "cr": 0,
+        "elements": {
+          "headline": "Unknown",
+          "cta": "Unknown",
+          "images": {},
+          "error": true
+        }
+      },
+      "worstPerformance": {
+        "landingPage": "Wesley - Auto CBot - Facebook - Wesley - Auto V1- CBot - Newsbreak",
+        "cr": 0,
+        "elements": {
+          "headline": "Unknown",
+          "cta": "Unknown",
+          "images": {},
+          "error": true
+        }
+      },
+      "avgCR": 0
     }
   },
   "crossCampaignLearnings": {}
