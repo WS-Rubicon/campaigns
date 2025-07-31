@@ -13,9 +13,9 @@
       ]
     },
     "Unknown": {
-      "uses": 68,
-      "totalCR": 303.81000000000006,
-      "avgCR": 4.46779411764706,
+      "uses": 69,
+      "totalCR": 329.58000000000004,
+      "avgCR": 4.776521739130436,
       "campaigns": [
         {
           "campaign": "Test Medicare Benefits Cbot",
@@ -356,6 +356,11 @@
           "campaign": "66e7e1b2418246d4a67aa367",
           "cr": 0,
           "date": "2025-07-31T20:12:48.664Z"
+        },
+        {
+          "campaign": "66c6573e98b206ae1014e12c",
+          "cr": 25.77,
+          "date": "2025-07-31T20:12:51.301Z"
         }
       ]
     },
@@ -410,9 +415,9 @@
       ]
     },
     "Unknown": {
-      "uses": 68,
-      "totalCR": 296.78000000000003,
-      "avgCR": 4.364411764705883,
+      "uses": 69,
+      "totalCR": 322.55,
+      "avgCR": 4.67463768115942,
       "campaigns": [
         {
           "campaign": "Test Medicare Benefits Cbot",
@@ -753,6 +758,11 @@
           "campaign": "66e7e1b2418246d4a67aa367",
           "cr": 0,
           "date": "2025-07-31T20:12:48.664Z"
+        },
+        {
+          "campaign": "66c6573e98b206ae1014e12c",
+          "cr": 25.77,
+          "date": "2025-07-31T20:12:51.301Z"
         }
       ]
     },
