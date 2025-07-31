@@ -151,6 +151,12 @@
           "landingPage": "Wesley - MVA (Auto) - CBot - Newsbreak - Wesley - Auto V1- CBot - Newsbreak",
           "cr": 2.76,
           "profit": -520.3899
+        },
+        {
+          "timestamp": "2025-07-31T08:45:04.164Z",
+          "landingPage": "Wesley - Auto CBot - Facebook - Wesley - Auto V1- CBot - Newsbreak",
+          "cr": 0,
+          "profit": 0
         }
       ],
       "bestPerformance": {
@@ -173,7 +179,7 @@
           "error": true
         }
       },
-      "avgCR": 4.291428571428571
+      "avgCR": 4.005333333333334
     }
   },
   "crossCampaignLearnings": {}
