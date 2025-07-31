@@ -1,0 +1,33 @@
+{
+  "headlines": {
+    "Save 70% on Medicare": {
+      "uses": 1,
+      "totalCR": 3,
+      "avgCR": 3,
+      "campaigns": [
+        {
+          "campaign": "Test Medicare Campaign Cbot",
+          "cr": 3,
+          "date": "2025-07-31T07:18:20.900Z"
+        }
+      ]
+    }
+  },
+  "ctas": {
+    "Get Free Quote": {
+      "uses": 1,
+      "totalCR": 3,
+      "avgCR": 3,
+      "campaigns": [
+        {
+          "campaign": "Test Medicare Campaign Cbot",
+          "cr": 3,
+          "date": "2025-07-31T07:18:20.900Z"
+        }
+      ]
+    }
+  },
+  "urgencyMessages": {},
+  "trustElements": {},
+  "colorSchemes": {}
+}
