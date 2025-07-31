@@ -13,9 +13,9 @@
       ]
     },
     "Unknown": {
-      "uses": 44,
-      "totalCR": 198.41000000000003,
-      "avgCR": 4.509318181818182,
+      "uses": 45,
+      "totalCR": 199.43000000000004,
+      "avgCR": 4.4317777777777785,
       "campaigns": [
         {
           "campaign": "Test Medicare Benefits Cbot",
@@ -236,6 +236,11 @@
           "campaign": "Wesley - ACA Form (Grocery) CBot",
           "cr": 0,
           "date": "2025-07-31T09:36:31.627Z"
+        },
+        {
+          "campaign": "Wesley - ACA Form (Grocery) CBot",
+          "cr": 1.02,
+          "date": "2025-07-31T09:36:33.795Z"
         }
       ]
     },
@@ -266,9 +271,9 @@
       ]
     },
     "Unknown": {
-      "uses": 44,
-      "totalCR": 198.41000000000003,
-      "avgCR": 4.509318181818182,
+      "uses": 45,
+      "totalCR": 199.43000000000004,
+      "avgCR": 4.4317777777777785,
       "campaigns": [
         {
           "campaign": "Test Medicare Benefits Cbot",
@@ -489,6 +494,11 @@
           "campaign": "Wesley - ACA Form (Grocery) CBot",
           "cr": 0,
           "date": "2025-07-31T09:36:31.627Z"
+        },
+        {
+          "campaign": "Wesley - ACA Form (Grocery) CBot",
+          "cr": 1.02,
+          "date": "2025-07-31T09:36:33.795Z"
         }
       ]
     },
