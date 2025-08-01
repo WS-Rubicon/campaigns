@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <meta name="format-detection" content="telephone=no">
-    <title>WARNING: Grocery Prices Hit Record High - Get $500/Month Relief</title>
+    <title>Your Wellness Score Unlocked $500/Month in Rewards</title>
     <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
     <style>
         * {
@@ -15,8 +15,8 @@
         
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background-color: #f8f9fa;
-            color: #212529;
+            background-color: #0a0e27;
+            color: #ffffff;
             line-height: 1.5;
             min-width: 320px;
         }
@@ -27,11 +27,50 @@
             padding: 0 20px;
         }
         
+        /* Score Banner */
+        .score-banner {
+            background: linear-gradient(90deg, #00d2ff 0%, #3a7bd5 100%);
+            padding: 15px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .score-banner:before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: shine 3s infinite;
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+        
+        .score-display {
+            font-size: 24px;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .score-number {
+            font-size: 32px;
+            color: #ffeb3b;
+            text-shadow: 0 0 10px rgba(255,235,59,0.5);
+        }
+        
+        /* Header */
         header {
-            background-color: white;
+            background-color: #1a1f3a;
             padding: 25px 0;
             text-align: center;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
         }
         
         .logo {
@@ -45,64 +84,63 @@
             width: auto;
         }
         
+        /* Main Content */
         .main-content {
-            background-color: white;
+            background-color: #1a1f3a;
             padding: 40px 0 60px;
             margin-bottom: 0;
         }
         
-        .warning-box {
-            background-color: #fff3cd;
-            border: 2px solid #ffc107;
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        
-        .warning-text {
-            color: #856404;
+        .achievement-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: inline-block;
+            padding: 10px 30px;
+            border-radius: 30px;
             font-size: 16px;
             font-weight: 600;
+            margin: 0 auto 25px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
         }
         
-        .crisis-headline {
-            color: #dc3545;
-            font-size: 38px;
+        .badge-container {
+            text-align: center;
+        }
+        
+        .achievement-badge:before {
+            content: "🏆";
+            margin-right: 8px;
+            font-size: 20px;
+        }
+        
+        .score-headline {
+            font-size: 40px;
             font-weight: 700;
             text-align: center;
             margin-bottom: 20px;
-            padding: 0 20px;
-            line-height: 1.1;
-        }
-        
-        .relief-headline {
-            font-size: 30px;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 20px;
-            color: #000000;
+            color: #ffffff;
             padding: 0 20px;
             line-height: 1.2;
         }
         
-        .relief-headline .amount {
-            color: #28a745;
-            font-size: 36px;
+        .score-headline .reward {
+            color: #00d2ff;
+            text-shadow: 0 0 20px rgba(0,210,255,0.5);
         }
         
-        .urgency-text {
+        .subheadline {
             font-size: 18px;
             text-align: center;
-            color: #dc3545;
-            margin-bottom: 25px;
+            color: #b8c1ec;
+            margin-bottom: 35px;
             padding: 0 20px;
-            font-weight: 600;
+            font-weight: 400;
         }
         
         .hero-image {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             padding: 0 20px;
         }
         
@@ -110,37 +148,104 @@
             width: 100%;
             max-width: 500px;
             height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border: 2px solid #3a7bd5;
         }
         
-        .grocery-facts {
-            background-color: #f8f9fa;
-            border-radius: 8px;
+        .score-breakdown {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            border-radius: 16px;
+            padding: 30px;
+            margin: 30px 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .breakdown-title {
+            font-size: 20px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 25px;
+            color: #ffffff;
+        }
+        
+        .score-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .score-item:last-child {
+            border-bottom: none;
+        }
+        
+        .score-category {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .category-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+        
+        .category-details {
+            text-align: left;
+        }
+        
+        .category-name {
+            font-size: 16px;
+            color: #ffffff;
+            margin-bottom: 2px;
+        }
+        
+        .category-status {
+            font-size: 12px;
+            color: #00d2ff;
+        }
+        
+        .category-points {
+            font-size: 18px;
+            font-weight: 700;
+            color: #ffeb3b;
+        }
+        
+        .rewards-unlocked {
+            background-color: rgba(255,235,59,0.1);
+            border: 2px solid #ffeb3b;
+            border-radius: 12px;
             padding: 25px;
             margin: 30px 20px;
-        }
-        
-        .fact-title {
-            font-size: 22px;
-            font-weight: 700;
-            color: #dc3545;
-            margin-bottom: 15px;
             text-align: center;
         }
         
-        .fact-item {
-            font-size: 16px;
-            color: #495057;
-            margin-bottom: 10px;
-            padding-left: 25px;
-            position: relative;
+        .rewards-title {
+            font-size: 18px;
+            color: #ffeb3b;
+            font-weight: 600;
+            margin-bottom: 15px;
         }
         
-        .fact-item:before {
-            content: "⚠️";
-            position: absolute;
-            left: 0;
+        .rewards-amount {
+            font-size: 36px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+        
+        .rewards-text {
+            font-size: 14px;
+            color: #b8c1ec;
+            margin-top: 10px;
         }
         
         .cta-section {
@@ -151,26 +256,16 @@
         
         .cta-title {
             font-size: 26px;
-            font-weight: 700;
-            color: #0d6efd;
-            margin-bottom: 20px;
-        }
-        
-        .countdown-box {
-            background-color: #dc3545;
-            color: white;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 25px;
-            font-size: 18px;
             font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 20px;
         }
         
         .question {
             font-size: 20px;
-            color: #212529;
+            color: #b8c1ec;
             margin-bottom: 25px;
-            font-weight: 600;
+            font-weight: 400;
         }
         
         .button-group {
@@ -191,14 +286,16 @@
             text-decoration: none;
             display: block;
             text-align: center;
-            transition: all 0.2s;
+            transition: all 0.3s;
             -webkit-tap-highlight-color: transparent;
             width: 100%;
+            position: relative;
+            overflow: hidden;
         }
         
         .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
         }
         
         .btn:active {
@@ -206,39 +303,28 @@
         }
         
         .btn-yes {
-            background-color: #28a745;
+            background: linear-gradient(90deg, #00d2ff 0%, #3a7bd5 100%);
             color: white;
-            animation: pulse 2s infinite;
         }
         
         .btn-yes:hover {
-            background-color: #218838;
+            box-shadow: 0 8px 20px rgba(0,210,255,0.4);
         }
         
         .btn-no {
-            background-color: #6c757d;
-            color: white;
+            background-color: #2a3352;
+            color: #b8c1ec;
+            border: 1px solid #3a4468;
         }
         
         .btn-no:hover {
-            background-color: #5c636a;
+            background-color: #3a4468;
         }
         
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7);
-            }
-            70% {
-                box-shadow: 0 0 0 10px rgba(40, 167, 69, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(40, 167, 69, 0);
-            }
-        }
-        
+        /* Footer */
         footer {
-            background-color: #495057;
-            color: #ced4da;
+            background-color: #0a0e27;
+            color: #666d89;
             padding: 35px 0;
             text-align: center;
         }
@@ -260,28 +346,57 @@
         }
         
         .footer-links a {
-            color: #ced4da;
+            color: #666d89;
             text-decoration: none;
             font-size: 14px;
             padding: 5px;
         }
         
         .footer-links a:hover {
-            color: white;
+            color: #b8c1ec;
             text-decoration: underline;
         }
         
+        .fact-checkers {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #1a1f3a;
+        }
+        
+        .fact-checkers-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #666d89;
+        }
+        
+        .fact-checkers-links {
+            display: flex;
+            gap: 18px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .fact-checkers-links a {
+            font-size: 13px;
+            padding: 3px;
+            color: #666d89;
+            text-decoration: none;
+        }
+        
+        .fact-checkers-links a:hover {
+            color: #b8c1ec;
+            text-decoration: underline;
+        }
+        
+        /* Responsive adjustments */
         @media (max-width: 480px) {
-            .crisis-headline {
+            .score-headline {
+                font-size: 32px;
+            }
+            
+            .score-number {
                 font-size: 28px;
-            }
-            
-            .relief-headline {
-                font-size: 24px;
-            }
-            
-            .relief-headline .amount {
-                font-size: 30px;
             }
             
             .footer-content {
@@ -292,6 +407,13 @@
     </style>
 </head>
 <body>
+    <!-- Score Banner -->
+    <div class="score-banner">
+        <div class="score-display">
+            YOUR WELLNESS SCORE: <span class="score-number">847</span>
+        </div>
+    </div>
+
     <!-- Header -->
     <header>
         <div class="container">
@@ -304,41 +426,82 @@
     <!-- Main Content -->
     <main class="main-content">
         <div class="container">
-            <div class="warning-box">
-                <p class="warning-text">⚠️ URGENT: Limited Grocery Cards Available in Your Area</p>
+            <div class="badge-container">
+                <div class="achievement-badge">ACHIEVEMENT UNLOCKED</div>
             </div>
             
-            <h1 class="crisis-headline">Grocery Prices SKYROCKET 47% in 2025</h1>
+            <h1 class="score-headline">
+                Your Score Qualifies for <span class="reward">$500/Month</span> in Health Rewards
+            </h1>
             
-            <h2 class="relief-headline">
-                Emergency Relief: <span class="amount">$500/Month</span> Grocery Cards Now Available
-            </h2>
-            
-            <p class="urgency-text">
-                WARNING: Only 127 cards left for Las Vegas residents today!
+            <p class="subheadline">
+                Like a credit score, but for your health. Higher score = bigger rewards.
             </p>
             
             <div class="hero-image">
-                <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1753955622/Screenshot_2025-07-31_024853_dysuc0.png" alt="Woman with groceries and savings">
+                <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1753955622/Screenshot_2025-07-31_024853_dysuc0.png" alt="Woman showing benefits with groceries, money and cards">
             </div>
             
-            <div class="grocery-facts">
-                <h3 class="fact-title">The Grocery Crisis Is Real:</h3>
-                <div class="fact-item">Milk prices up 62% since last year</div>
-                <div class="fact-item">Bread costs $4.79 per loaf (was $2.99)</div>
-                <div class="fact-item">Average family spends $1,847/month on groceries</div>
-                <div class="fact-item">87% of Americans struggling to afford food</div>
+            <div class="score-breakdown">
+                <h3 class="breakdown-title">YOUR WELLNESS SCORE BREAKDOWN</h3>
+                
+                <div class="score-item">
+                    <div class="score-category">
+                        <div class="category-icon">💊</div>
+                        <div class="category-details">
+                            <div class="category-name">Preventive Care</div>
+                            <div class="category-status">Eligible</div>
+                        </div>
+                    </div>
+                    <div class="category-points">250 pts</div>
+                </div>
+                
+                <div class="score-item">
+                    <div class="score-category">
+                        <div class="category-icon">🍎</div>
+                        <div class="category-details">
+                            <div class="category-name">Nutrition Access</div>
+                            <div class="category-status">Qualified</div>
+                        </div>
+                    </div>
+                    <div class="category-points">197 pts</div>
+                </div>
+                
+                <div class="score-item">
+                    <div class="score-category">
+                        <div class="category-icon">🏥</div>
+                        <div class="category-details">
+                            <div class="category-name">Health Security</div>
+                            <div class="category-status">Active</div>
+                        </div>
+                    </div>
+                    <div class="category-points">200 pts</div>
+                </div>
+                
+                <div class="score-item">
+                    <div class="score-category">
+                        <div class="category-icon">💰</div>
+                        <div class="category-details">
+                            <div class="category-name">Financial Health</div>
+                            <div class="category-status">Verified</div>
+                        </div>
+                    </div>
+                    <div class="category-points">200 pts</div>
+                </div>
+            </div>
+            
+            <div class="rewards-unlocked">
+                <div class="rewards-title">🎉 REWARDS UNLOCKED</div>
+                <div class="rewards-amount">$500/month</div>
+                <div class="rewards-text">Score 800+ to maintain platinum status</div>
             </div>
             
             <div class="cta-section">
-                <div class="countdown-box">
-                    ⏰ Registration Closes at Midnight Tonight!
-                </div>
-                <h3 class="cta-title">Claim Your $500 Monthly Grocery Card NOW</h3>
-                <p class="question">Is your household income under $50,000/year?</p>
+                <h3 class="cta-title">Activate Your Health Rewards</h3>
+                <p class="question">Final verification: Annual income under $50,000?</p>
                 <div class="button-group">
-                    <a href="https://hpkpn.ttrk.io/click" class="btn btn-yes">YES - Claim My Card!</a>
-                    <a href="https://hpkpn.ttrk.io/click" class="btn btn-no">No</a>
+                    <a href="https://hpkpn.ttrk.io/click" class="btn btn-yes">Yes - Claim My Rewards</a>
+                    <a href="https://hpkpn.ttrk.io/click" class="btn btn-no">No - Check Other Options</a>
                 </div>
             </div>
             
@@ -349,10 +512,21 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div style="color: #ced4da;">&copy; 2025 Consumer Pronto</div>
+                <div style="color: #666d89;">&copy; 2025 Consumer Pronto</div>
                 <div class="footer-links">
                     <a href="https://hpkpn.ttrk.io/click">Privacy Policy</a>
                     <a href="https://hpkpn.ttrk.io/click">Terms Of Service</a>
+                </div>
+            </div>
+            
+            <div class="fact-checkers">
+                <div class="fact-checkers-title">Fact Checkers:</div>
+                <div class="fact-checkers-links">
+                    <a href="https://hpkpn.ttrk.io/click">AM Better</a>
+                    <a href="https://hpkpn.ttrk.io/click">UnitedHealth</a>
+                    <a href="https://hpkpn.ttrk.io/click">CMS.GOV</a>
+                    <a href="https://hpkpn.ttrk.io/click">IRS</a>
+                    <a href="https://hpkpn.ttrk.io/click">TaxPayer.IRS</a>
                 </div>
             </div>
         </div>
