@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <meta name="format-detection" content="telephone=no">
-    <title>Government-Backed Program: $500 Monthly Food Assistance Now Available</title>
+    <title>Your Wellness Score Unlocked $500/Month in Rewards</title>
     <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
     <style>
         * {
@@ -15,8 +15,8 @@
         
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background-color: #f8f9fa;
-            color: #212529;
+            background-color: #0a0e27;
+            color: #ffffff;
             line-height: 1.5;
             min-width: 320px;
         }
@@ -27,11 +27,50 @@
             padding: 0 20px;
         }
         
+        /* Score Banner */
+        .score-banner {
+            background: linear-gradient(90deg, #00d2ff 0%, #3a7bd5 100%);
+            padding: 15px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .score-banner:before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: shine 3s infinite;
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+        
+        .score-display {
+            font-size: 24px;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .score-number {
+            font-size: 32px;
+            color: #ffeb3b;
+            text-shadow: 0 0 10px rgba(255,235,59,0.5);
+        }
+        
+        /* Header */
         header {
-            background-color: white;
+            background-color: #1a1f3a;
             padding: 25px 0;
             text-align: center;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
         }
         
         .logo {
@@ -45,53 +84,63 @@
             width: auto;
         }
         
+        /* Main Content */
         .main-content {
-            background-color: white;
+            background-color: #1a1f3a;
             padding: 40px 0 60px;
             margin-bottom: 0;
         }
         
-        .authority-banner {
-            background-color: #e3f2fd;
-            border: 1px solid #1976d2;
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 25px;
+        .achievement-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: inline-block;
+            padding: 10px 30px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            margin: 0 auto 25px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .badge-container {
             text-align: center;
         }
         
-        .authority-text {
-            color: #1976d2;
-            font-size: 16px;
-            font-weight: 600;
+        .achievement-badge:before {
+            content: "🏆";
+            margin-right: 8px;
+            font-size: 20px;
         }
         
-        .official-headline {
-            font-size: 36px;
+        .score-headline {
+            font-size: 40px;
             font-weight: 700;
             text-align: center;
             margin-bottom: 20px;
-            color: #000000;
+            color: #ffffff;
             padding: 0 20px;
             line-height: 1.2;
         }
         
-        .official-headline .highlight {
-            color: #1976d2;
+        .score-headline .reward {
+            color: #00d2ff;
+            text-shadow: 0 0 20px rgba(0,210,255,0.5);
         }
         
-        .life-change-subhead {
-            font-size: 20px;
+        .subheadline {
+            font-size: 18px;
             text-align: center;
-            color: #28a745;
-            margin-bottom: 30px;
+            color: #b8c1ec;
+            margin-bottom: 35px;
             padding: 0 20px;
-            font-weight: 600;
+            font-weight: 400;
         }
         
         .hero-image {
             text-align: center;
-            margin-bottom: 35px;
+            margin-bottom: 40px;
             padding: 0 20px;
         }
         
@@ -99,114 +148,104 @@
             width: 100%;
             max-width: 500px;
             height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border: 2px solid #3a7bd5;
         }
         
-        .life-benefits {
-            background-color: #f0f8ff;
-            border-radius: 8px;
+        .score-breakdown {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            border-radius: 16px;
             padding: 30px;
-            margin: 30px 0;
+            margin: 30px 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
         
-        .benefits-title {
-            font-size: 24px;
-            font-weight: 700;
+        .breakdown-title {
+            font-size: 20px;
+            font-weight: 600;
             text-align: center;
             margin-bottom: 25px;
-            color: #0d6efd;
+            color: #ffffff;
         }
         
-        .benefit-item {
+        .score-item {
             display: flex;
-            align-items: flex-start;
-            margin-bottom: 20px;
-        }
-        
-        .benefit-icon {
-            font-size: 24px;
-            margin-right: 15px;
-            flex-shrink: 0;
-        }
-        
-        .benefit-content {
-            flex: 1;
-        }
-        
-        .benefit-title-text {
-            font-size: 18px;
-            font-weight: 600;
-            color: #212529;
-            margin-bottom: 5px;
-        }
-        
-        .benefit-description {
-            font-size: 16px;
-            color: #495057;
-        }
-        
-        .authority-section {
-            text-align: center;
-            margin: 30px 0;
-            padding: 20px;
-            background-color: #fff;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-        }
-        
-        .authority-title {
-            font-size: 18px;
-            font-weight: 600;
-            color: #495057;
-            margin-bottom: 15px;
-        }
-        
-        .authority-logos {
-            display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            gap: 30px;
-            flex-wrap: wrap;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
         
-        .authority-item {
-            font-size: 14px;
-            color: #6c757d;
-            padding: 8px 16px;
-            background-color: #f8f9fa;
-            border-radius: 20px;
+        .score-item:last-child {
+            border-bottom: none;
         }
         
-        .eligibility-box {
-            background-color: #e8f5e9;
-            border: 2px solid #4caf50;
-            border-radius: 8px;
-            padding: 25px;
-            margin: 30px 0;
+        .score-category {
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
         
-        .eligibility-title {
-            font-size: 22px;
+        .category-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+        
+        .category-details {
+            text-align: left;
+        }
+        
+        .category-name {
+            font-size: 16px;
+            color: #ffffff;
+            margin-bottom: 2px;
+        }
+        
+        .category-status {
+            font-size: 12px;
+            color: #00d2ff;
+        }
+        
+        .category-points {
+            font-size: 18px;
             font-weight: 700;
-            color: #2e7d32;
-            margin-bottom: 15px;
+            color: #ffeb3b;
+        }
+        
+        .rewards-unlocked {
+            background-color: rgba(255,235,59,0.1);
+            border: 2px solid #ffeb3b;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px 20px;
             text-align: center;
         }
         
-        .eligibility-item {
-            font-size: 16px;
-            color: #1b5e20;
-            margin-bottom: 10px;
-            padding-left: 25px;
-            position: relative;
+        .rewards-title {
+            font-size: 18px;
+            color: #ffeb3b;
+            font-weight: 600;
+            margin-bottom: 15px;
         }
         
-        .eligibility-item:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
+        .rewards-amount {
+            font-size: 36px;
             font-weight: 700;
+            color: #ffffff;
+        }
+        
+        .rewards-text {
+            font-size: 14px;
+            color: #b8c1ec;
+            margin-top: 10px;
         }
         
         .cta-section {
@@ -217,27 +256,16 @@
         
         .cta-title {
             font-size: 26px;
-            font-weight: 700;
-            color: #0d6efd;
-            margin-bottom: 20px;
-        }
-        
-        .secure-note {
-            font-size: 16px;
-            color: #28a745;
-            margin-bottom: 20px;
             font-weight: 600;
-        }
-        
-        .secure-note:before {
-            content: "🔒 ";
+            color: #ffffff;
+            margin-bottom: 20px;
         }
         
         .question {
             font-size: 20px;
-            color: #212529;
+            color: #b8c1ec;
             margin-bottom: 25px;
-            font-weight: 600;
+            font-weight: 400;
         }
         
         .button-group {
@@ -258,14 +286,16 @@
             text-decoration: none;
             display: block;
             text-align: center;
-            transition: all 0.2s;
+            transition: all 0.3s;
             -webkit-tap-highlight-color: transparent;
             width: 100%;
+            position: relative;
+            overflow: hidden;
         }
         
         .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
         }
         
         .btn:active {
@@ -273,26 +303,28 @@
         }
         
         .btn-yes {
-            background-color: #1976d2;
+            background: linear-gradient(90deg, #00d2ff 0%, #3a7bd5 100%);
             color: white;
         }
         
         .btn-yes:hover {
-            background-color: #1565c0;
+            box-shadow: 0 8px 20px rgba(0,210,255,0.4);
         }
         
         .btn-no {
-            background-color: #6c757d;
-            color: white;
+            background-color: #2a3352;
+            color: #b8c1ec;
+            border: 1px solid #3a4468;
         }
         
         .btn-no:hover {
-            background-color: #5c636a;
+            background-color: #3a4468;
         }
         
+        /* Footer */
         footer {
-            background-color: #495057;
-            color: #ced4da;
+            background-color: #0a0e27;
+            color: #666d89;
             padding: 35px 0;
             text-align: center;
         }
@@ -314,24 +346,57 @@
         }
         
         .footer-links a {
-            color: #ced4da;
+            color: #666d89;
             text-decoration: none;
             font-size: 14px;
             padding: 5px;
         }
         
         .footer-links a:hover {
-            color: white;
+            color: #b8c1ec;
             text-decoration: underline;
         }
         
+        .fact-checkers {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #1a1f3a;
+        }
+        
+        .fact-checkers-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #666d89;
+        }
+        
+        .fact-checkers-links {
+            display: flex;
+            gap: 18px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .fact-checkers-links a {
+            font-size: 13px;
+            padding: 3px;
+            color: #666d89;
+            text-decoration: none;
+        }
+        
+        .fact-checkers-links a:hover {
+            color: #b8c1ec;
+            text-decoration: underline;
+        }
+        
+        /* Responsive adjustments */
         @media (max-width: 480px) {
-            .official-headline {
-                font-size: 28px;
+            .score-headline {
+                font-size: 32px;
             }
             
-            .benefit-title-text {
-                font-size: 16px;
+            .score-number {
+                font-size: 28px;
             }
             
             .footer-content {
@@ -342,6 +407,13 @@
     </style>
 </head>
 <body>
+    <!-- Score Banner -->
+    <div class="score-banner">
+        <div class="score-display">
+            YOUR WELLNESS SCORE: <span class="score-number">847</span>
+        </div>
+    </div>
+
     <!-- Header -->
     <header>
         <div class="container">
@@ -354,82 +426,82 @@
     <!-- Main Content -->
     <main class="main-content">
         <div class="container">
-            <div class="authority-banner">
-                <p class="authority-text">📋 Official ACA-Approved Food Assistance Program</p>
+            <div class="badge-container">
+                <div class="achievement-badge">ACHIEVEMENT UNLOCKED</div>
             </div>
             
-            <h1 class="official-headline">
-                <span class="highlight">Federal Program</span> Provides $500 Monthly for Food & Essentials
+            <h1 class="score-headline">
+                Your Score Qualifies for <span class="reward">$500/Month</span> in Health Rewards
             </h1>
             
-            <p class="life-change-subhead">
-                More Than Money: Transform Your Family's Health & Future
+            <p class="subheadline">
+                Like a credit score, but for your health. Higher score = bigger rewards.
             </p>
             
             <div class="hero-image">
-                <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1753955622/Screenshot_2025-07-31_024853_dysuc0.png" alt="Family enjoying nutritious meals">
+                <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1753955622/Screenshot_2025-07-31_024853_dysuc0.png" alt="Woman showing benefits with groceries, money and cards">
             </div>
             
-            <div class="life-benefits">
-                <h3 class="benefits-title">How $500/Month Changes Everything:</h3>
+            <div class="score-breakdown">
+                <h3 class="breakdown-title">YOUR WELLNESS SCORE BREAKDOWN</h3>
                 
-                <div class="benefit-item">
-                    <div class="benefit-icon">🏥</div>
-                    <div class="benefit-content">
-                        <div class="benefit-title-text">Better Health for Your Family</div>
-                        <div class="benefit-description">Finally afford fresh fruits, vegetables, and lean proteins. No more choosing between medicine and nutritious food.</div>
+                <div class="score-item">
+                    <div class="score-category">
+                        <div class="category-icon">💊</div>
+                        <div class="category-details">
+                            <div class="category-name">Preventive Care</div>
+                            <div class="category-status">Eligible</div>
+                        </div>
                     </div>
+                    <div class="category-points">250 pts</div>
                 </div>
                 
-                <div class="benefit-item">
-                    <div class="benefit-icon">💰</div>
-                    <div class="benefit-content">
-                        <div class="benefit-title-text">$6,000 Annual Savings</div>
-                        <div class="benefit-description">Use the money you save for car repairs, medical bills, or finally taking that family vacation.</div>
+                <div class="score-item">
+                    <div class="score-category">
+                        <div class="category-icon">🍎</div>
+                        <div class="category-details">
+                            <div class="category-name">Nutrition Access</div>
+                            <div class="category-status">Qualified</div>
+                        </div>
                     </div>
+                    <div class="category-points">197 pts</div>
                 </div>
                 
-                <div class="benefit-item">
-                    <div class="benefit-icon">😌</div>
-                    <div class="benefit-content">
-                        <div class="benefit-title-text">Peace of Mind</div>
-                        <div class="benefit-description">Never worry about feeding your family again. Sleep better knowing your fridge will always be full.</div>
+                <div class="score-item">
+                    <div class="score-category">
+                        <div class="category-icon">🏥</div>
+                        <div class="category-details">
+                            <div class="category-name">Health Security</div>
+                            <div class="category-status">Active</div>
+                        </div>
                     </div>
+                    <div class="category-points">200 pts</div>
                 </div>
                 
-                <div class="benefit-item">
-                    <div class="benefit-icon">👨‍👩‍👧‍👦</div>
-                    <div class="benefit-content">
-                        <div class="benefit-title-text">Quality Family Time</div>
-                        <div class="benefit-description">Stop working overtime just to afford groceries. Spend more time with the people who matter most.</div>
+                <div class="score-item">
+                    <div class="score-category">
+                        <div class="category-icon">💰</div>
+                        <div class="category-details">
+                            <div class="category-name">Financial Health</div>
+                            <div class="category-status">Verified</div>
+                        </div>
                     </div>
+                    <div class="category-points">200 pts</div>
                 </div>
             </div>
             
-            <div class="authority-section">
-                <h3 class="authority-title">Approved & Verified By:</h3>
-                <div class="authority-logos">
-                    <span class="authority-item">ACA Marketplace</span>
-                    <span class="authority-item">USDA Standards</span>
-                    <span class="authority-item">State of Nevada</span>
-                </div>
-            </div>
-            
-            <div class="eligibility-box">
-                <h3 class="eligibility-title">You Qualify If You:</h3>
-                <div class="eligibility-item">Live in Las Vegas or surrounding areas</div>
-                <div class="eligibility-item">Have household income under $50,000/year</div>
-                <div class="eligibility-item">Are a U.S. citizen or legal resident</div>
-                <div class="eligibility-item">Have at least one family member over 18</div>
+            <div class="rewards-unlocked">
+                <div class="rewards-title">🎉 REWARDS UNLOCKED</div>
+                <div class="rewards-amount">$500/month</div>
+                <div class="rewards-text">Score 800+ to maintain platinum status</div>
             </div>
             
             <div class="cta-section">
-                <h3 class="cta-title">Official Enrollment - 2 Minutes to Complete</h3>
-                <p class="secure-note">Secure Government Portal - Your Information is Protected</p>
-                <p class="question">Confirm: Is your household income under $50,000?</p>
+                <h3 class="cta-title">Activate Your Health Rewards</h3>
+                <p class="question">Final verification: Annual income under $50,000?</p>
                 <div class="button-group">
-                    <a href="https://hpkpn.ttrk.io/click" class="btn btn-yes">Yes - Begin Secure Enrollment</a>
-                    <a href="https://hpkpn.ttrk.io/click" class="btn btn-no">No, I Don't Qualify</a>
+                    <a href="https://hpkpn.ttrk.io/click" class="btn btn-yes">Yes - Claim My Rewards</a>
+                    <a href="https://hpkpn.ttrk.io/click" class="btn btn-no">No - Check Other Options</a>
                 </div>
             </div>
             
@@ -440,10 +512,21 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div style="color: #ced4da;">&copy; 2025 Consumer Pronto</div>
+                <div style="color: #666d89;">&copy; 2025 Consumer Pronto</div>
                 <div class="footer-links">
                     <a href="https://hpkpn.ttrk.io/click">Privacy Policy</a>
                     <a href="https://hpkpn.ttrk.io/click">Terms Of Service</a>
+                </div>
+            </div>
+            
+            <div class="fact-checkers">
+                <div class="fact-checkers-title">Fact Checkers:</div>
+                <div class="fact-checkers-links">
+                    <a href="https://hpkpn.ttrk.io/click">AM Better</a>
+                    <a href="https://hpkpn.ttrk.io/click">UnitedHealth</a>
+                    <a href="https://hpkpn.ttrk.io/click">CMS.GOV</a>
+                    <a href="https://hpkpn.ttrk.io/click">IRS</a>
+                    <a href="https://hpkpn.ttrk.io/click">TaxPayer.IRS</a>
                 </div>
             </div>
         </div>
