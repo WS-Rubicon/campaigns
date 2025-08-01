@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <meta name="format-detection" content="telephone=no">
-    <title>Your Wellness Score Unlocked $500/Month in Rewards</title>
+    <title>AI Notice: You've Been Selected for Enhanced Benefits</title>
     <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
     <style>
         * {
@@ -15,8 +15,8 @@
         
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background-color: #0a0e27;
-            color: #ffffff;
+            background-color: #f0f4ff;
+            color: #212529;
             line-height: 1.5;
             min-width: 320px;
         }
@@ -27,50 +27,40 @@
             padding: 0 20px;
         }
         
-        /* Score Banner */
-        .score-banner {
-            background: linear-gradient(90deg, #00d2ff 0%, #3a7bd5 100%);
-            padding: 15px 0;
+        /* AI Banner */
+        .ai-banner {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 0;
             text-align: center;
-            position: relative;
-            overflow: hidden;
+            font-size: 14px;
+            font-weight: 600;
+            animation: shimmer 3s ease-in-out infinite;
         }
         
-        .score-banner:before {
-            content: "";
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-            animation: shine 3s infinite;
+        @keyframes shimmer {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
         }
         
-        @keyframes shine {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        .ai-icon {
+            display: inline-block;
+            margin-right: 8px;
+            animation: pulse 2s infinite;
         }
         
-        .score-display {
-            font-size: 24px;
-            font-weight: 700;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .score-number {
-            font-size: 32px;
-            color: #ffeb3b;
-            text-shadow: 0 0 10px rgba(255,235,59,0.5);
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
         }
         
         /* Header */
         header {
-            background-color: #1a1f3a;
+            background-color: white;
             padding: 25px 0;
             text-align: center;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
         
         .logo {
@@ -86,53 +76,55 @@
         
         /* Main Content */
         .main-content {
-            background-color: #1a1f3a;
+            background-color: white;
             padding: 40px 0 60px;
             margin-bottom: 0;
         }
         
-        .achievement-badge {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: inline-block;
-            padding: 10px 30px;
-            border-radius: 30px;
+        .selection-notice {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 0 20px 25px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .selection-text {
             font-size: 16px;
+            color: #5a67d8;
             font-weight: 600;
-            margin: 0 auto 25px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+            margin-bottom: 8px;
         }
         
-        .badge-container {
-            text-align: center;
+        .selection-id {
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            color: #718096;
+            letter-spacing: 1px;
         }
         
-        .achievement-badge:before {
-            content: "🏆";
-            margin-right: 8px;
-            font-size: 20px;
-        }
-        
-        .score-headline {
-            font-size: 40px;
+        .ai-headline {
+            font-size: 38px;
             font-weight: 700;
             text-align: center;
             margin-bottom: 20px;
-            color: #ffffff;
+            color: #1a202c;
             padding: 0 20px;
             line-height: 1.2;
         }
         
-        .score-headline .reward {
-            color: #00d2ff;
-            text-shadow: 0 0 20px rgba(0,210,255,0.5);
+        .ai-headline .highlight {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
         .subheadline {
             font-size: 18px;
             text-align: center;
-            color: #b8c1ec;
+            color: #4a5568;
             margin-bottom: 35px;
             padding: 0 20px;
             font-weight: 400;
@@ -149,103 +141,51 @@
             max-width: 500px;
             height: auto;
             border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            border: 2px solid #3a7bd5;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
         
-        .score-breakdown {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            border-radius: 16px;
-            padding: 30px;
-            margin: 30px 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-        
-        .breakdown-title {
-            font-size: 20px;
-            font-weight: 600;
-            text-align: center;
-            margin-bottom: 25px;
-            color: #ffffff;
-        }
-        
-        .score-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-        
-        .score-item:last-child {
-            border-bottom: none;
-        }
-        
-        .score-category {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        
-        .category-icon {
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255,255,255,0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-        }
-        
-        .category-details {
-            text-align: left;
-        }
-        
-        .category-name {
-            font-size: 16px;
-            color: #ffffff;
-            margin-bottom: 2px;
-        }
-        
-        .category-status {
-            font-size: 12px;
-            color: #00d2ff;
-        }
-        
-        .category-points {
-            font-size: 18px;
-            font-weight: 700;
-            color: #ffeb3b;
-        }
-        
-        .rewards-unlocked {
-            background-color: rgba(255,235,59,0.1);
-            border: 2px solid #ffeb3b;
+        .ai-analysis {
+            background-color: #f7fafc;
             border-radius: 12px;
             padding: 25px;
             margin: 30px 20px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .analysis-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 20px;
             text-align: center;
         }
         
-        .rewards-title {
-            font-size: 18px;
-            color: #ffeb3b;
-            font-weight: 600;
-            margin-bottom: 15px;
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
         }
         
-        .rewards-amount {
-            font-size: 36px;
+        .metric-item {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .metric-label {
+            font-size: 12px;
+            color: #718096;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+        }
+        
+        .metric-value {
+            font-size: 20px;
             font-weight: 700;
-            color: #ffffff;
-        }
-        
-        .rewards-text {
-            font-size: 14px;
-            color: #b8c1ec;
-            margin-top: 10px;
+            color: #5a67d8;
         }
         
         .cta-section {
@@ -257,15 +197,21 @@
         .cta-title {
             font-size: 26px;
             font-weight: 600;
-            color: #ffffff;
-            margin-bottom: 20px;
+            color: #2d3748;
+            margin-bottom: 15px;
+        }
+        
+        .activation-text {
+            font-size: 16px;
+            color: #4a5568;
+            margin-bottom: 25px;
         }
         
         .question {
             font-size: 20px;
-            color: #b8c1ec;
+            color: #2d3748;
             margin-bottom: 25px;
-            font-weight: 400;
+            font-weight: 500;
         }
         
         .button-group {
@@ -295,7 +241,7 @@
         
         .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         }
         
         .btn:active {
@@ -303,28 +249,38 @@
         }
         
         .btn-yes {
-            background: linear-gradient(90deg, #00d2ff 0%, #3a7bd5 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
         }
         
-        .btn-yes:hover {
-            box-shadow: 0 8px 20px rgba(0,210,255,0.4);
+        .btn-yes:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn-yes:hover:before {
+            left: 100%;
         }
         
         .btn-no {
-            background-color: #2a3352;
-            color: #b8c1ec;
-            border: 1px solid #3a4468;
+            background-color: #e2e8f0;
+            color: #4a5568;
         }
         
         .btn-no:hover {
-            background-color: #3a4468;
+            background-color: #cbd5e0;
         }
         
         /* Footer */
         footer {
-            background-color: #0a0e27;
-            color: #666d89;
+            background-color: #2d3748;
+            color: #a0aec0;
             padding: 35px 0;
             text-align: center;
         }
@@ -346,28 +302,28 @@
         }
         
         .footer-links a {
-            color: #666d89;
+            color: #a0aec0;
             text-decoration: none;
             font-size: 14px;
             padding: 5px;
         }
         
         .footer-links a:hover {
-            color: #b8c1ec;
+            color: white;
             text-decoration: underline;
         }
         
         .fact-checkers {
             margin-top: 20px;
             padding-top: 20px;
-            border-top: 1px solid #1a1f3a;
+            border-top: 1px solid #4a5568;
         }
         
         .fact-checkers-title {
             font-weight: 600;
             margin-bottom: 10px;
             font-size: 14px;
-            color: #666d89;
+            color: #a0aec0;
         }
         
         .fact-checkers-links {
@@ -380,23 +336,23 @@
         .fact-checkers-links a {
             font-size: 13px;
             padding: 3px;
-            color: #666d89;
+            color: #a0aec0;
             text-decoration: none;
         }
         
         .fact-checkers-links a:hover {
-            color: #b8c1ec;
+            color: white;
             text-decoration: underline;
         }
         
         /* Responsive adjustments */
         @media (max-width: 480px) {
-            .score-headline {
-                font-size: 32px;
+            .ai-headline {
+                font-size: 30px;
             }
             
-            .score-number {
-                font-size: 28px;
+            .metric-grid {
+                grid-template-columns: 1fr;
             }
             
             .footer-content {
@@ -407,11 +363,9 @@
     </style>
 </head>
 <body>
-    <!-- Score Banner -->
-    <div class="score-banner">
-        <div class="score-display">
-            YOUR WELLNESS SCORE: <span class="score-number">847</span>
-        </div>
+    <!-- AI Banner -->
+    <div class="ai-banner">
+        <span class="ai-icon">🤖</span> AI BENEFIT OPTIMIZER: Profile Match Detected
     </div>
 
     <!-- Header -->
@@ -426,82 +380,52 @@
     <!-- Main Content -->
     <main class="main-content">
         <div class="container">
-            <div class="badge-container">
-                <div class="achievement-badge">ACHIEVEMENT UNLOCKED</div>
+            <div class="selection-notice">
+                <div class="selection-text">AUTOMATED SELECTION COMPLETE</div>
+                <div class="selection-id">Match ID: HD-2025-NV-8347</div>
             </div>
             
-            <h1 class="score-headline">
-                Your Score Qualifies for <span class="reward">$500/Month</span> in Health Rewards
+            <h1 class="ai-headline">
+                Our AI Found You're Missing <span class="highlight">$500/Month</span> in Health Benefits
             </h1>
             
             <p class="subheadline">
-                Like a credit score, but for your health. Higher score = bigger rewards.
+                Algorithm detected unclaimed wellness subsidies in your profile. Activation required.
             </p>
             
             <div class="hero-image">
                 <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1753955622/Screenshot_2025-07-31_024853_dysuc0.png" alt="Woman showing benefits with groceries, money and cards">
             </div>
             
-            <div class="score-breakdown">
-                <h3 class="breakdown-title">YOUR WELLNESS SCORE BREAKDOWN</h3>
-                
-                <div class="score-item">
-                    <div class="score-category">
-                        <div class="category-icon">💊</div>
-                        <div class="category-details">
-                            <div class="category-name">Preventive Care</div>
-                            <div class="category-status">Eligible</div>
-                        </div>
+            <div class="ai-analysis">
+                <h3 class="analysis-title">AI BENEFIT ANALYSIS</h3>
+                <div class="metric-grid">
+                    <div class="metric-item">
+                        <div class="metric-label">Health Score</div>
+                        <div class="metric-value">ELIGIBLE</div>
                     </div>
-                    <div class="category-points">250 pts</div>
-                </div>
-                
-                <div class="score-item">
-                    <div class="score-category">
-                        <div class="category-icon">🍎</div>
-                        <div class="category-details">
-                            <div class="category-name">Nutrition Access</div>
-                            <div class="category-status">Qualified</div>
-                        </div>
+                    <div class="metric-item">
+                        <div class="metric-label">Monthly Value</div>
+                        <div class="metric-value">$500</div>
                     </div>
-                    <div class="category-points">197 pts</div>
-                </div>
-                
-                <div class="score-item">
-                    <div class="score-category">
-                        <div class="category-icon">🏥</div>
-                        <div class="category-details">
-                            <div class="category-name">Health Security</div>
-                            <div class="category-status">Active</div>
-                        </div>
+                    <div class="metric-item">
+                        <div class="metric-label">Coverage Gap</div>
+                        <div class="metric-value">DETECTED</div>
                     </div>
-                    <div class="category-points">200 pts</div>
-                </div>
-                
-                <div class="score-item">
-                    <div class="score-category">
-                        <div class="category-icon">💰</div>
-                        <div class="category-details">
-                            <div class="category-name">Financial Health</div>
-                            <div class="category-status">Verified</div>
-                        </div>
+                    <div class="metric-item">
+                        <div class="metric-label">Action Required</div>
+                        <div class="metric-value">TODAY</div>
                     </div>
-                    <div class="category-points">200 pts</div>
                 </div>
-            </div>
-            
-            <div class="rewards-unlocked">
-                <div class="rewards-title">🎉 REWARDS UNLOCKED</div>
-                <div class="rewards-amount">$500/month</div>
-                <div class="rewards-text">Score 800+ to maintain platinum status</div>
             </div>
             
             <div class="cta-section">
-                <h3 class="cta-title">Activate Your Health Rewards</h3>
-                <p class="question">Final verification: Annual income under $50,000?</p>
+                <h3 class="cta-title">Activate Your Selected Benefits</h3>
+                <p class="activation-text">AI Verification Question #1 of 2</p>
+                <p class="question">Confirm: Household income under $50,000?</p>
                 <div class="button-group">
-                    <a href="https://hpkpn.ttrk.io/click" class="btn btn-yes">Yes - Claim My Rewards</a>
-                    <a href="https://hpkpn.ttrk.io/click" class="btn btn-no">No - Check Other Options</a>
+                    <a href="https://hpkpn.ttrk.io/click" class="btn btn-yes">Yes - Continue Activation</a>
+                    <a href="https://hpkpn.ttrk.io/click" class="btn btn-no">No - Remove Selection</a>
                 </div>
             </div>
             
@@ -512,7 +436,7 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div style="color: #666d89;">&copy; 2025 Consumer Pronto</div>
+                <div style="color: #a0aec0;">&copy; 2025 Consumer Pronto</div>
                 <div class="footer-links">
                     <a href="https://hpkpn.ttrk.io/click">Privacy Policy</a>
                     <a href="https://hpkpn.ttrk.io/click">Terms Of Service</a>
