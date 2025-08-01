@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <meta name="format-detection" content="telephone=no">
-    <title>Your Wellness Score Unlocked $500/Month in Rewards</title>
+    <title>Texas Woman Discovers $500/Month Walmart Grocery "Loophole" That's 100% Legal</title>
     <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
     <style>
         * {
@@ -14,10 +14,10 @@
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background-color: #0a0e27;
-            color: #ffffff;
-            line-height: 1.5;
+            font-family: Georgia, 'Times New Roman', serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
             min-width: 320px;
         }
         
@@ -27,245 +27,209 @@
             padding: 0 20px;
         }
         
-        /* Score Banner */
-        .score-banner {
-            background: linear-gradient(90deg, #00d2ff 0%, #3a7bd5 100%);
+        /* News Header */
+        .news-header {
+            background-color: #0071ce;
             padding: 15px 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         
-        .score-banner:before {
-            content: "";
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-            animation: shine 3s infinite;
-        }
-        
-        @keyframes shine {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-        }
-        
-        .score-display {
-            font-size: 24px;
-            font-weight: 700;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .score-number {
-            font-size: 32px;
-            color: #ffeb3b;
-            text-shadow: 0 0 10px rgba(255,235,59,0.5);
-        }
-        
-        /* Header */
-        header {
-            background-color: #1a1f3a;
-            padding: 25px 0;
-            text-align: center;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
-        }
-        
-        .logo {
-            display: inline-block;
-            text-decoration: none;
-        }
-        
-        .logo img {
-            display: block;
-            height: 60px;
-            width: auto;
-        }
-        
-        /* Main Content */
-        .main-content {
-            background-color: #1a1f3a;
-            padding: 40px 0 60px;
-            margin-bottom: 0;
-        }
-        
-        .achievement-badge {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: inline-block;
-            padding: 10px 30px;
-            border-radius: 30px;
-            font-size: 16px;
-            font-weight: 600;
-            margin: 0 auto 25px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .badge-container {
-            text-align: center;
-        }
-        
-        .achievement-badge:before {
-            content: "🏆";
-            margin-right: 8px;
-            font-size: 20px;
-        }
-        
-        .score-headline {
-            font-size: 40px;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 20px;
-            color: #ffffff;
-            padding: 0 20px;
-            line-height: 1.2;
-        }
-        
-        .score-headline .reward {
-            color: #00d2ff;
-            text-shadow: 0 0 20px rgba(0,210,255,0.5);
-        }
-        
-        .subheadline {
-            font-size: 18px;
-            text-align: center;
-            color: #b8c1ec;
-            margin-bottom: 35px;
-            padding: 0 20px;
-            font-weight: 400;
-        }
-        
-        .hero-image {
-            text-align: center;
-            margin-bottom: 40px;
-            padding: 0 20px;
-        }
-        
-        .hero-image img {
-            width: 100%;
-            max-width: 500px;
-            height: auto;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            border: 2px solid #3a7bd5;
-        }
-        
-        .score-breakdown {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            border-radius: 16px;
-            padding: 30px;
-            margin: 30px 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-        
-        .breakdown-title {
-            font-size: 20px;
-            font-weight: 600;
-            text-align: center;
-            margin-bottom: 25px;
-            color: #ffffff;
-        }
-        
-        .score-item {
+        .news-nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
         
-        .score-item:last-child {
-            border-bottom: none;
-        }
-        
-        .score-category {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        
-        .category-icon {
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255,255,255,0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-        }
-        
-        .category-details {
-            text-align: left;
-        }
-        
-        .category-name {
-            font-size: 16px;
-            color: #ffffff;
-            margin-bottom: 2px;
-        }
-        
-        .category-status {
-            font-size: 12px;
-            color: #00d2ff;
-        }
-        
-        .category-points {
-            font-size: 18px;
+        .news-logo {
+            font-size: 24px;
             font-weight: 700;
-            color: #ffeb3b;
+            color: white;
+            text-decoration: none;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
         
-        .rewards-unlocked {
-            background-color: rgba(255,235,59,0.1);
-            border: 2px solid #ffeb3b;
-            border-radius: 12px;
-            padding: 25px;
-            margin: 30px 20px;
+        .news-sections {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .news-section {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        /* Breaking Banner */
+        .breaking-banner {
+            background-color: #ffc220;
+            color: #004c91;
+            padding: 8px 0;
             text-align: center;
+            font-weight: 700;
+            font-size: 14px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            text-transform: uppercase;
         }
         
-        .rewards-title {
-            font-size: 18px;
-            color: #ffeb3b;
-            font-weight: 600;
-            margin-bottom: 15px;
+        /* Article */
+        .article-container {
+            background-color: white;
+            padding: 30px 20px;
+            margin: 20px auto;
+            max-width: 720px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
         
-        .rewards-amount {
+        .article-category {
+            color: #0071ce;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        .article-headline {
             font-size: 36px;
             font-weight: 700;
-            color: #ffffff;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #1a1a1a;
         }
         
-        .rewards-text {
+        .article-meta {
+            display: flex;
+            gap: 20px;
             font-size: 14px;
-            color: #b8c1ec;
-            margin-top: 10px;
+            color: #666;
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #e0e0e0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
         
-        .cta-section {
+        .author {
+            font-weight: 600;
+        }
+        
+        .article-body {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #333;
+        }
+        
+        .article-body p {
+            margin-bottom: 20px;
+        }
+        
+        .lead-paragraph {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 25px;
+        }
+        
+        .article-image {
+            margin: 30px 0;
             text-align: center;
+        }
+        
+        .article-image img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 4px;
+        }
+        
+        .image-caption {
+            font-size: 14px;
+            color: #666;
+            font-style: italic;
+            margin-top: 10px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        .quote-box {
+            background-color: #f0f8ff;
+            border-left: 4px solid #0071ce;
+            padding: 20px;
+            margin: 30px 0;
+            font-style: italic;
+            font-size: 20px;
+            color: #004c91;
+        }
+        
+        .walmart-highlight {
+            background-color: #ffc220;
+            padding: 2px 4px;
+            font-weight: 600;
+        }
+        
+        /* Comments Section */
+        .comments-section {
+            background-color: #f9f9f9;
+            padding: 30px 20px;
+            margin-top: 40px;
+            border-top: 2px solid #e0e0e0;
+        }
+        
+        .comments-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        .comment {
+            background-color: white;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        
+        .comment-author {
+            font-weight: 700;
+            color: #0071ce;
+            margin-bottom: 5px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        .comment-text {
+            font-size: 16px;
+            color: #333;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        .comment-time {
+            font-size: 12px;
+            color: #999;
+            margin-top: 5px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        /* CTA Section */
+        .cta-box {
+            background-color: #0071ce;
+            color: white;
+            padding: 40px;
             margin: 40px 0;
-            padding: 0 20px;
+            border-radius: 8px;
+            text-align: center;
         }
         
         .cta-title {
-            font-size: 26px;
-            font-weight: 600;
-            color: #ffffff;
-            margin-bottom: 20px;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
         
-        .question {
-            font-size: 20px;
-            color: #b8c1ec;
+        .cta-subtitle {
+            font-size: 18px;
             margin-bottom: 25px;
-            font-weight: 400;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
         
         .button-group {
@@ -279,23 +243,22 @@
         .btn {
             padding: 18px 32px;
             font-size: 19px;
-            font-weight: 600;
+            font-weight: 700;
             border: none;
-            border-radius: 12px;
+            border-radius: 4px;
             cursor: pointer;
             text-decoration: none;
             display: block;
             text-align: center;
-            transition: all 0.3s;
+            transition: all 0.2s;
             -webkit-tap-highlight-color: transparent;
             width: 100%;
-            position: relative;
-            overflow: hidden;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
         
         .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
         
         .btn:active {
@@ -303,30 +266,54 @@
         }
         
         .btn-yes {
-            background: linear-gradient(90deg, #00d2ff 0%, #3a7bd5 100%);
-            color: white;
+            background-color: #ffc220;
+            color: #004c91;
         }
         
         .btn-yes:hover {
-            box-shadow: 0 8px 20px rgba(0,210,255,0.4);
+            background-color: #e6ad00;
         }
         
         .btn-no {
-            background-color: #2a3352;
-            color: #b8c1ec;
-            border: 1px solid #3a4468;
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
         }
         
         .btn-no:hover {
-            background-color: #3a4468;
+            background-color: rgba(255,255,255,0.1);
+        }
+        
+        /* Partner Section */
+        .partner-section {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: white;
+        }
+        
+        .partner-text {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        .partner-logo {
+            display: inline-block;
+        }
+        
+        .partner-logo img {
+            height: 50px;
+            width: auto;
         }
         
         /* Footer */
         footer {
-            background-color: #0a0e27;
-            color: #666d89;
+            background-color: #333;
+            color: #999;
             padding: 35px 0;
             text-align: center;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
         
         .footer-content {
@@ -346,28 +333,28 @@
         }
         
         .footer-links a {
-            color: #666d89;
+            color: #999;
             text-decoration: none;
             font-size: 14px;
             padding: 5px;
         }
         
         .footer-links a:hover {
-            color: #b8c1ec;
+            color: #ccc;
             text-decoration: underline;
         }
         
         .fact-checkers {
             margin-top: 20px;
             padding-top: 20px;
-            border-top: 1px solid #1a1f3a;
+            border-top: 1px solid #444;
         }
         
         .fact-checkers-title {
             font-weight: 600;
             margin-bottom: 10px;
             font-size: 14px;
-            color: #666d89;
+            color: #999;
         }
         
         .fact-checkers-links {
@@ -380,23 +367,28 @@
         .fact-checkers-links a {
             font-size: 13px;
             padding: 3px;
-            color: #666d89;
+            color: #999;
             text-decoration: none;
         }
         
         .fact-checkers-links a:hover {
-            color: #b8c1ec;
+            color: #ccc;
             text-decoration: underline;
         }
         
         /* Responsive adjustments */
-        @media (max-width: 480px) {
-            .score-headline {
-                font-size: 32px;
+        @media (max-width: 600px) {
+            .news-sections {
+                display: none;
             }
             
-            .score-number {
+            .article-headline {
                 font-size: 28px;
+            }
+            
+            .article-meta {
+                flex-direction: column;
+                gap: 10px;
             }
             
             .footer-content {
@@ -407,112 +399,146 @@
     </style>
 </head>
 <body>
-    <!-- Score Banner -->
-    <div class="score-banner">
-        <div class="score-display">
-            YOUR WELLNESS SCORE: <span class="score-number">847</span>
-        </div>
-    </div>
-
-    <!-- Header -->
-    <header>
+    <!-- News Header -->
+    <header class="news-header">
         <div class="container">
-            <a href="https://hpkpn.ttrk.io/click" class="logo">
-                <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1753955621/Screenshot_2025-07-31_024951_yo3fm3.png" alt="Healthcare Pronto">
-            </a>
+            <nav class="news-nav">
+                <a href="https://hpkpn.ttrk.io/click" class="news-logo">Consumer Reports Daily</a>
+                <div class="news-sections">
+                    <a href="#" class="news-section">Money</a>
+                    <a href="#" class="news-section">Health</a>
+                    <a href="#" class="news-section">Tech</a>
+                </div>
+            </nav>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <div class="container">
-            <div class="badge-container">
-                <div class="achievement-badge">ACHIEVEMENT UNLOCKED</div>
-            </div>
-            
-            <h1 class="score-headline">
-                Your Score Qualifies for <span class="reward">$500/Month</span> in Health Rewards
-            </h1>
-            
-            <p class="subheadline">
-                Like a credit score, but for your health. Higher score = bigger rewards.
+    <!-- Breaking Banner -->
+    <div class="breaking-banner">
+        ⚡ Breaking: Program enrollment closes at midnight tonight
+    </div>
+
+    <!-- Article -->
+    <article class="article-container">
+        <div class="article-category">Money Saving Tips</div>
+        
+        <h1 class="article-headline">Texas Woman Discovers $500/Month Walmart Grocery "Loophole" That's 100% Legal</h1>
+        
+        <div class="article-meta">
+            <span class="author">By Sarah Mitchell</span>
+            <span class="date">July 31, 2025</span>
+            <span class="read-time">4 min read</span>
+        </div>
+        
+        <div class="article-body">
+            <p class="lead-paragraph">
+                A 42-year-old Dallas mother of three has discovered a little-known program that's saving her 
+                <span class="walmart-highlight">$500 every month</span> on groceries at Walmart — and it's completely legal.
             </p>
             
-            <div class="hero-image">
-                <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1753955622/Screenshot_2025-07-31_024853_dysuc0.png" alt="Woman showing benefits with groceries, money and cards">
+            <p>
+                Maria Rodriguez was struggling to feed her family on a tight budget when she stumbled upon 
+                what she calls "the best-kept secret in America." Now, she's sharing her discovery with 
+                other families who are feeling the pinch of rising grocery costs.
+            </p>
+            
+            <p>
+                "I couldn't believe it at first," Rodriguez told Consumer Reports Daily. "I thought there 
+                had to be a catch. But I've been using this for three months now, and my Walmart receipts 
+                don't lie — I'm saving exactly $500 every single month."
+            </p>
+            
+            <div class="article-image">
+                <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1753955622/Screenshot_2025-07-31_024853_dysuc0.png" alt="Maria Rodriguez showing her grocery savings">
+                <p class="image-caption">Maria Rodriguez shows her monthly grocery haul from Walmart, 
+                purchased with her $500 monthly benefit card</p>
             </div>
             
-            <div class="score-breakdown">
-                <h3 class="breakdown-title">YOUR WELLNESS SCORE BREAKDOWN</h3>
-                
-                <div class="score-item">
-                    <div class="score-category">
-                        <div class="category-icon">💊</div>
-                        <div class="category-details">
-                            <div class="category-name">Preventive Care</div>
-                            <div class="category-status">Eligible</div>
-                        </div>
-                    </div>
-                    <div class="category-points">250 pts</div>
-                </div>
-                
-                <div class="score-item">
-                    <div class="score-category">
-                        <div class="category-icon">🍎</div>
-                        <div class="category-details">
-                            <div class="category-name">Nutrition Access</div>
-                            <div class="category-status">Qualified</div>
-                        </div>
-                    </div>
-                    <div class="category-points">197 pts</div>
-                </div>
-                
-                <div class="score-item">
-                    <div class="score-category">
-                        <div class="category-icon">🏥</div>
-                        <div class="category-details">
-                            <div class="category-name">Health Security</div>
-                            <div class="category-status">Active</div>
-                        </div>
-                    </div>
-                    <div class="category-points">200 pts</div>
-                </div>
-                
-                <div class="score-item">
-                    <div class="score-category">
-                        <div class="category-icon">💰</div>
-                        <div class="category-details">
-                            <div class="category-name">Financial Health</div>
-                            <div class="category-status">Verified</div>
-                        </div>
-                    </div>
-                    <div class="category-points">200 pts</div>
-                </div>
+            <p>
+                The program Rodriguez discovered is a federal benefit that provides qualified families with 
+                $500 per month specifically for essential purchases. While it works at most major retailers, 
+                Rodriguez says Walmart accepts it at all locations nationwide, making it perfect for her 
+                weekly shopping trips.
+            </p>
+            
+            <div class="quote-box">
+                "Last week I got $127 worth of groceries and household items. When I swiped my benefit 
+                card, I paid nothing. The cashier just smiled and said 'Have a great day!' It still 
+                feels surreal."
             </div>
             
-            <div class="rewards-unlocked">
-                <div class="rewards-title">🎉 REWARDS UNLOCKED</div>
-                <div class="rewards-amount">$500/month</div>
-                <div class="rewards-text">Score 800+ to maintain platinum status</div>
-            </div>
+            <p>
+                The qualification process is surprisingly simple. Rodriguez says it took her less than 
+                5 minutes online, and she was approved instantly. The main requirement? Your household 
+                income must be under $50,000 per year.
+            </p>
             
-            <div class="cta-section">
-                <h3 class="cta-title">Activate Your Health Rewards</h3>
-                <p class="question">Final verification: Annual income under $50,000?</p>
-                <div class="button-group">
-                    <a href="https://hpkpn.ttrk.io/click" class="btn btn-yes">Yes - Claim My Rewards</a>
-                    <a href="https://hpkpn.ttrk.io/click" class="btn btn-no">No - Check Other Options</a>
-                </div>
-            </div>
+            <p>
+                "I wish I had known about this sooner," Rodriguez admits. "I think about all those months 
+                I struggled, choosing between groceries and gas money. This program has literally changed 
+                our lives. My kids are eating better, and I'm not stressed about money anymore."
+            </p>
             
+            <p>
+                Since sharing her story on social media, Rodriguez says she's been flooded with messages 
+                from other families asking how to sign up. "I tell everyone the same thing — don't wait. 
+                This program has limited funding, and once it's gone, it's gone."
+            </p>
         </div>
-    </main>
+        
+        <!-- Comments Section -->
+        <div class="comments-section">
+            <h3 class="comments-title">Reader Comments (247)</h3>
+            
+            <div class="comment">
+                <div class="comment-author">Jennifer_TX</div>
+                <div class="comment-text">OMG this actually works! Just got approved and used it at 
+                my local Walmart. Saved $93 on today's shopping trip alone. THANK YOU for sharing!</div>
+                <div class="comment-time">2 hours ago</div>
+            </div>
+            
+            <div class="comment">
+                <div class="comment-author">DallasDad1987</div>
+                <div class="comment-text">Been using this for 2 weeks now. It's legit. Works at my 
+                Walmart Neighborhood Market too. Already saved almost $200.</div>
+                <div class="comment-time">3 hours ago</div>
+            </div>
+            
+            <div class="comment">
+                <div class="comment-author">BudgetMomTX</div>
+                <div class="comment-text">Why isn't this advertised more?? I qualify and had no idea 
+                this existed. Just signed up!</div>
+                <div class="comment-time">4 hours ago</div>
+            </div>
+        </div>
+        
+        <!-- CTA Box -->
+        <div class="cta-box">
+            <h3 class="cta-title">See If You Qualify for $500/Month</h3>
+            <p class="cta-subtitle">Takes 60 seconds • Instant approval</p>
+            <p class="cta-subtitle" style="font-size: 20px; margin-bottom: 30px;">
+                Do you make less than $50,000/year?
+            </p>
+            <div class="button-group">
+                <a href="https://hpkpn.ttrk.io/click" class="btn btn-yes">YES - Check My Eligibility</a>
+                <a href="https://hpkpn.ttrk.io/click" class="btn btn-no">No - I Don't Qualify</a>
+            </div>
+        </div>
+    </article>
+
+    <!-- Partner Section -->
+    <div class="partner-section">
+        <p class="partner-text">Official Enrollment Partner</p>
+        <a href="https://hpkpn.ttrk.io/click" class="partner-logo">
+            <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1753955621/Screenshot_2025-07-31_024951_yo3fm3.png" alt="Healthcare Pronto">
+        </a>
+    </div>
 
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div style="color: #666d89;">&copy; 2025 Consumer Pronto</div>
+                <div style="color: #999;">&copy; 2025 Consumer Pronto</div>
                 <div class="footer-links">
                     <a href="https://hpkpn.ttrk.io/click">Privacy Policy</a>
                     <a href="https://hpkpn.ttrk.io/click">Terms Of Service</a>
