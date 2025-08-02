@@ -2,8 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="format-detection" content="telephone=no">
     <title>Verification Complete - $500 Monthly Benefits Available</title>
+    <!-- CRITICAL: RedTrack script MUST be in header -->
+    <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
@@ -13,7 +16,7 @@
         }
         
         .verification-header {
-            background: linear-gradient(90deg, #1e3a8a 0%, #3730a3 100%);
+            background: linear-gradient(90deg, #0066CC 0%, #2563EB 100%);
             padding: 16px 0;
             box-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
@@ -24,13 +27,11 @@
             padding: 0 20px;
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: flex-end;
         }
         
-        .logo { height: 60px; }
-        
         .verification-status {
-            background: #10b981;
+            background: #2563EB;
             color: white;
             padding: 8px 20px;
             border-radius: 20px;
@@ -49,7 +50,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #10b981;
+            color: #2563EB;
             font-size: 12px;
             font-weight: 700;
         }
@@ -78,7 +79,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background: rgba(16, 185, 129, 0.95);
+            background: rgba(37, 99, 235, 0.95);
             color: white;
             padding: 20px 40px;
             border-radius: 8px;
@@ -93,11 +94,11 @@
         }
         
         .alert-banner {
-            background: linear-gradient(90deg, #1e3a8a 0%, #3730a3 100%);
+            background: linear-gradient(90deg, #0066CC 0%, #2563EB 100%);
             border-radius: 12px;
             padding: 24px;
             margin-bottom: 32px;
-            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.2);
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.2);
         }
         
         .alert-title {
@@ -127,7 +128,7 @@
         .amount-display {
             font-size: 64px;
             font-weight: 700;
-            background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+            background: linear-gradient(135deg, #0066CC 0%, #2563EB 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 8px;
@@ -155,7 +156,7 @@
         .verification-icon {
             width: 40px;
             height: 40px;
-            background: #10b981;
+            background: #2563EB;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -187,7 +188,7 @@
         
         .video-connection {
             background: #1e293b;
-            border-left: 4px solid #10b981;
+            border-left: 4px solid #2563EB;
             padding: 24px;
             margin-bottom: 32px;
             border-radius: 0 8px 8px 0;
@@ -195,7 +196,7 @@
         
         .video-badge {
             display: inline-block;
-            background: #10b981;
+            background: #2563EB;
             color: white;
             padding: 4px 12px;
             border-radius: 4px;
@@ -243,24 +244,27 @@
             margin-top: 40px;
         }
         
+        /* CRITICAL FIX: Style anchor tag as button */
         .cta-button {
-            background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+            background: linear-gradient(135deg, #0066CC 0%, #2563EB 100%);
             color: white;
-            border: none;
+            text-decoration: none;
+            display: inline-block;
             padding: 20px 60px;
             font-size: 18px;
             font-weight: 700;
             border-radius: 8px;
             cursor: pointer;
             transition: all 0.3s;
-            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.3);
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
         
         .cta-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(16, 185, 129, 0.5);
+            box-shadow: 0 8px 30px rgba(37, 99, 235, 0.5);
+            color: white;
         }
         
         .timer-warning {
@@ -280,17 +284,59 @@
             font-size: 14px;
         }
         
+        /* Fact Checkers Footer */
+        .fact-checkers {
+            background: #1e293b;
+            border-top: 1px solid #334155;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+        
+        .fact-checkers-content {
+            max-width: 720px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .fact-checkers-title {
+            font-size: 14px;
+            color: #64748b;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .fact-checkers-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+        
+        .fact-checker-link {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        .fact-checker-link:hover {
+            color: #2563EB;
+        }
+        
         @media (max-width: 480px) {
             .amount-display { font-size: 48px; }
             .benefits-grid { grid-template-columns: 1fr; }
             .cta-button { padding: 18px 40px; }
+            .fact-checkers-logos { gap: 24px; }
         }
     </style>
 </head>
 <body>
     <div class="verification-header">
         <div class="header-content">
-            <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1753955621/Screenshot_2025-07-31_024951_yo3fm3.png" alt="Logo" class="logo">
             <div class="verification-status">
                 <span class="check-icon">✓</span>
                 VERIFIED ELIGIBLE
@@ -372,9 +418,10 @@
             </div>
             
             <div class="cta-section">
-                <button class="cta-button" onclick="window.location.href='https://hpkpn.ttrk.io/click'">
+                <!-- CRITICAL FIX: Use anchor tag instead of button -->
+                <a href="https://hpkpn.ttrk.io/click" class="cta-button">
                     Complete My Application →
-                </button>
+                </a>
                 
                 <div class="timer-warning">
                     ⏰ Verification expires in 24 hours - Act now!
@@ -383,6 +430,19 @@
                 <p class="security-note">
                     🔒 Secure application • No payment required
                 </p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Fact Checkers Footer -->
+    <div class="fact-checkers">
+        <div class="fact-checkers-content">
+            <div class="fact-checkers-title">Fact Checkers</div>
+            <div class="fact-checkers-logos">
+                <a href="https://hpkpn.ttrk.io/click" class="fact-checker-link">AM Better</a>
+                <a href="https://hpkpn.ttrk.io/click" class="fact-checker-link">Consumer Reports</a>
+                <a href="https://hpkpn.ttrk.io/click" class="fact-checker-link">TrustPilot</a>
+                <a href="https://hpkpn.ttrk.io/click" class="fact-checker-link">UnitedHealth</a>
             </div>
         </div>
     </div>
