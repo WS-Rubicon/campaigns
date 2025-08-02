@@ -11,12 +11,12 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
-            background: #fff5f5; 
+            background: #EFF6FF; 
             color: #1a1a1a; 
         }
         
         .header-strip {
-            background: #dc2626;
+            background: #0066CC;
             color: white;
             padding: 12px;
             text-align: center;
@@ -44,8 +44,8 @@
         
         .header {
             padding: 20px;
-            background: #fef2f2;
-            border-bottom: 2px solid #dc2626;
+            background: #EFF6FF;
+            border-bottom: 2px solid #0066CC;
         }
         
         .header-content {
@@ -66,12 +66,12 @@
         
         .live-counter {
             background: white;
-            color: #dc2626;
+            color: #0066CC;
             padding: 10px 20px;
             border-radius: 20px;
             font-weight: 700;
             font-size: 14px;
-            border: 2px solid #dc2626;
+            border: 2px solid #0066CC;
         }
         
         .hero-wrapper {
@@ -91,7 +91,7 @@
             bottom: 20px;
             left: 20px;
             right: 20px;
-            background: rgba(220, 38, 38, 0.95);
+            background: rgba(0, 102, 204, 0.95);
             color: white;
             padding: 20px;
             border-radius: 8px;
@@ -134,12 +134,52 @@
         .form-title {
             font-size: 20px;
             font-weight: 700;
-            margin-bottom: 24px;
+            margin-bottom: 8px;
             text-align: center;
+        }
+        
+        .question-counter {
+            text-align: center;
+            color: #6b7280;
+            font-size: 14px;
+            margin-bottom: 24px;
         }
         
         .question-block {
             margin-bottom: 24px;
+            display: none;
+            animation: slideIn 0.5s ease-out;
+        }
+        
+        .question-block.active {
+            display: block;
+        }
+        
+        @keyframes slideIn {
+            from { 
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .progress-bar {
+            background: #e5e7eb;
+            height: 8px;
+            border-radius: 4px;
+            margin-bottom: 32px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            background: #0066CC;
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.5s ease-out;
+            width: 0%;
         }
         
         .question {
@@ -151,7 +191,7 @@
         }
         
         .question-number {
-            background: #dc2626;
+            background: #0066CC;
             color: white;
             width: 24px;
             height: 24px;
@@ -171,23 +211,27 @@
         .answer-btn {
             background: white;
             border: 2px solid #e5e7eb;
-            padding: 16px;
+            padding: 20px;
             border-radius: 8px;
             cursor: pointer;
             transition: all 0.2s;
-            font-size: 16px;
+            font-size: 18px;
             font-weight: 500;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .answer-btn:hover {
-            border-color: #dc2626;
-            background: #fef2f2;
+            border-color: #0066CC;
+            background: #EFF6FF;
         }
         
         .answer-btn.selected {
-            background: #dc2626;
+            background: #0066CC;
             color: white;
-            border-color: #dc2626;
+            border-color: #0066CC;
         }
         
         .results-section {
@@ -202,8 +246,8 @@
         }
         
         .results-card {
-            background: #dcfce7;
-            border: 2px solid #22c55e;
+            background: #DBEAFE;
+            border: 2px solid #2563EB;
             border-radius: 12px;
             padding: 32px;
             margin-bottom: 24px;
@@ -217,28 +261,28 @@
         .results-title {
             font-size: 28px;
             font-weight: 700;
-            color: #16a34a;
+            color: #1E40AF;
             margin-bottom: 8px;
         }
         
         .results-subtitle {
             font-size: 18px;
-            color: #15803d;
+            color: #1E3A8A;
         }
         
         .location-highlight {
-            background: #fef3c7;
-            border: 2px solid #f59e0b;
+            background: #E0E7FF;
+            border: 2px solid #6366F1;
             border-radius: 8px;
             padding: 16px;
             margin: 20px 0;
             font-weight: 600;
-            color: #92400e;
+            color: #312E81;
         }
         
         .benefit-highlight {
-            background: #fef3c7;
-            border: 2px solid #f59e0b;
+            background: #EFF6FF;
+            border: 2px solid #2563EB;
             border-radius: 12px;
             padding: 24px;
             margin: 24px 0;
@@ -247,12 +291,12 @@
         .benefit-amount {
             font-size: 48px;
             font-weight: 700;
-            color: #d97706;
+            color: #0066CC;
             margin-bottom: 8px;
         }
         
         .benefit-desc {
-            color: #92400e;
+            color: #1E40AF;
             font-weight: 600;
         }
         
@@ -278,7 +322,7 @@
         
         /* CRITICAL FIX: Style anchor tag as button */
         .cta-button {
-            background: #dc2626;
+            background: linear-gradient(135deg, #0066CC 0%, #2563EB 100%);
             color: white;
             text-decoration: none;
             display: block;
@@ -291,18 +335,19 @@
             transition: all 0.3s;
             margin-top: 24px;
             text-align: center;
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.3);
         }
         
         .cta-button:hover {
-            background: #b91c1c;
+            background: linear-gradient(135deg, #0052a3 0%, #1D4ED8 100%);
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(220, 38, 38, 0.3);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.5);
             color: white;
         }
         
         .timer-notice {
-            background: #fee2e2;
-            color: #991b1b;
+            background: #FEE2E2;
+            color: #991B1B;
             padding: 16px;
             border-radius: 8px;
             margin-top: 24px;
@@ -349,7 +394,7 @@
         }
         
         .fact-checker-link:hover {
-            color: #dc2626;
+            color: #0066CC;
         }
         
         @media (max-width: 480px) {
@@ -392,26 +437,31 @@
             
             <div class="qualification-form" id="questionForm">
                 <h2 class="form-title">Let's Check Your Eligibility</h2>
+                <div class="question-counter" id="questionCounter">Question 1 of 2</div>
                 
-                <div class="question-block">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressBar"></div>
+                </div>
+                
+                <div class="question-block active" id="question1">
                     <div class="question">
                         <span class="question-number">1</span>
                         <span>Are you 18 years or older?</span>
                     </div>
                     <div class="answer-options">
-                        <button class="answer-btn" onclick="selectAnswer(this, 'q1')">Yes</button>
-                        <button class="answer-btn" onclick="selectAnswer(this, 'q1')">No</button>
+                        <button class="answer-btn" onclick="selectAnswer(this, 'q1', 1)">Yes</button>
+                        <button class="answer-btn" onclick="selectAnswer(this, 'q1', 1)">No</button>
                     </div>
                 </div>
                 
-                <div class="question-block">
+                <div class="question-block" id="question2">
                     <div class="question">
                         <span class="question-number">2</span>
                         <span>Do you shop for groceries regularly?</span>
                     </div>
                     <div class="answer-options">
-                        <button class="answer-btn" onclick="selectAnswer(this, 'q2')">Yes</button>
-                        <button class="answer-btn" onclick="selectAnswer(this, 'q2')">No</button>
+                        <button class="answer-btn" onclick="selectAnswer(this, 'q2', 2)">Yes</button>
+                        <button class="answer-btn" onclick="selectAnswer(this, 'q2', 2)">No</button>
                     </div>
                 </div>
             </div>
@@ -467,6 +517,7 @@
     <script>
         let answers = { q1: false, q2: false };
         let userLocation = { city: '', region: '' };
+        let currentQuestion = 1;
         
         // Fetch user's location on page load
         fetch('https://geo.ipify.org/api/v2/country,city?apiKey=at_JKtyyWskmuI07I6RieQ3a6EBhlt5T')
@@ -490,7 +541,7 @@
                 document.querySelector('.location-text').textContent = 'Your Area';
             });
         
-        function selectAnswer(btn, question) {
+        function selectAnswer(btn, question, questionNumber) {
             // Remove selected class from siblings
             const siblings = btn.parentElement.querySelectorAll('.answer-btn');
             siblings.forEach(s => s.classList.remove('selected'));
@@ -501,22 +552,36 @@
             // Mark question as answered
             answers[question] = btn.textContent === 'Yes';
             
-            // Check if both questions answered
-            if (answers.q1 !== false && answers.q2 !== false) {
+            // Update progress bar
+            const progressBar = document.getElementById('progressBar');
+            progressBar.style.width = (questionNumber * 50) + '%';
+            
+            // Move to next question or show results
+            if (questionNumber === 1) {
                 setTimeout(() => {
-                    document.getElementById('questionForm').style.display = 'none';
-                    document.getElementById('results').style.display = 'block';
-                    
-                    // Update location highlight in results
-                    const locationHighlight = document.getElementById('locationHighlight');
-                    if (userLocation.city && userLocation.region) {
-                        locationHighlight.innerHTML = `✅ Great news! ${userLocation.city}, ${userLocation.region} residents are eligible!`;
-                    } else if (userLocation.region) {
-                        locationHighlight.innerHTML = `✅ Great news! ${userLocation.region} residents are eligible!`;
-                    } else {
-                        locationHighlight.innerHTML = `✅ Great news! Your area is eligible!`;
-                    }
-                }, 500);
+                    document.getElementById('question1').classList.remove('active');
+                    document.getElementById('question2').classList.add('active');
+                    document.getElementById('questionCounter').textContent = 'Question 2 of 2';
+                    currentQuestion = 2;
+                }, 300);
+            } else if (questionNumber === 2) {
+                setTimeout(() => {
+                    progressBar.style.width = '100%';
+                    setTimeout(() => {
+                        document.getElementById('questionForm').style.display = 'none';
+                        document.getElementById('results').style.display = 'block';
+                        
+                        // Update location highlight in results
+                        const locationHighlight = document.getElementById('locationHighlight');
+                        if (userLocation.city && userLocation.region) {
+                            locationHighlight.innerHTML = `✅ Great news! ${userLocation.city}, ${userLocation.region} residents are eligible!`;
+                        } else if (userLocation.region) {
+                            locationHighlight.innerHTML = `✅ Great news! ${userLocation.region} residents are eligible!`;
+                        } else {
+                            locationHighlight.innerHTML = `✅ Great news! Your area is eligible!`;
+                        }
+                    }, 500);
+                }, 300);
             }
         }
         
