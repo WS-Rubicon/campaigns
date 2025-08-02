@@ -3,62 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quick Check: Do You Qualify for $500/Month?</title>
+    <title>Benefits Calculator - See Your Monthly Savings</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
-            background: #fff5f5; 
-            color: #1a1a1a; 
+            background: #f8f8f8; 
+            color: #2d3748; 
         }
         
-        .header-strip {
-            background: #dc2626;
+        .calculator-header {
+            background: linear-gradient(135deg, #5b21b6 0%, #7c3aed 100%);
             color: white;
-            padding: 12px;
-            text-align: center;
-            font-weight: 600;
-            font-size: 14px;
-            animation: slideDown 0.5s ease-out;
+            padding: 16px 0;
+            box-shadow: 0 2px 10px rgba(124, 58, 237, 0.2);
         }
         
-        @keyframes slideDown {
-            from { transform: translateY(-100%); }
-            to { transform: translateY(0); }
+        .header-content {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo { 
+            height: 60px; 
+            filter: brightness(0) invert(1);
+        }
+        
+        .calc-badge {
+            background: rgba(255,255,255,0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
         }
         
         .container {
             max-width: 720px;
             margin: 0 auto;
             background: white;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            box-shadow: 0 0 40px rgba(0,0,0,0.08);
         }
         
-        .header {
-            padding: 20px;
-            background: #fef2f2;
-            border-bottom: 2px solid #dc2626;
-        }
-        
-        .header-content {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .live-counter {
-            background: white;
-            color: #dc2626;
-            padding: 10px 20px;
-            border-radius: 20px;
-            font-weight: 700;
-            font-size: 14px;
-            border: 2px solid #dc2626;
-        }
-        
-        .hero-wrapper {
+        .hero-section {
             position: relative;
-            height: 250px;
+            height: 200px;
             overflow: hidden;
         }
         
@@ -66,22 +59,24 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            filter: brightness(0.7);
         }
         
-        .hero-banner {
+        .calculator-overlay {
             position: absolute;
-            bottom: 20px;
-            left: 20px;
-            right: 20px;
-            background: rgba(220, 38, 38, 0.95);
-            color: white;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent, rgba(91, 33, 182, 0.8));
+            display: flex;
+            align-items: flex-end;
             padding: 20px;
-            border-radius: 8px;
-            text-align: center;
         }
         
-        .banner-text {
-            font-size: 20px;
+        .calc-title {
+            color: white;
+            font-size: 24px;
             font-weight: 700;
         }
         
@@ -89,188 +84,195 @@
             padding: 40px 20px;
         }
         
-        .check-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        
-        h1 {
-            font-size: 32px;
-            color: #1a1a1a;
-            margin-bottom: 12px;
-        }
-        
-        .subtitle {
-            font-size: 18px;
-            color: #6b7280;
-        }
-        
-        .qualification-form {
-            background: #f9fafb;
-            border-radius: 12px;
+        .calculator-display {
+            background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
+            border-radius: 16px;
             padding: 32px;
             margin-bottom: 32px;
-            border: 2px solid #e5e7eb;
-        }
-        
-        .form-title {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 24px;
             text-align: center;
+            border: 2px solid #7c3aed;
         }
         
-        .question-block {
+        .calc-screen {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: inset 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .calc-label {
+            font-size: 14px;
+            color: #6b7280;
+            margin-bottom: 8px;
+        }
+        
+        .calc-number {
+            font-size: 56px;
+            font-weight: 700;
+            color: #5b21b6;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 2px;
+        }
+        
+        .calc-period {
+            font-size: 18px;
+            color: #7c3aed;
+            font-weight: 600;
+        }
+        
+        .breakdown-section {
+            background: #fafafa;
+            border-radius: 12px;
+            padding: 24px;
             margin-bottom: 24px;
         }
         
-        .question {
-            font-weight: 600;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+        .breakdown-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #2d3748;
         }
         
-        .question-number {
-            background: #dc2626;
-            color: white;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-        }
-        
-        .answer-options {
+        .breakdown-items {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
             gap: 12px;
         }
         
-        .answer-btn {
+        .breakdown-item {
             background: white;
-            border: 2px solid #e5e7eb;
             padding: 16px;
             border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.2s;
-            font-size: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid #e5e7eb;
+            opacity: 0;
+            animation: slideUp 0.5s forwards;
+        }
+        
+        .breakdown-item:nth-child(1) { animation-delay: 0.1s; }
+        .breakdown-item:nth-child(2) { animation-delay: 0.2s; }
+        .breakdown-item:nth-child(3) { animation-delay: 0.3s; }
+        .breakdown-item:nth-child(4) { animation-delay: 0.4s; }
+        
+        @keyframes slideUp {
+            from { 
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .item-name {
+            display: flex;
+            align-items: center;
+            gap: 12px;
             font-weight: 500;
         }
         
-        .answer-btn:hover {
-            border-color: #dc2626;
-            background: #fef2f2;
+        .item-icon {
+            font-size: 24px;
         }
         
-        .answer-btn.selected {
-            background: #dc2626;
+        .item-amount {
+            font-weight: 700;
+            color: #5b21b6;
+            font-size: 18px;
+        }
+        
+        .total-row {
+            background: #5b21b6;
             color: white;
-            border-color: #dc2626;
+            padding: 20px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 16px;
         }
         
-        .results-section {
-            display: none;
+        .total-label {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .total-amount {
+            font-size: 28px;
+            font-weight: 700;
+        }
+        
+        .video-alert {
+            background: #fffbeb;
+            border: 2px solid #f59e0b;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 32px;
             text-align: center;
-            animation: fadeIn 0.5s ease-out;
         }
         
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        .video-alert-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
         }
         
-        .results-card {
-            background: #dcfce7;
+        .video-alert-text {
+            color: #92400e;
+            font-weight: 600;
+            line-height: 1.6;
+        }
+        
+        .eligibility-notice {
+            background: #f0fdf4;
             border: 2px solid #22c55e;
             border-radius: 12px;
-            padding: 32px;
-            margin-bottom: 24px;
+            padding: 24px;
+            margin-bottom: 32px;
+            text-align: center;
         }
         
-        .checkmark {
-            font-size: 64px;
-            margin-bottom: 16px;
+        .eligibility-check {
+            font-size: 48px;
+            margin-bottom: 12px;
         }
         
-        .results-title {
-            font-size: 28px;
+        .eligibility-title {
+            font-size: 24px;
             font-weight: 700;
             color: #16a34a;
             margin-bottom: 8px;
         }
         
-        .results-subtitle {
-            font-size: 18px;
+        .eligibility-text {
             color: #15803d;
         }
         
-        .benefit-highlight {
-            background: #fef3c7;
-            border: 2px solid #f59e0b;
-            border-radius: 12px;
-            padding: 24px;
-            margin: 24px 0;
-        }
-        
-        .benefit-amount {
-            font-size: 48px;
-            font-weight: 700;
-            color: #d97706;
-            margin-bottom: 8px;
-        }
-        
-        .benefit-desc {
-            color: #92400e;
-            font-weight: 600;
-        }
-        
-        .video-reminder {
-            background: #f3f4f6;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 24px;
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-        
-        .video-icon {
-            font-size: 32px;
-        }
-        
-        .video-text {
-            flex: 1;
-            font-size: 15px;
-            line-height: 1.6;
-        }
-        
         .cta-button {
-            background: #dc2626;
+            background: linear-gradient(135deg, #5b21b6 0%, #7c3aed 100%);
             color: white;
             border: none;
             padding: 20px 60px;
             font-size: 20px;
             font-weight: 700;
-            border-radius: 8px;
+            border-radius: 12px;
             cursor: pointer;
             width: 100%;
             transition: all 0.3s;
-            margin-top: 24px;
+            box-shadow: 0 4px 20px rgba(124, 58, 237, 0.3);
         }
         
         .cta-button:hover {
-            background: #b91c1c;
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(220, 38, 38, 0.3);
+            box-shadow: 0 8px 30px rgba(124, 58, 237, 0.5);
         }
         
-        .timer-notice {
-            background: #fee2e2;
-            color: #991b1b;
+        .urgency-timer {
+            background: #fef2f2;
+            color: #dc2626;
             padding: 16px;
             border-radius: 8px;
             margin-top: 24px;
@@ -279,124 +281,117 @@
         }
         
         @media (max-width: 480px) {
-            h1 { font-size: 28px; }
-            .answer-options { grid-template-columns: 1fr; }
-            .benefit-amount { font-size: 40px; }
+            .calc-number { font-size: 48px; }
+            .item-amount { font-size: 16px; }
+            .total-amount { font-size: 24px; }
         }
     </style>
 </head>
 <body>
-    <div class="header-strip">
-        🔥 Quick Qualification Check - Takes Only 10 Seconds!
+    <div class="calculator-header">
+        <div class="header-content">
+            <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1753955621/Screenshot_2025-07-31_024951_yo3fm3.png" alt="Logo" class="logo">
+            <div class="calc-badge">LIVE CALCULATOR</div>
+        </div>
     </div>
     
     <div class="container">
-        <div class="header">
-            <div class="header-content">
-                <div class="live-counter">
-                    <span id="counter">2,847</span> Qualified Today
-                </div>
-            </div>
-        </div>
-        
-        <div class="hero-wrapper">
+        <div class="hero-section">
             <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1753955622/Screenshot_2025-07-31_024853_dysuc0.png" alt="Benefits" class="hero-img">
-            <div class="hero-banner">
-                <div class="banner-text">See If You Qualify for $500/Month</div>
+            <div class="calculator-overlay">
+                <h1 class="calc-title">Calculating Your Monthly Benefits...</h1>
             </div>
         </div>
         
         <div class="main-content">
-            <div class="check-header">
-                <h1>Quick Qualification Check</h1>
-                <p class="subtitle">Answer 2 simple questions to see if you qualify</p>
-            </div>
-            
-            <div class="qualification-form" id="questionForm">
-                <h2 class="form-title">Let's Check Your Eligibility</h2>
-                
-                <div class="question-block">
-                    <div class="question">
-                        <span class="question-number">1</span>
-                        <span>Are you 18 years or older?</span>
-                    </div>
-                    <div class="answer-options">
-                        <button class="answer-btn" onclick="selectAnswer(this, 'q1')">Yes</button>
-                        <button class="answer-btn" onclick="selectAnswer(this, 'q1')">No</button>
-                    </div>
-                </div>
-                
-                <div class="question-block">
-                    <div class="question">
-                        <span class="question-number">2</span>
-                        <span>Do you shop for groceries regularly?</span>
-                    </div>
-                    <div class="answer-options">
-                        <button class="answer-btn" onclick="selectAnswer(this, 'q2')">Yes</button>
-                        <button class="answer-btn" onclick="selectAnswer(this, 'q2')">No</button>
-                    </div>
+            <div class="calculator-display">
+                <div class="calc-screen">
+                    <div class="calc-label">YOUR MONTHLY BENEFIT</div>
+                    <div class="calc-number" id="benefitAmount">$0</div>
+                    <div class="calc-period">Every Month</div>
                 </div>
             </div>
             
-            <div class="results-section" id="results">
-                <div class="results-card">
-                    <div class="checkmark">✅</div>
-                    <h2 class="results-title">Congratulations!</h2>
-                    <p class="results-subtitle">You qualify for the grocery assistance program</p>
-                </div>
-                
-                <div class="benefit-highlight">
-                    <div class="benefit-amount">$500/month</div>
-                    <div class="benefit-desc">Available for qualified individuals</div>
-                </div>
-                
-                <div class="video-reminder">
-                    <span class="video-icon">📺</span>
-                    <div class="video-text">
-                        <strong>Remember the viral video?</strong> This is the same program that helps thousands save on groceries every month. You've just been confirmed as eligible!
+            <div class="breakdown-section">
+                <h2 class="breakdown-title">What Your Benefits Cover:</h2>
+                <div class="breakdown-items">
+                    <div class="breakdown-item">
+                        <div class="item-name">
+                            <span class="item-icon">🥦</span>
+                            <span>Fresh Groceries</span>
+                        </div>
+                        <span class="item-amount">$300</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="item-name">
+                            <span class="item-icon">🥛</span>
+                            <span>Dairy & Essentials</span>
+                        </div>
+                        <span class="item-amount">$100</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="item-name">
+                            <span class="item-icon">🧻</span>
+                            <span>Household Items</span>
+                        </div>
+                        <span class="item-amount">$75</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="item-name">
+                            <span class="item-icon">🧼</span>
+                            <span>Personal Care</span>
+                        </div>
+                        <span class="item-amount">$25</span>
                     </div>
                 </div>
-                
-                <button class="cta-button" onclick="window.location.href='https://hpkpn.ttrk.io/click'">
-                    CLAIM MY $500/MONTH →
-                </button>
-                
-                <div class="timer-notice">
-                    ⏰ Qualification valid for the next 24 hours only
+                <div class="total-row">
+                    <span class="total-label">Total Monthly Benefit</span>
+                    <span class="total-amount">$500</span>
                 </div>
+            </div>
+            
+            <div class="video-alert">
+                <div class="video-alert-icon">🎬</div>
+                <p class="video-alert-text">
+                    This calculator shows the exact benefits from the viral grocery assistance videos. Real people are receiving these amounts monthly!
+                </p>
+            </div>
+            
+            <div class="eligibility-notice">
+                <div class="eligibility-check">✅</div>
+                <h2 class="eligibility-title">You're Pre-Qualified!</h2>
+                <p class="eligibility-text">Based on your location, you can receive these benefits</p>
+            </div>
+            
+            <button class="cta-button" onclick="window.location.href='https://hpkpn.ttrk.io/click'">
+                START RECEIVING $500/MONTH →
+            </button>
+            
+            <div class="urgency-timer">
+                ⏱️ Calculator results valid for 24 hours only
             </div>
         </div>
     </div>
     
     <script>
-        let answers = { q1: false, q2: false };
+        // Animate the benefit amount
+        let currentAmount = 0;
+        const targetAmount = 500;
+        const increment = 10;
+        const speed = 50;
         
-        function selectAnswer(btn, question) {
-            // Remove selected class from siblings
-            const siblings = btn.parentElement.querySelectorAll('.answer-btn');
-            siblings.forEach(s => s.classList.remove('selected'));
-            
-            // Add selected class to clicked button
-            btn.classList.add('selected');
-            
-            // Mark question as answered
-            answers[question] = btn.textContent === 'Yes';
-            
-            // Check if both questions answered
-            if (answers.q1 !== false && answers.q2 !== false) {
-                setTimeout(() => {
-                    document.getElementById('questionForm').style.display = 'none';
-                    document.getElementById('results').style.display = 'block';
-                }, 500);
-            }
-        }
+        const benefitElement = document.getElementById('benefitAmount');
         
-        // Counter animation
-        let count = 2847;
-        setInterval(() => {
-            count += Math.floor(Math.random() * 3) + 1;
-            document.getElementById('counter').textContent = count.toLocaleString();
-        }, 5000);
+        setTimeout(() => {
+            const timer = setInterval(() => {
+                currentAmount += increment;
+                if (currentAmount >= targetAmount) {
+                    currentAmount = targetAmount;
+                    clearInterval(timer);
+                }
+                benefitElement.textContent = `$${currentAmount}`;
+            }, speed);
+        }, 500);
     </script>
 </body>
 </html>
