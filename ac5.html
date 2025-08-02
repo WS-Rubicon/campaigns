@@ -2,560 +2,456 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <meta name="format-detection" content="telephone=no">
-    <title>Texas Woman Discovers $500/Month Walmart Grocery "Loophole" That's 100% Legal</title>
-    <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Check: Do You Qualify for $500/Month?</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
+            background: #fff5f5; 
+            color: #1a1a1a; 
         }
         
-        body {
-            font-family: Georgia, 'Times New Roman', serif;
-            background-color: #f5f5f5;
-            color: #333;
-            line-height: 1.6;
-            min-width: 320px;
+        .header-strip {
+            background: #dc2626;
+            color: white;
+            padding: 12px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 14px;
+            animation: slideDown 0.5s ease-out;
+        }
+        
+        .location-text {
+            display: inline;
+            font-weight: 700;
+        }
+        
+        @keyframes slideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
         }
         
         .container {
             max-width: 720px;
             margin: 0 auto;
-            padding: 0 20px;
+            background: white;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
         }
         
-        /* News Header */
-        .news-header {
-            background-color: #0071ce;
-            padding: 15px 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        
-        .news-nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .news-logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: white;
-            text-decoration: none;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
-        
-        .news-sections {
-            display: flex;
-            gap: 20px;
-        }
-        
-        .news-section {
-            color: white;
-            text-decoration: none;
-            font-size: 14px;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
-        
-        /* Breaking Banner */
-        .breaking-banner {
-            background-color: #ffc220;
-            color: #004c91;
-            padding: 8px 0;
-            text-align: center;
-            font-weight: 700;
-            font-size: 14px;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            text-transform: uppercase;
-        }
-        
-        /* Article */
-        .article-container {
-            background-color: white;
-            padding: 30px 20px;
-            margin: 20px auto;
-            max-width: 720px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }
-        
-        .article-category {
-            color: #0071ce;
-            font-size: 14px;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
-        
-        .article-headline {
-            font-size: 36px;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 20px;
-            color: #1a1a1a;
-        }
-        
-        .article-meta {
-            display: flex;
-            gap: 20px;
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 25px;
-            padding-bottom: 25px;
-            border-bottom: 1px solid #e0e0e0;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
-        
-        .author {
-            font-weight: 600;
-        }
-        
-        .article-body {
-            font-size: 18px;
-            line-height: 1.8;
-            color: #333;
-        }
-        
-        .article-body p {
-            margin-bottom: 20px;
-        }
-        
-        .lead-paragraph {
-            font-size: 20px;
-            font-weight: 600;
-            color: #1a1a1a;
-            margin-bottom: 25px;
-        }
-        
-        .article-image {
-            margin: 30px 0;
-            text-align: center;
-        }
-        
-        .article-image img {
-            width: 100%;
-            max-width: 600px;
-            height: auto;
-            border-radius: 4px;
-        }
-        
-        .image-caption {
-            font-size: 14px;
-            color: #666;
-            font-style: italic;
-            margin-top: 10px;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
-        
-        .quote-box {
-            background-color: #f0f8ff;
-            border-left: 4px solid #0071ce;
+        .header {
             padding: 20px;
-            margin: 30px 0;
-            font-style: italic;
-            font-size: 20px;
-            color: #004c91;
+            background: #fef2f2;
+            border-bottom: 2px solid #dc2626;
         }
         
-        .walmart-highlight {
-            background-color: #ffc220;
-            padding: 2px 4px;
-            font-weight: 600;
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
         
-        /* Comments Section */
-        .comments-section {
-            background-color: #f9f9f9;
-            padding: 30px 20px;
-            margin-top: 40px;
-            border-top: 2px solid #e0e0e0;
-        }
+        .logo { height: 60px; }
         
-        .comments-title {
-            font-size: 24px;
+        .live-counter {
+            background: white;
+            color: #dc2626;
+            padding: 10px 20px;
+            border-radius: 20px;
             font-weight: 700;
-            margin-bottom: 20px;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 14px;
+            border: 2px solid #dc2626;
         }
         
-        .comment {
-            background-color: white;
-            padding: 15px;
-            margin-bottom: 15px;
-            border-radius: 4px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        .hero-wrapper {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
         }
         
-        .comment-author {
-            font-weight: 700;
-            color: #0071ce;
-            margin-bottom: 5px;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        .hero-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         
-        .comment-text {
-            font-size: 16px;
-            color: #333;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
-        
-        .comment-time {
-            font-size: 12px;
-            color: #999;
-            margin-top: 5px;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
-        
-        /* CTA Section */
-        .cta-box {
-            background-color: #0071ce;
+        .hero-banner {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: rgba(220, 38, 38, 0.95);
             color: white;
-            padding: 40px;
-            margin: 40px 0;
+            padding: 20px;
             border-radius: 8px;
             text-align: center;
         }
         
-        .cta-title {
+        .banner-text {
+            font-size: 20px;
+            font-weight: 700;
+        }
+        
+        .main-content {
+            padding: 40px 20px;
+        }
+        
+        .check-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        h1 {
+            font-size: 32px;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+        }
+        
+        .subtitle {
+            font-size: 18px;
+            color: #6b7280;
+        }
+        
+        .qualification-form {
+            background: #f9fafb;
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 32px;
+            border: 2px solid #e5e7eb;
+        }
+        
+        .form-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+        
+        .question-block {
+            margin-bottom: 24px;
+        }
+        
+        .question {
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .question-number {
+            background: #dc2626;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+        
+        .answer-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+        
+        .answer-btn {
+            background: white;
+            border: 2px solid #e5e7eb;
+            padding: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        
+        .answer-btn:hover {
+            border-color: #dc2626;
+            background: #fef2f2;
+        }
+        
+        .answer-btn.selected {
+            background: #dc2626;
+            color: white;
+            border-color: #dc2626;
+        }
+        
+        .results-section {
+            display: none;
+            text-align: center;
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .results-card {
+            background: #dcfce7;
+            border: 2px solid #22c55e;
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 24px;
+        }
+        
+        .checkmark {
+            font-size: 64px;
+            margin-bottom: 16px;
+        }
+        
+        .results-title {
             font-size: 28px;
             font-weight: 700;
-            margin-bottom: 15px;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: #16a34a;
+            margin-bottom: 8px;
         }
         
-        .cta-subtitle {
+        .results-subtitle {
             font-size: 18px;
-            margin-bottom: 25px;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: #15803d;
         }
         
-        .button-group {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            max-width: 340px;
-            margin: 0 auto;
-        }
-        
-        .btn {
-            padding: 18px 32px;
-            font-size: 19px;
-            font-weight: 700;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            text-decoration: none;
-            display: block;
-            text-align: center;
-            transition: all 0.2s;
-            -webkit-tap-highlight-color: transparent;
-            width: 100%;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
-        
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
-        
-        .btn:active {
-            transform: translateY(0);
-        }
-        
-        .btn-yes {
-            background-color: #ffc220;
-            color: #004c91;
-        }
-        
-        .btn-yes:hover {
-            background-color: #e6ad00;
-        }
-        
-        .btn-no {
-            background-color: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-        
-        .btn-no:hover {
-            background-color: rgba(255,255,255,0.1);
-        }
-        
-        /* Partner Section */
-        .partner-section {
-            text-align: center;
-            padding: 40px 20px;
-            background-color: white;
-        }
-        
-        .partner-text {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 20px;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
-        
-        .partner-logo {
-            display: inline-block;
-        }
-        
-        .partner-logo img {
-            height: 50px;
-            width: auto;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: #333;
-            color: #999;
-            padding: 35px 0;
-            text-align: center;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
-        
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
-            gap: 20px;
-        }
-        
-        .footer-links {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        
-        .footer-links a {
-            color: #999;
-            text-decoration: none;
-            font-size: 14px;
-            padding: 5px;
-        }
-        
-        .footer-links a:hover {
-            color: #ccc;
-            text-decoration: underline;
-        }
-        
-        .fact-checkers {
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid #444;
-        }
-        
-        .fact-checkers-title {
+        .location-highlight {
+            background: #fef3c7;
+            border: 2px solid #f59e0b;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 20px 0;
             font-weight: 600;
-            margin-bottom: 10px;
-            font-size: 14px;
-            color: #999;
+            color: #92400e;
         }
         
-        .fact-checkers-links {
+        .benefit-highlight {
+            background: #fef3c7;
+            border: 2px solid #f59e0b;
+            border-radius: 12px;
+            padding: 24px;
+            margin: 24px 0;
+        }
+        
+        .benefit-amount {
+            font-size: 48px;
+            font-weight: 700;
+            color: #d97706;
+            margin-bottom: 8px;
+        }
+        
+        .benefit-desc {
+            color: #92400e;
+            font-weight: 600;
+        }
+        
+        .video-reminder {
+            background: #f3f4f6;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 24px;
             display: flex;
-            gap: 18px;
-            justify-content: center;
-            flex-wrap: wrap;
+            align-items: center;
+            gap: 16px;
         }
         
-        .fact-checkers-links a {
-            font-size: 13px;
-            padding: 3px;
-            color: #999;
-            text-decoration: none;
+        .video-icon {
+            font-size: 32px;
         }
         
-        .fact-checkers-links a:hover {
-            color: #ccc;
-            text-decoration: underline;
+        .video-text {
+            flex: 1;
+            font-size: 15px;
+            line-height: 1.6;
         }
         
-        /* Responsive adjustments */
-        @media (max-width: 600px) {
-            .news-sections {
-                display: none;
-            }
-            
-            .article-headline {
-                font-size: 28px;
-            }
-            
-            .article-meta {
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            .footer-content {
-                flex-direction: column;
-                gap: 15px;
-            }
+        .cta-button {
+            background: #dc2626;
+            color: white;
+            border: none;
+            padding: 20px 60px;
+            font-size: 20px;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s;
+            margin-top: 24px;
+        }
+        
+        .cta-button:hover {
+            background: #b91c1c;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(220, 38, 38, 0.3);
+        }
+        
+        .timer-notice {
+            background: #fee2e2;
+            color: #991b1b;
+            padding: 16px;
+            border-radius: 8px;
+            margin-top: 24px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 480px) {
+            h1 { font-size: 28px; }
+            .answer-options { grid-template-columns: 1fr; }
+            .benefit-amount { font-size: 40px; }
         }
     </style>
 </head>
 <body>
-    <!-- News Header -->
-    <header class="news-header">
-        <div class="container">
-            <nav class="news-nav">
-                <a href="https://hpkpn.ttrk.io/click" class="news-logo">Consumer Reports Daily</a>
-                <div class="news-sections">
-                    <a href="#" class="news-section">Money</a>
-                    <a href="#" class="news-section">Health</a>
-                    <a href="#" class="news-section">Tech</a>
-                </div>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Breaking Banner -->
-    <div class="breaking-banner">
-        ⚡ Breaking: Program enrollment closes at midnight tonight
+    <div class="header-strip">
+        🔥 <span class="location-text">Loading...</span> Residents: Quick Qualification Check - Takes Only 10 Seconds!
     </div>
-
-    <!-- Article -->
-    <article class="article-container">
-        <div class="article-category">Money Saving Tips</div>
-        
-        <h1 class="article-headline">Texas Woman Discovers $500/Month Walmart Grocery "Loophole" That's 100% Legal</h1>
-        
-        <div class="article-meta">
-            <span class="author">By Sarah Mitchell</span>
-            <span class="date">July 31, 2025</span>
-            <span class="read-time">4 min read</span>
-        </div>
-        
-        <div class="article-body">
-            <p class="lead-paragraph">
-                A 42-year-old Dallas mother of three has discovered a little-known program that's saving her 
-                <span class="walmart-highlight">$500 every month</span> on groceries at Walmart — and it's completely legal.
-            </p>
-            
-            <p>
-                Maria Rodriguez was struggling to feed her family on a tight budget when she stumbled upon 
-                what she calls "the best-kept secret in America." Now, she's sharing her discovery with 
-                other families who are feeling the pinch of rising grocery costs.
-            </p>
-            
-            <p>
-                "I couldn't believe it at first," Rodriguez told Consumer Reports Daily. "I thought there 
-                had to be a catch. But I've been using this for three months now, and my Walmart receipts 
-                don't lie — I'm saving exactly $500 every single month."
-            </p>
-            
-            <div class="article-image">
-                <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1753955622/Screenshot_2025-07-31_024853_dysuc0.png" alt="Maria Rodriguez showing her grocery savings">
-                <p class="image-caption">Maria Rodriguez shows her monthly grocery haul from Walmart, 
-                purchased with her $500 monthly benefit card</p>
-            </div>
-            
-            <p>
-                The program Rodriguez discovered is a federal benefit that provides qualified families with 
-                $500 per month specifically for essential purchases. While it works at most major retailers, 
-                Rodriguez says Walmart accepts it at all locations nationwide, making it perfect for her 
-                weekly shopping trips.
-            </p>
-            
-            <div class="quote-box">
-                "Last week I got $127 worth of groceries and household items. When I swiped my benefit 
-                card, I paid nothing. The cashier just smiled and said 'Have a great day!' It still 
-                feels surreal."
-            </div>
-            
-            <p>
-                The qualification process is surprisingly simple. Rodriguez says it took her less than 
-                5 minutes online, and she was approved instantly. The main requirement? Your household 
-                income must be under $50,000 per year.
-            </p>
-            
-            <p>
-                "I wish I had known about this sooner," Rodriguez admits. "I think about all those months 
-                I struggled, choosing between groceries and gas money. This program has literally changed 
-                our lives. My kids are eating better, and I'm not stressed about money anymore."
-            </p>
-            
-            <p>
-                Since sharing her story on social media, Rodriguez says she's been flooded with messages 
-                from other families asking how to sign up. "I tell everyone the same thing — don't wait. 
-                This program has limited funding, and once it's gone, it's gone."
-            </p>
-        </div>
-        
-        <!-- Comments Section -->
-        <div class="comments-section">
-            <h3 class="comments-title">Reader Comments (247)</h3>
-            
-            <div class="comment">
-                <div class="comment-author">Jennifer_TX</div>
-                <div class="comment-text">OMG this actually works! Just got approved and used it at 
-                my local Walmart. Saved $93 on today's shopping trip alone. THANK YOU for sharing!</div>
-                <div class="comment-time">2 hours ago</div>
-            </div>
-            
-            <div class="comment">
-                <div class="comment-author">DallasDad1987</div>
-                <div class="comment-text">Been using this for 2 weeks now. It's legit. Works at my 
-                Walmart Neighborhood Market too. Already saved almost $200.</div>
-                <div class="comment-time">3 hours ago</div>
-            </div>
-            
-            <div class="comment">
-                <div class="comment-author">BudgetMomTX</div>
-                <div class="comment-text">Why isn't this advertised more?? I qualify and had no idea 
-                this existed. Just signed up!</div>
-                <div class="comment-time">4 hours ago</div>
+    
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1753955621/Screenshot_2025-07-31_024951_yo3fm3.png" alt="Logo" class="logo">
+                <div class="live-counter">
+                    <span id="counter">2,847</span> Qualified Today
+                </div>
             </div>
         </div>
         
-        <!-- CTA Box -->
-        <div class="cta-box">
-            <h3 class="cta-title">See If You Qualify for $500/Month</h3>
-            <p class="cta-subtitle">Takes 60 seconds • Instant approval</p>
-            <p class="cta-subtitle" style="font-size: 20px; margin-bottom: 30px;">
-                Do you make less than $50,000/year?
-            </p>
-            <div class="button-group">
-                <a href="https://hpkpn.ttrk.io/click" class="btn btn-yes">YES - Check My Eligibility</a>
-                <a href="https://hpkpn.ttrk.io/click" class="btn btn-no">No - I Don't Qualify</a>
+        <div class="hero-wrapper">
+            <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1753955622/Screenshot_2025-07-31_024853_dysuc0.png" alt="Benefits" class="hero-img">
+            <div class="hero-banner">
+                <div class="banner-text">See If You Qualify for $500/Month</div>
             </div>
         </div>
-    </article>
-
-    <!-- Partner Section -->
-    <div class="partner-section">
-        <p class="partner-text">Official Enrollment Partner</p>
-        <a href="https://hpkpn.ttrk.io/click" class="partner-logo">
-            <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1753955621/Screenshot_2025-07-31_024951_yo3fm3.png" alt="Healthcare Pronto">
-        </a>
+        
+        <div class="main-content">
+            <div class="check-header">
+                <h1>Quick Qualification Check</h1>
+                <p class="subtitle">Answer 2 simple questions to see if you qualify</p>
+            </div>
+            
+            <div class="qualification-form" id="questionForm">
+                <h2 class="form-title">Let's Check Your Eligibility</h2>
+                
+                <div class="question-block">
+                    <div class="question">
+                        <span class="question-number">1</span>
+                        <span>Are you 18 years or older?</span>
+                    </div>
+                    <div class="answer-options">
+                        <button class="answer-btn" onclick="selectAnswer(this, 'q1')">Yes</button>
+                        <button class="answer-btn" onclick="selectAnswer(this, 'q1')">No</button>
+                    </div>
+                </div>
+                
+                <div class="question-block">
+                    <div class="question">
+                        <span class="question-number">2</span>
+                        <span>Do you shop for groceries regularly?</span>
+                    </div>
+                    <div class="answer-options">
+                        <button class="answer-btn" onclick="selectAnswer(this, 'q2')">Yes</button>
+                        <button class="answer-btn" onclick="selectAnswer(this, 'q2')">No</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="results-section" id="results">
+                <div class="results-card">
+                    <div class="checkmark">✅</div>
+                    <h2 class="results-title">Congratulations!</h2>
+                    <p class="results-subtitle">You qualify for the grocery assistance program</p>
+                </div>
+                
+                <div class="location-highlight" id="locationHighlight">
+                    Checking eligibility for your area...
+                </div>
+                
+                <div class="benefit-highlight">
+                    <div class="benefit-amount">$500/month</div>
+                    <div class="benefit-desc">Available for qualified individuals</div>
+                </div>
+                
+                <div class="video-reminder">
+                    <span class="video-icon">📺</span>
+                    <div class="video-text">
+                        <strong>Remember the viral video?</strong> This is the same program that helps thousands save on groceries every month. You've just been confirmed as eligible!
+                    </div>
+                </div>
+                
+                <button class="cta-button" onclick="window.location.href='https://hpkpn.ttrk.io/click'">
+                    CLAIM MY $500/MONTH →
+                </button>
+                
+                <div class="timer-notice">
+                    ⏰ Qualification valid for the next 24 hours only
+                </div>
+            </div>
+        </div>
     </div>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div style="color: #999;">&copy; 2025 Consumer Pronto</div>
-                <div class="footer-links">
-                    <a href="https://hpkpn.ttrk.io/click">Privacy Policy</a>
-                    <a href="https://hpkpn.ttrk.io/click">Terms Of Service</a>
-                </div>
-            </div>
+    
+    <script>
+        let answers = { q1: false, q2: false };
+        let userLocation = { city: '', region: '' };
+        
+        // Fetch user's location on page load
+        fetch('https://geo.ipify.org/api/v2/country,city?apiKey=at_JKtyyWskmuI07I6RieQ3a6EBhlt5T')
+            .then(response => response.json())
+            .then(data => {
+                userLocation.city = data.location.city || '';
+                userLocation.region = data.location.region || '';
+                
+                // Update header strip
+                const locationText = document.querySelector('.location-text');
+                if (userLocation.city && userLocation.region) {
+                    locationText.textContent = `${userLocation.city}, ${userLocation.region}`;
+                } else if (userLocation.region) {
+                    locationText.textContent = userLocation.region;
+                } else {
+                    locationText.textContent = 'Your Area';
+                }
+            })
+            .catch(error => {
+                console.error('Location detection error:', error);
+                document.querySelector('.location-text').textContent = 'Your Area';
+            });
+        
+        function selectAnswer(btn, question) {
+            // Remove selected class from siblings
+            const siblings = btn.parentElement.querySelectorAll('.answer-btn');
+            siblings.forEach(s => s.classList.remove('selected'));
             
-            <div class="fact-checkers">
-                <div class="fact-checkers-title">Fact Checkers:</div>
-                <div class="fact-checkers-links">
-                    <a href="https://hpkpn.ttrk.io/click">AM Better</a>
-                    <a href="https://hpkpn.ttrk.io/click">UnitedHealth</a>
-                    <a href="https://hpkpn.ttrk.io/click">CMS.GOV</a>
-                    <a href="https://hpkpn.ttrk.io/click">IRS</a>
-                    <a href="https://hpkpn.ttrk.io/click">TaxPayer.IRS</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+            // Add selected class to clicked button
+            btn.classList.add('selected');
+            
+            // Mark question as answered
+            answers[question] = btn.textContent === 'Yes';
+            
+            // Check if both questions answered
+            if (answers.q1 !== false && answers.q2 !== false) {
+                setTimeout(() => {
+                    document.getElementById('questionForm').style.display = 'none';
+                    document.getElementById('results').style.display = 'block';
+                    
+                    // Update location highlight in results
+                    const locationHighlight = document.getElementById('locationHighlight');
+                    if (userLocation.city && userLocation.region) {
+                        locationHighlight.innerHTML = `✅ Great news! ${userLocation.city}, ${userLocation.region} residents are eligible!`;
+                    } else if (userLocation.region) {
+                        locationHighlight.innerHTML = `✅ Great news! ${userLocation.region} residents are eligible!`;
+                    } else {
+                        locationHighlight.innerHTML = `✅ Great news! Your area is eligible!`;
+                    }
+                }, 500);
+            }
+        }
+        
+        // Counter animation
+        let count = 2847;
+        setInterval(() => {
+            count += Math.floor(Math.random() * 3) + 1;
+            document.getElementById('counter').textContent = count.toLocaleString();
+        }, 5000);
+    </script>
 </body>
 </html>
