@@ -2,518 +2,327 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <meta name="format-detection" content="telephone=no">
-    <title>INVITATION: Beta Test $500/Month Health Program (Paid)</title>
-    <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Match Found - Claim Your Benefits</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f0f2f5; color: #1a1a1a; line-height: 1.6; }
+        
+        .system-banner {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            animation: slideDown 0.5s ease-out;
         }
         
-        body {
-            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background-color: #000000;
-            color: #ffffff;
-            line-height: 1.5;
-            min-width: 320px;
+        @keyframes slideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
         }
         
         .container {
             max-width: 720px;
             margin: 0 auto;
-            padding: 0 20px;
+            background: white;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
         }
         
-        /* Beta Banner */
-        .beta-banner {
-            background: linear-gradient(90deg, #ff0080 0%, #ff8c00 100%);
-            padding: 12px 0;
-            text-align: center;
-            font-size: 14px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-        
-        /* Header */
-        header {
-            background-color: #0a0a0a;
-            padding: 25px 0;
-            text-align: center;
-            border-bottom: 1px solid #222;
-        }
-        
-        .logo {
-            display: inline-block;
-            text-decoration: none;
-        }
-        
-        .logo img {
-            display: block;
-            height: 60px;
-            width: auto;
-            filter: brightness(0.9);
-        }
-        
-        /* Main Content */
-        .main-content {
-            background-color: #0a0a0a;
-            padding: 40px 0 60px;
-            margin-bottom: 0;
-        }
-        
-        .beta-badge {
-            background: rgba(255, 0, 128, 0.1);
-            border: 1px solid #ff0080;
-            color: #ff0080;
-            display: inline-block;
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 600;
-            margin: 0 auto 25px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .badge-container {
-            text-align: center;
-        }
-        
-        .beta-headline {
-            font-size: 42px;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 20px;
-            color: #ffffff;
-            padding: 0 20px;
-            line-height: 1.2;
-            letter-spacing: -1px;
-        }
-        
-        .beta-headline .highlight {
-            background: linear-gradient(90deg, #ff0080 0%, #ff8c00 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .subheadline {
-            font-size: 18px;
-            text-align: center;
-            color: #888;
-            margin-bottom: 35px;
-            padding: 0 20px;
-            font-weight: 400;
-        }
-        
-        .hero-image {
-            text-align: center;
-            margin-bottom: 40px;
-            padding: 0 20px;
-        }
-        
-        .hero-image img {
-            width: 100%;
-            max-width: 500px;
-            height: auto;
-            border-radius: 16px;
-            box-shadow: 0 20px 40px rgba(255, 0, 128, 0.2);
-            border: 1px solid #333;
-        }
-        
-        .beta-features {
-            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
-            border-radius: 16px;
-            padding: 30px;
-            margin: 30px 20px;
-            border: 1px solid #333;
-        }
-        
-        .features-title {
-            font-size: 20px;
-            font-weight: 600;
-            text-align: center;
-            margin-bottom: 25px;
-            color: #ffffff;
-        }
-        
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-        
-        .feature-item {
-            background: rgba(255, 255, 255, 0.03);
+        .header {
             padding: 20px;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: center;
-        }
-        
-        .feature-icon {
-            font-size: 32px;
-            margin-bottom: 10px;
-        }
-        
-        .feature-text {
-            font-size: 14px;
-            color: #ccc;
-            line-height: 1.4;
-        }
-        
-        .beta-terms {
-            background: rgba(255, 140, 0, 0.1);
-            border: 1px solid rgba(255, 140, 0, 0.3);
-            border-radius: 12px;
-            padding: 25px;
-            margin: 30px 20px;
-        }
-        
-        .terms-title {
-            font-size: 16px;
-            font-weight: 600;
-            color: #ff8c00;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .terms-list {
-            list-style: none;
-        }
-        
-        .terms-item {
-            font-size: 14px;
-            color: #ccc;
-            margin-bottom: 10px;
-            padding-left: 25px;
-            position: relative;
-        }
-        
-        .terms-item:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #ff8c00;
-            font-weight: 700;
-        }
-        
-        .beta-spots {
-            text-align: center;
-            margin: 30px 20px;
-            padding: 20px;
-            background: rgba(255, 0, 128, 0.05);
-            border-radius: 12px;
-        }
-        
-        .spots-number {
-            font-size: 48px;
-            font-weight: 700;
-            color: #ff0080;
-            margin-bottom: 5px;
-        }
-        
-        .spots-text {
-            font-size: 16px;
-            color: #888;
-        }
-        
-        .cta-section {
-            text-align: center;
-            margin: 40px 0;
-            padding: 0 20px;
-        }
-        
-        .cta-title {
-            font-size: 26px;
-            font-weight: 600;
-            color: #ffffff;
-            margin-bottom: 20px;
-        }
-        
-        .selection-text {
-            font-size: 16px;
-            color: #ff0080;
-            margin-bottom: 25px;
-            font-weight: 500;
-        }
-        
-        .question {
-            font-size: 20px;
-            color: #ccc;
-            margin-bottom: 25px;
-            font-weight: 400;
-        }
-        
-        .button-group {
+            border-bottom: 1px solid #e5e7eb;
             display: flex;
-            flex-direction: column;
-            gap: 15px;
-            max-width: 340px;
-            margin: 0 auto;
+            align-items: center;
+            justify-content: space-between;
         }
         
-        .btn {
-            padding: 18px 32px;
-            font-size: 19px;
+        .logo { height: 60px; }
+        
+        .match-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #059669;
             font-weight: 600;
-            border: none;
-            border-radius: 12px;
-            cursor: pointer;
-            text-decoration: none;
-            display: block;
-            text-align: center;
-            transition: all 0.3s;
-            -webkit-tap-highlight-color: transparent;
-            width: 100%;
+        }
+        
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            background: #059669;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .hero-section {
             position: relative;
             overflow: hidden;
         }
         
-        .btn:hover {
-            transform: translateY(-2px);
-        }
-        
-        .btn:active {
-            transform: translateY(0);
-        }
-        
-        .btn-yes {
-            background: linear-gradient(90deg, #ff0080 0%, #ff8c00 100%);
-            color: white;
-        }
-        
-        .btn-yes:hover {
-            box-shadow: 0 8px 20px rgba(255, 0, 128, 0.4);
-        }
-        
-        .btn-yes:before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -100%;
+        .hero-img {
             width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
+            height: auto;
+            display: block;
         }
         
-        .btn-yes:hover:before {
-            left: 100%;
+        .match-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 30px 20px 20px;
         }
         
-        .btn-no {
-            background-color: #1a1a1a;
-            color: #666;
-            border: 1px solid #333;
+        .match-text {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 5px;
         }
         
-        .btn-no:hover {
-            background-color: #222;
-            border-color: #444;
+        .match-details {
+            font-size: 14px;
+            opacity: 0.9;
         }
         
-        /* Footer */
-        footer {
-            background-color: #000000;
-            color: #666;
-            padding: 35px 0;
-            text-align: center;
-            border-top: 1px solid #222;
+        .main-content {
+            padding: 30px 20px;
         }
         
-        .footer-content {
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+            line-height: 1.3;
+        }
+        
+        .match-card {
+            background: #f8fafc;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .match-card::before {
+            content: "MATCHED";
+            position: absolute;
+            top: 15px;
+            right: -30px;
+            background: #059669;
+            color: white;
+            padding: 5px 40px;
+            font-size: 12px;
+            font-weight: 600;
+            transform: rotate(45deg);
+        }
+        
+        .benefit-amount {
+            font-size: 36px;
+            font-weight: 700;
+            color: #059669;
+            margin-bottom: 10px;
+        }
+        
+        .benefit-description {
+            font-size: 18px;
+            color: #4b5563;
+            margin-bottom: 20px;
+        }
+        
+        .match-info {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .match-row {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
-            gap: 20px;
+            padding: 8px 0;
+            border-bottom: 1px solid #f3f4f6;
         }
         
-        .footer-links {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
+        .match-row:last-child { border-bottom: none; }
         
-        .footer-links a {
-            color: #666;
-            text-decoration: none;
+        .match-label {
+            color: #6b7280;
             font-size: 14px;
-            padding: 5px;
         }
         
-        .footer-links a:hover {
-            color: #999;
-            text-decoration: underline;
-        }
-        
-        .fact-checkers {
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid #222;
-        }
-        
-        .fact-checkers-title {
+        .match-value {
             font-weight: 600;
-            margin-bottom: 10px;
+            color: #1a1a1a;
             font-size: 14px;
-            color: #666;
         }
         
-        .fact-checkers-links {
+        .video-reference {
+            background: #fef3c7;
+            border: 1px solid #fcd34d;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 25px;
             display: flex;
-            gap: 18px;
-            justify-content: center;
-            flex-wrap: wrap;
+            align-items: start;
+            gap: 12px;
         }
         
-        .fact-checkers-links a {
+        .video-icon {
+            font-size: 20px;
+            line-height: 1;
+        }
+        
+        .video-text {
+            flex: 1;
+            font-size: 14px;
+            color: #92400e;
+        }
+        
+        .cta-section {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            width: 100%;
+            max-width: 400px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+        
+        .security-note {
+            margin-top: 15px;
             font-size: 13px;
-            padding: 3px;
-            color: #666;
-            text-decoration: none;
+            color: #6b7280;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
         }
         
-        .fact-checkers-links a:hover {
-            color: #999;
-            text-decoration: underline;
+        .timer {
+            background: #fee2e2;
+            color: #991b1b;
+            padding: 12px 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+            font-weight: 600;
         }
         
-        /* Responsive adjustments */
         @media (max-width: 480px) {
-            .beta-headline {
-                font-size: 32px;
-            }
-            
-            .feature-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .spots-number {
-                font-size: 36px;
-            }
-            
-            .footer-content {
-                flex-direction: column;
-                gap: 15px;
-            }
+            h1 { font-size: 24px; }
+            .benefit-amount { font-size: 32px; }
+            .match-card { padding: 20px; }
         }
     </style>
 </head>
 <body>
-    <!-- Beta Banner -->
-    <div class="beta-banner">
-        🚀 Beta Program • Early Access • Paid Testing
+    <div class="system-banner">
+        🔍 SYSTEM MATCH FOUND: You Have Unclaimed Benefits Available
     </div>
-
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <a href="https://hpkpn.ttrk.io/click" class="logo">
-                <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1753955621/Screenshot_2025-07-31_024951_yo3fm3.png" alt="Healthcare Pronto">
-            </a>
+    
+    <div class="container">
+        <div class="header">
+            <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1753955621/Screenshot_2025-07-31_024951_yo3fm3.png" alt="Logo" class="logo">
+            <div class="match-indicator">
+                <div class="status-dot"></div>
+                <span>ACTIVE MATCH</span>
+            </div>
         </div>
-    </header>
-
-    <!-- Main Content -->
-    <main class="main-content">
-        <div class="container">
-            <div class="badge-container">
-                <div class="beta-badge">Private Beta • Invite Only</div>
+        
+        <div class="hero-section">
+            <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1753955622/Screenshot_2025-07-31_024853_dysuc0.png" alt="Benefits" class="hero-img">
+            <div class="match-overlay">
+                <div class="match-text">System Match Detected</div>
+                <div class="match-details">Your profile matches 1 unclaimed benefit program</div>
             </div>
+        </div>
+        
+        <div class="main-content">
+            <h1>Our System Found You're Not Receiving Benefits You Qualify For</h1>
             
-            <h1 class="beta-headline">
-                Get Paid <span class="highlight">$500/Month</span> to Test Our New Health Platform
-            </h1>
-            
-            <p class="subheadline">
-                Join 1,000 beta testers. Full launch January 2026.
-            </p>
-            
-            <div class="hero-image">
-                <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1753955622/Screenshot_2025-07-31_024853_dysuc0.png" alt="Woman showing benefits with groceries, money and cards">
-            </div>
-            
-            <div class="beta-features">
-                <h3 class="features-title">BETA TESTER BENEFITS</h3>
-                <div class="feature-grid">
-                    <div class="feature-item">
-                        <div class="feature-icon">💵</div>
-                        <div class="feature-text">$500/month compensation during beta</div>
+            <div class="match-card">
+                <div class="benefit-amount">$500/Month</div>
+                <div class="benefit-description">Grocery & Essentials Allowance</div>
+                
+                <div class="match-info">
+                    <div class="match-row">
+                        <span class="match-label">Match Type:</span>
+                        <span class="match-value">Geographic + Demographic</span>
                     </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">🏥</div>
-                        <div class="feature-text">Early access to health benefits</div>
+                    <div class="match-row">
+                        <span class="match-label">Your Location:</span>
+                        <span class="match-value">Las Vegas, NV ✓</span>
                     </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">🎯</div>
-                        <div class="feature-text">Shape the final product</div>
+                    <div class="match-row">
+                        <span class="match-label">Program Status:</span>
+                        <span class="match-value" style="color: #059669;">Currently Accepting</span>
                     </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">🔒</div>
-                        <div class="feature-text">Locked-in rate after launch</div>
+                    <div class="match-row">
+                        <span class="match-label">Match Confidence:</span>
+                        <span class="match-value">94% Eligible</span>
                     </div>
                 </div>
             </div>
             
-            <div class="beta-terms">
-                <div class="terms-title">Beta Requirements</div>
-                <ul class="terms-list">
-                    <li class="terms-item">Provide monthly feedback (5 min survey)</li>
-                    <li class="terms-item">Test new features as they're released</li>
-                    <li class="terms-item">Keep beta details confidential (NDA)</li>
-                    <li class="terms-item">Use benefits for health-related expenses</li>
-                </ul>
+            <div class="video-reference">
+                <span class="video-icon">📺</span>
+                <div class="video-text">
+                    <strong>Seen the video about the $500 grocery card?</strong> Our system shows you qualify for the same program that woman uses at Walmart. We found your profile in our database of eligible residents.
+                </div>
             </div>
             
-            <div class="beta-spots">
-                <div class="spots-number">312</div>
-                <div class="spots-text">Beta spots remaining (of 1,000 total)</div>
+            <div class="timer">
+                ⏰ Match expires in 24 hours if not claimed
             </div>
             
             <div class="cta-section">
-                <h3 class="cta-title">Apply for Beta Access</h3>
-                <p class="selection-text">⚡ Instant approval for qualified testers</p>
-                <p class="question">Pre-screening: Household income under $50k?</p>
-                <div class="button-group">
-                    <a href="https://hpkpn.ttrk.io/click" class="btn btn-yes">Yes - Apply for Beta →</a>
-                    <a href="https://hpkpn.ttrk.io/click" class="btn btn-no">No - Join Waitlist</a>
-                </div>
-            </div>
-            
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div style="color: #666;">&copy; 2025 Consumer Pronto</div>
-                <div class="footer-links">
-                    <a href="https://hpkpn.ttrk.io/click">Privacy Policy</a>
-                    <a href="https://hpkpn.ttrk.io/click">Terms Of Service</a>
-                </div>
-            </div>
-            
-            <div class="fact-checkers">
-                <div class="fact-checkers-title">Fact Checkers:</div>
-                <div class="fact-checkers-links">
-                    <a href="https://hpkpn.ttrk.io/click">AM Better</a>
-                    <a href="https://hpkpn.ttrk.io/click">UnitedHealth</a>
-                    <a href="https://hpkpn.ttrk.io/click">CMS.GOV</a>
-                    <a href="https://hpkpn.ttrk.io/click">IRS</a>
-                    <a href="https://hpkpn.ttrk.io/click">TaxPayer.IRS</a>
+                <button class="cta-button" onclick="window.location.href='https://hpkpn.ttrk.io/click'">
+                    Claim Your Matched Benefits →
+                </button>
+                <div class="security-note">
+                    🔒 Secure verification takes under 60 seconds
                 </div>
             </div>
         </div>
-    </footer>
+    </div>
+    
+    <script>
+        // Add subtle animations when scrolling
+        window.addEventListener('scroll', function() {
+            const button = document.querySelector('.cta-button');
+            const rect = button.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                button.style.transform = 'scale(1.02)';
+            }
+        });
+    </script>
 </body>
 </html>
