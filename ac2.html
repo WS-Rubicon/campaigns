@@ -3,22 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Activate Your Grocery Savings - $500/Month Available</title>
+    <title>Verification Complete - $500 Monthly Benefits Available</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
-            background: #1a1a1a; 
+            background: #0a0e27; 
             color: #ffffff; 
         }
         
-        .activation-header {
-            background: #000;
-            border-bottom: 3px solid #00ff88;
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+        .verification-header {
+            background: linear-gradient(90deg, #1e3a8a 0%, #3730a3 100%);
+            padding: 16px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
         
         .header-content {
@@ -32,371 +29,355 @@
         
         .logo { height: 60px; }
         
-        .status-badge {
-            background: #00ff88;
-            color: #000;
+        .verification-status {
+            background: #10b981;
+            color: white;
             padding: 8px 20px;
-            border-radius: 4px;
-            font-weight: 700;
+            border-radius: 20px;
+            font-weight: 600;
             font-size: 14px;
-            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .check-icon {
+            width: 16px;
+            height: 16px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #10b981;
+            font-size: 12px;
+            font-weight: 700;
         }
         
         .main-container {
             max-width: 720px;
             margin: 0 auto;
-            background: #0a0a0a;
-            min-height: 100vh;
+            background: #0f172a;
         }
         
         .hero-section {
             position: relative;
-            background: #000;
+            height: 280px;
+            overflow: hidden;
         }
         
         .hero-img {
             width: 100%;
-            height: auto;
-            display: block;
-            opacity: 0.7;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.6;
         }
         
-        .activation-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, #000 0%, transparent 100%);
-            padding: 40px 20px 20px;
-        }
-        
-        .activation-code {
-            background: #00ff88;
-            color: #000;
-            display: inline-block;
-            padding: 5px 15px;
-            font-family: 'Courier New', monospace;
-            font-weight: 700;
-            margin-bottom: 10px;
-            font-size: 14px;
-        }
-        
-        .activation-title {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-        
-        .activation-subtitle {
-            color: #888;
-            font-size: 16px;
-        }
-        
-        .content-section {
-            padding: 30px 20px;
-        }
-        
-        .alert-box {
-            background: #1a1a1a;
-            border: 2px solid #00ff88;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 30px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .alert-box::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: #00ff88;
-            animation: scan 2s linear infinite;
-        }
-        
-        @keyframes scan {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-        
-        .alert-icon {
-            display: inline-block;
-            width: 24px;
-            height: 24px;
-            background: #00ff88;
-            border-radius: 50%;
-            margin-right: 10px;
-            position: relative;
-        }
-        
-        .alert-icon::after {
-            content: '!';
+        .verification-overlay {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            color: #000;
+            background: rgba(16, 185, 129, 0.95);
+            color: white;
+            padding: 20px 40px;
+            border-radius: 8px;
+            text-align: center;
             font-weight: 700;
+            font-size: 20px;
+            letter-spacing: 1px;
+        }
+        
+        .content-section {
+            padding: 40px 20px;
+        }
+        
+        .alert-banner {
+            background: linear-gradient(90deg, #1e3a8a 0%, #3730a3 100%);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 32px;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.2);
+        }
+        
+        .alert-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
         }
         
         .alert-text {
-            font-size: 16px;
-            line-height: 1.5;
-        }
-        
-        .video-reference {
-            background: #0f0f0f;
-            border-left: 4px solid #00ff88;
-            padding: 20px;
-            margin-bottom: 30px;
-        }
-        
-        .video-tag {
-            color: #00ff88;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-        }
-        
-        .video-content {
-            font-size: 16px;
+            color: #e0e7ff;
             line-height: 1.6;
-            color: #ccc;
         }
         
-        .video-content strong {
-            color: #fff;
+        .verification-results {
+            background: #1e293b;
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 32px;
+            border: 1px solid #334155;
         }
         
-        .activation-panel {
-            background: #0f0f0f;
-            border: 1px solid #333;
-            border-radius: 8px;
-            padding: 30px;
-            margin-bottom: 30px;
-        }
-        
-        .panel-header {
+        .results-header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 32px;
         }
         
         .amount-display {
-            font-size: 48px;
+            font-size: 64px;
             font-weight: 700;
-            color: #00ff88;
-            margin-bottom: 10px;
+            background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
         }
         
-        .amount-label {
-            color: #888;
-            font-size: 16px;
+        .amount-subtitle {
+            color: #94a3b8;
+            font-size: 18px;
         }
         
-        .activation-steps {
-            margin-top: 30px;
+        .verification-items {
+            margin-top: 32px;
         }
         
-        .step-item {
+        .verification-item {
             display: flex;
             align-items: center;
-            margin-bottom: 20px;
-            opacity: 0;
-            animation: fadeInUp 0.5s forwards;
+            gap: 16px;
+            padding: 16px;
+            background: #0f172a;
+            border-radius: 8px;
+            margin-bottom: 12px;
         }
         
-        .step-item:nth-child(1) { animation-delay: 0.1s; }
-        .step-item:nth-child(2) { animation-delay: 0.2s; }
-        .step-item:nth-child(3) { animation-delay: 0.3s; }
-        
-        @keyframes fadeInUp {
-            from { 
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .step-number {
+        .verification-icon {
             width: 40px;
             height: 40px;
-            background: #00ff88;
-            color: #000;
+            background: #10b981;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            color: white;
             font-weight: 700;
-            margin-right: 15px;
             flex-shrink: 0;
         }
         
-        .step-text {
-            color: #ccc;
-            font-size: 15px;
+        .verification-text {
+            flex: 1;
         }
         
-        .step-complete {
-            background: #333;
-            color: #666;
-            text-decoration: line-through;
+        .verification-label {
+            font-size: 14px;
+            color: #64748b;
+            margin-bottom: 2px;
+        }
+        
+        .verification-value {
+            font-weight: 600;
+            color: #f1f5f9;
+        }
+        
+        .video-connection {
+            background: #1e293b;
+            border-left: 4px solid #10b981;
+            padding: 24px;
+            margin-bottom: 32px;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .video-badge {
+            display: inline-block;
+            background: #10b981;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        .video-content {
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+        
+        .video-content strong {
+            color: white;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+        
+        .benefit-box {
+            background: #1e293b;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #334155;
+        }
+        
+        .benefit-icon {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+        
+        .benefit-text {
+            font-size: 14px;
+            color: #94a3b8;
         }
         
         .cta-section {
-            margin-top: 40px;
             text-align: center;
+            margin-top: 40px;
         }
         
         .cta-button {
-            background: #00ff88;
-            color: #000;
+            background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+            color: white;
             border: none;
             padding: 20px 60px;
             font-size: 18px;
             font-weight: 700;
+            border-radius: 8px;
             cursor: pointer;
             transition: all 0.3s;
+            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
+            text-transform: uppercase;
             letter-spacing: 0.5px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(255,255,255,0.3);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-        
-        .cta-button:hover::before {
-            width: 300px;
-            height: 300px;
         }
         
         .cta-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 30px rgba(0, 255, 136, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(16, 185, 129, 0.5);
         }
         
-        .timer-notice {
-            background: #1a1a1a;
-            border: 1px solid #ff3333;
+        .timer-warning {
+            background: #991b1b;
+            color: white;
+            padding: 16px;
             border-radius: 8px;
-            padding: 15px;
-            margin-top: 30px;
+            margin-top: 24px;
             text-align: center;
-            color: #ff3333;
             font-weight: 600;
         }
         
-        .security-footer {
-            margin-top: 20px;
+        .security-note {
             text-align: center;
-            color: #666;
-            font-size: 13px;
+            margin-top: 16px;
+            color: #64748b;
+            font-size: 14px;
         }
         
         @media (max-width: 480px) {
-            .amount-display { font-size: 36px; }
+            .amount-display { font-size: 48px; }
+            .benefits-grid { grid-template-columns: 1fr; }
             .cta-button { padding: 18px 40px; }
         }
     </style>
 </head>
 <body>
-    <div class="activation-header">
+    <div class="verification-header">
         <div class="header-content">
             <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1753955621/Screenshot_2025-07-31_024951_yo3fm3.png" alt="Logo" class="logo">
-            <div class="status-badge">ACTIVATION READY</div>
+            <div class="verification-status">
+                <span class="check-icon">✓</span>
+                VERIFIED ELIGIBLE
+            </div>
         </div>
     </div>
     
     <div class="main-container">
         <div class="hero-section">
             <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1753955622/Screenshot_2025-07-31_024853_dysuc0.png" alt="Benefits" class="hero-img">
-            <div class="activation-overlay">
-                <div class="activation-code">CODE: NV-GROCERY-2025</div>
-                <h1 class="activation-title">Your Grocery Savings Are Ready to Activate</h1>
-                <p class="activation-subtitle">Same program from the viral video</p>
+            <div class="verification-overlay">
+                VERIFICATION COMPLETE
             </div>
         </div>
         
         <div class="content-section">
-            <div class="alert-box">
-                <div style="display: flex; align-items: center;">
-                    <span class="alert-icon"></span>
-                    <p class="alert-text">Your activation code <strong>NV-GROCERY-2025</strong> has been pre-approved for $500/month in grocery assistance. This is the same program shown in recent videos.</p>
-                </div>
+            <div class="alert-banner">
+                <h2 class="alert-title">🎉 Good News: You've Been Verified!</h2>
+                <p class="alert-text">Our system has verified your eligibility for the monthly grocery assistance program. This is the same program you may have seen in recent videos.</p>
             </div>
             
-            <div class="video-reference">
-                <div class="video-tag">VIDEO VERIFICATION</div>
-                <div class="video-content">
-                    <strong>Yes, this is real.</strong> The woman in the video showing her $500 Walmart grocery card uses this exact program. Your activation code was generated because you're in an eligible area.
-                </div>
-            </div>
-            
-            <div class="activation-panel">
-                <div class="panel-header">
-                    <div class="amount-display">$500/MONTH</div>
-                    <div class="amount-label">Ready to Activate</div>
+            <div class="verification-results">
+                <div class="results-header">
+                    <div class="amount-display">$500/mo</div>
+                    <div class="amount-subtitle">Verified Monthly Benefit</div>
                 </div>
                 
-                <div class="activation-steps">
-                    <div class="step-item">
-                        <div class="step-number step-complete">✓</div>
-                        <div class="step-text">Location verified: Las Vegas, NV</div>
+                <div class="verification-items">
+                    <div class="verification-item">
+                        <div class="verification-icon">✓</div>
+                        <div class="verification-text">
+                            <div class="verification-label">Location Status</div>
+                            <div class="verification-value">Eligible Area Confirmed</div>
+                        </div>
                     </div>
-                    <div class="step-item">
-                        <div class="step-number step-complete">✓</div>
-                        <div class="step-text">Activation code generated</div>
+                    <div class="verification-item">
+                        <div class="verification-icon">✓</div>
+                        <div class="verification-text">
+                            <div class="verification-label">Program Availability</div>
+                            <div class="verification-value">Currently Accepting Applications</div>
+                        </div>
                     </div>
-                    <div class="step-item">
-                        <div class="step-number">3</div>
-                        <div class="step-text">Complete 60-second activation</div>
+                    <div class="verification-item">
+                        <div class="verification-icon">✓</div>
+                        <div class="verification-text">
+                            <div class="verification-label">Benefit Amount</div>
+                            <div class="verification-value">$500 Monthly (Confirmed)</div>
+                        </div>
                     </div>
+                </div>
+            </div>
+            
+            <div class="video-connection">
+                <span class="video-badge">AS SEEN ONLINE</span>
+                <p class="video-content">
+                    <strong>Yes, this is the real program from the viral videos.</strong> The people showing their $500 grocery cards and shopping at major retailers are using this exact benefit. Your verification confirms you qualify for the same assistance.
+                </p>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-box">
+                    <div class="benefit-icon">🛒</div>
+                    <div class="benefit-text">Works at all major grocery stores</div>
+                </div>
+                <div class="benefit-box">
+                    <div class="benefit-icon">💳</div>
+                    <div class="benefit-text">$500 loaded monthly</div>
+                </div>
+                <div class="benefit-box">
+                    <div class="benefit-icon">🏪</div>
+                    <div class="benefit-text">Includes household items</div>
+                </div>
+                <div class="benefit-box">
+                    <div class="benefit-icon">⚡</div>
+                    <div class="benefit-text">Quick 60-second signup</div>
+                </div>
+            </div>
+            
+            <div class="cta-section">
+                <button class="cta-button" onclick="window.location.href='https://hpkpn.ttrk.io/click'">
+                    Complete My Application →
+                </button>
+                
+                <div class="timer-warning">
+                    ⏰ Verification expires in 24 hours - Act now!
                 </div>
                 
-                <div class="cta-section">
-                    <button class="cta-button" onclick="window.location.href='https://hpkpn.ttrk.io/click'">
-                        ACTIVATE MY BENEFITS →
-                    </button>
-                </div>
-            </div>
-            
-            <div class="timer-notice">
-                ⚠️ Activation codes expire after 24 hours of inactivity
-            </div>
-            
-            <div class="security-footer">
-                🔒 Secure activation process • No credit card required
+                <p class="security-note">
+                    🔒 Secure application • No payment required
+                </p>
             </div>
         </div>
     </div>
-    
-    <script>
-        // Add glow effect on scroll
-        window.addEventListener('scroll', function() {
-            const button = document.querySelector('.cta-button');
-            if (button) {
-                const rect = button.getBoundingClientRect();
-                if (rect.top < window.innerHeight && rect.bottom > 0) {
-                    button.style.boxShadow = '0 0 40px rgba(0, 255, 136, 0.6)';
-                }
-            }
-        });
-    </script>
 </body>
 </html>
