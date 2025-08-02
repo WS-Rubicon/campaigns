@@ -4,12 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Benefits Calculator - See Your Monthly Savings</title>
-    <!-- RedTrack Pixel Helper -->
-    <script>
-        // Capture URL parameters for tracking
-        const urlParams = new URLSearchParams(window.location.search);
-        const clickId = urlParams.get('clickid') || urlParams.get('click_id') || '';
-    </script>
+    <!-- CRITICAL: RedTrack script MUST be in header -->
     <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -253,15 +248,12 @@
             color: #15803d;
         }
         
-        .cta-button-link {
-            text-decoration: none;
-            display: block;
-        }
-        
+        /* CRITICAL FIX: Style the anchor tag to look like a button */
         .cta-button {
             background: linear-gradient(135deg, #5b21b6 0%, #7c3aed 100%);
             color: white;
-            border: none;
+            text-decoration: none;
+            display: block;
             padding: 20px 60px;
             font-size: 20px;
             font-weight: 700;
@@ -270,11 +262,14 @@
             width: 100%;
             transition: all 0.3s;
             box-shadow: 0 4px 20px rgba(124, 58, 237, 0.3);
+            text-align: center;
+            line-height: 1;
         }
         
         .cta-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 30px rgba(124, 58, 237, 0.5);
+            color: white;
         }
         
         .urgency-timer {
@@ -369,10 +364,9 @@
                 <p class="eligibility-text">Based on your location, you can receive these benefits</p>
             </div>
             
-            <a href="https://hpkpn.ttrk.io/click" class="cta-button-link">
-                <button class="cta-button" type="button">
-                    START RECEIVING $500/MONTH →
-                </button>
+            <!-- CRITICAL FIX: Use anchor tag directly, styled as button -->
+            <a href="https://hpkpn.ttrk.io/click" class="cta-button">
+                START RECEIVING $500/MONTH →
             </a>
             
             <div class="urgency-timer">
@@ -397,45 +391,9 @@
                     currentAmount = targetAmount;
                     clearInterval(timer);
                 }
-                benefitElement.textContent = `${currentAmount}`;
+                benefitElement.textContent = `$${currentAmount}`;
             }, speed);
         }, 500);
-        
-        // Ensure CTA button tracking works
-        document.addEventListener('DOMContentLoaded', function() {
-            const ctaButton = document.querySelector('.cta-button');
-            const ctaLink = document.querySelector('.cta-button-link');
-            
-            // Pass through tracking parameters
-            if (ctaLink) {
-                const urlParams = new URLSearchParams(window.location.search);
-                const baseUrl = 'https://hpkpn.ttrk.io/click';
-                
-                // If there are URL parameters, append them to the link
-                if (urlParams.toString()) {
-                    ctaLink.href = baseUrl + '?' + urlParams.toString();
-                }
-                
-                // Add click tracking
-                ctaLink.addEventListener('click', function(e) {
-                    // Track the click
-                    console.log('CTA clicked - RedTrack link: ' + this.href);
-                    
-                    // Google Analytics tracking if available
-                    if (typeof gtag !== 'undefined') {
-                        gtag('event', 'click', {
-                            'event_category': 'CTA',
-                            'event_label': 'Benefits Calculator'
-                        });
-                    }
-                    
-                    // Facebook Pixel tracking if available
-                    if (typeof fbq !== 'undefined') {
-                        fbq('track', 'Lead');
-                    }
-                });
-            }
-        });
     </script>
 </body>
 </html>
