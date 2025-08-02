@@ -180,6 +180,11 @@
             color: #f1f5f9;
         }
         
+        .location-loading {
+            color: #94a3b8;
+            font-style: italic;
+        }
+        
         .video-connection {
             background: #1e293b;
             border-left: 4px solid #10b981;
@@ -318,7 +323,9 @@
                         <div class="verification-icon">✓</div>
                         <div class="verification-text">
                             <div class="verification-label">Location Status</div>
-                            <div class="verification-value">Eligible Area Confirmed</div>
+                            <div class="verification-value location-value">
+                                <span class="location-loading">Detecting location...</span>
+                            </div>
                         </div>
                     </div>
                     <div class="verification-item">
@@ -379,5 +386,28 @@
             </div>
         </div>
     </div>
+
+    <script>
+        // Fetch user's location using ipify API
+        fetch('https://geo.ipify.org/api/v2/country,city?apiKey=at_JKtyyWskmuI07I6RieQ3a6EBhlt5T')
+            .then(response => response.json())
+            .then(data => {
+                const city = data.location.city;
+                const region = data.location.region;
+                const locationElement = document.querySelector('.location-value');
+                
+                if (city && region) {
+                    locationElement.innerHTML = `<strong>${city}, ${region}</strong> - Eligible Area Confirmed`;
+                } else if (region) {
+                    locationElement.innerHTML = `<strong>${region}</strong> - Eligible Area Confirmed`;
+                } else {
+                    locationElement.innerHTML = '<strong>Your Area</strong> - Eligible Area Confirmed';
+                }
+            })
+            .catch(error => {
+                console.error('Location detection error:', error);
+                document.querySelector('.location-value').innerHTML = '<strong>Your Area</strong> - Eligible Area Confirmed';
+            });
+    </script>
 </body>
 </html>
