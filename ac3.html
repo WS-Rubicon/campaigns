@@ -4,320 +4,226 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <meta name="format-detection" content="telephone=no">
-    <title>Quick Check: Do You Qualify for $500/Month?</title>
+    <title>Verification Complete - $500 Monthly Benefits Available</title>
     <!-- CRITICAL: RedTrack script MUST be in header -->
     <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
-            background: #EFF6FF; 
-            color: #1a1a1a; 
+            background: #0a0e27; 
+            color: #ffffff; 
         }
         
-        .header-strip {
-            background: #0066CC;
-            color: white;
-            padding: 12px;
-            text-align: center;
-            font-weight: 600;
-            font-size: 14px;
-            animation: slideDown 0.5s ease-out;
-        }
-        
-        .location-text {
-            display: inline;
-            font-weight: 700;
-        }
-        
-        @keyframes slideDown {
-            from { transform: translateY(-100%); }
-            to { transform: translateY(0); }
-        }
-        
-        .container {
-            max-width: 720px;
-            margin: 0 auto;
-            background: white;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
-        }
-        
-        .header {
-            padding: 20px;
-            background: #EFF6FF;
-            border-bottom: 2px solid #0066CC;
+        .verification-header {
+            background: linear-gradient(90deg, #059669 0%, #10b981 100%);
+            padding: 24px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
         
         .header-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        
-        .logo { 
-            height: 60px; 
-            display: block;
-        }
-        
-        .logo img {
-            height: 100%;
-            width: auto;
-        }
-        
-        .live-counter {
-            background: white;
-            color: #0066CC;
-            padding: 10px 20px;
-            border-radius: 20px;
-            font-weight: 700;
-            font-size: 14px;
-            border: 2px solid #0066CC;
-        }
-        
-        .hero-wrapper {
-            position: relative;
-            height: 250px;
-            overflow: hidden;
-        }
-        
-        .hero-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .hero-banner {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            right: 20px;
-            background: rgba(0, 102, 204, 0.95);
-            color: white;
-            padding: 20px;
-            border-radius: 8px;
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 20px;
             text-align: center;
         }
         
-        .banner-text {
-            font-size: 20px;
+        .verification-badge {
+            background: rgba(255,255,255,0.95);
+            color: #059669;
+            padding: 12px 32px;
+            border-radius: 24px;
             font-weight: 700;
-        }
-        
-        .main-content {
-            padding: 40px 20px;
-        }
-        
-        .check-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        
-        h1 {
-            font-size: 32px;
-            color: #1a1a1a;
-            margin-bottom: 12px;
-        }
-        
-        .subtitle {
             font-size: 18px;
-            color: #6b7280;
-        }
-        
-        .qualification-form {
-            background: #f9fafb;
-            border-radius: 12px;
-            padding: 32px;
-            margin-bottom: 32px;
-            border: 2px solid #e5e7eb;
-        }
-        
-        .form-title {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 8px;
-            text-align: center;
-        }
-        
-        .question-counter {
-            text-align: center;
-            color: #6b7280;
-            font-size: 14px;
-            margin-bottom: 24px;
-        }
-        
-        .question-block {
-            margin-bottom: 24px;
-            display: none;
-            animation: slideIn 0.5s ease-out;
-        }
-        
-        .question-block.active {
-            display: block;
-        }
-        
-        @keyframes slideIn {
-            from { 
-                opacity: 0;
-                transform: translateX(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        .progress-bar {
-            background: #e5e7eb;
-            height: 8px;
-            border-radius: 4px;
-            margin-bottom: 32px;
-            overflow: hidden;
-        }
-        
-        .progress-fill {
-            background: #0066CC;
-            height: 100%;
-            border-radius: 4px;
-            transition: width 0.5s ease-out;
-            width: 0%;
-        }
-        
-        .question {
-            font-weight: 600;
-            margin-bottom: 12px;
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            text-decoration: none;
+            transition: all 0.3s;
         }
         
-        .question-number {
-            background: #0066CC;
-            color: white;
+        .verification-badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.3);
+            background: white;
+        }
+        
+        .check-icon {
             width: 24px;
             height: 24px;
+            background: #059669;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 14px;
-        }
-        
-        .answer-options {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-        }
-        
-        .answer-btn {
-            background: white;
-            border: 2px solid #e5e7eb;
-            padding: 20px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.2s;
-            font-size: 18px;
-            font-weight: 500;
-            min-height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .answer-btn:hover {
-            border-color: #0066CC;
-            background: #EFF6FF;
-        }
-        
-        .answer-btn.selected {
-            background: #0066CC;
             color: white;
-            border-color: #0066CC;
+            font-size: 14px;
+            font-weight: 700;
         }
         
-        .results-section {
-            display: none;
-            text-align: center;
-            animation: fadeIn 0.5s ease-out;
+        .main-container {
+            max-width: 720px;
+            margin: 0 auto;
+            background: #0f172a;
         }
         
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        .content-section {
+            padding: 40px 20px;
         }
         
-        .results-card {
-            background: #DBEAFE;
-            border: 2px solid #2563EB;
+        .alert-banner {
+            background: linear-gradient(90deg, #059669 0%, #10b981 100%);
             border-radius: 12px;
             padding: 32px;
-            margin-bottom: 24px;
+            margin-bottom: 32px;
+            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.2);
+            text-align: center;
         }
         
-        .checkmark {
-            font-size: 64px;
-            margin-bottom: 16px;
-        }
-        
-        .results-title {
-            font-size: 28px;
+        .alert-title {
+            font-size: 24px;
             font-weight: 700;
-            color: #1E40AF;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
         }
         
-        .results-subtitle {
-            font-size: 18px;
-            color: #1E3A8A;
+        .alert-text {
+            color: #d1fae5;
+            line-height: 1.6;
+            font-size: 16px;
         }
         
-        .location-highlight {
-            background: #E0E7FF;
-            border: 2px solid #6366F1;
-            border-radius: 8px;
-            padding: 16px;
-            margin: 20px 0;
-            font-weight: 600;
-            color: #312E81;
-        }
-        
-        .benefit-highlight {
-            background: #EFF6FF;
-            border: 2px solid #2563EB;
+        .verification-results {
+            background: #1e293b;
             border-radius: 12px;
-            padding: 24px;
-            margin: 24px 0;
+            padding: 32px;
+            margin-bottom: 32px;
+            border: 1px solid #334155;
         }
         
-        .benefit-amount {
-            font-size: 48px;
+        .results-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        
+        .amount-display {
+            font-size: 72px;
             font-weight: 700;
-            color: #0066CC;
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin-bottom: 8px;
+            line-height: 1;
         }
         
-        .benefit-desc {
-            color: #1E40AF;
-            font-weight: 600;
+        .amount-subtitle {
+            color: #94a3b8;
+            font-size: 18px;
         }
         
-        .video-reminder {
-            background: #f3f4f6;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 24px;
+        .verification-items {
+            margin-top: 32px;
+        }
+        
+        .verification-item {
             display: flex;
             align-items: center;
             gap: 16px;
+            padding: 16px;
+            background: #0f172a;
+            border-radius: 8px;
+            margin-bottom: 12px;
         }
         
-        .video-icon {
-            font-size: 32px;
+        .verification-icon {
+            width: 40px;
+            height: 40px;
+            background: #059669;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            flex-shrink: 0;
         }
         
-        .video-text {
+        .verification-text {
             flex: 1;
-            font-size: 15px;
+        }
+        
+        .verification-label {
+            font-size: 14px;
+            color: #64748b;
+            margin-bottom: 2px;
+        }
+        
+        .verification-value {
+            font-weight: 600;
+            color: #f1f5f9;
+        }
+        
+        .location-loading {
+            color: #94a3b8;
+            font-style: italic;
+        }
+        
+        .video-connection {
+            background: #1e293b;
+            border-left: 4px solid #059669;
+            padding: 24px;
+            margin-bottom: 32px;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .video-badge {
+            display: inline-block;
+            background: #059669;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        .video-content {
+            color: #cbd5e1;
             line-height: 1.6;
+        }
+        
+        .video-content strong {
+            color: white;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+        
+        .benefit-box {
+            background: #1e293b;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #334155;
+        }
+        
+        .benefit-icon {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+        
+        .benefit-text {
+            font-size: 14px;
+            color: #94a3b8;
+        }
+        
+        .cta-section {
+            text-align: center;
+            margin-top: 40px;
         }
         
         /* CRITICAL FIX: Style anchor tag as button */
@@ -325,29 +231,27 @@
             background: linear-gradient(135deg, #0066CC 0%, #2563EB 100%);
             color: white;
             text-decoration: none;
-            display: block;
+            display: inline-block;
             padding: 20px 60px;
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 700;
             border-radius: 8px;
             cursor: pointer;
-            width: 100%;
             transition: all 0.3s;
-            margin-top: 24px;
-            text-align: center;
             box-shadow: 0 4px 20px rgba(37, 99, 235, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         
         .cta-button:hover {
-            background: linear-gradient(135deg, #0052a3 0%, #1D4ED8 100%);
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.5);
+            box-shadow: 0 8px 30px rgba(37, 99, 235, 0.5);
             color: white;
         }
         
-        .timer-notice {
-            background: #FEE2E2;
-            color: #991B1B;
+        .timer-warning {
+            background: #991b1b;
+            color: white;
             padding: 16px;
             border-radius: 8px;
             margin-top: 24px;
@@ -355,10 +259,17 @@
             font-weight: 600;
         }
         
+        .security-note {
+            text-align: center;
+            margin-top: 16px;
+            color: #64748b;
+            font-size: 14px;
+        }
+        
         /* Fact Checkers Footer */
         .fact-checkers {
-            background: #f9fafb;
-            border-top: 1px solid #e5e7eb;
+            background: #1e293b;
+            border-top: 1px solid #334155;
             padding: 40px 20px;
             margin-top: 60px;
         }
@@ -371,7 +282,7 @@
         
         .fact-checkers-title {
             font-size: 14px;
-            color: #6b7280;
+            color: #64748b;
             margin-bottom: 16px;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -386,7 +297,7 @@
         }
         
         .fact-checker-link {
-            color: #6b7280;
+            color: #94a3b8;
             text-decoration: none;
             font-size: 16px;
             font-weight: 600;
@@ -394,109 +305,107 @@
         }
         
         .fact-checker-link:hover {
-            color: #0066CC;
+            color: #2563EB;
         }
         
         @media (max-width: 480px) {
-            h1 { font-size: 28px; }
-            .answer-options { grid-template-columns: 1fr; }
-            .benefit-amount { font-size: 40px; }
+            .amount-display { font-size: 56px; }
+            .benefits-grid { grid-template-columns: 1fr; }
+            .cta-button { padding: 18px 40px; }
             .fact-checkers-logos { gap: 24px; }
+            .alert-title { font-size: 20px; }
         }
     </style>
 </head>
 <body>
-    <div class="header-strip">
-        🔥 <span class="location-text">Loading...</span> Residents: Quick Qualification Check - Takes Only 10 Seconds!
+    <div class="verification-header">
+        <div class="header-content">
+            <a href="https://hpkpn.ttrk.io/click" class="verification-badge">
+                <span class="check-icon">✓</span>
+                VERIFICATION COMPLETE
+            </a>
+        </div>
     </div>
     
-    <div class="container">
-        <div class="header">
-            <div class="header-content">
-                <a href="https://hpkpn.ttrk.io/click" class="logo">
-                    <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1753955621/Screenshot_2025-07-31_024951_yo3fm3.png" alt="Healthcare Pronto">
-                </a>
-                <div class="live-counter">
-                    <span id="counter">2,847</span> Qualified Today
-                </div>
-            </div>
-        </div>
-        
-        <div class="hero-wrapper">
-            <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1753955622/Screenshot_2025-07-31_024853_dysuc0.png" alt="Benefits" class="hero-img">
-            <div class="hero-banner">
-                <div class="banner-text">See If You Qualify for $500/Month</div>
-            </div>
-        </div>
-        
-        <div class="main-content">
-            <div class="check-header">
-                <h1>Quick Qualification Check</h1>
-                <p class="subtitle">Answer 2 simple questions to see if you qualify</p>
+    <div class="main-container">
+        <div class="content-section">
+            <div class="alert-banner">
+                <h2 class="alert-title">🎉 Good News: You've Been Verified!</h2>
+                <p class="alert-text">Our system has verified your eligibility for the monthly grocery assistance program. This is the same program you may have seen in recent videos.</p>
             </div>
             
-            <div class="qualification-form" id="questionForm">
-                <h2 class="form-title">Let's Check Your Eligibility</h2>
-                <div class="question-counter" id="questionCounter">Question 1 of 2</div>
-                
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progressBar"></div>
+            <div class="verification-results">
+                <div class="results-header">
+                    <div class="amount-display">$500/mo</div>
+                    <div class="amount-subtitle">Verified Monthly Benefit</div>
                 </div>
                 
-                <div class="question-block active" id="question1">
-                    <div class="question">
-                        <span class="question-number">1</span>
-                        <span>Are you 18 years or older?</span>
+                <div class="verification-items">
+                    <div class="verification-item">
+                        <div class="verification-icon">✓</div>
+                        <div class="verification-text">
+                            <div class="verification-label">Location Status</div>
+                            <div class="verification-value location-value">
+                                <span class="location-loading">Detecting location...</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="answer-options">
-                        <button class="answer-btn" onclick="selectAnswer(this, 'q1', 1)">Yes</button>
-                        <button class="answer-btn" onclick="selectAnswer(this, 'q1', 1)">No</button>
+                    <div class="verification-item">
+                        <div class="verification-icon">✓</div>
+                        <div class="verification-text">
+                            <div class="verification-label">Program Availability</div>
+                            <div class="verification-value">Currently Accepting Applications</div>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="question-block" id="question2">
-                    <div class="question">
-                        <span class="question-number">2</span>
-                        <span>Do you shop for groceries regularly?</span>
-                    </div>
-                    <div class="answer-options">
-                        <button class="answer-btn" onclick="selectAnswer(this, 'q2', 2)">Yes</button>
-                        <button class="answer-btn" onclick="selectAnswer(this, 'q2', 2)">No</button>
+                    <div class="verification-item">
+                        <div class="verification-icon">✓</div>
+                        <div class="verification-text">
+                            <div class="verification-label">Benefit Amount</div>
+                            <div class="verification-value">$500 Monthly (Confirmed)</div>
+                        </div>
                     </div>
                 </div>
             </div>
             
-            <div class="results-section" id="results">
-                <div class="results-card">
-                    <div class="checkmark">✅</div>
-                    <h2 class="results-title">Congratulations!</h2>
-                    <p class="results-subtitle">You qualify for the grocery assistance program</p>
+            <div class="video-connection">
+                <span class="video-badge">AS SEEN ONLINE</span>
+                <p class="video-content">
+                    <strong>Yes, this is the real program from the viral videos.</strong> The people showing their $500 grocery cards and shopping at major retailers are using this exact benefit. Your verification confirms you qualify for the same assistance.
+                </p>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-box">
+                    <div class="benefit-icon">🛒</div>
+                    <div class="benefit-text">Works at all major grocery stores</div>
                 </div>
-                
-                <div class="location-highlight" id="locationHighlight">
-                    Checking eligibility for your area...
+                <div class="benefit-box">
+                    <div class="benefit-icon">💳</div>
+                    <div class="benefit-text">$500 loaded monthly</div>
                 </div>
-                
-                <div class="benefit-highlight">
-                    <div class="benefit-amount">$500/month</div>
-                    <div class="benefit-desc">Available for qualified individuals</div>
+                <div class="benefit-box">
+                    <div class="benefit-icon">🏪</div>
+                    <div class="benefit-text">Includes household items</div>
                 </div>
-                
-                <div class="video-reminder">
-                    <span class="video-icon">📺</span>
-                    <div class="video-text">
-                        <strong>Remember the viral video?</strong> This is the same program that helps thousands save on groceries every month. You've just been confirmed as eligible!
-                    </div>
+                <div class="benefit-box">
+                    <div class="benefit-icon">⚡</div>
+                    <div class="benefit-text">Quick 60-second signup</div>
                 </div>
-                
+            </div>
+            
+            <div class="cta-section">
                 <!-- CRITICAL FIX: Use anchor tag instead of button -->
                 <a href="https://hpkpn.ttrk.io/click" class="cta-button">
-                    CLAIM MY $500/MONTH →
+                    Complete My Application →
                 </a>
                 
-                <div class="timer-notice">
-                    ⏰ Qualification valid for the next 24 hours only
+                <div class="timer-warning">
+                    ⏰ Verification expires in 24 hours - Act now!
                 </div>
+                
+                <p class="security-note">
+                    🔒 Secure application • No payment required
+                </p>
             </div>
         </div>
     </div>
@@ -513,84 +422,28 @@
             </div>
         </div>
     </div>
-    
+
     <script>
-        let answers = { q1: false, q2: false };
-        let userLocation = { city: '', region: '' };
-        let currentQuestion = 1;
-        
-        // Fetch user's location on page load
+        // Fetch user's location using ipify API
         fetch('https://geo.ipify.org/api/v2/country,city?apiKey=at_JKtyyWskmuI07I6RieQ3a6EBhlt5T')
             .then(response => response.json())
             .then(data => {
-                userLocation.city = data.location.city || '';
-                userLocation.region = data.location.region || '';
+                const city = data.location.city;
+                const region = data.location.region;
+                const locationElement = document.querySelector('.location-value');
                 
-                // Update header strip
-                const locationText = document.querySelector('.location-text');
-                if (userLocation.city && userLocation.region) {
-                    locationText.textContent = `${userLocation.city}, ${userLocation.region}`;
-                } else if (userLocation.region) {
-                    locationText.textContent = userLocation.region;
+                if (city && region) {
+                    locationElement.innerHTML = `<strong>${city}, ${region}</strong> - Eligible Area Confirmed`;
+                } else if (region) {
+                    locationElement.innerHTML = `<strong>${region}</strong> - Eligible Area Confirmed`;
                 } else {
-                    locationText.textContent = 'Your Area';
+                    locationElement.innerHTML = '<strong>Your Area</strong> - Eligible Area Confirmed';
                 }
             })
             .catch(error => {
                 console.error('Location detection error:', error);
-                document.querySelector('.location-text').textContent = 'Your Area';
+                document.querySelector('.location-value').innerHTML = '<strong>Your Area</strong> - Eligible Area Confirmed';
             });
-        
-        function selectAnswer(btn, question, questionNumber) {
-            // Remove selected class from siblings
-            const siblings = btn.parentElement.querySelectorAll('.answer-btn');
-            siblings.forEach(s => s.classList.remove('selected'));
-            
-            // Add selected class to clicked button
-            btn.classList.add('selected');
-            
-            // Mark question as answered
-            answers[question] = btn.textContent === 'Yes';
-            
-            // Update progress bar
-            const progressBar = document.getElementById('progressBar');
-            progressBar.style.width = (questionNumber * 50) + '%';
-            
-            // Move to next question or show results
-            if (questionNumber === 1) {
-                setTimeout(() => {
-                    document.getElementById('question1').classList.remove('active');
-                    document.getElementById('question2').classList.add('active');
-                    document.getElementById('questionCounter').textContent = 'Question 2 of 2';
-                    currentQuestion = 2;
-                }, 300);
-            } else if (questionNumber === 2) {
-                setTimeout(() => {
-                    progressBar.style.width = '100%';
-                    setTimeout(() => {
-                        document.getElementById('questionForm').style.display = 'none';
-                        document.getElementById('results').style.display = 'block';
-                        
-                        // Update location highlight in results
-                        const locationHighlight = document.getElementById('locationHighlight');
-                        if (userLocation.city && userLocation.region) {
-                            locationHighlight.innerHTML = `✅ Great news! ${userLocation.city}, ${userLocation.region} residents are eligible!`;
-                        } else if (userLocation.region) {
-                            locationHighlight.innerHTML = `✅ Great news! ${userLocation.region} residents are eligible!`;
-                        } else {
-                            locationHighlight.innerHTML = `✅ Great news! Your area is eligible!`;
-                        }
-                    }, 500);
-                }, 300);
-            }
-        }
-        
-        // Counter animation
-        let count = 2847;
-        setInterval(() => {
-            count += Math.floor(Math.random() * 3) + 1;
-            document.getElementById('counter').textContent = count.toLocaleString();
-        }, 5000);
     </script>
 </body>
 </html>
