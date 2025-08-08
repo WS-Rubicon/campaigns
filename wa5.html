@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auto Insurance Assistant</title>
+    <title>Insurance Savings Calculator</title>
     <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
     <style>
         * {
@@ -14,7 +14,7 @@
         
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #f5f6fa;
+            background: #0a0e27;
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -22,504 +22,293 @@
             padding: 20px;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            position: relative;
+            overflow: hidden;
         }
         
-        .chat-container {
+        body::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(0,123,255,0.1) 0%, transparent 50%);
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            100% { transform: rotate(360deg); }
+        }
+        
+        .container {
             background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            border-radius: 24px;
+            padding: 45px 35px;
+            box-shadow: 0 25px 70px rgba(0,0,0,0.4);
             max-width: 480px;
             width: 100%;
-            height: 600px;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .calculator-header {
+            background: linear-gradient(90deg, #007bff, #0056b3);
+            color: white;
+            padding: 15px;
+            border-radius: 12px;
+            margin: -45px -35px 30px;
             position: relative;
         }
         
-        .chat-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 20px;
-            color: white;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        .calculator-icon {
+            font-size: 32px;
+            margin-bottom: 10px;
         }
         
-        .agent-avatar {
-            width: 44px;
-            height: 44px;
-            background: rgba(255,255,255,0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            border: 2px solid rgba(255,255,255,0.3);
-        }
-        
-        .agent-info {
-            flex: 1;
-        }
-        
-        .agent-name {
+        h1 {
+            font-size: clamp(20px, 4vw, 24px);
             font-weight: 600;
-            font-size: 16px;
-            margin-bottom: 2px;
+            margin: 0;
         }
         
-        .agent-status {
-            font-size: 13px;
-            opacity: 0.9;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        
-        .status-dot {
-            width: 8px;
-            height: 8px;
-            background: #4ade80;
-            border-radius: 50%;
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.2); opacity: 0.8; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-        
-        .chat-messages {
-            flex: 1;
-            padding: 24px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-        
-        .message {
-            animation: slideIn 0.3s ease-out;
-            max-width: 80%;
-        }
-        
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .agent-message {
-            align-self: flex-start;
-        }
-        
-        .user-message {
-            align-self: flex-end;
-        }
-        
-        .message-bubble {
-            padding: 12px 18px;
-            border-radius: 18px;
-            font-size: 15px;
-            line-height: 1.4;
-        }
-        
-        .agent-message .message-bubble {
-            background: #f1f3f5;
-            color: #2d3436;
-            border-bottom-left-radius: 4px;
-        }
-        
-        .user-message .message-bubble {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-bottom-right-radius: 4px;
-        }
-        
-        .typing-indicator {
-            display: none;
-            align-items: center;
-            gap: 4px;
-            padding: 16px 20px;
-            background: #f1f3f5;
-            border-radius: 18px;
-            border-bottom-left-radius: 4px;
-            width: fit-content;
-        }
-        
-        .typing-indicator.active {
-            display: flex;
-        }
-        
-        .typing-dot {
-            width: 8px;
-            height: 8px;
-            background: #95a5a6;
-            border-radius: 50%;
-            animation: typing 1.4s infinite;
-        }
-        
-        .typing-dot:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-        
-        .typing-dot:nth-child(3) {
-            animation-delay: 0.4s;
-        }
-        
-        @keyframes typing {
-            0%, 60%, 100% {
-                transform: translateY(0);
-                opacity: 0.7;
-            }
-            30% {
-                transform: translateY(-10px);
-                opacity: 1;
-            }
-        }
-        
-        .chat-input-container {
-            padding: 20px;
-            border-top: 1px solid #e9ecef;
-            background: #fafbfc;
-        }
-        
-        .input-wrapper {
-            display: flex;
-            gap: 12px;
-            align-items: center;
-        }
-        
-        .chat-input {
-            flex: 1;
-            padding: 12px 20px;
-            border: 2px solid #e9ecef;
-            border-radius: 24px;
-            font-size: 15px;
-            outline: none;
-            transition: all 0.2s;
-            background: white;
-        }
-        
-        .chat-input:focus {
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102,126,234,0.1);
-        }
-        
-        .send-button {
-            width: 44px;
-            height: 44px;
-            border: none;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s;
-            flex-shrink: 0;
-        }
-        
-        .send-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 12px rgba(102,126,234,0.3);
-        }
-        
-        .send-button:active {
-            transform: scale(0.95);
-        }
-        
-        .send-button:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-        
-        .savings-highlight {
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 700;
-            font-size: 24px;
-        }
-        
-        /* CTA Button - Pure CSS, no JavaScript needed */
-        a.cta-button {
-            display: inline-block;
-            padding: 14px 28px;
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-            color: white !important;
-            text-decoration: none !important;
+        .current-payment {
+            background: #f8f9fa;
             border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+            border: 2px dashed #dee2e6;
+        }
+        
+        .payment-label {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .payment-amount {
+            font-size: 42px;
+            font-weight: 800;
+            color: #dc3545;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .payment-amount::before {
+            content: '$';
+            font-size: 28px;
+            position: absolute;
+            left: -20px;
+            top: 8px;
+        }
+        
+        .savings-reveal {
+            background: #d4edda;
+            border: 2px solid #c3e6cb;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 25px 0;
+            transform: scale(0);
+            animation: reveal 0.5s ease-out 1s forwards;
+        }
+        
+        @keyframes reveal {
+            to { transform: scale(1); }
+        }
+        
+        .new-rate-label {
+            font-size: 14px;
+            color: #155724;
+            margin-bottom: 10px;
+        }
+        
+        .new-rate {
+            font-size: 48px;
+            font-weight: 800;
+            color: #28a745;
+            margin-bottom: 10px;
+        }
+        
+        .savings-amount {
+            font-size: 18px;
+            color: #155724;
             font-weight: 600;
-            margin-top: 8px;
-            transition: all 0.3s;
-            box-shadow: 0 4px 12px rgba(16,185,129,0.3);
+        }
+        
+        .comparison-arrow {
+            font-size: 32px;
+            color: #28a745;
+            margin: 20px 0;
+            animation: bounce-down 1s ease-in-out infinite;
+        }
+        
+        @keyframes bounce-down {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(10px); }
+        }
+        
+        .button {
+            display: block;
+            width: 100%;
+            padding: 20px 35px;
+            margin-bottom: 12px;
+            border: none;
+            border-radius: 14px;
+            font-size: 18px;
+            font-weight: 700;
             cursor: pointer;
-            font-size: 15px;
-            line-height: 1.4;
-            text-align: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
         }
         
-        a.cta-button:hover {
+        .button-yes {
+            background: #28a745;
+            color: white;
+            box-shadow: 0 8px 25px rgba(40,167,69,0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .button-yes::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .button-yes:hover::after {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .button-yes:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(16,185,129,0.4);
-            color: white !important;
+            box-shadow: 0 10px 30px rgba(40,167,69,0.4);
         }
         
-        a.cta-button:active {
-            transform: translateY(0);
+        .button-no {
+            background: transparent;
+            color: #999;
+            font-size: 14px;
         }
         
-        a.cta-button:visited {
-            color: white !important;
+        .button-no:hover {
+            color: #666;
         }
         
-        /* Mobile optimizations */
+        .calculating-text {
+            font-size: 14px;
+            color: #666;
+            margin-top: 20px;
+            opacity: 0;
+            animation: fade-in 0.5s ease-out 0.5s forwards;
+        }
+        
+        @keyframes fade-in {
+            to { opacity: 1; }
+        }
+        
         @media (max-width: 768px) {
-            body {
-                padding: 0;
-                align-items: stretch;
+            .container {
+                padding: 35px 25px;
             }
             
-            .chat-container {
-                max-width: 100%;
-                height: 100vh;
-                border-radius: 0;
+            .calculator-header {
+                margin: -35px -25px 25px;
             }
             
-            .chat-header {
-                padding: 16px;
+            .payment-amount, .new-rate {
+                font-size: 36px;
             }
-            
-            .agent-avatar {
-                width: 40px;
-                height: 40px;
-                font-size: 18px;
-            }
-            
-            .chat-messages {
-                padding: 16px;
-            }
-            
-            .message-bubble {
-                font-size: 16px;
-            }
-            
-            .chat-input-container {
-                padding: 16px;
-                padding-bottom: max(16px, env(safe-area-inset-bottom));
-            }
-            
-            a.cta-button {
-                display: block;
-                width: 100%;
-                text-align: center;
-            }
-        }
-        
-        /* Desktop optimizations */
-        @media (min-width: 1024px) {
-            .chat-container {
-                height: 650px;
-                max-width: 500px;
-            }
-            
-            .chat-messages {
-                padding: 32px;
-            }
-            
-            .message-bubble {
-                font-size: 16px;
-                padding: 14px 20px;
-            }
-            
-            a.cta-button {
-                padding: 16px 32px;
-                font-size: 17px;
-            }
-        }
-        
-        /* Hidden initially */
-        .message:not(:first-child) {
-            display: none;
         }
     </style>
 </head>
 <body>
-    <div class="chat-container">
-        <div class="chat-header">
-            <div class="agent-avatar">🤖</div>
-            <div class="agent-info">
-                <div class="agent-name">Insurance Savings AI</div>
-                <div class="agent-status">
-                    <div class="status-dot"></div>
-                    <span>Online • Instant Quotes</span>
-                </div>
-            </div>
+    <div class="container">
+        <div class="calculator-header">
+            <div class="calculator-icon">🧮</div>
+            <h1>Your <span id="cityName">Local</span> Rate Calculator</h1>
         </div>
         
-        <div class="chat-messages" id="chatMessages">
-            <div class="message agent-message">
-                <div class="message-bubble">
-                    Hi! I'm your AI insurance assistant. I can help you save up to 70% on your auto insurance in just 60 seconds! 🚗💰
-                </div>
-            </div>
-            
-            <div class="message agent-message" id="question1">
-                <div class="message-bubble">
-                    First, may I ask - how much are you currently paying per month for auto insurance?
-                </div>
-            </div>
-            
-            <div class="message user-message" id="userResponse">
-                <div class="message-bubble">
-                    <span id="userAmount"></span>
-                </div>
-            </div>
-            
-            <div class="message agent-message" id="typing1">
-                <div class="typing-indicator">
-                    <div class="typing-dot"></div>
-                    <div class="typing-dot"></div>
-                    <div class="typing-dot"></div>
-                </div>
-            </div>
-            
-            <div class="message agent-message" id="response1">
-                <div class="message-bubble">
-                    Great news! I've analyzed your profile against our network of 50+ insurance providers...
-                </div>
-            </div>
-            
-            <div class="message agent-message" id="typing2">
-                <div class="typing-indicator">
-                    <div class="typing-dot"></div>
-                    <div class="typing-dot"></div>
-                    <div class="typing-dot"></div>
-                </div>
-            </div>
-            
-            <div class="message agent-message" id="response2">
-                <div class="message-bubble">
-                    🎉 You qualify for coverage starting at just <span class="savings-highlight">$25/month</span>! That's a potential savings of <span id="savingsAmount" style="color: #10b981; font-weight: 600;"></span> per month!
-                </div>
-            </div>
-            
-            <div class="message agent-message" id="response3">
-                <div class="message-bubble">
-                    Click below to secure your rate before it expires:
-                    <br><br>
-                    <a href="https://hpkpn.ttrk.io/click" class="cta-button">Get My $25/Month Rate →</a>
-                </div>
-            </div>
+        <div class="current-payment">
+            <div class="payment-label">Average in <span id="cityName2">your area</span> pays:</div>
+            <div class="payment-amount" id="currentRate">89</div>
+            <div style="font-size: 14px; color: #666; margin-top: 5px;">/month</div>
         </div>
         
-        <div class="chat-input-container">
-            <form class="input-wrapper" id="chatForm">
-                <input 
-                    type="text" 
-                    class="chat-input" 
-                    id="insuranceInput"
-                    placeholder="Enter amount (e.g., $150)"
-                    pattern="^\$?\d+$"
-                    required
-                >
-                <button type="submit" class="send-button">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="22" y1="2" x2="11" y2="13"></line>
-                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                    </svg>
-                </button>
-            </form>
+        <div class="comparison-arrow">↓</div>
+        
+        <div class="savings-reveal">
+            <div class="new-rate-label">You could pay as low as:</div>
+            <div class="new-rate">$<span id="newRate">28</span></div>
+            <div class="savings-amount">Save $<span id="monthlySavings">61</span>/mo • $<span id="yearlySavings">732</span>/yr</div>
         </div>
+        
+        <p class="calculating-text">Calculated using <span id="cityName3">local</span> 2025 rates</p>
+        
+        <a href="https://hpkpn.ttrk.io/click" class="button button-yes">
+            Get My $<span id="newRate2">28</span> Rate
+        </a>
+        <a href="https://hpkpn.ttrk.io/click" class="button button-no">
+            No thanks, I'll keep overpaying
+        </a>
     </div>
-    
+
     <script>
-        const chatMessages = document.getElementById('chatMessages');
-        const chatForm = document.getElementById('chatForm');
-        const insuranceInput = document.getElementById('insuranceInput');
-        const userAmount = document.getElementById('userAmount');
-        const savingsAmount = document.getElementById('savingsAmount');
-        
-        // Show initial messages with delay
-        setTimeout(() => {
-            document.getElementById('question1').style.display = 'block';
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }, 1500);
-        
-        chatForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
+        // Calculate rates based on location
+        function calculateRates(city) {
+            // Base rates that vary by "city"
+            const cityHash = city ? city.split('').reduce((a, b) => a + b.charCodeAt(0), 0) : 100;
             
-            let amount = insuranceInput.value.replace(/[^0-9]/g, '');
-            amount = parseInt(amount);
+            const currentRates = [89, 96, 84, 102, 91, 87, 108];
+            const currentRate = currentRates[cityHash % currentRates.length];
             
-            if (amount && amount > 0) {
-                // Show user message
-                userAmount.textContent = `$${amount}`;
-                document.getElementById('userResponse').style.display = 'block';
-                
-                // Disable input
-                insuranceInput.disabled = true;
-                chatForm.querySelector('button').disabled = true;
-                
-                // Scroll to bottom
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-                
-                // Show typing indicator
-                setTimeout(() => {
-                    document.getElementById('typing1').style.display = 'block';
-                    document.getElementById('typing1').querySelector('.typing-indicator').classList.add('active');
-                    chatMessages.scrollTop = chatMessages.scrollHeight;
-                }, 500);
-                
-                // Show first response
-                setTimeout(() => {
-                    document.getElementById('typing1').style.display = 'none';
-                    document.getElementById('response1').style.display = 'block';
-                    chatMessages.scrollTop = chatMessages.scrollHeight;
-                    
-                    // Show second typing
-                    setTimeout(() => {
-                        document.getElementById('typing2').style.display = 'block';
-                        document.getElementById('typing2').querySelector('.typing-indicator').classList.add('active');
-                        chatMessages.scrollTop = chatMessages.scrollHeight;
-                    }, 300);
-                }, 2000);
-                
-                // Show final responses
-                setTimeout(() => {
-                    document.getElementById('typing2').style.display = 'none';
-                    
-                    // Calculate savings
-                    const savings = amount - 25;
-                    savingsAmount.textContent = `$${savings}`;
-                    
-                    document.getElementById('response2').style.display = 'block';
-                    chatMessages.scrollTop = chatMessages.scrollHeight;
-                    
-                    setTimeout(() => {
-                        document.getElementById('response3').style.display = 'block';
-                        chatMessages.scrollTop = chatMessages.scrollHeight;
-                    }, 800);
-                }, 3500);
-            }
-        });
-        
-        // Auto-focus input on desktop
-        if (window.innerWidth > 768) {
-            setTimeout(() => {
-                insuranceInput.focus();
-            }, 2000);
+            // Calculate new rate around $28
+            const newRates = [28, 26, 29, 27, 30, 25, 31];
+            const newRate = newRates[cityHash % newRates.length];
+            const monthlySavings = currentRate - newRate;
+            const yearlySavings = monthlySavings * 12;
+            
+            // Update all values
+            document.getElementById('currentRate').textContent = currentRate;
+            document.getElementById('newRate').textContent = newRate;
+            document.getElementById('newRate2').textContent = newRate;
+            document.getElementById('monthlySavings').textContent = monthlySavings;
+            document.getElementById('yearlySavings').textContent = yearlySavings.toLocaleString();
         }
+        
+        // Geo-targeting
+        async function getLocation() {
+            try {
+                const response = await fetch('https://geo.ipify.org/api/v2/country,city?apiKey=at_JKtyyWskmuI07I6RieQ3a6EBhlt5T');
+                const data = await response.json();
+                
+                if (data.location && data.location.city) {
+                    const city = data.location.city;
+                    document.getElementById('cityName').textContent = city;
+                    document.getElementById('cityName2').textContent = city;
+                    document.getElementById('cityName3').textContent = city;
+                    
+                    calculateRates(city);
+                } else {
+                    calculateRates('Your City');
+                }
+            } catch (error) {
+                console.error('Location detection failed:', error);
+                calculateRates('Your City');
+            }
+        }
+        
+        getLocation();
     </script>
 </body>
 </html>
