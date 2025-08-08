@@ -4,456 +4,635 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <meta name="format-detection" content="telephone=no">
-    <title>AI Notice: You've Been Selected for Enhanced Benefits</title>
+    <title>Qualify for a $0 Family Health Insurance & Premium Tax Credit Today</title>
+    <!-- CRITICAL: RedTrack script MUST be in header -->
     <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
+            background: #f5f5f5;
+            color: #333;
+            position: relative;
+            min-height: 100vh;
+            backdrop-filter: blur(1px);
         }
         
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background-color: #f0f4ff;
-            color: #212529;
-            line-height: 1.5;
-            min-width: 320px;
+        /* Location Banner */
+        .location-banner {
+            background: #0066CC;
+            color: white;
+            padding: 12px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 14px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            animation: slideDown 0.5s ease-out;
+        }
+        
+        @keyframes slideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+        
+        .location-banner .location-text {
+            color: white;
+            font-weight: 700;
+        }
+        
+        /* Blue overlay effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 102, 204, 0.2) 0%, rgba(37, 99, 235, 0.15) 100%);
+            pointer-events: none;
+            z-index: 1;
         }
         
         .container {
-            max-width: 720px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* AI Banner */
-        .ai-banner {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 12px 0;
-            text-align: center;
-            font-size: 14px;
-            font-weight: 600;
-            animation: shimmer 3s ease-in-out infinite;
-        }
-        
-        @keyframes shimmer {
-            0%, 100% { opacity: 0.8; }
-            50% { opacity: 1; }
-        }
-        
-        .ai-icon {
-            display: inline-block;
-            margin-right: 8px;
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
+            background: rgba(255, 255, 255, 0.98);
+            min-height: 100vh;
+            display: flex;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
         }
         
         /* Header */
-        header {
-            background-color: white;
-            padding: 25px 0;
-            text-align: center;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        .header {
+            position: absolute;
+            top: 20px;
+            left: 40px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            filter: blur(2px);
+            opacity: 0.7;
         }
         
         .logo {
-            display: inline-block;
-            text-decoration: none;
+            width: 30px;
+            height: 30px;
+            background: #0066CC;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
         }
         
-        .logo img {
-            display: block;
-            height: 60px;
-            width: auto;
+        .logo-text {
+            font-size: 16px;
+            color: #333;
+        }
+        
+        .logo-text span {
+            color: #0066CC;
+            font-weight: 600;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            width: 280px;
+            background: #fafafa;
+            padding: 100px 30px 30px;
+            border-right: 1px solid #e0e0e0;
+            filter: blur(3px);
+            opacity: 0.8;
+            pointer-events: none;
+        }
+        
+        .step {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid #e0e0e0;
+            color: #666;
+            cursor: default;
+            transition: all 0.3s;
+        }
+        
+        .step.active {
+            color: #0066CC;
+            font-weight: 600;
+        }
+        
+        .step-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            background: #f0f0f0;
+        }
+        
+        .step.active .step-icon {
+            background: #00C853;
+            color: white;
         }
         
         /* Main Content */
         .main-content {
-            background-color: white;
-            padding: 40px 0 60px;
-            margin-bottom: 0;
+            flex: 1;
+            padding: 40px 60px;
         }
         
-        .selection-notice {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            border-radius: 12px;
-            padding: 20px;
-            margin: 0 20px 25px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        .page-title {
+            font-size: 32px;
+            color: #0066CC;
+            margin-bottom: 8px;
+            line-height: 1.3;
+            filter: blur(2px);
+            opacity: 0.8;
         }
         
-        .selection-text {
-            font-size: 16px;
-            color: #5a67d8;
+        .subtitle {
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 18px;
+            filter: blur(1px);
+            opacity: 0.8;
+        }
+        
+        .location-text {
+            font-weight: 700;
+            color: #0066CC;
+        }
+        
+        .form-section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .section-title {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            filter: blur(1px);
+            opacity: 0.8;
+        }
+        
+        .section-title::before {
+            content: '📋';
+            font-size: 28px;
+        }
+        
+        .form-group {
+            margin-bottom: 24px;
+        }
+        
+        .form-label {
+            display: block;
             font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+        
+        .form-hint {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #666;
+            font-size: 14px;
             margin-bottom: 8px;
         }
         
-        .selection-id {
-            font-family: 'Courier New', monospace;
-            font-size: 14px;
-            color: #718096;
-            letter-spacing: 1px;
+        .info-icon {
+            width: 16px;
+            height: 16px;
+            background: #0066CC;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
         }
         
-        .ai-headline {
-            font-size: 38px;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 20px;
-            color: #1a202c;
-            padding: 0 20px;
-            line-height: 1.2;
-        }
-        
-        .ai-headline .highlight {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .subheadline {
-            font-size: 18px;
-            text-align: center;
-            color: #4a5568;
-            margin-bottom: 35px;
-            padding: 0 20px;
-            font-weight: 400;
-        }
-        
-        .hero-image {
-            text-align: center;
-            margin-bottom: 40px;
-            padding: 0 20px;
-        }
-        
-        .hero-image img {
+        .form-input {
             width: 100%;
-            max-width: 500px;
-            height: auto;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            padding: 12px 16px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: all 0.3s;
         }
         
-        .ai-analysis {
-            background-color: #f7fafc;
-            border-radius: 12px;
-            padding: 25px;
-            margin: 30px 20px;
-            border: 1px solid #e2e8f0;
+        .form-input:focus {
+            outline: none;
+            border-color: #0066CC;
+            box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
         }
         
-        .analysis-title {
+        .form-select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            background: white;
+            cursor: pointer;
+        }
+        
+        .radio-group {
+            display: flex;
+            gap: 16px;
+        }
+        
+        .radio-button {
+            flex: 1;
+            padding: 16px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: white;
+            font-size: 16px;
+            font-weight: 500;
+            text-decoration: none;
+            color: #333;
+            display: block;
+        }
+        
+        .radio-button:hover {
+            border-color: #0066CC;
+            background: #f0f7ff;
+        }
+        
+        .radio-button.selected {
+            border-color: #0066CC;
+            background: #0066CC;
+            color: white;
+        }
+        
+        .age-verification .radio-button {
+            border-color: #FFC107;
+            font-weight: 600;
+        }
+        
+        .age-verification .radio-button:hover {
+            border-color: #0066CC;
+            background: #0066CC;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+        }
+        
+        .age-verification-title .location-text {
+            color: #856404;
+            text-decoration: underline;
+        }
+        
+        /* Age Verification Section - Styled like the form */
+        .age-verification {
+            background: #FFF3CD;
+            border: 2px solid #FFC107;
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 32px;
+            animation: pulseGlow 2s ease-in-out infinite;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .location-badge {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: #0066CC;
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(0, 102, 204, 0.3);
+            z-index: 11;
+        }
+        
+        @keyframes pulseGlow {
+            0%, 100% {
+                box-shadow: 0 4px 20px rgba(255, 193, 7, 0.3), 0 0 40px rgba(255, 193, 7, 0.2);
+            }
+            50% {
+                box-shadow: 0 4px 30px rgba(255, 193, 7, 0.5), 0 0 60px rgba(255, 193, 7, 0.3);
+            }
+        }
+        
+        .age-verification-title {
             font-size: 18px;
             font-weight: 600;
-            color: #2d3748;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        
-        .metric-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-        }
-        
-        .metric-item {
-            background-color: white;
-            padding: 15px;
-            border-radius: 8px;
-            text-align: center;
-            border: 1px solid #e2e8f0;
-        }
-        
-        .metric-label {
-            font-size: 12px;
-            color: #718096;
+            color: #856404;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            margin-bottom: 5px;
         }
         
-        .metric-value {
-            font-size: 20px;
-            font-weight: 700;
-            color: #5a67d8;
+        .age-verification-title::before {
+            content: '⚠️';
+            font-size: 24px;
         }
         
-        .cta-section {
-            text-align: center;
-            margin: 40px 0;
-            padding: 0 20px;
-        }
-        
-        .cta-title {
-            font-size: 26px;
-            font-weight: 600;
-            color: #2d3748;
-            margin-bottom: 15px;
-        }
-        
-        .activation-text {
-            font-size: 16px;
-            color: #4a5568;
-            margin-bottom: 25px;
-        }
-        
-        .question {
-            font-size: 20px;
-            color: #2d3748;
-            margin-bottom: 25px;
-            font-weight: 500;
-        }
-        
-        .button-group {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            max-width: 340px;
-            margin: 0 auto;
-        }
-        
-        .btn {
-            padding: 18px 32px;
-            font-size: 19px;
-            font-weight: 600;
+        .next-button {
+            background: #00C853;
+            color: white;
+            padding: 16px 48px;
             border: none;
-            border-radius: 12px;
-            cursor: pointer;
-            text-decoration: none;
-            display: block;
-            text-align: center;
-            transition: all 0.3s;
-            -webkit-tap-highlight-color: transparent;
-            width: 100%;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-        }
-        
-        .btn:active {
-            transform: translateY(0);
-        }
-        
-        .btn-yes {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-        
-        .btn-yes:before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.5s;
-        }
-        
-        .btn-yes:hover:before {
-            left: 100%;
-        }
-        
-        .btn-no {
-            background-color: #e2e8f0;
-            color: #4a5568;
-        }
-        
-        .btn-no:hover {
-            background-color: #cbd5e0;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: #2d3748;
-            color: #a0aec0;
-            padding: 35px 0;
-            text-align: center;
-        }
-        
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
-            gap: 20px;
-        }
-        
-        .footer-links {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        
-        .footer-links a {
-            color: #a0aec0;
-            text-decoration: none;
-            font-size: 14px;
-            padding: 5px;
-        }
-        
-        .footer-links a:hover {
-            color: white;
-            text-decoration: underline;
-        }
-        
-        .fact-checkers {
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid #4a5568;
-        }
-        
-        .fact-checkers-title {
+            border-radius: 6px;
+            font-size: 18px;
             font-weight: 600;
-            margin-bottom: 10px;
-            font-size: 14px;
-            color: #a0aec0;
-        }
-        
-        .fact-checkers-links {
+            cursor: pointer;
             display: flex;
-            gap: 18px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .fact-checkers-links a {
-            font-size: 13px;
-            padding: 3px;
-            color: #a0aec0;
+            align-items: center;
+            gap: 8px;
+            margin: 32px auto 0;
+            transition: all 0.3s;
             text-decoration: none;
         }
         
-        .fact-checkers-links a:hover {
-            color: white;
-            text-decoration: underline;
+        .next-button:hover {
+            background: #00B248;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 200, 83, 0.3);
         }
         
-        /* Responsive adjustments */
-        @media (max-width: 480px) {
-            .ai-headline {
-                font-size: 30px;
-            }
-            
-            .metric-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-content {
+        .next-button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        /* HIPAA Badge */
+        .hipaa-badge {
+            position: absolute;
+            bottom: 20px;
+            right: 40px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #999;
+            font-size: 14px;
+            filter: blur(3px);
+            opacity: 0.6;
+        }
+        
+        .hipaa-icon {
+            width: 40px;
+            height: 40px;
+            background: #e0e0e0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Blur effect for non-age fields */
+        .blurred {
+            filter: blur(4px);
+            pointer-events: none;
+            opacity: 0.5;
+        }
+        
+        .enrollment-deadline {
+            background: #DC2626;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-top: 12px;
+            display: inline-block;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
                 flex-direction: column;
-                gap: 15px;
+                margin-top: 50px !important;
+            }
+            .sidebar {
+                width: 100%;
+                padding: 80px 20px 20px;
+                filter: blur(3px);
+                opacity: 0.8;
+                pointer-events: none;
+            }
+            .main-content {
+                padding: 20px;
+            }
+            .radio-group {
+                flex-direction: column;
+            }
+            .location-banner {
+                font-size: 12px;
+                padding: 10px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- AI Banner -->
-    <div class="ai-banner">
-        <span class="ai-icon">🤖</span> AI BENEFIT OPTIMIZER: Profile Match Detected
+    <!-- Location Banner -->
+    <div class="location-banner">
+        🎉 <span class="location-text">Your Area</span> Residents: Special Enrollment Period Now Open - $500/Month Grocery Benefits Available
     </div>
-
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <a href="https://hpkpn.ttrk.io/click" class="logo">
-                <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1753955621/Screenshot_2025-07-31_024951_yo3fm3.png" alt="Healthcare Pronto">
-            </a>
+    
+    <div class="container" style="margin-top: 50px;">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">⚕</div>
+            <div class="logo-text">Healthcare<span>Pronto</span></div>
         </div>
-    </header>
-
-    <!-- Main Content -->
-    <main class="main-content">
-        <div class="container">
-            <div class="selection-notice">
-                <div class="selection-text">AUTOMATED SELECTION COMPLETE</div>
-                <div class="selection-id">Match ID: HD-2025-NV-8347</div>
+        
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="step active">
+                <div class="step-icon">✓</div>
+                <span>Qualify</span>
             </div>
-            
-            <h1 class="ai-headline">
-                Our AI Found You're Missing <span class="highlight">$500/Month</span> in Health Benefits
-            </h1>
-            
-            <p class="subheadline">
-                Algorithm detected unclaimed wellness subsidies in your profile. Activation required.
-            </p>
-            
-            <div class="hero-image">
-                <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1753955622/Screenshot_2025-07-31_024853_dysuc0.png" alt="Woman showing benefits with groceries, money and cards">
+            <div class="step">
+                <div class="step-icon">👤</div>
+                <span>Personalize</span>
             </div>
-            
-            <div class="ai-analysis">
-                <h3 class="analysis-title">AI BENEFIT ANALYSIS</h3>
-                <div class="metric-grid">
-                    <div class="metric-item">
-                        <div class="metric-label">Health Score</div>
-                        <div class="metric-value">ELIGIBLE</div>
-                    </div>
-                    <div class="metric-item">
-                        <div class="metric-label">Monthly Value</div>
-                        <div class="metric-value">$500</div>
-                    </div>
-                    <div class="metric-item">
-                        <div class="metric-label">Coverage Gap</div>
-                        <div class="metric-value">DETECTED</div>
-                    </div>
-                    <div class="metric-item">
-                        <div class="metric-label">Action Required</div>
-                        <div class="metric-value">TODAY</div>
-                    </div>
-                </div>
+            <div class="step">
+                <div class="step-icon">🏢</div>
+                <span>Carriers</span>
             </div>
-            
-            <div class="cta-section">
-                <h3 class="cta-title">Activate Your Selected Benefits</h3>
-                <p class="activation-text">AI Verification Question #1 of 2</p>
-                <p class="question">Confirm: Household income under $50,000?</p>
-                <div class="button-group">
-                    <a href="https://hpkpn.ttrk.io/click" class="btn btn-yes">Yes - Continue Activation</a>
-                    <a href="https://hpkpn.ttrk.io/click" class="btn btn-no">No - Remove Selection</a>
-                </div>
-            </div>
-            
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div style="color: #a0aec0;">&copy; 2025 Consumer Pronto</div>
-                <div class="footer-links">
-                    <a href="https://hpkpn.ttrk.io/click">Privacy Policy</a>
-                    <a href="https://hpkpn.ttrk.io/click">Terms Of Service</a>
-                </div>
-            </div>
-            
-            <div class="fact-checkers">
-                <div class="fact-checkers-title">Fact Checkers:</div>
-                <div class="fact-checkers-links">
-                    <a href="https://hpkpn.ttrk.io/click">AM Better</a>
-                    <a href="https://hpkpn.ttrk.io/click">UnitedHealth</a>
-                    <a href="https://hpkpn.ttrk.io/click">CMS.GOV</a>
-                    <a href="https://hpkpn.ttrk.io/click">IRS</a>
-                    <a href="https://hpkpn.ttrk.io/click">TaxPayer.IRS</a>
-                </div>
+            <div class="step">
+                <div class="step-icon">👥</div>
+                <span>Add Family</span>
             </div>
         </div>
-    </footer>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <h1 class="page-title">Qualify for a $0 Family Health Insurance<br>& Premium Tax Credit Today</h1>
+            <p class="subtitle"><span class="location-text">Your Area</span> Residents: Limited Time Enrollment Period</p>
+            
+            <div class="form-section">
+                <h2 class="section-title">Check Eligibility & Qualify</h2>
+                
+                <!-- Age Verification Section -->
+                <div class="age-verification">
+                    <div class="location-badge">📍 <span class="location-text">Your Area</span></div>
+                    <div class="age-verification-title">Age Verification Required for <span class="location-text">Your Area</span></div>
+                    <div class="form-group">
+                        <label class="form-label">Are you 18 years of age or older?</label>
+                        <div class="form-hint">
+                            <span class="info-icon">i</span>
+                            <span>You must be 18 or older to qualify for this program</span>
+                        </div>
+                        <div class="location-hint" style="color: #059669; font-weight: 600; margin-bottom: 12px; font-size: 14px;">
+                            Checking eligibility for your area...
+                        </div>
+                        <div class="radio-group">
+                            <a href="https://hpkpn.ttrk.io/click" class="radio-button" id="ageYes">
+                                Yes, I am 18 or older
+                            </a>
+                            <button class="radio-button" onclick="showNotEligible()">
+                                No, I am under 18
+                            </button>
+                        </div>
+                        <div style="text-align: center;">
+                            <div class="enrollment-deadline">⏰ Enrollment Deadline: 48 Hours</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Regular Form Fields (Blurred) -->
+                <div class="blurred" id="mainForm">
+                    <div class="form-group">
+                        <label class="form-label">Where do you live?</label>
+                        <input type="text" class="form-input location-input" placeholder="Enter your ZIP code here" disabled>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Number of people in your household</label>
+                        <select class="form-select" disabled>
+                            <option>Select</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">What is your estimated yearly income?</label>
+                        <div class="form-hint">
+                            <span class="info-icon">i</span>
+                            <span>Estimated income of under $30,000 is needed to qualify.</span>
+                        </div>
+                        <input type="text" class="form-input" placeholder="Enter your yearly income" disabled>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Are you currently on Medicaid?</label>
+                        <div class="form-hint">
+                            <span class="info-icon">i</span>
+                            <span>This plan is available only to those not on Medicaid currently.</span>
+                        </div>
+                        <div class="radio-group">
+                            <button class="radio-button" disabled>No, I am not on Medicaid</button>
+                            <button class="radio-button" disabled>Yes, I am on Medicaid</button>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Do you currently have a 2024 health insurance plan?</label>
+                        <div class="radio-group">
+                            <button class="radio-button" disabled>No</button>
+                            <button class="radio-button" disabled>Yes</button>
+                        </div>
+                    </div>
+                    
+                    <button class="next-button" disabled>
+                        Next
+                        <span>→</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- HIPAA Badge -->
+        <div class="hipaa-badge">
+            <div class="hipaa-icon">🛡️</div>
+            <span>HIPAA<br>COMPLIANT FORMS</span>
+        </div>
+    </div>
+    
+    <script>
+        // Fetch user's location on page load
+        fetch('https://geo.ipify.org/api/v2/country,city?apiKey=at_JKtyyWskmuI07I6RieQ3a6EBhlt5T')
+            .then(response => response.json())
+            .then(data => {
+                const city = data.location.city;
+                const region = data.location.region;
+                const locationElements = document.querySelectorAll('.location-text');
+                
+                locationElements.forEach(element => {
+                    if (city && region) {
+                        element.textContent = `${city}, ${region}`;
+                    } else if (region) {
+                        element.textContent = region;
+                    } else {
+                        element.textContent = 'Your Area';
+                    }
+                });
+                
+                // Update form hint with location
+                const formHint = document.querySelector('.location-hint');
+                if (formHint) {
+                    if (city && region) {
+                        formHint.innerHTML = `Great news! ${city}, ${region} residents qualify for special enrollment.`;
+                    } else if (region) {
+                        formHint.innerHTML = `Great news! ${region} residents qualify for special enrollment.`;
+                    }
+                }
+                
+                // Update location input field
+                const locationInput = document.querySelector('.location-input');
+                if (locationInput) {
+                    if (city && region) {
+                        locationInput.value = `${city}, ${region}`;
+                    } else if (region) {
+                        locationInput.value = region;
+                    }
+                }
+            })
+            .catch(error => {
+                console.error('Location detection error:', error);
+                document.querySelectorAll('.location-text').forEach(el => {
+                    el.textContent = 'Your Area';
+                });
+            });
+        
+        function showNotEligible() {
+            const ageSection = document.querySelector('.age-verification');
+            ageSection.innerHTML = `
+                <div class="age-verification-title">Sorry, You're Not Eligible</div>
+                <p style="color: #856404;">This program is only available to individuals 18 years of age or older. Please return when you meet the age requirement.</p>
+            `;
+        }
+    </script>
 </body>
 </html>
