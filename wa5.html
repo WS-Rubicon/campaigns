@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Insurance Savings Calculator</title>
+    <title>Homeowner Bundle Discount Alert</title>
     <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
     <style>
         * {
@@ -14,7 +14,7 @@
         
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #0a0e27;
+            background: #f8f9fa;
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -22,141 +22,147 @@
             padding: 20px;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        body::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at center, rgba(0,123,255,0.1) 0%, transparent 50%);
-            animation: rotate 20s linear infinite;
-        }
-        
-        @keyframes rotate {
-            100% { transform: rotate(360deg); }
         }
         
         .container {
             background: white;
-            border-radius: 24px;
+            border-radius: 16px;
             padding: 45px 35px;
-            box-shadow: 0 25px 70px rgba(0,0,0,0.4);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
             max-width: 480px;
             width: 100%;
             text-align: center;
             position: relative;
-            z-index: 1;
+            border: 3px solid #ffeb3b;
+            animation: border-flash 2s ease-in-out infinite;
         }
         
-        .calculator-header {
-            background: linear-gradient(90deg, #007bff, #0056b3);
+        @keyframes border-flash {
+            0%, 100% { border-color: #ffeb3b; }
+            50% { border-color: #ffc107; }
+        }
+        
+        .bundle-header {
+            background: linear-gradient(90deg, #1976d2, #1565c0);
             color: white;
-            padding: 15px;
-            border-radius: 12px;
-            margin: -45px -35px 30px;
-            position: relative;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+            display: inline-block;
+            animation: shake 0.5s ease-in-out;
         }
         
-        .calculator-icon {
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+        
+        .timer-container {
+            background: #fee;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 25px;
+            border: 1px solid #fcc;
+        }
+        
+        .timer {
             font-size: 32px;
-            margin-bottom: 10px;
+            font-weight: 800;
+            color: #d00;
+            font-variant-numeric: tabular-nums;
+        }
+        
+        .timer-label {
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
         }
         
         h1 {
-            font-size: clamp(20px, 4vw, 24px);
-            font-weight: 600;
-            margin: 0;
+            font-size: clamp(22px, 5vw, 28px);
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            line-height: 1.3;
         }
         
-        .current-payment {
-            background: #f8f9fa;
+        .city-specific {
+            color: #1976d2;
+            font-weight: 800;
+        }
+        
+        .bundle-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .icon-box {
+            width: 80px;
+            height: 80px;
+            background: #f0f0f0;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+        }
+        
+        .plus-sign {
+            font-size: 28px;
+            font-weight: bold;
+            color: #666;
+        }
+        
+        .equals-sign {
+            font-size: 28px;
+            font-weight: bold;
+            color: #28a745;
+        }
+        
+        .savings-box {
+            background: #d4edda;
+            border: 2px solid #28a745;
             border-radius: 12px;
             padding: 20px;
-            margin-bottom: 25px;
-            border: 2px dashed #dee2e6;
-        }
-        
-        .payment-label {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 10px;
-        }
-        
-        .payment-amount {
-            font-size: 42px;
-            font-weight: 800;
-            color: #dc3545;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .payment-amount::before {
-            content: '$';
-            font-size: 28px;
-            position: absolute;
-            left: -20px;
-            top: 8px;
-        }
-        
-        .savings-reveal {
-            background: #d4edda;
-            border: 2px solid #c3e6cb;
-            border-radius: 12px;
-            padding: 25px;
-            margin: 25px 0;
-            transform: scale(0);
-            animation: reveal 0.5s ease-out 1s forwards;
-        }
-        
-        @keyframes reveal {
-            to { transform: scale(1); }
-        }
-        
-        .new-rate-label {
-            font-size: 14px;
-            color: #155724;
-            margin-bottom: 10px;
-        }
-        
-        .new-rate {
-            font-size: 48px;
-            font-weight: 800;
-            color: #28a745;
-            margin-bottom: 10px;
+            margin: 20px 0;
         }
         
         .savings-amount {
-            font-size: 18px;
-            color: #155724;
-            font-weight: 600;
-        }
-        
-        .comparison-arrow {
-            font-size: 32px;
+            font-size: 36px;
+            font-weight: 800;
             color: #28a745;
-            margin: 20px 0;
-            animation: bounce-down 1s ease-in-out infinite;
         }
         
-        @keyframes bounce-down {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(10px); }
+        .savings-text {
+            font-size: 14px;
+            color: #155724;
+            margin-top: 5px;
+        }
+        
+        .subtext {
+            color: #555;
+            font-size: 16px;
+            margin-bottom: 30px;
+            line-height: 1.5;
         }
         
         .button {
             display: block;
             width: 100%;
-            padding: 20px 35px;
+            padding: 18px 30px;
             margin-bottom: 12px;
             border: none;
-            border-radius: 14px;
-            font-size: 18px;
-            font-weight: 700;
+            border-radius: 12px;
+            font-size: 17px;
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
@@ -165,56 +171,40 @@
         }
         
         .button-yes {
-            background: #28a745;
+            background: #1976d2;
             color: white;
-            box-shadow: 0 8px 25px rgba(40,167,69,0.3);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(25,118,210,0.3);
         }
         
-        .button-yes::after {
+        .button-yes::before {
             content: '';
             position: absolute;
             top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.3);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-50%) skewX(-20deg);
+            transition: left 0.5s ease;
         }
         
-        .button-yes:hover::after {
-            width: 300px;
-            height: 300px;
+        .button-yes:hover::before {
+            left: 100%;
         }
         
         .button-yes:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(40,167,69,0.4);
+            box-shadow: 0 6px 20px rgba(25,118,210,0.4);
         }
         
         .button-no {
-            background: transparent;
+            background: #f8f9fa;
             color: #999;
             font-size: 14px;
         }
         
         .button-no:hover {
-            color: #666;
-        }
-        
-        .calculating-text {
-            font-size: 14px;
-            color: #666;
-            margin-top: 20px;
-            opacity: 0;
-            animation: fade-in 0.5s ease-out 0.5s forwards;
-        }
-        
-        @keyframes fade-in {
-            to { opacity: 1; }
+            background: #e9ecef;
         }
         
         @media (max-width: 768px) {
@@ -222,93 +212,105 @@
                 padding: 35px 25px;
             }
             
-            .calculator-header {
-                margin: -35px -25px 25px;
+            h1 {
+                font-size: 22px;
             }
             
-            .payment-amount, .new-rate {
-                font-size: 36px;
+            .timer {
+                font-size: 28px;
+            }
+            
+            .bundle-visual {
+                gap: 10px;
+            }
+            
+            .icon-box {
+                width: 60px;
+                height: 60px;
+                font-size: 28px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="calculator-header">
-            <div class="calculator-icon">🧮</div>
-            <h1>Your <span id="cityName">Local</span> Rate Calculator</h1>
+        <div class="bundle-header">🚗 + 🏠 Bundle Discount Alert</div>
+        
+        <div class="timer-container">
+            <div class="timer" id="timer">23:47:12</div>
+            <div class="timer-label">State filing #NV-2025-3847 expires</div>
         </div>
         
-        <div class="current-payment">
-            <div class="payment-label">Average in <span id="cityName2">your area</span> pays:</div>
-            <div class="payment-amount" id="currentRate">89</div>
-            <div style="font-size: 14px; color: #666; margin-top: 5px;">/month</div>
+        <h1>Why <span class="city-specific" class="city-name">Your Area</span> Homeowners Pay 84% Less for Auto Insurance</h1>
+        
+        <div class="bundle-visual">
+            <div class="icon-box">🏠</div>
+            <span class="plus-sign">+</span>
+            <div class="icon-box">🚗</div>
+            <span class="equals-sign">=</span>
         </div>
         
-        <div class="comparison-arrow">↓</div>
-        
-        <div class="savings-reveal">
-            <div class="new-rate-label">You could pay as low as:</div>
-            <div class="new-rate">$<span id="newRate">28</span></div>
-            <div class="savings-amount">Save $<span id="monthlySavings">61</span>/mo • $<span id="yearlySavings">732</span>/yr</div>
+        <div class="savings-box">
+            <div class="savings-amount">$26/mo</div>
+            <div class="savings-text">Homeowner bundle rate (vs $167 separately)</div>
         </div>
         
-        <p class="calculating-text">Calculated using <span id="cityName3">local</span> 2025 rates</p>
+        <p class="subtext">Insurance companies lose money on homeowner auto policies but are required to offer them. You save $1,692/year in <span class="city-name">your area</span>.</p>
         
         <a href="https://hpkpn.ttrk.io/click" class="button button-yes">
-            Get My $<span id="newRate2">28</span> Rate
+            Claim My $26/mo Bundle Rate
         </a>
         <a href="https://hpkpn.ttrk.io/click" class="button button-no">
-            No thanks, I'll keep overpaying
+            I'll keep paying $167/month
         </a>
     </div>
+    
+    <p style="text-align: center; font-size: 12px; color: #999; margin-top: 20px;">
+        *Based on Q1 2025 rate filings. Homeowner status verified during quote.
+    </p>
 
     <script>
-        // Calculate rates based on location
-        function calculateRates(city) {
-            // Base rates that vary by "city"
-            const cityHash = city ? city.split('').reduce((a, b) => a + b.charCodeAt(0), 0) : 100;
+        // Timer countdown
+        function updateTimer() {
+            const now = new Date();
+            const midnight = new Date();
+            midnight.setDate(midnight.getDate() + 1);
+            midnight.setHours(0, 0, 0, 0);
             
-            const currentRates = [89, 96, 84, 102, 91, 87, 108];
-            const currentRate = currentRates[cityHash % currentRates.length];
+            const diff = midnight - now;
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
             
-            // Calculate new rate around $28
-            const newRates = [28, 26, 29, 27, 30, 25, 31];
-            const newRate = newRates[cityHash % newRates.length];
-            const monthlySavings = currentRate - newRate;
-            const yearlySavings = monthlySavings * 12;
-            
-            // Update all values
-            document.getElementById('currentRate').textContent = currentRate;
-            document.getElementById('newRate').textContent = newRate;
-            document.getElementById('newRate2').textContent = newRate;
-            document.getElementById('monthlySavings').textContent = monthlySavings;
-            document.getElementById('yearlySavings').textContent = yearlySavings.toLocaleString();
+            document.getElementById('timer').textContent = 
+                `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
         }
         
-        // Geo-targeting
-        async function getLocation() {
+        setInterval(updateTimer, 1000);
+        updateTimer();
+        
+        // Geo-personalization using ipify API
+        async function updateCity() {
             try {
                 const response = await fetch('https://geo.ipify.org/api/v2/country,city?apiKey=at_JKtyyWskmuI07I6RieQ3a6EBhlt5T');
                 const data = await response.json();
+                const city = data.location.city || 'your area';
                 
-                if (data.location && data.location.city) {
-                    const city = data.location.city;
-                    document.getElementById('cityName').textContent = city;
-                    document.getElementById('cityName2').textContent = city;
-                    document.getElementById('cityName3').textContent = city;
-                    
-                    calculateRates(city);
-                } else {
-                    calculateRates('Your City');
-                }
+                // Update all city references
+                document.querySelectorAll('.city-name').forEach(element => {
+                    element.textContent = city;
+                });
             } catch (error) {
-                console.error('Location detection failed:', error);
-                calculateRates('Your City');
+                console.error('Geolocation error:', error);
+                // Fallback to default
+                document.querySelectorAll('.city-name').forEach(element => {
+                    element.textContent = 'your area';
+                });
             }
         }
         
-        getLocation();
+        // Call on page load
+        updateCity();
     </script>
 </body>
 </html>
