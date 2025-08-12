@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neighbors Are Switching - Car Insurance</title>
+    <title>Homeowner Auto Insurance Discount</title>
     <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
     <style>
         * {
@@ -14,7 +14,7 @@
         
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(180deg, #e3f2fd 0%, #bbdefb 100%);
+            background: #f8f9fa;
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -26,299 +26,244 @@
         
         .container {
             background: white;
-            border-radius: 20px;
-            padding: 50px 35px;
-            box-shadow: 0 15px 50px rgba(0,0,0,0.1);
-            max-width: 500px;
+            border-radius: 16px;
+            padding: 45px 35px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            max-width: 480px;
             width: 100%;
             text-align: center;
             position: relative;
+            border: 3px solid #2e7d32;
+            animation: border-flash 2s ease-in-out infinite;
         }
         
-        .live-counter {
-            position: absolute;
-            top: -15px;
-            right: 20px;
-            background: #4caf50;
+        @keyframes border-flash {
+            0%, 100% { border-color: #2e7d32; }
+            50% { border-color: #1b5e20; }
+        }
+        
+        .warning-header {
+            background: linear-gradient(90deg, #2e7d32, #1b5e20);
             color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            animation: pulse-bg 2s ease-in-out infinite;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+            display: inline-block;
+            animation: shake 0.5s ease-in-out;
         }
         
-        @keyframes pulse-bg {
-            0%, 100% { background: #4caf50; }
-            50% { background: #66bb6a; }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
         }
         
-        .live-dot {
-            width: 8px;
-            height: 8px;
-            background: white;
-            border-radius: 50%;
-            animation: blink 1s ease-in-out infinite;
-        }
-        
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
-        }
-        
-        .activity-feed {
-            background: #f5f5f5;
+        .qualification-box {
+            background: #e8f5e9;
             border-radius: 12px;
             padding: 15px;
             margin-bottom: 25px;
-            max-height: 120px;
-            overflow: hidden;
-            position: relative;
+            border: 1px solid #a5d6a7;
         }
         
-        .activity-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 8px 0;
-            font-size: 13px;
-            color: #555;
-            animation: slide-up 10s linear infinite;
+        .qualification-icon {
+            font-size: 32px;
+            margin-bottom: 10px;
         }
         
-        @keyframes slide-up {
-            0% { transform: translateY(100%); }
-            100% { transform: translateY(-300%); }
-        }
-        
-        .activity-avatar {
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            background: #2196f3;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 11px;
+        .qualification-text {
+            font-size: 18px;
             font-weight: 600;
+            color: #2e7d32;
         }
         
         h1 {
-            font-size: clamp(26px, 5vw, 32px);
+            font-size: clamp(22px, 5vw, 28px);
             font-weight: 700;
             color: #1a1a1a;
-            margin-bottom: 20px;
-            line-height: 1.2;
+            margin-bottom: 15px;
+            line-height: 1.3;
         }
         
-        .highlight-number {
-            color: #2196f3;
+        .city-specific {
+            color: #0066cc;
             font-weight: 800;
-            font-size: 1.1em;
         }
         
-        .savings-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            margin: 25px 0;
-        }
-        
-        .savings-box {
-            background: #e3f2fd;
-            padding: 20px 15px;
-            border-radius: 12px;
-            border: 2px solid #bbdefb;
-        }
-        
-        .savings-amount {
-            font-size: 28px;
-            font-weight: 800;
-            color: #1976d2;
-        }
-        
-        .savings-label {
-            font-size: 12px;
-            color: #666;
-            margin-top: 5px;
-        }
-        
-        .trust-badges {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
+        .rate-change {
+            font-size: 20px;
+            color: #333;
+            font-weight: 600;
             margin: 20px 0;
-        }
-        
-        .trust-badge {
-            font-size: 11px;
-            color: #666;
             display: flex;
             align-items: center;
-            gap: 5px;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .arrow {
+            font-size: 24px;
+            animation: bounce 1s ease-in-out infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        
+        .savings-banner {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 18px;
+            font-weight: 600;
+            color: #856404;
+        }
+        
+        .subtext {
+            color: #555;
+            font-size: 16px;
+            margin-bottom: 30px;
+            line-height: 1.5;
         }
         
         .button {
             display: block;
             width: 100%;
-            padding: 20px 35px;
+            padding: 18px 30px;
             margin-bottom: 12px;
             border: none;
-            border-radius: 14px;
-            font-size: 18px;
+            border-radius: 12px;
+            font-size: 17px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
             position: relative;
+            overflow: hidden;
         }
         
         .button-yes {
-            background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%);
+            background: #28a745;
             color: white;
-            box-shadow: 0 4px 20px rgba(33,150,243,0.3);
+            box-shadow: 0 4px 15px rgba(40,167,69,0.3);
+        }
+        
+        .button-yes::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-50%) skewX(-20deg);
+            transition: left 0.5s ease;
+        }
+        
+        .button-yes:hover::before {
+            left: 100%;
         }
         
         .button-yes:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(33,150,243,0.4);
+            box-shadow: 0 6px 20px rgba(40,167,69,0.4);
         }
         
         .button-no {
-            background: transparent;
+            background: #f8f9fa;
             color: #999;
             font-size: 14px;
         }
         
         .button-no:hover {
-            color: #666;
+            background: #e9ecef;
+        }
+        
+        .timer-text {
+            font-size: 14px;
+            color: #d00;
+            margin-top: 15px;
+            font-weight: 600;
         }
         
         @media (max-width: 768px) {
             .container {
-                padding: 40px 25px;
+                padding: 35px 25px;
             }
             
             h1 {
-                font-size: 24px;
-            }
-            
-            .savings-amount {
-                font-size: 24px;
-            }
-            
-            .activity-feed {
-                display: none;
+                font-size: 22px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="live-counter">
-            <div class="live-dot"></div>
-            <span id="activeCount">247</span> checking now
+        <div class="warning-header">🏠 Homeowner Exclusive Offer</div>
+        
+        <div class="qualification-box">
+            <div class="qualification-icon">🏡</div>
+            <div class="qualification-text">You Qualify: Homeowner "Preferred Risk" Status</div>
         </div>
         
-        <div class="activity-feed">
-            <div class="activity-item">
-                <div class="activity-avatar">JM</div>
-                <span>James from <span id="nearbyCity1">nearby</span> just saved $487/year</span>
-            </div>
-            <div class="activity-item">
-                <div class="activity-avatar">SR</div>
-                <span>Sarah from <span id="cityName">your city</span> locked in $28/month</span>
-            </div>
-            <div class="activity-item">
-                <div class="activity-avatar">MC</div>
-                <span>Mike from <span id="nearbyCity2">nearby</span> cut his rate by 43%</span>
-            </div>
-            <div class="activity-item">
-                <div class="activity-avatar">LT</div>
-                <span>Lisa from <span id="cityName2">your area</span> is saving $723 this year</span>
-            </div>
+        <h1><span class="city-specific" class="city-name">Your Area</span> Homeowners Save 47% on Car Insurance</h1>
+        
+        <div class="rate-change">
+            <span>Non-Homeowner: $167/mo</span>
+            <span class="arrow">→</span>
+            <span style="color: #2e7d32; font-weight: 800;">Homeowner: $26/mo</span>
         </div>
         
-        <h1><span class="highlight-number">3,847</span> <span id="cityName3">Local</span> Drivers Switched This Week</h1>
-        
-        <div class="savings-grid">
-            <div class="savings-box">
-                <div class="savings-amount">$512</div>
-                <div class="savings-label">Avg. Annual Savings</div>
-            </div>
-            <div class="savings-box">
-                <div class="savings-amount">73%</div>
-                <div class="savings-label">Found Better Rates</div>
-            </div>
+        <div class="savings-banner">
+            That's $1,692 less per year (Based on 2025 Nevada DOI filings)
         </div>
         
-        <div class="trust-badges">
-            <div class="trust-badge">✓ No spam calls</div>
-            <div class="trust-badge">✓ Real quotes</div>
-            <div class="trust-badge">✓ 60 seconds</div>
-        </div>
+        <p class="subtext">A 2025 actuarial loophole requires insurers to offer homeowners their "preferred risk" rate. Most people don't know to ask for it.</p>
         
         <a href="https://hpkpn.ttrk.io/click" class="button button-yes">
-            Join Your Neighbors →
+            Get My $26/mo Homeowner Rate
         </a>
         <a href="https://hpkpn.ttrk.io/click" class="button button-no">
-            I prefer paying more than my neighbors
+            Keep paying $167/month
         </a>
+        
+        <p class="timer-text">⚠️ Only 247 spots left at this rate today</p>
     </div>
+    
+    <p style="text-align: center; font-size: 12px; color: #999; margin-top: 20px;">
+        *$26 rate based on 2025 actuarial tables for homeowners with 750+ credit score. Your rate may vary.
+    </p>
 
     <script>
-        // Animate active count
-        function updateActiveCount() {
-            const count = document.getElementById('activeCount');
-            const min = 200;
-            const max = 300;
-            const newCount = Math.floor(Math.random() * (max - min + 1)) + min;
-            count.textContent = newCount;
-        }
-        
-        setInterval(updateActiveCount, 3000);
-        
-        // Update local count based on time of day
-        function updateLocalCount() {
-            const now = new Date();
-            const hour = now.getHours();
-            const baseCount = 3000;
-            const variance = hour * 37; // Creates realistic daily pattern
-            const count = baseCount + variance;
-            document.querySelector('.highlight-number').textContent = count.toLocaleString();
-        }
-        
-        updateLocalCount();
-        
-        // Geo-targeting
-        async function getLocation() {
+        // Geo-personalization using ipify API
+        async function updateCity() {
             try {
                 const response = await fetch('https://geo.ipify.org/api/v2/country,city?apiKey=at_JKtyyWskmuI07I6RieQ3a6EBhlt5T');
                 const data = await response.json();
+                const city = data.location.city || 'Your Area';
                 
-                if (data.location) {
-                    const city = data.location.city || 'your city';
-                    const region = data.location.region || 'your state';
-                    
-                    document.getElementById('cityName').textContent = city;
-                    document.getElementById('cityName2').textContent = city;
-                    document.getElementById('cityName3').textContent = city;
-                    
-                    // Create nearby city names
-                    const nearbyCities = ['Oakland', 'Richmond', 'Fremont', 'San Jose', 'Berkeley'];
-                    document.getElementById('nearbyCity1').textContent = nearbyCities[0];
-                    document.getElementById('nearbyCity2').textContent = nearbyCities[1];
-                }
+                // Update all city references
+                document.querySelectorAll('.city-name').forEach(element => {
+                    element.textContent = city;
+                });
             } catch (error) {
-                console.error('Location detection failed:', error);
+                console.error('Geolocation error:', error);
+                // Fallback to default
+                document.querySelectorAll('.city-name').forEach(element => {
+                    element.textContent = 'Your Area';
+                });
             }
         }
         
-        getLocation();
+        // Call on page load
+        updateCity();
     </script>
 </body>
 </html>
