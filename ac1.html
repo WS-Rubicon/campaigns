@@ -75,6 +75,11 @@
             margin: 0 auto 10px;
             overflow: hidden;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .agent-photo:hover {
+            transform: scale(1.05);
         }
         
         .agent-photo img {
@@ -111,13 +116,20 @@
             animation: fadeIn 0.5s forwards;
         }
         
-        .status-item:nth-child(1) { animation-delay: 0.5s; }
-        .status-item:nth-child(2) { animation-delay: 1s; }
-        .status-item:nth-child(3) { animation-delay: 1.5s; }
-        .status-item:nth-child(4) { animation-delay: 2s; }
+        .status-item:nth-child(1) { animation-delay: 0.2s; }
+        .status-item:nth-child(2) { animation-delay: 0.4s; }
+        .status-item:nth-child(3) { animation-delay: 0.6s; }
+        .status-item:nth-child(4) { animation-delay: 0.8s; }
         
         @keyframes fadeIn {
-            to { opacity: 1; }
+            from { 
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to { 
+                opacity: 1;
+                transform: scale(1);
+            }
         }
         
         .status-icon {
@@ -145,6 +157,18 @@
             margin-bottom: 30px;
         }
         
+        .typing-status {
+            font-size: 14px;
+            color: #9CA3AF;
+            margin-bottom: 8px;
+            font-style: italic;
+            opacity: 0;
+            animation: fadeIn 0.5s ease;
+            animation-delay: 1s;
+            animation-fill-mode: forwards;
+            transition: opacity 0.3s ease;
+        }
+        
         .message-bubble {
             background-color: #1F2937;
             border-left: 3px solid #10B981;
@@ -154,19 +178,84 @@
             font-style: italic;
             color: #E5E7EB;
             line-height: 1.6;
+            min-height: 40px;
+            opacity: 0;
+            animation: fadeIn 0.3s ease;
+            animation-delay: 1.2s;
+            animation-fill-mode: forwards;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
         
-        .message-bubble p {
-            margin-bottom: 10px;
+        .typing-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            opacity: 0;
+            animation: fadeIn 0.3s ease;
+            animation-delay: 1.3s;
+            animation-fill-mode: forwards;
+            transition: opacity 0.3s ease;
+        }
+        
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #6B7280;
+            border-radius: 50%;
+            animation: typing-bounce 1.4s infinite;
+        }
+        
+        .typing-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        
+        .typing-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        
+        @keyframes typing-bounce {
+            0%, 60%, 100% {
+                transform: translateY(0);
+                opacity: 0.4;
+            }
+            30% {
+                transform: translateY(-10px);
+                opacity: 1;
+            }
+        }
+        
+        .message-text {
+            display: none;
+        }
+        
+        .message-text.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
         }
         
         .agent-signature {
-            display: block;
+            display: none;
             text-align: right;
             font-style: normal;
             font-size: 14px;
             color: #9CA3AF;
             margin-top: 10px;
+        }
+        
+        .agent-signature.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .cta-container {
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .cta-container.show {
+            opacity: 1;
         }
         
         .cta-button {
@@ -180,16 +269,30 @@
             display: block;
             text-align: center;
             animation: subtlePulse 2s infinite;
-            transition: transform 0.2s;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
         }
         
         .cta-button:hover {
             transform: scale(1.02);
+            background-color: #0F9D58;
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
         }
         
         @keyframes subtlePulse {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.01); }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
         .timer-text {
@@ -207,6 +310,19 @@
             font-size: 14px;
             color: #9CA3AF;
         }
+        
+        .cta-container .trust-badges span {
+            opacity: 0;
+        }
+        
+        .cta-container.show .trust-badges span {
+            opacity: 0;
+            animation: fadeInUp 0.4s ease forwards;
+        }
+        
+        .cta-container.show .trust-badges span:nth-child(1) { animation-delay: 0.1s; }
+        .cta-container.show .trust-badges span:nth-child(2) { animation-delay: 0.2s; }
+        .cta-container.show .trust-badges span:nth-child(3) { animation-delay: 0.3s; }
         
         .footer {
             padding: 20px;
@@ -272,19 +388,27 @@
         <p class="sub-headline">Great news! Based on your location, you qualify for the $500/month grocery benefit. Agent Jessica has prepared your enrollment form and is holding your spot.</p>
         
         <div class="agent-message">
+            <div class="typing-status" id="typing-status">Jessica is typing...</div>
             <div class="message-bubble">
-                <p>"I've verified your location and confirmed you're eligible for the full $500 monthly benefit. I've pre-filled your enrollment form to save you time. Just click below to complete the final step - it takes less than 60 seconds!"</p>
-                <span class="agent-signature">- Jessica M., Benefits Director</span>
+                <div class="typing-indicator" id="typing-indicator">
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                </div>
+                <p class="message-text" id="message-text">"I've verified your location and confirmed you're eligible for the full $500 monthly benefit. I've pre-filled your enrollment form to save you time. Just click below to complete the final step - it takes less than 60 seconds!"</p>
+                <span class="agent-signature" id="agent-signature">- Jessica M., Benefits Director</span>
             </div>
         </div>
         
-        <a href="https://hpkpn.ttrk.io/click" class="cta-button">CONTINUE TO ENROLLMENT FORM</a>
-        <div class="timer-text">Your pre-approved spot expires in: <span id="timer">02:59</span></div>
-        
-        <div class="trust-badges">
-            <span>🔒 Secure Enrollment</span>
-            <span>✓ Pre-Approved</span>
-            <span>⚡ 60 Second Process</span>
+        <div class="cta-container" id="cta-container">
+            <a href="https://hpkpn.ttrk.io/click" class="cta-button">CONTINUE TO ENROLLMENT FORM</a>
+            <div class="timer-text">Your pre-approved spot expires in: <span id="timer">02:59</span></div>
+            
+            <div class="trust-badges">
+                <span>🔒 Secure Enrollment</span>
+                <span>✓ Pre-Approved</span>
+                <span>⚡ 60 Second Process</span>
+            </div>
         </div>
     </div>
     
@@ -294,10 +418,14 @@
     </div>
     
     <script>
-        // Set current date
-        const date = new Date();
-        const options = { year: 'numeric', month: 'long', day: 'numeric' };
-        document.getElementById('current-date').textContent = date.toLocaleDateString('en-US', options);
+        // Set current date and update it periodically
+        function updateDate() {
+            const date = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('current-date').textContent = date.toLocaleDateString('en-US', options);
+        }
+        updateDate();
+        setInterval(updateDate, 60000); // Update every minute
         
         // Timer countdown
         let seconds = 179; // 2:59
@@ -324,6 +452,37 @@
                 // Fallback to default
                 document.getElementById('user-location').textContent = 'Las Vegas, NV';
             });
+        
+        // Add a subtle notification sound effect when message appears (optional)
+        function playNotificationSound() {
+            // This would play a sound if you add an audio element
+            // const audio = new Audio('notification.mp3');
+            // audio.play().catch(e => console.log('Audio play failed:', e));
+        }
+        
+        // Typing animation for agent message
+        setTimeout(() => {
+            // Hide typing indicator and status, then show message
+            document.getElementById('typing-indicator').style.opacity = '0';
+            document.getElementById('typing-status').style.opacity = '0';
+            
+            setTimeout(() => {
+                document.getElementById('typing-indicator').style.display = 'none';
+                document.getElementById('typing-status').style.display = 'none';
+                document.getElementById('message-text').classList.add('show');
+                playNotificationSound();
+                
+                // Show signature after a short delay
+                setTimeout(() => {
+                    document.getElementById('agent-signature').classList.add('show');
+                    
+                    // Show CTA and trust badges after signature
+                    setTimeout(() => {
+                        document.getElementById('cta-container').classList.add('show');
+                    }, 300);
+                }, 500);
+            }, 300);
+        }, 3000); // Wait 3 seconds to simulate typing (after all animations complete)
     </script>
 </body>
 </html>
