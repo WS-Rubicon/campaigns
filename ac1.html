@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <meta name="format-detection" content="telephone=no">
-    <title>Monthly Benefits - $500/Month Allowance</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Agent Connection - Benefits Center</title>
     <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
     <style>
         * {
@@ -14,312 +13,281 @@
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background-color: #f8f9fa;
-            color: #212529;
-            line-height: 1.5;
-            min-width: 320px;
-        }
-        
-        .container {
-            max-width: 720px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header */
-        header {
-            background-color: white;
-            padding: 25px 0;
-            text-align: center;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }
-        
-        .logo {
-            display: inline-block;
-            text-decoration: none;
-        }
-        
-        .logo img {
-            display: block;
-            height: 60px;
-            width: auto;
-        }
-        
-        /* Main Content */
-        .main-content {
-            background-color: white;
-            padding: 40px 0 60px;
-            margin-bottom: 0;
-        }
-        
-        .breaking {
-            color: #dc3545;
-            font-size: 42px;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 20px;
-            padding: 0 20px;
-            line-height: 1.1;
-        }
-        
-        .headline {
-            font-size: 32px;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 20px;
-            color: #000000;
-            padding: 0 20px;
-            line-height: 1.2;
-        }
-        
-        .headline .open {
-            color: #28a745;
-        }
-        
-        .subheadline {
-            font-size: 18px;
-            text-align: center;
-            color: #495057;
-            margin-bottom: 35px;
-            padding: 0 20px;
-            font-weight: 400;
-        }
-        
-        .hero-image {
-            text-align: center;
-            margin-bottom: 40px;
-            padding: 0 20px;
-        }
-        
-        .hero-image img {
-            width: 100%;
-            max-width: 500px;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        
-        .cta-section {
-            text-align: center;
-            margin: 40px 0;
-            padding: 0 20px;
-        }
-        
-        .cta-title {
-            font-size: 26px;
-            font-weight: 600;
-            color: #0d6efd;
-            margin-bottom: 20px;
-        }
-        
-        .question {
-            font-size: 20px;
-            color: #212529;
-            margin-bottom: 25px;
-            font-weight: 400;
-        }
-        
-        .button-group {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #111827;
+            color: white;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            gap: 15px;
-            max-width: 340px;
-            margin: 0 auto;
         }
         
-        .btn {
-            padding: 18px 32px;
-            font-size: 19px;
-            font-weight: 600;
-            border: none;
-            border-radius: 12px;
-            cursor: pointer;
-            text-decoration: none;
-            display: block;
-            text-align: center;
-            transition: all 0.2s;
-            -webkit-tap-highlight-color: transparent;
-            width: 100%;
-        }
-        
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
-        
-        .btn:active {
-            transform: translateY(0);
-        }
-        
-        .btn-yes {
-            background-color: #0d6efd;
-            color: white;
-        }
-        
-        .btn-yes:hover {
-            background-color: #0b5ed7;
-        }
-        
-        .btn-no {
-            background-color: #6c757d;
-            color: white;
-        }
-        
-        .btn-no:hover {
-            background-color: #5c636a;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: #495057;
-            color: #ced4da;
-            padding: 35px 0;
-            text-align: center;
-        }
-        
-        .footer-content {
+        .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
-            gap: 20px;
+            padding: 15px 20px;
+            background-color: #0F172A;
         }
         
-        .footer-links {
+        .live-indicator {
             display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            justify-content: center;
+            align-items: center;
+            gap: 8px;
         }
         
-        .footer-links a {
-            color: #ced4da;
-            text-decoration: none;
-            font-size: 14px;
-            padding: 5px;
+        .pulse-circle {
+            width: 10px;
+            height: 10px;
+            background-color: #10B981;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
         }
         
-        .footer-links a:hover {
-            color: white;
-            text-decoration: underline;
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+            }
         }
         
-        .fact-checkers {
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid #6c757d;
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            max-width: 480px;
+            margin: 0 auto;
+            width: 100%;
         }
         
-        .fact-checkers-title {
+        .agent-profile {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .agent-photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        
+        .agent-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .agent-name {
+            font-size: 18px;
             font-weight: 600;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
+        }
+        
+        .agent-title {
             font-size: 14px;
-            color: #ced4da;
+            color: #9CA3AF;
         }
         
-        .fact-checkers-links {
+        .status-box {
+            background-color: #1F2937;
+            border-left: 4px solid #10B981;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .status-item {
             display: flex;
-            gap: 18px;
-            justify-content: center;
-            flex-wrap: wrap;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            opacity: 0;
+            animation: fadeIn 0.5s forwards;
         }
         
-        .fact-checkers-links a {
-            font-size: 13px;
-            padding: 3px;
-            color: #ced4da;
-            text-decoration: none;
+        .status-item:nth-child(1) { animation-delay: 0.5s; }
+        .status-item:nth-child(2) { animation-delay: 1s; }
+        .status-item:nth-child(3) { animation-delay: 1.5s; }
+        .status-item:nth-child(4) { animation-delay: 2s; }
+        
+        @keyframes fadeIn {
+            to { opacity: 1; }
         }
         
-        .fact-checkers-links a:hover {
+        .status-icon {
+            width: 20px;
+            height: 20px;
+            color: #10B981;
+        }
+        
+        .headline {
+            font-size: 28px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        
+        .sub-headline {
+            font-size: 16px;
+            color: #D1D5DB;
+            text-align: center;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+        
+        .cta-button {
+            background-color: #10B981;
             color: white;
-            text-decoration: underline;
+            padding: 18px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            animation: subtlePulse 2s infinite;
+            transition: transform 0.2s;
         }
         
-        /* Responsive adjustments */
-        @media (max-width: 480px) {
-            .breaking {
-                font-size: 32px;
-            }
-            
-            .headline {
-                font-size: 26px;
-            }
-            
-            .cta-title {
-                font-size: 24px;
-            }
-            
-            .footer-content {
-                flex-direction: column;
-                gap: 15px;
-            }
+        .cta-button:hover {
+            transform: scale(1.02);
+        }
+        
+        @keyframes subtlePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.01); }
+        }
+        
+        .timer-text {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #9CA3AF;
+        }
+        
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            font-size: 14px;
+            color: #9CA3AF;
+        }
+        
+        .footer {
+            padding: 20px;
+            text-align: center;
+            font-size: 12px;
+        }
+        
+        .footer a {
+            color: #6B7280;
+            text-decoration: none;
+            margin: 0 10px;
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <a href="https://hpkpn.ttrk.io/click" class="logo">
-                <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1753955621/Screenshot_2025-07-31_024951_yo3fm3.png" alt="Healthcare Pronto">
-            </a>
+    <div class="header">
+        <div class="live-indicator">
+            <div class="pulse-circle"></div>
+            <span>LIVE</span>
         </div>
-    </header>
-
-    <!-- Main Content -->
-    <main class="main-content">
-        <div class="container">
-            <h1 class="breaking">BREAKING: Biggest Monthly Relief in 2025</h1>
-            
-            <h2 class="headline">
-                $500/Month Allowance: <span class="open">OPEN</span>
-            </h2>
-            
-            <p class="subheadline">
-                Americans can now claim $500 a month for medical, groceries, and utilities.
-            </p>
-            
-            <div class="hero-image">
-                <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1753955622/Screenshot_2025-07-31_024853_dysuc0.png" alt="Woman showing benefits with groceries, money and cards">
+        <div id="current-date"></div>
+    </div>
+    
+    <div class="main-content">
+        <div class="agent-profile">
+            <div class="agent-photo">
+                <img src="https://res.cloudinary.com/dndik3mpf/image/upload/Gemini_Generated_Image_v0356lv0356lv035_zpa88q.png" alt="Agent Jessica M.">
             </div>
-            
-            <div class="cta-section">
-                <h3 class="cta-title">Claim Your Monthly Benefits Today</h3>
-                <p class="question">Do you make under $50,000 a year?</p>
-                <div class="button-group">
-                    <a href="https://hpkpn.ttrk.io/click" class="btn btn-yes">Yes</a>
-                    <a href="https://hpkpn.ttrk.io/click" class="btn btn-no">No</a>
-                </div>
-            </div>
-            
+            <div class="agent-name">Jessica M.</div>
+            <div class="agent-title">Benefits Enrollment Director</div>
         </div>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div style="color: #ced4da;">&copy; 2025 Consumer Pronto</div>
-                <div class="footer-links">
-                    <a href="https://hpkpn.ttrk.io/click">Privacy Policy</a>
-                    <a href="https://hpkpn.ttrk.io/click">Terms Of Service</a>
-                </div>
+        
+        <div class="status-box">
+            <div class="status-item">
+                <svg class="status-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span>Request Received...</span>
             </div>
-            
-            <div class="fact-checkers">
-                <div class="fact-checkers-title">Fact Checkers:</div>
-                <div class="fact-checkers-links">
-                    <a href="https://hpkpn.ttrk.io/click">AM Better</a>
-                    <a href="https://hpkpn.ttrk.io/click">UnitedHealth</a>
-                    <a href="https://hpkpn.ttrk.io/click">CMS.GOV</a>
-                    <a href="https://hpkpn.ttrk.io/click">IRS</a>
-                    <a href="https://hpkpn.ttrk.io/click">TaxPayer.IRS</a>
-                </div>
+            <div class="status-item">
+                <svg class="status-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9 9a2 2 0 114 0 2 2 0 01-4 0z"/>
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a4 4 0 00-3.446 6.032l-2.261 2.26a1 1 0 101.414 1.415l2.261-2.261A4 4 0 1011 5z" clip-rule="evenodd"/>
+                </svg>
+                <span>Verifying Location: <span id="user-location">Las Vegas, NV</span>...</span>
+            </div>
+            <div class="status-item">
+                <svg class="status-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
+                </svg>
+                <span>Locating Available Agent...</span>
+            </div>
+            <div class="status-item">
+                <svg class="status-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span>SUCCESS! Agent Jessica M. is available.</span>
             </div>
         </div>
-    </footer>
+        
+        <h1 class="headline">You Are Being Connected To A Live Agent.</h1>
+        <p class="sub-headline">Please do not close this window. Your agent has confirmed your eligibility for the $500/month grocery benefit and is holding your spot.</p>
+        
+        <a href="https://hpkpn.ttrk.io/click" class="cta-button">CLICK TO SPEAK WITH AGENT</a>
+        <div class="timer-text">Your line is reserved for: <span id="timer">02:59</span></div>
+        
+        <div class="trust-badges">
+            <span>🔒 SSL Secured</span>
+            <span>100% Free Service</span>
+            <span>No Obligation</span>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <a href="https://hpkpn.ttrk.io/click">Terms & Conditions</a>
+        <a href="https://hpkpn.ttrk.io/click">Privacy Policy</a>
+    </div>
+    
+    <script>
+        // Set current date
+        const date = new Date();
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('current-date').textContent = date.toLocaleDateString('en-US', options);
+        
+        // Timer countdown
+        let seconds = 179; // 2:59
+        const timerElement = document.getElementById('timer');
+        
+        setInterval(() => {
+            if (seconds > 0) {
+                seconds--;
+                const mins = Math.floor(seconds / 60);
+                const secs = seconds % 60;
+                timerElement.textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+            }
+        }, 1000);
+        
+        // Get real geo-location using ipify API
+        fetch('https://geo.ipify.org/api/v2/country,city?apiKey=at_JKtyyWskmuI07I6RieQ3a6EBhlt5T')
+            .then(response => response.json())
+            .then(data => {
+                const location = `${data.location.city}, ${data.location.region}`;
+                document.getElementById('user-location').textContent = location;
+            })
+            .catch(error => {
+                console.error('Error fetching location:', error);
+                // Fallback to default
+                document.getElementById('user-location').textContent = 'Las Vegas, NV';
+            });
+    </script>
 </body>
 </html>
