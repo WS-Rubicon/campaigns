@@ -141,6 +141,34 @@
             line-height: 1.5;
         }
         
+        .agent-message {
+            margin-bottom: 30px;
+        }
+        
+        .message-bubble {
+            background-color: #1F2937;
+            border-left: 3px solid #10B981;
+            border-radius: 8px;
+            padding: 20px;
+            position: relative;
+            font-style: italic;
+            color: #E5E7EB;
+            line-height: 1.6;
+        }
+        
+        .message-bubble p {
+            margin-bottom: 10px;
+        }
+        
+        .agent-signature {
+            display: block;
+            text-align: right;
+            font-style: normal;
+            font-size: 14px;
+            color: #9CA3AF;
+            margin-top: 10px;
+        }
+        
         .cta-button {
             background-color: #10B981;
             color: white;
@@ -197,13 +225,14 @@
     <div class="header">
         <div class="live-indicator">
             <div class="pulse-circle"></div>
-            <span>LIVE</span>
+            <span>AGENT CONNECTED</span>
         </div>
         <div id="current-date"></div>
     </div>
     
     <div class="main-content">
         <div class="agent-profile">
+            <div style="font-size: 12px; color: #9CA3AF; margin-bottom: 10px; text-transform: uppercase;">Connected with</div>
             <div class="agent-photo">
                 <img src="https://res.cloudinary.com/dndik3mpf/image/upload/Gemini_Generated_Image_v0356lv0356lv035_zpa88q.png" alt="Agent Jessica M.">
             </div>
@@ -216,39 +245,46 @@
                 <svg class="status-icon" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                 </svg>
-                <span>Request Received...</span>
+                <span>Request Processed</span>
             </div>
             <div class="status-item">
                 <svg class="status-icon" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M9 9a2 2 0 114 0 2 2 0 01-4 0z"/>
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a4 4 0 00-3.446 6.032l-2.261 2.26a1 1 0 101.414 1.415l2.261-2.261A4 4 0 1011 5z" clip-rule="evenodd"/>
                 </svg>
-                <span>Verifying Location: <span id="user-location">Las Vegas, NV</span>...</span>
+                <span>Location Verified: <span id="user-location">Las Vegas, NV</span></span>
             </div>
             <div class="status-item">
                 <svg class="status-icon" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
                 </svg>
-                <span>Locating Available Agent...</span>
+                <span>Eligibility Confirmed by Agent</span>
             </div>
             <div class="status-item">
                 <svg class="status-icon" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                 </svg>
-                <span>SUCCESS! Agent Jessica M. is available.</span>
+                <span>Enrollment Form Ready - $500/Month Benefit</span>
             </div>
         </div>
         
-        <h1 class="headline">You Are Being Connected To A Live Agent.</h1>
-        <p class="sub-headline">Please do not close this window. Your agent has confirmed your eligibility for the $500/month grocery benefit and is holding your spot.</p>
+        <h1 class="headline">Agent Jessica Has Confirmed Your Eligibility</h1>
+        <p class="sub-headline">Great news! Based on your location, you qualify for the $500/month grocery benefit. Agent Jessica has prepared your enrollment form and is holding your spot.</p>
         
-        <a href="https://hpkpn.ttrk.io/click" class="cta-button">CLICK TO SPEAK WITH AGENT</a>
-        <div class="timer-text">Your line is reserved for: <span id="timer">02:59</span></div>
+        <div class="agent-message">
+            <div class="message-bubble">
+                <p>"I've verified your location and confirmed you're eligible for the full $500 monthly benefit. I've pre-filled your enrollment form to save you time. Just click below to complete the final step - it takes less than 60 seconds!"</p>
+                <span class="agent-signature">- Jessica M., Benefits Director</span>
+            </div>
+        </div>
+        
+        <a href="https://hpkpn.ttrk.io/click" class="cta-button">CONTINUE TO ENROLLMENT FORM</a>
+        <div class="timer-text">Your pre-approved spot expires in: <span id="timer">02:59</span></div>
         
         <div class="trust-badges">
-            <span>🔒 SSL Secured</span>
-            <span>100% Free Service</span>
-            <span>No Obligation</span>
+            <span>🔒 Secure Enrollment</span>
+            <span>✓ Pre-Approved</span>
+            <span>⚡ 60 Second Process</span>
         </div>
     </div>
     
