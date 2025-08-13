@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unlocking Your Benefits - National Benefits Network</title>
+    <title>Benefits Specialist Available | Benefits.gov</title>
     <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
     <style>
         * {
@@ -13,292 +13,611 @@
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background-color: #121212;
+            font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f7f7f7;
+            color: #212529;
+            line-height: 1.5;
+        }
+        
+        /* Header */
+        .header {
+            background-color: #003366;
             color: white;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            overflow-x: hidden;
+            padding: 0;
         }
         
-        .main-content {
-            flex: 1;
-            padding: 40px 20px;
-            max-width: 480px;
+        .header-top {
+            background-color: #112e51;
+            padding: 8px 0;
+            font-size: 13px;
+        }
+        
+        .container {
+            max-width: 1040px;
             margin: 0 auto;
-            width: 100%;
+            padding: 0 20px;
         }
         
-        .headline {
+        .header-main {
+            padding: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-shield {
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #003366;
+            font-size: 20px;
+        }
+        
+        .site-title {
             font-size: 28px;
             font-weight: 700;
-            text-align: center;
-            margin-bottom: 40px;
-            min-height: 40px;
+            letter-spacing: -0.5px;
         }
         
-        .typewriter {
+        .live-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background-color: rgba(16, 185, 129, 0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+        }
+        
+        .pulse-circle {
+            width: 10px;
+            height: 10px;
+            background-color: #10B981;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+            }
+        }
+        
+        /* Main Content */
+        .main-content {
+            background-color: white;
+            margin: 20px auto 40px;
+            max-width: 1040px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+        }
+        
+        /* Agent Section */
+        .agent-header {
+            background-color: #e1f3f8;
+            padding: 30px;
+            border-bottom: 2px solid #02bfe7;
+        }
+        
+        .agent-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .agent-photo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
             overflow: hidden;
-            white-space: nowrap;
-            animation: typing 2s steps(25) forwards;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border: 3px solid white;
         }
         
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
-        }
-        
-        .progress-container {
-            background-color: #1F2937;
-            height: 8px;
-            border-radius: 4px;
-            overflow: hidden;
-            margin-bottom: 40px;
-        }
-        
-        .progress-bar {
+        .agent-photo img {
+            width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, #3B82F6 0%, #10B981 100%);
-            width: 0;
-            animation: progress 3.5s ease-out forwards;
+            object-fit: cover;
         }
         
-        @keyframes progress {
-            to { width: 100%; }
+        .agent-details h2 {
+            font-size: 24px;
+            color: #003366;
+            margin-bottom: 5px;
         }
         
-        .benefits-grid {
+        .agent-details p {
+            color: #5b616b;
+            font-size: 16px;
+        }
+        
+        .agent-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background-color: #d6f5d6;
+            color: #2e8540;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+        
+        /* Content Section */
+        .content-section {
+            padding: 40px;
+        }
+        
+        /* Verification Status */
+        .verification-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
-            margin-bottom: 40px;
-        }
-        
-        .benefit-box {
-            background-color: #374151;
-            border-radius: 12px;
-            padding: 30px 20px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            transform: scale(1);
-            transition: all 0.5s ease;
-        }
-        
-        .benefit-box.locked {
-            background-color: #1F2937;
-            color: #6B7280;
-        }
-        
-        .benefit-box.unlocked-green {
-            background-color: #059669;
-            animation: unlock 0.5s ease;
-        }
-        
-        .benefit-box.unlocked-blue {
-            background-color: #2563EB;
-            animation: unlock 0.5s ease;
-        }
-        
-        .benefit-box.unlocked-purple {
-            background-color: #7C3AED;
-            animation: unlock 0.5s ease;
-        }
-        
-        .benefit-box.unlocked-orange {
-            background-color: #EA580C;
-            animation: unlock 0.5s ease;
-        }
-        
-        @keyframes unlock {
-            0% {
-                transform: scale(0.8) rotateY(180deg);
-                opacity: 0;
-            }
-            50% {
-                transform: scale(1.1) rotateY(90deg);
-            }
-            100% {
-                transform: scale(1) rotateY(0deg);
-                opacity: 1;
-            }
-        }
-        
-        .benefit-icon {
-            font-size: 40px;
-            margin-bottom: 10px;
-            transition: all 0.3s ease;
-        }
-        
-        .benefit-text {
-            font-size: 16px;
-            font-weight: 600;
-        }
-        
-        .confirmation-message {
-            font-size: 24px;
-            font-weight: 700;
-            text-align: center;
             margin-bottom: 30px;
-            opacity: 0;
-            animation: fadeInScale 0.5s ease forwards;
-            animation-delay: 3.8s;
         }
         
-        @keyframes fadeInScale {
+        .verification-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px;
+            background-color: #f8f8f8;
+            border-left: 3px solid #02bfe7;
+            border-radius: 4px;
+            opacity: 0;
+            animation: slideIn 0.5s forwards;
+        }
+        
+        .verification-item:nth-child(1) { animation-delay: 0.2s; }
+        .verification-item:nth-child(2) { animation-delay: 0.4s; }
+        .verification-item:nth-child(3) { animation-delay: 0.6s; }
+        .verification-item:nth-child(4) { animation-delay: 0.8s; }
+        
+        @keyframes slideIn {
             from {
                 opacity: 0;
-                transform: scale(0.8);
+                transform: translateX(-20px);
             }
             to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .verification-icon {
+            color: #2e8540;
+            font-size: 24px;
+        }
+        
+        .verification-text {
+            flex: 1;
+        }
+        
+        .verification-text h4 {
+            font-size: 16px;
+            margin-bottom: 2px;
+            color: #212529;
+        }
+        
+        .verification-text p {
+            font-size: 14px;
+            color: #5b616b;
+            margin: 0;
+        }
+        
+        /* Agent Message Section */
+        .agent-message-section {
+            background-color: #f8f8f8;
+            border-radius: 4px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid #d6d7d9;
+        }
+        
+        .message-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            color: #5b616b;
+        }
+        
+        .typing-status {
+            font-style: italic;
+            color: #5b616b;
+            opacity: 0;
+            animation: fadeIn 0.5s ease forwards;
+            animation-delay: 1s;
+        }
+        
+        @keyframes fadeIn {
+            from { 
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to { 
                 opacity: 1;
                 transform: scale(1);
             }
         }
         
-        .cta-container {
-            opacity: 0;
-            animation: fadeInUp 0.5s ease forwards;
-            animation-delay: 4s;
+        .message-bubble {
+            background-color: white;
+            border-radius: 8px;
+            padding: 25px;
+            position: relative;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            min-height: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
         
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
+        .message-bubble::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: -10px;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            transform: rotate(45deg);
+            box-shadow: -2px 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .typing-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            opacity: 0;
+            animation: fadeIn 0.3s ease forwards;
+            animation-delay: 1.2s;
+        }
+        
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #5b616b;
+            border-radius: 50%;
+            animation: typing-bounce 1.4s infinite;
+        }
+        
+        .typing-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        
+        .typing-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        
+        @keyframes typing-bounce {
+            0%, 60%, 100% {
                 transform: translateY(0);
+                opacity: 0.4;
             }
+            30% {
+                transform: translateY(-10px);
+                opacity: 1;
+            }
+        }
+        
+        .message-text {
+            display: none;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #212529;
+        }
+        
+        .message-text.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        /* Action Section */
+        .action-section {
+            background-color: #003366;
+            color: white;
+            padding: 40px;
+            border-radius: 4px;
+            text-align: center;
+            margin-bottom: 30px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .action-section.show {
+            opacity: 1;
+        }
+        
+        .action-section h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+        
+        .action-section p {
+            font-size: 18px;
+            margin-bottom: 25px;
+            opacity: 0.9;
         }
         
         .cta-button {
-            background: linear-gradient(135deg, #2563EB 0%, #10B981 100%);
+            background-color: #02bfe7;
             color: white;
-            padding: 18px;
-            border-radius: 8px;
-            font-size: 18px;
+            padding: 18px 50px;
+            font-size: 20px;
             font-weight: 600;
             text-decoration: none;
-            display: block;
-            text-align: center;
-            transition: transform 0.2s;
+            border-radius: 4px;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: 2px solid #02bfe7;
+            box-shadow: 0 4px 15px rgba(2, 191, 231, 0.3);
         }
         
         .cta-button:hover {
-            transform: scale(1.02);
+            background-color: #00a6d2;
+            border-color: #00a6d2;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(2, 191, 231, 0.4);
         }
         
-        .reassurance-text {
-            text-align: center;
+        .timer-notice {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #fdb81e;
+            font-weight: 600;
+        }
+        
+        /* Trust Badges */
+        .trust-section {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 30px;
+            border-top: 1px solid #d6d7d9;
+            background-color: #f8f8f8;
+        }
+        
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
             font-size: 14px;
-            color: #9CA3AF;
-            margin-top: 10px;
+            color: #5b616b;
         }
         
+        .trust-icon {
+            font-size: 20px;
+            color: #02bfe7;
+        }
+        
+        /* Footer */
         .footer {
-            padding: 20px;
+            background-color: #323a45;
+            color: white;
+            padding: 20px 0;
             text-align: center;
-            font-size: 14px;
-            color: #6B7280;
+            font-size: 13px;
+        }
+        
+        .footer a {
+            color: #dce4ef;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .verification-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-main {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .agent-info {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .trust-section {
+                flex-direction: column;
+                gap: 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="main-content">
-        <h1 class="headline">
-            <span class="typewriter">Unlocking Your Benefits...</span>
-        </h1>
-        
-        <div class="progress-container">
-            <div class="progress-bar"></div>
-        </div>
-        
-        <div class="benefits-grid">
-            <div class="benefit-box locked" id="box1">
-                <div class="benefit-icon">🔒</div>
-                <div class="benefit-text">Locked</div>
-            </div>
-            <div class="benefit-box locked" id="box2">
-                <div class="benefit-icon">🔒</div>
-                <div class="benefit-text">Locked</div>
-            </div>
-            <div class="benefit-box locked" id="box3">
-                <div class="benefit-icon">🔒</div>
-                <div class="benefit-text">Locked</div>
-            </div>
-            <div class="benefit-box locked" id="box4">
-                <div class="benefit-icon">🔒</div>
-                <div class="benefit-text">Locked</div>
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                Official U.S. Government Website
             </div>
         </div>
-        
-        <div class="confirmation-message">
-            Congratulations! Your Benefits Are Unlocked!
+        <div class="header-main">
+            <div class="container" style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                <div class="header-left">
+                    <div class="logo-shield">BA</div>
+                    <div class="site-title">Benefits Administration</div>
+                </div>
+                <div class="live-indicator">
+                    <div class="pulse-circle"></div>
+                    <span>SPECIALIST CONNECTED</span>
+                </div>
+            </div>
         </div>
-        
-        <div class="cta-container">
-            <a href="https://hpkpn.ttrk.io/click" class="cta-button">Claim My $500 Now</a>
-            <p class="reassurance-text">Final step takes less than one minute.</p>
-        </div>
-    </div>
+    </header>
     
-    <div class="footer">
-        Powered by the National Benefits Network.
-    </div>
+    <main class="main-content">
+        <div class="agent-header">
+            <div class="agent-info">
+                <div class="agent-photo">
+                    <img src="https://res.cloudinary.com/dndik3mpf/image/upload/Gemini_Generated_Image_v0356lv0356lv035_zpa88q.png" alt="Benefits Specialist Jessica Martinez">
+                </div>
+                <div class="agent-details">
+                    <h2>Connected with Benefits Specialist</h2>
+                    <p>Jessica Martinez - Senior Enrollment Director</p>
+                    <div class="agent-badge">✓ Certified Benefits Counselor</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content-section">
+            <h3 style="font-size: 24px; margin-bottom: 20px; color: #003366;">Verification Complete</h3>
+            
+            <div class="verification-grid">
+                <div class="verification-item">
+                    <div class="verification-icon">✓</div>
+                    <div class="verification-text">
+                        <h4>Identity Verified</h4>
+                        <p>Your identity has been confirmed</p>
+                    </div>
+                </div>
+                <div class="verification-item">
+                    <div class="verification-icon">✓</div>
+                    <div class="verification-text">
+                        <h4>Location Confirmed</h4>
+                        <p id="user-location">Las Vegas, NV</p>
+                    </div>
+                </div>
+                <div class="verification-item">
+                    <div class="verification-icon">✓</div>
+                    <div class="verification-text">
+                        <h4>Eligibility Approved</h4>
+                        <p>Qualified for $500/month benefit</p>
+                    </div>
+                </div>
+                <div class="verification-item">
+                    <div class="verification-icon">✓</div>
+                    <div class="verification-text">
+                        <h4>Enrollment Form Ready</h4>
+                        <p>Pre-filled for faster processing</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="agent-message-section">
+                <div class="message-header">
+                    <span class="typing-status" id="typing-status">Jessica is typing...</span>
+                </div>
+                <div class="message-bubble">
+                    <div class="typing-indicator" id="typing-indicator">
+                        <div class="typing-dot"></div>
+                        <div class="typing-dot"></div>
+                        <div class="typing-dot"></div>
+                    </div>
+                    <div class="message-text" id="message-text">
+                        "Great news! I've reviewed your information and confirmed you qualify for the full $500 monthly grocery assistance benefit. I've already pre-filled your enrollment form based on the information we have on file. This will save you time and ensure accuracy. The final step takes less than 60 seconds to complete. Click the button below to finalize your enrollment while I have your spot reserved."
+                    </div>
+                </div>
+            </div>
+            
+            <div class="action-section" id="action-section">
+                <h3>Your Benefits Are Ready</h3>
+                <p>Jessica has reserved your enrollment spot. Complete the final step now.</p>
+                <a href="https://hpkpn.ttrk.io/click" class="cta-button">Continue to Secure Enrollment →</a>
+                <div class="timer-notice">
+                    ⏰ Reserved spot expires in: <span id="timer">14:59</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="trust-section">
+            <div class="trust-item">
+                <span class="trust-icon">🔒</span>
+                <span>256-bit SSL Encryption</span>
+            </div>
+            <div class="trust-item">
+                <span class="trust-icon">✓</span>
+                <span>HIPAA Compliant</span>
+            </div>
+            <div class="trust-item">
+                <span class="trust-icon">⚡</span>
+                <span>60 Second Process</span>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="footer">
+        <div class="container">
+            <a href="https://hpkpn.ttrk.io/click">Privacy Policy</a>
+            <a href="https://hpkpn.ttrk.io/click">Terms of Use</a>
+            <a href="https://hpkpn.ttrk.io/click">Contact Us</a>
+            <div style="margin-top: 10px; font-size: 11px; opacity: 0.7;">
+                This is an advertisement for a private insurance program and not affiliated with any government agency.
+            </div>
+        </div>
+    </footer>
     
     <script>
         // Get real geo-location using ipify API
-        let userLocation = 'Las Vegas, NV'; // Default fallback
-        
         fetch('https://geo.ipify.org/api/v2/country,city?apiKey=at_JKtyyWskmuI07I6RieQ3a6EBhlt5T')
             .then(response => response.json())
             .then(data => {
-                userLocation = `${data.location.city}, ${data.location.region}`;
-                // Update box 3 if it's already unlocked
-                const box3Text = document.querySelector('#box3 .benefit-text');
-                if (box3Text && box3Text.textContent.includes('Confirmed for')) {
-                    box3Text.textContent = 'Confirmed for ' + userLocation;
-                }
+                const location = `${data.location.city}, ${data.location.region}`;
+                document.getElementById('user-location').textContent = location;
             })
             .catch(error => {
                 console.error('Error fetching location:', error);
             });
         
-        // Unlock boxes sequentially
-        setTimeout(() => {
-            const box1 = document.getElementById('box1');
-            box1.classList.remove('locked');
-            box1.classList.add('unlocked-green');
-            box1.querySelector('.benefit-icon').textContent = '✓';
-            box1.querySelector('.benefit-text').textContent = '$500/mo Benefit';
-        }, 800);
+        // Timer countdown
+        let minutes = 14;
+        let seconds = 59;
+        const timerElement = document.getElementById('timer');
         
-        setTimeout(() => {
-            const box2 = document.getElementById('box2');
-            box2.classList.remove('locked');
-            box2.classList.add('unlocked-blue');
-            box2.querySelector('.benefit-icon').textContent = '🛒';
-            box2.querySelector('.benefit-text').textContent = 'Grocery & OTC';
-        }, 1600);
+        setInterval(() => {
+            if (seconds > 0) {
+                seconds--;
+            } else if (minutes > 0) {
+                minutes--;
+                seconds = 59;
+            }
+            
+            timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }, 1000);
         
+        // Typing animation for agent message
         setTimeout(() => {
-            const box3 = document.getElementById('box3');
-            box3.classList.remove('locked');
-            box3.classList.add('unlocked-purple');
-            box3.querySelector('.benefit-icon').textContent = '📍';
-            box3.querySelector('.benefit-text').textContent = 'Confirmed for ' + userLocation;
-        }, 2400);
-        
-        setTimeout(() => {
-            const box4 = document.getElementById('box4');
-            box4.classList.remove('locked');
-            box4.classList.add('unlocked-orange');
-            box4.querySelector('.benefit-icon').textContent = '📅';
-            box4.querySelector('.benefit-text').textContent = '2025 Enrollment';
-        }, 3200);
+            // Hide typing indicator and status, then show message
+            document.getElementById('typing-indicator').style.opacity = '0';
+            document.getElementById('typing-status').style.opacity = '0';
+            
+            setTimeout(() => {
+                document.getElementById('typing-indicator').style.display = 'none';
+                document.getElementById('typing-status').style.display = 'none';
+                document.getElementById('message-text').classList.add('show');
+                
+                // Show action section after message
+                setTimeout(() => {
+                    document.getElementById('action-section').classList.add('show');
+                }, 500);
+            }, 300);
+        }, 2500); // Wait 2.5 seconds to simulate typing
     </script>
 </body>
 </html>
