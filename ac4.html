@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Benefit Card Activation - Benefits Center</title>
+    <title>Benefits Specialist - 2025 Grocery Assistance Program</title>
     <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
     <style>
         * {
@@ -13,299 +13,725 @@
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background-color: #F3F4F6;
-            color: #374151;
+            font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f0f0f0;
+            color: #212529;
+            line-height: 1.5;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
         }
         
+        /* Header */
         .header {
-            background-color: white;
-            padding: 15px 20px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            background-color: #112e51;
+            color: white;
+            padding: 12px 0;
+        }
+        
+        .header-content {
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 0 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
         
         .logo {
-            font-size: 20px;
-            font-weight: 600;
-            color: #1F2937;
-        }
-        
-        .status {
-            font-size: 14px;
-            color: #F59E0B;
-            font-weight: 500;
-        }
-        
-        .main-content {
-            flex: 1;
-            padding: 30px 20px;
-            max-width: 480px;
-            margin: 0 auto;
-            width: 100%;
-        }
-        
-        .headline {
-            font-size: 26px;
-            font-weight: 700;
-            color: #1F2937;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        
-        .benefit-card {
-            width: 100%;
-            max-width: 380px;
-            height: 240px;
-            margin: 0 auto 30px;
-            background: linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%);
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            padding: 20px;
-            position: relative;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        
-        .card-chip {
-            width: 50px;
+            width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
-            border-radius: 8px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .card-chip::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 70%;
-            height: 70%;
-            border: 2px solid #F59E0B;
-            border-radius: 4px;
-        }
-        
-        .card-number {
-            font-size: 20px;
-            letter-spacing: 2px;
-            margin: 20px 0;
-        }
-        
-        .card-bottom {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-        }
-        
-        .card-info {
-            font-size: 12px;
-        }
-        
-        .card-name {
-            font-size: 14px;
-            margin-top: 5px;
-            text-transform: uppercase;
-        }
-        
-        .card-logo {
-            text-align: right;
-        }
-        
-        .card-logo-text {
-            font-size: 16px;
-            font-weight: 700;
-        }
-        
-        .card-value {
-            font-size: 20px;
-            font-weight: 700;
-            margin-top: 5px;
-        }
-        
-        .checklist {
             background-color: white;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-        
-        .checklist-item {
+            border-radius: 50%;
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin-bottom: 15px;
-            opacity: 0;
-            animation: slideIn 0.5s forwards;
-        }
-        
-        .checklist-item:nth-child(1) { animation-delay: 0.5s; }
-        .checklist-item:nth-child(2) { animation-delay: 0.8s; }
-        .checklist-item:nth-child(3) { animation-delay: 1.1s; }
-        
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        .checkmark {
-            color: #10B981;
-            font-size: 20px;
-        }
-        
-        .urgency-text {
-            text-align: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #112e51;
             font-size: 16px;
-            color: #374151;
-            margin-bottom: 20px;
         }
         
-        .cta-button {
-            background-color: #2563EB;
-            color: white;
-            padding: 18px;
-            border-radius: 8px;
-            font-size: 18px;
+        .site-name {
+            font-size: 24px;
             font-weight: 600;
-            text-decoration: none;
-            display: block;
-            text-align: center;
-            transition: background-color 0.2s;
         }
         
-        .cta-button:hover {
-            background-color: #1D4ED8;
+        .live-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background-color: rgba(16, 185, 129, 0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
         }
         
-        .cta-subtext {
-            text-align: center;
-            font-size: 14px;
-            color: #6B7280;
+        .pulse-circle {
+            width: 10px;
+            height: 10px;
+            background-color: #10B981;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+            }
+        }
+        
+        /* Agent Banner */
+        .agent-banner {
+            background-color: #e1f3f8;
+            padding: 25px 0;
+            border-bottom: 2px solid #02bfe7;
+        }
+        
+        .agent-container {
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .agent-photo {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border: 3px solid white;
+        }
+        
+        .agent-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .agent-info {
+            flex: 1;
+        }
+        
+        .agent-info h2 {
+            font-size: 20px;
+            color: #112e51;
+            margin-bottom: 5px;
+        }
+        
+        .agent-info p {
+            color: #5b616b;
+            font-size: 15px;
+        }
+        
+        .agent-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background-color: #d6f5d6;
+            color: #2e8540;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 600;
             margin-top: 8px;
         }
         
-        .security-note {
+        /* Main Container */
+        .main-container {
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Breadcrumb */
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #5b616b;
+        }
+        
+        .breadcrumb a {
+            color: #0071bc;
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Page Title */
+        .page-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: #212529;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            background-color: #e5e5e5;
+            padding: 30px;
+            margin: -20px -20px 30px -20px;
+        }
+        
+        /* Pre-qualified Box */
+        .qualified-box {
+            background-color: #d6f5d6;
+            border: 1px solid #4aa564;
+            border-radius: 4px;
+            padding: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            animation: slideDown 0.5s ease;
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .qualified-icon {
+            font-size: 32px;
+            color: #2e8540;
+        }
+        
+        .qualified-content h3 {
+            font-size: 22px;
+            color: #2e8540;
+            margin-bottom: 5px;
+        }
+        
+        .qualified-content p {
+            color: #212529;
+            margin: 0;
+        }
+        
+        /* Info Cards Grid */
+        .info-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .info-card {
+            background-color: white;
+            border: 1px solid #d6d7d9;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        .info-card:nth-child(1) { animation-delay: 0.2s; }
+        .info-card:nth-child(2) { animation-delay: 0.4s; }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+        
+        .card-icon {
+            font-size: 28px;
+        }
+        
+        .card-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #112e51;
+        }
+        
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .info-row:last-child {
+            border-bottom: none;
+        }
+        
+        .info-label {
+            color: #5b616b;
+            font-weight: 600;
+            font-size: 15px;
+        }
+        
+        .info-value {
+            color: #212529;
+            font-weight: 400;
+            font-size: 15px;
+            text-align: right;
+        }
+        
+        .status-qualified {
+            color: #2e8540;
+            font-weight: 700;
+        }
+        
+        .deadline {
+            color: #cd2026;
+            font-weight: 700;
+        }
+        
+        .amount-highlight {
+            color: #2e8540;
+            font-weight: 700;
+            font-size: 18px;
+        }
+        
+        /* Agent Message Section */
+        .agent-message-section {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border: 1px solid #d6d7d9;
+        }
+        
+        .message-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            color: #5b616b;
+        }
+        
+        .typing-status {
+            font-style: italic;
+            color: #5b616b;
+            opacity: 0;
+            animation: fadeIn 0.5s ease forwards;
+            animation-delay: 0.8s;
+        }
+        
+        @keyframes fadeIn {
+            from { 
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to { 
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .message-bubble {
+            background-color: #f8f8f8;
+            border-left: 3px solid #02bfe7;
+            border-radius: 8px;
+            padding: 25px;
+            position: relative;
+        }
+        
+        .typing-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            opacity: 0;
+            animation: fadeIn 0.3s ease forwards;
+            animation-delay: 1s;
+        }
+        
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #5b616b;
+            border-radius: 50%;
+            animation: typing-bounce 1.4s infinite;
+        }
+        
+        .typing-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        
+        .typing-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        
+        @keyframes typing-bounce {
+            0%, 60%, 100% {
+                transform: translateY(0);
+                opacity: 0.4;
+            }
+            30% {
+                transform: translateY(-10px);
+                opacity: 1;
+            }
+        }
+        
+        .message-text {
+            display: none;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #212529;
+            font-style: italic;
+        }
+        
+        .message-text.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .agent-signature {
+            display: none;
+            text-align: right;
+            font-style: normal;
+            font-size: 14px;
+            color: #5b616b;
+            margin-top: 15px;
+        }
+        
+        .agent-signature.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        /* Enrollment Section */
+        .enrollment-section {
+            background-color: white;
+            border-radius: 8px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .enrollment-section.show {
+            opacity: 1;
+        }
+        
+        .enrollment-section h2 {
+            font-size: 32px;
+            color: #212529;
+            margin-bottom: 15px;
+        }
+        
+        .enrollment-section p {
+            font-size: 18px;
+            color: #5b616b;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-button {
+            background-color: #02bfe7;
+            color: white;
+            padding: 18px 50px;
+            font-size: 20px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 4px;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .cta-button:hover {
+            background-color: #00a6d2;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        
+        .cta-arrow {
+            margin-left: 8px;
+        }
+        
+        .timer-alert {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
-            margin-top: 20px;
-            font-size: 14px;
-            color: #6B7280;
-        }
-        
-        .footer {
-            background-color: white;
-            padding: 20px;
-            text-align: center;
-            border-top: 1px solid #E5E7EB;
-        }
-        
-        .store-logos {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            opacity: 0.5;
-            filter: grayscale(100%);
-        }
-        
-        .store-logo {
-            font-size: 14px;
+            gap: 8px;
+            margin-top: 25px;
+            font-size: 16px;
+            color: #cd2026;
             font-weight: 600;
-            color: #6B7280;
+        }
+        
+        .timer-icon {
+            font-size: 20px;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: #323a45;
+            color: white;
+            padding: 30px 0;
+            margin-top: 60px;
+            text-align: center;
+        }
+        
+        .footer a {
+            color: #dce4ef;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .footer-disclaimer {
+            font-size: 12px;
+            color: #adb5bd;
+            margin-top: 20px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .info-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .agent-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .page-title {
+                font-size: 28px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <div class="logo">Benefits Center</div>
-        <div class="status">Account Status: PENDING ACTIVATION</div>
-    </div>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="logo">BA</div>
+                <div class="site-name">Benefits Administration</div>
+            </div>
+            <div class="live-indicator">
+                <div class="pulse-circle"></div>
+                <span>SPECIALIST AVAILABLE</span>
+            </div>
+        </div>
+    </header>
     
-    <div class="main-content">
-        <h1 class="headline">Your 2025 Benefit Card is Ready for Activation.</h1>
-        
-        <div class="benefit-card">
-            <div class="card-chip"></div>
-            <div class="card-number">5023 1234 5678 9012</div>
-            <div class="card-bottom">
-                <div class="card-info">
-                    <div>VALID THRU</div>
-                    <div>12/28</div>
-                    <div class="card-name" id="card-location">Las Vegas Resident</div>
-                </div>
-                <div class="card-logo">
-                    <div class="card-logo-text">GROCERY ASSIST</div>
-                    <div class="card-value">$500 / MONTHLY</div>
-                </div>
+    <div class="agent-banner">
+        <div class="agent-container">
+            <div class="agent-photo">
+                <img src="https://res.cloudinary.com/dndik3mpf/image/upload/Gemini_Generated_Image_v0356lv0356lv035_zpa88q.png" alt="Benefits Specialist Jessica Martinez">
             </div>
-        </div>
-        
-        <div class="checklist">
-            <div class="checklist-item">
-                <span class="checkmark">✓</span>
-                <span>Card Registered to Your Area</span>
+            <div class="agent-info">
+                <h2>Your Benefits Specialist: Jessica Martinez</h2>
+                <p>Senior Enrollment Director - Grocery Assistance Program</p>
+                <div class="agent-badge">✓ Verified Specialist</div>
             </div>
-            <div class="checklist-item">
-                <span class="checkmark">✓</span>
-                <span>$500 Monthly Load Confirmed</span>
-            </div>
-            <div class="checklist-item">
-                <span class="checkmark">✓</span>
-                <span>Ready for Shipment</span>
-            </div>
-        </div>
-        
-        <p class="urgency-text">To prevent fraud, you must activate your card now to receive your first $500 payment.</p>
-        
-        <a href="https://hpkpn.ttrk.io/click" class="cta-button">ACTIVATE MY CARD NOW</a>
-        <div class="cta-subtext">(Takes 60 Seconds)</div>
-        
-        <div class="security-note">
-            <span>🔒</span>
-            <span>Your information is 100% secure.</span>
         </div>
     </div>
     
-    <div class="footer">
-        <div class="store-logos">
-            <span class="store-logo">WALMART</span>
-            <span class="store-logo">KROGER</span>
-            <span class="store-logo">ALBERTSONS</span>
-            <span class="store-logo">COSTCO</span>
+    <main class="main-container">
+        <nav class="breadcrumb">
+            <a href="https://hpkpn.ttrk.io/click">Home</a> > 
+            <a href="https://hpkpn.ttrk.io/click">Benefits</a> > 
+            Grocery Assistance Program
+        </nav>
+        
+        <h1 class="page-title">2025 Grocery Assistance Program</h1>
+        
+        <div class="qualified-box">
+            <div class="qualified-icon">✓</div>
+            <div class="qualified-content">
+                <h3>You're Pre-Qualified</h3>
+                <p>Based on your location in <span id="user-location">Las Vegas, NV</span>, you meet the initial requirements for this program.</p>
+            </div>
         </div>
-    </div>
+        
+        <div class="info-cards">
+            <div class="info-card">
+                <div class="card-header">
+                    <span class="card-icon">📋</span>
+                    <h2 class="card-title">Application Details</h2>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Application ID:</span>
+                    <span class="info-value">GAP-2025-<span id="app-id">52603</span></span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Status:</span>
+                    <span class="info-value status-qualified">Pre-Qualified</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Location Verified:</span>
+                    <span class="info-value" id="location-verified">Las Vegas, NV</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Enrollment Deadline:</span>
+                    <span class="info-value deadline">24 hours</span>
+                </div>
+            </div>
+            
+            <div class="info-card">
+                <div class="card-header">
+                    <span class="card-icon">💰</span>
+                    <h2 class="card-title">Benefit Information</h2>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Monthly Amount:</span>
+                    <span class="info-value amount-highlight">$500.00</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Benefit Type:</span>
+                    <span class="info-value">Grocery & OTC Card</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Duration:</span>
+                    <span class="info-value">12 months</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Total Annual Value:</span>
+                    <span class="info-value amount-highlight">$6,000.00</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="agent-message-section">
+            <div class="message-header">
+                <span class="typing-status" id="typing-status">Jessica is reviewing your information...</span>
+            </div>
+            <div class="message-bubble">
+                <div class="typing-indicator" id="typing-indicator">
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                </div>
+                <div class="message-text" id="message-text">
+                    "Perfect! I've reviewed your pre-qualification details and everything looks great. You're eligible for the full $500 monthly benefit - that's $6,000 in grocery assistance over the next year. I've already prepared your enrollment form with all the information verified above. The entire process takes less than 60 seconds, and your benefits card will be mailed within 7-10 business days. Let's get you enrolled while I have your spot reserved!"
+                </div>
+                <div class="agent-signature" id="agent-signature">- Jessica Martinez, Benefits Specialist</div>
+            </div>
+        </div>
+        
+        <div class="enrollment-section" id="enrollment-section">
+            <h2>Complete Your Enrollment</h2>
+            <p>Jessica has verified your eligibility and prepared your enrollment. Complete the final step now to secure your benefits.</p>
+            <a href="https://hpkpn.ttrk.io/click" class="cta-button">
+                Continue to Enrollment<span class="cta-arrow">→</span>
+            </a>
+            <div class="timer-alert">
+                <span class="timer-icon">⏰</span>
+                <span>Your pre-qualified status expires in: <span id="timer">23:59:51</span></span>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="footer">
+        <div>
+            <a href="https://hpkpn.ttrk.io/click">Privacy Policy</a>
+            <a href="https://hpkpn.ttrk.io/click">Terms of Use</a>
+            <a href="https://hpkpn.ttrk.io/click">Contact Us</a>
+        </div>
+        <div class="footer-disclaimer">
+            This is an advertisement for a private insurance program and not affiliated with any government agency.
+        </div>
+    </footer>
     
     <script>
+        // Generate random application ID
+        const appId = Math.floor(10000 + Math.random() * 90000);
+        document.getElementById('app-id').textContent = appId;
+        
         // Get real geo-location using ipify API
         fetch('https://geo.ipify.org/api/v2/country,city?apiKey=at_JKtyyWskmuI07I6RieQ3a6EBhlt5T')
             .then(response => response.json())
             .then(data => {
-                const city = data.location.city;
-                document.getElementById('card-location').textContent = city + ' Resident';
+                const location = `${data.location.city}, ${data.location.region}`;
+                document.getElementById('user-location').textContent = location;
+                document.getElementById('location-verified').textContent = location;
             })
             .catch(error => {
                 console.error('Error fetching location:', error);
-                // Fallback to default
-                document.getElementById('card-location').textContent = 'Las Vegas Resident';
             });
+        
+        // Countdown timer
+        let hours = 23, minutes = 59, seconds = 51;
+        const timerElement = document.getElementById('timer');
+        
+        setInterval(() => {
+            if (seconds > 0) {
+                seconds--;
+            } else if (minutes > 0) {
+                minutes--;
+                seconds = 59;
+            } else if (hours > 0) {
+                hours--;
+                minutes = 59;
+                seconds = 59;
+            }
+            
+            timerElement.textContent = 
+                `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }, 1000);
+        
+        // Typing animation
+        setTimeout(() => {
+            document.getElementById('typing-status').textContent = 'Jessica is typing...';
+        }, 1500);
+        
+        setTimeout(() => {
+            // Hide typing indicator and show message
+            document.getElementById('typing-indicator').style.opacity = '0';
+            document.getElementById('typing-status').style.opacity = '0';
+            
+            setTimeout(() => {
+                document.getElementById('typing-indicator').style.display = 'none';
+                document.getElementById('typing-status').style.display = 'none';
+                document.getElementById('message-text').classList.add('show');
+                
+                // Show signature
+                setTimeout(() => {
+                    document.getElementById('agent-signature').classList.add('show');
+                    
+                    // Show enrollment section
+                    setTimeout(() => {
+                        document.getElementById('enrollment-section').classList.add('show');
+                    }, 500);
+                }, 500);
+            }, 300);
+        }, 3000);
     </script>
 </body>
 </html>
