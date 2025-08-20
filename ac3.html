@@ -17,7 +17,7 @@
             background-color: #f7f7f7;
             color: #212529;
             line-height: 1.5;
-            overflow: hidden;
+            overflow: hidden; /* Prevent scrolling initially */
         }
         
         .main-content-wrapper {
@@ -705,14 +705,17 @@
                     const typingInterval = setInterval(() => {
                         if (charIndex < text.length) {
                             const nextChar = text.charAt(charIndex);
-                            if (text.substring(charIndex, charIndex + 2) === '**') {
-                                messageDiv.innerHTML += '<b>';
-                                charIndex += 2;
-                            } else if (text.substring(charIndex - 2, charIndex) === '**') {
-                                messageDiv.innerHTML += '</b>';
+                            if (nextChar === '*') {
+                                const nextStar = text.indexOf('*', charIndex + 1);
+                                if (nextStar !== -1) {
+                                    const boldText = text.substring(charIndex + 1, nextStar);
+                                    messageDiv.innerHTML += `<b>${boldText}</b>`;
+                                    charIndex = nextStar + 1;
+                                }
+                            } else {
+                                messageDiv.innerHTML += nextChar;
+                                charIndex++;
                             }
-                            messageDiv.innerHTML += nextChar;
-                            charIndex++;
                         } else {
                             clearInterval(typingInterval);
                             typingDots.style.display = 'none';
