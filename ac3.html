@@ -695,6 +695,9 @@
                     const typingDots = document.createElement('span');
                     typingDots.classList.add('typing-dots');
                     typingDots.textContent = '...';
+                    
+                    const textSpan = document.createElement('span');
+                    messageDiv.appendChild(textSpan);
                     messageDiv.appendChild(typingDots);
                     chatBody.appendChild(messageDiv);
                     chatBody.scrollTop = chatBody.scrollHeight;
@@ -705,15 +708,18 @@
                     const typingInterval = setInterval(() => {
                         if (charIndex < text.length) {
                             const nextChar = text.charAt(charIndex);
-                            if (nextChar === '*') {
-                                const nextStar = text.indexOf('*', charIndex + 1);
-                                if (nextStar !== -1) {
-                                    const boldText = text.substring(charIndex + 1, nextStar);
-                                    messageDiv.innerHTML += `<b>${boldText}</b>`;
-                                    charIndex = nextStar + 1;
+                            if (text.substring(charIndex, charIndex + 2) === '**') {
+                                const endBold = text.indexOf('**', charIndex + 2);
+                                if (endBold !== -1) {
+                                    const boldText = text.substring(charIndex + 2, endBold);
+                                    textSpan.innerHTML += `<b>${boldText}</b>`;
+                                    charIndex = endBold + 2;
+                                } else {
+                                    textSpan.innerHTML += nextChar;
+                                    charIndex++;
                                 }
                             } else {
-                                messageDiv.innerHTML += nextChar;
+                                textSpan.innerHTML += nextChar;
                                 charIndex++;
                             }
                         } else {
@@ -809,3 +815,5 @@
     </script>
 </body>
 </html>
+[How to add bold text using javascript](https://stackoverflow.com/questions/32531609/how-to-add-bold-text-using-javascript)
+The linked video provides helpful information on using JavaScript to add bold text to an HTML element, which is directly relevant to fixing the chat text formatting issue.
