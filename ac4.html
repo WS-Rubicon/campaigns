@@ -20,7 +20,7 @@
         }
 
         .header {
-            background-color: #003058;
+            background-color: #0d284a;
             color: white;
             padding: 15px 0;
         }
@@ -29,6 +29,13 @@
             max-width: 1040px;
             margin: 0 auto;
             padding: 0 20px;
+        }
+
+        .header-top {
+            background-color: #153859;
+            color: white;
+            padding: 8px 0;
+            font-size: 13px;
         }
 
         .header-content {
@@ -40,6 +47,24 @@
         .logo {
             font-size: 24px;
             font-weight: 700;
+        }
+
+        .navigation {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .navigation a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        .navigation a:hover {
+            text-decoration: underline;
         }
 
         .hero-section {
@@ -223,10 +248,35 @@
         }
 
         .footer {
-            background-color: #2e353b;
-            color: #ccc;
+            background-color: #153859;
+            color: white;
             padding: 40px 0;
-            font-size: 14px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-section h4 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #e6f0f5;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            line-height: 2;
+        }
+
+        .footer-section a:hover {
+            text-decoration: underline;
         }
 
         .footer-bottom {
@@ -235,6 +285,7 @@
             text-align: center;
             margin-top: 20px;
             font-size: 13px;
+            color: #8c8c8c;
         }
 
         @media (max-width: 768px) {
@@ -247,17 +298,32 @@
             .info-grid, .testimonials-grid {
                 grid-template-columns: 1fr;
             }
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
         }
     </style>
 </head>
 <body>
-
+    <div class="header-top">
+        <div class="container">
+            Official U.S. Government Website
+        </div>
+    </div>
     <header class="header">
         <div class="container header-content">
-            <a href="https://hpkpn.ttrk.io/click" class="logo" style="text-decoration: none; color: white;">Benefits Hub</a>
-            <div class="header-links">
-                <a href="https://hpkpn.ttrk.io/click" class="cta-button" style="padding: 8px 20px;">Enroll Today</a>
-            </div>
+            <a href="https://hpkpn.ttrk.io/click" class="logo" style="text-decoration: none; color: white;">Loan Today</a>
+            <nav class="navigation">
+                <a href="https://hpkpn.ttrk.io/click">Naviga</a>
+                <a href="https://hpkpn.ttrk.io/click">Tiedam</a>
+                <a href="https://hpkpn.ttrk.io/click">Clements-autocards</a>
+                <a href="https://hpkpn.ttrk.io/click">Pellentesque a elementum</a>
+                <a href="https://hpkpn.ttrk.io/click">Maecenas a elementum</a>
+                <a href="https://hpkpn.ttrk.io/click">Promotions and Newsletters</a>
+                <a href="https://hpkpn.ttrk.io/click">Nullam vitae erat et magna</a>
+                <a href="https://hpkpn.ttrk.io/click">Nibh blandit</a>
+            </nav>
         </div>
     </header>
 
@@ -337,6 +403,42 @@
 
     <footer class="footer">
         <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>About Us</h4>
+                    <ul>
+                        <li><a href="https://hpkpn.ttrk.io/click">Our Story</a></li>
+                        <li><a href="https://hpkpn.ttrk.io/click">Leadership</a></li>
+                        <li><a href="https://hpkpn.ttrk.io/click">Careers</a></li>
+                        <li><a href="https://hpkpn.ttrk.io/click">Press</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Program Support</h4>
+                    <ul>
+                        <li><a href="https://hpkpn.ttrk.io/click">Contact Us</a></li>
+                        <li><a href="https://hpkpn.ttrk.io/click">FAQs</a></li>
+                        <li><a href="https://hpkpn.ttrk.io/click">Find a Location</a></li>
+                        <li><a href="https://hpkpn.ttrk.io/click">Language Assistance</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="https://hpkpn.ttrk.io/click">Privacy Policy</a></li>
+                        <li><a href="https://hpkpn.ttrk.io/click">Terms of Service</a></li>
+                        <li><a href="https://hpkpn.ttrk.io/click">Accessibility</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="https://hpkpn.ttrk.io/click">Facebook</a></li>
+                        <li><a href="https://hpkpn.ttrk.io/click">Twitter</a></li>
+                        <li><a href="https://hpkpn.ttrk.io/click">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
             <div class="footer-bottom">
                 This is an advertisement for a private insurance program and not affiliated with any government agency.
             </div>
