@@ -94,7 +94,7 @@
             line-height: 1.6;
             font-size: 15px;
             font-style: italic;
-            word-wrap: break-word;
+            word-wrap: break-word; /* Ensure text wraps correctly */
         }
 
         .message.agent {
@@ -689,7 +689,7 @@
             
             let userLocation = "your city";
             
-            const addAgentMessage = (text) => {
+            const addAgentMessage = (text, isFinalMessage) => {
                 return new Promise(resolve => {
                     const messageDiv = document.createElement('div');
                     messageDiv.classList.add('message', 'agent');
@@ -718,6 +718,9 @@
                             clearInterval(typingInterval);
                             typingDots.style.display = 'none';
                             chatBody.scrollTop = chatBody.scrollHeight;
+                            if (isFinalMessage) {
+                                chatOptions.style.display = 'flex';
+                            }
                             resolve();
                         }
                     }, 40); // Typing speed
@@ -725,11 +728,9 @@
             };
 
             const runChatSequence = async () => {
-                await addAgentMessage('Hello, my name is Jessica, and I\'m here to help you.');
+                await addAgentMessage('Hello, my name is Jessica, and I\'m here to help you.', false);
                 await new Promise(r => setTimeout(r, 1500));
-                await addAgentMessage(`I just ran a quick check and found available benefits in **${userLocation}**. Would you like to continue to the application?`);
-                
-                chatOptions.style.display = 'flex';
+                await addAgentMessage(`I just ran a quick check and found available benefits in **${userLocation}**. Would you like to continue to the application?`, true);
             };
 
             const revealPage = () => {
@@ -756,7 +757,7 @@
             };
 
             yesButton.addEventListener('click', () => {
-                addAgentMessage('Great! One moment while I get your application ready...');
+                addAgentMessage('Great! One moment while I get your application ready...', false);
                 chatOptions.style.display = 'none';
                 setTimeout(() => revealPage(), 2000);
             });
