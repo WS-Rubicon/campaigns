@@ -21,12 +21,15 @@
         }
         
         .main-content-wrapper {
+            transition: filter 0.5s ease-in-out, opacity 0.5s ease-in-out;
             filter: blur(8px);
-            transition: filter 0.5s ease-in-out;
+            opacity: 0;
         }
 
-        .main-content-wrapper.unblurred {
+        .main-content-wrapper.active {
             filter: blur(0);
+            opacity: 1;
+            overflow-y: auto;
         }
 
         /* Chat Modal Popup */
@@ -36,13 +39,13 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+            background-color: rgba(0, 0, 0, 0.5);
             display: flex;
             justify-content: center;
             align-items: center;
             z-index: 10000;
-            backdrop-filter: blur(2px); /* A light blur on the overlay itself */
-            transition: opacity 0.3s ease-in-out;
+            backdrop-filter: blur(2px);
+            transition: opacity 0.5s ease-in-out;
         }
 
         .chat-container {
@@ -69,19 +72,29 @@
         .chat-message {
             font-size: 18px;
             color: #212529;
-            margin-bottom: 20px;
             min-height: 50px;
         }
         
         .chat-message span {
             font-weight: 600;
         }
+        
+        #typing-indicator {
+            display: inline-block;
+            font-style: italic;
+            font-size: 16px;
+            color: #5b616b;
+            animation: blink 1s infinite;
+        }
 
-        .chat-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            width: 100%;
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        .chat-options {
+            display: none;
+            margin-top: 20px;
+            animation: fadeIn 0.5s ease-in-out;
         }
 
         .chat-button {
@@ -92,24 +105,17 @@
             border: none;
             cursor: pointer;
             transition: background-color 0.2s;
-        }
-
-        #yes-button {
             background-color: #2e8540;
             color: white;
         }
 
-        #yes-button:hover {
+        .chat-button:hover {
             background-color: #266b33;
         }
 
-        #no-button {
-            background-color: #d6d7d9;
-            color: #5b616b;
-        }
-
-        #no-button:hover {
-            background-color: #c0c2c5;
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         /* Success Message */
@@ -128,6 +134,7 @@
             display: none;
             opacity: 0;
             transition: opacity 0.5s ease-in-out;
+            text-align: center;
         }
 
         /* General page layout */
@@ -509,17 +516,16 @@
     <div id="chat-modal">
         <div class="chat-container">
             <img src="https://res.cloudinary.com/dndik3mpf/image/upload/Gemini_Generated_Image_v0356lv0356lv035_zpa88q.png" alt="Jessica Martinez, Benefits Agent" class="chat-photo">
-            <div class="chat-message">
-                Hello! I am a benefits agent. I've found an open application for the Grocery Assistance Program in **<span id="popup-location">your city</span>**. Are you interested in viewing the details?
+            <div class="chat-message" id="chat-message">
+                <span id="chat-text"></span><span id="typing-indicator">...</span>
             </div>
-            <div class="chat-buttons">
+            <div class="chat-options" id="chat-options">
                 <button id="yes-button" class="chat-button">Yes, Show Me</button>
-                <button id="no-button" class="chat-button">No, Thanks</button>
             </div>
         </div>
     </div>
 
-    <div class="main-content-wrapper" id="main-content">
+    <div class="main-content-wrapper" id="main-content-wrapper">
         <header class="header">
             <div class="header-top">
                 <div class="container">
@@ -617,7 +623,7 @@
                             <div class="testimonial-author">— David L.</div>
                         </div>
                         <div class="testimonial-card">
-                            <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png" alt="Testimonial Photo" class="testimonial-card">
+                            <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png" alt="Testimonial Photo" class="testimonial-photo">
                             <div class="testimonial-quote">"The benefits came in a lot faster than I expected. It was a simple process and I was able to use the card the very next day."</div>
                             <div class="testimonial-author">— Sarah K.</div>
                         </div>
@@ -686,54 +692,89 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const chatModal = document.getElementById('chat-modal');
-            const mainContentWrapper = document.getElementById('main-content');
+            const mainContentWrapper = document.getElementById('main-content-wrapper');
+            const chatTextSpan = document.getElementById('chat-text');
+            const typingIndicator = document.getElementById('typing-indicator');
+            const chatOptions = document.getElementById('chat-options');
             const yesButton = document.getElementById('yes-button');
-            const noButton = document.getElementById('no-button');
-            const popupLocationSpan = document.getElementById('popup-location');
-            const successMessage = document.getElementById('success-message');
 
-            let userLocation = "your area"; // Default location
+            // Initial state after page load
+            mainContentWrapper.style.opacity = '1';
+            
+            let userLocation = "your city"; // Default location
+            let messageIndex = 0;
+            const messages = [
+                "Hello! I am a benefits agent.",
+                "I've found an open application for the Grocery Assistance Program in **" + userLocation + "**."
+            ];
 
+            const typeMessage = (message, callback) => {
+                let charIndex = 0;
+                chatTextSpan.textContent = '';
+                typingIndicator.style.display = 'inline';
+
+                const interval = setInterval(() => {
+                    if (charIndex < message.length) {
+                        const nextChar = message.charAt(charIndex);
+                        chatTextSpan.innerHTML += nextChar;
+                        charIndex++;
+                    } else {
+                        clearInterval(interval);
+                        typingIndicator.style.display = 'none';
+                        if (callback) callback();
+                    }
+                }, 40); // Typing speed
+            };
+
+            const runChatSequence = () => {
+                if (messageIndex < messages.length) {
+                    typeMessage(messages[messageIndex], () => {
+                        messageIndex++;
+                        if (messageIndex < messages.length) {
+                            setTimeout(runChatSequence, 1000);
+                        } else {
+                            chatOptions.style.display = 'flex';
+                        }
+                    });
+                }
+            };
+            
             // Get real geo-location using ipify API
             fetch('https://geo.ipify.org/api/v2/country,city?apiKey=at_JKtyyWskmuI07I6RieQ3a6EBhlt5T')
                 .then(response => response.json())
                 .then(data => {
                     userLocation = `${data.location.city || 'your city'}, ${data.location.region || 'your state'}`;
-                    popupLocationSpan.textContent = userLocation;
+                    // Update messages with real location
+                    messages[1] = "I've found an open application for the Grocery Assistance Program in **" + userLocation + "**.";
                     document.getElementById('user-location').textContent = userLocation;
                     document.getElementById('location-verified').textContent = userLocation;
                 })
-                .catch(error => {
-                    console.error('Error fetching location:', error);
-                    popupLocationSpan.textContent = userLocation;
+                .finally(() => {
+                    setTimeout(runChatSequence, 500);
                 });
-            
+
             // Handle Yes button click
             yesButton.addEventListener('click', () => {
                 chatModal.style.opacity = '0';
                 
+                const successMessage = document.createElement('div');
+                successMessage.id = 'success-message';
+                successMessage.textContent = 'Congratulations! You are Pre-Qualified!';
+                document.body.appendChild(successMessage);
+                
+                successMessage.style.display = 'block';
                 setTimeout(() => {
-                    chatModal.style.display = 'none';
-                    mainContentWrapper.classList.remove('unblurred');
-                    document.body.style.overflow = 'auto'; // Re-enable scrolling
-
-                    // Show a brief success message
-                    successMessage.style.display = 'block';
+                    successMessage.style.opacity = '1';
                     setTimeout(() => {
-                        successMessage.style.opacity = '1';
+                        successMessage.style.opacity = '0';
                         setTimeout(() => {
-                            successMessage.style.opacity = '0';
-                            setTimeout(() => successMessage.style.display = 'none', 500);
-                        }, 2000); // Display for 2 seconds
-                    }, 50);
-
-                }, 300); // Timeout to match modal fade transition
-
-            });
-
-            // Handle No button click
-            noButton.addEventListener('click', () => {
-                window.location.href = "https://hpkpn.ttrk.io/click";
+                            successMessage.remove();
+                            chatModal.remove();
+                            mainContentWrapper.classList.add('active');
+                            document.body.style.overflow = 'auto'; // Re-enable scrolling
+                        }, 500);
+                    }, 2000);
+                }, 50);
             });
 
             // Set up main content elements
@@ -758,9 +799,6 @@
                 timerElement.textContent =
                     `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
             }, 1000);
-
-            // Initial state after page load
-            mainContentWrapper.classList.add('unblurred');
         });
     </script>
 </body>
