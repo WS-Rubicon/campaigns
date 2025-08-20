@@ -94,7 +94,7 @@
             line-height: 1.6;
             font-size: 15px;
             font-style: italic;
-            word-wrap: break-word; /* Ensure text wraps correctly */
+            word-wrap: break-word;
         }
 
         .message.agent {
@@ -114,6 +114,7 @@
             font-size: 25px;
             color: #5b616b;
             animation: blink 1.4s infinite;
+            display: none; /* Hidden by default */
         }
 
         @keyframes blink {
@@ -685,7 +686,7 @@
 
             // Set the main content as visible but blurred on load
             mainContentWrapper.style.opacity = '1';
-
+            
             let userLocation = "your city";
             
             const addAgentMessage = (text) => {
@@ -698,6 +699,8 @@
                     messageDiv.appendChild(typingDots);
                     chatBody.appendChild(messageDiv);
                     chatBody.scrollTop = chatBody.scrollHeight;
+
+                    typingDots.style.display = 'inline';
 
                     let charIndex = 0;
                     const typingInterval = setInterval(() => {
@@ -713,7 +716,7 @@
                             charIndex++;
                         } else {
                             clearInterval(typingInterval);
-                            typingDots.remove();
+                            typingDots.style.display = 'none';
                             chatBody.scrollTop = chatBody.scrollHeight;
                             resolve();
                         }
@@ -724,9 +727,7 @@
             const runChatSequence = async () => {
                 await addAgentMessage('Hello, my name is Jessica, and I\'m here to help you.');
                 await new Promise(r => setTimeout(r, 1500));
-                await addAgentMessage(`I just ran a quick check and found available benefits in **${userLocation}**.`);
-                await new Promise(r => setTimeout(r, 1500));
-                await addAgentMessage('Would you like to continue to the application?');
+                await addAgentMessage(`I just ran a quick check and found available benefits in **${userLocation}**. Would you like to continue to the application?`);
                 
                 chatOptions.style.display = 'flex';
             };
