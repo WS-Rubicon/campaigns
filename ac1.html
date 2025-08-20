@@ -265,6 +265,51 @@
             font-weight: 700;
         }
 
+        /* Testimonials Section */
+        .testimonials-section {
+            margin-bottom: 40px;
+        }
+
+        .testimonials-section h3 {
+            font-size: 28px;
+            text-align: center;
+            color: #003366;
+            margin-bottom: 30px;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .testimonial-photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-quote {
+            font-style: italic;
+            color: #5b616b;
+            margin-bottom: 10px;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: #212529;
+        }
+
         /* Action Section */
         .action-section {
             background-color: #e1f3f8;
@@ -309,38 +354,6 @@
             font-size: 14px;
             color: #cd2026;
             font-weight: 600;
-        }
-        
-        /* Social Proof Section */
-        .social-proof {
-            text-align: center;
-            margin-top: 30px;
-            padding: 20px;
-            border-top: 1px solid #e3e4e5;
-        }
-
-        .social-proof h4 {
-            font-size: 18px;
-            color: #003366;
-            margin-bottom: 15px;
-        }
-
-        .social-proof-icons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 15px;
-        }
-
-        .social-proof-icons img {
-            height: 40px;
-            filter: grayscale(100%);
-            opacity: 0.6;
-        }
-
-        .social-proof p {
-            font-style: italic;
-            color: #5b616b;
         }
 
         /* Security Notice */
@@ -411,16 +424,16 @@
             .info-grid {
                 grid-template-columns: 1fr;
             }
-
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
             .footer-content {
                 grid-template-columns: 1fr;
             }
-
             .header-main {
                 flex-direction: column;
                 text-align: center;
             }
-
             .page-header h1 {
                 font-size: 28px;
             }
@@ -519,14 +532,25 @@
                 </div>
             </div>
             
-            <div class="social-proof">
-                <h4>Trusted by thousands of families nationwide</h4>
-                <div class="social-proof-icons">
-                    <img src="https://hpkpn.ttrk.io/placeholder-logo-1.png" alt="Trusted Partner 1">
-                    <img src="https://hpkpn.ttrk.io/placeholder-logo-2.png" alt="Trusted Partner 2">
-                    <img src="https://hpkpn.ttrk.io/placeholder-logo-3.png" alt="Trusted Partner 3">
+            <div class="testimonials-section">
+                <h3>What People Are Saying</h3>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png" alt="Testimonial Photo" class="testimonial-photo">
+                        <div class="testimonial-quote">"This card has made it so much easier to feed my family healthy meals. I can finally put money aside for my kids' future."</div>
+                        <div class="testimonial-author">— Maria S.</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png" alt="Testimonial Photo" class="testimonial-photo">
+                        <div class="testimonial-quote">"I was worried about rising grocery prices, but this program has taken a huge weight off my shoulders. It's a lifesaver."</div>
+                        <div class="testimonial-author">— David L.</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png" alt="Testimonial Photo" class="testimonial-photo">
+                        <div class="testimonial-quote">"The benefits came in a lot faster than I expected. It was a simple process and I was able to use the card the very next day."</div>
+                        <div class="testimonial-author">— Sarah K.</div>
+                    </div>
                 </div>
-                <p>"The extra funds have been a lifesaver. It’s made a real difference for my family." - A. Davis, Las Vegas, NV</p>
             </div>
 
             <div class="action-section">
@@ -540,7 +564,7 @@
 
             <div class="security-notice">
                 <h5>🔒 Security & Privacy Notice</h5>
-                <p>This is a secure private program advertisement. We protect your information:</p>
+                <p>This is an advertisement for a private insurance program. We protect your information:</p>
                 <ul>
                     <li>Your information is encrypted and secure</li>
                     <li>We will never share your personal data without consent</li>
