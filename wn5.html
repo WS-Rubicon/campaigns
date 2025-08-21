@@ -545,14 +545,30 @@
             const lockIcon = card.querySelector('.lock-icon');
             lockIcon.textContent = '✓';
             
-            // Add direct onclick to button - simple URL
+            // COMPLETELY REPLACE button with working anchor tag
             const button = card.querySelector('.select-btn');
-            button.setAttribute('onclick', "window.location.href='https://hpkpn.ttrk.io/click'");
-            button.style.cursor = 'pointer';
+            const newLink = document.createElement('a');
+            newLink.href = 'https://hpkpn.ttrk.io/click';
+            newLink.className = 'select-btn';
+            newLink.textContent = button.textContent;
+            newLink.style.display = 'block';
+            newLink.style.textAlign = 'center';
+            newLink.style.textDecoration = 'none';
+            newLink.style.width = '100%';
+            newLink.style.background = 'linear-gradient(90deg, #4ecdc4, #44a08d)';
+            newLink.style.color = 'white';
+            newLink.style.border = 'none';
+            newLink.style.padding = '12px';
+            newLink.style.fontSize = '16px';
+            newLink.style.fontWeight = 'bold';
+            newLink.style.borderRadius = '8px';
+            newLink.style.cursor = 'pointer';
+            newLink.style.transition = 'all 0.3s ease';
+            newLink.style.textTransform = 'uppercase';
+            newLink.style.letterSpacing = '1px';
             
-            // Make the entire card clickable too
-            card.style.cursor = 'pointer';
-            card.setAttribute('onclick', "window.location.href='https://hpkpn.ttrk.io/click'");
+            // Replace the button entirely
+            button.parentNode.replaceChild(newLink, button);
             
             // Add unlock sound effect (visual only)
             card.style.animation = 'unlock 0.8s ease-out';
