@@ -3,155 +3,708 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Click Test</title>
+    <title>Window Transformation - See The Difference</title>
     <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
     <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body {
-            font-family: Arial, sans-serif;
-            padding: 50px;
-            background: #f5f5f5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #1a1a2e;
+            color: white;
+            overflow-x: hidden;
         }
         
-        .test-container {
-            background: white;
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            background: #1a1a2e;
+        }
+        
+        .split-hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 100vh;
+            position: relative;
+        }
+        
+        .before-section {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            max-width: 600px;
+            position: relative;
+        }
+        
+        .after-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            position: relative;
+            background-image: url('https://res.cloudinary.com/dndik3mpf/image/upload/v1755768704/4ea2958e-e886-4fcd-9995-56b4baed8b54_vy94u9.png');
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: overlay;
+        }
+        
+        .after-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8));
+        }
+        
+        .section-content {
+            z-index: 2;
+            position: relative;
+            text-align: center;
+            max-width: 500px;
+        }
+        
+        .section-label {
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            display: inline-block;
+            backdrop-filter: blur(10px);
+        }
+        
+        .before-section .section-label {
+            background: rgba(231, 76, 60, 0.8);
+        }
+        
+        .after-section .section-label {
+            background: rgba(46, 204, 113, 0.8);
+        }
+        
+        .section-title {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .section-description {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .feature-list {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 30px;
+        }
+        
+        .feature-list li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 25px;
+            font-size: 16px;
+        }
+        
+        .before-section .feature-list li:before {
+            content: "✗";
+            position: absolute;
+            left: 0;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        
+        .after-section .feature-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #2ecc71;
+            font-weight: bold;
+        }
+        
+        .vs-divider {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            z-index: 10;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            animation: pulse 2s infinite;
+        }
+        
+        .chuck-overlay {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 5;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+        
+        .chuck-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-image: url('https://res.cloudinary.com/dndik3mpf/image/upload/v1755768682/Gemini_Generated_Image_ceidlcceidlcceid_zdxqac.png');
+            background-size: cover;
+            background-position: center;
+            border: 3px solid #2ecc71;
+            box-shadow: 0 4px 15px rgba(46, 204, 113, 0.5);
+        }
+        
+        .chuck-info h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .chuck-info p {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-bottom: 8px;
+        }
+        
+        .availability {
+            background: #2ecc71;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .availability-dot {
+            width: 6px;
+            height: 6px;
+            background: white;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        .main-content {
+            background: white;
+            color: #2d3748;
+            padding: 60px 40px;
+        }
+        
+        .content-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .urgency-banner {
+            background: linear-gradient(90deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .urgency-banner::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: sweep 3s infinite;
+        }
+        
+        @keyframes sweep {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        .urgency-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .countdown-display {
+            font-size: 36px;
+            font-weight: bold;
+            font-family: monospace;
+            margin: 15px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .main-title {
+            font-size: 48px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        
+        .main-subtitle {
+            font-size: 20px;
+            color: #7f8c8d;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .packages-container {
+            max-width: 1200px;
             margin: 0 auto;
         }
         
-        .test-button {
-            display: block;
-            width: 100%;
-            padding: 20px;
-            margin: 15px 0;
-            font-size: 18px;
-            font-weight: bold;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.3s ease;
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
         }
         
-        .btn-1 {
-            background: #ff6b6b;
+        .package-card {
+            background: white;
+            border: 3px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 35px;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+        
+        .package-card:hover {
+            border-color: #667eea;
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.3);
+        }
+        
+        .package-card.featured {
+            border-color: #2ecc71;
+            background: linear-gradient(135deg, #f0fff4 0%, #dcfce7 100%);
+            transform: scale(1.05);
+        }
+        
+        .package-card.featured:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+        
+        .best-value-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(90deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 8px 25px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
+        }
+        
+        .package-name {
+            font-size: 26px;
+            font-weight: 700;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .price-section {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        
+        .current-price {
+            font-size: 48px;
+            font-weight: 800;
+            color: #2ecc71;
+            display: block;
+            line-height: 1;
+        }
+        
+        .price-details {
+            margin-top: 10px;
+        }
+        
+        .original-price {
+            font-size: 18px;
+            color: #95a5a6;
+            text-decoration: line-through;
+            display: block;
+        }
+        
+        .savings-amount {
+            background: linear-gradient(90deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 8px;
+        }
+        
+        .package-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .package-features li {
+            padding: 10px 0;
+            color: #4a5568;
+            position: relative;
+            padding-left: 30px;
+            font-size: 16px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        
+        .package-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .package-features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #2ecc71;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .select-package-btn {
+            width: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
             color: white;
             border: none;
+            padding: 20px;
+            font-size: 18px;
+            font-weight: 700;
+            border-radius: 15px;
             cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
         }
         
-        .btn-2 {
-            background: #4ecdc4;
-            color: white;
+        .select-package-btn:hover {
+            background: linear-gradient(90deg, #5a67d8, #6b46c1);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.6);
         }
         
-        .btn-3 {
-            background: #45b7d1;
-            color: white;
-        }
-        
-        .btn-4 {
-            background: #96ceb4;
-            color: white;
-        }
-        
-        .test-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-        }
-        
-        .result {
-            margin-top: 20px;
-            padding: 15px;
-            background: #e8f5e8;
-            border-radius: 5px;
-            display: none;
-        }
-        
-        h1 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 30px;
-        }
-        
-        .instruction {
-            text-align: center;
-            color: #666;
-            margin-bottom: 30px;
-            font-size: 16px;
+        @media (max-width: 768px) {
+            .split-hero {
+                grid-template-columns: 1fr;
+                min-height: auto;
+            }
+            
+            .before-section, .after-section {
+                min-height: 50vh;
+                padding: 30px 20px;
+            }
+            
+            .vs-divider {
+                display: none;
+            }
+            
+            .chuck-overlay {
+                position: relative;
+                bottom: auto;
+                left: auto;
+                transform: none;
+                margin-top: 20px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .main-content {
+                padding: 40px 20px;
+            }
+            
+            .main-title {
+                font-size: 32px;
+            }
+            
+            .packages-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .package-card.featured {
+                transform: none;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="test-container">
-        <h1>🔧 Click Test - Debug Mode</h1>
-        <div class="instruction">
-            Try each method below to see which one works:
+    <div class="container">
+        <div class="split-hero">
+            <div class="before-section">
+                <div class="section-content">
+                    <div class="section-label">BEFORE</div>
+                    <h2 class="section-title">Old, Inefficient Windows</h2>
+                    <p class="section-description">Costing you money every month with poor insulation and outdated technology</p>
+                    <ul class="feature-list">
+                        <li>High energy bills year-round</li>
+                        <li>Drafts and temperature issues</li>
+                        <li>Outdated single-pane glass</li>
+                        <li>Frequent maintenance needed</li>
+                        <li>Poor noise insulation</li>
+                        <li>Reduced home value</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="after-section">
+                <div class="section-content">
+                    <div class="section-label">AFTER</div>
+                    <h2 class="section-title">Professional Installation</h2>
+                    <p class="section-description">Transform your home with energy-efficient windows that pay for themselves</p>
+                    <ul class="feature-list">
+                        <li>Up to 75% reduction in energy costs</li>
+                        <li>Perfect temperature control</li>
+                        <li>Triple-pane energy efficient glass</li>
+                        <li>Maintenance-free for decades</li>
+                        <li>Superior noise reduction</li>
+                        <li>Increased home value by $15,000+</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="vs-divider">VS</div>
+            
+            <div class="chuck-overlay">
+                <div class="chuck-avatar"></div>
+                <div class="chuck-info">
+                    <h4>Chuck Roswell</h4>
+                    <p>Senior Installation Director</p>
+                    <div class="availability">
+                        <span class="availability-dot"></span>
+                        Available Now
+                    </div>
+                </div>
+            </div>
         </div>
         
-        <!-- Test 1: Simple JavaScript Alert -->
-        <button class="test-button btn-1" onclick="alert('JavaScript works!'); console.log('Button clicked');">
-            Test 1: JavaScript Alert (onclick)
-        </button>
-        
-        <!-- Test 2: Direct Link -->
-        <a href="https://hpkpn.ttrk.io/click" class="test-button btn-2" target="_blank">
-            Test 2: Direct Link (href with target=_blank)
-        </a>
-        
-        <!-- Test 3: Link with onclick -->
-        <a href="https://hpkpn.ttrk.io/click" class="test-button btn-3" onclick="window.open(this.href, '_blank'); return false;">
-            Test 3: Link + onclick window.open
-        </a>
-        
-        <!-- Test 4: Form submission -->
-        <form action="https://hpkpn.ttrk.io/click" method="get" target="_blank" style="margin: 15px 0;">
-            <button type="submit" class="test-button btn-4">
-                Test 4: Form Submission
-            </button>
-        </form>
-        
-        <!-- Test 5: JavaScript function -->
-        <button class="test-button btn-1" id="jsTest">
-            Test 5: JavaScript Function
-        </button>
-        
-        <div class="result" id="result">
-            ✅ If you can see this, JavaScript is working!
+        <div class="main-content">
+            <div class="content-header">
+                <div class="urgency-banner">
+                    <div class="urgency-title">⚠️ URGENT: Installation Deadline Today</div>
+                    <div class="countdown-display" id="main-countdown">16:23:47</div>
+                    <div>Only 3 installation slots remaining this week</div>
+                </div>
+                
+                <h1 class="main-title">Lock In Your Transformation Today</h1>
+                <p class="main-subtitle">Chuck has confirmed your eligibility for our limited-time installation program. These savings expire when his shift ends.</p>
+            </div>
+            
+            <div class="packages-container">
+                <div class="packages-grid">
+                    <div class="package-card">
+                        <div class="package-name">Single Window Transformation</div>
+                        <div class="price-section">
+                            <span class="current-price">$300</span>
+                            <div class="price-details">
+                                <span class="original-price">Regular: $1,495</span>
+                                <span class="savings-amount">Save $1,195</span>
+                            </div>
+                        </div>
+                        <ul class="package-features">
+                            <li>Professional installation service</li>
+                            <li>Energy-efficient double-pane glass</li>
+                            <li>10-year manufacturer warranty</li>
+                            <li>Same-week installation</li>
+                            <li>Free energy consultation</li>
+                        </ul>
+                        <a href="https://hpkpn.ttrk.io/click" target="_blank" class="select-package-btn" style="display: block; text-align: center; text-decoration: none; line-height: 1.5;">Transform Now</a>
+                    </div>
+                    
+                    <div class="package-card featured">
+                        <div class="best-value-badge">Best Value</div>
+                        <div class="package-name">Double Window Transformation</div>
+                        <div class="price-section">
+                            <span class="current-price">$700</span>
+                            <div class="price-details">
+                                <span class="original-price">Regular: $2,995</span>
+                                <span class="savings-amount">Save $2,295</span>
+                            </div>
+                        </div>
+                        <ul class="package-features">
+                            <li>Premium installation service</li>
+                            <li>Triple-pane energy efficient glass</li>
+                            <li>Low-E coating & argon gas fill</li>
+                            <li>15-year extended warranty</li>
+                            <li>Priority scheduling</li>
+                            <li>Complete energy audit included</li>
+                            <li>5-year maintenance package</li>
+                        </ul>
+                        <button class="select-package-btn" onclick="window.location.href='https://hpkpn.ttrk.io/click'">Transform Now</button>
+                    </div>
+                    
+                    <div class="package-card">
+                        <div class="package-name">Complete Home Transformation</div>
+                        <div class="price-section">
+                            <span class="current-price">$1,200</span>
+                            <div class="price-details">
+                                <span class="original-price">Regular: $4,495</span>
+                                <span class="savings-amount">Save $3,295</span>
+                            </div>
+                        </div>
+                        <ul class="package-features">
+                            <li>Complete window makeover</li>
+                            <li>Maximum energy efficiency rating</li>
+                            <li>Smart glass technology option</li>
+                            <li>Lifetime performance warranty</li>
+                            <li>Next-day installation guarantee</li>
+                            <li>Professional trim & finishing</li>
+                            <li>10-year maintenance included</li>
+                            <li>$15,000+ home value increase</li>
+                        </ul>
+                        <button class="select-package-btn" onclick="window.location.href='https://hpkpn.ttrk.io/click'">Transform Now</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     
     <script>
-        // Test if JavaScript is working at all
-        console.log('JavaScript loaded successfully');
-        
-        // Test 5: JavaScript function
-        document.getElementById('jsTest').addEventListener('click', function() {
-            console.log('JavaScript click handler works!');
-            alert('JS Event Listener Works!');
+        // Countdown timer
+        function updateCountdown() {
+            const timerElement = document.getElementById('main-countdown');
+            let time = timerElement.textContent.split(':');
+            let hours = parseInt(time[0]);
+            let minutes = parseInt(time[1]);
+            let seconds = parseInt(time[2]);
             
-            // Try multiple redirect methods
-            try {
-                window.open('https://hpkpn.ttrk.io/click', '_blank');
-            } catch(e) {
-                console.error('window.open failed:', e);
-                try {
-                    window.location.href = 'https://hpkpn.ttrk.io/click';
-                } catch(e2) {
-                    console.error('window.location.href failed:', e2);
-                }
+            if (seconds > 0) {
+                seconds--;
+            } else if (minutes > 0) {
+                minutes--;
+                seconds = 59;
+            } else if (hours > 0) {
+                hours--;
+                minutes = 59;
+                seconds = 59;
             }
+            
+            timerElement.textContent = 
+                (hours < 10 ? '0' : '') + hours + ':' +
+                (minutes < 10 ? '0' : '') + minutes + ':' + 
+                (seconds < 10 ? '0' : '') + seconds;
+        }
+        
+        setInterval(updateCountdown, 1000);
+        
+        // Scroll-triggered animations
+        function handleScrollAnimations() {
+            const cards = document.querySelectorAll('.package-card');
+            cards.forEach((card, index) => {
+                const rect = card.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, index * 200);
+                }
+            });
+        }
+        
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.package-card');
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(50px)';
+                card.style.transition = 'all 0.8s ease';
+            });
+            
+            setTimeout(handleScrollAnimations, 500);
         });
         
-        // Show result div to confirm JS is running
-        setTimeout(function() {
-            document.getElementById('result').style.display = 'block';
-        }, 1000);
+        window.addEventListener('scroll', handleScrollAnimations);
         
-        // Log all click attempts
-        document.addEventListener('click', function(e) {
-            console.log('Click detected on:', e.target);
+        // Add parallax effect to hero sections
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.before-section, .after-section');
+            
+            parallaxElements.forEach(element => {
+                const speed = scrolled * 0.5;
+                element.style.transform = `translateY(${speed}px)`;
+            });
+        });
+        
+        // Scroll-triggered animations
+        function handleScrollAnimations() {
+            const cards = document.querySelectorAll('.package-card');
+            cards.forEach((card, index) => {
+                const rect = card.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, index * 200);
+                }
+            });
+        }
+        
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.package-card');
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(50px)';
+                card.style.transition = 'all 0.8s ease';
+            });
+            
+            setTimeout(handleScrollAnimations, 500);
+        });
+        
+        window.addEventListener('scroll', handleScrollAnimations);
+        
+        // Add parallax effect to hero sections
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.before-section, .after-section');
+            
+            parallaxElements.forEach(element => {
+                const speed = scrolled * 0.5;
+                element.style.transform = `translateY(${speed}px)`;
+            });
         });
     </script>
 </body>
