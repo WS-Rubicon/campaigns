@@ -567,6 +567,15 @@
             newLink.style.textTransform = 'uppercase';
             newLink.style.letterSpacing = '1px';
             
+            // Add click handler with delay (like the working debug version)
+            newLink.onclick = function(e) {
+                e.preventDefault();
+                console.log('Click detected - redirecting...');
+                setTimeout(function() {
+                    window.location.href = 'https://hpkpn.ttrk.io/click';
+                }, 100);
+            };
+            
             // Replace the button entirely
             button.parentNode.replaceChild(newLink, button);
             
