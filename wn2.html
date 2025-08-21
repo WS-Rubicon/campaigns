@@ -524,7 +524,7 @@
                         <li>Same-week installation available</li>
                         <li>Free energy consultation</li>
                     </ul>
-                    <button class="select-button">Select Single Package</button>
+                    <a href="https://hpkpn.ttrk.io/click" target="_blank" class="select-button" style="display: block; text-align: center; text-decoration: none; line-height: 1.5;">Select Single Package</a>
                 </div>
                 
                 <div class="package-card featured" onclick="selectPackage('double')">
@@ -546,7 +546,7 @@
                         <li>Complimentary home energy audit</li>
                         <li>5-year maintenance package</li>
                     </ul>
-                    <button class="select-button">Select Double Package</button>
+                    <a href="https://hpkpn.ttrk.io/click" target="_blank" class="select-button" style="display: block; text-align: center; text-decoration: none; line-height: 1.5;">Select Double Package</a>
                 </div>
                 
                 <div class="package-card" onclick="selectPackage('triple')">
@@ -568,7 +568,7 @@
                         <li>10-year maintenance included</li>
                         <li>Home value increase guarantee</li>
                     </ul>
-                    <button class="select-button">Select Triple Package</button>
+                    <a href="https://hpkpn.ttrk.io/click" target="_blank" class="select-button" style="display: block; text-align: center; text-decoration: none; line-height: 1.5;">Select Triple Package</a>
                 </div>
             </div>
             
@@ -627,18 +627,43 @@
         
         setInterval(updateTimer, 1000);
         
-        // Package selection
-        function selectPackage(type) {
-            window.location.href = 'https://hpkpn.ttrk.io/click';
-        }
-        
-        // Add click tracking to all buttons and cards
-        document.addEventListener('click', function(e) {
-            if (e.target.classList.contains('select-button') || e.target.closest('.package-card')) {
-                e.preventDefault();
-                window.location.href = 'https://hpkpn.ttrk.io/click';
+        // Add smooth scroll animations
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.hero-image');
+            if (parallax) {
+                const speed = scrolled * 0.3;
+                parallax.style.transform = `translateY(${speed}px)`;
             }
         });
+        
+        // Add entrance animations
+        function animateOnScroll() {
+            const cards = document.querySelectorAll('.package-card');
+            cards.forEach((card, index) => {
+                const rect = card.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, index * 200);
+                }
+            });
+        }
+        
+        // Initial setup for animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.package-card');
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'all 0.6s ease';
+            });
+            
+            setTimeout(animateOnScroll, 500);
+        });
+        
+        window.addEventListener('scroll', animateOnScroll);
         
         // Add smooth scroll animations
         window.addEventListener('scroll', function() {
