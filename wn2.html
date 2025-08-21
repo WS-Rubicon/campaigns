@@ -629,16 +629,16 @@
         
         // Package selection
         function selectPackage(type) {
-            const clickUrl = 'https://hpkpn.ttrk.io/click';
-            const params = new URLSearchParams({
-                package: type,
-                source: 'hero_landing',
-                specialist: 'chuck_roswell',
-                image_variant: 'hero_showcase'
-            });
-            
-            window.location.href = `${clickUrl}?${params}`;
+            window.location.href = 'https://hpkpn.ttrk.io/click';
         }
+        
+        // Add click tracking to all buttons and cards
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('select-button') || e.target.closest('.package-card')) {
+                e.preventDefault();
+                window.location.href = 'https://hpkpn.ttrk.io/click';
+            }
+        });
         
         // Add smooth scroll animations
         window.addEventListener('scroll', function() {
