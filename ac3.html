@@ -36,14 +36,14 @@
         .info-value { font-weight: 600; }
         .info-value.highlight-green { color: #2e8540; }
         .info-value.highlight-red { color: #cd2026; }
-        .testimonials-section { margin-bottom: 40px; }
+        .testimonials-section { margin-top: 40px; margin-bottom: 40px; } /* Adjusted margin for new position */
         .testimonials-section h3 { font-size: 24px; text-align: center; color: #003366; margin-bottom: 30px; border-top: 1px solid #eee; padding-top: 40px;}
         .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
         .testimonial-card { background-color: #f8f9fa; border: 1px solid #e9ecef; border-radius: 8px; padding: 25px; text-align: center; }
         .testimonial-photo { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; border: 3px solid #02bfe7; }
         .testimonial-quote { font-style: italic; color: #5b616b; margin-bottom: 10px; }
         .testimonial-author { font-weight: bold; color: #212529; }
-        .action-section { background-color: #e1f3f8; padding: 30px; border: 1px solid #02bfe7; border-radius: 4px; text-align: center; margin-bottom: 30px; }
+        .action-section { background-color: #e1f3f8; padding: 30px; border: 1px solid #02bfe7; border-radius: 4px; text-align: center; } /* Removed bottom margin */
         .action-section h3 { font-size: 22px; margin-bottom: 10px; color: #212529; }
         .action-section p { font-size: 16px; color: #5b616b; margin-bottom: 25px; max-width: 600px; margin-left: auto; margin-right: auto; }
         .cta-button { background-color: #003366; color: white; padding: 15px 40px; font-size: 16px; font-weight: 700; text-decoration: none; border-radius: 4px; display: inline-block; transition: background-color 0.2s; border: none; }
@@ -107,12 +107,6 @@
                 </div>
             </div>
 
-            <div class="testimonials-section">
-                <h3><span class="geo-state">State</span> Resident Feedback</h3>
-                <div class="testimonials-grid" id="testimonials-grid">
-                    </div>
-            </div>
-
             <div class="action-section">
                 <h3>Complete Your <span class="geo-state">State</span> Enrollment</h3>
                 <p>You've been pre-qualified. Complete your enrollment to secure your benefits before your reserved spot is released.</p>
@@ -120,6 +114,12 @@
                 <div class="timer-notice">
                     ⏰ Your pre-qualified status expires in: <span id="timer">23:59:59</span>
                 </div>
+            </div>
+
+            <div class="testimonials-section">
+                <h3><span class="geo-state">State</span> Resident Feedback</h3>
+                <div class="testimonials-grid" id="testimonials-grid">
+                    </div>
             </div>
 
             <div class="security-notice">
@@ -394,28 +394,20 @@
                 ]
             };
             
-            // --- FUNCTION TO DISPLAY TESTIMONIALS ---
             function displayTestimonials(state) {
                 const testimonialsToShow = testimonialsByState[state] || testimonialsByState['Default'];
                 const grid = document.getElementById('testimonials-grid');
                 let html = '';
-                
                 testimonialsToShow.forEach(testimonial => {
                     html += `
                         <div class="testimonial-card">
                             <img src="${testimonial.photo}" alt="Testimonial Photo" class="testimonial-photo">
                             <div class="testimonial-quote">"${testimonial.quote}"</div>
                             <div class="testimonial-author">${testimonial.author}</div>
-                        </div>
-                    `;
+                        </div>`;
                 });
-                
                 grid.innerHTML = html;
             }
-
-            // --- MAIN PAGE LOGIC ---
-            const appId = Math.floor(10000 + Math.random() * 90000);
-            document.getElementById('app-id').textContent = appId;
 
             async function updateLocation() {
                 const geoStateEls = document.querySelectorAll('.geo-state');
@@ -428,19 +420,15 @@
                     const state = data.location.region || 'State';
                     const city = data.location.city || 'Your City';
                     const cityRegion = `${city}, ${state}`;
-
                     geoStateEls.forEach(el => el.textContent = state);
                     geoCityRegionEls.forEach(el => el.textContent = cityRegion);
                     if(locationVerifiedEl) locationVerifiedEl.textContent = cityRegion;
-                    
                     displayTestimonials(state);
-
                 } catch (error) {
                     console.error('Error fetching location:', error);
                     geoStateEls.forEach(el => el.textContent = 'State');
                     geoCityRegionEls.forEach(el => el.textContent = 'Your Area');
                     if(locationVerifiedEl) locationVerifiedEl.textContent = 'Your Area';
-
                     displayTestimonials('Default');
                 }
             }
