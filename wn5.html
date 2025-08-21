@@ -466,29 +466,15 @@
         
         // Selection handler
         function selectOption(type) {
-            const clickUrl = 'https://hpkpn.ttrk.io/click';
-            const params = new URLSearchParams({
-                package: type,
-                specialist: 'chuck_roswell',
-                urgency: 'high_intent'
-            });
-            
-            window.location.href = `${clickUrl}?${params}`;
+            window.location.href = 'https://hpkpn.ttrk.io/click';
         }
         
-        // Add click tracking to all buttons
-        document.querySelectorAll('.select-btn').forEach(btn => {
-            btn.addEventListener('click', function(e) {
+        // Add click tracking to all buttons and cards
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('select-btn') || e.target.closest('.window-card')) {
                 e.preventDefault();
-                const card = this.closest('.window-card');
-                if (card.querySelector('.window-type').textContent.includes('Single')) {
-                    selectOption('single');
-                } else if (card.querySelector('.window-type').textContent.includes('Double')) {
-                    selectOption('double');
-                } else {
-                    selectOption('triple');
-                }
-            });
+                window.location.href = 'https://hpkpn.ttrk.io/click';
+            }
         });
     </script>
 </body>
