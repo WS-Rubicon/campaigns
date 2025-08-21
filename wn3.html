@@ -420,7 +420,7 @@
             </div>
             
             <div class="savings-grid">
-                <div class="savings-card" id="single-card" onclick="selectSavings('single')">
+                <div class="savings-card" id="single-card">
                     <div class="lock-icon">🔒</div>
                     <div class="package-title">Single Window Package</div>
                     <div class="price-display">
@@ -437,7 +437,7 @@
                     <button class="select-btn">Select Package</button>
                 </div>
                 
-                <div class="savings-card" id="double-card" onclick="selectSavings('double')">
+                <div class="savings-card" id="double-card">
                     <div class="popular-badge">MOST POPULAR</div>
                     <div class="lock-icon">🔒</div>
                     <div class="package-title">Double Window Package</div>
@@ -456,7 +456,7 @@
                     <button class="select-btn">Select Package</button>
                 </div>
                 
-                <div class="savings-card" id="triple-card" onclick="selectSavings('triple')">
+                <div class="savings-card" id="triple-card">
                     <div class="lock-icon">🔒</div>
                     <div class="package-title">Triple Window Package</div>
                     <div class="price-display">
@@ -544,6 +544,24 @@
             // Change lock icon to check
             const lockIcon = card.querySelector('.lock-icon');
             lockIcon.textContent = '✓';
+            
+            // Convert button to working link
+            const button = card.querySelector('.select-btn');
+            const link = document.createElement('a');
+            link.href = 'https://hpkpn.ttrk.io/click';
+            link.target = '_blank';
+            link.className = 'select-btn';
+            link.style.display = 'block';
+            link.style.textAlign = 'center';
+            link.style.textDecoration = 'none';
+            link.style.lineHeight = '1.5';
+            link.textContent = button.textContent;
+            button.parentNode.replaceChild(link, button);
+            
+            // Add click handler to the card when unlocked
+            card.onclick = function() {
+                window.open('https://hpkpn.ttrk.io/click', '_blank');
+            };
             
             // Add unlock sound effect (visual only)
             card.style.animation = 'unlock 0.8s ease-out';
