@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Window Replacement Savings Calculator</title>
+    <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #1a1a2e;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+            background-size: 400% 400%;
+            animation: gradient 3s ease infinite;
+        }
+        
+        @keyframes gradient {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            padding: 30px;
+            text-align: center;
+            color: white;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+        
+        .header p {
+            opacity: 0.9;
+            font-size: 16px;
+        }
+        
+        .specialist-bar {
+            background: rgba(255,255,255,0.1);
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .specialist-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-image: url('https://res.cloudinary.com/dndik3mpf/image/upload/v1755768682/Gemini_Generated_Image_ceidlcceidlcceid_zdxqac.png');
+            background-size: cover;
+            background-position: center;
+            border: 2px solid rgba(255,255,255,0.8);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+        
+        .specialist-info {
+            flex: 1;
+        }
+        
+        .specialist-name {
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+        
+        .specialist-status {
+            font-size: 14px;
+            opacity: 0.8;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .online-pulse {
+            width: 8px;
+            height: 8px;
+            background: #2ecc71;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        .main-content {
+            padding: 40px;
+            background: white;
+        }
+        
+        .progress-section {
+            margin-bottom: 40px;
+        }
+        
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .progress-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .slots-warning {
+            background: linear-gradient(90deg, #ff6b6b, #ff5722);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            animation: shake 0.5s ease-in-out infinite alternate;
+        }
+        
+        @keyframes shake {
+            from { transform: translateX(-2px); }
+            to { transform: translateX(2px); }
+        }
+        
+        .progress-bar-container {
+            background: #ecf0f1;
+            height: 8px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #4ecdc4, #44a08d);
+            width: 0%;
+            transition: width 1s ease-in-out;
+            border-radius: 10px;
+        }
+        
+        .savings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .savings-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.5s ease;
+            cursor: pointer;
+            border: 3px solid transparent;
+            opacity: 0.6;
+            transform: scale(0.95);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .savings-card.unlocked {
+            opacity: 1;
+            transform: scale(1);
+            background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+            border-color: #4ecdc4;
+            box-shadow: 0 10px 30px rgba(78, 205, 196, 0.3);
+        }
+        
+        .savings-card.selectable {
+            cursor: pointer;
+            border-color: #3498db;
+        }
+        
+        .savings-card.selectable:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(52, 152, 219, 0.4);
+        }
+        
+        .lock-icon {
+            width: 60px;
+            height: 60px;
+            background: #bdc3c7;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 24px;
+            transition: all 0.5s ease;
+        }
+        
+        .savings-card.unlocked .lock-icon {
+            background: linear-gradient(45deg, #4ecdc4, #44a08d);
+            color: white;
+            animation: unlock 0.8s ease-out;
+        }
+        
+        @keyframes unlock {
+            0% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.2) rotate(180deg); }
+            100% { transform: scale(1) rotate(360deg); }
+        }
+        
+        .package-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .price-display {
+            margin-bottom: 15px;
+        }
+        
+        .current-price {
+            font-size: 32px;
+            font-weight: bold;
+            color: #2ecc71;
+            display: block;
+        }
+        
+        .original-price {
+            font-size: 16px;
+            color: #95a5a6;
+            text-decoration: line-through;
+            margin-top: 5px;
+        }
+        
+        .savings-amount {
+            background: linear-gradient(90deg, #ff6b6b, #ff5722);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 14px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 5px;
+        }
+        
+        .features-list {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        
+        .features-list li {
+            padding: 5px 0;
+            color: #7f8c8d;
+            position: relative;
+            padding-left: 20px;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+        
+        .savings-card.unlocked .features-list li {
+            color: #2c3e50;
+        }
+        
+        .features-list li:before {
+            content: "○";
+            position: absolute;
+            left: 0;
+            color: #bdc3c7;
+            transition: all 0.3s ease;
+        }
+        
+        .savings-card.unlocked .features-list li:before {
+            content: "✓";
+            color: #2ecc71;
+        }
+        
+        .select-btn {
+            width: 100%;
+            background: #bdc3c7;
+            color: #7f8c8d;
+            border: none;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: not-allowed;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .savings-card.unlocked .select-btn {
+            background: linear-gradient(90deg, #4ecdc4, #44a08d);
+            color: white;
+            cursor: pointer;
+        }
+        
+        .savings-card.unlocked .select-btn:hover {
+            background: linear-gradient(90deg, #45b7d1, #3a9bc1);
+            transform: translateY(-2px);
+        }
+        
+        .unlock-sequence {
+            text-align: center;
+            margin-bottom: 30px;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 1s forwards;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .unlock-message {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .countdown-display {
+            background: #2c3e50;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+            letter-spacing: 2px;
+        }
+        
+        .unlock-timer {
+            font-size: 14px;
+            color: #7f8c8d;
+            margin-top: 10px;
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: -5px;
+            right: 15px;
+            background: linear-gradient(90deg, #ff6b6b, #ff5722);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 0 0 10px 10px;
+            font-size: 12px;
+            font-weight: bold;
+            transform: translateY(-100%);
+            transition: transform 0.5s ease;
+        }
+        
+        .savings-card.unlocked .popular-badge {
+            transform: translateY(0);
+        }
+        
+        @media (max-width: 768px) {
+            .main-content { padding: 25px; }
+            .savings-grid { grid-template-columns: 1fr; gap: 20px; }
+            .progress-header { flex-direction: column; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏠 Window Replacement Savings Calculator</h1>
+            <p>Unlock your personalized installation packages below</p>
+            
+            <div class="specialist-bar">
+                <div class="specialist-avatar"></div>
+                <div class="specialist-info">
+                    <div class="specialist-name">Chuck Roswell - Installation Specialist</div>
+                    <div class="specialist-status">
+                        <span class="online-pulse"></span>
+                        Online now • Reviewing your eligibility
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="progress-section">
+                <div class="progress-header">
+                    <div class="progress-title">Unlocking Your Savings...</div>
+                    <div class="slots-warning">⚠️ 2 SLOTS LEFT</div>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progress-bar"></div>
+                </div>
+            </div>
+            
+            <div class="unlock-sequence" id="unlock-message">
+                <div class="unlock-message">
+                    🔓 <span id="unlock-text">Analyzing your location and requirements...</span>
+                </div>
+                <div class="unlock-timer">Package options will unlock in: <span id="unlock-countdown">5</span> seconds</div>
+            </div>
+            
+            <div class="savings-grid">
+                <div class="savings-card" id="single-card" onclick="selectSavings('single')">
+                    <div class="lock-icon">🔒</div>
+                    <div class="package-title">Single Window Package</div>
+                    <div class="price-display">
+                        <span class="current-price">$300</span>
+                        <div class="original-price">Regular: $1,295</div>
+                        <span class="savings-amount">Save $995</span>
+                    </div>
+                    <ul class="features-list">
+                        <li>Professional installation</li>
+                        <li>Energy-efficient glass</li>
+                        <li>10-year warranty</li>
+                        <li>Same-week service</li>
+                    </ul>
+                    <button class="select-btn">Select Package</button>
+                </div>
+                
+                <div class="savings-card" id="double-card" onclick="selectSavings('double')">
+                    <div class="popular-badge">MOST POPULAR</div>
+                    <div class="lock-icon">🔒</div>
+                    <div class="package-title">Double Window Package</div>
+                    <div class="price-display">
+                        <span class="current-price">$700</span>
+                        <div class="original-price">Regular: $2,695</div>
+                        <span class="savings-amount">Save $1,995</span>
+                    </div>
+                    <ul class="features-list">
+                        <li>Premium installation service</li>
+                        <li>Triple-pane energy glass</li>
+                        <li>15-year extended warranty</li>
+                        <li>Priority scheduling</li>
+                        <li>Energy audit included</li>
+                    </ul>
+                    <button class="select-btn">Select Package</button>
+                </div>
+                
+                <div class="savings-card" id="triple-card" onclick="selectSavings('triple')">
+                    <div class="lock-icon">🔒</div>
+                    <div class="package-title">Triple Window Package</div>
+                    <div class="price-display">
+                        <span class="current-price">$1,200</span>
+                        <div class="original-price">Regular: $3,995</div>
+                        <span class="savings-amount">Save $2,795</span>
+                    </div>
+                    <ul class="features-list">
+                        <li>Complete window makeover</li>
+                        <li>Maximum energy efficiency</li>
+                        <li>Lifetime warranty</li>
+                        <li>Next-day installation</li>
+                        <li>Free maintenance (5 years)</li>
+                        <li>Smart home integration</li>
+                    </ul>
+                    <button class="select-btn">Select Package</button>
+                </div>
+            </div>
+            
+            <div class="countdown-display">
+                Offer expires in: <span id="main-countdown">19:45:32</span>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        let unlockStep = 0;
+        let unlockTimer;
+        let countdownValue = 5;
+        
+        const unlockMessages = [
+            "Analyzing your location and requirements...",
+            "Checking installation availability in your area...",
+            "Calculating maximum savings potential...",
+            "Verifying special pricing eligibility...",
+            "🎉 Unlocking your personalized packages!"
+        ];
+        
+        // Start unlock sequence
+        function startUnlockSequence() {
+            const progressBar = document.getElementById('progress-bar');
+            const unlockText = document.getElementById('unlock-text');
+            const unlockCountdownEl = document.getElementById('unlock-countdown');
+            
+            unlockTimer = setInterval(() => {
+                countdownValue--;
+                unlockCountdownEl.textContent = countdownValue;
+                progressBar.style.width = ((5 - countdownValue) * 20) + '%';
+                
+                if (countdownValue <= 0) {
+                    clearInterval(unlockTimer);
+                    unlockPackages();
+                } else if (unlockStep < unlockMessages.length - 1) {
+                    unlockText.textContent = unlockMessages[Math.min(unlockStep, unlockMessages.length - 1)];
+                    unlockStep++;
+                }
+            }, 1000);
+        }
+        
+        // Unlock packages sequentially
+        function unlockPackages() {
+            document.getElementById('unlock-message').style.display = 'none';
+            document.getElementById('progress-bar').style.width = '100%';
+            
+            // Unlock single package
+            setTimeout(() => {
+                unlockCard('single-card');
+            }, 500);
+            
+            // Unlock double package (most popular)
+            setTimeout(() => {
+                unlockCard('double-card');
+            }, 1000);
+            
+            // Unlock triple package
+            setTimeout(() => {
+                unlockCard('triple-card');
+            }, 1500);
+        }
+        
+        function unlockCard(cardId) {
+            const card = document.getElementById(cardId);
+            card.classList.add('unlocked', 'selectable');
+            
+            // Change lock icon to check
+            const lockIcon = card.querySelector('.lock-icon');
+            lockIcon.textContent = '✓';
+            
+            // Add unlock sound effect (visual only)
+            card.style.animation = 'unlock 0.8s ease-out';
+        }
+        
+        // Main countdown timer
+        function updateMainCountdown() {
+            const timerElement = document.getElementById('main-countdown');
+            let time = timerElement.textContent.split(':');
+            let hours = parseInt(time[0]);
+            let minutes = parseInt(time[1]);
+            let seconds = parseInt(time[2]);
+            
+            if (seconds > 0) {
+                seconds--;
+            } else if (minutes > 0) {
+                minutes--;
+                seconds = 59;
+            } else if (hours > 0) {
+                hours--;
+                minutes = 59;
+                seconds = 59;
+            }
+            
+            timerElement.textContent = 
+                (hours < 10 ? '0' : '') + hours + ':' +
+                (minutes < 10 ? '0' : '') + minutes + ':' + 
+                (seconds < 10 ? '0' : '') + seconds;
+        }
+        
+        // Selection handler
+        function selectSavings(type) {
+            const card = document.getElementById(type + '-card');
+            if (!card.classList.contains('unlocked')) {
+                return; // Don't allow selection of locked cards
+            }
+            
+            const clickUrl = 'https://hpkpn.ttrk.io/click';
+            const params = new URLSearchParams({
+                package: type,
+                source: 'savings_calculator',
+                specialist: 'chuck_roswell',
+                engagement: 'high_intent'
+            });
+            
+            window.location.href = `${clickUrl}?${params}`;
+        }
+        
+        // Start the unlock sequence when page loads
+        setTimeout(startUnlockSequence, 1000);
+        
+        // Start main countdown
+        setInterval(updateMainCountdown, 1000);
+        
+        // Add hover effects for unlocked cards
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.savings-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    if (this.classList.contains('selectable')) {
+                        this.style.transform = 'scale(1.05)';
+                    }
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    if (this.classList.contains('selectable')) {
+                        this.style.transform = 'scale(1)';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
