@@ -538,7 +538,6 @@
         }
         
         function unlockCard(cardId) {
-            console.log('Unlocking card:', cardId);
             const card = document.getElementById(cardId);
             card.classList.add('unlocked', 'selectable');
             
@@ -546,19 +545,17 @@
             const lockIcon = card.querySelector('.lock-icon');
             lockIcon.textContent = '✓';
             
-            // Add direct onclick to button - simplest approach
+            // Add direct onclick to button - working approach
             const button = card.querySelector('.select-btn');
-            button.setAttribute('onclick', "alert('Button clicked!'); window.location.href='https://hpkpn.ttrk.io/click'");
+            button.setAttribute('onclick', "window.location.href='https://hpkpn.ttrk.io/click'");
             button.style.cursor = 'pointer';
             
             // Make the entire card clickable too
             card.style.cursor = 'pointer';
-            card.setAttribute('onclick', "alert('Card clicked!'); window.location.href='https://hpkpn.ttrk.io/click'");
+            card.setAttribute('onclick', "window.location.href='https://hpkpn.ttrk.io/click'");
             
             // Add unlock sound effect (visual only)
             card.style.animation = 'unlock 0.8s ease-out';
-            
-            console.log('Card unlocked successfully:', cardId);
         }
         
         // Main countdown timer
