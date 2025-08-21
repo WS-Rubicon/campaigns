@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Window Replacement - Choose Your Package</title>
+    <title>Window Replacement Savings Calculator</title>
     <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -17,323 +17,382 @@
         }
         
         .container {
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            background: #1a1a2e;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
             overflow: hidden;
+            position: relative;
+        }
+        
+        .container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+            background-size: 400% 400%;
+            animation: gradient 3s ease infinite;
+        }
+        
+        @keyframes gradient {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
         
         .header {
             background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
-            padding: 40px;
+            padding: 30px;
             text-align: center;
             color: white;
         }
         
         .header h1 {
-            font-size: 36px;
-            margin-bottom: 15px;
-            font-weight: 600;
+            font-size: 28px;
+            margin-bottom: 10px;
+            font-weight: 300;
         }
         
         .header p {
-            font-size: 18px;
             opacity: 0.9;
-            margin-bottom: 25px;
+            font-size: 16px;
         }
         
-        .specialist-info {
+        .specialist-bar {
             background: rgba(255,255,255,0.1);
-            padding: 20px;
-            border-radius: 10px;
+            padding: 15px 30px;
             display: flex;
             align-items: center;
             gap: 15px;
-            justify-content: center;
+            border-top: 1px solid rgba(255,255,255,0.2);
         }
         
-        .specialist-photo {
-            width: 60px;
-            height: 60px;
+        .specialist-avatar {
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             background-image: url('https://res.cloudinary.com/dndik3mpf/image/upload/v1755768682/Gemini_Generated_Image_ceidlcceidlcceid_zdxqac.png');
             background-size: cover;
             background-position: center;
-            border: 3px solid rgba(255,255,255,0.8);
+            border: 2px solid rgba(255,255,255,0.8);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
         
-        .specialist-details h3 {
-            margin-bottom: 5px;
-            font-size: 20px;
+        .specialist-info {
+            flex: 1;
         }
         
-        .specialist-details p {
-            opacity: 0.9;
+        .specialist-name {
+            font-weight: 600;
+            margin-bottom: 2px;
         }
         
-        .urgency-banner {
-            background: linear-gradient(90deg, #e74c3c, #c0392b);
-            color: white;
-            padding: 20px;
-            text-align: center;
-            font-weight: bold;
-            font-size: 18px;
+        .specialist-status {
+            font-size: 14px;
+            opacity: 0.8;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
         
-        .countdown {
-            font-size: 28px;
-            margin: 10px 0;
-            font-family: monospace;
+        .online-pulse {
+            width: 8px;
+            height: 8px;
+            background: #2ecc71;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
         }
         
         .main-content {
-            padding: 50px 40px;
+            padding: 40px;
+            background: white;
         }
         
-        .section-title {
-            text-align: center;
-            font-size: 32px;
-            color: #2c3e50;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-        
-        .section-subtitle {
-            text-align: center;
-            font-size: 18px;
-            color: #7f8c8d;
+        .progress-section {
             margin-bottom: 40px;
         }
         
-        .packages-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .package-card {
-            background: white;
-            border: 3px solid #e2e8f0;
-            border-radius: 15px;
-            padding: 30px;
-            text-align: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            position: relative;
-        }
-        
-        .package-card:hover {
-            border-color: #667eea;
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.2);
-        }
-        
-        .package-card.popular {
-            border-color: #2ecc71;
-            background: linear-gradient(135deg, #f0fff4 0%, #dcfce7 100%);
-            transform: scale(1.05);
-        }
-        
-        .package-card.popular:hover {
-            transform: scale(1.05) translateY(-5px);
-        }
-        
-        .popular-badge {
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(90deg, #e74c3c, #c0392b);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-        
-        .package-title {
-            font-size: 24px;
-            font-weight: 600;
-            color: #2c3e50;
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 20px;
         }
         
-        .price-section {
-            margin-bottom: 25px;
+        .progress-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #2c3e50;
         }
         
-        .current-price {
-            font-size: 48px;
-            font-weight: 800;
-            color: #2ecc71;
-            display: block;
-            line-height: 1;
-        }
-        
-        .original-price {
-            font-size: 18px;
-            color: #95a5a6;
-            text-decoration: line-through;
-            margin-top: 8px;
-        }
-        
-        .savings {
-            background: linear-gradient(90deg, #e74c3c, #c0392b);
+        .slots-warning {
+            background: linear-gradient(90deg, #ff6b6b, #ff5722);
             color: white;
-            padding: 6px 15px;
+            padding: 8px 15px;
             border-radius: 20px;
             font-size: 14px;
             font-weight: bold;
-            display: inline-block;
-            margin-top: 10px;
+            animation: shake 0.5s ease-in-out infinite alternate;
         }
         
-        .features {
+        @keyframes shake {
+            from { transform: translateX(-2px); }
+            to { transform: translateX(2px); }
+        }
+        
+        .savings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .savings-card {
+            background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.5s ease;
+            cursor: pointer;
+            border: 3px solid #4ecdc4;
+            box-shadow: 0 10px 30px rgba(78, 205, 196, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .savings-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(52, 152, 219, 0.4);
+        }
+        
+        .lock-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #4ecdc4, #44a08d);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 24px;
+            transition: all 0.5s ease;
+        }
+        
+        .package-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .price-display {
+            margin-bottom: 15px;
+        }
+        
+        .current-price {
+            font-size: 32px;
+            font-weight: bold;
+            color: #2ecc71;
+            display: block;
+        }
+        
+        .original-price {
+            font-size: 16px;
+            color: #95a5a6;
+            text-decoration: line-through;
+            margin-top: 5px;
+        }
+        
+        .savings-amount {
+            background: linear-gradient(90deg, #ff6b6b, #ff5722);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 14px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 5px;
+        }
+        
+        .features-list {
             list-style: none;
             text-align: left;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
         
-        .features li {
-            padding: 8px 0;
-            color: #4a5568;
+        .features-list li {
+            padding: 5px 0;
+            color: #2c3e50;
             position: relative;
-            padding-left: 25px;
-            font-size: 15px;
+            padding-left: 20px;
+            font-size: 14px;
         }
         
-        .features li:before {
+        .features-list li:before {
             content: "✓";
             position: absolute;
             left: 0;
             color: #2ecc71;
-            font-weight: bold;
-            font-size: 16px;
         }
         
         .select-link {
-            display: block;
             width: 100%;
-            padding: 18px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
+            background: linear-gradient(90deg, #4ecdc4, #44a08d);
             color: white;
-            text-decoration: none;
-            border-radius: 10px;
+            border: none;
+            padding: 12px;
             font-size: 16px;
-            font-weight: 700;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 1px;
-            transition: all 0.3s ease;
+            text-decoration: none;
+            display: block;
             text-align: center;
         }
         
         .select-link:hover {
-            background: linear-gradient(90deg, #5a67d8, #6b46c1);
+            background: linear-gradient(90deg, #45b7d1, #3a9bc1);
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        .countdown-display {
+            background: #2c3e50;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+            letter-spacing: 2px;
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: -5px;
+            right: 15px;
+            background: linear-gradient(90deg, #ff6b6b, #ff5722);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 0 0 10px 10px;
+            font-size: 12px;
+            font-weight: bold;
         }
         
         @media (max-width: 768px) {
-            .container { margin: 10px; }
-            .header { padding: 30px 20px; }
-            .main-content { padding: 30px 20px; }
-            .packages-grid { grid-template-columns: 1fr; gap: 20px; }
-            .package-card.popular { transform: none; }
-            .specialist-info { flex-direction: column; text-align: center; }
+            .main-content { padding: 25px; }
+            .savings-grid { grid-template-columns: 1fr; gap: 20px; }
+            .progress-header { flex-direction: column; gap: 10px; }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>🏠 Choose Your Window Package</h1>
-            <p>Professional installation with Chuck Roswell</p>
+            <h1>🏠 Window Replacement Savings Calculator</h1>
+            <p>Your personalized installation packages are ready!</p>
             
-            <div class="specialist-info">
-                <div class="specialist-photo"></div>
-                <div class="specialist-details">
-                    <h3>Chuck Roswell</h3>
-                    <p>Senior Installation Director • Available Now</p>
+            <div class="specialist-bar">
+                <div class="specialist-avatar"></div>
+                <div class="specialist-info">
+                    <div class="specialist-name">Chuck Roswell - Installation Specialist</div>
+                    <div class="specialist-status">
+                        <span class="online-pulse"></span>
+                        Online now • Ready to proceed
+                    </div>
                 </div>
             </div>
         </div>
         
-        <div class="urgency-banner">
-            ⚠️ LIMITED TIME: Only 2 installation slots remaining this week
-            <div class="countdown" id="countdown">18:45:32</div>
-        </div>
-        
         <div class="main-content">
-            <h2 class="section-title">Select Your Installation Package</h2>
-            <p class="section-subtitle">All packages include professional installation and lifetime warranty</p>
+            <div class="progress-section">
+                <div class="progress-header">
+                    <div class="progress-title">✅ Savings Unlocked - Select Your Package</div>
+                    <div class="slots-warning">⚠️ 2 SLOTS LEFT</div>
+                </div>
+            </div>
             
-            <div class="packages-grid">
-                <div class="package-card">
-                    <div class="package-title">Single Window</div>
-                    <div class="price-section">
+            <div class="savings-grid">
+                <div class="savings-card">
+                    <div class="lock-icon">✓</div>
+                    <div class="package-title">Single Window Package</div>
+                    <div class="price-display">
                         <span class="current-price">$300</span>
                         <div class="original-price">Regular: $1,295</div>
-                        <span class="savings">Save $995</span>
+                        <span class="savings-amount">Save $995</span>
                     </div>
-                    <ul class="features">
-                        <li>Professional installation included</li>
-                        <li>Energy-efficient double-pane glass</li>
-                        <li>10-year manufacturer warranty</li>
-                        <li>Same-week installation</li>
-                        <li>Free energy consultation</li>
+                    <ul class="features-list">
+                        <li>Professional installation</li>
+                        <li>Energy-efficient glass</li>
+                        <li>10-year warranty</li>
+                        <li>Same-week service</li>
                     </ul>
-                    <a href="https://hpkpn.ttrk.io/click" class="select-link">Select Single Package</a>
+                    <a href="https://hpkpn.ttrk.io/click" class="select-link">Select Package</a>
                 </div>
                 
-                <div class="package-card popular">
-                    <div class="popular-badge">Most Popular</div>
-                    <div class="package-title">Double Window</div>
-                    <div class="price-section">
+                <div class="savings-card">
+                    <div class="popular-badge">MOST POPULAR</div>
+                    <div class="lock-icon">✓</div>
+                    <div class="package-title">Double Window Package</div>
+                    <div class="price-display">
                         <span class="current-price">$700</span>
                         <div class="original-price">Regular: $2,695</div>
-                        <span class="savings">Save $1,995</span>
+                        <span class="savings-amount">Save $1,995</span>
                     </div>
-                    <ul class="features">
+                    <ul class="features-list">
                         <li>Premium installation service</li>
-                        <li>Triple-pane energy efficient glass</li>
+                        <li>Triple-pane energy glass</li>
                         <li>15-year extended warranty</li>
                         <li>Priority scheduling</li>
-                        <li>Complete energy audit included</li>
-                        <li>5-year maintenance package</li>
+                        <li>Energy audit included</li>
                     </ul>
-                    <a href="https://hpkpn.ttrk.io/click" class="select-link">Select Double Package</a>
+                    <a href="https://hpkpn.ttrk.io/click" class="select-link">Select Package</a>
                 </div>
                 
-                <div class="package-card">
-                    <div class="package-title">Triple Window</div>
-                    <div class="price-section">
+                <div class="savings-card">
+                    <div class="lock-icon">✓</div>
+                    <div class="package-title">Triple Window Package</div>
+                    <div class="price-display">
                         <span class="current-price">$1,200</span>
                         <div class="original-price">Regular: $3,995</div>
-                        <span class="savings">Save $2,795</span>
+                        <span class="savings-amount">Save $2,795</span>
                     </div>
-                    <ul class="features">
-                        <li>Complete window transformation</li>
-                        <li>Maximum energy efficiency rating</li>
-                        <li>Lifetime performance warranty</li>
-                        <li>Next-day installation guarantee</li>
-                        <li>10-year maintenance included</li>
-                        <li>Smart home integration ready</li>
+                    <ul class="features-list">
+                        <li>Complete window makeover</li>
+                        <li>Maximum energy efficiency</li>
+                        <li>Lifetime warranty</li>
+                        <li>Next-day installation</li>
+                        <li>Free maintenance (5 years)</li>
+                        <li>Smart home integration</li>
                     </ul>
-                    <a href="https://hpkpn.ttrk.io/click" class="select-link">Select Triple Package</a>
+                    <a href="https://hpkpn.ttrk.io/click" class="select-link">Select Package</a>
                 </div>
+            </div>
+            
+            <div class="countdown-display">
+                Offer expires in: <span id="main-countdown">19:45:32</span>
             </div>
         </div>
     </div>
     
     <script>
-        // Simple countdown timer
-        function updateCountdown() {
-            const timerElement = document.getElementById('countdown');
+        // Main countdown timer
+        function updateMainCountdown() {
+            const timerElement = document.getElementById('main-countdown');
             let time = timerElement.textContent.split(':');
             let hours = parseInt(time[0]);
             let minutes = parseInt(time[1]);
@@ -356,7 +415,7 @@
                 (seconds < 10 ? '0' : '') + seconds;
         }
         
-        setInterval(updateCountdown, 1000);
+        setInterval(updateMainCountdown, 1000);
     </script>
 </body>
 </html>
