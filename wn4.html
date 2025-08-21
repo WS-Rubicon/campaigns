@@ -493,7 +493,7 @@
                     <h2 class="section-title">Select Your Installation Package</h2>
                     
                     <div class="package-grid">
-                        <div class="package-card" onclick="selectPackage('single')">
+                        <div class="package-card">
                             <div class="package-header">
                                 <div class="package-name">Single Window Package</div>
                                 <div class="package-pricing">
@@ -509,10 +509,10 @@
                                 <li>10-year manufacturer warranty</li>
                                 <li>Same-week installation</li>
                             </ul>
-                            <button class="select-package-btn">Select Single Package</button>
+                            <a href="https://hpkpn.ttrk.io/click" target="_blank" class="select-package-btn" style="display: block; text-align: center; text-decoration: none; line-height: 1.5;">Select Single Package</a>
                         </div>
                         
-                        <div class="package-card recommended" onclick="selectPackage('double')">
+                        <div class="package-card recommended">
                             <div class="recommended-badge">MOST POPULAR</div>
                             <div class="package-header">
                                 <div class="package-name">Double Window Package</div>
@@ -530,10 +530,10 @@
                                 <li>15-year extended warranty</li>
                                 <li>Priority installation scheduling</li>
                             </ul>
-                            <button class="select-package-btn">Select Double Package</button>
+                            <a href="https://hpkpn.ttrk.io/click" target="_blank" class="select-package-btn" style="display: block; text-align: center; text-decoration: none; line-height: 1.5;">Select Double Package</a>
                         </div>
                         
-                        <div class="package-card" onclick="selectPackage('triple')">
+                        <div class="package-card">
                             <div class="package-header">
                                 <div class="package-name">Triple Window Package</div>
                                 <div class="package-pricing">
@@ -551,7 +551,7 @@
                                 <li>Next-day installation guarantee</li>
                                 <li>Annual maintenance included (5 years)</li>
                             </ul>
-                            <button class="select-package-btn">Select Triple Package</button>
+                            <a href="https://hpkpn.ttrk.io/click" target="_blank" class="select-package-btn" style="display: block; text-align: center; text-decoration: none; line-height: 1.5;">Select Triple Package</a>
                         </div>
                     </div>
                 </div>
@@ -619,17 +619,15 @@
         
         setInterval(updateCountdown, 1000);
         
-        // Package selection
-        function selectPackage(type) {
-            window.location.href = 'https://hpkpn.ttrk.io/click';
-        }
-        
-        // Add click tracking to all buttons and cards
-        document.addEventListener('click', function(e) {
-            if (e.target.classList.contains('select-package-btn') || e.target.closest('.package-card')) {
-                e.preventDefault();
-                window.location.href = 'https://hpkpn.ttrk.io/click';
-            }
+        // Add visual feedback on card hover
+        document.querySelectorAll('.package-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
         });
         
         // Add visual feedback on card hover
