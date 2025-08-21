@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nevada Benefits Portal | Grocery Assistance</title>
+    <title>State Benefits Portal | Grocery Assistance</title>
     <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -36,8 +36,6 @@
         .info-value { font-weight: 600; }
         .info-value.highlight-green { color: #2e8540; }
         .info-value.highlight-red { color: #cd2026; }
-        
-        /* NEW Testimonials Section Styles */
         .testimonials-section { margin-bottom: 40px; }
         .testimonials-section h3 { font-size: 24px; text-align: center; color: #003366; margin-bottom: 30px; border-top: 1px solid #eee; padding-top: 40px;}
         .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
@@ -45,20 +43,15 @@
         .testimonial-photo { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; border: 3px solid #02bfe7; }
         .testimonial-quote { font-style: italic; color: #5b616b; margin-bottom: 10px; }
         .testimonial-author { font-weight: bold; color: #212529; }
-        
-        /* Action Section */
         .action-section { background-color: #e1f3f8; padding: 30px; border: 1px solid #02bfe7; border-radius: 4px; text-align: center; margin-bottom: 30px; }
         .action-section h3 { font-size: 22px; margin-bottom: 10px; color: #212529; }
         .action-section p { font-size: 16px; color: #5b616b; margin-bottom: 25px; max-width: 600px; margin-left: auto; margin-right: auto; }
         .cta-button { background-color: #003366; color: white; padding: 15px 40px; font-size: 16px; font-weight: 700; text-decoration: none; border-radius: 4px; display: inline-block; transition: background-color 0.2s; border: none; }
         .cta-button:hover { background-color: #112e51; }
         .timer-notice { margin-top: 15px; font-size: 14px; color: #cd2026; font-weight: 600; }
-        
-        /* Security Notice */
         .security-notice { background-color: #fffacd; border: 1px solid #ffeeba; padding: 20px; font-size: 14px; border-radius: 4px; }
         .security-notice h5 { font-size: 16px; margin-bottom: 10px; color: #212529; font-weight: 700; }
         .security-notice ul { margin: 0; padding-left: 20px; color: #5b616b; }
-        
         @media (max-width: 768px) {
             .details-container { grid-template-columns: 1fr; }
             .details-column:first-child { border-right: none; border-bottom: 1px solid #d6d7d9; }
@@ -75,7 +68,7 @@
             <div class="header-main">
                 <div class="logo">
                     <div class="logo-shield">BP</div>
-                    <div class="site-title"><span class="geo-state">Nevada</span> Benefits Portal</div>
+                    <div class="site-title"><span class="geo-state">State</span> Benefits Portal</div>
                 </div>
                 <div class="breadcrumb">
                     <a href="https://hpkpn.ttrk.io/click">Home</a> / <a href="https://hpkpn.ttrk.io/click">Benefits</a> / Grocery Program
@@ -85,16 +78,16 @@
     </header>
 
     <div class="note-banner">
-        <strong>NOTE:</strong> Limited enrollment period for the <strong><span class="geo-state">Nevada</span></strong> Grocery Assistance Program. Apply today.
+        <strong>NOTE:</strong> Limited enrollment period for the <strong><span class="geo-state">State</span></strong> Grocery Assistance Program. Apply today.
     </div>
 
     <main class="main-content">
         <div class="container">
-            <h1>State of <span class="geo-state">Nevada</span>: 2025 Grocery Assistance Program</h1>
+            <h1>State of <span class="geo-state">State</span>: 2025 Grocery Assistance Program</h1>
 
             <div class="status-box">
                 <h2>Pre-Qualification Status: Eligible</h2>
-                <p>Based on your location in <strong><span class="geo-city-region">Enterprise, NV</span></strong>, you meet the initial requirements for the <span class="geo-state">Nevada</span> state program.</p>
+                <p>Based on your location in <strong><span class="geo-city-region">Your City</span></strong>, you meet the initial requirements for the <span class="geo-state">State</span> program.</p>
             </div>
 
             <div class="details-container">
@@ -115,28 +108,13 @@
             </div>
 
             <div class="testimonials-section">
-                <h3><span class="geo-state">Nevada</span> Resident Feedback</h3>
-                <div class="testimonials-grid">
-                    <div class="testimonial-card">
-                        <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png" alt="Testimonial Photo" class="testimonial-photo">
-                        <div class="testimonial-quote">"This card has made it so much easier to feed my family healthy meals. I can finally put money aside for my kids' future."</div>
-                        <div class="testimonial-author">— Maria S., Las Vegas, NV</div>
+                <h3><span class="geo-state">State</span> Resident Feedback</h3>
+                <div class="testimonials-grid" id="testimonials-grid">
                     </div>
-                    <div class="testimonial-card">
-                        <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png" alt="Testimonial Photo" class="testimonial-photo">
-                        <div class="testimonial-quote">"I was worried about rising grocery prices, but this program has taken a huge weight off my shoulders. It's a lifesaver."</div>
-                        <div class="testimonial-author">— David L., Henderson, NV</div>
-                    </div>
-                    <div class="testimonial-card">
-                        <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png" alt="Testimonial Photo" class="testimonial-photo">
-                        <div class="testimonial-quote">"The benefits came in a lot faster than I expected. It was a simple process and I was able to use the card the very next day."</div>
-                        <div class="testimonial-author">— Sarah K., Reno, NV</div>
-                    </div>
-                </div>
             </div>
 
             <div class="action-section">
-                <h3>Complete Your <span class="geo-state">Nevada</span> Enrollment</h3>
+                <h3>Complete Your <span class="geo-state">State</span> Enrollment</h3>
                 <p>You've been pre-qualified. Complete your enrollment to secure your benefits before your reserved spot is released.</p>
                 <a href="https://hpkpn.ttrk.io/click" class="cta-button">CONTINUE TO ENROLLMENT</a>
                 <div class="timer-notice">
@@ -157,6 +135,285 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // --- FULL 50-STATE TESTIMONIAL DATABASE ---
+            const testimonialsByState = {
+                'Alabama': [
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png', quote: "This program has been a huge help for my family here in Birmingham. It takes the stress out of grocery shopping each month.", author: '— Brenda J., Birmingham, AL' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png', quote: "A true lifesaver. With this card, I can afford fresh, healthy food that I couldn't before. So grateful for this.", author: '— Marcus W., Montgomery, AL' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png', quote: "Simple process and real benefits. It's made a tangible difference for me and my kids.", author: '— Chloe R., Mobile, AL' }
+                ],
+                'Alaska': [
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png', quote: "Groceries are expensive up here in Anchorage. This card is a tremendous help and works perfectly.", author: '— Susan P., Anchorage, AK' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png', quote: "I was surprised how easy it was to qualify. This has taken a significant financial weight off my shoulders.", author: '— Tom K., Fairbanks, AK' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png', quote: "It feels good knowing I have this support every month. It's a reliable benefit that truly helps.", author: '— Liam H., Juneau, AK' }
+                ],
+                'Arizona': [
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png', quote: "With the cost of living in Phoenix, this assistance is a blessing. It helps us make ends meet.", author: '— Sofia M., Phoenix, AZ' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png', quote: "The process was quick and the card arrived fast. I'm able to buy more fresh produce for my family now.", author: '— Daniel G., Tucson, AZ' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png', quote: "This is a legitimate program that has provided real relief for my household budget.", author: '— Olivia B., Mesa, AZ' }
+                ],
+                'Arkansas': [
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png', quote: "A huge help for us here in Little Rock. That extra support for groceries makes all the difference.", author: '— Ava T., Little Rock, AR' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png', quote: "I recommend this to anyone who is struggling with food costs. It's been a reliable and easy-to-use benefit.", author: '— James P., Fayetteville, AR' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png', quote: "Finally, a program that delivers on its promise. It's made my monthly budgeting so much less stressful.", author: '— Henry C., Fort Smith, AR' }
+                ],
+                'California': [
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png', quote: "Living in Los Angeles is expensive. This grocery card has been a huge help for my family.", author: '— Michael T., Los Angeles, CA' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png', quote: "I was skeptical at first, but the process was simple and the benefits are real. So glad I applied.", author: '— Jessica L., San Francisco, CA' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png', quote: "This program has helped me put healthy food on the table without stress. Thank you!", author: '— Brian W., San Diego, CA' }
+                ],
+                'Colorado': [
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png', quote: "The cost of food in Denver keeps rising. This card has been essential for my family's budget.", author: '— Nicole S., Denver, CO' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png', quote: "It's a huge relief to have this support. It means I don't have to choose between bills and groceries.", author: '— Kevin M., Colorado Springs, CO' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png', quote: "Easy to apply and I was able to use the benefits right away. I highly recommend it.", author: '— Rachel D., Aurora, CO' }
+                ],
+                'Connecticut': [
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png', quote: "This program is a blessing. It's helped us afford quality groceries here in Hartford.", author: '— Megan F., Hartford, CT' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png', quote: "I'm a senior and this card has made a world of difference. Thank you for the support.", author: '— Arthur G., Bridgeport, CT' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png', quote: "It's been a reliable source of help every month. Simple, effective, and much appreciated.", author: '— Grace H., New Haven, CT' }
+                ],
+                'Delaware': [
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png', quote: "So grateful for this assistance. It's made a real impact on our family's budget in Wilmington.", author: '— Samantha B., Wilmington, DE' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png', quote: "A straightforward program that actually helps. It's taken a lot of financial pressure off me.", author: '— Ben L., Dover, DE' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png', quote: "This card works everywhere and has been a huge help. I encourage others to apply.", author: '— Ashley P., Newark, DE' }
+                ],
+                'Florida': [
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png', quote: "This program is legit. It's helped us stretch our budget for our two kids and made grocery shopping so much less stressful.", author: '— Jessica P., Orlando, FL' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png', quote: "As a retiree in Miami, every dollar counts. This assistance has made a real, tangible difference in my quality of life.", author: '— Carlos G., Miami, FL' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png', quote: "Simple to apply and I got my benefit card quickly. It's been a massive help with the rising food costs here in Tampa.", author: '— Brenda T., Tampa, FL' }
+                ],
+                'Georgia': [
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png', quote: "With the price of everything in Atlanta, this card has been a godsend for our family.", author: '— Tiffany H., Atlanta, GA' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png', quote: "A reliable benefit that has made it easier to put healthy food on the table. Thank you.", author: '— Chris J., Augusta, GA' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png', quote: "The process was simple and I'm so glad I applied. It's a huge weight off my mind.", author: '— Maria R., Savannah, GA' }
+                ],
+                'Hawaii': [
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png', quote: "Food costs in Honolulu are no joke. This program provides much-needed relief and is easy to use.", author: '— Leilani K., Honolulu, HI' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png', quote: "So thankful for this assistance. It helps my 'ohana make ends meet every month.", author: '— Keanu P., Hilo, HI' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png', quote: "This is a wonderful program that has made a real difference for me as a senior on a fixed income.", author: '— David M., Kailua, HI' }
+                ],
+                'Idaho': [
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png', quote: "This card has been a huge help for my family's grocery budget here in Boise. It's a wonderful program.", author: '— Heather W., Boise, ID' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png', quote: "I was able to get more fresh fruits and vegetables for my kids. It's a real blessing.", author: '— Scott T., Idaho Falls, ID' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png', quote: "Simple, effective, and it takes the stress out of the checkout line. Highly recommend.", author: '— Laura V., Nampa, ID' }
+                ],
+                'Illinois': [
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png', quote: "Living in Chicago is expensive, and this program has been a lifesaver for my grocery bill.", author: '— Karen J., Chicago, IL' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png', quote: "It's a huge relief knowing I have this support every month. It makes budgeting so much easier.", author: '— David C., Springfield, IL' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png', quote: "I recommend this to any family feeling the pinch of rising food costs. It really helps.", author: '— Michelle B., Peoria, IL' }
+                ],
+                'Indiana': [
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png', quote: "This card has helped my family in Indianapolis tremendously. We're able to eat healthier now.", author: '— Emily S., Indianapolis, IN' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png', quote: "A simple process for real, tangible benefits. It's been a great help for our household.", author: '— Robert P., Fort Wayne, IN' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png', quote: "So grateful for this program. It's taken a lot of stress out of our weekly shopping trips.", author: '— Jennifer A., Evansville, IN' }
+                ],
+                'Iowa': [
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png', quote: "This has been a steady and reliable source of help for my family in Des Moines. Very grateful.", author: '— Jessica D., Des Moines, IA' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png', quote: "It's wonderful to have this assistance with grocery costs. It makes a big difference.", author: '— Mark R., Cedar Rapids, IA' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png', quote: "I was approved quickly and the benefit is real. It's a great program.", author: '— Amanda K., Davenport, IA' }
+                ],
+                'Kansas': [
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png', quote: "This program has been a huge help with our monthly budget here in Wichita. Thank you!", author: '— Sarah L., Wichita, KS' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png', quote: "I can buy more fresh food for my kids, which means the world to me. A great benefit.", author: '— Jason M., Overland Park, KS' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png', quote: "It's a relief to know this support is there every month. It's made things so much easier.", author: '— Linda W., Kansas City, KS' }
+                ],
+                'Kentucky': [
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png', quote: "A true blessing for my family in Louisville. This card helps us get through the month.", author: '— Brittany C., Louisville, KY' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png', quote: "I'm a senior, and this assistance has been invaluable. It helps me afford the food I need.", author: '— Charles E., Lexington, KY' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png', quote: "This is a legitimate and helpful program. It's taken a lot of financial strain off of us.", author: '— Patricia F., Bowling Green, KY' }
+                ],
+                'Louisiana': [
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png', quote: "With the cost of groceries in New Orleans, this card is a lifesaver. So thankful for the help.", author: '— Monique D., New Orleans, LA' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png', quote: "It's been a great help for my family. We can afford more nutritious options now.", author: '— Kevin B., Baton Rouge, LA' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png', quote: "Easy to use and accepted everywhere. This program has really made a difference for us.", author: '— Jennifer G., Shreveport, LA' }
+                ],
+                'Maine': [
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png', quote: "This has been a wonderful help, especially during the long winters here in Portland. Thank you.", author: '— Abigail M., Portland, ME' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png', quote: "A reliable benefit that takes some of the pressure off our monthly budget. Very grateful.", author: '— Richard S., Lewiston, ME' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png', quote: "This program has been a blessing for me as a retiree. It helps me stay independent.", author: '— Eleanor V., Bangor, ME' }
+                ],
+                'Maryland': [
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png', quote: "The cost of living near Baltimore is high. This program provides much-needed relief for groceries.", author: '— Crystal H., Baltimore, MD' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png', quote: "It's been a great help to my family. We're able to save a little more for other essentials now.", author: '— Brian T., Columbia, MD' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png', quote: "Simple, effective, and it works. I'm so glad I found this program.", author: '— Stephanie C., Germantown, MD' }
+                ],
+                'Massachusetts': [
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png', quote: "This grocery card is a huge help with the high cost of living in Boston. Thank you so much.", author: '— Christine O., Boston, MA' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png', quote: "It has allowed me to buy healthier food for my family. This program is a blessing.", author: '— Paul R., Worcester, MA' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png', quote: "I'm a student, and this has taken a massive weight off my shoulders. It's a fantastic benefit.", author: '— Frank D., Springfield, MA' }
+                ],
+                'Michigan': [
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png', quote: "This has been a reliable source of help for my family in Detroit. We're very grateful.", author: '— Angela B., Detroit, MI' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png', quote: "It's a huge relief to have this support for groceries. It frees up money for other necessities.", author: '— Steven L., Grand Rapids, MI' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png', quote: "The process was easy, and the benefit is real. I recommend it to anyone who needs a little help.", author: '— Donna W., Warren, MI' }
+                ],
+                'Minnesota': [
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png', quote: "This card helps us manage the high cost of groceries here in Minneapolis. It's a wonderful program.", author: '— Kimberly P., Minneapolis, MN' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png', quote: "A much-needed help, especially during the winter. It ensures my family has what they need.", author: '— Gary S., Saint Paul, MN' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png', quote: "So thankful for this assistance. It's easy to use and makes a real difference.", author: '— Helen J., Rochester, MN' }
+                ],
+                'Mississippi': [
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png', quote: "This program has been a true blessing for my family in Jackson. It helps us so much.", author: '— Melissa K., Jackson, MS' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png', quote: "It's a huge relief to have this card. It takes the worry out of buying groceries.", author: '— Anthony R., Gulfport, MS' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png', quote: "Simple to apply, and the benefits are real. I'm so glad I found this.", author: '— Betty A., Southaven, MS' }
+                ],
+                'Missouri': [
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png', quote: "This has been a fantastic help for our family in Kansas City. The extra support is a game-changer.", author: '— Amanda J., Kansas City, MO' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png', quote: "A great program that has made a real difference in our monthly budget. Highly recommend.", author: '— Eric T., Saint Louis, MO' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png', quote: "So grateful for this assistance. It's taken a huge amount of stress off my shoulders.", author: '— Sandra M., Springfield, MO' }
+                ],
+                'Montana': [
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png', quote: "This has been a huge help for us here in Billings. It makes a real difference with the grocery bills.", author: '— Lisa R., Billings, MT' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png', quote: "A reliable and easy-to-use benefit. I'm so glad this program is available to us.", author: '— Mike S., Missoula, MT' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png', quote: "This card has helped me provide more for my family. It's a wonderful feeling.", author: '— Joshua N., Great Falls, MT' }
+                ],
+                'Nebraska': [
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png', quote: "This program has been a lifesaver for my family in Omaha. The support is incredible.", author: '— Rebecca H., Omaha, NE' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png', quote: "It's a huge weight off my mind knowing I have this help every month. Thank you.", author: '— William G., Lincoln, NE' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png', quote: "Simple to apply and the benefits are real. This has made a big difference for us.", author: '— Laura P., Bellevue, NE' }
+                ],
+                'Nevada': [
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png', quote: "This card has made it so much easier to feed my family healthy meals here in Las Vegas. I can finally put money aside for my kids' future.", author: '— Maria S., Las Vegas, NV' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png', quote: "I was worried about rising grocery prices, but this program has taken a huge weight off my shoulders. It's a lifesaver.", author: '— David L., Henderson, NV' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png', quote: "The benefits came in a lot faster than I expected. It was a simple process and I was able to use the card the very next day.", author: '— Sarah K., Reno, NV' }
+                ],
+                'New Hampshire': [
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png', quote: "This has been a wonderful help for my family in Manchester. The extra support means so much.", author: '— Elizabeth C., Manchester, NH' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png', quote: "I'm a senior, and this card has helped me maintain my independence. I am very grateful.", author: '— Robert N., Nashua, NH' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png', quote: "A great program that delivers on its promises. It's taken a lot of stress out of my life.", author: '— Margaret A., Concord, NH' }
+                ],
+                'New Jersey': [
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png', quote: "It's expensive living in Newark. This program is a huge help with our grocery bills.", author: '— Jennifer T., Newark, NJ' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png', quote: "A real, tangible benefit that has helped my family immensely. I highly recommend it.", author: '— Christopher A., Jersey City, NJ' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png', quote: "So grateful for this assistance. It's easy to use and has been a true blessing for us.", author: '— Mary P., Paterson, NJ' }
+                ],
+                'New Mexico': [
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png', quote: "This card has been a tremendous help for my family in Albuquerque. We're able to afford more fresh food.", author: '— Patricia L., Albuquerque, NM' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png', quote: "I was approved quickly, and the program is a lifesaver. It takes a huge weight off my shoulders.", author: '— Jose F., Las Cruces, NM' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png', quote: "A great benefit that has made a real difference in my life. I encourage everyone to apply.", author: '— Linda M., Rio Rancho, NM' }
+                ],
+                'New York': [
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png', quote: "Living in NYC, every bit helps. This program has been a huge relief for my monthly budget.", author: '— Maria V., New York, NY' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png', quote: "I'm a senior in Buffalo, and this card is a godsend. It helps me afford the healthy food I need.", author: '— John S., Buffalo, NY' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png', quote: "This has been a reliable and easy-to-use benefit. It takes the stress out of grocery shopping.", author: '— Susan C., Rochester, NY' }
+                ],
+                'North Carolina': [
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png', quote: "This program has been a huge help for my family in Charlotte. The support is much appreciated.", author: '— Dorothy A., Charlotte, NC' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png', quote: "It's a relief to know I can afford quality groceries for my kids. Thank you for this program.", author: '— Paul J., Raleigh, NC' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png', quote: "Easy to apply and the benefits are real. This has taken a lot of financial pressure off of me.", author: '— Nancy D., Greensboro, NC' }
+                ],
+                'North Dakota': [
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png', quote: "This has been a wonderful help, especially during the cold months in Fargo. So grateful.", author: '— Ruth E., Fargo, ND' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png', quote: "A reliable program that makes a real difference in our community. I highly recommend it.", author: '— Jason K., Bismarck, ND' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png', quote: "This card has taken a huge weight off my shoulders. It's a fantastic benefit.", author: '— Donald F., Grand Forks, ND' }
+                ],
+                'Ohio': [
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png', quote: "This program is a huge help for my family in Columbus. We're able to make ends meet.", author: '— Barbara S., Columbus, OH' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png', quote: "I'm so thankful for this assistance. It's been a reliable and easy way to save on groceries.", author: '— James W., Cleveland, OH' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png', quote: "This card has made a real difference in our lives here in Cincinnati. It's a blessing.", author: '— Richard G., Cincinnati, OH' }
+                ],
+                'Oklahoma': [
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png', quote: "A fantastic program that has helped my family in Oklahoma City immensely. Highly recommend.", author: '— Elizabeth W., Oklahoma City, OK' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png', quote: "It's a huge relief to have this support. It makes budgeting for my family so much easier.", author: '— Joseph T., Tulsa, OK' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png', quote: "This card has been a lifesaver. It takes the stress out of buying groceries each week.", author: '— Thomas H., Norman, OK' }
+                ],
+                'Oregon': [
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png', quote: "With the cost of living in Portland, this assistance is invaluable. It helps us stay on budget.", author: '— Mary M., Portland, OR' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png', quote: "I'm able to afford more fresh, local produce. This program is fantastic.", author: '— Robert J., Salem, OR' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png', quote: "This is a legitimate program that has provided real financial relief for my family.", author: '— Charles K., Eugene, OR' }
+                ],
+                'Pennsylvania': [
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png', quote: "This program has been a huge help for my family here in Philadelphia. Thank you so much.", author: '— Jennifer A., Philadelphia, PA' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png', quote: "I'm a senior in Pittsburgh, and this card has been a blessing. It helps me afford healthy food.", author: '— Michael S., Pittsburgh, PA' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png', quote: "It's a huge relief to have this support every month. It's made a real difference.", author: '— Daniel L., Allentown, PA' }
+                ],
+                'Rhode Island': [
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png', quote: "A fantastic help for my family in Providence. The extra support for groceries is a game-changer.", author: '— Patricia N., Providence, RI' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png', quote: "This program has made a real difference in our monthly budget. I highly recommend it.", author: '— Linda E., Warwick, RI' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png', quote: "So grateful for this assistance. It's taken a huge amount of stress off my shoulders.", author: '— Matthew I., Cranston, RI' }
+                ],
+                'South Carolina': [
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png', quote: "This has been a huge help to our family in Charleston. The benefit is real and easy to use.", author: '— Barbara J., Charleston, SC' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png', quote: "I can't express how much this has helped me as a single parent. Thank you.", author: '— David O., Columbia, SC' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png', quote: "A reliable and important program for anyone struggling with food costs. I am very grateful.", author: '— Susan M., North Charleston, SC' }
+                ],
+                'South Dakota': [
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png', quote: "This program has been a lifesaver for my family in Sioux Falls. The support is incredible.", author: '— Karen E., Sioux Falls, SD' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png', quote: "It's a huge weight off my mind knowing I have this help every month. Thank you.", author: '— Kevin P., Rapid City, SD' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png', quote: "Simple to apply and the benefits are real. This has made a big difference for us.", author: '— Jessica R., Aberdeen, SD' }
+                ],
+                'Tennessee': [
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png', quote: "This program has helped my family in Nashville so much. We're able to afford better quality food.", author: '— Sandra T., Nashville, TN' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png', quote: "A simple process for a real benefit. It's been a huge help for our household in Memphis.", author: '— Mark C., Memphis, TN' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png', quote: "So grateful for this program. It's taken a lot of stress out of our weekly grocery trips.", author: '— Nancy B., Knoxville, TN' }
+                ],
+                'Texas': [
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png', quote: "With the cost of everything going up in Houston, this benefit has been a true blessing for our family budget. Highly recommend applying.", author: '— Emily R., Houston, TX' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png', quote: "Finally, some real help that makes a difference. This card is easy to use and accepted everywhere. A huge relief for us here in Dallas.", author: '— Michael B., Dallas, TX' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png', quote: "I'm a senior on a fixed income, and this program is a godsend. It's helped me afford fresh produce I couldn't before.", author: '— Linda C., Austin, TX' }
+                ],
+                'Utah': [
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png', quote: "This card has been a huge help for my family in Salt Lake City. It's a wonderful program.", author: '— Deborah W., Salt Lake City, UT' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png', quote: "I was able to get more healthy food for my children. It's a real blessing for us.", author: '— Steven Q., West Valley City, UT' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png', quote: "Simple, effective, and it takes the stress out of the checkout line. Highly recommend this.", author: '— Paul S., Provo, UT' }
+                ],
+                'Vermont': [
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png', quote: "This has been a steady and reliable source of help for my family in Burlington. Very grateful.", author: '— Susan B., Burlington, VT' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png', quote: "It's wonderful to have this assistance with grocery costs, especially during the winter.", author: '— George L., South Burlington, VT' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png', quote: "I was approved quickly and the benefit is real. It's a great program for Vermonters.", author: '— Karen K., Rutland, VT' }
+                ],
+                'Virginia': [
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png', quote: "A fantastic program that has helped my family in Virginia Beach immensely. Highly recommend.", author: '— Donna R., Virginia Beach, VA' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png', quote: "It's a huge relief to have this support. It makes budgeting for my family so much easier.", author: '— Joseph H., Norfolk, VA' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png', quote: "This card has been a lifesaver. It takes the stress out of buying groceries each week.", author: '— Sharon G., Chesapeake, VA' }
+                ],
+                'Washington': [
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png', quote: "The cost of groceries in Seattle is getting out of hand. This program is a huge help.", author: '— Laura G., Seattle, WA' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png', quote: "A legitimate benefit that has made it easier to afford healthy options. I am very grateful.", author: '— Jeff C., Spokane, WA' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png', quote: "This program has provided real financial relief for my family. The process was surprisingly simple.", author: '— Michelle D., Tacoma, WA' }
+                ],
+                'West Virginia': [
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png', quote: "This card has been a blessing for my family in Charleston. It helps us get through the month.", author: '— Cynthia W., Charleston, WV' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png', quote: "I'm a senior, and this assistance has been invaluable. It helps me afford the food I need.", author: '— William D., Huntington, WV' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png', quote: "This is a legitimate and helpful program. It's taken a lot of financial strain off of us.", author: '— Kimberly F., Morgantown, WV' }
+                ],
+                'Wisconsin': [
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png', quote: "A fantastic help for my family in Milwaukee. The extra support for groceries is a game-changer.", author: '— Carol M., Milwaukee, WI' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png', quote: "This program has made a real difference in our monthly budget here in Madison. Highly recommend.", author: '— Mark B., Madison, WI' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png', quote: "So grateful for this assistance. It's taken a huge amount of stress off my shoulders.", author: '— Kenneth J., Green Bay, WI' }
+                ],
+                'Wyoming': [
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png', quote: "This has been a steady and reliable source of help for my family in Cheyenne. Very grateful.", author: '— Sandra P., Cheyenne, WY' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png', quote: "It's wonderful to have this assistance with grocery costs. It makes a big difference.", author: '— Paul W., Casper, WY' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png', quote: "I was approved quickly and the benefit is real. It's a great program for folks in Wyoming.", author: '— Betty S., Laramie, WY' }
+                ],
+                'Default': [
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png', quote: "This has been an incredible help for my family's budget each month. I'm so grateful I found this program.", author: '— Jennifer M., USA' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png', quote: "A huge weight has been lifted off my shoulders knowing I have this assistance for groceries. It's a true lifesaver.", author: '— Robert J., USA' },
+                    { photo: 'https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png', quote: "The application process was straightforward and the benefits are real. I was able to use the card without any issues.", author: '— Emily S., USA' }
+                ]
+            };
+            
+            // --- FUNCTION TO DISPLAY TESTIMONIALS ---
+            function displayTestimonials(state) {
+                const testimonialsToShow = testimonialsByState[state] || testimonialsByState['Default'];
+                const grid = document.getElementById('testimonials-grid');
+                let html = '';
+                
+                testimonialsToShow.forEach(testimonial => {
+                    html += `
+                        <div class="testimonial-card">
+                            <img src="${testimonial.photo}" alt="Testimonial Photo" class="testimonial-photo">
+                            <div class="testimonial-quote">"${testimonial.quote}"</div>
+                            <div class="testimonial-author">${testimonial.author}</div>
+                        </div>
+                    `;
+                });
+                
+                grid.innerHTML = html;
+            }
+
+            // --- MAIN PAGE LOGIC ---
             const appId = Math.floor(10000 + Math.random() * 90000);
             document.getElementById('app-id').textContent = appId;
 
@@ -168,19 +425,23 @@
                     const response = await fetch('https://geo.ipify.org/api/v2/country,city?apiKey=at_JKtyyWskmuI07I6RieQ3a6EBhlt5T');
                     if (!response.ok) throw new Error('API request failed');
                     const data = await response.json();
-                    const state = data.location.region || 'Your State';
+                    const state = data.location.region || 'State';
                     const city = data.location.city || 'Your City';
                     const cityRegion = `${city}, ${state}`;
 
                     geoStateEls.forEach(el => el.textContent = state);
                     geoCityRegionEls.forEach(el => el.textContent = cityRegion);
                     if(locationVerifiedEl) locationVerifiedEl.textContent = cityRegion;
+                    
+                    displayTestimonials(state);
 
                 } catch (error) {
                     console.error('Error fetching location:', error);
-                    geoStateEls.forEach(el => el.textContent = 'Your State');
+                    geoStateEls.forEach(el => el.textContent = 'State');
                     geoCityRegionEls.forEach(el => el.textContent = 'Your Area');
                     if(locationVerifiedEl) locationVerifiedEl.textContent = 'Your Area';
+
+                    displayTestimonials('Default');
                 }
             }
             
