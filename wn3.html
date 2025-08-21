@@ -3,573 +3,598 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Window Replacement Savings Calculator</title>
+    <title>Home Energy Efficiency Program - Official Portal</title>
     <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
-            color: #333;
+            font-family: 'Source Sans Pro', 'Segoe UI', sans-serif;
+            background: #f5f7fa;
+            color: #212529;
+            line-height: 1.6;
+        }
+        
+        .official-banner {
+            background: #003366;
+            color: white;
+            padding: 8px 0;
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        .flag-icon {
+            margin-right: 8px;
+        }
+        
+        .main-header {
+            background: linear-gradient(135deg, #003366 0%, #0056b3 100%);
+            color: white;
+            padding: 25px 0;
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .program-title {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .program-subtitle {
+            font-size: 16px;
+            opacity: 0.9;
         }
         
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
-            background: #1a1a2e;
-            border-radius: 20px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+            padding: 30px 20px;
+        }
+        
+        .alert-banner {
+            background: linear-gradient(90deg, #ffeaa7, #fdcb6e);
+            border: 2px solid #e17055;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
             overflow: hidden;
+        }
+        
+        .alert-banner::before {
+            content: "";
+            position: absolute;
+            top: -2px;
+            left: -100%;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #e17055, transparent);
+            animation: sweep 2s infinite;
+        }
+        
+        @keyframes sweep {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        .alert-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2d3436;
+            margin-bottom: 10px;
+        }
+        
+        .case-id {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 8px 15px;
+            border-radius: 4px;
+            display: inline-block;
+            font-family: monospace;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .main-content {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .content-header {
+            background: #f8f9fa;
+            padding: 20px;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .breadcrumb {
+            font-size: 14px;
+            color: #6c757d;
+            margin-bottom: 15px;
+        }
+        
+        .breadcrumb a {
+            color: #0056b3;
+            text-decoration: none;
+        }
+        
+        .application-status {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .status-badge {
+            background: #10B981;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        .verification-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 20px;
+        }
+        
+        .verification-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 6px;
+        }
+        
+        .check-icon {
+            width: 20px;
+            height: 20px;
+            background: #10B981;
+            border-radius: 50%;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .package-selection {
+            padding: 25px;
+        }
+        
+        .section-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        .package-grid {
+            display: grid;
+            gap: 20px;
+        }
+        
+        .package-card {
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            background: white;
             position: relative;
         }
         
-        .container::before {
-            content: "";
+        .package-card:hover {
+            border-color: #0056b3;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,86,179,0.15);
+        }
+        
+        .package-card.recommended {
+            border-color: #10B981;
+            background: linear-gradient(135deg, #f0fff4 0%, #dcfce7 100%);
+        }
+        
+        .recommended-badge {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
-            background-size: 400% 400%;
-            animation: gradient 3s ease infinite;
-        }
-        
-        @keyframes gradient {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-        
-        .header {
-            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
-            padding: 30px;
-            text-align: center;
+            top: -1px;
+            right: 20px;
+            background: #10B981;
             color: white;
+            padding: 5px 15px;
+            font-size: 12px;
+            font-weight: bold;
+            border-radius: 0 0 8px 8px;
         }
         
-        .header h1 {
-            font-size: 28px;
-            margin-bottom: 10px;
-            font-weight: 300;
-        }
-        
-        .header p {
-            opacity: 0.9;
-            font-size: 16px;
-        }
-        
-        .specialist-bar {
-            background: rgba(255,255,255,0.1);
-            padding: 15px 30px;
+        .package-header {
             display: flex;
-            align-items: center;
-            gap: 15px;
-            border-top: 1px solid rgba(255,255,255,0.2);
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
         }
         
-        .specialist-avatar {
-            width: 40px;
-            height: 40px;
+        .package-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .package-pricing {
+            text-align: right;
+        }
+        
+        .current-price {
+            font-size: 24px;
+            font-weight: bold;
+            color: #10B981;
+        }
+        
+        .original-price {
+            font-size: 14px;
+            color: #6c757d;
+            text-decoration: line-through;
+            display: block;
+        }
+        
+        .savings-badge {
+            background: #ff6b6b;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-top: 5px;
+            display: inline-block;
+        }
+        
+        .package-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        
+        .package-features li {
+            padding: 5px 0;
+            color: #495057;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .package-features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10B981;
+            font-weight: bold;
+        }
+        
+        .select-package-btn {
+            width: 100%;
+            background: linear-gradient(90deg, #0056b3, #0066cc);
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .select-package-btn:hover {
+            background: linear-gradient(90deg, #004494, #0056b3);
+            transform: translateY(-1px);
+        }
+        
+        .sidebar {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+        
+        .specialist-panel {
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .specialist-photo {
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             background-image: url('https://res.cloudinary.com/dndik3mpf/image/upload/v1755768682/Gemini_Generated_Image_ceidlcceidlcceid_zdxqac.png');
             background-size: cover;
             background-position: center;
-            border: 2px solid rgba(255,255,255,0.8);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-        }
-        
-        .specialist-info {
-            flex: 1;
+            margin: 0 auto 15px;
+            border: 3px solid #0056b3;
+            box-shadow: 0 6px 15px rgba(0,86,179,0.3);
         }
         
         .specialist-name {
+            font-size: 18px;
             font-weight: 600;
-            margin-bottom: 2px;
+            color: #2c3e50;
+            margin-bottom: 5px;
         }
         
-        .specialist-status {
+        .specialist-title {
             font-size: 14px;
-            opacity: 0.8;
-            display: flex;
-            align-items: center;
-            gap: 6px;
+            color: #6c757d;
+            margin-bottom: 10px;
         }
         
-        .online-pulse {
+        .online-indicator {
+            background: #10B981;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .online-dot {
             width: 8px;
             height: 8px;
-            background: #2ecc71;
+            background: white;
             border-radius: 50%;
             animation: pulse 2s infinite;
         }
         
-        .main-content {
-            padding: 40px;
-            background: white;
-        }
-        
-        .progress-section {
-            margin-bottom: 40px;
-        }
-        
-        .progress-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        
-        .progress-title {
-            font-size: 22px;
-            font-weight: 600;
-            color: #2c3e50;
-        }
-        
-        .slots-warning {
-            background: linear-gradient(90deg, #ff6b6b, #ff5722);
-            color: white;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: bold;
-            animation: shake 0.5s ease-in-out infinite alternate;
-        }
-        
-        @keyframes shake {
-            from { transform: translateX(-2px); }
-            to { transform: translateX(2px); }
-        }
-        
-        .progress-bar-container {
-            background: #ecf0f1;
-            height: 8px;
-            border-radius: 10px;
-            overflow: hidden;
-            margin-bottom: 30px;
-        }
-        
-        .progress-bar {
-            height: 100%;
-            background: linear-gradient(90deg, #4ecdc4, #44a08d);
-            width: 0%;
-            transition: width 1s ease-in-out;
-            border-radius: 10px;
-        }
-        
-        .savings-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin-bottom: 40px;
-        }
-        
-        .savings-card {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            border-radius: 15px;
-            padding: 25px;
-            text-align: center;
-            transition: all 0.5s ease;
-            cursor: pointer;
-            border: 3px solid transparent;
-            opacity: 0.6;
-            transform: scale(0.95);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .savings-card.unlocked {
-            opacity: 1;
-            transform: scale(1);
-            background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
-            border-color: #4ecdc4;
-            box-shadow: 0 10px 30px rgba(78, 205, 196, 0.3);
-        }
-        
-        .savings-card.selectable {
-            cursor: pointer;
-            border-color: #3498db;
-        }
-        
-        .savings-card.selectable:hover {
-            transform: scale(1.05);
-            box-shadow: 0 15px 35px rgba(52, 152, 219, 0.4);
-        }
-        
-        .lock-icon {
-            width: 60px;
-            height: 60px;
-            background: #bdc3c7;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 15px;
-            font-size: 24px;
-            transition: all 0.5s ease;
-        }
-        
-        .savings-card.unlocked .lock-icon {
-            background: linear-gradient(45deg, #4ecdc4, #44a08d);
-            color: white;
-            animation: unlock 0.8s ease-out;
-        }
-        
-        @keyframes unlock {
-            0% { transform: scale(1) rotate(0deg); }
-            50% { transform: scale(1.2) rotate(180deg); }
-            100% { transform: scale(1) rotate(360deg); }
-        }
-        
-        .package-title {
-            font-size: 20px;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 10px;
-        }
-        
-        .price-display {
-            margin-bottom: 15px;
-        }
-        
-        .current-price {
-            font-size: 32px;
-            font-weight: bold;
-            color: #2ecc71;
-            display: block;
-        }
-        
-        .original-price {
-            font-size: 16px;
-            color: #95a5a6;
-            text-decoration: line-through;
-            margin-top: 5px;
-        }
-        
-        .savings-amount {
-            background: linear-gradient(90deg, #ff6b6b, #ff5722);
-            color: white;
-            padding: 5px 10px;
-            border-radius: 15px;
-            font-size: 14px;
-            font-weight: bold;
-            display: inline-block;
-            margin-top: 5px;
-        }
-        
-        .features-list {
-            list-style: none;
-            text-align: left;
-            margin-bottom: 20px;
-        }
-        
-        .features-list li {
-            padding: 5px 0;
-            color: #7f8c8d;
-            position: relative;
-            padding-left: 20px;
-            font-size: 14px;
-            transition: color 0.3s ease;
-        }
-        
-        .savings-card.unlocked .features-list li {
-            color: #2c3e50;
-        }
-        
-        .features-list li:before {
-            content: "○";
-            position: absolute;
-            left: 0;
-            color: #bdc3c7;
-            transition: all 0.3s ease;
-        }
-        
-        .savings-card.unlocked .features-list li:before {
-            content: "✓";
-            color: #2ecc71;
-        }
-        
-        .select-btn {
-            width: 100%;
-            background: #bdc3c7;
-            color: #7f8c8d;
-            border: none;
-            padding: 12px;
-            font-size: 16px;
-            font-weight: bold;
-            border-radius: 8px;
-            cursor: not-allowed;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .savings-card.unlocked .select-btn {
-            background: linear-gradient(90deg, #4ecdc4, #44a08d);
-            color: white;
-            cursor: pointer;
-        }
-        
-        .savings-card.unlocked .select-btn:hover {
-            background: linear-gradient(90deg, #45b7d1, #3a9bc1);
-            transform: translateY(-2px);
-        }
-        
-        .unlock-sequence {
-            text-align: center;
-            margin-bottom: 30px;
-            opacity: 0;
-            animation: fadeIn 1s ease-out 1s forwards;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .unlock-message {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
+        .urgency-panel {
             padding: 20px;
-            border-radius: 10px;
-            font-size: 18px;
-            font-weight: 600;
+            background: #fff3cd;
+            border-top: 3px solid #ffc107;
+        }
+        
+        .urgency-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #856404;
             margin-bottom: 10px;
         }
         
-        .countdown-display {
-            background: #2c3e50;
-            color: white;
-            padding: 15px;
-            border-radius: 8px;
-            font-family: monospace;
-            font-size: 24px;
+        .timer-display {
+            font-size: 28px;
             font-weight: bold;
+            color: #dc3545;
             text-align: center;
-            margin-top: 20px;
-            letter-spacing: 2px;
+            margin: 15px 0;
+            font-family: monospace;
         }
         
-        .unlock-timer {
+        .slots-remaining {
+            text-align: center;
+            color: #856404;
             font-size: 14px;
-            color: #7f8c8d;
-            margin-top: 10px;
-        }
-        
-        .popular-badge {
-            position: absolute;
-            top: -5px;
-            right: 15px;
-            background: linear-gradient(90deg, #ff6b6b, #ff5722);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 0 0 10px 10px;
-            font-size: 12px;
-            font-weight: bold;
-            transform: translateY(-100%);
-            transition: transform 0.5s ease;
-        }
-        
-        .savings-card.unlocked .popular-badge {
-            transform: translateY(0);
         }
         
         @media (max-width: 768px) {
-            .main-content { padding: 25px; }
-            .savings-grid { grid-template-columns: 1fr; gap: 20px; }
-            .progress-header { flex-direction: column; gap: 10px; }
+            .grid-layout {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .verification-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .package-header {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .package-pricing {
+                text-align: left;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="official-banner">
+        <span class="flag-icon">🇺🇸</span>
+        An Official U.S. Government Energy Efficiency Program
+    </div>
+    
+    <div class="main-header">
+        <div class="header-content">
+            <div class="program-title">Home Energy Efficiency Installation Program</div>
+            <div class="program-subtitle">Department of Energy • Window Replacement Initiative</div>
+        </div>
+    </div>
+    
     <div class="container">
-        <div class="header">
-            <h1>🏠 Window Replacement Savings Calculator</h1>
-            <p>Unlock your personalized installation packages below</p>
-            
-            <div class="specialist-bar">
-                <div class="specialist-avatar"></div>
-                <div class="specialist-info">
-                    <div class="specialist-name">Chuck Roswell - Installation Specialist</div>
-                    <div class="specialist-status">
-                        <span class="online-pulse"></span>
-                        Online now • Reviewing your eligibility
-                    </div>
-                </div>
+        <div class="alert-banner">
+            <div class="alert-title">⚠️ URGENT: Installation Deadline Approaching</div>
+            <div>Your pre-approved application must be completed today</div>
+            <div class="case-id">Case ID: WRP-<span id="case-id"></span></div>
+            <div style="margin-top: 10px; color: #2d3436;">
+                <strong>Limited installation slots available in your area</strong>
             </div>
         </div>
         
-        <div class="main-content">
-            <div class="progress-section">
-                <div class="progress-header">
-                    <div class="progress-title">Unlocking Your Savings...</div>
-                    <div class="slots-warning">⚠️ 2 SLOTS LEFT</div>
-                </div>
-                <div class="progress-bar-container">
-                    <div class="progress-bar" id="progress-bar"></div>
-                </div>
-            </div>
-            
-            <div class="unlock-sequence" id="unlock-message">
-                <div class="unlock-message">
-                    🔓 <span id="unlock-text">Analyzing your location and requirements...</span>
-                </div>
-                <div class="unlock-timer">Package options will unlock in: <span id="unlock-countdown">5</span> seconds</div>
-            </div>
-            
-            <div class="savings-grid">
-                <div class="savings-card" id="single-card">
-                    <div class="lock-icon">🔒</div>
-                    <div class="package-title">Single Window Package</div>
-                    <div class="price-display">
-                        <span class="current-price">$300</span>
-                        <div class="original-price">Regular: $1,295</div>
-                        <span class="savings-amount">Save $995</span>
+        <div class="grid-layout">
+            <div class="main-content">
+                <div class="content-header">
+                    <div class="breadcrumb">
+                        <a href="#">Energy.gov</a> > <a href="#">Programs</a> > Window Installation
                     </div>
-                    <ul class="features-list">
-                        <li>Professional installation</li>
-                        <li>Energy-efficient glass</li>
-                        <li>10-year warranty</li>
-                        <li>Same-week service</li>
-                    </ul>
-                    <button class="select-btn">Select Package</button>
+                    
+                    <div class="application-status">
+                        <span class="status-badge">✓ PRE-APPROVED</span>
+                        <span style="color: #6c757d;">Application Status: Ready for Package Selection</span>
+                    </div>
+                    
+                    <h2 style="color: #2c3e50; margin-bottom: 15px;">
+                        Eligibility Verification Complete
+                    </h2>
                 </div>
                 
-                <div class="savings-card" id="double-card">
-                    <div class="popular-badge">MOST POPULAR</div>
-                    <div class="lock-icon">🔒</div>
-                    <div class="package-title">Double Window Package</div>
-                    <div class="price-display">
-                        <span class="current-price">$700</span>
-                        <div class="original-price">Regular: $2,695</div>
-                        <span class="savings-amount">Save $1,995</span>
+                <div class="verification-grid">
+                    <div class="verification-item">
+                        <div class="check-icon">✓</div>
+                        <div>
+                            <div style="font-weight: 600;">Location Verified</div>
+                            <div style="font-size: 14px; color: #6c757d;">Service area confirmed</div>
+                        </div>
                     </div>
-                    <ul class="features-list">
-                        <li>Premium installation service</li>
-                        <li>Triple-pane energy glass</li>
-                        <li>15-year extended warranty</li>
-                        <li>Priority scheduling</li>
-                        <li>Energy audit included</li>
-                    </ul>
-                    <button class="select-btn">Select Package</button>
+                    <div class="verification-item">
+                        <div class="check-icon">✓</div>
+                        <div>
+                            <div style="font-weight: 600;">Income Qualified</div>
+                            <div style="font-size: 14px; color: #6c757d;">Meets program requirements</div>
+                        </div>
+                    </div>
+                    <div class="verification-item">
+                        <div class="check-icon">✓</div>
+                        <div>
+                            <div style="font-weight: 600;">Property Eligible</div>
+                            <div style="font-size: 14px; color: #6c757d;">Approved for installation</div>
+                        </div>
+                    </div>
+                    <div class="verification-item">
+                        <div class="check-icon">✓</div>
+                        <div>
+                            <div style="font-weight: 600;">Specialist Assigned</div>
+                            <div style="font-size: 14px; color: #6c757d;">Chuck Roswell confirmed</div>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="savings-card" id="triple-card">
-                    <div class="lock-icon">🔒</div>
-                    <div class="package-title">Triple Window Package</div>
-                    <div class="price-display">
-                        <span class="current-price">$1,200</span>
-                        <div class="original-price">Regular: $3,995</div>
-                        <span class="savings-amount">Save $2,795</span>
+                <div class="package-selection">
+                    <h2 class="section-title">Select Your Installation Package</h2>
+                    
+                    <div class="package-grid">
+                        <div class="package-card">
+                            <div class="package-header">
+                                <div class="package-name">Single Window Package</div>
+                                <div class="package-pricing">
+                                    <span class="current-price">$300</span>
+                                    <span class="original-price">Retail: $1,195</span>
+                                    <span class="savings-badge">75% OFF</span>
+                                </div>
+                            </div>
+                            <ul class="package-features">
+                                <li>Professional installation included</li>
+                                <li>Energy Star certified windows</li>
+                                <li>Double-pane insulated glass</li>
+                                <li>10-year manufacturer warranty</li>
+                                <li>Same-week installation</li>
+                            </ul>
+                            <a href="https://hpkpn.ttrk.io/click" class="select-package-btn" style="display: block; text-align: center; text-decoration: none; line-height: 1.5;">Select Single Package</a>
+                        </div>
+                        
+                        <div class="package-card recommended">
+                            <div class="recommended-badge">MOST POPULAR</div>
+                            <div class="package-header">
+                                <div class="package-name">Double Window Package</div>
+                                <div class="package-pricing">
+                                    <span class="current-price">$700</span>
+                                    <span class="original-price">Retail: $2,395</span>
+                                    <span class="savings-badge">71% OFF</span>
+                                </div>
+                            </div>
+                            <ul class="package-features">
+                                <li>Premium installation service</li>
+                                <li>Triple-pane energy efficient glass</li>
+                                <li>Low-E coating & argon gas fill</li>
+                                <li>Enhanced weather sealing</li>
+                                <li>15-year extended warranty</li>
+                                <li>Priority installation scheduling</li>
+                            </ul>
+                            <a href="https://hpkpn.ttrk.io/click" class="select-package-btn" style="display: block; text-align: center; text-decoration: none; line-height: 1.5;">Select Double Package</a>
+                        </div>
+                        
+                        <div class="package-card">
+                            <div class="package-header">
+                                <div class="package-name">Triple Window Package</div>
+                                <div class="package-pricing">
+                                    <span class="current-price">$1,200</span>
+                                    <span class="original-price">Retail: $3,595</span>
+                                    <span class="savings-badge">67% OFF</span>
+                                </div>
+                            </div>
+                            <ul class="package-features">
+                                <li>Complete window transformation</li>
+                                <li>Maximum energy efficiency rating</li>
+                                <li>Smart glass technology option</li>
+                                <li>Professional trim & finishing</li>
+                                <li>Lifetime performance warranty</li>
+                                <li>Next-day installation guarantee</li>
+                                <li>Annual maintenance included (5 years)</li>
+                            </ul>
+                            <a href="https://hpkpn.ttrk.io/click" class="select-package-btn" style="display: block; text-align: center; text-decoration: none; line-height: 1.5;">Select Triple Package</a>
+                        </div>
                     </div>
-                    <ul class="features-list">
-                        <li>Complete window makeover</li>
-                        <li>Maximum energy efficiency</li>
-                        <li>Lifetime warranty</li>
-                        <li>Next-day installation</li>
-                        <li>Free maintenance (5 years)</li>
-                        <li>Smart home integration</li>
-                    </ul>
-                    <button class="select-btn">Select Package</button>
                 </div>
             </div>
             
-            <div class="countdown-display">
-                Offer expires in: <span id="main-countdown">19:45:32</span>
+            <div class="sidebar">
+                <div class="specialist-panel">
+                    <div class="specialist-photo"></div>
+                    <div class="specialist-name">Chuck Roswell</div>
+                    <div class="specialist-title">Senior Installation Director</div>
+                    <div class="online-indicator">
+                        <span class="online-dot"></span>
+                        ONLINE NOW
+                    </div>
+                </div>
+                
+                <div class="urgency-panel">
+                    <div class="urgency-title">🕒 Time Remaining</div>
+                    <div class="timer-display" id="countdown">23:47:12</div>
+                    <div class="slots-remaining">
+                        Only <strong>2 installation slots</strong> left this week
+                    </div>
+                </div>
             </div>
         </div>
     </div>
     
     <script>
-        let unlockStep = 0;
-        let unlockTimer;
-        let countdownValue = 5;
-        
-        const unlockMessages = [
-            "Analyzing your location and requirements...",
-            "Checking installation availability in your area...",
-            "Calculating maximum savings potential...",
-            "Verifying special pricing eligibility...",
-            "🎉 Unlocking your personalized packages!"
-        ];
-        
-        // Start unlock sequence
-        function startUnlockSequence() {
-            const progressBar = document.getElementById('progress-bar');
-            const unlockText = document.getElementById('unlock-text');
-            const unlockCountdownEl = document.getElementById('unlock-countdown');
-            
-            unlockTimer = setInterval(() => {
-                countdownValue--;
-                unlockCountdownEl.textContent = countdownValue;
-                progressBar.style.width = ((5 - countdownValue) * 20) + '%';
-                
-                if (countdownValue <= 0) {
-                    clearInterval(unlockTimer);
-                    unlockPackages();
-                } else if (unlockStep < unlockMessages.length - 1) {
-                    unlockText.textContent = unlockMessages[Math.min(unlockStep, unlockMessages.length - 1)];
-                    unlockStep++;
-                }
-            }, 1000);
+        // Generate random case ID
+        function generateCaseId() {
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let result = '';
+            for (let i = 0; i < 8; i++) {
+                result += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            return result;
         }
         
-        // Unlock packages sequentially
-        function unlockPackages() {
-            document.getElementById('unlock-message').style.display = 'none';
-            document.getElementById('progress-bar').style.width = '100%';
-            
-            // Unlock single package
-            setTimeout(() => {
-                unlockCard('single-card');
-            }, 500);
-            
-            // Unlock double package (most popular)
-            setTimeout(() => {
-                unlockCard('double-card');
-            }, 1000);
-            
-            // Unlock triple package
-            setTimeout(() => {
-                unlockCard('triple-card');
-            }, 1500);
-        }
+        document.getElementById('case-id').textContent = generateCaseId();
         
-        function unlockCard(cardId) {
-            const card = document.getElementById(cardId);
-            card.classList.add('unlocked', 'selectable');
-            
-            // Change lock icon to check
-            const lockIcon = card.querySelector('.lock-icon');
-            lockIcon.textContent = '✓';
-            
-            // Convert button to working link
-            const button = card.querySelector('.select-btn');
-            const link = document.createElement('a');
-            link.href = 'https://hpkpn.ttrk.io/click';
-            link.target = '_blank';
-            link.className = 'select-btn';
-            link.style.display = 'block';
-            link.style.textAlign = 'center';
-            link.style.textDecoration = 'none';
-            link.style.lineHeight = '1.5';
-            link.textContent = button.textContent;
-            button.parentNode.replaceChild(link, button);
-            
-            // Add click handler to the card when unlocked
-            card.onclick = function() {
-                window.open('https://hpkpn.ttrk.io/click', '_blank');
-            };
-            
-            // Add unlock sound effect (visual only)
-            card.style.animation = 'unlock 0.8s ease-out';
-        }
-        
-        // Main countdown timer
-        function updateMainCountdown() {
-            const timerElement = document.getElementById('main-countdown');
+        // Countdown timer
+        function updateCountdown() {
+            const timerElement = document.getElementById('countdown');
             let time = timerElement.textContent.split(':');
             let hours = parseInt(time[0]);
             let minutes = parseInt(time[1]);
@@ -592,44 +617,27 @@
                 (seconds < 10 ? '0' : '') + seconds;
         }
         
-        // Selection handler
-        function selectSavings(type) {
-            const card = document.getElementById(type + '-card');
-            if (!card.classList.contains('unlocked')) {
-                return; // Don't allow selection of locked cards
-            }
-            
-            window.location.href = 'https://hpkpn.ttrk.io/click';
-        }
+        setInterval(updateCountdown, 1000);
         
-        // Add click tracking to all buttons and cards
-        document.addEventListener('click', function(e) {
-            if (e.target.classList.contains('select-btn') || e.target.closest('.savings-card.unlocked')) {
-                e.preventDefault();
-                window.location.href = 'https://hpkpn.ttrk.io/click';
-            }
+        // Add visual feedback on card hover
+        document.querySelectorAll('.package-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
         });
         
-        // Start the unlock sequence when page loads
-        setTimeout(startUnlockSequence, 1000);
-        
-        // Start main countdown
-        setInterval(updateMainCountdown, 1000);
-        
-        // Add hover effects for unlocked cards
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('.savings-card').forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    if (this.classList.contains('selectable')) {
-                        this.style.transform = 'scale(1.05)';
-                    }
-                });
-                
-                card.addEventListener('mouseleave', function() {
-                    if (this.classList.contains('selectable')) {
-                        this.style.transform = 'scale(1)';
-                    }
-                });
+        // Add visual feedback on card hover
+        document.querySelectorAll('.package-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
             });
         });
     </script>
