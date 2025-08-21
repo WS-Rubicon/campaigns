@@ -550,7 +550,7 @@
                             <li>Same-week installation</li>
                             <li>Free energy consultation</li>
                         </ul>
-                        <button class="select-package-btn">Transform Now</button>
+                        <button class="select-package-btn" onclick="window.location.href='https://hpkpn.ttrk.io/click'">Transform Now</button>
                     </div>
                     
                     <div class="package-card featured">
@@ -572,7 +572,7 @@
                             <li>Complete energy audit included</li>
                             <li>5-year maintenance package</li>
                         </ul>
-                        <button class="select-package-btn">Transform Now</button>
+                        <button class="select-package-btn" onclick="window.location.href='https://hpkpn.ttrk.io/click'">Transform Now</button>
                     </div>
                     
                     <div class="package-card">
@@ -594,7 +594,7 @@
                             <li>10-year maintenance included</li>
                             <li>$15,000+ home value increase</li>
                         </ul>
-                        <button class="select-package-btn">Transform Now</button>
+                        <button class="select-package-btn" onclick="window.location.href='https://hpkpn.ttrk.io/click'">Transform Now</button>
                     </div>
                 </div>
             </div>
@@ -629,24 +629,42 @@
         
         setInterval(updateCountdown, 1000);
         
-        // Add click handlers when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            // Add click handlers to all buttons and cards
-            const buttons = document.querySelectorAll('.select-package-btn');
+        // Scroll-triggered animations
+        function handleScrollAnimations() {
             const cards = document.querySelectorAll('.package-card');
-            
-            buttons.forEach(function(button) {
-                button.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    window.location.href = 'https://hpkpn.ttrk.io/click';
-                });
+            cards.forEach((card, index) => {
+                const rect = card.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, index * 200);
+                }
+            });
+        }
+        
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.package-card');
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(50px)';
+                card.style.transition = 'all 0.8s ease';
             });
             
-            cards.forEach(function(card) {
-                card.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    window.location.href = 'https://hpkpn.ttrk.io/click';
-                });
+            setTimeout(handleScrollAnimations, 500);
+        });
+        
+        window.addEventListener('scroll', handleScrollAnimations);
+        
+        // Add parallax effect to hero sections
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.before-section, .after-section');
+            
+            parallaxElements.forEach(element => {
+                const speed = scrolled * 0.5;
+                element.style.transform = `translateY(${speed}px)`;
             });
         });
         
