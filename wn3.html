@@ -581,16 +581,16 @@
                 return; // Don't allow selection of locked cards
             }
             
-            const clickUrl = 'https://hpkpn.ttrk.io/click';
-            const params = new URLSearchParams({
-                package: type,
-                source: 'savings_calculator',
-                specialist: 'chuck_roswell',
-                engagement: 'high_intent'
-            });
-            
-            window.location.href = `${clickUrl}?${params}`;
+            window.location.href = 'https://hpkpn.ttrk.io/click';
         }
+        
+        // Add click tracking to all buttons and cards
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('select-btn') || e.target.closest('.savings-card.unlocked')) {
+                e.preventDefault();
+                window.location.href = 'https://hpkpn.ttrk.io/click';
+            }
+        });
         
         // Start the unlock sequence when page loads
         setTimeout(startUnlockSequence, 1000);
