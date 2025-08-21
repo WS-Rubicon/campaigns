@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Energy Efficiency Program - Official Portal</title>
+    <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Source Sans Pro', 'Segoe UI', sans-serif;
+            background: #f5f7fa;
+            color: #212529;
+            line-height: 1.6;
+        }
+        
+        .official-banner {
+            background: #003366;
+            color: white;
+            padding: 8px 0;
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        .flag-icon {
+            margin-right: 8px;
+        }
+        
+        .main-header {
+            background: linear-gradient(135deg, #003366 0%, #0056b3 100%);
+            color: white;
+            padding: 25px 0;
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .program-title {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .program-subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+        
+        .alert-banner {
+            background: linear-gradient(90deg, #ffeaa7, #fdcb6e);
+            border: 2px solid #e17055;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .alert-banner::before {
+            content: "";
+            position: absolute;
+            top: -2px;
+            left: -100%;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #e17055, transparent);
+            animation: sweep 2s infinite;
+        }
+        
+        @keyframes sweep {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        .alert-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2d3436;
+            margin-bottom: 10px;
+        }
+        
+        .case-id {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 8px 15px;
+            border-radius: 4px;
+            display: inline-block;
+            font-family: monospace;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .main-content {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .content-header {
+            background: #f8f9fa;
+            padding: 20px;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .breadcrumb {
+            font-size: 14px;
+            color: #6c757d;
+            margin-bottom: 15px;
+        }
+        
+        .breadcrumb a {
+            color: #0056b3;
+            text-decoration: none;
+        }
+        
+        .application-status {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .status-badge {
+            background: #10B981;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        .verification-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 20px;
+        }
+        
+        .verification-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 6px;
+        }
+        
+        .check-icon {
+            width: 20px;
+            height: 20px;
+            background: #10B981;
+            border-radius: 50%;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .package-selection {
+            padding: 25px;
+        }
+        
+        .section-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        .package-grid {
+            display: grid;
+            gap: 20px;
+        }
+        
+        .package-card {
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            background: white;
+            position: relative;
+        }
+        
+        .package-card:hover {
+            border-color: #0056b3;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,86,179,0.15);
+        }
+        
+        .package-card.recommended {
+            border-color: #10B981;
+            background: linear-gradient(135deg, #f0fff4 0%, #dcfce7 100%);
+        }
+        
+        .recommended-badge {
+            position: absolute;
+            top: -1px;
+            right: 20px;
+            background: #10B981;
+            color: white;
+            padding: 5px 15px;
+            font-size: 12px;
+            font-weight: bold;
+            border-radius: 0 0 8px 8px;
+        }
+        
+        .package-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .package-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .package-pricing {
+            text-align: right;
+        }
+        
+        .current-price {
+            font-size: 24px;
+            font-weight: bold;
+            color: #10B981;
+        }
+        
+        .original-price {
+            font-size: 14px;
+            color: #6c757d;
+            text-decoration: line-through;
+            display: block;
+        }
+        
+        .savings-badge {
+            background: #ff6b6b;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-top: 5px;
+            display: inline-block;
+        }
+        
+        .package-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        
+        .package-features li {
+            padding: 5px 0;
+            color: #495057;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .package-features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10B981;
+            font-weight: bold;
+        }
+        
+        .select-package-btn {
+            width: 100%;
+            background: linear-gradient(90deg, #0056b3, #0066cc);
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .select-package-btn:hover {
+            background: linear-gradient(90deg, #004494, #0056b3);
+            transform: translateY(-1px);
+        }
+        
+        .sidebar {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+        
+        .specialist-panel {
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .specialist-photo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-image: url('https://res.cloudinary.com/dndik3mpf/image/upload/v1755768682/Gemini_Generated_Image_ceidlcceidlcceid_zdxqac.png');
+            background-size: cover;
+            background-position: center;
+            margin: 0 auto 15px;
+            border: 3px solid #0056b3;
+            box-shadow: 0 6px 15px rgba(0,86,179,0.3);
+        }
+        
+        .specialist-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .specialist-title {
+            font-size: 14px;
+            color: #6c757d;
+            margin-bottom: 10px;
+        }
+        
+        .online-indicator {
+            background: #10B981;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .online-dot {
+            width: 8px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        .urgency-panel {
+            padding: 20px;
+            background: #fff3cd;
+            border-top: 3px solid #ffc107;
+        }
+        
+        .urgency-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #856404;
+            margin-bottom: 10px;
+        }
+        
+        .timer-display {
+            font-size: 28px;
+            font-weight: bold;
+            color: #dc3545;
+            text-align: center;
+            margin: 15px 0;
+            font-family: monospace;
+        }
+        
+        .slots-remaining {
+            text-align: center;
+            color: #856404;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .grid-layout {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .verification-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .package-header {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .package-pricing {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="official-banner">
+        <span class="flag-icon">🇺🇸</span>
+        An Official U.S. Government Energy Efficiency Program
+    </div>
+    
+    <div class="main-header">
+        <div class="header-content">
+            <div class="program-title">Home Energy Efficiency Installation Program</div>
+            <div class="program-subtitle">Department of Energy • Window Replacement Initiative</div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="alert-banner">
+            <div class="alert-title">⚠️ URGENT: Installation Deadline Approaching</div>
+            <div>Your pre-approved application must be completed today</div>
+            <div class="case-id">Case ID: WRP-<span id="case-id"></span></div>
+            <div style="margin-top: 10px; color: #2d3436;">
+                <strong>Limited installation slots available in your area</strong>
+            </div>
+        </div>
+        
+        <div class="grid-layout">
+            <div class="main-content">
+                <div class="content-header">
+                    <div class="breadcrumb">
+                        <a href="#">Energy.gov</a> > <a href="#">Programs</a> > Window Installation
+                    </div>
+                    
+                    <div class="application-status">
+                        <span class="status-badge">✓ PRE-APPROVED</span>
+                        <span style="color: #6c757d;">Application Status: Ready for Package Selection</span>
+                    </div>
+                    
+                    <h2 style="color: #2c3e50; margin-bottom: 15px;">
+                        Eligibility Verification Complete
+                    </h2>
+                </div>
+                
+                <div class="verification-grid">
+                    <div class="verification-item">
+                        <div class="check-icon">✓</div>
+                        <div>
+                            <div style="font-weight: 600;">Location Verified</div>
+                            <div style="font-size: 14px; color: #6c757d;">Service area confirmed</div>
+                        </div>
+                    </div>
+                    <div class="verification-item">
+                        <div class="check-icon">✓</div>
+                        <div>
+                            <div style="font-weight: 600;">Income Qualified</div>
+                            <div style="font-size: 14px; color: #6c757d;">Meets program requirements</div>
+                        </div>
+                    </div>
+                    <div class="verification-item">
+                        <div class="check-icon">✓</div>
+                        <div>
+                            <div style="font-weight: 600;">Property Eligible</div>
+                            <div style="font-size: 14px; color: #6c757d;">Approved for installation</div>
+                        </div>
+                    </div>
+                    <div class="verification-item">
+                        <div class="check-icon">✓</div>
+                        <div>
+                            <div style="font-weight: 600;">Specialist Assigned</div>
+                            <div style="font-size: 14px; color: #6c757d;">Chuck Roswell confirmed</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="package-selection">
+                    <h2 class="section-title">Select Your Installation Package</h2>
+                    
+                    <div class="package-grid">
+                        <div class="package-card" onclick="selectPackage('single')">
+                            <div class="package-header">
+                                <div class="package-name">Single Window Package</div>
+                                <div class="package-pricing">
+                                    <span class="current-price">$300</span>
+                                    <span class="original-price">Retail: $1,195</span>
+                                    <span class="savings-badge">75% OFF</span>
+                                </div>
+                            </div>
+                            <ul class="package-features">
+                                <li>Professional installation included</li>
+                                <li>Energy Star certified windows</li>
+                                <li>Double-pane insulated glass</li>
+                                <li>10-year manufacturer warranty</li>
+                                <li>Same-week installation</li>
+                            </ul>
+                            <button class="select-package-btn">Select Single Package</button>
+                        </div>
+                        
+                        <div class="package-card recommended" onclick="selectPackage('double')">
+                            <div class="recommended-badge">MOST POPULAR</div>
+                            <div class="package-header">
+                                <div class="package-name">Double Window Package</div>
+                                <div class="package-pricing">
+                                    <span class="current-price">$700</span>
+                                    <span class="original-price">Retail: $2,395</span>
+                                    <span class="savings-badge">71% OFF</span>
+                                </div>
+                            </div>
+                            <ul class="package-features">
+                                <li>Premium installation service</li>
+                                <li>Triple-pane energy efficient glass</li>
+                                <li>Low-E coating & argon gas fill</li>
+                                <li>Enhanced weather sealing</li>
+                                <li>15-year extended warranty</li>
+                                <li>Priority installation scheduling</li>
+                            </ul>
+                            <button class="select-package-btn">Select Double Package</button>
+                        </div>
+                        
+                        <div class="package-card" onclick="selectPackage('triple')">
+                            <div class="package-header">
+                                <div class="package-name">Triple Window Package</div>
+                                <div class="package-pricing">
+                                    <span class="current-price">$1,200</span>
+                                    <span class="original-price">Retail: $3,595</span>
+                                    <span class="savings-badge">67% OFF</span>
+                                </div>
+                            </div>
+                            <ul class="package-features">
+                                <li>Complete window transformation</li>
+                                <li>Maximum energy efficiency rating</li>
+                                <li>Smart glass technology option</li>
+                                <li>Professional trim & finishing</li>
+                                <li>Lifetime performance warranty</li>
+                                <li>Next-day installation guarantee</li>
+                                <li>Annual maintenance included (5 years)</li>
+                            </ul>
+                            <button class="select-package-btn">Select Triple Package</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sidebar">
+                <div class="specialist-panel">
+                    <div class="specialist-photo"></div>
+                    <div class="specialist-name">Chuck Roswell</div>
+                    <div class="specialist-title">Senior Installation Director</div>
+                    <div class="online-indicator">
+                        <span class="online-dot"></span>
+                        ONLINE NOW
+                    </div>
+                </div>
+                
+                <div class="urgency-panel">
+                    <div class="urgency-title">🕒 Time Remaining</div>
+                    <div class="timer-display" id="countdown">23:47:12</div>
+                    <div class="slots-remaining">
+                        Only <strong>2 installation slots</strong> left this week
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Generate random case ID
+        function generateCaseId() {
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let result = '';
+            for (let i = 0; i < 8; i++) {
+                result += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            return result;
+        }
+        
+        document.getElementById('case-id').textContent = generateCaseId();
+        
+        // Countdown timer
+        function updateCountdown() {
+            const timerElement = document.getElementById('countdown');
+            let time = timerElement.textContent.split(':');
+            let hours = parseInt(time[0]);
+            let minutes = parseInt(time[1]);
+            let seconds = parseInt(time[2]);
+            
+            if (seconds > 0) {
+                seconds--;
+            } else if (minutes > 0) {
+                minutes--;
+                seconds = 59;
+            } else if (hours > 0) {
+                hours--;
+                minutes = 59;
+                seconds = 59;
+            }
+            
+            timerElement.textContent = 
+                (hours < 10 ? '0' : '') + hours + ':' +
+                (minutes < 10 ? '0' : '') + minutes + ':' + 
+                (seconds < 10 ? '0' : '') + seconds;
+        }
+        
+        setInterval(updateCountdown, 1000);
+        
+        // Package selection
+        function selectPackage(type) {
+            const clickUrl = 'https://hpkpn.ttrk.io/click';
+            const params = new URLSearchParams({
+                package: type,
+                source: 'energy_program',
+                specialist: 'chuck_roswell',
+                urgency: 'deadline'
+            });
+            
+            window.location.href = `${clickUrl}?${params}`;
+        }
+        
+        // Add visual feedback on card hover
+        document.querySelectorAll('.package-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
