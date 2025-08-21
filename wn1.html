@@ -534,7 +534,7 @@
             
             <div class="packages-container">
                 <div class="packages-grid">
-                    <div class="package-card" onclick="selectTransformation('single')">
+                    <div class="package-card">
                         <div class="package-name">Single Window Transformation</div>
                         <div class="price-section">
                             <span class="current-price">$300</span>
@@ -553,7 +553,7 @@
                         <button class="select-package-btn">Transform Now</button>
                     </div>
                     
-                    <div class="package-card featured" onclick="selectTransformation('double')">
+                    <div class="package-card featured">
                         <div class="best-value-badge">Best Value</div>
                         <div class="package-name">Double Window Transformation</div>
                         <div class="price-section">
@@ -575,7 +575,7 @@
                         <button class="select-package-btn">Transform Now</button>
                     </div>
                     
-                    <div class="package-card" onclick="selectTransformation('triple')">
+                    <div class="package-card">
                         <div class="package-name">Complete Home Transformation</div>
                         <div class="price-section">
                             <span class="current-price">$1,200</span>
@@ -629,17 +629,25 @@
         
         setInterval(updateCountdown, 1000);
         
-        // Package selection
-        function selectTransformation(type) {
-            window.location.href = 'https://hpkpn.ttrk.io/click';
-        }
-        
-        // Add click tracking to all buttons and cards
-        document.addEventListener('click', function(e) {
-            if (e.target.classList.contains('select-package-btn') || e.target.closest('.package-card')) {
-                e.preventDefault();
-                window.location.href = 'https://hpkpn.ttrk.io/click';
-            }
+        // Add click handlers when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click handlers to all buttons and cards
+            const buttons = document.querySelectorAll('.select-package-btn');
+            const cards = document.querySelectorAll('.package-card');
+            
+            buttons.forEach(function(button) {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.location.href = 'https://hpkpn.ttrk.io/click';
+                });
+            });
+            
+            cards.forEach(function(card) {
+                card.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.location.href = 'https://hpkpn.ttrk.io/click';
+                });
+            });
         });
         
         // Scroll-triggered animations
