@@ -6,9 +6,9 @@
     <title>U.S. Department of Health & Human Services</title>
     <style>
         body {
-            font-family: sans-serif; /* Use a common sans-serif font */
-            background-color: #f3f3f3; /* Light gray background */
-            color: #333; /* Dark gray text */
+            font-family: sans-serif;
+            background-color: #f3f3f3;
+            color: #333;
             line-height: 1.6;
             margin: 0;
             padding: 0;
@@ -22,11 +22,11 @@
 
         /* HHS Header */
         .hhs-header {
-            background-color: #003058; /* Dark blue */
+            background-color: #003058;
             color: white;
             padding: 20px 0;
             text-align: left;
-            margin-bottom: 20px;
+            margin-bottom: 0;
         }
 
         .hhs-header .container {
@@ -35,41 +35,44 @@
             justify-content: flex-start;
         }
 
-        .hhs-logo {
-            width: 80px; /* Adjust size as needed */
-            margin-right: 20px;
-        }
-
         .hhs-title {
             font-size: 24px;
             font-weight: bold;
         }
 
-        .hhs-navigation {
-            background-color: #d9d9d9; /* Light gray */
+        /* Breadcrumb Navigation */
+        .breadcrumb-nav {
+            background-color: #d9d9d9;
             padding: 10px 0;
             border-bottom: 1px solid #ccc;
         }
 
-        .hhs-navigation .container ul {
+        .breadcrumb-nav .container ul {
             list-style: none;
             padding: 0;
             margin: 0;
             display: flex;
         }
 
-        .hhs-navigation .container ul li {
-            margin-right: 20px;
+        .breadcrumb-nav .container ul li:not(:last-child)::after {
+            content: ">";
+            margin: 0 10px;
+            color: #777;
         }
 
-        .hhs-navigation .container ul li a {
+        .breadcrumb-nav .container ul li a {
             text-decoration: none;
             color: #333;
             font-size: 16px;
         }
 
-        .hhs-navigation .container ul li a:hover {
+        .breadcrumb-nav .container ul li a:hover {
             color: #003058;
+        }
+        
+        .breadcrumb-nav .container ul li:last-child {
+            color: #555;
+            font-size: 16px;
         }
 
         /* Main Content Area */
@@ -87,7 +90,7 @@
         }
 
         .hhs-alert {
-            background-color: #f0ad4e; /* HHS yellow/orange */
+            background-color: #f0ad4e;
             color: #333;
             padding: 15px;
             margin-bottom: 20px;
@@ -99,7 +102,7 @@
         }
 
         .hhs-status-box {
-            background-color: #dff0d8; /* Light green */
+            background-color: #dff0d8;
             border: 1px solid #3c763d;
             color: #3c763d;
             padding: 15px;
@@ -108,7 +111,7 @@
         }
 
         .hhs-benefit-box {
-            background-color: #eee; /* Light gray */
+            background-color: #eee;
             border: 1px solid #ccc;
             padding: 20px;
             margin-bottom: 20px;
@@ -146,7 +149,7 @@
         }
 
         .hhs-checkmark-list li::before {
-            content: "\2713"; /* Checkmark */
+            content: "\2713";
             position: absolute;
             left: 0;
             color: #2e8540;
@@ -154,7 +157,7 @@
         }
 
         .hhs-cta-button {
-            background-color: #0071bc; /* Blue CTA */
+            background-color: #0071bc;
             color: white;
             padding: 12px 25px;
             text-decoration: none;
@@ -170,7 +173,7 @@
 
         /* HHS Footer */
         .hhs-footer {
-            background-color: #003058; /* Dark blue */
+            background-color: #003058;
             color: white;
             padding: 20px 0;
             text-align: center;
@@ -192,19 +195,16 @@
 
     <div class="hhs-header">
         <div class="container">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/U.S._Department_of_Health_and_Human_Services_seal.svg" alt="HHS Logo" class="hhs-logo">
             <span class="hhs-title">U.S. Department of Health & Human Services</span>
         </div>
     </div>
 
-    <div class="hhs-navigation">
+    <div class="breadcrumb-nav">
         <div class="container">
             <ul>
                 <li><a href="#">Home</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">News</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#">Benefits</a></li>
+                <li>Grocery Assistance Program</li>
             </ul>
         </div>
     </div>
@@ -266,10 +266,9 @@
     </div>
 
     <script>
-        // In a real scenario, you would fetch the user's location dynamically.
-        // Here, it's hardcoded based on the context.
         document.addEventListener("DOMContentLoaded", function() {
-            // You could add more dynamic functionality here if needed.
+            // No dynamic functionality needed for this specific page design.
+            // All content is static.
         });
     </script>
 
