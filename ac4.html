@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2025 Grocery Assistance Program</title>
+    <title>Healthcare.gov - Marketplace Coverage</title>
     <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
     <style>
         * {
@@ -25,12 +25,18 @@
             padding: 0 20px;
         }
 
-        /* Top Banner */
-        .top-banner {
-            background-color: #112e51;
+        /* Top Bar */
+        .top-bar {
+            background-color: #0d284a;
             color: white;
-            padding: 8px 0;
-            font-size: 13px;
+            padding: 5px 0;
+            font-size: 12px;
+        }
+
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         /* Header */
@@ -38,28 +44,11 @@
             background-color: #003366;
             color: white;
             padding: 20px 0;
-            display: flex;
-            align-items: center;
-            gap: 15px;
+            text-align: center;
         }
 
-        .logo-shield {
-            width: 50px;
-            height: 50px;
-            background-color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: #003366;
-            font-size: 20px;
-        }
-
-        .site-title {
+        .header h1 {
             font-size: 28px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
         }
 
         /* Yellow Alert Banner */
@@ -74,46 +63,56 @@
             text-align: center;
         }
 
-        /* Main Content */
-        .main-content {
-            background-color: white;
-            margin: 0 auto 40px;
-            max-width: 1040px;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-        }
-
-        .page-header {
-            background-color: #f1f1f1;
-            padding: 30px;
+        /* Navigation */
+        .navigation {
+            background-color: #fff;
             border-bottom: 1px solid #d6d7d9;
-        }
-
-        .page-header h1 {
-            font-size: 36px;
-            font-weight: 700;
-            color: #212529;
-            margin-bottom: 10px;
-        }
-
-        .breadcrumb {
-            font-size: 14px;
-            color: #5b616b;
+            padding: 15px 0;
         }
 
         .breadcrumb a {
             color: #0071bc;
             text-decoration: none;
+            font-size: 14px;
         }
-
+        
         .breadcrumb a:hover {
             text-decoration: underline;
         }
+        
+        .breadcrumb span {
+            color: #5b616b;
+        }
 
-        /* Content Section */
-        .content-section {
-            padding: 40px;
+        /* Main Layout */
+        .page-layout {
+            display: flex;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .main-content {
+            flex: 3;
+            background-color: white;
+            padding: 30px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
         }
         
+        .main-content h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #212529;
+            margin-bottom: 20px;
+        }
+
+        .sidebar {
+            flex: 1;
+            background-color: #f1f1f1;
+            padding: 20px;
+            border-radius: 4px;
+        }
+
+        /* Status Box */
         .status-box {
             background-color: #d6f5d6;
             border: 1px solid #4aa564;
@@ -121,13 +120,14 @@
             padding: 20px;
             margin-bottom: 30px;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 15px;
         }
 
         .status-icon {
             color: #2e8540;
-            font-size: 32px;
+            font-size: 24px;
+            margin-top: 2px;
         }
 
         .status-text h3 {
@@ -141,70 +141,41 @@
             color: #212529;
         }
 
-        /* Info Grid */
-        .info-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .info-card {
-            background-color: #f8f8f8;
-            border: 1px solid #d6d7d9;
+        /* Highlighted Benefit Box */
+        .benefit-box {
+            background-color: #ffc966;
             padding: 25px;
             border-radius: 4px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .benefit-box h3 {
+            font-size: 32px;
+            color: #003366;
+            margin-bottom: 10px;
+        }
+        
+        .benefit-box p {
+            font-size: 18px;
+            color: #212529;
+        }
+        
+        .benefit-box .highlight {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2e8540;
         }
 
-        .info-card h4 {
-            font-size: 18px;
+        /* How it Works */
+        .how-it-works {
+            margin-bottom: 30px;
+        }
+
+        .how-it-works h4 {
+            font-size: 20px;
             color: #003366;
             margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .info-card-icon {
-            color: #02bfe7;
-            font-size: 20px;
-        }
-        
-        .info-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 8px 0;
-            border-bottom: 1px solid #e3e4e5;
-        }
-
-        .info-item:last-child {
-            border-bottom: none;
-        }
-
-        .info-label {
-            color: #5b616b;
-            font-weight: 600;
-        }
-        
-        .info-value {
-            color: #212529;
-            font-weight: 400;
-        }
-
-        .info-value.highlight {
-            color: #2e8540;
-            font-weight: 700;
-        }
-
-        /* How it Works Section */
-        .how-it-works {
-            margin-bottom: 40px;
-        }
-        
-        .how-it-works h2 {
-            font-size: 24px;
-            color: #003366;
-            margin-bottom: 20px;
         }
 
         .checkmark-list {
@@ -215,11 +186,11 @@
         .checkmark-list li {
             position: relative;
             padding-left: 30px;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             font-size: 16px;
             color: #4a4a4a;
         }
-
+        
         .checkmark-list li::before {
             content: "✓";
             position: absolute;
@@ -230,129 +201,48 @@
             font-weight: bold;
         }
 
-        /* Testimonials Section */
-        .testimonials-section {
-            margin-bottom: 40px;
-        }
-
-        .testimonials-section h3 {
-            font-size: 28px;
-            text-align: center;
-            color: #003366;
-            margin-bottom: 30px;
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .testimonial-card {
-            background-color: #ffffff;
-            border-radius: 8px;
-            padding: 25px;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .testimonial-photo {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 15px;
-        }
-
-        .testimonial-quote {
-            font-style: italic;
-            color: #5b616b;
-            margin-bottom: 10px;
-        }
-
-        .testimonial-author {
-            font-weight: bold;
-            color: #212529;
-        }
-
-        /* Action Section */
-        .action-section {
-            background-color: #e1f3f8;
-            padding: 30px;
+        /* Sidebar content */
+        .sidebar-box {
+            background-color: white;
+            padding: 15px;
+            margin-bottom: 20px;
             border-radius: 4px;
-            text-align: center;
-            margin-bottom: 30px;
+            border: 1px solid #d6d7d9;
         }
 
-        .action-section h3 {
-            font-size: 24px;
-            margin-bottom: 15px;
-            color: #212529;
-        }
-
-        .action-section p {
-            font-size: 16px;
-            color: #5b616b;
-            margin-bottom: 25px;
-        }
-
-        .cta-button {
-            background-color: #02bfe7;
-            color: white;
-            padding: 15px 40px;
+        .sidebar h4 {
             font-size: 18px;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 4px;
-            display: inline-block;
-            transition: background-color 0.2s;
-            border: 2px solid #02bfe7;
-        }
-
-        .cta-button:hover {
-            background-color: #00a6d2;
-            border-color: #00a6d2;
-        }
-
-        .timer-notice {
-            margin-top: 20px;
-            font-size: 14px;
-            color: #cd2026;
-            font-weight: 600;
-        }
-
-        /* Security Notice */
-        .security-notice {
-            background-color: #fff4d9;
-            padding: 20px;
-            border-left: 4px solid #f90;
-            margin-top: 30px;
-            font-size: 14px;
-        }
-
-        .security-notice h5 {
-            font-size: 16px;
+            color: #003366;
             margin-bottom: 10px;
-            color: #212529;
+        }
+        
+        .sidebar ul {
+            list-style: none;
         }
 
-        .security-notice ul {
-            margin-left: 20px;
-            color: #5b616b;
+        .sidebar li a {
+            display: block;
+            padding: 8px 0;
+            color: #0071bc;
+            text-decoration: none;
+        }
+
+        .sidebar li a:hover {
+            text-decoration: underline;
         }
 
         /* Footer */
         .footer {
-            background-color: #323a45;
+            background-color: #0d284a;
             color: white;
-            padding: 40px 0 20px;
+            padding: 40px 0;
         }
 
         .footer-content {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 20px;
         }
 
         .footer-section h4 {
@@ -368,126 +258,74 @@
         .footer-section a {
             color: #dce4ef;
             text-decoration: none;
-            font-size: 14px;
             line-height: 2;
+            font-size: 14px;
         }
-
         .footer-section a:hover {
             text-decoration: underline;
         }
 
         .footer-bottom {
-            border-top: 1px solid #5b616b;
+            border-top: 1px solid #4a545c;
             padding-top: 20px;
             text-align: center;
             font-size: 13px;
-            color: #dce4ef;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .info-grid {
-                grid-template-columns: 1fr;
-            }
-            .testimonials-grid {
-                grid-template-columns: 1fr;
-            }
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-            .header {
-                flex-direction: column;
-                text-align: center;
-            }
-            .page-header h1 {
-                font-size: 28px;
-            }
+            color: #ccc;
         }
     </style>
 </head>
 <body>
-    <div class="top-banner">
-        <div class="container">
-            Official U.S. Government Website
+
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <div>U.S. Department of Health & Human Services</div>
+            <div>Language: English</div>
         </div>
     </div>
-    
+
     <header class="header">
-        <div class="container" style="display: flex; align-items: center; gap: 15px;">
-            <div class="logo-shield">BP</div>
-            <div class="site-title">Benefits Portal</div>
+        <div class="container">
+            <h1>Healthcare.gov - Marketplace Coverage</h1>
         </div>
     </header>
-    
+
     <div class="alert-banner-yellow">
         <div class="container">
-            NOTE: Limited enrollment period for 2025 Grocery Assistance Program. Apply for benefits today.
+            Limited Enrollment Period: The 2025 Grocery Assistance Program enrollment ends soon. Complete your application today.
         </div>
     </div>
 
-    <div class="main-content">
-        <div class="page-header">
-            <div class="container">
-                <div class="breadcrumb">
-                    <a href="https://hpkpn.ttrk.io/click">Home</a> > <a href="https://hpkpn.ttrk.io/click">Benefits</a> > Grocery Assistance Program
-                </div>
-                <h1>2025 Grocery Assistance Program</h1>
+    <div class="navigation">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="https://hpkpn.ttrk.io/click">Home</a> > <a href="https://hpkpn.ttrk.io/click">Benefits</a> > <span>Grocery Assistance Program</span>
             </div>
         </div>
-
-        <div class="content-section container">
+    </div>
+    
+    <div class="container page-layout">
+        <div class="main-content">
+            <h2>2025 Grocery Assistance Program</h2>
+            
             <div class="status-box">
                 <div class="status-icon">✓</div>
                 <div class="status-text">
                     <h3>You're Pre-Qualified</h3>
-                    <p>Based on your location in <span id="user-location">Las Vegas, NV</span>, you meet the initial requirements for this program.</p>
+                    <p>Based on your location in <span id="user-location">Las Vegas, Nevada</span>, you meet the initial requirements for this program.</p>
                 </div>
             </div>
-            
-            <div class="info-grid">
-                <div class="info-card">
-                    <h4><span class="info-card-icon">📋</span> Application Details</h4>
-                    <div class="info-item">
-                        <span class="info-label">Application ID:</span>
-                        <span class="info-value">GAP-2025-<span id="app-id">00000</span></span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Status:</span>
-                        <span class="info-value highlight">Pre-Qualified</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Location Verified:</span>
-                        <span class="info-value" id="location-verified">Las Vegas, NV</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Enrollment Deadline:</span>
-                        <span class="info-value" style="color: #cd2026;">24 hours</span>
-                    </div>
-                </div>
-                
-                <div class="info-card">
-                    <h4><span class="info-card-icon">💰</span> Benefit Information</h4>
-                    <div class="info-item">
-                        <span class="info-label">Monthly Amount:</span>
-                        <span class="info-value highlight">$500.00</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Benefit Type:</span>
-                        <span class="info-value">Grocery & OTC Card</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Duration:</span>
-                        <span class="info-value">12 months</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Total Annual Value:</span>
-                        <span class="info-value highlight">$6,000.00</span>
-                    </div>
-                </div>
+
+            <div class="benefit-box">
+                <h3>$500 Monthly Grocery Benefit</h3>
+                <p>Receive up to <span class="highlight">$500</span> each month for groceries</p>
+                <p style="font-size: 14px; margin-top: 5px;">Loaded onto a benefits card for use at participating retailers</p>
             </div>
             
+            <a href="https://hpkpn.ttrk.io/click" class="cta-button" style="display: block; margin-bottom: 10px;">Apply for Grocery Assistance</a>
+            <p style="text-align: center; font-size: 14px; color: #5b616b; margin-bottom: 30px;">Free • No Obligation • Results in Minutes</p>
+
             <div class="how-it-works">
-                <h2>How the Program Works</h2>
+                <h4>How the Program Works</h4>
                 <ul class="checkmark-list">
                     <li>Monthly benefits loaded onto a program card</li>
                     <li>Use at participating grocery stores and supermarkets</li>
@@ -495,8 +333,10 @@
                     <li>No restrictions on brand choices</li>
                     <li>Benefits do not expire within the month</li>
                 </ul>
-                
-                <h2>What Can You Buy?</h2>
+            </div>
+            
+            <div class="how-it-works">
+                <h4>What Can You Buy?</h4>
                 <ul class="checkmark-list">
                     <li>Fresh fruits and vegetables</li>
                     <li>Meat, poultry, and fish</li>
@@ -505,51 +345,32 @@
                     <li>Snack foods and non-alcoholic beverages</li>
                     <li>Seeds and plants that produce food</li>
                 </ul>
-                <p style="margin-top: 20px;">Once approved, your benefits card will arrive within 7-10 business days, and you can start using your grocery benefits immediately.</p>
             </div>
             
-            <div class="testimonials-section">
-                <h3>What People Are Saying</h3>
-                <div class="testimonials-grid">
-                    <div class="testimonial-card">
-                        <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png" alt="Testimonial Photo" class="testimonial-photo">
-                        <div class="testimonial-quote">"This card has made it so much easier to feed my family healthy meals. I can finally put money aside for my kids' future."</div>
-                        <div class="testimonial-author">— Maria S.</div>
-                    </div>
-                    <div class="testimonial-card">
-                        <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png" alt="Testimonial Photo" class="testimonial-photo">
-                        <div class="testimonial-quote">"I was worried about rising grocery prices, but this program has taken a huge weight off my shoulders. It's a lifesaver."</div>
-                        <div class="testimonial-author">— David L.</div>
-                    </div>
-                    <div class="testimonial-card">
-                        <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png" alt="Testimonial Photo" class="testimonial-photo">
-                        <div class="testimonial-quote">"The benefits came in a lot faster than I expected. It was a simple process and I was able to use the card the very next day."</div>
-                        <div class="testimonial-author">— Sarah K.</div>
-                    </div>
-                </div>
-            </div>
+        </div>
 
-            <div class="action-section">
-                <h3>Final Step: Secure Your $500/Month Benefits</h3>
-                <p>This is a limited-time opportunity to enroll. Don't let your pre-qualified status expire.</p>
-                <a href="https://hpkpn.ttrk.io/click" class="cta-button">Complete Your Enrollment Now →</a>
-                <div class="timer-notice">
-                    ⏰ Your pre-qualified status expires in: <span id="timer">23:59:59</span>
-                </div>
+        <div class="sidebar">
+            <div class="sidebar-box">
+                <h4>Need Help?</h4>
+                <p style="margin-bottom: 15px; font-size: 14px;">Enrollment specialists are available:</p>
+                <p style="font-size: 14px; color: #5b616b;">Mon-Fri: 8am-8pm EST</p>
+                <p style="font-size: 14px; color: #5b616b;">Sat-Sun: 9am-6pm EST</p>
             </div>
-            
-            <div class="security-notice">
-                <h5>🔒 Security & Privacy Notice</h5>
-                <p>This is a secure government website. We follow strict security protocols to protect your information:</p>
+            <div class="sidebar-box">
+                <h4>Quick Links</h4>
                 <ul>
-                    <li>Your information is encrypted and secure</li>
-                    <li>We will never share your personal data without consent</li>
-                    <li>This enrollment process takes approximately 60 seconds</li>
+                    <li><a href="https://hpkpn.ttrk.io/click">Eligibility Calculator</a></li>
+                    <li><a href="https://hpkpn.ttrk.io/click">Find Participating Stores</a></li>
+                    <li><a href="https://hpkpn.ttrk.io/click">Program FAQ</a></li>
+                    <li><a href="https://hpkpn.ttrk.io/click">Contact Support</a></li>
                 </ul>
             </div>
+            <div class="sidebar-box" style="text-align: center; color: #5b616b;">
+                <p style="font-weight: 600; font-size: 14px;">23,847 people enrolled this week</p>
+            </div>
         </div>
-    </main>
-
+    </div>
+    
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -563,28 +384,21 @@
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>Program Support</h4>
+                    <h4>Resources</h4>
                     <ul>
-                        <li><a href="https://hpkpn.ttrk.io/click">Contact Us</a></li>
-                        <li><a href="https://hpkpn.ttrk.io/click">FAQs</a></li>
                         <li><a href="https://hpkpn.ttrk.io/click">Find a Location</a></li>
-                        <li><a href="https://hpkpn.ttrk.io/click">Language Assistance</a></li>
+                        <li><a href="https://hpkpn.ttrk.io/click">Forms & Documents</a></li>
+                        <li><a href="https://hpkpn.ttrk.io/click">Privacy</a></li>
+                        <li><a href="https://hpkpn.ttrk.io/click">FAQs</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>Legal</h4>
+                    <h4>Policies</h4>
                     <ul>
                         <li><a href="https://hpkpn.ttrk.io/click">Privacy Policy</a></li>
-                        <li><a href="https://hpkpn.ttrk.io/click">Terms of Service</a></li>
                         <li><a href="https://hpkpn.ttrk.io/click">Accessibility</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Connect</h4>
-                    <ul>
-                        <li><a href="https://hpkpn.ttrk.io/click">Facebook</a></li>
-                        <li><a href="https://hpkpn.ttrk.io/click">Twitter</a></li>
-                        <li><a href="https://hpkpn.ttrk.io/click">Instagram</a></li>
+                        <li><a href="https://hpkpn.ttrk.io/click">Pill of Rights</a></li>
+                        <li><a href="https://hpkpn.ttrk.io/click">HIPAA</a></li>
                     </ul>
                 </div>
             </div>
@@ -596,41 +410,18 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            // Generate random application ID
-            const appId = Math.floor(10000 + Math.random() * 90000);
-            document.getElementById('app-id').textContent = appId;
+            const userLocationElement = document.getElementById('user-location');
             
             // Get real geo-location using ipify API
             fetch('https://geo.ipify.org/api/v2/country,city?apiKey=at_JKtyyWskmuI07I6RieQ3a6EBhlt5T')
                 .then(response => response.json())
                 .then(data => {
                     const userLocation = `${data.location.city || 'your city'}, ${data.location.region || 'your state'}`;
-                    document.getElementById('user-location').textContent = userLocation;
-                    document.getElementById('location-verified').textContent = userLocation;
+                    userLocationElement.textContent = userLocation;
                 })
                 .catch(error => {
                     console.error('Error fetching location:', error);
                 });
-            
-            // Countdown timer
-            let hours = 23, minutes = 59, seconds = 59;
-            const timerElement = document.getElementById('timer');
-
-            setInterval(() => {
-                if (seconds > 0) {
-                    seconds--;
-                } else if (minutes > 0) {
-                    minutes--;
-                    seconds = 59;
-                } else if (hours > 0) {
-                    hours--;
-                    minutes = 59;
-                    seconds = 59;
-                }
-
-                timerElement.textContent =
-                    `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-            }, 1000);
         });
     </script>
 </body>
