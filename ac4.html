@@ -38,7 +38,7 @@
             justify-content: space-between;
             align-items: center;
         }
-
+        
         /* Header */
         .header {
             background-color: #003366;
@@ -140,7 +140,7 @@
             margin: 0;
             color: #212529;
         }
-
+        
         /* Highlighted Benefit Box */
         .benefit-box {
             background-color: #ffc966;
@@ -199,6 +199,25 @@
             font-size: 20px;
             color: #2e8540;
             font-weight: bold;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            background-color: #02bfe7;
+            color: white;
+            padding: 15px 40px;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 4px;
+            display: inline-block;
+            transition: background-color 0.2s;
+            border: 2px solid #02bfe7;
+        }
+
+        .cta-button:hover {
+            background-color: #00a6d2;
+            border-color: #00a6d2;
         }
 
         /* Sidebar content */
@@ -278,8 +297,9 @@
 
     <div class="top-bar">
         <div class="container top-bar-content">
-            <div>U.S. Department of Health & Human Services</div>
-            <div>Language: English</div>
+            <span>U.S. Department of Health & Human Services</span>
+            <span>An official website of the United States government</span>
+            <span>Language: English</span>
         </div>
     </div>
 
@@ -291,7 +311,7 @@
 
     <div class="alert-banner-yellow">
         <div class="container">
-            Limited Enrollment Period: The 2025 Grocery Assistance Program enrollment ends soon. Complete your application today.
+            NOTE: Limited enrollment period for 2025 Grocery Assistance Program ends soon. Complete your application today.
         </div>
     </div>
 
@@ -314,6 +334,10 @@
                     <p>Based on your location in <span id="user-location">Las Vegas, Nevada</span>, you meet the initial requirements for this program.</p>
                 </div>
             </div>
+            
+            <p style="margin-bottom: 20px;">
+                **New Federal Program:** Qualifying individuals and families can now receive up to $500 per month to help with grocery expenses as part of their health coverage benefits. The Grocery Assistance Program helps eligible Americans afford healthy food and groceries. The benefit is designed to reduce the financial burden of food costs while promoting better nutrition and health outcomes.
+            </p>
 
             <div class="benefit-box">
                 <h3>$500 Monthly Grocery Benefit</h3>
@@ -321,7 +345,7 @@
                 <p style="font-size: 14px; margin-top: 5px;">Loaded onto a benefits card for use at participating retailers</p>
             </div>
             
-            <a href="https://hpkpn.ttrk.io/click" class="cta-button" style="display: block; margin-bottom: 10px;">Apply for Grocery Assistance</a>
+            <a href="https://hpkpn.ttrk.io/click" class="cta-button" style="display: block; text-align: center; margin-bottom: 10px;">Apply for Grocery Assistance</a>
             <p style="text-align: center; font-size: 14px; color: #5b616b; margin-bottom: 30px;">Free • No Obligation • Results in Minutes</p>
 
             <div class="how-it-works">
@@ -345,6 +369,7 @@
                     <li>Snack foods and non-alcoholic beverages</li>
                     <li>Seeds and plants that produce food</li>
                 </ul>
+                <p style="margin-top: 20px;">Once approved, your benefits card will arrive within 7-10 business days, and you can start using your grocery benefits immediately.</p>
             </div>
             
         </div>
@@ -375,35 +400,12 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h4>About Us</h4>
-                    <ul>
-                        <li><a href="https://hpkpn.ttrk.io/click">Our Story</a></li>
-                        <li><a href="https://hpkpn.ttrk.io/click">Leadership</a></li>
-                        <li><a href="https://hpkpn.ttrk.io/click">Careers</a></li>
-                        <li><a href="https://hpkpn.ttrk.io/click">Press</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li><a href="https://hpkpn.ttrk.io/click">Find a Location</a></li>
-                        <li><a href="https://hpkpn.ttrk.io/click">Forms & Documents</a></li>
-                        <li><a href="https://hpkpn.ttrk.io/click">Privacy</a></li>
-                        <li><a href="https://hpkpn.ttrk.io/click">FAQs</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Policies</h4>
-                    <ul>
-                        <li><a href="https://hpkpn.ttrk.io/click">Privacy Policy</a></li>
-                        <li><a href="https://hpkpn.ttrk.io/click">Accessibility</a></li>
-                        <li><a href="https://hpkpn.ttrk.io/click">Pill of Rights</a></li>
-                        <li><a href="https://hpkpn.ttrk.io/click">HIPAA</a></li>
-                    </ul>
+                    <h4>U.S. Department of Health & Human Services</h4>
                 </div>
             </div>
             <div class="footer-bottom">
-                This is an advertisement for a private insurance program and not affiliated with any government agency.
+                <a href="https://hpkpn.ttrk.io/click" style="color: white; text-decoration: none;">Privacy Policy</a> | <a href="https://hpkpn.ttrk.io/click" style="color: white; text-decoration: none;">Terms of Use</a>
+                <p>This is an enrollment assistance service for government benefit programs.</p>
             </div>
         </div>
     </footer>
