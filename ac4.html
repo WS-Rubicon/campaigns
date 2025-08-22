@@ -3,11 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Benefits Portal | Grocery Assistance</title>
+    <title>2025 Grocery Assistance Program</title>
     <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -17,7 +14,7 @@
 
         body {
             font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background-color: #ffffff; /* Page background is now white */
+            background-color: #f7f7f7;
             color: #212529;
             line-height: 1.5;
         }
@@ -28,142 +25,155 @@
             padding: 0 20px;
         }
 
-        /* NEW Top Bar */
-        .top-bar {
+        /* Top Banner */
+        .top-banner {
             background-color: #112e51;
             color: white;
-            padding: 4px 0;
+            padding: 8px 0;
             font-size: 13px;
-            text-align: center;
         }
 
-        /* MODIFIED Header */
+        /* Header */
         .header {
             background-color: #003366;
             color: white;
-            padding: 15px 0;
-            border-bottom: 3px solid #fdb81e;
-        }
-
-        .header-main {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo {
+            padding: 20px 0;
             display: flex;
             align-items: center;
             gap: 15px;
         }
 
         .logo-shield {
-            width: 45px;
-            height: 45px;
+            width: 50px;
+            height: 50px;
             background-color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 700;
+            font-weight: bold;
             color: #003366;
-            font-size: 18px;
+            font-size: 20px;
         }
 
         .site-title {
-            font-size: 24px;
+            font-size: 28px;
             font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        /* Yellow Alert Banner */
+        .alert-banner-yellow {
+            background-color: #ffdd57;
+            border-left: 4px solid #ffcc00;
+            padding: 15px 20px;
+            margin: 0 auto;
+            font-size: 16px;
+            font-weight: 600;
+            color: #4a4a4a;
+            text-align: center;
+        }
+
+        /* Main Content */
+        .main-content {
+            background-color: white;
+            margin: 0 auto 40px;
+            max-width: 1040px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+        }
+
+        .page-header {
+            background-color: #f1f1f1;
+            padding: 30px;
+            border-bottom: 1px solid #d6d7d9;
+        }
+
+        .page-header h1 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #212529;
+            margin-bottom: 10px;
         }
 
         .breadcrumb {
             font-size: 14px;
+            color: #5b616b;
         }
 
         .breadcrumb a {
-            color: white;
+            color: #0071bc;
             text-decoration: none;
-            opacity: 0.8;
         }
 
         .breadcrumb a:hover {
-            opacity: 1;
             text-decoration: underline;
         }
 
-        /* NEW Note Banner */
-        .note-banner {
-            background-color: #fdb81e;
-            color: #112e51;
-            font-weight: 600;
-            padding: 10px 0;
-            text-align: center;
-            font-size: 15px;
+        /* Content Section */
+        .content-section {
+            padding: 40px;
         }
-
-        .main-content {
-            padding: 40px 0;
-        }
-
-        .main-content h1 {
-            text-align: center;
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 25px;
-            color: #112e51;
-        }
-
-        /* MODIFIED Status Box */
+        
         .status-box {
-            background-color: #eaf5eb;
-            border: 1px solid #a3d0a5;
+            background-color: #d6f5d6;
+            border: 1px solid #4aa564;
             border-radius: 4px;
             padding: 20px;
             margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
 
-        .status-box h2 {
-            font-size: 18px;
-            margin: 0 0 5px 0;
-            color: #1c4a24;
-            font-weight: 700;
+        .status-icon {
+            color: #2e8540;
+            font-size: 32px;
         }
 
-        .status-box p {
+        .status-text h3 {
+            font-size: 20px;
+            margin-bottom: 5px;
+            color: #2e8540;
+        }
+
+        .status-text p {
             margin: 0;
             color: #212529;
         }
 
-        /* NEW Details Container (replaces info-grid) */
-        .details-container {
+        /* Info Grid */
+        .info-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            border: 1px solid #d6d7d9;
-            border-radius: 4px;
-            margin-bottom: 30px;
+            gap: 30px;
+            margin-bottom: 40px;
         }
 
-        .details-column {
+        .info-card {
+            background-color: #f8f8f8;
+            border: 1px solid #d6d7d9;
+            padding: 25px;
+            border-radius: 4px;
+        }
+
+        .info-card h4 {
+            font-size: 18px;
+            color: #003366;
+            margin-bottom: 15px;
             display: flex;
-            flex-direction: column;
+            align-items: center;
+            gap: 10px;
         }
         
-        .details-column:first-child {
-            border-right: 1px solid #d6d7d9;
+        .info-card-icon {
+            color: #02bfe7;
+            font-size: 20px;
         }
-
-        .details-header {
-            background-color: #f1f1f1;
-            padding: 10px 15px;
-            font-weight: 700;
-            color: #003366;
-            border-bottom: 1px solid #d6d7d9;
-        }
-
+        
         .info-item {
             display: flex;
             justify-content: space-between;
-            padding: 12px 15px;
-            font-size: 15px;
+            padding: 8px 0;
             border-bottom: 1px solid #e3e4e5;
         }
 
@@ -173,33 +183,110 @@
 
         .info-label {
             color: #5b616b;
-        }
-
-        .info-value {
             font-weight: 600;
         }
         
-        .info-value.highlight-green {
+        .info-value {
+            color: #212529;
+            font-weight: 400;
+        }
+
+        .info-value.highlight {
             color: #2e8540;
+            font-weight: 700;
+        }
+
+        /* How it Works Section */
+        .how-it-works {
+            margin-bottom: 40px;
         }
         
-        .info-value.highlight-red {
-            color: #cd2026;
+        .how-it-works h2 {
+            font-size: 24px;
+            color: #003366;
+            margin-bottom: 20px;
+        }
+
+        .checkmark-list {
+            list-style: none;
+            padding: 0;
         }
         
-        /* MODIFIED Action Section */
+        .checkmark-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 15px;
+            font-size: 16px;
+            color: #4a4a4a;
+        }
+
+        .checkmark-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 20px;
+            color: #2e8540;
+            font-weight: bold;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            margin-bottom: 40px;
+        }
+
+        .testimonials-section h3 {
+            font-size: 28px;
+            text-align: center;
+            color: #003366;
+            margin-bottom: 30px;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .testimonial-photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-quote {
+            font-style: italic;
+            color: #5b616b;
+            margin-bottom: 10px;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: #212529;
+        }
+
+        /* Action Section */
         .action-section {
             background-color: #e1f3f8;
             padding: 30px;
-            border: 1px solid #02bfe7;
             border-radius: 4px;
             text-align: center;
             margin-bottom: 30px;
         }
 
         .action-section h3 {
-            font-size: 22px;
-            margin-bottom: 10px;
+            font-size: 24px;
+            margin-bottom: 15px;
             color: #212529;
         }
 
@@ -207,127 +294,182 @@
             font-size: 16px;
             color: #5b616b;
             margin-bottom: 25px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
         .cta-button {
-            background-color: #003366;
+            background-color: #02bfe7;
             color: white;
             padding: 15px 40px;
-            font-size: 16px;
-            font-weight: 700;
+            font-size: 18px;
+            font-weight: 600;
             text-decoration: none;
             border-radius: 4px;
             display: inline-block;
             transition: background-color 0.2s;
-            border: none;
+            border: 2px solid #02bfe7;
         }
-        
+
         .cta-button:hover {
-             background-color: #112e51;
+            background-color: #00a6d2;
+            border-color: #00a6d2;
         }
 
         .timer-notice {
-            margin-top: 15px;
+            margin-top: 20px;
             font-size: 14px;
             color: #cd2026;
             font-weight: 600;
         }
 
-        /* MODIFIED Security Notice */
+        /* Security Notice */
         .security-notice {
-            background-color: #fffacd; /* Light yellow */
-            border: 1px solid #ffeeba;
+            background-color: #fff4d9;
             padding: 20px;
+            border-left: 4px solid #f90;
+            margin-top: 30px;
             font-size: 14px;
-            border-radius: 4px;
         }
 
         .security-notice h5 {
             font-size: 16px;
             margin-bottom: 10px;
             color: #212529;
-            font-weight: 700;
         }
 
         .security-notice ul {
-            margin: 0;
-            padding-left: 20px;
+            margin-left: 20px;
             color: #5b616b;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #323a45;
+            color: white;
+            padding: 40px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h4 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: #dce4ef;
+            text-decoration: none;
+            font-size: 14px;
+            line-height: 2;
+        }
+
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #5b616b;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 13px;
+            color: #dce4ef;
         }
         
         /* Responsive */
         @media (max-width: 768px) {
-            .details-container {
+            .info-grid {
                 grid-template-columns: 1fr;
             }
-             .details-column:first-child {
-                border-right: none;
-                border-bottom: 1px solid #d6d7d9;
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .page-header h1 {
+                font-size: 28px;
             }
         }
     </style>
 </head>
 <body>
-
-    <div class="top-bar">
-        An official website of the United States government
-    </div>
-
-    <header class="header">
+    <div class="top-banner">
         <div class="container">
-            <div class="header-main">
-                <div class="logo">
-                    <div class="logo-shield">BP</div>
-                    <div class="site-title">Benefits Portal</div>
-                </div>
-                <div class="breadcrumb">
-                    <a href="https://hpkpn.ttrk.io/click">Home</a> / <a href="https://hpkpn.ttrk.io/click">Benefits</a> / Grocery Assistance Program
-                </div>
-            </div>
+            Official U.S. Government Website
+        </div>
+    </div>
+    
+    <header class="header">
+        <div class="container" style="display: flex; align-items: center; gap: 15px;">
+            <div class="logo-shield">BP</div>
+            <div class="site-title">Benefits Portal</div>
         </div>
     </header>
-
-    <div class="note-banner">
-        <strong>NOTE:</strong> Limited enrollment period for 2025 Grocery Assistance Program. Apply today to lock in.
+    
+    <div class="alert-banner-yellow">
+        <div class="container">
+            NOTE: Limited enrollment period for 2025 Grocery Assistance Program. Apply for benefits today.
+        </div>
     </div>
 
-    <main class="main-content">
-        <div class="container">
-            <h1>2025 Grocery Assistance Program</h1>
-
-            <div class="status-box">
-                <h2>Pre-Qualification Status: Eligible</h2>
-                <p>Based on your location in <span id="geo-city-region">your city</span>, you meet the initial requirement for this program.</p>
+    <div class="main-content">
+        <div class="page-header">
+            <div class="container">
+                <div class="breadcrumb">
+                    <a href="https://hpkpn.ttrk.io/click">Home</a> > <a href="https://hpkpn.ttrk.io/click">Benefits</a> > Grocery Assistance Program
+                </div>
+                <h1>2025 Grocery Assistance Program</h1>
             </div>
+        </div>
 
-            <div class="details-container">
-                <div class="details-column">
-                    <div class="details-header">📋 Application Details</div>
+        <div class="content-section container">
+            <div class="status-box">
+                <div class="status-icon">✓</div>
+                <div class="status-text">
+                    <h3>You're Pre-Qualified</h3>
+                    <p>Based on your location in <span id="user-location">Las Vegas, NV</span>, you meet the initial requirements for this program.</p>
+                </div>
+            </div>
+            
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4><span class="info-card-icon">📋</span> Application Details</h4>
                     <div class="info-item">
                         <span class="info-label">Application ID:</span>
-                        <span class="info-value">GAP-2025-<span id="app-id">...</span></span>
+                        <span class="info-value">GAP-2025-<span id="app-id">00000</span></span>
                     </div>
                     <div class="info-item">
                         <span class="info-label">Status:</span>
-                        <span class="info-value highlight-green">Pre-Qualified</span>
+                        <span class="info-value highlight">Pre-Qualified</span>
                     </div>
                     <div class="info-item">
                         <span class="info-label">Location Verified:</span>
-                        <span class="info-value" id="location-verified">...</span>
+                        <span class="info-value" id="location-verified">Las Vegas, NV</span>
                     </div>
                     <div class="info-item">
                         <span class="info-label">Enrollment Deadline:</span>
-                        <span class="info-value highlight-red">24 hours</span>
+                        <span class="info-value" style="color: #cd2026;">24 hours</span>
                     </div>
                 </div>
-                <div class="details-column">
-                    <div class="details-header">💰 Benefit Information</div>
+                
+                <div class="info-card">
+                    <h4><span class="info-card-icon">💰</span> Benefit Information</h4>
                     <div class="info-item">
                         <span class="info-label">Monthly Amount:</span>
-                        <span class="info-value highlight-green">$500.00</span>
+                        <span class="info-value highlight">$500.00</span>
                     </div>
                     <div class="info-item">
                         <span class="info-label">Benefit Type:</span>
@@ -339,79 +481,156 @@
                     </div>
                     <div class="info-item">
                         <span class="info-label">Total Annual Value:</span>
-                        <span class="info-value highlight-green">$6,000.00</span>
+                        <span class="info-value highlight">$6,000.00</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="how-it-works">
+                <h2>How the Program Works</h2>
+                <ul class="checkmark-list">
+                    <li>Monthly benefits loaded onto a program card</li>
+                    <li>Use at participating grocery stores and supermarkets</li>
+                    <li>Purchase healthy foods including fruits, vegetables, dairy, meat, and more</li>
+                    <li>No restrictions on brand choices</li>
+                    <li>Benefits do not expire within the month</li>
+                </ul>
+                
+                <h2>What Can You Buy?</h2>
+                <ul class="checkmark-list">
+                    <li>Fresh fruits and vegetables</li>
+                    <li>Meat, poultry, and fish</li>
+                    <li>Dairy products</li>
+                    <li>Bread and cereals</li>
+                    <li>Snack foods and non-alcoholic beverages</li>
+                    <li>Seeds and plants that produce food</li>
+                </ul>
+                <p style="margin-top: 20px;">Once approved, your benefits card will arrive within 7-10 business days, and you can start using your grocery benefits immediately.</p>
+            </div>
+            
+            <div class="testimonials-section">
+                <h3>What People Are Saying</h3>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png" alt="Testimonial Photo" class="testimonial-photo">
+                        <div class="testimonial-quote">"This card has made it so much easier to feed my family healthy meals. I can finally put money aside for my kids' future."</div>
+                        <div class="testimonial-author">— Maria S.</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png" alt="Testimonial Photo" class="testimonial-photo">
+                        <div class="testimonial-quote">"I was worried about rising grocery prices, but this program has taken a huge weight off my shoulders. It's a lifesaver."</div>
+                        <div class="testimonial-author">— David L.</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png" alt="Testimonial Photo" class="testimonial-photo">
+                        <div class="testimonial-quote">"The benefits came in a lot faster than I expected. It was a simple process and I was able to use the card the very next day."</div>
+                        <div class="testimonial-author">— Sarah K.</div>
                     </div>
                 </div>
             </div>
 
             <div class="action-section">
-                <h3>Complete Your Enrollment</h3>
-                <p>You've been pre-qualified for the 2025 Grocery Assistance Program. Complete your enrollment to secure your benefits.</p>
-                <a href="https://hpkpn.ttrk.io/click" class="cta-button">CONTINUE TO ENROLLMENT</a>
+                <h3>Final Step: Secure Your $500/Month Benefits</h3>
+                <p>This is a limited-time opportunity to enroll. Don't let your pre-qualified status expire.</p>
+                <a href="https://hpkpn.ttrk.io/click" class="cta-button">Complete Your Enrollment Now →</a>
                 <div class="timer-notice">
                     ⏰ Your pre-qualified status expires in: <span id="timer">23:59:59</span>
                 </div>
             </div>
-
+            
             <div class="security-notice">
                 <h5>🔒 Security & Privacy Notice</h5>
+                <p>This is a secure government website. We follow strict security protocols to protect your information:</p>
                 <ul>
-                    <li>Your information is encrypted and secure.</li>
-                    <li>We will never share your personal data without consent.</li>
-                    <li>This enrollment process takes approximately 60 seconds.</li>
+                    <li>Your information is encrypted and secure</li>
+                    <li>We will never share your personal data without consent</li>
+                    <li>This enrollment process takes approximately 60 seconds</li>
                 </ul>
             </div>
         </div>
     </main>
 
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>About Us</h4>
+                    <ul>
+                        <li><a href="https://hpkpn.ttrk.io/click">Our Story</a></li>
+                        <li><a href="https://hpkpn.ttrk.io/click">Leadership</a></li>
+                        <li><a href="https://hpkpn.ttrk.io/click">Careers</a></li>
+                        <li><a href="https://hpkpn.ttrk.io/click">Press</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Program Support</h4>
+                    <ul>
+                        <li><a href="https://hpkpn.ttrk.io/click">Contact Us</a></li>
+                        <li><a href="https://hpkpn.ttrk.io/click">FAQs</a></li>
+                        <li><a href="https://hpkpn.ttrk.io/click">Find a Location</a></li>
+                        <li><a href="https://hpkpn.ttrk.io/click">Language Assistance</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="https://hpkpn.ttrk.io/click">Privacy Policy</a></li>
+                        <li><a href="https://hpkpn.ttrk.io/click">Terms of Service</a></li>
+                        <li><a href="https://hpkpn.ttrk.io/click">Accessibility</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="https://hpkpn.ttrk.io/click">Facebook</a></li>
+                        <li><a href="https://hpkpn.ttrk.io/click">Twitter</a></li>
+                        <li><a href="https://hpkpn.ttrk.io/click">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                This is an advertisement for a private insurance program and not affiliated with any government agency.
+            </div>
+        </div>
+    </footer>
+
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // 1. Generate random application ID
+        document.addEventListener("DOMContentLoaded", () => {
+            // Generate random application ID
             const appId = Math.floor(10000 + Math.random() * 90000);
             document.getElementById('app-id').textContent = appId;
-
-            // 2. Fetch Geolocation
-            async function updateLocation() {
-                const cityRegionEl = document.getElementById('geo-city-region');
-                const locationVerifiedEl = document.getElementById('location-verified');
-                try {
-                    const response = await fetch('https://geo.ipify.org/api/v2/country,city?apiKey=at_JKtyyWskmuI07I6RieQ3a6EBhlt5T');
-                    if (!response.ok) throw new Error('API request failed');
-                    const data = await response.json();
-                    const location = `${data.location.city}, ${data.location.region}`;
-                    cityRegionEl.textContent = location;
-                    locationVerifiedEl.textContent = location;
-                } catch (error) {
-                    console.error('Error fetching location:', error);
-                    cityRegionEl.textContent = 'your area';
-                    locationVerifiedEl.textContent = 'your area';
-                }
-            }
             
-            // 3. Start the 24-hour countdown timer
-            function startTimer() {
-                let hours = 23, minutes = 59, seconds = 59;
-                const timerElement = document.getElementById('timer');
-                
-                setInterval(() => {
-                    if (seconds > 0) {
-                        seconds--;
-                    } else if (minutes > 0) {
-                        minutes--;
-                        seconds = 59;
-                    } else if (hours > 0) {
-                        hours--;
-                        minutes = 59;
-                        seconds = 59;
-                    }
-                    
-                    timerElement.textContent = 
-                        `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-                }, 1000);
-            }
+            // Get real geo-location using ipify API
+            fetch('https://geo.ipify.org/api/v2/country,city?apiKey=at_JKtyyWskmuI07I6RieQ3a6EBhlt5T')
+                .then(response => response.json())
+                .then(data => {
+                    const userLocation = `${data.location.city || 'your city'}, ${data.location.region || 'your state'}`;
+                    document.getElementById('user-location').textContent = userLocation;
+                    document.getElementById('location-verified').textContent = userLocation;
+                })
+                .catch(error => {
+                    console.error('Error fetching location:', error);
+                });
+            
+            // Countdown timer
+            let hours = 23, minutes = 59, seconds = 59;
+            const timerElement = document.getElementById('timer');
 
-            updateLocation();
-            startTimer();
+            setInterval(() => {
+                if (seconds > 0) {
+                    seconds--;
+                } else if (minutes > 0) {
+                    minutes--;
+                    seconds = 59;
+                } else if (hours > 0) {
+                    hours--;
+                    minutes = 59;
+                    seconds = 59;
+                }
+
+                timerElement.textContent =
+                    `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            }, 1000);
         });
     </script>
 </body>
