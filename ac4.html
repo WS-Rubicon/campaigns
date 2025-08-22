@@ -412,6 +412,7 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
+            // Select the span element for user location
             const userLocationElement = document.getElementById('user-location');
             
             // Get real geo-location using ipify API
@@ -423,6 +424,8 @@
                 })
                 .catch(error => {
                     console.error('Error fetching location:', error);
+                    // Fallback to a generic location if API fails
+                    userLocationElement.textContent = 'your city, your state';
                 });
         });
     </script>
