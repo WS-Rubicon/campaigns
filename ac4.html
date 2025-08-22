@@ -1,430 +1,430 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Healthcare.gov - Marketplace Coverage</title>
-    <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare.gov - Marketplace Coverage</title>
+    <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-        body {
-            font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background-color: #f7f7f7;
-            color: #212529;
-            line-height: 1.5;
-        }
+        body {
+            font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f7f7f7;
+            color: #212529;
+            line-height: 1.5;
+        }
 
-        .container {
-            max-width: 1040px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+        .container {
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-        /* Top Bar */
-        .top-bar {
-            background-color: #0d284a;
-            color: white;
-            padding: 5px 0;
-            font-size: 12px;
-        }
+        /* Top Bar */
+        .top-bar {
+            background-color: #0d284a;
+            color: white;
+            padding: 5px 0;
+            font-size: 12px;
+        }
 
-        .top-bar-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        /* Header */
-        .header {
-            background-color: #003366;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-        }
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        /* Header */
+        .header {
+            background-color: #003366;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
 
-        .header h1 {
-            font-size: 28px;
-        }
+        .header h1 {
+            font-size: 28px;
+        }
 
-        /* Yellow Alert Banner */
-        .alert-banner-yellow {
-            background-color: #ffdd57;
-            border-left: 4px solid #ffcc00;
-            padding: 15px 20px;
-            margin: 0 auto;
-            font-size: 16px;
-            font-weight: 600;
-            color: #4a4a4a;
-            text-align: center;
-        }
+        /* Yellow Alert Banner */
+        .alert-banner-yellow {
+            background-color: #ffdd57;
+            border-left: 4px solid #ffcc00;
+            padding: 15px 20px;
+            margin: 0 auto;
+            font-size: 16px;
+            font-weight: 600;
+            color: #4a4a4a;
+            text-align: center;
+        }
 
-        /* Navigation */
-        .navigation {
-            background-color: #fff;
-            border-bottom: 1px solid #d6d7d9;
-            padding: 15px 0;
-        }
+        /* Navigation */
+        .navigation {
+            background-color: #fff;
+            border-bottom: 1px solid #d6d7d9;
+            padding: 15px 0;
+        }
 
-        .breadcrumb a {
-            color: #0071bc;
-            text-decoration: none;
-            font-size: 14px;
-        }
-        
-        .breadcrumb a:hover {
-            text-decoration: underline;
-        }
-        
-        .breadcrumb span {
-            color: #5b616b;
-        }
+        .breadcrumb a {
+            color: #0071bc;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        .breadcrumb span {
+            color: #5b616b;
+        }
 
-        /* Main Layout */
-        .page-layout {
-            display: flex;
-            gap: 30px;
-            margin-top: 20px;
-        }
+        /* Main Layout */
+        .page-layout {
+            display: flex;
+            gap: 30px;
+            margin-top: 20px;
+        }
 
-        .main-content {
-            flex: 3;
-            background-color: white;
-            padding: 30px;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-        }
-        
-        .main-content h2 {
-            font-size: 28px;
-            font-weight: 700;
-            color: #212529;
-            margin-bottom: 20px;
-        }
+        .main-content {
+            flex: 3;
+            background-color: white;
+            padding: 30px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+        }
+        
+        .main-content h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #212529;
+            margin-bottom: 20px;
+        }
 
-        .sidebar {
-            flex: 1;
-            background-color: #f1f1f1;
-            padding: 20px;
-            border-radius: 4px;
-        }
+        .sidebar {
+            flex: 1;
+            background-color: #f1f1f1;
+            padding: 20px;
+            border-radius: 4px;
+        }
 
-        /* Status Box */
-        .status-box {
-            background-color: #d6f5d6;
-            border: 1px solid #4aa564;
-            border-radius: 4px;
-            padding: 20px;
-            margin-bottom: 30px;
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-        }
+        /* Status Box */
+        .status-box {
+            background-color: #d6f5d6;
+            border: 1px solid #4aa564;
+            border-radius: 4px;
+            padding: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
 
-        .status-icon {
-            color: #2e8540;
-            font-size: 24px;
-            margin-top: 2px;
-        }
+        .status-icon {
+            color: #2e8540;
+            font-size: 24px;
+            margin-top: 2px;
+        }
 
-        .status-text h3 {
-            font-size: 20px;
-            margin-bottom: 5px;
-            color: #2e8540;
-        }
+        .status-text h3 {
+            font-size: 20px;
+            margin-bottom: 5px;
+            color: #2e8540;
+        }
 
-        .status-text p {
-            margin: 0;
-            color: #212529;
-        }
-        
-        /* Highlighted Benefit Box */
-        .benefit-box {
-            background-color: #ffc966;
-            padding: 25px;
-            border-radius: 4px;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        
-        .benefit-box h3 {
-            font-size: 32px;
-            color: #003366;
-            margin-bottom: 10px;
-        }
-        
-        .benefit-box p {
-            font-size: 18px;
-            color: #212529;
-        }
-        
-        .benefit-box .highlight {
-            font-size: 24px;
-            font-weight: 700;
-            color: #2e8540;
-        }
+        .status-text p {
+            margin: 0;
+            color: #212529;
+        }
+        
+        /* Highlighted Benefit Box */
+        .benefit-box {
+            background-color: #ffc966;
+            padding: 25px;
+            border-radius: 4px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .benefit-box h3 {
+            font-size: 32px;
+            color: #003366;
+            margin-bottom: 10px;
+        }
+        
+        .benefit-box p {
+            font-size: 18px;
+            color: #212529;
+        }
+        
+        .benefit-box .highlight {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2e8540;
+        }
 
-        /* How it Works */
-        .how-it-works {
-            margin-bottom: 30px;
-        }
+        /* How it Works */
+        .how-it-works {
+            margin-bottom: 30px;
+        }
 
-        .how-it-works h4 {
-            font-size: 20px;
-            color: #003366;
-            margin-bottom: 15px;
-        }
+        .how-it-works h4 {
+            font-size: 20px;
+            color: #003366;
+            margin-bottom: 15px;
+        }
 
-        .checkmark-list {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .checkmark-list li {
-            position: relative;
-            padding-left: 30px;
-            margin-bottom: 10px;
-            font-size: 16px;
-            color: #4a4a4a;
-        }
-        
-        .checkmark-list li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            top: 0;
-            font-size: 20px;
-            color: #2e8540;
-            font-weight: bold;
-        }
+        .checkmark-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .checkmark-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: #4a4a4a;
+        }
+        
+        .checkmark-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 20px;
+            color: #2e8540;
+            font-weight: bold;
+        }
 
-        /* CTA Button */
-        .cta-button {
-            background-color: #02bfe7;
-            color: white;
-            padding: 15px 40px;
-            font-size: 18px;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 4px;
-            display: inline-block;
-            transition: background-color 0.2s;
-            border: 2px solid #02bfe7;
-        }
+        /* CTA Button */
+        .cta-button {
+            background-color: #02bfe7;
+            color: white;
+            padding: 15px 40px;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 4px;
+            display: inline-block;
+            transition: background-color 0.2s;
+            border: 2px solid #02bfe7;
+        }
 
-        .cta-button:hover {
-            background-color: #00a6d2;
-            border-color: #00a6d2;
-        }
+        .cta-button:hover {
+            background-color: #00a6d2;
+            border-color: #00a6d2;
+        }
 
-        /* Sidebar content */
-        .sidebar-box {
-            background-color: white;
-            padding: 15px;
-            margin-bottom: 20px;
-            border-radius: 4px;
-            border: 1px solid #d6d7d9;
-        }
+        /* Sidebar content */
+        .sidebar-box {
+            background-color: white;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            border: 1px solid #d6d7d9;
+        }
 
-        .sidebar h4 {
-            font-size: 18px;
-            color: #003366;
-            margin-bottom: 10px;
-        }
-        
-        .sidebar ul {
-            list-style: none;
-        }
+        .sidebar h4 {
+            font-size: 18px;
+            color: #003366;
+            margin-bottom: 10px;
+        }
+        
+        .sidebar ul {
+            list-style: none;
+        }
 
-        .sidebar li a {
-            display: block;
-            padding: 8px 0;
-            color: #0071bc;
-            text-decoration: none;
-        }
+        .sidebar li a {
+            display: block;
+            padding: 8px 0;
+            color: #0071bc;
+            text-decoration: none;
+        }
 
-        .sidebar li a:hover {
-            text-decoration: underline;
-        }
+        .sidebar li a:hover {
+            text-decoration: underline;
+        }
 
-        /* Footer */
-        .footer {
-            background-color: #0d284a;
-            color: white;
-            padding: 40px 0;
-        }
+        /* Footer */
+        .footer {
+            background-color: #0d284a;
+            color: white;
+            padding: 40px 0;
+        }
 
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-bottom: 20px;
-        }
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 20px;
+        }
 
-        .footer-section h4 {
-            font-size: 16px;
-            margin-bottom: 15px;
-            color: white;
-        }
+        .footer-section h4 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: white;
+        }
 
-        .footer-section ul {
-            list-style: none;
-        }
+        .footer-section ul {
+            list-style: none;
+        }
 
-        .footer-section a {
-            color: #dce4ef;
-            text-decoration: none;
-            line-height: 2;
-            font-size: 14px;
-        }
-        .footer-section a:hover {
-            text-decoration: underline;
-        }
+        .footer-section a {
+            color: #dce4ef;
+            text-decoration: none;
+            line-height: 2;
+            font-size: 14px;
+        }
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
 
-        .footer-bottom {
-            border-top: 1px solid #4a545c;
-            padding-top: 20px;
-            text-align: center;
-            font-size: 13px;
-            color: #ccc;
-        }
-    </style>
+        .footer-bottom {
+            border-top: 1px solid #4a545c;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 13px;
+            color: #ccc;
+        }
+    </style>
 </head>
 <body>
 
-    <div class="top-bar">
-        <div class="container top-bar-content">
-            <span>U.S. Department of Health & Human Services</span>
-            <span>An official website of the United States government</span>
-            <span>Language: English</span>
-        </div>
-    </div>
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <span>U.S. Department of Health & Human Services</span>
+            <span>An official website of the United States government</span>
+            <span>Language: English</span>
+        </div>
+    </div>
 
-    <header class="header">
-        <div class="container">
-            <h1>Healthcare.gov - Marketplace Coverage</h1>
-        </div>
-    </header>
+    <header class="header">
+        <div class="container">
+            <h1>Healthcare.gov - Marketplace Coverage</h1>
+        </div>
+    </header>
 
-    <div class="alert-banner-yellow">
-        <div class="container">
-            NOTE: Limited enrollment period for 2025 Grocery Assistance Program ends soon. Complete your application today.
-        </div>
-    </div>
+    <div class="alert-banner-yellow">
+        <div class="container">
+            NOTE: Limited enrollment period for 2025 Grocery Assistance Program ends soon. Complete your application today.
+        </div>
+    </div>
 
-    <div class="navigation">
-        <div class="container">
-            <div class="breadcrumb">
-                <a href="https://hpkpn.ttrk.io/click">Home</a> > <a href="https://hpkpn.ttrk.io/click">Benefits</a> > <span>Grocery Assistance Program</span>
-            </div>
-        </div>
-    </div>
-    
-    <div class="container page-layout">
-        <div class="main-content">
-            <h2>2025 Grocery Assistance Program</h2>
-            
-            <div class="status-box">
-                <div class="status-icon">✓</div>
-                <div class="status-text">
-                    <h3>You're Pre-Qualified</h3>
-                    <p>Based on your location in <span id="user-location">Las Vegas, Nevada</span>, you meet the initial requirements for this program.</p>
-                </div>
-            </div>
-            
-            <p style="margin-bottom: 20px;">
-                **New Federal Program:** Qualifying individuals and families can now receive up to $500 per month to help with grocery expenses as part of their health coverage benefits. The Grocery Assistance Program helps eligible Americans afford healthy food and groceries. The benefit is designed to reduce the financial burden of food costs while promoting better nutrition and health outcomes.
-            </p>
+    <div class="navigation">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="https://hpkpn.ttrk.io/click">Home</a> > <a href="https://hpkpn.ttrk.io/click">Benefits</a> > <span>Grocery Assistance Program</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container page-layout">
+        <div class="main-content">
+            <h2>2025 Grocery Assistance Program</h2>
+            
+            <div class="status-box">
+                <div class="status-icon">✓</div>
+                <div class="status-text">
+                    <h3>You're Pre-Qualified</h3>
+                    <p>Based on your location in <span id="user-location"></span>, you meet the initial requirements for this program.</p>
+                </div>
+            </div>
+            
+            <p style="margin-bottom: 20px;">
+                **New Federal Program:** Qualifying individuals and families can now receive up to $500 per month to help with grocery expenses as part of their health coverage benefits. The Grocery Assistance Program helps eligible Americans afford healthy food and groceries. The benefit is designed to reduce the financial burden of food costs while promoting better nutrition and health outcomes.
+            </p>
 
-            <div class="benefit-box">
-                <h3>$500 Monthly Grocery Benefit</h3>
-                <p>Receive up to <span class="highlight">$500</span> each month for groceries</p>
-                <p style="font-size: 14px; margin-top: 5px;">Loaded onto a benefits card for use at participating retailers</p>
-            </div>
-            
-            <a href="https://hpkpn.ttrk.io/click" class="cta-button" style="display: block; text-align: center; margin-bottom: 10px;">Apply for Grocery Assistance</a>
-            <p style="text-align: center; font-size: 14px; color: #5b616b; margin-bottom: 30px;">Free • No Obligation • Results in Minutes</p>
+            <div class="benefit-box">
+                <h3>$500 Monthly Grocery Benefit</h3>
+                <p>Receive up to <span class="highlight">$500</span> each month for groceries</p>
+                <p style="font-size: 14px; margin-top: 5px;">Loaded onto a benefits card for use at participating retailers</p>
+            </div>
+            
+            <a href="https://hpkpn.ttrk.io/click" class="cta-button" style="display: block; text-align: center; margin-bottom: 10px;">Apply for Grocery Assistance</a>
+            <p style="text-align: center; font-size: 14px; color: #5b616b; margin-bottom: 30px;">Free • No Obligation • Results in Minutes</p>
 
-            <div class="how-it-works">
-                <h4>How the Program Works</h4>
-                <ul class="checkmark-list">
-                    <li>Monthly benefits loaded onto a program card</li>
-                    <li>Use at participating grocery stores and supermarkets</li>
-                    <li>Purchase healthy foods including fruits, vegetables, dairy, meat, and more</li>
-                    <li>No restrictions on brand choices</li>
-                    <li>Benefits do not expire within the month</li>
-                </ul>
-            </div>
-            
-            <div class="how-it-works">
-                <h4>What Can You Buy?</h4>
-                <ul class="checkmark-list">
-                    <li>Fresh fruits and vegetables</li>
-                    <li>Meat, poultry, and fish</li>
-                    <li>Dairy products</li>
-                    <li>Bread and cereals</li>
-                    <li>Snack foods and non-alcoholic beverages</li>
-                    <li>Seeds and plants that produce food</li>
-                </ul>
-                <p style="margin-top: 20px;">Once approved, your benefits card will arrive within 7-10 business days, and you can start using your grocery benefits immediately.</p>
-            </div>
-            
-        </div>
+            <div class="how-it-works">
+                <h4>How the Program Works</h4>
+                <ul class="checkmark-list">
+                    <li>Monthly benefits loaded onto a program card</li>
+                    <li>Use at participating grocery stores and supermarkets</li>
+                    <li>Purchase healthy foods including fruits, vegetables, dairy, meat, and more</li>
+                    <li>No restrictions on brand choices</li>
+                    <li>Benefits do not expire within the month</li>
+                </ul>
+            </div>
+            
+            <div class="how-it-works">
+                <h4>What Can You Buy?</h4>
+                <ul class="checkmark-list">
+                    <li>Fresh fruits and vegetables</li>
+                    <li>Meat, poultry, and fish</li>
+                    <li>Dairy products</li>
+                    <li>Bread and cereals</li>
+                    <li>Snack foods and non-alcoholic beverages</li>
+                    <li>Seeds and plants that produce food</li>
+                </ul>
+                <p style="margin-top: 20px;">Once approved, your benefits card will arrive within 7-10 business days, and you can start using your grocery benefits immediately.</p>
+            </div>
+            
+        </div>
 
-        <div class="sidebar">
-            <div class="sidebar-box">
-                <h4>Need Help?</h4>
-                <p style="margin-bottom: 15px; font-size: 14px;">Enrollment specialists are available:</p>
-                <p style="font-size: 14px; color: #5b616b;">Mon-Fri: 8am-8pm EST</p>
-                <p style="font-size: 14px; color: #5b616b;">Sat-Sun: 9am-6pm EST</p>
-            </div>
-            <div class="sidebar-box">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="https://hpkpn.ttrk.io/click">Eligibility Calculator</a></li>
-                    <li><a href="https://hpkpn.ttrk.io/click">Find Participating Stores</a></li>
-                    <li><a href="https://hpkpn.ttrk.io/click">Program FAQ</a></li>
-                    <li><a href="https://hpkpn.ttrk.io/click">Contact Support</a></li>
-                </ul>
-            </div>
-            <div class="sidebar-box" style="text-align: center; color: #5b616b;">
-                <p style="font-weight: 600; font-size: 14px;">23,847 people enrolled this week</p>
-            </div>
-        </div>
-    </div>
-    
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>U.S. Department of Health & Human Services</h4>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <a href="https://hpkpn.ttrk.io/click" style="color: white; text-decoration: none;">Privacy Policy</a> | <a href="https://hpkpn.ttrk.io/click" style="color: white; text-decoration: none;">Terms of Use</a>
-                <p>This is an enrollment assistance service for government benefit programs.</p>
-            </div>
-        </div>
-    </footer>
+        <div class="sidebar">
+            <div class="sidebar-box">
+                <h4>Need Help?</h4>
+                <p style="margin-bottom: 15px; font-size: 14px;">Enrollment specialists are available:</p>
+                <p style="font-size: 14px; color: #5b616b;">Mon-Fri: 8am-8pm EST</p>
+                <p style="font-size: 14px; color: #5b616b;">Sat-Sun: 9am-6pm EST</p>
+            </div>
+            <div class="sidebar-box">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="https://hpkpn.ttrk.io/click">Eligibility Calculator</a></li>
+                    <li><a href="https://hpkpn.ttrk.io/click">Find Participating Stores</a></li>
+                    <li><a href="https://hpkpn.ttrk.io/click">Program FAQ</a></li>
+                    <li><a href="https://hpkpn.ttrk.io/click">Contact Support</a></li>
+                </ul>
+            </div>
+            <div class="sidebar-box" style="text-align: center; color: #5b616b;">
+                <p style="font-weight: 600; font-size: 14px;">23,847 people enrolled this week</p>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>U.S. Department of Health & Human Services</h4>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <a href="https://hpkpn.ttrk.io/click" style="color: white; text-decoration: none;">Privacy Policy</a> | <a href="https://hpkpn.ttrk.io/click" style="color: white; text-decoration: none;">Terms of Use</a>
+                <p>This is an enrollment assistance service for government benefit programs.</p>
+            </div>
+        </div>
+    </footer>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const userLocationElement = document.getElementById('user-location');
-            
-            // Get real geo-location using ipify API
-            fetch('https://geo.ipify.org/api/v2/country,city?apiKey=at_JKtyyWskmuI07I6RieQ3a6EBhlt5T')
-                .then(response => response.json())
-                .then(data => {
-                    const userLocation = `${data.location.city || 'your city'}, ${data.location.region || 'your state'}`;
-                    userLocationElement.textContent = userLocation;
-                })
-                .catch(error => {
-                    console.error('Error fetching location:', error);
-                });
-        });
-    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const userLocationElement = document.getElementById('user-location');
+            
+            // Get real geo-location using ipify API
+            fetch('https://geo.ipify.org/api/v2/country,city?apiKey=at_JKtyyWskmuI07I6RieQ3a6EBhlt5T')
+                .then(response => response.json())
+                .then(data => {
+                    const userLocation = `${data.location.city || 'your city'}, ${data.location.region || 'your state'}`;
+                    userLocationElement.textContent = userLocation;
+                })
+                .catch(error => {
+                    console.error('Error fetching location:', error);
+                });
+        });
+    </script>
 </body>
 </html>
