@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Official Enrollment Portal | Grocery Benefits</title>
+    <title>Healthcare.gov & Walmart | Grocery Benefits</title>
     <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
     <style>
         * {
@@ -19,119 +19,102 @@
             line-height: 1.5;
         }
 
-        /* Header */
-        .header {
-            background-color: #003366;
-            color: white;
-            padding: 0;
-        }
-
-        .header-top {
-            background-color: #112e51;
-            padding: 8px 0;
-            font-size: 13px;
-        }
-
         .container {
             max-width: 1040px;
             margin: 0 auto;
             padding: 0 20px;
         }
-
-        .header-main {
-            padding: 20px 0;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .logo-shield {
-            width: 50px;
-            height: 50px;
-            background-color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: #003366;
-            font-size: 20px;
-        }
-
-        .site-title {
-            font-size: 28px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
-
-        /* Alert Banner */
-        .alert-banner {
-            background-color: #e1f3f8;
-            border-left: 4px solid #02bfe7;
-            padding: 20px;
-            margin: 20px 0;
-            display: flex;
-            align-items: start;
-            gap: 15px;
-        }
-
-        .alert-icon {
-            color: #02bfe7;
-            font-size: 24px;
-            margin-top: 2px;
-        }
-
-        .alert-content h2 {
-            font-size: 20px;
-            margin-bottom: 5px;
-            color: #212529;
-        }
-
-        .alert-content p {
-            color: #5b616b;
-            margin: 0;
-        }
-
-        /* Main Content */
-        .main-content {
-            background-color: white;
-            margin: 0 auto 40px;
-            max-width: 1040px;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-        }
-
-        .page-header {
-            background-color: #f1f1f1;
-            padding: 30px;
+        
+        /* New Top Bar */
+        .hhs-top-bar {
+            background-color: #003058;
+            padding: 10px 0;
+            color: white;
             border-bottom: 1px solid #d6d7d9;
+            text-align: center;
         }
-
-        .page-header h1 {
-            font-size: 36px;
-            font-weight: 700;
-            color: #212529;
-            margin-bottom: 10px;
-        }
-
-        .breadcrumb {
+        
+        .hhs-top-bar-content {
             font-size: 14px;
-            color: #5b616b;
+        }
+        
+        /* Main Header - White with Walmart Image */
+        .main-header {
+            background-color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .main-header img {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        /* Yellow Alert Banner */
+        .alert-banner-yellow {
+            background-color: #ffc966;
+            border-left: 4px solid #f9a825;
+            padding: 15px 20px;
+            margin: 0 auto;
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            text-align: center;
+        }
+
+        /* Navigation */
+        .navigation {
+            background-color: #fff;
+            border-bottom: 1px solid #d6d7d9;
+            padding: 15px 0;
         }
 
         .breadcrumb a {
             color: #0071bc;
             text-decoration: none;
+            font-size: 14px;
         }
-
+        
         .breadcrumb a:hover {
             text-decoration: underline;
         }
-
-        /* Content Section */
-        .content-section {
-            padding: 40px;
+        
+        .breadcrumb span {
+            color: #5b616b;
         }
 
+        /* Main Layout */
+        .page-layout {
+            display: flex;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .main-content {
+            flex: 3;
+            background-color: white;
+            padding: 30px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+        }
+        
+        .main-content h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #212529;
+            margin-bottom: 20px;
+        }
+
+        .sidebar {
+            flex: 1;
+            background-color: #f1f1f1;
+            padding: 20px;
+            border-radius: 4px;
+        }
+
+        /* Status Box */
         .status-box {
             background-color: #d6f5d6;
             border: 1px solid #4aa564;
@@ -139,13 +122,14 @@
             padding: 20px;
             margin-bottom: 30px;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 15px;
         }
 
         .status-icon {
             color: #2e8540;
-            font-size: 32px;
+            font-size: 24px;
+            margin-top: 2px;
         }
 
         .status-text h3 {
@@ -158,128 +142,68 @@
             margin: 0;
             color: #212529;
         }
-
-        /* Info Grid */
-        .info-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .info-card {
-            background-color: #f8f8f8;
-            border: 1px solid #d6d7d9;
+        
+        /* Highlighted Benefit Box */
+        .benefit-box {
+            background-color: #ffc966;
             padding: 25px;
             border-radius: 4px;
-        }
-
-        .info-card h4 {
-            font-size: 18px;
-            color: #003366;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .info-card-icon {
-            color: #02bfe7;
-            font-size: 20px;
-        }
-
-        .info-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 8px 0;
-            border-bottom: 1px solid #e3e4e5;
-        }
-
-        .info-item:last-child {
-            border-bottom: none;
-        }
-
-        .info-label {
-            color: #5b616b;
-            font-weight: 600;
-        }
-
-        .info-value {
-            color: #212529;
-            font-weight: 400;
-        }
-
-        .info-value.highlight {
-            color: #2e8540;
-            font-weight: 700;
-        }
-
-        /* Testimonials Section */
-        .testimonials-section {
-            margin-bottom: 40px;
-        }
-
-        .testimonials-section h3 {
-            font-size: 28px;
             text-align: center;
-            color: #003366;
             margin-bottom: 30px;
         }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .testimonial-card {
-            background-color: #ffffff;
-            border-radius: 8px;
-            padding: 25px;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        .testimonial-photo {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 15px;
-        }
-
-        .testimonial-quote {
-            font-style: italic;
-            color: #5b616b;
+        
+        .benefit-box h3 {
+            font-size: 32px;
+            color: #003366;
             margin-bottom: 10px;
         }
-
-        .testimonial-author {
-            font-weight: bold;
+        
+        .benefit-box p {
+            font-size: 18px;
             color: #212529;
         }
+        
+        .benefit-box .highlight {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2e8540;
+        }
 
-        /* Action Section */
-        .action-section {
-            background-color: #e1f3f8;
-            padding: 30px;
-            border-radius: 4px;
-            text-align: center;
+        /* How it Works */
+        .how-it-works {
             margin-bottom: 30px;
         }
 
-        .action-section h3 {
-            font-size: 24px;
+        .how-it-works h4 {
+            font-size: 20px;
+            color: #003366;
             margin-bottom: 15px;
-            color: #212529;
         }
 
-        .action-section p {
+        .checkmark-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .checkmark-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 10px;
             font-size: 16px;
-            color: #5b616b;
-            margin-bottom: 25px;
+            color: #4a4a4a;
+        }
+        
+        .checkmark-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 20px;
+            color: #2e8540;
+            font-weight: bold;
         }
 
+        /* CTA Button */
         .cta-button {
             background-color: #02bfe7;
             color: white;
@@ -298,51 +222,54 @@
             border-color: #00a6d2;
         }
 
-        .timer-notice {
-            margin-top: 20px;
-            font-size: 14px;
-            color: #cd2026;
-            font-weight: 600;
+        /* Sidebar content */
+        .sidebar-box {
+            background-color: white;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            border: 1px solid #d6d7d9;
         }
 
-        /* Security Notice */
-        .security-notice {
-            background-color: #f8f8f8;
-            padding: 20px;
-            border-left: 4px solid #5b616b;
-            margin-top: 30px;
-            font-size: 14px;
-        }
-
-        .security-notice h5 {
-            font-size: 16px;
+        .sidebar h4 {
+            font-size: 18px;
+            color: #003366;
             margin-bottom: 10px;
-            color: #212529;
+        }
+        
+        .sidebar ul {
+            list-style: none;
         }
 
-        .security-notice ul {
-            margin-left: 20px;
-            color: #5b616b;
+        .sidebar li a {
+            display: block;
+            padding: 8px 0;
+            color: #0071bc;
+            text-decoration: none;
+        }
+
+        .sidebar li a:hover {
+            text-decoration: underline;
         }
 
         /* Footer */
         .footer {
-            background-color: #323a45;
+            background-color: #0d284a;
             color: white;
-            padding: 40px 0 20px;
+            padding: 40px 0;
         }
 
         .footer-content {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 20px;
         }
 
         .footer-section h4 {
             font-size: 16px;
-            margin-bottom: 15px;
             color: white;
+            margin-bottom: 15px;
         }
 
         .footer-section ul {
@@ -352,77 +279,59 @@
         .footer-section a {
             color: #dce4ef;
             text-decoration: none;
-            font-size: 14px;
             line-height: 2;
+            font-size: 14px;
         }
-
         .footer-section a:hover {
             text-decoration: underline;
         }
 
         .footer-bottom {
-            border-top: 1px solid #5b616b;
+            border-top: 1px solid #4a545c;
             padding-top: 20px;
             text-align: center;
             font-size: 13px;
-            color: #dce4ef;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .info-grid {
-                grid-template-columns: 1fr;
-            }
-            .testimonials-grid {
-                grid-template-columns: 1fr;
-            }
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-            .header-main {
-                flex-direction: column;
-                text-align: center;
-            }
-            .page-header h1 {
-                font-size: 28px;
-            }
+            color: #ccc;
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <div class="header-top">
-            <div class="container">
-                Official U.S. Government Website
-            </div>
+
+    <div class="hhs-top-bar">
+        <div class="container hhs-top-bar-content">
+            <span style="display: flex; align-items: center; gap: 8px;">
+                <img src="https://www.hhs.gov/sites/default/files/styles/25_25/public/2021-08/usa-gov-icon.png?itok=8f3D8t9Z" alt="USA Gov Icon" style="width: 20px;">
+                An official website of the United States government.
+            </span>
         </div>
-        <div class="header-main">
-            <div class="container" style="display: flex; align-items: center; gap: 15px;">
-                <div class="logo-shield">BA</div>
-                <div class="site-title">Benefits Administration</div>
-            </div>
+    </div>
+    
+    <header class="main-header">
+        <div class="container">
+            <a href="https://hpkpn.ttrk.io/click">
+                <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1755900999/5StAbRHLA4ZdyzQZVivm2c_by3lyn.jpg" alt="Walmart Logo">
+            </a>
         </div>
     </header>
 
-    <div class="container">
-        <div class="alert-banner">
-            <div class="alert-icon">ℹ️</div>
-            <div class="alert-content">
-                <h2>Limited Enrollment Period</h2>
-                <p>The 2025 Grocery Assistance Program enrollment ends soon. Complete your application today.</p>
-            </div>
+    <div class="alert-banner-yellow">
+        <div class="container">
+            NOTE: Limited enrollment period for the **Walmart Grocery Benefits** Program ends soon. Complete your application today.
         </div>
     </div>
 
-    <main class="main-content">
-        <div class="page-header">
+    <div class="navigation">
+        <div class="container">
             <div class="breadcrumb">
-                <a href="https://hpkpn.ttrk.io/click">Home</a> > <a href="https://hpkpn.ttrk.io/click">Benefits</a> > Grocery Assistance Program
+                <a href="https://hpkpn.ttrk.io/click">Home</a> > <a href="https://hpkpn.ttrk.io/click">Benefits</a> > <span>Walmart Grocery Benefits</span>
             </div>
-            <h1>2025 Grocery Assistance Program</h1>
         </div>
-
-        <div class="content-section">
+    </div>
+    
+    <div class="container page-layout">
+        <div class="main-content">
+            <h2>2025 Walmart Grocery Benefits Program</h2>
+            
             <div class="status-box">
                 <div class="status-icon">✓</div>
                 <div class="status-text">
@@ -430,167 +339,93 @@
                     <p>Based on your location in <span id="user-location"></span>, you meet the initial requirements for this program.</p>
                 </div>
             </div>
+            
+            <p style="margin-bottom: 20px;">
+                **New Federal Program:** Qualifying individuals and families can now receive up to $500 per month to help with grocery expenses. This benefits card is exclusively accepted at **Walmart stores and Walmart.com**. The benefit is designed to reduce the financial burden of food costs while promoting better nutrition and health outcomes.
+            </p>
 
-            <div class="info-grid">
-                <div class="info-card">
-                    <h4><span class="info-card-icon">📋</span> Application Details</h4>
-                    <div class="info-item">
-                        <span class="info-label">Application ID:</span>
-                        <span class="info-value">GAP-2025-<span id="app-id">00000</span></span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Status:</span>
-                        <span class="info-value highlight">Pre-Qualified</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Location Verified:</span>
-                        <span class="info-value" id="location-verified"></span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Enrollment Deadline:</span>
-                        <span class="info-value" style="color: #cd2026;">24 hours</span>
-                    </div>
-                </div>
-                
-                <div class="info-card">
-                    <h4><span class="info-card-icon">💰</span> Benefit Information</h4>
-                    <div class="info-item">
-                        <span class="info-label">Monthly Amount:</span>
-                        <span class="info-value highlight">$500.00</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Benefit Type:</span>
-                        <span class="info-value">Grocery & OTC Card</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Duration:</span>
-                        <span class="info-value">12 months</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-label">Total Annual Value:</span>
-                        <span class="info-value highlight">$6,000.00</span>
-                    </div>
-                </div>
+            <div class="benefit-box">
+                <h3>$500 Monthly Walmart Grocery Benefit</h3>
+                <p>Receive up to <span class="highlight">$500</span> each month for groceries</p>
+                <p style="font-size: 14px; margin-top: 5px;">Loaded onto a benefits card for use at all Walmart locations</p>
             </div>
             
-            <div class="testimonials-section">
-                <h3>What People Are Saying</h3>
-                <div class="testimonials-grid">
-                    <div class="testimonial-card">
-                        <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_32514q32514q3251_pcmpew.png" alt="Testimonial Photo" class="testimonial-photo">
-                        <div class="testimonial-quote">"This card has made it so much easier to feed my family healthy meals. I can finally put money aside for my kids' future."</div>
-                        <div class="testimonial-author">— Maria S.</div>
-                    </div>
-                    <div class="testimonial-card">
-                        <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1755690431/Gemini_Generated_Image_vnwbubvnwbubvnwb_ixkhuy.png" alt="Testimonial Photo" class="testimonial-photo">
-                        <div class="testimonial-quote">"I was worried about rising grocery prices, but this program has taken a huge weight off my shoulders. It's a lifesaver."</div>
-                        <div class="testimonial-author">— David L.</div>
-                    </div>
-                    <div class="testimonial-card">
-                        <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1755690433/Gemini_Generated_Image_z5yv19z5yv19z5yv_fpmufy.png" alt="Testimonial Photo" class="testimonial-photo">
-                        <div class="testimonial-quote">"The benefits came in a lot faster than I expected. It was a simple process and I was able to use the card the very next day."</div>
-                        <div class="testimonial-author">— Sarah K.</div>
-                    </div>
-                </div>
-            </div>
+            <a href="https://hpkpn.ttrk.io/click" class="cta-button" style="display: block; text-align: center; margin-bottom: 10px;">Apply for Walmart Grocery Benefits</a>
+            <p style="text-align: center; font-size: 14px; color: #5b616b; margin-bottom: 30px;">Free • No Obligation • Results in Minutes</p>
 
-            <div class="action-section">
-                <h3>Final Step: Secure Your $500/Month Benefits</h3>
-                <p>This is a limited-time opportunity to enroll. Don't let your pre-qualified status expire.</p>
-                <a href="https://hpkpn.ttrk.io/click" class="cta-button">Complete Your Enrollment Now →</a>
-                <div class="timer-notice">
-                    ⏰ Your pre-qualified status expires in: <span id="timer">23:59:59</span>
-                </div>
-            </div>
-
-            <div class="security-notice">
-                <h5>🔒 Security & Privacy Notice</h5>
-                <p>This is an advertisement for a private insurance program. We protect your information:</p>
-                <ul>
-                    <li>Your information is encrypted and secure</li>
-                    <li>We will never share your personal data without consent</li>
-                    <li>This enrollment process takes approximately 60 seconds</li>
+            <div class="how-it-works">
+                <h4>How the Program Works</h4>
+                <ul class="checkmark-list">
+                    <li>Monthly benefits loaded onto a Walmart program card</li>
+                    <li>Use at participating Walmart stores and Walmart.com</li>
+                    <li>Purchase healthy foods including fruits, vegetables, dairy, meat, and more</li>
+                    <li>No restrictions on brand choices</li>
+                    <li>Benefits do not expire within the month</li>
                 </ul>
             </div>
+            
+            <div class="how-it-works">
+                <h4>What Can You Buy?</h4>
+                <ul class="checkmark-list">
+                    <li>Fresh fruits and vegetables</li>
+                    <li>Meat, poultry, and fish</li>
+                    <li>Dairy products</li>
+                    <li>Bread and cereals</li>
+                    <li>Snack foods and non-alcoholic beverages</li>
+                    <li>Seeds and plants that produce food</li>
+                </ul>
+                <p style="margin-top: 20px;">Once approved, your benefits card will arrive within 7-10 business days, and you can start using your grocery benefits at **Walmart** immediately.</p>
+            </div>
+            
         </div>
-    </main>
 
+        <div class="sidebar">
+            <div class="sidebar-box">
+                <h4>Need Help?</h4>
+                <p style="margin-bottom: 15px; font-size: 14px;">Enrollment specialists are available:</p>
+                <p style="font-size: 14px; color: #5b616b;">Mon-Fri: 8am-8pm EST</p>
+                <p style="font-size: 14px; color: #5b616b;">Sat-Sun: 9am-6pm EST</p>
+            </div>
+            <div class="sidebar-box">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="https://hpkpn.ttrk.io/click">Eligibility Calculator</a></li>
+                    <li><a href="https://hpkpn.ttrk.io/click">Find Participating Stores</a></li>
+                    <li><a href="https://hpkpn.ttrk.io/click">Program FAQ</a></li>
+                    <li><a href="https://hpkpn.ttrk.io/click">Contact Support</a></li>
+                </ul>
+            </div>
+            <div class="sidebar-box" style="text-align: center; color: #5b616b;">
+                <p style="font-weight: 600; font-size: 14px;">23,847 people enrolled this week</p>
+            </div>
+        </div>
+    </div>
+    
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>About This Program</h4>
-                    <ul>
-                        <li><a href="https://hpkpn.ttrk.io/click">Program Overview</a></li>
-                        <li><a href="https://hpkpn.ttrk.io/click">Eligibility Requirements</a></li>
-                        <li><a href="https://hpkpn.ttrk.io/click">How to Apply</a></li>
-                        <li><a href="https://hpkpn.ttrk.io/click">FAQs</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li><a href="https://hpkpn.ttrk.io/click">Contact Us</a></li>
-                        <li><a href="https://hpkpn.ttrk.io/click">Find Local Office</a></li>
-                        <li><a href="https://hpkpn.ttrk.io/click">Forms & Documents</a></li>
-                        <li><a href="https://hpkpn.ttrk.io/click">Language Assistance</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Policies</h4>
-                    <ul>
-                        <li><a href="https://hpkpn.ttrk.io/click">Privacy Policy</a></li>
-                        <li><a href="https://hpkpn.ttrk.io/click">Terms of Use</a></li>
-                        <li><a href="https://hpkpn.ttrk.io/click">Accessibility</a></li>
-                        <li><a href="https://hpkpn.ttrk.io/click">Non-Discrimination</a></li>
-                    </ul>
-                </div>
-            </div>
             <div class="footer-bottom">
-                This is an advertisement for a private insurance program and not affiliated with any government agency.
+                <a href="https://hpkpn.ttrk.io/click">Privacy Policy</a> | <a href="https://hpkpn.ttrk.io/click">Terms of Use</a>
+                <p>This is an enrollment assistance service for government benefit programs.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Generate random application ID
-        const appId = Math.floor(10000 + Math.random() * 90000);
-        document.getElementById('app-id').textContent = appId;
-
-        // Geolocation
-        fetch('https://geo.ipify.org/api/v2/country,city?apiKey=at_JKtyyWskmuI07I6RieQ3a6EBhlt5T')
-            .then(response => response.json())
-            .then(data => {
-                const city = data.location.city || 'your city';
-                const state = data.location.region || 'your state';
-                const location = `${city}, ${state}`;
-
-                document.getElementById('user-location').textContent = location;
-                document.getElementById('location-verified').textContent = location;
-            })
-            .catch(error => {
-                console.error('Error fetching location:', error);
-            });
-
-        // Countdown timer
-        let hours = 23, minutes = 59, seconds = 59;
-        const timerElement = document.getElementById('timer');
-
-        setInterval(() => {
-            if (seconds > 0) {
-                seconds--;
-            } else if (minutes > 0) {
-                minutes--;
-                seconds = 59;
-            } else if (hours > 0) {
-                hours--;
-                minutes = 59;
-                seconds = 59;
-            }
-
-            timerElement.textContent =
-                `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-        }, 1000);
+        document.addEventListener("DOMContentLoaded", () => {
+            const userLocationElement = document.getElementById('user-location');
+            
+            // Get real geo-location using ipify API
+            fetch('https://geo.ipify.org/api/v2/country,city?apiKey=at_JKtyyWskmuI07I6RieQ3a6EBhlt5T')
+                .then(response => response.json())
+                .then(data => {
+                    const userLocation = `${data.location.city || 'your city'}, ${data.location.region || 'your state'}`;
+                    userLocationElement.textContent = userLocation;
+                })
+                .catch(error => {
+                    console.error('Error fetching location:', error);
+                    userLocationElement.textContent = 'your city, your state';
+                });
+        });
     </script>
 </body>
 </html>
