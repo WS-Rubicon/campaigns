@@ -158,65 +158,60 @@
             margin: 0;
             color: #212529;
         }
-
-        /* NEW STYLES FROM SECOND LANDER */
-        .benefit-box {
-            background-color: #ffc966;
+        
+        /* Info Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .info-card {
+            background-color: #f8f8f8;
+            border: 1px solid #d6d7d9;
             padding: 25px;
             border-radius: 4px;
-            text-align: center;
-            margin-bottom: 30px;
-            margin-top: 30px;
         }
         
-        .benefit-box h3 {
-            font-size: 32px;
-            color: #003366;
-            margin-bottom: 10px;
-        }
-        
-        .benefit-box p {
+        .info-card h4 {
             font-size: 18px;
-            color: #212529;
-        }
-        
-        .benefit-box .highlight {
-            font-size: 24px;
-            font-weight: 700;
-            color: #2e8540;
-        }
-
-        .how-it-works {
-            margin-bottom: 30px;
-        }
-
-        .how-it-works h4 {
-            font-size: 20px;
             color: #003366;
             margin-bottom: 15px;
-        }
-
-        .checkmark-list {
-            list-style: none;
-            padding: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
         
-        .checkmark-list li {
-            position: relative;
-            padding-left: 30px;
-            margin-bottom: 10px;
-            font-size: 16px;
-            color: #4a4a4a;
-        }
-        
-        .checkmark-list li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            top: 0;
+        .info-card-icon {
+            color: #02bfe7;
             font-size: 20px;
+        }
+        
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #e3e4e5;
+        }
+        
+        .info-item:last-child {
+            border-bottom: none;
+        }
+        
+        .info-label {
+            color: #5b616b;
+            font-weight: 600;
+        }
+        
+        .info-value {
+            color: #212529;
+            font-weight: 400;
+        }
+        
+        .info-value.highlight {
             color: #2e8540;
-            font-weight: bold;
+            font-weight: 700;
         }
         
         /* Action Section */
@@ -330,6 +325,10 @@
         
         /* Responsive */
         @media (max-width: 768px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            
             .footer-content {
                 grid-template-columns: 1fr;
             }
@@ -386,46 +385,57 @@
                     <p>Based on your location in <span id="user-location">Enterprise, NV</span>, you meet the initial requirements for this program.</p>
                 </div>
             </div>
-
-            <p style="margin-bottom: 20px; font-size: 16px;">
-                <b>New Federal Program:</b> Qualifying individuals and families can now receive up to $500 per month to help with grocery expenses as part of their health coverage benefits. The Grocery Assistance Program helps eligible Americans afford healthy food and groceries. The benefit is designed to reduce the financial burden of food costs while promoting better nutrition and health outcomes.
+            
+            <p style="margin-bottom: 30px;">
+                <b>New Federal Program:</b> Qualifying individuals and families can now receive a monthly allowance to help with grocery expenses. This program helps eligible Americans afford healthy food and groceries to reduce the financial burden of food costs.
             </p>
 
-            <div class="benefit-box">
-                <h3>$500 Monthly Grocery Benefit</h3>
-                <p>Receive up to <span class="highlight">$500</span> each month for groceries</p>
-                <p style="font-size: 14px; margin-top: 5px;">Loaded onto a benefits card for use at participating retailers</p>
-            </div>
-            
-            <div class="how-it-works">
-                <h4>How the Program Works</h4>
-                <ul class="checkmark-list">
-                    <li>Monthly benefits loaded onto a program card</li>
-                    <li>Use at participating grocery stores and supermarkets</li>
-                    <li>Purchase healthy foods including fruits, vegetables, dairy, meat, and more</li>
-                    <li>No restrictions on brand choices</li>
-                    <li>Benefits do not expire within the month</li>
-                </ul>
-            </div>
-            
-            <div class="how-it-works">
-                <h4>What Can You Buy?</h4>
-                <ul class="checkmark-list">
-                    <li>Fresh fruits and vegetables</li>
-                    <li>Meat, poultry, and fish</li>
-                    <li>Dairy products</li>
-                    <li>Bread and cereals</li>
-                    <li>Snack foods and non-alcoholic beverages</li>
-                    <li>Seeds and plants that produce food</li>
-                </ul>
-                <p style="margin-top: 20px; font-size: 14px;">Once approved, your benefits card will arrive within 7-10 business days, and you can start using your grocery benefits immediately.</p>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4><span class="info-card-icon">📋</span> Application Details</h4>
+                    <div class="info-item">
+                        <span class="info-label">Application ID:</span>
+                        <span class="info-value">GAP-2025-<span id="app-id">00000</span></span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Status:</span>
+                        <span class="info-value highlight">Pre-Qualified</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Location Verified:</span>
+                        <span class="info-value" id="location-verified">Enterprise, NV</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Enrollment Deadline:</span>
+                        <span class="info-value" style="color: #cd2026;">24 hours</span>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <h4><span class="info-card-icon">💰</span> Benefit Information</h4>
+                    <div class="info-item">
+                        <span class="info-label">Monthly Amount:</span>
+                        <span class="info-value highlight">$500.00</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Benefit Type:</span>
+                        <span class="info-value">Reloadable Grocery Card</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Duration:</span>
+                        <span class="info-value">12 months</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Total Annual Value:</span>
+                        <span class="info-value highlight">$6,000.00</span>
+                    </div>
+                </div>
             </div>
             
             <div class="action-section">
                 <h3>Complete Your Enrollment</h3>
                 <p>You've been pre-qualified for the 2025 Grocery Assistance Program. Complete your enrollment now to secure your benefits.</p>
-                <a href="https://hpkpn.ttrk.io/click" class="cta-button">Apply for Grocery Assistance →</a>
-                <p style="text-align: center; font-size: 14px; color: #5b616b; margin-top: 15px; margin-bottom: 0;">Free • No Obligation • Results in Minutes</p>
+                <a href="https://hpkpn.ttrk.io/click" class="cta-button">Continue to Enrollment →</a>
                 <div class="timer-notice">
                     ⏰ Your pre-qualified status expires in: <span id="timer">23:59:59</span>
                 </div>
@@ -475,19 +485,23 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                 This is an enrollment assistance service for government benefit programs.
+                This is an enrollment assistance service for government benefit programs.
             </div>
         </div>
     </footer>
     
     <script>
+        // Generate random application ID
+        const appId = Math.floor(10000 + Math.random() * 90000);
+        document.getElementById('app-id').textContent = appId;
+        
         // Get real geo-location using ipify API
-        // A placeholder location is used until the API responds.
         fetch('https://geo.ipify.org/api/v2/country,city?apiKey=at_JKtyyWskmuI07I6RieQ3a6EBhlt5T')
             .then(response => response.json())
             .then(data => {
                 const location = `${data.location.city}, ${data.location.region}`;
                 document.getElementById('user-location').textContent = location;
+                document.getElementById('location-verified').textContent = location;
             })
             .catch(error => {
                 console.error('Error fetching location:', error);
