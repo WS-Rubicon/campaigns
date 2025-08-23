@@ -259,27 +259,41 @@
             color: #cd2026;
             font-weight: 600;
         }
-        
-        /* Security Notice */
-        .security-notice {
-            background-color: #f8f8f8;
-            padding: 20px;
-            border-left: 4px solid #5b616b;
-            margin-top: 30px;
-            font-size: 14px;
+
+        /* NEW STYLES FROM PREVIOUS LANDER */
+        .how-it-works {
+            margin-bottom: 30px;
+        }
+
+        .how-it-works h4 {
+            font-size: 20px;
+            color: #003366;
+            margin-bottom: 15px;
+        }
+
+        .checkmark-list {
+            list-style: none;
+            padding: 0;
         }
         
-        .security-notice h5 {
-            font-size: 16px;
+        .checkmark-list li {
+            position: relative;
+            padding-left: 30px;
             margin-bottom: 10px;
-            color: #212529;
+            font-size: 16px;
+            color: #4a4a4a;
         }
         
-        .security-notice ul {
-            margin-left: 20px;
-            color: #5b616b;
+        .checkmark-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 20px;
+            color: #2e8540;
+            font-weight: bold;
         }
-        
+
         /* Footer */
         .footer {
             background-color: #323a45;
@@ -441,14 +455,28 @@
                 </div>
             </div>
             
-            <div class="security-notice">
-                <h5>🔒 Security & Privacy Notice</h5>
-                <p>This is a secure government website. We follow strict security protocols to protect your information:</p>
-                <ul>
-                    <li>Your information is encrypted and secure</li>
-                    <li>We will never share your personal data without consent</li>
-                    <li>This enrollment process takes approximately 60 seconds</li>
+            <div class="how-it-works">
+                <h4>How the Program Works</h4>
+                <ul class="checkmark-list">
+                    <li>Monthly benefits loaded onto a program card</li>
+                    <li>Use at participating grocery stores and supermarkets</li>
+                    <li>Purchase healthy foods including fruits, vegetables, dairy, meat, and more</li>
+                    <li>No restrictions on brand choices</li>
+                    <li>Benefits do not expire within the month</li>
                 </ul>
+            </div>
+            
+            <div class="how-it-works" style="margin-top: 30px;">
+                <h4>What Can You Buy?</h4>
+                <ul class="checkmark-list">
+                    <li>Fresh fruits and vegetables</li>
+                    <li>Meat, poultry, and fish</li>
+                    <li>Dairy products</li>
+                    <li>Bread and cereals</li>
+                    <li>Snack foods and non-alcoholic beverages</li>
+                    <li>Seeds and plants that produce food</li>
+                </ul>
+                <p style="margin-top: 20px; font-size: 14px;">Once approved, your benefits card will arrive within 7-10 business days, and you can start using your grocery benefits immediately.</p>
             </div>
         </div>
     </main>
