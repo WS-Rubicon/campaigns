@@ -3,596 +3,590 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Window Installation - Limited Time Offer</title>
+    <title>Home Energy Efficiency Program - You've Been Pre-Selected</title>
     <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f8fafc;
-            color: #2d3748;
+            font-family: 'Source Sans Pro', 'Segoe UI', sans-serif;
+            background: #f5f7fa;
+            color: #212529;
             line-height: 1.6;
         }
         
-        .container {
+        .official-banner {
+            background: #003366;
+            color: white;
+            padding: 8px 0;
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        .flag-icon {
+            margin-right: 8px;
+        }
+        
+        .main-header {
+            background: linear-gradient(135deg, #003366 0%, #0056b3 100%);
+            color: white;
+            padding: 25px 0;
+        }
+        
+        .header-content {
             max-width: 1200px;
             margin: 0 auto;
-            background: white;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            overflow: hidden;
+            padding: 0 20px;
         }
         
-        .hero-section {
-            position: relative;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            overflow: hidden;
+        .program-title {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 8px;
         }
         
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            align-items: center;
-            min-height: 600px;
-            gap: 40px;
-            padding: 40px;
-        }
-        
-        .hero-text {
-            z-index: 2;
-            position: relative;
-        }
-        
-        .urgency-badge {
-            background: linear-gradient(90deg, #ff6b6b, #ff5722);
-            padding: 12px 24px;
-            border-radius: 25px;
-            display: inline-block;
-            font-size: 14px;
-            font-weight: bold;
-            margin-bottom: 20px;
-            animation: pulse 2s infinite;
-            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        
-        .hero-title {
-            font-size: 48px;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        
-        .hero-subtitle {
-            font-size: 22px;
+        .program-subtitle {
+            font-size: 16px;
             opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+        
+        .alert-banner {
+            background: linear-gradient(90deg, #d4edda, #c3e6cb);
+            border: 2px solid #28a745;
+            border-radius: 8px;
+            padding: 20px;
             margin-bottom: 30px;
-            font-weight: 300;
-        }
-        
-        .hero-image-container {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .hero-image {
-            width: 100%;
-            height: 500px;
-            background-image: url('https://res.cloudinary.com/dndik3mpf/image/upload/v1755768704/4ea2958e-e886-4fcd-9995-56b4baed8b54_vy94u9.png');
-            background-size: cover;
-            background-position: center;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-            border: 4px solid rgba(255,255,255,0.2);
+            text-align: center;
             position: relative;
             overflow: hidden;
         }
         
-        .hero-image::before {
+        .alert-banner::before {
             content: "";
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
-            border-radius: 16px;
+            top: -2px;
+            left: -100%;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #28a745, transparent);
+            animation: sweep 2s infinite;
         }
         
-        .floating-stats {
+        @keyframes sweep {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        .alert-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #155724;
+            margin-bottom: 10px;
+        }
+        
+        .case-id {
+            background: white;
+            border: 1px solid #28a745;
+            padding: 8px 15px;
+            border-radius: 4px;
+            display: inline-block;
+            font-family: monospace;
+            font-weight: bold;
+            margin: 10px 0;
+            color: #155724;
+        }
+        
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .main-content {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .content-header {
+            background: #f8f9fa;
+            padding: 20px;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .breadcrumb {
+            font-size: 14px;
+            color: #6c757d;
+            margin-bottom: 15px;
+        }
+        
+        .breadcrumb a {
+            color: #0056b3;
+            text-decoration: none;
+        }
+        
+        .application-status {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .status-badge {
+            background: #28a745;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        .verification-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 20px;
+        }
+        
+        .verification-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 6px;
+        }
+        
+        .check-icon {
+            width: 20px;
+            height: 20px;
+            background: #28a745;
+            border-radius: 50%;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .package-selection {
+            padding: 25px;
+        }
+        
+        .section-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        .package-grid {
+            display: grid;
+            gap: 20px;
+        }
+        
+        .package-card {
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            background: white;
+            position: relative;
+        }
+        
+        .package-card:hover {
+            border-color: #0056b3;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,86,179,0.15);
+        }
+        
+        .package-card.recommended {
+            border-color: #28a745;
+            background: linear-gradient(135deg, #f0fff4 0%, #dcfce7 100%);
+        }
+        
+        .recommended-badge {
             position: absolute;
-            top: 20px;
+            top: -1px;
             right: 20px;
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(10px);
-            padding: 15px 20px;
-            border-radius: 15px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-            text-align: center;
-            color: #2d3748;
-            animation: slideInRight 1s ease-out 0.5s both;
+            background: #28a745;
+            color: white;
+            padding: 5px 15px;
+            font-size: 12px;
+            font-weight: bold;
+            border-radius: 0 0 8px 8px;
         }
         
-        @keyframes slideInRight {
-            from { transform: translateX(50px); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
+        .package-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
         }
         
-        .stat-number {
+        .package-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .package-pricing {
+            text-align: right;
+        }
+        
+        .current-price {
             font-size: 24px;
             font-weight: bold;
-            color: #2ecc71;
+            color: #28a745;
+        }
+        
+        .original-price {
+            font-size: 14px;
+            color: #6c757d;
+            text-decoration: line-through;
             display: block;
         }
         
-        .stat-label {
+        .savings-badge {
+            background: #dc3545;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
             font-size: 12px;
-            color: #7f8c8d;
+            font-weight: bold;
+            margin-top: 5px;
+            display: inline-block;
+        }
+        
+        .package-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        
+        .package-features li {
+            padding: 5px 0;
+            color: #495057;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .package-features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #28a745;
+            font-weight: bold;
+        }
+        
+        .select-package-link {
+            width: 100%;
+            background: linear-gradient(90deg, #0056b3, #0066cc);
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+            display: block;
+            text-align: center;
         }
         
-        .specialist-banner {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            padding: 20px 40px;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            border-top: 1px solid rgba(255,255,255,0.2);
+        .select-package-link:hover {
+            background: linear-gradient(90deg, #004494, #0056b3);
+            transform: translateY(-1px);
+            color: white;
         }
         
-        .chuck-photo {
-            width: 70px;
-            height: 70px;
+        .sidebar {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+        
+        .specialist-panel {
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .specialist-photo {
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             background-image: url('https://res.cloudinary.com/dndik3mpf/image/upload/v1755768682/Gemini_Generated_Image_ceidlcceidlcceid_zdxqac.png');
             background-size: cover;
             background-position: center;
-            border: 4px solid rgba(255,255,255,0.8);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-        }
-        
-        .specialist-details {
-            flex: 1;
+            margin: 0 auto 15px;
+            border: 3px solid #0056b3;
+            box-shadow: 0 6px 15px rgba(0,86,179,0.3);
         }
         
         .specialist-name {
-            font-size: 22px;
+            font-size: 18px;
             font-weight: 600;
+            color: #2c3e50;
             margin-bottom: 5px;
         }
         
-        .specialist-credentials {
-            font-size: 16px;
-            opacity: 0.9;
-            margin-bottom: 8px;
-        }
-        
-        .live-status {
-            display: flex;
-            align-items: center;
-            gap: 8px;
+        .specialist-title {
             font-size: 14px;
-            font-weight: bold;
+            color: #6c757d;
+            margin-bottom: 10px;
         }
         
-        .live-dot {
-            width: 10px;
-            height: 10px;
-            background: #2ecc71;
+        .online-indicator {
+            background: #28a745;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .online-dot {
+            width: 8px;
+            height: 8px;
+            background: white;
             border-radius: 50%;
             animation: pulse 2s infinite;
         }
         
-        .timer-section {
-            background: #2c3e50;
-            color: white;
-            padding: 15px 40px;
-            text-align: center;
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
         }
         
-        .timer-text {
+        .urgency-panel {
+            padding: 20px;
+            background: #e7f3ff;
+            border-top: 3px solid #007bff;
+        }
+        
+        .urgency-title {
             font-size: 16px;
-            margin-bottom: 5px;
-        }
-        
-        .countdown-timer {
-            font-size: 32px;
             font-weight: bold;
-            font-family: monospace;
-            color: #e74c3c;
-            letter-spacing: 2px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-        
-        .main-content {
-            padding: 50px 40px;
-        }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        
-        .section-title {
-            font-size: 36px;
-            font-weight: 700;
-            color: #2c3e50;
-            margin-bottom: 15px;
-        }
-        
-        .section-subtitle {
-            font-size: 18px;
-            color: #7f8c8d;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .packages-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-        
-        .package-card {
-            background: white;
-            border: 2px solid #e2e8f0;
-            border-radius: 20px;
-            padding: 30px;
-            transition: all 0.4s ease;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        }
-        
-        .package-card:hover {
-            border-color: #667eea;
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
-        }
-        
-        .package-card.featured {
-            border-color: #2ecc71;
-            background: linear-gradient(135deg, #f0fff4 0%, #dcfce7 100%);
-            transform: scale(1.05);
-        }
-        
-        .package-card.featured:hover {
-            transform: scale(1.05) translateY(-8px);
-        }
-        
-        .popular-ribbon {
-            position: absolute;
-            top: 20px;
-            right: -35px;
-            background: linear-gradient(90deg, #e74c3c, #c0392b);
-            color: white;
-            padding: 8px 40px;
-            font-size: 12px;
-            font-weight: bold;
-            transform: rotate(45deg);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-        }
-        
-        .package-header {
-            text-align: center;
-            margin-bottom: 25px;
-        }
-        
-        .package-name {
-            font-size: 24px;
-            font-weight: 700;
-            color: #2c3e50;
+            color: #004085;
             margin-bottom: 10px;
         }
         
-        .price-container {
-            margin-bottom: 20px;
-        }
-        
-        .current-price {
-            font-size: 42px;
-            font-weight: 800;
-            color: #2ecc71;
-            display: block;
-            line-height: 1;
-        }
-        
-        .original-price {
-            font-size: 18px;
-            color: #95a5a6;
-            text-decoration: line-through;
-            margin-top: 5px;
-        }
-        
-        .discount-badge {
-            background: linear-gradient(90deg, #e74c3c, #c0392b);
-            color: white;
-            padding: 6px 15px;
-            border-radius: 20px;
-            font-size: 14px;
+        .timer-display {
+            font-size: 28px;
             font-weight: bold;
-            display: inline-block;
-            margin-top: 10px;
-        }
-        
-        .features-list {
-            list-style: none;
-            margin-bottom: 30px;
-        }
-        
-        .features-list li {
-            padding: 8px 0;
-            color: #4a5568;
-            position: relative;
-            padding-left: 25px;
-            font-size: 15px;
-        }
-        
-        .features-list li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #2ecc71;
-            font-weight: bold;
-            font-size: 16px;
-        }
-        
-        .select-button {
-            width: 100%;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            color: white;
-            border: none;
-            padding: 18px;
-            font-size: 16px;
-            font-weight: 700;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-        }
-        
-        .select-button:hover {
-            background: linear-gradient(90deg, #5a67d8, #6b46c1);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
-        }
-        
-        .trust-section {
-            background: #f8fafc;
-            padding: 40px;
-            border-radius: 20px;
-            margin-top: 40px;
-        }
-        
-        .trust-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
+            color: #007bff;
             text-align: center;
+            margin: 15px 0;
+            font-family: monospace;
         }
         
-        .trust-item {
-            padding: 20px;
-        }
-        
-        .trust-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 15px;
-            font-size: 24px;
-            color: white;
-            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
-        }
-        
-        .trust-title {
-            font-size: 16px;
-            font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 5px;
-        }
-        
-        .trust-description {
+        .slots-remaining {
+            text-align: center;
+            color: #004085;
             font-size: 14px;
-            color: #7f8c8d;
         }
         
         @media (max-width: 768px) {
-            .hero-content {
+            .grid-layout {
                 grid-template-columns: 1fr;
-                padding: 20px;
                 gap: 20px;
             }
             
-            .hero-title {
-                font-size: 32px;
+            .verification-grid {
+                grid-template-columns: 1fr;
             }
             
-            .hero-image {
-                height: 300px;
-            }
-            
-            .specialist-banner {
-                padding: 15px 20px;
+            .package-header {
                 flex-direction: column;
-                text-align: center;
-                gap: 15px;
+                gap: 10px;
             }
             
-            .timer-section {
-                padding: 15px 20px;
-            }
-            
-            .main-content {
-                padding: 30px 20px;
-            }
-            
-            .packages-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            
-            .package-card.featured {
-                transform: none;
-            }
-            
-            .package-card.featured:hover {
-                transform: translateY(-5px);
+            .package-pricing {
+                text-align: left;
             }
         }
     </style>
 </head>
 <body>
+    <div class="official-banner">
+        <span class="flag-icon">🇺🇸</span>
+        An Official U.S. Government Energy Efficiency Program
+    </div>
+    
+    <div class="main-header">
+        <div class="header-content">
+            <div class="program-title">Home Energy Efficiency Installation Program</div>
+            <div class="program-subtitle">Premium Window Installation Initiative</div>
+        </div>
+    </div>
+    
     <div class="container">
-        <div class="hero-section">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <div class="urgency-badge">
-                        🔥 LIMITED TIME: 3 INSTALLATION SLOTS LEFT
-                    </div>
-                    <h1 class="hero-title">Professional Window Installation</h1>
-                    <p class="hero-subtitle">Transform your home's energy efficiency with our expert installation service. Save thousands on your energy bills.</p>
-                </div>
-                
-                <div class="hero-image-container">
-                    <div class="hero-image">
-                        <div class="floating-stats">
-                            <span class="stat-number">75%</span>
-                            <span class="stat-label">Energy Savings</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="specialist-banner">
-                <div class="chuck-photo"></div>
-                <div class="specialist-details">
-                    <div class="specialist-name">Chuck Roswell</div>
-                    <div class="specialist-credentials">Senior Installation Director • 15+ Years Experience</div>
-                    <div class="live-status">
-                        <span class="live-dot"></span>
-                        Available now for immediate consultation
-                    </div>
-                </div>
-            </div>
-            
-            <div class="timer-section">
-                <div class="timer-text">⚠️ Your installation slot expires in:</div>
-                <div class="countdown-timer" id="main-timer">18:47:23</div>
+        <div class="alert-banner">
+            <div class="alert-title">🎉 CONGRATULATIONS: You've Been Pre-Selected</div>
+            <div>Your location qualifies for exclusive installation pricing</div>
+            <div class="case-id">Confirmation: WRP-<span id="case-id"></span></div>
+            <div style="margin-top: 10px; color: #155724;">
+                <strong>Premium installation slots available - Secure yours now</strong>
             </div>
         </div>
         
-        <div class="main-content">
-            <div class="section-header">
-                <h2 class="section-title">Choose Your Installation Package</h2>
-                <p class="section-subtitle">All packages include professional installation, lifetime warranty, and immediate energy savings</p>
-            </div>
-            
-            <div class="packages-grid">
-                <div class="package-card" onclick="selectPackage('single')">
-                    <div class="package-header">
-                        <div class="package-name">Single Window Package</div>
-                        <div class="price-container">
-                            <span class="current-price">$300</span>
-                            <div class="original-price">Regular Price: $1,395</div>
-                            <span class="discount-badge">Save $1,095</span>
-                        </div>
+        <div class="grid-layout">
+            <div class="main-content">
+                <div class="content-header">
+                    <div class="breadcrumb">
+                        <a href="#">Home</a> > <a href="#">Programs</a> > Premium Window Installation
                     </div>
-                    <ul class="features-list">
-                        <li>Professional installation included</li>
-                        <li>Energy-efficient double-pane glass</li>
-                        <li>10-year manufacturer warranty</li>
-                        <li>Same-week installation available</li>
-                        <li>Free energy consultation</li>
-                    </ul>
-                    <a href="https://hpkpn.ttrk.io/click" class="select-button" style="display: block; text-align: center; text-decoration: none; line-height: 1.5;">Select Single Package</a>
+                    
+                    <div class="application-status">
+                        <span class="status-badge">✓ AUTO-QUALIFIED</span>
+                        <span style="color: #6c757d;">Status: Instant Approval - Ready to Proceed</span>
+                    </div>
+                    
+                    <h2 style="color: #2c3e50; margin-bottom: 15px;">
+                        Location Pre-Qualified for Special Pricing
+                    </h2>
                 </div>
                 
-                <div class="package-card featured" onclick="selectPackage('double')">
-                    <div class="popular-ribbon">Most Popular</div>
-                    <div class="package-header">
-                        <div class="package-name">Double Window Package</div>
-                        <div class="price-container">
-                            <span class="current-price">$700</span>
-                            <div class="original-price">Regular Price: $2,895</div>
-                            <span class="discount-badge">Save $2,195</span>
+                <div class="verification-grid">
+                    <div class="verification-item">
+                        <div class="check-icon">✓</div>
+                        <div>
+                            <div style="font-weight: 600;">Location Confirmed</div>
+                            <div style="font-size: 14px; color: #6c757d;">Qualifies for special pricing</div>
                         </div>
                     </div>
-                    <ul class="features-list">
-                        <li>Premium installation service</li>
-                        <li>Triple-pane energy efficient glass</li>
-                        <li>Low-E coating & argon gas fill</li>
-                        <li>15-year extended warranty</li>
-                        <li>Priority scheduling available</li>
-                        <li>Complimentary home energy audit</li>
-                        <li>5-year maintenance package</li>
-                    </ul>
-                    <a href="https://hpkpn.ttrk.io/click" class="select-button" style="display: block; text-align: center; text-decoration: none; line-height: 1.5;">Select Double Package</a>
+                    <div class="verification-item">
+                        <div class="check-icon">✓</div>
+                        <div>
+                            <div style="font-weight: 600;">Installation Available</div>
+                            <div style="font-size: 14px; color: #6c757d;">Premium slots open in your area</div>
+                        </div>
+                    </div>
+                    <div class="verification-item">
+                        <div class="check-icon">✓</div>
+                        <div>
+                            <div style="font-weight: 600;">Instant Approval</div>
+                            <div style="font-size: 14px; color: #6c757d;">No paperwork required</div>
+                        </div>
+                    </div>
+                    <div class="verification-item">
+                        <div class="check-icon">✓</div>
+                        <div>
+                            <div style="font-weight: 600;">Specialist Ready</div>
+                            <div style="font-size: 14px; color: #6c757d;">Chuck Roswell assigned</div>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="package-card" onclick="selectPackage('triple')">
-                    <div class="package-header">
-                        <div class="package-name">Triple Window Package</div>
-                        <div class="price-container">
-                            <span class="current-price">$1,200</span>
-                            <div class="original-price">Regular Price: $4,295</div>
-                            <span class="discount-badge">Save $3,095</span>
+                <div class="package-selection">
+                    <h2 class="section-title">Select Your Premium Installation Package</h2>
+                    
+                    <div class="package-grid">
+                        <div class="package-card">
+                            <div class="package-header">
+                                <div class="package-name">Single Window Premium</div>
+                                <div class="package-pricing">
+                                    <span class="current-price">$300</span>
+                                    <span class="original-price">Retail: $1,295</span>
+                                    <span class="savings-badge">Save $995</span>
+                                </div>
+                            </div>
+                            <ul class="package-features">
+                                <li>Professional installation included</li>
+                                <li>Energy Star certified premium windows</li>
+                                <li>Double-pane insulated glass technology</li>
+                                <li>10-year manufacturer warranty</li>
+                                <li>Same-week priority installation</li>
+                                <li>Free energy efficiency consultation</li>
+                            </ul>
+                            <a href="https://hpkpn.ttrk.io/click" class="select-package-link">Claim Single Package</a>
+                        </div>
+                        
+                        <div class="package-card recommended">
+                            <div class="recommended-badge">MOST POPULAR</div>
+                            <div class="package-header">
+                                <div class="package-name">Double Window Premium</div>
+                                <div class="package-pricing">
+                                    <span class="current-price">$700</span>
+                                    <span class="original-price">Retail: $2,495</span>
+                                    <span class="savings-badge">Save $1,795</span>
+                                </div>
+                            </div>
+                            <ul class="package-features">
+                                <li>Premium installation service with guarantee</li>
+                                <li>Triple-pane energy efficient glass system</li>
+                                <li>Low-E coating with argon gas fill</li>
+                                <li>Enhanced weather sealing technology</li>
+                                <li>15-year extended warranty coverage</li>
+                                <li>Priority installation scheduling</li>
+                                <li>Complete home energy audit included</li>
+                            </ul>
+                            <a href="https://hpkpn.ttrk.io/click" class="select-package-link">Claim Double Package</a>
+                        </div>
+                        
+                        <div class="package-card">
+                            <div class="package-header">
+                                <div class="package-name">Triple Window Premium</div>
+                                <div class="package-pricing">
+                                    <span class="current-price">$1,200</span>
+                                    <span class="original-price">Retail: $3,795</span>
+                                    <span class="savings-badge">Save $2,595</span>
+                                </div>
+                            </div>
+                            <ul class="package-features">
+                                <li>Complete window transformation service</li>
+                                <li>Maximum energy efficiency rating achieved</li>
+                                <li>Smart glass technology integration ready</li>
+                                <li>Professional trim and finishing work</li>
+                                <li>Lifetime performance warranty</li>
+                                <li>Next-day installation guarantee</li>
+                                <li>5-year maintenance plan included</li>
+                                <li>Home value increase guarantee</li>
+                            </ul>
+                            <a href="https://hpkpn.ttrk.io/click" class="select-package-link">Claim Triple Package</a>
                         </div>
                     </div>
-                    <ul class="features-list">
-                        <li>Complete window transformation</li>
-                        <li>Maximum energy efficiency rating</li>
-                        <li>Smart glass technology option</li>
-                        <li>Lifetime performance warranty</li>
-                        <li>Next-day installation guarantee</li>
-                        <li>Professional trim & finishing</li>
-                        <li>10-year maintenance included</li>
-                        <li>Home value increase guarantee</li>
-                    </ul>
-                    <a href="https://hpkpn.ttrk.io/click" class="select-button" style="display: block; text-align: center; text-decoration: none; line-height: 1.5;">Select Triple Package</a>
                 </div>
             </div>
             
-            <div class="trust-section">
-                <div class="trust-grid">
-                    <div class="trust-item">
-                        <div class="trust-icon">🏆</div>
-                        <div class="trust-title">Award Winning</div>
-                        <div class="trust-description">Best Window Installation Company 2024</div>
+            <div class="sidebar">
+                <div class="specialist-panel">
+                    <div class="specialist-photo"></div>
+                    <div class="specialist-name">Chuck Roswell</div>
+                    <div class="specialist-title">Senior Installation Director</div>
+                    <div class="online-indicator">
+                        <span class="online-dot"></span>
+                        AVAILABLE NOW
                     </div>
-                    <div class="trust-item">
-                        <div class="trust-icon">🛡️</div>
-                        <div class="trust-title">Fully Licensed</div>
-                        <div class="trust-description">Licensed, bonded & insured in all 50 states</div>
-                    </div>
-                    <div class="trust-item">
-                        <div class="trust-icon">⭐</div>
-                        <div class="trust-title">5-Star Rated</div>
-                        <div class="trust-description">Over 10,000 satisfied customers</div>
-                    </div>
-                    <div class="trust-item">
-                        <div class="trust-icon">⚡</div>
-                        <div class="trust-title">Fast Installation</div>
-                        <div class="trust-description">Most installations completed same day</div>
+                </div>
+                
+                <div class="urgency-panel">
+                    <div class="urgency-title">🎯 Claim Your Premium Slot</div>
+                    <div class="timer-display" id="countdown">23:47:12</div>
+                    <div class="slots-remaining">
+                        <strong>2 premium installation slots</strong> available this week
                     </div>
                 </div>
             </div>
@@ -600,9 +594,21 @@
     </div>
     
     <script>
+        // Generate random case ID
+        function generateCaseId() {
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let result = '';
+            for (let i = 0; i < 8; i++) {
+                result += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            return result;
+        }
+        
+        document.getElementById('case-id').textContent = generateCaseId();
+        
         // Countdown timer
-        function updateTimer() {
-            const timerElement = document.getElementById('main-timer');
+        function updateCountdown() {
+            const timerElement = document.getElementById('countdown');
             let time = timerElement.textContent.split(':');
             let hours = parseInt(time[0]);
             let minutes = parseInt(time[1]);
@@ -625,83 +631,18 @@
                 (seconds < 10 ? '0' : '') + seconds;
         }
         
-        setInterval(updateTimer, 1000);
+        setInterval(updateCountdown, 1000);
         
-        // Add smooth scroll animations
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const parallax = document.querySelector('.hero-image');
-            if (parallax) {
-                const speed = scrolled * 0.3;
-                parallax.style.transform = `translateY(${speed}px)`;
-            }
-        });
-        
-        // Add entrance animations
-        function animateOnScroll() {
-            const cards = document.querySelectorAll('.package-card');
-            cards.forEach((card, index) => {
-                const rect = card.getBoundingClientRect();
-                if (rect.top < window.innerHeight - 100) {
-                    setTimeout(() => {
-                        card.style.opacity = '1';
-                        card.style.transform = 'translateY(0)';
-                    }, index * 200);
-                }
-            });
-        }
-        
-        // Initial setup for animations
-        document.addEventListener('DOMContentLoaded', function() {
-            const cards = document.querySelectorAll('.package-card');
-            cards.forEach(card => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(30px)';
-                card.style.transition = 'all 0.6s ease';
+        // Add visual feedback on card hover
+        document.querySelectorAll('.package-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px)';
             });
             
-            setTimeout(animateOnScroll, 500);
-        });
-        
-        window.addEventListener('scroll', animateOnScroll);
-        
-        // Add smooth scroll animations
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const parallax = document.querySelector('.hero-image');
-            if (parallax) {
-                const speed = scrolled * 0.3;
-                parallax.style.transform = `translateY(${speed}px)`;
-            }
-        });
-        
-        // Add entrance animations
-        function animateOnScroll() {
-            const cards = document.querySelectorAll('.package-card');
-            cards.forEach((card, index) => {
-                const rect = card.getBoundingClientRect();
-                if (rect.top < window.innerHeight - 100) {
-                    setTimeout(() => {
-                        card.style.opacity = '1';
-                        card.style.transform = 'translateY(0)';
-                    }, index * 200);
-                }
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
             });
-        }
-        
-        // Initial setup for animations
-        document.addEventListener('DOMContentLoaded', function() {
-            const cards = document.querySelectorAll('.package-card');
-            cards.forEach(card => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(30px)';
-                card.style.transition = 'all 0.6s ease';
-            });
-            
-            setTimeout(animateOnScroll, 500);
         });
-        
-        window.addEventListener('scroll', animateOnScroll);
     </script>
 </body>
 </html>
