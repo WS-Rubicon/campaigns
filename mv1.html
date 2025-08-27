@@ -222,6 +222,8 @@
             letter-spacing: 0.5px;
             opacity: 0.5;
             transform: scale(0.95);
+            text-decoration: none;
+            display: inline-block;
         }
         
         .proceed-btn.active {
@@ -405,9 +407,9 @@
                     </div>
                     
                     <div class="proceed-section">
-                        <button class="proceed-btn" id="proceedBtn" onclick="proceedToEvaluation()">
+                        <a href="https://hpkpn.ttrk.io/click" class="proceed-btn" id="proceedBtn">
                             Get Free Legal Consultation
-                        </button>
+                        </a>
                     </div>
                 </div>
                 
@@ -466,21 +468,6 @@
                 proceedBtn.classList.add('active');
             }
         });
-        
-        function proceedToEvaluation() {
-            if (!selectedAnswer) return;
-            
-            // Show loading state
-            const btn = document.getElementById('proceedBtn');
-            const originalText = btn.textContent;
-            btn.textContent = 'Connecting you to legal evaluation...';
-            btn.disabled = true;
-            
-            // Brief delay then redirect to tracking URL
-            setTimeout(() => {
-                window.location.href = 'https://hpkpn.ttrk.io/click';
-            }, 2000);
-        }
     </script>
 </body>
 </html>
