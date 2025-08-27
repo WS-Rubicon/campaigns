@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Motor Vehicle Accident Legal Services - Free Case Evaluation</title>
+    <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
@@ -40,6 +41,17 @@
             font-size: 18px;
             color: #ecf0f1;
             font-weight: 400;
+        }
+        
+        .location-indicator {
+            background: rgba(52, 152, 219, 0.2);
+            color: #3498db;
+            padding: 8px 15px;
+            border-radius: 15px;
+            font-size: 14px;
+            margin-top: 10px;
+            display: inline-block;
+            font-weight: 500;
         }
         
         .main-container {
@@ -316,6 +328,9 @@
         <div class="header-content">
             <div class="law-firm-name">AUTO INJURY LAW</div>
             <div class="practice-area">Motor Vehicle Accident Legal Services</div>
+            <div class="location-indicator" id="locationDisplay">
+                📍 Serving Your Area
+            </div>
         </div>
     </div>
     
@@ -411,6 +426,26 @@
     
     <script>
         let selectedAnswer = null;
+        let userLocation = null;
+        
+        // Fetch user's geolocation on page load
+        async function fetchLocation() {
+            try {
+                const response = await fetch('https://geo.ipify.org/api/v2/country,city?apiKey=at_JKtyyWskmuI07I6RieQ3a6EBhlt5T');
+                const data = await response.json();
+                
+                if (data.location && data.location.city && data.location.region) {
+                    userLocation = `${data.location.city}, ${data.location.region}`;
+                    document.getElementById('locationDisplay').textContent = `📍 Serving ${userLocation}`;
+                }
+            } catch (error) {
+                console.log('Location fetch failed:', error);
+                // Keep default text if geolocation fails
+            }
+        }
+        
+        // Call fetchLocation when page loads
+        fetchLocation();
         
         // Handle answer selection
         document.addEventListener('click', function(e) {
@@ -441,9 +476,9 @@
             btn.textContent = 'Connecting you to legal evaluation...';
             btn.disabled = true;
             
-            // Brief delay then redirect to autoinjurynow.com
+            // Brief delay then redirect to tracking URL
             setTimeout(() => {
-                window.location.href = 'https://autoinjurynow.com/';
+                window.location.href = 'https://hpkpn.ttrk.io/click';
             }, 2000);
         }
     </script>
