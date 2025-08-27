@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motor Vehicle Accident Legal Services - Free Case Evaluation</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #4a5a8a 0%, #3e4b7a 100%);
+            color: #ffffff;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .header-section {
+            background: #2c3e50;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 3px solid #3498db;
+        }
+        
+        .header-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .law-firm-name {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #3498db;
+        }
+        
+        .practice-area {
+            font-size: 18px;
+            color: #ecf0f1;
+            font-weight: 400;
+        }
+        
+        .main-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        .main-content {
+            background: linear-gradient(135deg, #ffffff, #f8f9fa);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            border: 1px solid #dee2e6;
+        }
+        
+        .content-header {
+            background: linear-gradient(135deg, #3e4b7a, #4a5a8a);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .main-headline {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .sub-headline {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .legal-content {
+            padding: 50px;
+            color: #333;
+            text-align: center;
+        }
+        
+        .compensation-examples {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .settlement-item {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 30px 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        }
+        
+        .settlement-amount {
+            font-size: 32px;
+            font-weight: 800;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .settlement-case {
+            font-size: 14px;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+        
+        .qualification-section {
+            background: #f8f9fa;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            padding: 40px;
+            margin: 30px 0;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .section-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .question-container {
+            margin-bottom: 30px;
+        }
+        
+        .question-text {
+            font-size: 20px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .answer-grid {
+            display: grid;
+            gap: 15px;
+        }
+        
+        .answer-choice {
+            background: white;
+            border: 2px solid #dee2e6;
+            border-radius: 6px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+            font-weight: 500;
+            color: #495057;
+        }
+        
+        .answer-choice:hover {
+            border-color: #3498db;
+            background: #e3f2fd;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.2);
+        }
+        
+        .answer-choice.selected {
+            border-color: #3498db;
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            color: #1565c0;
+            font-weight: 600;
+        }
+        
+        .radio-indicator {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #3498db;
+            border-radius: 50%;
+            margin-right: 15px;
+            background: white;
+            flex-shrink: 0;
+        }
+        
+        .answer-choice.selected .radio-indicator {
+            background: #3498db;
+            box-shadow: inset 0 0 0 4px white;
+        }
+        
+        .proceed-section {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .proceed-btn {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            border: none;
+            padding: 16px 50px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            opacity: 0.5;
+            transform: scale(0.95);
+        }
+        
+        .proceed-btn.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .proceed-btn:hover.active {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(40, 167, 69, 0.3);
+        }
+        
+        .legal-notice {
+            background: rgba(0, 0, 0, 0.05);
+            padding: 25px;
+            border-top: 1px solid #dee2e6;
+            font-size: 14px;
+            color: #6c757d;
+            text-align: center;
+            line-height: 1.6;
+        }
+        
+        .experience-bar {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background: rgba(52, 152, 219, 0.1);
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 28px;
+            font-weight: 800;
+            color: #2980b9;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 13px;
+            color: #6c757d;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        
+        .footer-disclaimer {
+            text-align: center;
+            color: #ffffff;
+            font-size: 12px;
+            margin-top: 40px;
+            opacity: 0.8;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        @media (max-width: 768px) {
+            .law-firm-name {
+                font-size: 24px;
+            }
+            
+            .main-headline {
+                font-size: 28px;
+            }
+            
+            .legal-content {
+                padding: 30px;
+            }
+            
+            .compensation-examples {
+                grid-template-columns: 1fr 1fr;
+                gap: 15px;
+            }
+            
+            .settlement-amount {
+                font-size: 24px;
+            }
+            
+            .qualification-section {
+                padding: 25px;
+                margin: 20px 15px;
+            }
+            
+            .experience-bar {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .proceed-btn {
+                width: 100%;
+                padding: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-section">
+        <div class="header-content">
+            <div class="law-firm-name">AUTO INJURY LAW</div>
+            <div class="practice-area">Motor Vehicle Accident Legal Services</div>
+        </div>
+    </div>
+    
+    <div class="main-container">
+        <div class="main-content">
+            <div class="content-header">
+                <div class="main-headline">
+                    Have You Or a Loved One Been Injured in a Motor Vehicle Accident?
+                </div>
+                <div class="sub-headline">
+                    If so, you may be entitled to compensation for your injuries, medical expenses, lost wages, and pain and suffering.
+                </div>
+            </div>
+            
+            <div class="legal-content">
+                <div class="compensation-examples">
+                    <div class="settlement-item">
+                        <span class="settlement-amount">$875,000</span>
+                        <span class="settlement-case">Car Accident Settlement</span>
+                    </div>
+                    <div class="settlement-item">
+                        <span class="settlement-amount">$1.2M</span>
+                        <span class="settlement-case">Commercial Vehicle Case</span>
+                    </div>
+                    <div class="settlement-item">
+                        <span class="settlement-amount">$650,000</span>
+                        <span class="settlement-case">Personal Injury Verdict</span>
+                    </div>
+                </div>
+                
+                <div class="experience-bar">
+                    <div class="stat-item">
+                        <span class="stat-number">$50M+</span>
+                        <span class="stat-label">Recovered for Clients</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">2,500+</span>
+                        <span class="stat-label">Cases Handled</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">25+</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">98%</span>
+                        <span class="stat-label">Success Rate</span>
+                    </div>
+                </div>
+                
+                <div class="qualification-section">
+                    <div class="section-title">Free Case Evaluation</div>
+                    
+                    <div class="question-container">
+                        <div class="question-text">
+                            Were you injured in a motor vehicle accident?
+                        </div>
+                        
+                        <div class="answer-grid">
+                            <div class="answer-choice" data-value="yes-injured">
+                                <div class="radio-indicator"></div>
+                                Yes, I was injured in a motor vehicle accident
+                            </div>
+                            <div class="answer-choice" data-value="family-injured">
+                                <div class="radio-indicator"></div>
+                                Yes, a family member was injured in an accident
+                            </div>
+                            <div class="answer-choice" data-value="no-injury">
+                                <div class="radio-indicator"></div>
+                                No, but I have questions about an accident
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="proceed-section">
+                        <button class="proceed-btn" id="proceedBtn" onclick="proceedToEvaluation()">
+                            Get Free Legal Consultation
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="legal-notice">
+                    <strong>100% FREE CONSULTATION</strong> • <strong>NO FEES UNLESS WE WIN</strong> • <strong>AVAILABLE 24/7</strong><br>
+                    Our experienced attorneys will review your case at no cost to you. We handle all types of motor vehicle accidents including car crashes, truck accidents, motorcycle accidents, and pedestrian injuries.
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-disclaimer">
+            <strong>ATTORNEY ADVERTISING.</strong> 
+            This website is designed for general information only. The information presented should not be construed to be formal legal advice nor the formation of a lawyer/client relationship. Past results do not guarantee future outcomes. Every case is unique and results may vary. No representation is made that the quality of legal services to be performed is greater than the quality of legal services performed by other lawyers.
+        </div>
+    </div>
+    
+    <script>
+        let selectedAnswer = null;
+        
+        // Handle answer selection
+        document.addEventListener('click', function(e) {
+            if (e.target.closest('.answer-choice')) {
+                const choice = e.target.closest('.answer-choice');
+                
+                // Remove selected class from all choices
+                document.querySelectorAll('.answer-choice').forEach(option => {
+                    option.classList.remove('selected');
+                });
+                
+                // Add selected class to clicked choice
+                choice.classList.add('selected');
+                selectedAnswer = choice.dataset.value;
+                
+                // Enable proceed button
+                const proceedBtn = document.getElementById('proceedBtn');
+                proceedBtn.classList.add('active');
+            }
+        });
+        
+        function proceedToEvaluation() {
+            if (!selectedAnswer) return;
+            
+            // Show loading state
+            const btn = document.getElementById('proceedBtn');
+            const originalText = btn.textContent;
+            btn.textContent = 'Connecting you to legal evaluation...';
+            btn.disabled = true;
+            
+            // Brief delay then redirect to autoinjurynow.com
+            setTimeout(() => {
+                window.location.href = 'https://autoinjurynow.com/';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
