@@ -92,19 +92,13 @@
             font-weight: bold;
         }
 
-        /* === CODE FIX START === */
-        /*
-         * The old ".congress-image" class was removed because it didn't match the HTML.
-         * A new ".hero-image" class was added to correctly style the <img> tag.
-        */
         .hero-image {
-            width: 100%;      /* Makes the image responsive to the container's width */
-            height: auto;     /* Maintains the aspect ratio to avoid distortion */
-            display: block;   /* Ensures proper block-level behavior and margin application */
-            margin: 30px 0;   /* Adds vertical spacing above and below the image */
-            border-radius: 8px; /* Rounds the corners like in the example */
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px 0;
+            border-radius: 8px;
         }
-        /* === CODE FIX END === */
 
         /* Content Sections */
         .content-section {
@@ -202,23 +196,37 @@
             margin: 0 auto;
         }
 
+        /* === CODE FIX START === */
+        /*
+         * The button styles have been updated to match the new, larger design.
+         * Properties like padding, font-size, border, and box-shadow were changed.
+         * An ":active" state was added for a "push-down" click effect.
+        */
         .year-button {
-            background-color: #f39c12;
-            color: white;
-            border: 2px solid #d68910;
-            padding: 12px 25px;
-            border-radius: 5px;
-            font-size: 14px;
+            background-color: #f9b233;
+            color: #000;
+            border: 3px solid #000;
+            padding: 18px 25px;
+            border-radius: 8px;
+            font-size: 18px;
             font-weight: bold;
             cursor: pointer;
-            transition: all 0.3s;
-            flex: 1;
             text-align: center;
+            flex: 1;
+            box-shadow: 5px 5px 0px #000;
+            transition: all 0.1s linear;
+            position: relative;
         }
 
         .year-button:hover {
-            background-color: #e67e22;
+            background-color: #ffc107;
         }
+
+        .year-button:active {
+            box-shadow: none;
+            transform: translate(5px, 5px);
+        }
+        /* === CODE FIX END === */
 
         /* Hot Tip Section */
         .hot-tip {
@@ -416,17 +424,10 @@
             }
         });
 
-        // Add interactive button effects
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('.year-button').forEach(button => {
-                button.addEventListener('click', function() {
-                    this.style.transform = 'scale(0.98)';
-                    setTimeout(() => {
-                        this.style.transform = 'scale(1)';
-                    }, 150);
-                });
-            });
-        });
+        /*
+         * The old JavaScript for button effects was removed.
+         * The click effect is now handled purely by the new CSS ":active" style.
+        */
     </script>
 </body>
 </html>
