@@ -198,14 +198,15 @@
 
         /* === CODE FIX START === */
         /*
-         * The button styles have been updated to match the new, larger design.
-         * Properties like padding, font-size, border, and box-shadow were changed.
-         * An ":active" state was added for a "push-down" click effect.
+         * Reworked button styles for a more authentic look from the screenshot.
+         * Applied a linear gradient for the background, updated border,
+         * and refined the box-shadow for a 3D effect.
+         * Adjusted :hover and :active states for better visual feedback.
         */
         .year-button {
-            background-color: #f9b233;
-            color: #000;
-            border: 3px solid #000;
+            background: linear-gradient(to bottom, #fdd867 0%, #f7a70e 100%); /* Gradient fill */
+            color: #000; /* Black text for contrast */
+            border: 2px solid #000; /* Solid black border */
             padding: 18px 25px;
             border-radius: 8px;
             font-size: 18px;
@@ -213,18 +214,21 @@
             cursor: pointer;
             text-align: center;
             flex: 1;
-            box-shadow: 5px 5px 0px #000;
-            transition: all 0.1s linear;
+            box-shadow: 4px 4px 0px #000; /* More defined shadow for 3D effect */
+            transition: all 0.1s ease-out; /* Smoother transition */
             position: relative;
+            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5); /* Subtle text shadow for depth */
         }
 
         .year-button:hover {
-            background-color: #ffc107;
+            background: linear-gradient(to bottom, #ffe08a 0%, #fdb933 100%); /* Slightly lighter gradient on hover */
+            text-decoration: none; /* Remove underline on hover */
         }
 
         .year-button:active {
-            box-shadow: none;
-            transform: translate(5px, 5px);
+            box-shadow: 0 0 0 #000; /* Remove shadow on press */
+            transform: translate(4px, 4px); /* Shift button to simulate press */
+            transition: all 0.05s ease-in; /* Quick press transition */
         }
         /* === CODE FIX END === */
 
@@ -420,14 +424,12 @@
 
             const hotTipLink = document.querySelector('.hot-tip-link');
             if (hotTipLink) {
-                hotTipLink.href = 'https://hpkpn.ttrk.io/click';
+                hotTipLink.href = 'https://hpkTip.ttrk.io/click';
             }
         });
 
-        /*
-         * The old JavaScript for button effects was removed.
-         * The click effect is now handled purely by the new CSS ":active" style.
-        */
+        // The old JavaScript for button effects was removed.
+        // The click effect is now handled purely by the new CSS ":active" style.
     </script>
 </body>
 </html>
