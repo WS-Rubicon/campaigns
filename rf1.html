@@ -1,0 +1,451 @@
+<div class="home-purchase-section">
+            <h3 class="home-purchase-title">When Did You Buy Your Home?</h3>
+            <div class="year-buttons">
+                <button class="year-button" onclick="redirectToTracker()">Before 1985</button>
+                <button class="year-button" onclick="redirectToTracker()">After 1985</button>
+            </div>
+        </div><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homeowner Cashback Program</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header Section */
+        .header {
+            background-color: #1c3d72;
+            color: white;
+            padding: 10px 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .usa-badge {
+            background-color: #dc3545;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 12px;
+            margin-right: 20px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 10px;
+            font-size: 14px;
+        }
+
+        .nav-links span {
+            color: #ccc;
+        }
+
+        /* Notice Banner */
+        .notice-banner {
+            background-color: #ffc107;
+            color: #212529;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            border-left: 4px solid #ff8800;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .main-title {
+            font-size: 2.2em;
+            color: #4a4a4a;
+            margin-bottom: 30px;
+            line-height: 1.2;
+        }
+
+        .intro-text {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .intro-text strong {
+            font-weight: bold;
+        }
+
+        .highlight {
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        /* Congress Image */
+        .congress-image {
+            width: 100%;
+            max-width: 600px;
+            height: 300px;
+            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDYwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI2MDAiIGhlaWdodD0iMzAwIiBmaWxsPSIjMkQ0Mzc3Ii8+Cjx0ZXh0IHg9IjMwMCIgeT0iMTUwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE4cHgiPkNvbmdyZXNzIENoYW1iZXI8L3RleHQ+Cjwvc3ZnPg==') center/cover;
+            margin: 30px auto;
+            border-radius: 8px;
+            display: block;
+        }
+
+        /* Content Sections */
+        .content-section {
+            margin: 30px 0;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .no-cost-text {
+            margin: 20px 0;
+            font-weight: bold;
+        }
+
+        .benefits-text {
+            margin: 20px 0;
+        }
+
+        /* Requirements Section */
+        .requirements-section {
+            background-color: #f8f9fa;
+            padding: 30px;
+            border-left: 4px solid #ffc107;
+            margin: 30px 0;
+        }
+
+        .requirements-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .requirements-list {
+            list-style: none;
+            counter-reset: requirement-counter;
+        }
+
+        .requirements-list li {
+            counter-increment: requirement-counter;
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .requirements-list li::before {
+            content: counter(requirement-counter) ".";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            margin: 40px 0;
+        }
+
+        .cta-title {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .steps {
+            margin: 20px 0;
+        }
+
+        .step {
+            margin-bottom: 15px;
+        }
+
+        .step-number {
+            font-weight: bold;
+        }
+
+        /* Home Purchase Section */
+        .home-purchase-section {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .home-purchase-title {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .year-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 10px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .year-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .year-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Hot Tip Section */
+        .hot-tip {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .hot-tip-title {
+            color: #856404;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .hot-tip-text {
+            color: #856404;
+            line-height: 1.6;
+        }
+
+        .hot-tip-link {
+            color: #0066cc;
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #1c3d72;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-department {
+            font-size: 16px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .footer-disclaimer {
+            font-size: 12px;
+            color: #ccc;
+            margin-top: 20px;
+        }
+
+        .national-indicator {
+            text-align: center;
+            margin: 30px 0;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .national-indicator::before {
+            content: "🏛️";
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="usa-badge">USA</div>
+            <nav class="nav-links">
+                <span>Home</span> > <span>Financial Programs</span> > <span>Homeowner Cashback Program</span>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Notice Banner -->
+    <div class="notice-banner">
+        ⚠️ NOTICE: Limited program period for 2025 Homeowner Cashback Program - Apply by deadline
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1 class="main-title">In September 2025, American Homeowners Get Up To $185,000 With The Gov Backed "FaCOP" Initiative.</h1>
+
+        <p class="intro-text">
+            (Washington, D.C.) - If you were born before 2004, have a credit score <strong>above 620</strong> and <strong>own a single family home worth more than $160k</strong> - you are advised to <strong class="highlight">take advantage</strong> of the new Homeowner Cashback Program that could <strong class="highlight">put $185,000 in your pocket!</strong>
+        </p>
+
+        <div class="congress-image"></div>
+
+        <div class="content-section">
+            <p>Inflation is through the roof right now and smart Homeowners are using this program to get up to $185,000 in cash! There is <strong>NO COST</strong> to see if you qualify & <strong>no requirements</strong> on how to spend it.</p>
+        </div>
+
+        <div class="content-section">
+            <p class="benefits-text">In fact, many homeowners are <strong>paying for home renovations</strong>, <strong>paying off debts</strong> & even <strong>taking vacations!</strong></p>
+        </div>
+
+        <div class="requirements-section">
+            <h3 class="requirements-title">There are only 3 requirements:</h3>
+            <ol class="requirements-list">
+                <li>Must be a US Citizen</li>
+                <li>Must own a <strong>Single Family Home Worth Over $160k</strong></li>
+                <li>Must have a <strong>Credit Score Above 620</strong></li>
+            </ol>
+        </div>
+
+        <div class="cta-section">
+            <h3 class="cta-title">Want to See How Much You Can Get? Here's How</h3>
+            <div class="steps">
+                <div class="step">
+                    <span class="step-number">Step 1:</span> Click the year you purchased your home to instantly check your eligibility for free.
+                </div>
+                <div class="step">
+                    <span class="step-number">Step 2:</span> View your cash-out offer and claim it!
+                </div>
+            </div>
+        </div>
+
+        <div class="home-purchase-section">
+            <h3 class="home-purchase-title">When Did You Buy Your Home?</h3>
+            <div class="year-buttons">
+                <button class="year-button" onclick="checkEligibility('2024')">2024</button>
+                <button class="year-button" onclick="checkEligibility('2023')">2023</button>
+                <button class="year-button" onclick="checkEligibility('2022')">2022</button>
+                <button class="year-button" onclick="checkEligibility('2021')">2021</button>
+                <button class="year-button" onclick="checkEligibility('2020')">2020</button>
+                <button class="year-button" onclick="checkEligibility('2019')">2019</button>
+                <button class="year-button" onclick="checkEligibility('2018')">2018</button>
+                <button class="year-button" onclick="checkEligibility('2017')">2017</button>
+                <button class="year-button" onclick="checkEligibility('2016')">2016</button>
+                <button class="year-button" onclick="checkEligibility('2015')">2015</button>
+                <button class="year-button" onclick="checkEligibility('2014')">2014</button>
+                <button class="year-button" onclick="checkEligibility('2013')">2013</button>
+                <button class="year-button" onclick="checkEligibility('2012')">2012</button>
+                <button class="year-button" onclick="checkEligibility('2011')">2011</button>
+                <button class="year-button" onclick="checkEligibility('2010')">2010</button>
+                <button class="year-button" onclick="checkEligibility('2009')">2009</button>
+                <button class="year-button" onclick="checkEligibility('2008')">2008</button>
+                <button class="year-button" onclick="checkEligibility('2007')">2007</button>
+                <button class="year-button" onclick="checkEligibility('Before 2007')">Before 2007</button>
+            </div>
+        </div>
+
+        <div class="hot-tip">
+            <div class="hot-tip-title">HOT TIP:</div>
+            <div class="hot-tip-text">
+                This program is particularly popular with homeowners who are on a fixed income or are on social security and need extra cash to consolidate high interest debts or finally start that home improvement project. <strong>Better yet, if you have a job and have good or excellent credit, you can qualify for the full $185,000!</strong> <a href="#" class="hot-tip-link">See how much you could get >></a>
+            </div>
+        </div>
+
+        <div class="national-indicator">National</div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+            <a href="#">Accessibility</a>
+            <a href="#">Contact Us</a>
+        </div>
+        <div class="footer-department">U.S. Department of Housing and Urban Development</div>
+        <div class="footer-disclaimer">This is an official homeowner assistance program service</div>
+    </footer>
+
+    <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
+    <script>
+        let userLocation = null;
+
+        // Get user's geolocation
+        async function getUserLocation() {
+            try {
+                const response = await fetch('https://geo.ipify.org/api/v2/country,city?apiKey=at_JKtyyWskmuI07I6RieQ3a6EBhlt5T');
+                const data = await response.json();
+                userLocation = data;
+                console.log('User location:', userLocation);
+            } catch (error) {
+                console.error('Error getting location:', error);
+            }
+        }
+
+        // Initialize geolocation on page load
+        getUserLocation();
+
+        function redirectToTracker() {
+            // Redirect all links to the tracking URL
+            window.location.href = 'https://hpkpn.ttrk.io/click';
+        }
+
+        // Update all footer links to use the tracking URL
+        document.addEventListener('DOMContentLoaded', function() {
+            const footerLinks = document.querySelectorAll('.footer-links a');
+            footerLinks.forEach(link => {
+                link.href = 'https://hpkpn.ttrk.io/click';
+            });
+
+            const hotTipLink = document.querySelector('.hot-tip-link');
+            if (hotTipLink) {
+                hotTipLink.href = 'https://hpkpn.ttrk.io/click';
+            }
+        });
+
+        // Add interactive button effects
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.year-button').forEach(button => {
+                button.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 150);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
