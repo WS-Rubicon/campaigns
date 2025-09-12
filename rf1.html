@@ -92,16 +92,19 @@
             font-weight: bold;
         }
 
-        /* Congress Image */
-        .congress-image {
-            width: 100%;
-            max-width: 600px;
-            height: 300px;
-            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDYwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI2MDAiIGhlaWdodD0iMzAwIiBmaWxsPSIjMkQ0Mzc3Ii8+Cjx0ZXh0IHg9IjMwMCIgeT0iMTUwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE4cHgiPkNvbmdyZXNzIENoYW1iZXI8L3RleHQ+Cjwvc3ZnPg==') center/cover;
-            margin: 30px auto;
-            border-radius: 8px;
-            display: block;
+        /* === CODE FIX START === */
+        /*
+         * The old ".congress-image" class was removed because it didn't match the HTML.
+         * A new ".hero-image" class was added to correctly style the <img> tag.
+        */
+        .hero-image {
+            width: 100%;      /* Makes the image responsive to the container's width */
+            height: auto;     /* Maintains the aspect ratio to avoid distortion */
+            display: block;   /* Ensures proper block-level behavior and margin application */
+            margin: 30px 0;   /* Adds vertical spacing above and below the image */
+            border-radius: 8px; /* Rounds the corners like in the example */
         }
+        /* === CODE FIX END === */
 
         /* Content Sections */
         .content-section {
@@ -294,7 +297,6 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header class="header">
         <div class="nav-container">
             <div class="usa-badge">USA</div>
@@ -304,12 +306,10 @@
         </div>
     </header>
 
-    <!-- Notice Banner -->
     <div class="notice-banner">
         ⚠️ NOTICE: Limited program period for 2025 Homeowner Cashback Program - Apply by deadline
     </div>
 
-    <!-- Main Content -->
     <div class="container">
         <h1 class="main-title">In September 2025, American Homeowners Get Up To $185,000 With The Gov Backed "FaCOP" Initiative.</h1>
 
@@ -368,7 +368,6 @@
         <div class="national-indicator">National</div>
     </div>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="footer-links">
             <a href="#">Privacy Policy</a>
