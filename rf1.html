@@ -1,10 +1,4 @@
-<div class="home-purchase-section">
-            <h3 class="home-purchase-title">When Did You Buy Your Home?</h3>
-            <div class="year-buttons">
-                <button class="year-button" onclick="redirectToTracker()">Before 1985</button>
-                <button class="year-button" onclick="redirectToTracker()">After 1985</button>
-            </div>
-        </div><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -198,27 +192,29 @@
         }
 
         .year-buttons {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-            gap: 10px;
-            max-width: 500px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            max-width: 400px;
             margin: 0 auto;
         }
 
         .year-button {
-            background-color: #007bff;
+            background-color: #f39c12;
             color: white;
-            border: none;
-            padding: 15px 20px;
+            border: 2px solid #d68910;
+            padding: 12px 25px;
             border-radius: 5px;
             font-size: 14px;
             font-weight: bold;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
+            flex: 1;
+            text-align: center;
         }
 
         .year-button:hover {
-            background-color: #0056b3;
+            background-color: #e67e22;
         }
 
         /* Hot Tip Section */
@@ -320,7 +316,9 @@
             (Washington, D.C.) - If you were born before 2004, have a credit score <strong>above 620</strong> and <strong>own a single family home worth more than $160k</strong> - you are advised to <strong class="highlight">take advantage</strong> of the new Homeowner Cashback Program that could <strong class="highlight">put $185,000 in your pocket!</strong>
         </p>
 
-        <div class="congress-image"></div>
+        <a href="https://hpkpn.ttrk.io/click" class="hero-image-link">
+            <div class="hero-image"></div>
+        </a>
 
         <div class="content-section">
             <p>Inflation is through the roof right now and smart Homeowners are using this program to get up to $185,000 in cash! There is <strong>NO COST</strong> to see if you qualify & <strong>no requirements</strong> on how to spend it.</p>
@@ -354,25 +352,8 @@
         <div class="home-purchase-section">
             <h3 class="home-purchase-title">When Did You Buy Your Home?</h3>
             <div class="year-buttons">
-                <button class="year-button" onclick="checkEligibility('2024')">2024</button>
-                <button class="year-button" onclick="checkEligibility('2023')">2023</button>
-                <button class="year-button" onclick="checkEligibility('2022')">2022</button>
-                <button class="year-button" onclick="checkEligibility('2021')">2021</button>
-                <button class="year-button" onclick="checkEligibility('2020')">2020</button>
-                <button class="year-button" onclick="checkEligibility('2019')">2019</button>
-                <button class="year-button" onclick="checkEligibility('2018')">2018</button>
-                <button class="year-button" onclick="checkEligibility('2017')">2017</button>
-                <button class="year-button" onclick="checkEligibility('2016')">2016</button>
-                <button class="year-button" onclick="checkEligibility('2015')">2015</button>
-                <button class="year-button" onclick="checkEligibility('2014')">2014</button>
-                <button class="year-button" onclick="checkEligibility('2013')">2013</button>
-                <button class="year-button" onclick="checkEligibility('2012')">2012</button>
-                <button class="year-button" onclick="checkEligibility('2011')">2011</button>
-                <button class="year-button" onclick="checkEligibility('2010')">2010</button>
-                <button class="year-button" onclick="checkEligibility('2009')">2009</button>
-                <button class="year-button" onclick="checkEligibility('2008')">2008</button>
-                <button class="year-button" onclick="checkEligibility('2007')">2007</button>
-                <button class="year-button" onclick="checkEligibility('Before 2007')">Before 2007</button>
+                <button class="year-button" onclick="redirectToTracker()">Before 1985</button>
+                <button class="year-button" onclick="redirectToTracker()">After 1985</button>
             </div>
         </div>
 
