@@ -195,18 +195,11 @@
             max-width: 400px;
             margin: 0 auto;
         }
-
-        /* === CODE FIX START === */
-        /*
-         * Reworked button styles for a more authentic look from the screenshot.
-         * Applied a linear gradient for the background, updated border,
-         * and refined the box-shadow for a 3D effect.
-         * Adjusted :hover and :active states for better visual feedback.
-        */
+        
         .year-button {
-            background: linear-gradient(to bottom, #fdd867 0%, #f7a70e 100%); /* Gradient fill */
-            color: #000; /* Black text for contrast */
-            border: 2px solid #000; /* Solid black border */
+            background: linear-gradient(to bottom, #fdd867 0%, #f7a70e 100%);
+            color: #000;
+            border: 2px solid #000;
             padding: 18px 25px;
             border-radius: 8px;
             font-size: 18px;
@@ -214,23 +207,23 @@
             cursor: pointer;
             text-align: center;
             flex: 1;
-            box-shadow: 4px 4px 0px #000; /* More defined shadow for 3D effect */
-            transition: all 0.1s ease-out; /* Smoother transition */
+            box-shadow: 4px 4px 0px #000;
+            transition: all 0.1s ease-out;
             position: relative;
-            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5); /* Subtle text shadow for depth */
+            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+            text-decoration: none; /* Added to remove underline from links */
         }
 
         .year-button:hover {
-            background: linear-gradient(to bottom, #ffe08a 0%, #fdb933 100%); /* Slightly lighter gradient on hover */
-            text-decoration: none; /* Remove underline on hover */
+            background: linear-gradient(to bottom, #ffe08a 0%, #fdb933 100%);
+            text-decoration: none;
         }
 
         .year-button:active {
-            box-shadow: 0 0 0 #000; /* Remove shadow on press */
-            transform: translate(4px, 4px); /* Shift button to simulate press */
-            transition: all 0.05s ease-in; /* Quick press transition */
+            box-shadow: 0 0 0 #000;
+            transform: translate(4px, 4px);
+            transition: all 0.05s ease-in;
         }
-        /* === CODE FIX END === */
 
         /* Hot Tip Section */
         .hot-tip {
@@ -365,10 +358,10 @@
         <div class="home-purchase-section">
             <h3 class="home-purchase-title">When Did You Buy Your Home?</h3>
             <div class="year-buttons">
-                <button class="year-button" onclick="redirectToTracker()">Before 1985</button>
-                <button class="year-button" onclick="redirectToTracker()">After 1985</button>
+                <a href="https://hpkpn.ttrk.io/click" class="year-button">Before 1985</a>
+                <a href="https://hpkpn.ttrk.io/click" class="year-button">After 1985</a>
             </div>
-        </div>
+            </div>
 
         <div class="hot-tip">
             <div class="hot-tip-title">HOT TIP:</div>
@@ -410,10 +403,9 @@
         // Initialize geolocation on page load
         getUserLocation();
 
-        function redirectToTracker() {
-            // Redirect all links to the tracking URL
-            window.location.href = 'https://hpkpn.ttrk.io/click';
-        }
+        // === CODE FIX START ===
+        // The redirectToTracker() function was removed as it's no longer needed. The <a> tags handle the redirect directly.
+        // === CODE FIX END ===
 
         // Update all footer links to use the tracking URL
         document.addEventListener('DOMContentLoaded', function() {
@@ -424,12 +416,10 @@
 
             const hotTipLink = document.querySelector('.hot-tip-link');
             if (hotTipLink) {
-                hotTipLink.href = 'https://hpkTip.ttrk.io/click';
+                // Fixed the typo in the URL from "hpkTip" to "hpkpn"
+                hotTipLink.href = 'https://hpkpn.ttrk.io/click';
             }
         });
-
-        // The old JavaScript for button effects was removed.
-        // The click effect is now handled purely by the new CSS ":active" style.
     </script>
 </body>
 </html>
