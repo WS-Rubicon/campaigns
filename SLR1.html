@@ -272,7 +272,7 @@
 
         <div class="energy-card">
             <div class="bill-amount">
-                <span class="currency">$</span><span class="amount">347</span>
+                <span class="currency">$</span><span class="amount">523</span>
                 <div class="period">Last month</div>
             </div>
 
@@ -307,11 +307,11 @@
 
             <div class="stats-grid">
                 <div class="stat-item">
-                    <div class="stat-value">↑24%</div>
+                    <div class="stat-value">↑38%</div>
                     <div class="stat-label">vs Last Month</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-value">1,847</div>
+                    <div class="stat-value">2,634</div>
                     <div class="stat-label">kWh Used</div>
                 </div>
             </div>
@@ -324,27 +324,15 @@
 
     <script>
         function checkArea() {
-            // Add a subtle animation feedback
-            const button = document.querySelector('.cta-button');
-            button.style.transform = 'scale(0.95)';
-            button.textContent = 'Checking...';
-            
-            setTimeout(() => {
-                button.style.transform = 'scale(1)';
-                button.textContent = 'Analyzing Local Data...';
-            }, 150);
-
-            setTimeout(() => {
-                alert('📊 Analyzing this month\'s energy data...\n\n🔥 Current usage trending higher!\n⚡ Month-to-date: $89 (Day 23)\n📈 Projected bill: $425 (+22% vs last month)');
-                button.textContent = 'This Month';
-            }, 2000);
+            // Redirect to the specified URL
+            window.open('https://clearpathbenefitstoday.com/slr2', '_blank');
         }
 
         // Add some dynamic elements on load
         window.addEventListener('load', () => {
             // Animate the bill amount counting up
             const amountElement = document.querySelector('.amount');
-            const finalAmount = 347;
+            const finalAmount = 523;
             let currentAmount = 0;
             const increment = finalAmount / 50;
 
