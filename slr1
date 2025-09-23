@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energy Monitor</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 390px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-top: 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #888;
+            font-weight: 300;
+        }
+
+        .energy-card {
+            background: linear-gradient(135deg, #2a2a2a 0%, #1f1f1f 100%);
+            border-radius: 20px;
+            padding: 30px 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .bill-amount {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .currency {
+            font-size: 20px;
+            color: #ff4444;
+            font-weight: 300;
+        }
+
+        .amount {
+            font-size: 72px;
+            font-weight: 100;
+            color: #ff4444;
+            line-height: 0.9;
+            margin: 0 5px;
+        }
+
+        .period {
+            font-size: 16px;
+            color: #888;
+            margin-top: 5px;
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+            gap: 8px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #ff4444;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.2); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .status-text {
+            font-size: 14px;
+            color: #ff4444;
+            font-weight: 500;
+        }
+
+        .chart-container {
+            background: rgba(255, 68, 68, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid rgba(255, 68, 68, 0.2);
+        }
+
+        .chart-title {
+            font-size: 14px;
+            color: #ccc;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .chart {
+            height: 150px;
+            position: relative;
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            padding: 0 10px;
+        }
+
+        .chart-bar {
+            background: linear-gradient(to top, #ff4444, #ff6666);
+            width: 20px;
+            border-radius: 3px 3px 0 0;
+            margin: 0 2px;
+            position: relative;
+            animation: growBar 2s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes growBar {
+            from {
+                height: 0;
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .chart-bar:nth-child(1) { height: 40px; animation-delay: 0.1s; }
+        .chart-bar:nth-child(2) { height: 55px; animation-delay: 0.2s; }
+        .chart-bar:nth-child(3) { height: 45px; animation-delay: 0.3s; }
+        .chart-bar:nth-child(4) { height: 70px; animation-delay: 0.4s; }
+        .chart-bar:nth-child(5) { height: 85px; animation-delay: 0.5s; }
+        .chart-bar:nth-child(6) { height: 95px; animation-delay: 0.6s; }
+        .chart-bar:nth-child(7) { height: 110px; animation-delay: 0.7s; }
+        .chart-bar:nth-child(8) { height: 130px; animation-delay: 0.8s; }
+
+        .chart-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            padding: 0 10px;
+        }
+
+        .chart-label {
+            font-size: 10px;
+            color: #666;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 24px;
+            font-weight: 300;
+            color: #ff4444;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #888;
+            margin-top: 5px;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #ff4444 0%, #cc3333 100%);
+            border: none;
+            border-radius: 25px;
+            padding: 18px 40px;
+            font-size: 16px;
+            font-weight: 500;
+            color: white;
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(255, 68, 68, 0.3);
+            margin-top: 20px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(255, 68, 68, 0.4);
+        }
+
+        .cta-button:active {
+            transform: translateY(0);
+        }
+
+        .warning-banner {
+            background: linear-gradient(90deg, rgba(255, 68, 68, 0.2), rgba(255, 68, 68, 0.1));
+            border: 1px solid rgba(255, 68, 68, 0.3);
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .warning-icon {
+            width: 20px;
+            height: 20px;
+            color: #ff4444;
+        }
+
+        .warning-text {
+            font-size: 14px;
+            color: #ffaaaa;
+        }
+
+        @media (max-width: 375px) {
+            .amount {
+                font-size: 60px;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">ENERGY</div>
+            <div class="subtitle">Power Management System</div>
+        </div>
+
+        <div class="warning-banner">
+            <svg class="warning-icon" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+            </svg>
+            <div class="warning-text">High energy usage detected last month</div>
+        </div>
+
+        <div class="energy-card">
+            <div class="bill-amount">
+                <span class="currency">$</span><span class="amount">347</span>
+                <div class="period">Last month</div>
+            </div>
+
+            <div class="status-indicator">
+                <div class="status-dot"></div>
+                <div class="status-text">Above Average Usage</div>
+            </div>
+
+            <div class="chart-container">
+                <div class="chart-title">Monthly Energy Consumption (kWh)</div>
+                <div class="chart">
+                    <div class="chart-bar"></div>
+                    <div class="chart-bar"></div>
+                    <div class="chart-bar"></div>
+                    <div class="chart-bar"></div>
+                    <div class="chart-bar"></div>
+                    <div class="chart-bar"></div>
+                    <div class="chart-bar"></div>
+                    <div class="chart-bar"></div>
+                </div>
+                <div class="chart-labels">
+                    <span class="chart-label">Jan</span>
+                    <span class="chart-label">Feb</span>
+                    <span class="chart-label">Mar</span>
+                    <span class="chart-label">Apr</span>
+                    <span class="chart-label">May</span>
+                    <span class="chart-label">Jun</span>
+                    <span class="chart-label">Jul</span>
+                    <span class="chart-label">Aug</span>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-value">↑24%</div>
+                    <div class="stat-label">vs Last Month</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">1,847</div>
+                    <div class="stat-label">kWh Used</div>
+                </div>
+            </div>
+        </div>
+
+        <button class="cta-button" onclick="checkArea()">
+            This Month
+        </button>
+    </div>
+
+    <script>
+        function checkArea() {
+            // Add a subtle animation feedback
+            const button = document.querySelector('.cta-button');
+            button.style.transform = 'scale(0.95)';
+            button.textContent = 'Checking...';
+            
+            setTimeout(() => {
+                button.style.transform = 'scale(1)';
+                button.textContent = 'Analyzing Local Data...';
+            }, 150);
+
+            setTimeout(() => {
+                alert('📊 Analyzing this month\'s energy data...\n\n🔥 Current usage trending higher!\n⚡ Month-to-date: $89 (Day 23)\n📈 Projected bill: $425 (+22% vs last month)');
+                button.textContent = 'This Month';
+            }, 2000);
+        }
+
+        // Add some dynamic elements on load
+        window.addEventListener('load', () => {
+            // Animate the bill amount counting up
+            const amountElement = document.querySelector('.amount');
+            const finalAmount = 347;
+            let currentAmount = 0;
+            const increment = finalAmount / 50;
+
+            const countUp = setInterval(() => {
+                currentAmount += increment;
+                if (currentAmount >= finalAmount) {
+                    currentAmount = finalAmount;
+                    clearInterval(countUp);
+                }
+                amountElement.textContent = Math.floor(currentAmount);
+            }, 40);
+        });
+    </script>
+</body>
+</html>
