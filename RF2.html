@@ -1,234 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Homeowner Cashback Program</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>FaCOP Homeowner Cashback Program - Get Up to $185,000</title>
 <style>
   /* Reset */
-  *, *::before, *::after { box-sizing: border-box; }
-  html, body { margin:0; padding:0; }
-  body { font-family: Arial, Helvetica, sans-serif; color:#333; line-height:1.6; background:#fff; }
+  *,*::before,*::after{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{font-family:Arial,Helvetica,sans-serif;color:#333;line-height:1.6;background:#fff}
 
-  /* Top header (nav bar) */
-  .header { background:#0f2e53; }
-  .nav-container {
-    max-width: 1120px;
-    margin: 0 auto;
-    display:flex;
-    align-items:center;
-    padding: 12px 20px;
-    color:#fff;
-  }
-  .usa-badge {
-    width:32px; height:32px; border-radius:50%;
-    background:#cf2e2e; display:flex; align-items:center; justify-content:center;
-    font-weight:700; font-size:12px; margin-right:16px;
-  }
-  .breadcrumbs { font-size:14px; opacity:.95; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-  .breadcrumbs span { color:#cfe0ff; }
-  .breadcrumbs .sep { color:#89a7d9; padding:0 6px; }
+  /* Top header */
+  .header{background:#0f2e53}
+  .nav{max-width:1120px;margin:0 auto;display:flex;align-items:center;padding:12px 20px}
+  .usa{width:32px;height:32px;border-radius:50%;background:#cf2e2e;color:#fff;display:flex;align-items:center;justify-content:center;font:700 12px/1 Arial;margin-right:16px}
+  .crumbs{color:#e8f0ff;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .crumbs a{color:#cfe0ff;text-decoration:none}
+  .crumbs a:hover{color:#fff;text-decoration:underline}
+  .crumbs .sep{color:#89a7d9;padding:0 6px}
 
-  /* Notice banner */
-  .notice-banner {
-    background:#ffc107; color:#1f2328; border-left: 4px solid #ff9900;
-    font-weight:700; font-size:15px;
-    padding: 12px 16px; text-align:center;
-  }
-  .notice-banner .icon {
-    display:inline-block; background:#ffdf7a; border:1px solid #ffcc4d; border-radius:4px;
-    padding:2px 8px; margin-right:8px;
-  }
+  /* Notice */
+  .notice{background:#ffc107;color:#1f2328;border-left:4px solid #ff9900;font-weight:700;font-size:15px;padding:12px 16px;text-align:center}
 
-  /* Page container */
-  .container { max-width: 720px; margin: 0 auto; padding: 36px 20px 8px; }
+  /* Main */
+  .container{max-width:720px;margin:0 auto;padding:36px 20px 8px}
 
-  /* Headline */
-  .main-title {
-    font-size: 36px; line-height:1.25; color:#333; font-weight:800;
-    letter-spacing:.1px; margin-bottom:22px;
-  }
+  /* H1 */
+  .title{font-size:36px;line-height:1.25;color:#333;font-weight:800;letter-spacing:.1px;margin:0 0 22px}
 
-  /* Intro paragraph */
-  .intro-text { font-size:16px; color:#4b5563; margin-bottom:22px; }
-  .intro-text .highlight { text-decoration: underline; font-weight:700; }
+  /* Intro */
+  .intro{font-size:16px;color:#4b5563;margin:0 0 22px}
+  .intro .u{font-weight:700;text-decoration:underline}
 
-  /* Hero image */
-  .hero-image { width:100%; display:block; margin: 22px 0 8px; border-radius: 4px; }
+  /* Hero */
+  .hero{width:100%;display:block;margin:22px 0 8px;border-radius:4px}
 
-  /* Content */
-  .content-section { font-size:16px; color:#444; margin: 18px 0; }
+  /* Paragraph blocks */
+  .block{font-size:16px;color:#444;margin:18px 0}
 
-  /* Requirements box */
-  .requirements-section {
-    background:#f7f8fa; border-left:4px solid #ffc107; padding:22px; margin: 26px 0;
-  }
-  .requirements-title { font-size:18px; font-weight:800; margin-bottom:14px; color:#333; }
-  .requirements-list { list-style:none; counter-reset:req; margin:0; padding:0; }
-  .requirements-list li {
-    counter-increment:req; padding-left:28px; position:relative; margin:10px 0;
-  }
-  .requirements-list li::before {
-    content: counter(req) "."; position:absolute; left:0; top:0; font-weight:700; color:#333;
-  }
+  /* Requirements */
+  .req{background:#f7f8fa;border-left:4px solid #ffc107;padding:22px;margin:26px 0}
+  .req h3{font-size:18px;font-weight:800;margin:0 0 14px;color:#333}
+  .req ol{list-style:none;margin:0;padding:0;counter-reset:req}
+  .req li{counter-increment:req;position:relative;padding-left:28px;margin:10px 0}
+  .req li::before{content:counter(req) ".";position:absolute;left:0;top:0;font-weight:700;color:#333}
 
-  /* CTA / Steps */
-  .cta-section { margin: 28px 0 14px; }
-  .cta-title { font-weight:800; font-size:18px; margin-bottom:10px; color:#333; }
-  .steps .step { margin:8px 0; }
-  .step-number { font-weight:700; }
+  /* CTA */
+  .cta{margin:28px 0 14px}
+  .cta h3{font-size:18px;font-weight:800;margin:0 0 10px;color:#333}
+  .step{margin:8px 0}
+  .step b{font-weight:700}
 
   /* Year buttons */
-  .home-purchase-section { text-align:center; margin: 30px 0 16px; }
-  .home-purchase-title { font-weight:800; font-size:18px; margin-bottom:18px; color:#333; }
-  .year-buttons {
-    display:flex; gap:18px; justify-content:center;
-    max-width:420px; margin:0 auto;
+  .when{ text-align:center; margin:30px 0 16px }
+  .when h3{font-size:18px;font-weight:800;margin:0 0 18px;color:#333}
+  .years{display:flex;gap:18px;justify-content:center;max-width:420px;margin:0 auto}
+  .btn{
+    flex:1;text-decoration:none;text-align:center;cursor:pointer;
+    background:linear-gradient(180deg,#fdd867 0%,#f7a70e 100%); color:#000;
+    border:2px solid #000;border-radius:8px;padding:16px 20px;
+    font:800 18px/1 Arial; text-shadow:0 1px 0 rgba(255,255,255,.55);
+    box-shadow:4px 4px 0 #000; transition:transform .05s ease,box-shadow .05s ease,filter .1s ease
   }
-  .year-button {
-    flex:1; text-decoration:none; text-align:center; cursor:pointer;
-    background: linear-gradient(180deg, #fdd867 0%, #f7a70e 100%);
-    color:#000; border:2px solid #000; border-radius:8px;
-    padding:16px 20px; font-weight:800; font-size:18px;
-    box-shadow:4px 4px 0 #000; transition:transform .05s ease-in, box-shadow .05s ease-in, filter .1s ease;
-    text-shadow:0 1px 0 rgba(255,255,255,.55);
-  }
-  .year-button:hover { filter:brightness(1.05); }
-  .year-button:active { transform: translate(4px,4px); box-shadow:0 0 0 #000; }
+  .btn:hover{filter:brightness(1.05)}
+  .btn:active{transform:translate(4px,4px);box-shadow:0 0 0 #000}
 
   /* Hot tip */
-  .hot-tip {
-    background:#fff3cd; border:1px solid #ffeaa7; border-left:4px solid #ffc107;
-    padding:16px; border-radius:0 5px 5px 0; margin: 24px 0;
-    color:#856404; font-size:15px;
-  }
-  .hot-tip-title { font-weight:800; margin-bottom:6px; }
-  .hot-tip a { color:#0a66c2; text-decoration:underline; }
+  .tip{background:#fff3cd;border:1px solid #ffeaa7;border-left:4px solid #ffc107;padding:16px;border-radius:0 5px 5px 0;margin:24px 0;color:#856404;font-size:15px}
+  .tip b{font-weight:800}
+  .tip a{color:#0a66c2;text-decoration:underline}
 
   /* National tag */
-  .national-indicator {
-    text-align:center; color:#718096; font-size:14px; font-weight:600; margin: 18px 0 0;
-  }
-  .national-indicator::before { content:"🏛️"; margin-right:6px; }
+  .national{ text-align:center; color:#718096; font-size:14px; font-weight:600; margin:18px 0 0 }
 
   /* Footer */
-  .footer { background:#0f2e53; color:#fff; padding:36px 20px; margin-top:36px; }
-  .footer-inner { max-width:1120px; margin:0 auto; text-align:center; }
-  .footer-links { margin-bottom:16px; }
-  .footer-links a {
-    color:#cfe0ff; text-decoration:none; margin:0 14px; font-size:14px;
-  }
-  .footer-links a:hover { color:#fff; text-decoration:underline; }
-  .footer-department { font-size:16px; font-weight:800; margin-bottom:6px; }
-  .footer-disclaimer { font-size:12px; color:#cfe0ff; opacity:.9; }
+  .footer{background:#0f2e53;color:#fff;padding:36px 20px;margin-top:36px}
+  .foot{max-width:1120px;margin:0 auto;text-align:center}
+  .links{margin-bottom:16px}
+  .links a{color:#cfe0ff;text-decoration:none;margin:0 14px;font-size:14px}
+  .links a:hover{color:#fff;text-decoration:underline}
+  .dept{font-size:16px;font-weight:800;margin-bottom:6px}
+  .disc{font-size:12px;color:#cfe0ff;opacity:.9}
 </style>
 </head>
 <body>
 
-  <!-- Header / Breadcrumbs -->
+  <!-- Header -->
   <header class="header">
-    <div class="nav-container">
-      <div class="usa-badge">USA</div>
-      <div class="breadcrumbs">
-        <span>Home</span><span class="sep">></span>
-        <span>Financial Programs</span><span class="sep">></span>
+    <div class="nav">
+      <div class="usa">USA</div>
+      <div class="crumbs">
+        <a href="https://hpkpn.ttrk.io/click">Home</a><span class="sep">></span>
+        <a href="https://hpkpn.ttrk.io/click">Financial Programs</a><span class="sep">></span>
         <span>Homeowner Cashback Program</span>
       </div>
     </div>
   </header>
 
   <!-- Notice -->
-  <div class="notice-banner">
-    <span class="icon">!</span>
-    NOTICE: Limited program period for 2025 Homeowner Cashback Program - Apply by deadline
-  </div>
+  <div class="notice">⚠️ NOTICE: Limited program period for 2025 Homeowner Cashback Program - Apply by deadline</div>
 
-  <!-- Main -->
+  <!-- Content -->
   <main class="container">
-    <h1 class="main-title">
-      In September 2025, American Homeowners Get Up To $185,000 With The New "FaCOP" Initiative.
-    </h1>
+    <h1 class="title">In September 2025, American Homeowners Get Up To $185,000 With The New "FaCOP" Initiative.</h1>
 
-    <p class="intro-text">
-      (Washington, D.C.) - If you were born before 2004, have a credit score
-      <strong>above 620</strong> and <strong>own a single family home worth more than $160k</strong> - you are advised to
-      <strong class="highlight">take advantage</strong> of the new Homeowner Cashback Program that could
-      <strong class="highlight">put $185,000 in your pocket!</strong>
+    <p class="intro">
+      (Washington, D.C.) - If you were born before 2004, have a credit score <b>above 620</b> and
+      <b>own a single family home worth more than $160k</b> - you are advised to <b class="u">take advantage</b> of the new
+      Homeowner Cashback Program that could <b class="u">put $185,000 in your pocket!</b>
     </p>
 
-    <a href="https://hpkpn.ttrk.io/click" class="hero-image-link">
-      <img class="hero-image" alt="Congress Chamber"
-           src="https://res.cloudinary.com/dndik3mpf/image/upload/v1755657346/aa1a3c7376456215537e65f7ec639991_gvi7la.webp">
+    <a href="https://hpkpn.ttrk.io/click">
+      <img class="hero" alt="Congress Chamber"
+           src="https://res.cloudinary.com/dndik3mpf/image/upload/v1755657346/aa1a3c7376456215537e65f7ec639991_gvi7la.webp"/>
     </a>
 
-    <div class="content-section">
+    <div class="block">
       Inflation is through the roof right now and smart Homeowners are using this program to get up to $185,000 in cash!
-      There is <strong>NO COST</strong> to see if you qualify &amp; <strong>no requirements</strong> on how to spend it.
+      There is <b>NO COST</b> to see if you qualify &amp; <b>no requirements</b> on how to spend it.
     </div>
 
-    <div class="content-section">
-      In fact, many homeowners are <strong>paying for home renovations</strong>, <strong>paying off debts</strong> &amp; even
-      <strong>taking vacations!</strong>
+    <div class="block">
+      In fact, many homeowners are <b>paying for home renovations</b>, <b>paying off debts</b> &amp; even <b>taking vacations!</b>
     </div>
 
-    <section class="requirements-section">
-      <h3 class="requirements-title">There are only 3 requirements:</h3>
-      <ol class="requirements-list">
+    <section class="req">
+      <h3>There are only 3 requirements:</h3>
+      <ol>
         <li>Must be a US Citizen</li>
-        <li>Must own a <strong>Single Family Home Worth Over $160k</strong></li>
-        <li>Must have a <strong>Credit Score Above 620</strong></li>
+        <li>Must own a <b>Single Family Home Worth Over $160k</b></li>
+        <li>Must have a <b>Credit Score Above 620</b></li>
       </ol>
     </section>
 
-    <section class="cta-section">
-      <h3 class="cta-title">Want to See How Much You Can Get? Here's How</h3>
-      <div class="steps">
-        <div class="step"><span class="step-number">Step 1:</span> Click the year you purchased your home to instantly check your eligibility for free.</div>
-        <div class="step"><span class="step-number">Step 2:</span> View your cash-out offer and claim it!</div>
+    <section class="cta">
+      <h3>Want to See How Much You Can Get? Here's How</h3>
+      <div class="step"><b>Step 1:</b> Click the year you purchased your home to instantly check your eligibility for free.</div>
+      <div class="step"><b>Step 2:</b> View your cash-out offer and claim it!</div>
+    </section>
+
+    <section class="when">
+      <h3>When Did You Buy Your Home?</h3>
+      <div class="years">
+        <a id="btn-before" class="btn" href="https://hpkpn.ttrk.io/click">Before 1985</a>
+        <a id="btn-after"  class="btn" href="https://hpkpn.ttrk.io/click">After 1985</a>
       </div>
     </section>
 
-    <section class="home-purchase-section">
-      <h3 class="home-purchase-title">When Did You Buy Your Home?</h3>
-      <div class="year-buttons">
-        <a id="button-before-1985" href="https://hpkpn.ttrk.io/click" class="year-button">Before 1985</a>
-        <a id="button-after-1985"  href="https://hpkpn.ttrk.io/click" class="year-button">After 1985</a>
-      </div>
-    </section>
-
-    <aside class="hot-tip">
-      <div class="hot-tip-title">HOT TIP:</div>
-      This program is particularly popular with homeowners who are on a fixed income or are on social security and need extra cash to
-      consolidate high interest debts or finally start that home improvement project.
-      <strong>Better yet, if you have a job and have good or excellent credit, you can qualify for the full $185,000!</strong>
+    <aside class="tip">
+      <b>HOT TIP:</b>
+      This program is particularly popular with homeowners who are on a fixed income or are on social security and need
+      extra cash to consolidate high interest debts or finally start that home improvement project.
+      <b>Better yet, if you have a job and have good or excellent credit, you can qualify for the full $185,000!</b>
       <a href="https://hpkpn.ttrk.io/click">See how much you could get &gt;&gt;</a>
     </aside>
 
-    <div class="national-indicator">National</div>
+    <div class="national">National</div>
   </main>
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-links">
+    <div class="foot">
+      <div class="links">
         <a href="https://hpkpn.ttrk.io/click">Privacy Policy</a>
         <a href="https://hpkpn.ttrk.io/click">Terms of Use</a>
         <a href="https://hpkpn.ttrk.io/click">Accessibility</a>
         <a href="https://hpkpn.ttrk.io/click">Contact Us</a>
       </div>
-      <div class="footer-department">U.S. Department of Housing and Urban Development</div>
-      <div class="footer-disclaimer">This is an official homeowner assistance program service</div>
+      <div class="dept">Official Housing and Urban Development Program</div>
+      <div class="disc">This is an official homeowner assistance program service</div>
     </div>
   </footer>
 
-  <!-- Optional tracking -->
-  <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
-
+  <!-- Hard-link safety if any tracker hijacks clicks -->
   <script>
-    // Force direct navigation in case any tracking script hijacks clicks
-    function hardLink(e){ e.preventDefault(); e.stopPropagation(); window.location.href = this.href; }
-    document.getElementById('button-before-1985')?.addEventListener('click', hardLink);
-    document.getElementById('button-after-1985')?.addEventListener('click', hardLink);
+    const force = e => { e.preventDefault(); e.stopPropagation(); location.href = e.currentTarget.href; };
+    document.getElementById('btn-before')?.addEventListener('click', force);
+    document.getElementById('btn-after')?.addEventListener('click', force);
   </script>
 </body>
 </html>
