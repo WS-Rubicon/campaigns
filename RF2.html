@@ -3,84 +3,177 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>FaCOP Homeowner Cashback Program - Get Up to $185,000</title>
+<title>Homeowner Cashback Program</title>
 <style>
-  /* Reset */
-  *,*::before,*::after{box-sizing:border-box}
-  html,body{margin:0;padding:0}
-  body{font-family:Arial,Helvetica,sans-serif;color:#333;line-height:1.6;background:#fff}
+  :root{
+    /* Desktop reading width exactly like the screenshot */
+    --content-max: 720px;
+    --header-max: 1120px;
 
-  /* Top header */
-  .header{background:#0f2e53}
-  .nav{max-width:1120px;margin:0 auto;display:flex;align-items:center;padding:12px 20px}
-  .usa{width:32px;height:32px;border-radius:50%;background:#cf2e2e;color:#fff;display:flex;align-items:center;justify-content:center;font:700 12px/1 Arial;margin-right:16px}
-  .crumbs{color:#e8f0ff;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .crumbs a{color:#cfe0ff;text-decoration:none}
-  .crumbs a:hover{color:#fff;text-decoration:underline}
-  .crumbs .sep{color:#89a7d9;padding:0 6px}
+    /* Desktop spacing */
+    --px: 20px;
+    --gap: 18px;
 
-  /* Notice */
-  .notice{background:#ffc107;color:#1f2328;border-left:4px solid #ff9900;font-weight:700;font-size:15px;padding:12px 16px;text-align:center}
+    /* Colors */
+    --nav-bg:#0f2e53;
+    --nav-pill:#cf2e2e;
+    --crumb:#cfe0ff;
+    --crumb-sep:#89a7d9;
+    --notice:#ffc107;
+    --notice-left:#ff9900;
+    --body:#fff;
+    --muted:#4b5563;
+    --req-bg:#f7f8fa;
+    --hot-bg:#fff3cd;
+    --hot-border:#ffeaa7;
+    --hot-text:#856404;
+  }
 
-  /* Main */
-  .container{max-width:720px;margin:0 auto;padding:36px 20px 8px}
+  /* Reset / base */
+  *,*::before,*::after{ box-sizing:border-box; }
+  html,body{ margin:0; padding:0; }
+  body{ font-family: Arial, Helvetica, sans-serif; line-height:1.6; color:#333; background:var(--body); }
 
-  /* H1 */
-  .title{font-size:36px;line-height:1.25;color:#333;font-weight:800;letter-spacing:.1px;margin:0 0 22px}
+  /* Header (nav bar) */
+  .header{ background:var(--nav-bg); }
+  .nav{
+    max-width:var(--header-max);
+    margin:0 auto;
+    display:flex;
+    align-items:center;
+    padding:12px var(--px);
+    color:#fff;
+  }
+  .usa{
+    width:32px; height:32px; border-radius:50%;
+    background:var(--nav-pill);
+    display:flex; align-items:center; justify-content:center;
+    font:700 12px/1 Arial;
+    margin-right:16px;
+  }
+  .crumbs{ font-size:14px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .crumbs a{ color:var(--crumb); text-decoration:none; }
+  .crumbs a:hover{ color:#fff; text-decoration:underline; }
+  .sep{ color:var(--crumb-sep); padding:0 6px; }
 
-  /* Intro */
-  .intro{font-size:16px;color:#4b5563;margin:0 0 22px}
-  .intro .u{font-weight:700;text-decoration:underline}
+  /* Notice banner */
+  .notice{
+    background:var(--notice);
+    color:#1f2328;
+    border-left:4px solid var(--notice-left);
+    font-weight:700;
+    font-size:15px;
+    padding:12px 16px;
+    text-align:center;
+  }
 
-  /* Hero */
-  .hero{width:100%;display:block;margin:22px 0 8px;border-radius:4px}
+  /* Main container – this locks the margins like the screenshot */
+  .container{
+    max-width:var(--content-max);
+    margin:0 auto;
+    padding:36px var(--px) 8px;
+  }
+
+  /* Title + copy */
+  .title{
+    font-size:36px; line-height:1.25; font-weight:800; color:#333;
+    letter-spacing:.1px; margin:0 0 22px;
+  }
+  .intro{ font-size:16px; color:var(--muted); margin:0 0 22px; }
+  .u{ text-decoration:underline; font-weight:700; }
+
+  /* Image */
+  .hero{ width:100%; display:block; margin:22px 0 8px; border-radius:4px; }
 
   /* Paragraph blocks */
-  .block{font-size:16px;color:#444;margin:18px 0}
+  .block{ font-size:16px; color:#444; margin:18px 0; }
 
-  /* Requirements */
-  .req{background:#f7f8fa;border-left:4px solid #ffc107;padding:22px;margin:26px 0}
-  .req h3{font-size:18px;font-weight:800;margin:0 0 14px;color:#333}
-  .req ol{list-style:none;margin:0;padding:0;counter-reset:req}
-  .req li{counter-increment:req;position:relative;padding-left:28px;margin:10px 0}
-  .req li::before{content:counter(req) ".";position:absolute;left:0;top:0;font-weight:700;color:#333}
+  /* Requirements box */
+  .req{
+    background:var(--req-bg);
+    border-left:4px solid var(--notice);
+    padding:22px;
+    margin:26px 0;
+  }
+  .req h3{ font-size:18px; font-weight:800; margin:0 0 14px; color:#333; }
+  .req ol{ list-style:none; margin:0; padding:0; counter-reset:req; }
+  .req li{ counter-increment:req; position:relative; padding-left:28px; margin:10px 0; }
+  .req li::before{ content:counter(req) "."; position:absolute; left:0; top:0; font-weight:700; color:#333; }
 
-  /* CTA */
-  .cta{margin:28px 0 14px}
-  .cta h3{font-size:18px;font-weight:800;margin:0 0 10px;color:#333}
-  .step{margin:8px 0}
-  .step b{font-weight:700}
+  /* CTA / Steps */
+  .cta{ margin:28px 0 14px; }
+  .cta h3{ font-size:18px; font-weight:800; margin:0 0 10px; color:#333; }
+  .step{ margin:8px 0; }
+  .step b{ font-weight:700; }
 
   /* Year buttons */
-  .when{ text-align:center; margin:30px 0 16px }
-  .when h3{font-size:18px;font-weight:800;margin:0 0 18px;color:#333}
-  .years{display:flex;gap:18px;justify-content:center;max-width:420px;margin:0 auto}
+  .when{ text-align:center; margin:30px 0 16px; }
+  .when h3{ font-size:18px; font-weight:800; margin:0 0 18px; color:#333; }
+  .years{ display:flex; gap:18px; justify-content:center; max-width:420px; margin:0 auto; }
   .btn{
-    flex:1;text-decoration:none;text-align:center;cursor:pointer;
-    background:linear-gradient(180deg,#fdd867 0%,#f7a70e 100%); color:#000;
-    border:2px solid #000;border-radius:8px;padding:16px 20px;
-    font:800 18px/1 Arial; text-shadow:0 1px 0 rgba(255,255,255,.55);
-    box-shadow:4px 4px 0 #000; transition:transform .05s ease,box-shadow .05s ease,filter .1s ease
+    flex:1; text-decoration:none; text-align:center; cursor:pointer;
+    background:linear-gradient(180deg,#fdd867 0%, #f7a70e 100%);
+    color:#000; border:2px solid #000; border-radius:8px;
+    padding:16px 20px; font:800 18px/1 Arial;
+    text-shadow:0 1px 0 rgba(255,255,255,.55);
+    box-shadow:4px 4px 0 #000;
+    transition:transform .05s ease, box-shadow .05s ease, filter .1s ease;
   }
-  .btn:hover{filter:brightness(1.05)}
-  .btn:active{transform:translate(4px,4px);box-shadow:0 0 0 #000}
+  .btn:hover{ filter:brightness(1.05); }
+  .btn:active{ transform:translate(4px,4px); box-shadow:0 0 0 #000; }
 
   /* Hot tip */
-  .tip{background:#fff3cd;border:1px solid #ffeaa7;border-left:4px solid #ffc107;padding:16px;border-radius:0 5px 5px 0;margin:24px 0;color:#856404;font-size:15px}
-  .tip b{font-weight:800}
-  .tip a{color:#0a66c2;text-decoration:underline}
+  .tip{
+    background:var(--hot-bg);
+    border:1px solid var(--hot-border);
+    border-left:4px solid var(--notice);
+    padding:16px;
+    border-radius:0 5px 5px 0;
+    margin:24px 0;
+    color:var(--hot-text);
+    font-size:15px;
+  }
+  .tip b{ font-weight:800; }
+  .tip a{ color:#0a66c2; text-decoration:underline; }
 
   /* National tag */
-  .national{ text-align:center; color:#718096; font-size:14px; font-weight:600; margin:18px 0 0 }
+  .national{ text-align:center; color:#718096; font-size:14px; font-weight:600; margin:18px 0 0; }
+  .national::before{ content:"🏛️"; margin-right:6px; }
 
   /* Footer */
-  .footer{background:#0f2e53;color:#fff;padding:36px 20px;margin-top:36px}
-  .foot{max-width:1120px;margin:0 auto;text-align:center}
-  .links{margin-bottom:16px}
-  .links a{color:#cfe0ff;text-decoration:none;margin:0 14px;font-size:14px}
-  .links a:hover{color:#fff;text-decoration:underline}
-  .dept{font-size:16px;font-weight:800;margin-bottom:6px}
-  .disc{font-size:12px;color:#cfe0ff;opacity:.9}
+  .footer{ background:var(--nav-bg); color:#fff; padding:36px var(--px); margin-top:36px; }
+  .foot{ max-width:var(--header-max); margin:0 auto; text-align:center; }
+  .links{ margin-bottom:16px; }
+  .links a{ color:var(--crumb); text-decoration:none; margin:0 14px; font-size:14px; }
+  .links a:hover{ color:#fff; text-decoration:underline; }
+  .dept{ font-size:16px; font-weight:800; margin-bottom:6px; }
+  .disc{ font-size:12px; color:var(--crumb); opacity:.9; }
+
+  /* ===== Mobile & tablet tuning ===== */
+  @media (max-width: 860px){
+    :root{
+      --content-max: 720px; /* stays, but gutters shrink via padding */
+      --px: 16px;
+      --gap: 14px;
+    }
+    .title{ font-size: clamp(24px, 4.8vw, 32px); line-height:1.25; margin-bottom:16px; }
+    .intro, .block{ font-size:15px; }
+    .req{ padding:18px; }
+    .req h3, .cta h3, .when h3{ font-size:16px; }
+    .years{ gap:12px; max-width:unset; }
+    .btn{ padding:14px 16px; font-size:17px; }
+  }
+
+  @media (max-width: 520px){
+    .nav{ padding:10px var(--px); }
+    .usa{ width:30px; height:30px; font-size:11px; margin-right:12px; }
+    .crumbs{ font-size:13px; }
+    .notice{ font-size:14px; padding:10px 12px; }
+    .container{ padding:24px var(--px) 6px; }
+    /* stack buttons full-width for thumb reach */
+    .years{ flex-direction:column; gap:12px; }
+    .btn{ width:100%; }
+  }
 </style>
 </head>
 <body>
@@ -100,7 +193,7 @@
   <!-- Notice -->
   <div class="notice">⚠️ NOTICE: Limited program period for 2025 Homeowner Cashback Program - Apply by deadline</div>
 
-  <!-- Content -->
+  <!-- Main (centered column, desktop width matches screenshot) -->
   <main class="container">
     <h1 class="title">In September 2025, American Homeowners Get Up To $185,000 With The New "FaCOP" Initiative.</h1>
 
@@ -112,7 +205,7 @@
 
     <a href="https://hpkpn.ttrk.io/click">
       <img class="hero" alt="Congress Chamber"
-           src="https://res.cloudinary.com/dndik3mpf/image/upload/v1755657346/aa1a3c7376456215537e65f7ec639991_gvi7la.webp"/>
+           src="https://res.cloudinary.com/dndik3mpf/image/upload/v1755657346/aa1a3c7376456215537e65f7ec639991_gvi7la.webp">
     </a>
 
     <div class="block">
@@ -167,7 +260,7 @@
         <a href="https://hpkpn.ttrk.io/click">Accessibility</a>
         <a href="https://hpkpn.ttrk.io/click">Contact Us</a>
       </div>
-      <div class="dept">Official Housing and Urban Development Program</div>
+      <div class="dept">U.S. Department of Housing and Urban Development</div>
       <div class="disc">This is an official homeowner assistance program service</div>
     </div>
   </footer>
