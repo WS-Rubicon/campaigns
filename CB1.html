@@ -1,446 +1,430 @@
-import React, { useMemo, useState } from "react";
-
-/**
- * Mobile Chase-style Payment Portal (Demo)
- * - TailwindCSS utility classes
- * - No external UI libs required
- * - Random transactions generated on mount
- * - Single-file React component ready for preview
- */
-
-// Simple utility to format USD
-const usd = (n) => n.toLocaleString("en-US", { style: "currency", currency: "USD" });
-
-// Deterministic pseudo-random for stable previews
-function mulberry32(a) {
-  return function () {
-    let t = (a += 0x6d2b79f5);
-    t = Math.imul(t ^ (t >>> 15), t | 1);
-    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-  };
-}
-
-const merchantPool = [
-  { name: "AMZN Mktp US*8F2K", cat: "Shopping" },
-  { name: "Uber *Trip 9A12", cat: "Transport" },
-  { name: "Lyft *Ride 42", cat: "Transport" },
-  { name: "Apple.com/bill", cat: "Digital" },
-  { name: "Trader Joe's #482", cat: "Groceries" },
-  { name: "Whole Foods 1042", cat: "Groceries" },
-  { name: "Starbucks Store 1180", cat: "Cafe" },
-  { name: "Delta Air 006", cat: "Travel" },
-  { name: "Shell Oil 2243119", cat: "Gas" },
-  { name: "CVS Pharmacy 9321", cat: "Pharmacy" },
-  { name: "DOORDASH *Order 7C", cat: "Food Delivery" },
-  { name: "Airbnb *Miami", cat: "Travel" },
-  { name: "Best Buy #102", cat: "Electronics" },
-  { name: "Spotify USA", cat: "Subscription" },
-  { name: "Netflix.com", cat: "Subscription" },
-  { name: "Costco Whse #449", cat: "Warehouse" },
-];
-
-const catIcon = (cat) => {
-  const base = "w-10 h-10 flex items-center justify-center rounded-xl text-xs font-semibold";
-  switch (cat) {
-    case "Shopping":
-      return <div className={`${base} bg-indigo-100`}>🛍️</div>;
-    case "Transport":
-      return <div className={`${base} bg-emerald-100`}>🚗</div>;
-    case "Digital":
-      return <div className={`${base} bg-cyan-100`}>💾</div>;
-    case "Groceries":
-      return <div className={`${base} bg-green-100`}>🥑</div>;
-    case "Cafe":
-      return <div className={`${base} bg-amber-100`}>☕</div>;
-    case "Travel":
-      return <div className={`${base} bg-sky-100`}>✈️</div>;
-    case "Gas":
-      return <div className={`${base} bg-orange-100`}>⛽</div>;
-    case "Pharmacy":
-      return <div className={`${base} bg-rose-100`}>💊</div>;
-    case "Food Delivery":
-      return <div className={`${base} bg-pink-100`}>🍔</div>;
-    case "Electronics":
-      return <div className={`${base} bg-purple-100`}>🔌</div>;
-    case "Subscription":
-      return <div className={`${base} bg-blue-100`}>♻️</div>;
-    case "Warehouse":
-      return <div className={`${base} bg-lime-100`}>📦</div>;
-    default:
-      return <div className={`${base} bg-slate-100`}>🧾</div>;
-  }
-};
-
-// Generate a few days of transactions
-function useRandomTransactions(seed = 7, days = 5, perDay = [3, 6]) {
-  const rng = useMemo(() => mulberry32(seed), [seed]);
-  return useMemo(() => {
-    const out = [];
-    for (let d = 0; d < days; d++) {
-      const dayCount = Math.floor(rng() * (perDay[1] - perDay[0] + 1)) + perDay[0];
-      const date = new Date();
-      date.setDate(date.getDate() - d);
-      for (let i = 0; i < dayCount; i++) {
-        const m = merchantPool[Math.floor(rng() * merchantPool.length)];
-        const amt = Math.round((rng() * 240 + 6) * 100) / 100; // $6 - $246
-        out.push({
-          id: `${d}-${i}`,
-          date: new Date(date),
-          merchant: m.name,
-          category: m.cat,
-          amount: amt,
-        });
-      }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Chase-style Payment Portal (Demo)</title>
+  <style>
+    :root{
+      --bg: #f7f8fb; --card:#ffffff; --ink:#0f172a; --muted:#64748b; --brand:#2563eb; --brand-2:#1e40af; --border:#e2e8f0; --accent:#f1f5f9; --good:#10b981;
     }
-    // Sort by date desc
-    out.sort((a, b) => b.date.getTime() - a.date.getTime());
-    return out;
-  }, [rng]);
-}
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Noto Sans,sans-serif;background:linear-gradient(#f7f8fb,#fff);color:var(--ink)}
+    .app{max-width:420px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column}
+    header{position:sticky;top:0;z-index:20;backdrop-filter:saturate(180%) blur(10px);background:rgba(255,255,255,.85);border-bottom:1px solid var(--border)}
+    .hwrap{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem}
+    .logo{width:36px;height:36px;border-radius:8px;background:var(--brand-2);display:grid;place-items:center;color:#fff;font-weight:900;font-size:.65rem;letter-spacing:.06em}
+    .hed{flex:1}
+    .hed .kicker{font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+    .hed .title{font-size:.95rem;font-weight:700}
+    .btn{appearance:none;border:1px solid var(--border);background:#f8fafc;border-radius:10px;padding:.35rem .6rem;font-size:.75rem;color:#0f172a;cursor:pointer}
+    .btn:hover{background:#eef2f7}
+    main{padding:1rem 1rem 6rem}
 
-function SectionTitle({ children }) {
-  return <div className="text-slate-900 text-sm font-semibold mb-2">{children}</div>;
-}
+    /* Balance Card */
+    .card{background:linear-gradient(135deg,#1d4ed8,#2563eb 50%,#1e40af);color:#fff;border-radius:22px;padding:1rem;box-shadow:0 10px 22px rgba(30,64,175,.25)}
+    .tiny{font-size:.72rem;opacity:.92}
+    .big{font-size:1.85rem;font-weight:700;margin:.25rem 0 .5rem}
+    .bar{height:8px;background:rgba(255,255,255,.25);border-radius:999px;overflow:hidden}
+    .bar>i{display:block;height:100%;background:#fff;border-radius:999px;width:0%}
+    .row{display:flex;align-items:center;justify-content:space-between;gap:.75rem}
+    .row+.row{margin-top:.35rem}
 
-function Segmented({ value, onChange, options }) {
-  return (
-    <div className="flex gap-2 bg-slate-100 p-1 rounded-2xl">
-      {options.map((opt) => (
-        <button
-          key={opt.value}
-          onClick={() => onChange(opt.value)}
-          className={`px-3 py-1.5 rounded-xl text-sm transition shadow-sm ${
-            value === opt.value ? "bg-white text-slate-900" : "text-slate-600 hover:text-slate-900"
-          }`}
-        >
-          {opt.label}
-        </button>
-      ))}
-    </div>
-  );
-}
+    /* Segmented */
+    .seg{display:flex;gap:.35rem;background:var(--accent);padding:.25rem;border-radius:999px;margin-top:1rem}
+    .seg button{flex:1;border:0;background:transparent;padding:.45rem .65rem;border-radius:999px;font-size:.85rem;color:var(--muted);cursor:pointer}
+    .seg button.active{background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.06);color:var(--ink);font-weight:600}
 
-function AmountPill({ label, sub, selected, onClick }) {
-  return (
-    <button
-      onClick={onClick}
-      className={`flex-1 min-w-[32%] rounded-2xl p-3 border text-left transition ${
-        selected ? "border-blue-500 bg-blue-50" : "border-slate-200 hover:border-slate-300"
-      }`}
-    >
-      <div className="text-xs text-slate-500">{label}</div>
-      <div className="text-sm font-semibold text-slate-900">{sub}</div>
-    </button>
-  );
-}
+    /* Pay section */
+    .stack{display:grid;gap:1rem;margin-top:1rem}
+    .pillrow{display:flex;gap:.6rem}
+    .pill{flex:1;min-width:32%;border:1px solid var(--border);border-radius:16px;padding:.65rem .75rem;text-align:left}
+    .pill small{display:block;color:var(--muted);font-size:.72rem}
+    .pill b{display:block;font-size:.9rem}
+    .pill.active{border-color:var(--brand);background:#eff6ff}
 
-function Progress({ value }) {
-  return (
-    <div className="w-full h-2 bg-slate-200 rounded-full overflow-hidden">
-      <div
-        className="h-full bg-blue-600"
-        style={{ width: `${Math.min(100, Math.max(0, value))}%` }}
-      />
-    </div>
-  );
-}
+    .input{width:100%;border:1px solid var(--border);border-radius:16px;padding:.8rem .9rem;font-weight:700;font-size:1rem}
+    .input.custom{border-color:var(--brand);background:#eff6ff;color:#0b3a8f}
 
-export default function App() {
-  const TOTAL_DEBT = 40000;
-  const MIN_DUE = 820; // demo
-  const STATEMENT_BALANCE = 12400; // demo
-  const AVAILABLE_CASH = 13842.12; // demo "Pay from"
+    .field{display:flex;align-items:center;justify-content:space-between;border:1px solid var(--border);border-radius:16px;padding:.75rem .9rem}
+    .field .meta{font-size:.72rem;color:var(--muted)}
+    .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.5rem}
+    .grid3 button{border:1px solid var(--border);border-radius:16px;padding:.55rem .6rem;font-size:.85rem;background:#fff}
+    .grid3 button.active{border-color:var(--brand);background:#eff6ff}
 
-  const txns = useRandomTransactions(23, 5);
+    .summary{border:1px solid var(--border);border-radius:16px;padding:.75rem .9rem;font-size:.9rem}
+    .summary .bar{background:#e2e8f0}
+    .summary .bar>i{background:var(--brand)}
 
-  const [tab, setTab] = useState("pay");
-  const [amountMode, setAmountMode] = useState("preset");
-  const [selectedPreset, setSelectedPreset] = useState("min");
-  const [customAmount, setCustomAmount] = useState(usd(MIN_DUE));
-  const [schedule, setSchedule] = useState("today");
-  const [note, setNote] = useState("");
+    .primary{width:100%;border:0;border-radius:16px;background:var(--brand);color:#fff;padding:.9rem 1rem;font-weight:700;font-size:1rem;box-shadow:0 8px 18px rgba(37,99,235,.25);cursor:pointer}
+    .primary:active{transform:translateY(1px)}
 
-  const computedAmount = (() => {
-    if (amountMode === "custom") {
-      // Parse from currency string
-      const raw = parseFloat(String(customAmount).replace(/[^0-9.]/g, ""));
-      return isNaN(raw) ? 0 : Math.min(raw, TOTAL_DEBT);
-    }
-    if (selectedPreset === "min") return MIN_DUE;
-    if (selectedPreset === "statement") return STATEMENT_BALANCE;
-    return TOTAL_DEBT;
-  })();
+    /* Activity list */
+    .group{margin-top:.75rem}
+    .group .ghead{font-size:.72rem;color:var(--muted);margin:.25rem 0 .5rem}
+    .list{border:1px solid var(--border);border-radius:16px;overflow:hidden}
+    .item{display:flex;align-items:center;gap:.6rem;padding:.6rem .75rem;border-top:1px solid var(--border);background:#fff}
+    .item:first-child{border-top:0}
+    .badge{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;font-size:1rem}
+    .badge[data-t="Shopping"]{background:#e0e7ff}
+    .badge[data-t="Transport"]{background:#d1fae5}
+    .badge[data-t="Digital"]{background:#cffafe}
+    .badge[data-t="Groceries"]{background:#dcfce7}
+    .badge[data-t="Cafe"]{background:#fffbeb}
+    .badge[data-t="Travel"]{background:#e0f2fe}
+    .badge[data-t="Gas"]{background:#ffedd5}
+    .badge[data-t="Pharmacy"]{background:#ffe4e6}
+    .badge[data-t="Food Delivery"]{background:#fce7f3}
+    .badge[data-t="Electronics"]{background:#ede9fe}
+    .badge[data-t="Subscription"]{background:#dbeafe}
+    .badge[data-t="Warehouse"]{background:#ecfccb}
+    .itxt{flex:1;min-width:0}
+    .itxt .t1{font-size:.9rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .itxt .t2{font-size:.78rem;color:var(--muted)}
+    .iamt{font-weight:700}
 
-  const progress = (computedAmount / TOTAL_DEBT) * 100;
+    /* Account */
+    .abox{border:1px solid var(--border);border-radius:16px;padding:1rem;background:#fff}
+    .agrid{display:grid;grid-template-columns:1fr 1fr;gap:.5rem}
+    .atag{border:1px solid var(--border);border-radius:12px;padding:.6rem .7rem;background:#fff;font-size:.9rem}
 
-  return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white text-slate-900">
-      {/* Safe area wrapper for mobile */}
-      <div className="mx-auto max-w-sm">{/* Mobile width */}
-        {/* Header */}
-        <header className="sticky top-0 z-20 backdrop-blur bg-white/75 border-b border-slate-200">
-          <div className="px-4 py-3 flex items-center gap-3">
-            <div className="w-8 h-8 rounded-md bg-blue-700 grid place-items-center text-white font-black tracking-tight">
-              {/* Generic bank logo */}
-              <span className="text-[10px] leading-none">BK</span>
-            </div>
-            <div className="flex-1">
-              <div className="text-[10px] uppercase tracking-wider text-slate-500">Chase</div>
-              <div className="text-sm font-semibold">Credit Card</div>
-            </div>
-            <button
-              className="text-xs px-2 py-1 rounded-lg bg-slate-100 hover:bg-slate-200"
-              onClick={() => alert("This is a demo mock.")}
-            >
-              Help
-            </button>
-          </div>
-        </header>
+    /* Bottom nav */
+    nav{position:fixed;left:0;right:0;bottom:0;border-top:1px solid var(--border);background:rgba(255,255,255,.95);backdrop-filter:blur(8px)}
+    .navwrap{max-width:420px;margin:0 auto;padding:.25rem .75rem}
+    .tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:.25rem;text-align:center}
+    .tabs button{border:0;background:transparent;padding:.6rem 0;font-size:.85rem;color:var(--muted)}
+    .tabs button.active{color:var(--brand);font-weight:700}
 
-        {/* Balance Card */}
-        <main className="px-4 pb-28">
-          <div className="mt-4 rounded-3xl p-4 bg-gradient-to-br from-blue-700 via-blue-600 to-blue-800 text-white shadow-lg">
-            <div className="text-xs/4 opacity-90">Total Balance</div>
-            <div className="text-3xl font-semibold mt-1">{usd(TOTAL_DEBT)}</div>
-            <div className="mt-3 flex items-center gap-2">
-              <Progress value={(STATEMENT_BALANCE / TOTAL_DEBT) * 100} />
-            </div>
-            <div className="mt-2 text-[11px] opacity-90 flex items-center justify-between">
-              <span>Statement Balance: {usd(STATEMENT_BALANCE)}</span>
-              <span>Min Due: {usd(MIN_DUE)}</span>
-            </div>
-          </div>
-
-          {/* Tabs */}
-          <div className="mt-5">
-            <Segmented
-              value={tab}
-              onChange={setTab}
-              options=[
-                { label: "Pay", value: "pay" },
-                { label: "Activity", value: "activity" },
-                { label: "Account", value: "account" },
-              ]
-            />
-          </div>
-
-          {tab === "pay" && (
-            <section className="mt-5 space-y-6">
-              {/* Amount */}
-              <div>
-                <SectionTitle>Choose amount</SectionTitle>
-                <div className="flex gap-3">
-                  <AmountPill
-                    label="Minimum due"
-                    sub={usd(MIN_DUE)}
-                    selected={amountMode === "preset" && selectedPreset === "min"}
-                    onClick={() => {
-                      setAmountMode("preset");
-                      setSelectedPreset("min");
-                    }}
-                  />
-                  <AmountPill
-                    label="Statement"
-                    sub={usd(STATEMENT_BALANCE)}
-                    selected={amountMode === "preset" && selectedPreset === "statement"}
-                    onClick={() => {
-                      setAmountMode("preset");
-                      setSelectedPreset("statement");
-                    }}
-                  />
-                  <AmountPill
-                    label="Pay in full"
-                    sub={usd(TOTAL_DEBT)}
-                    selected={amountMode === "preset" && selectedPreset === "full"}
-                    onClick={() => {
-                      setAmountMode("preset");
-                      setSelectedPreset("full");
-                    }}
-                  />
-                </div>
-
-                <div className="mt-3 flex items-center gap-2">
-                  <input
-                    inputMode="decimal"
-                    aria-label="Custom amount"
-                    className={`w-full rounded-2xl border px-4 py-3 text-lg font-semibold tracking-wide ${
-                      amountMode === "custom"
-                        ? "border-blue-500 bg-blue-50 text-blue-900"
-                        : "border-slate-200 bg-white"
-                    }`}
-                    value={customAmount}
-                    onFocus={() => setAmountMode("custom")}
-                    onChange={(e) => setCustomAmount(e.target.value)}
-                  />
-                  <button
-                    className="shrink-0 rounded-2xl px-3 py-3 border border-slate-200 text-sm hover:bg-slate-50"
-                    onClick={() => {
-                      setAmountMode("preset");
-                      setSelectedPreset("min");
-                      setCustomAmount(usd(MIN_DUE));
-                    }}
-                    title="Reset to minimum due"
-                  >
-                    Reset
-                  </button>
-                </div>
-                <div className="mt-1 text-[11px] text-slate-500">Up to your total balance.</div>
-              </div>
-
-              {/* Pay From */}
-              <div>
-                <SectionTitle>Pay from</SectionTitle>
-                <div className="flex items-center justify-between rounded-2xl border border-slate-200 p-3">
-                  <div>
-                    <div className="text-sm font-semibold">Chase Checking •••• 8241</div>
-                    <div className="text-xs text-slate-500">Available: {usd(AVAILABLE_CASH)}</div>
-                  </div>
-                  <button className="text-xs px-2 py-1 rounded-lg bg-slate-100 hover:bg-slate-200">Change</button>
-                </div>
-              </div>
-
-              {/* Schedule */}
-              <div>
-                <SectionTitle>Schedule</SectionTitle>
-                <div className="grid grid-cols-3 gap-2">
-                  {[
-                    { k: "today", label: "Today" },
-                    { k: "tomorrow", label: "Tomorrow" },
-                    { k: "pick", label: "Pick date" },
-                  ].map((o) => (
-                    <button
-                      key={o.k}
-                      onClick={() => setSchedule(o.k)}
-                      className={`rounded-2xl border px-3 py-2 text-sm ${
-                        schedule === o.k ? "border-blue-500 bg-blue-50" : "border-slate-200"
-                      }`}
-                    >
-                      {o.label}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Note (optional) */}
-              <div>
-                <SectionTitle>Memo (optional)</SectionTitle>
-                <input
-                  className="w-full rounded-2xl border border-slate-200 px-3 py-2 text-sm"
-                  placeholder="Add a note for your records"
-                  value={note}
-                  onChange={(e) => setNote(e.target.value)}
-                />
-              </div>
-
-              {/* Summary */}
-              <div className="rounded-2xl border border-slate-200 p-3 text-sm">
-                <div className="flex items-center justify-between py-1">
-                  <span>Payment amount</span>
-                  <span className="font-semibold">{usd(computedAmount)}</span>
-                </div>
-                <div className="flex items-center justify-between py-1 text-slate-600">
-                  <span>Remaining balance</span>
-                  <span>{usd(Math.max(0, TOTAL_DEBT - computedAmount))}</span>
-                </div>
-                <div className="mt-3">
-                  <Progress value={progress} />
-                </div>
-              </div>
-
-              <button
-                className="w-full rounded-2xl bg-blue-600 text-white py-3.5 text-base font-semibold shadow-lg active:translate-y-[1px]"
-                onClick={() => {
-                  alert(
-                    `Payment scheduled: ${usd(computedAmount)}\nWhen: ${schedule}\nFrom: Checking ••••8241` +
-                      (note ? `\nMemo: ${note}` : "")
-                  );
-                }}
-              >
-                Confirm payment
-              </button>
-
-              <div className="text-[11px] text-slate-500 text-center">This is a demo UI for testing only.</div>
-            </section>
-          )}
-
-          {tab === "activity" && (
-            <section className="mt-5">
-              <SectionTitle>Recent activity</SectionTitle>
-
-              {/* Group by date */}
-              <div className="mt-2 space-y-4">
-                {Object.entries(
-                  txns.reduce((acc, t) => {
-                    const key = t.date.toLocaleDateString(undefined, {
-                      month: "short",
-                      day: "numeric",
-                      year: "numeric",
-                    });
-                    (acc[key] ||= []).push(t);
-                    return acc;
-                  }, {})
-                ).map(([dateLabel, items]) => (
-                  <div key={dateLabel}>
-                    <div className="text-xs text-slate-500 mb-2">{dateLabel}</div>
-                    <div className="rounded-2xl border border-slate-200 divide-y">
-                      {items.map((t) => (
-                        <div key={t.id} className="flex items-center gap-3 p-3">
-                          {catIcon(t.category)}
-                          <div className="flex-1 min-w-0">
-                            <div className="text-sm font-medium truncate">{t.merchant}</div>
-                            <div className="text-xs text-slate-500">{t.category}</div>
-                          </div>
-                          <div className="text-sm font-semibold">-{usd(t.amount)}</div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </section>
-          )}
-
-          {tab === "account" && (
-            <section className="mt-5 space-y-4">
-              <div className="rounded-2xl border border-slate-200 p-4">
-                <div className="text-sm font-semibold">Card details</div>
-                <div className="mt-2 text-sm text-slate-600">Visa •••• 3941</div>
-                <div className="text-xs text-slate-500 mt-1">Member since 2018</div>
-              </div>
-
-              <div className="rounded-2xl border border-slate-200 p-4">
-                <div className="text-sm font-semibold">Alerts & Controls</div>
-                <div className="mt-2 grid grid-cols-2 gap-2 text-sm">
-                  <button className="rounded-xl border border-slate-200 px-3 py-2 hover:bg-slate-50">Spending alert</button>
-                  <button className="rounded-xl border border-slate-200 px-3 py-2 hover:bg-slate-50">Travel notice</button>
-                  <button className="rounded-xl border border-slate-200 px-3 py-2 hover:bg-slate-50">Replace card</button>
-                  <button className="rounded-xl border border-slate-200 px-3 py-2 hover:bg-slate-50">Statements</button>
-                </div>
-              </div>
-            </section>
-          )}
-        </main>
-
-        {/* Bottom Nav */}
-        <nav className="fixed bottom-0 left-0 right-0 z-10 border-t border-slate-200 bg-white/95 backdrop-blur">
-          <div className="mx-auto max-w-sm px-6 py-2 grid grid-cols-4 text-center text-xs">
-            {[{k:"home",l:"Home"},{k:"pay",l:"Pay"},{k:"activity",l:"Activity"},{k:"account",l:"Account"}].map((item)=> (
-              <button
-                key={item.k}
-                onClick={() => setTab(item.k === "home" ? "pay" : item.k)}
-                className={`py-2 rounded-xl ${
-                  (item.k === "home" && tab === "pay") || tab === item.k
-                    ? "text-blue-600 font-semibold"
-                    : "text-slate-500"
-                }`}
-              >
-                {item.l}
-              </button>
-            ))}
-          </div>
-        </nav>
+    .footnote{margin-top:.35rem;text-align:center;font-size:.68rem;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="app" id="app">
+    <header>
+      <div class="hwrap">
+        <div class="logo" aria-hidden="true">BK</div>
+        <div class="hed">
+          <div class="kicker">Chase</div>
+          <div class="title">Credit Card</div>
+        </div>
+        <button class="btn" id="help">Help</button>
       </div>
-    </div>
-  );
-}
+    </header>
+
+    <main>
+      <section class="card" aria-label="Account summary">
+        <div class="tiny">Total Balance</div>
+        <div class="big" id="totalBalance">$40,000.00</div>
+        <div class="bar" aria-hidden="true"><i id="stmtBar" style="width: 0%"></i></div>
+        <div class="row tiny" style="margin-top:.45rem">
+          <span id="stmtLabel">Statement Balance: $12,400.00</span>
+          <span id="minLabel">Min Due: $820.00</span>
+        </div>
+      </section>
+
+      <div class="seg" role="tablist" aria-label="Primary">
+        <button class="active" role="tab" aria-selected="true" id="tab-pay">Pay</button>
+        <button role="tab" aria-selected="false" id="tab-activity">Activity</button>
+        <button role="tab" aria-selected="false" id="tab-account">Account</button>
+      </div>
+
+      <!-- PAY -->
+      <section id="view-pay" class="stack" aria-labelledby="tab-pay">
+        <div>
+          <div class="tiny" style="font-weight:700;margin-bottom:.35rem">Choose amount</div>
+          <div class="pillrow">
+            <button class="pill" data-preset="min"><small>Minimum due</small><b id="minDueTxt">$820.00</b></button>
+            <button class="pill" data-preset="stmt"><small>Statement</small><b id="stmtTxt">$12,400.00</b></button>
+            <button class="pill" data-preset="full"><small>Pay in full</small><b>$40,000.00</b></button>
+          </div>
+
+          <div style="display:flex;gap:.5rem;margin-top:.6rem">
+            <input id="customAmount" class="input" inputmode="decimal" aria-label="Custom amount" value="$820.00" />
+            <button class="btn" id="reset">Reset</button>
+          </div>
+          <div class="tiny" style="color:var(--muted);margin-top:.25rem">Up to your total balance.</div>
+        </div>
+
+        <div>
+          <div class="tiny" style="font-weight:700;margin-bottom:.35rem">Pay from</div>
+          <div class="field">
+            <div>
+              <div style="font-weight:700;font-size:.92rem">Chase Checking •••• 8241</div>
+              <div class="meta">Available: <span id="availCash">$13,842.12</span></div>
+            </div>
+            <button class="btn">Change</button>
+          </div>
+        </div>
+
+        <div>
+          <div class="tiny" style="font-weight:700;margin-bottom:.35rem">Schedule</div>
+          <div class="grid3" id="scheduleBtns">
+            <button data-k="today" class="active">Today</button>
+            <button data-k="tomorrow">Tomorrow</button>
+            <button data-k="pick">Pick date</button>
+          </div>
+        </div>
+
+        <div>
+          <div class="tiny" style="font-weight:700;margin-bottom:.35rem">Memo (optional)</div>
+          <input id="memo" class="input" placeholder="Add a note for your records" />
+        </div>
+
+        <div class="summary">
+          <div class="row"><span>Payment amount</span><span id="sumAmount" style="font-weight:700">$820.00</span></div>
+          <div class="row" style="color:var(--muted)"><span>Remaining balance</span><span id="remBalance">$39,180.00</span></div>
+          <div class="bar" style="margin-top:.5rem"><i id="payBar" style="width: 2%"></i></div>
+        </div>
+
+        <button class="primary" id="confirm">Confirm payment</button>
+        <div class="footnote">This is a demo UI for testing only.</div>
+      </section>
+
+      <!-- ACTIVITY -->
+      <section id="view-activity" class="stack" hidden aria-labelledby="tab-activity">
+        <div class="tiny" style="font-weight:700">Recent activity</div>
+        <div id="activity"></div>
+      </section>
+
+      <!-- ACCOUNT -->
+      <section id="view-account" class="stack" hidden aria-labelledby="tab-account">
+        <div class="abox">
+          <div style="font-weight:700">Card details</div>
+          <div style="margin-top:.35rem;color:var(--muted)">Visa •••• 3941</div>
+          <div class="tiny" style="margin-top:.25rem;color:var(--muted)">Member since 2018</div>
+        </div>
+        <div class="abox">
+          <div style="font-weight:700">Alerts & Controls</div>
+          <div class="agrid" style="margin-top:.5rem">
+            <button class="atag">Spending alert</button>
+            <button class="atag">Travel notice</button>
+            <button class="atag">Replace card</button>
+            <button class="atag">Statements</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <nav>
+      <div class="navwrap">
+        <div class="tabs">
+          <button data-tab="pay" class="active">Pay</button>
+          <button data-tab="activity">Activity</button>
+          <button data-tab="account">Account</button>
+          <button data-tab="pay">Home</button>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <script>
+    // ---- Utilities
+    const fmtUSD = (n)=> n.toLocaleString('en-US',{style:'currency',currency:'USD'});
+    const parseUSD = (s)=>{ const x = parseFloat(String(s).replace(/[^0-9.]/g,'')); return isNaN(x)?0:x };
+    function mulberry32(a){return function(){let t=a+=0x6d2b79f5;t=Math.imul(t^(t>>>15),t|1);t^=t+Math.imul(t^(t>>>7),t|61);return((t^(t>>>14))>>>0)/4294967296}}
+
+    // ---- Constants (demo values)
+    const TOTAL_DEBT = 40000;
+    const MIN_DUE = 820;
+    const STATEMENT_BALANCE = 12400;
+    const AVAILABLE_CASH = 13842.12;
+
+    // ---- Elements
+    const stmtBar = document.getElementById('stmtBar');
+    const totalBalance = document.getElementById('totalBalance');
+    const minDueTxt = document.getElementById('minDueTxt');
+    const stmtTxt = document.getElementById('stmtTxt');
+    const customAmount = document.getElementById('customAmount');
+    const sumAmount = document.getElementById('sumAmount');
+    const remBalance = document.getElementById('remBalance');
+    const payBar = document.getElementById('payBar');
+
+    const presetBtns = Array.from(document.querySelectorAll('.pill[data-preset]'));
+    const resetBtn = document.getElementById('reset');
+    const schedBtns = Array.from(document.querySelectorAll('#scheduleBtns button'));
+    const confirmBtn = document.getElementById('confirm');
+
+    const tabs = Array.from(document.querySelectorAll('.seg button'));
+    const views = {
+      pay: document.getElementById('view-pay'),
+      activity: document.getElementById('view-activity'),
+      account: document.getElementById('view-account')
+    };
+    const bottomTabs = Array.from(document.querySelectorAll('nav .tabs button'));
+
+    // ---- Init numbers
+    totalBalance.textContent = fmtUSD(TOTAL_DEBT);
+    minDueTxt.textContent = fmtUSD(MIN_DUE);
+    stmtTxt.textContent = fmtUSD(STATEMENT_BALANCE);
+    document.getElementById('minLabel').textContent = 'Min Due: ' + fmtUSD(MIN_DUE);
+    document.getElementById('stmtLabel').textContent = 'Statement Balance: ' + fmtUSD(STATEMENT_BALANCE);
+    document.getElementById('availCash').textContent = fmtUSD(AVAILABLE_CASH);
+
+    const stmtPct = Math.min(100, Math.max(0, (STATEMENT_BALANCE/TOTAL_DEBT)*100));
+    stmtBar.style.width = stmtPct + '%';
+
+    // ---- Amount logic
+    let amountMode = 'preset'; // 'preset' | 'custom'
+    let selectedPreset = 'min';
+    let schedule = 'today';
+
+    function highlightPresets(){
+      presetBtns.forEach(btn=>{
+        const isActive = amountMode==='preset' && btn.dataset.preset===selectedPreset;
+        btn.classList.toggle('active', isActive);
+      });
+    }
+
+    function highlightSchedule(){
+      schedBtns.forEach(b=> b.classList.toggle('active', b.dataset.k===schedule));
+    }
+
+    function computedAmount(){
+      if(amountMode==='custom'){
+        return Math.min(parseUSD(customAmount.value), TOTAL_DEBT);
+      }
+      if(selectedPreset==='min') return MIN_DUE;
+      if(selectedPreset==='stmt') return STATEMENT_BALANCE;
+      return TOTAL_DEBT;
+    }
+
+    function refreshSummary(){
+      const amt = computedAmount();
+      sumAmount.textContent = fmtUSD(amt);
+      remBalance.textContent = fmtUSD(Math.max(0, TOTAL_DEBT - amt));
+      payBar.style.width = Math.min(100, Math.max(0,(amt/TOTAL_DEBT)*100)) + '%';
+    }
+
+    presetBtns.forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        amountMode='preset';
+        selectedPreset = btn.dataset.preset;
+        if(selectedPreset==='min') customAmount.value = fmtUSD(MIN_DUE);
+        else if(selectedPreset==='stmt') customAmount.value = fmtUSD(STATEMENT_BALANCE);
+        else customAmount.value = fmtUSD(TOTAL_DEBT);
+        customAmount.classList.remove('custom');
+        refreshSummary();
+        highlightPresets();
+      })
+    })
+
+    customAmount.addEventListener('focus',()=>{
+      amountMode='custom';
+      customAmount.classList.add('custom');
+      highlightPresets();
+    })
+    customAmount.addEventListener('input', refreshSummary);
+
+    resetBtn.addEventListener('click',()=>{
+      amountMode='preset'; selectedPreset='min'; customAmount.value = fmtUSD(MIN_DUE); customAmount.classList.remove('custom'); highlightPresets(); refreshSummary();
+    })
+
+    schedBtns.forEach(b=> b.addEventListener('click',()=>{ schedule=b.dataset.k; highlightSchedule(); }))
+
+    confirmBtn.addEventListener('click',()=>{
+      const amt = fmtUSD(computedAmount());
+      const memo = document.getElementById('memo').value.trim();
+      alert(`Payment scheduled: ${amt}\nWhen: ${schedule}\nFrom: Checking ••••8241${memo?`\nMemo: ${memo}`:''}`);
+    })
+
+    refreshSummary(); highlightPresets(); highlightSchedule();
+
+    // ---- Tabs
+    function setTab(key){
+      ['pay','activity','account'].forEach(k=>{
+        document.getElementById('tab-'+k)?.classList.toggle('active',k===key);
+        views[k].hidden = k!==key;
+      });
+      tabs.forEach((t,i)=> t.classList.toggle('active', ['pay','activity','account'][i]===key));
+      bottomTabs.forEach(b=> b.classList.toggle('active', b.dataset.tab===key || (b.textContent==='Home' && key==='pay')));
+    }
+
+    tabs[0].addEventListener('click',()=>setTab('pay'));
+    tabs[1].addEventListener('click',()=>setTab('activity'));
+    tabs[2].addEventListener('click',()=>setTab('account'));
+    bottomTabs.forEach(b=> b.addEventListener('click',()=> setTab(b.dataset.tab)));
+
+    // ---- Activity (random transactions)
+    const merchantPool = [
+      { name: "AMZN Mktp US*8F2K", cat: "Shopping", emoji:'🛍️' },
+      { name: "Uber *Trip 9A12", cat: "Transport", emoji:'🚗' },
+      { name: "Lyft *Ride 42", cat: "Transport", emoji:'🚗' },
+      { name: "Apple.com/bill", cat: "Digital", emoji:'💾' },
+      { name: "Trader Joe's #482", cat: "Groceries", emoji:'🥑' },
+      { name: "Whole Foods 1042", cat: "Groceries", emoji:'🥑' },
+      { name: "Starbucks Store 1180", cat: "Cafe", emoji:'☕' },
+      { name: "Delta Air 006", cat: "Travel", emoji:'✈️' },
+      { name: "Shell Oil 2243119", cat: "Gas", emoji:'⛽' },
+      { name: "CVS Pharmacy 9321", cat: "Pharmacy", emoji:'💊' },
+      { name: "DOORDASH *Order 7C", cat: "Food Delivery", emoji:'🍔' },
+      { name: "Airbnb *Miami", cat: "Travel", emoji:'✈️' },
+      { name: "Best Buy #102", cat: "Electronics", emoji:'🔌' },
+      { name: "Spotify USA", cat: "Subscription", emoji:'♻️' },
+      { name: "Netflix.com", cat: "Subscription", emoji:'♻️' },
+      { name: "Costco Whse #449", cat: "Warehouse", emoji:'📦' },
+    ];
+
+    function genTransactions(seed=23, days=5, perDay=[3,6]){
+      const rng = mulberry32(seed);
+      const out = [];
+      for(let d=0; d<days; d++){
+        const count = Math.floor(rng()*(perDay[1]-perDay[0]+1))+perDay[0];
+        const date = new Date(); date.setDate(date.getDate()-d);
+        for(let i=0;i<count;i++){
+          const m = merchantPool[Math.floor(rng()*merchantPool.length)];
+          const amt = Math.round((rng()*240+6)*100)/100; // $6 - $246
+          out.push({
+            id:`${d}-${i}`,
+            date:new Date(date),
+            merchant:m.name,
+            category:m.cat,
+            emoji:m.emoji,
+            amount:amt,
+          });
+        }
+      }
+      out.sort((a,b)=> b.date - a.date);
+      return out;
+    }
+
+    function groupByDate(txns){
+      return txns.reduce((acc,t)=>{
+        const key = t.date.toLocaleDateString(undefined,{month:'short',day:'numeric',year:'numeric'});
+        (acc[key] ||= []).push(t); return acc;
+      },{});
+    }
+
+    function renderActivity(){
+      const root = document.getElementById('activity');
+      const txns = genTransactions();
+      const groups = groupByDate(txns);
+      root.innerHTML = '';
+      Object.entries(groups).forEach(([label, items])=>{
+        const group = document.createElement('div');
+        group.className = 'group';
+        group.innerHTML = `<div class="ghead">${label}</div>`;
+        const list = document.createElement('div'); list.className='list';
+        items.forEach(t=>{
+          const row = document.createElement('div'); row.className='item';
+          row.innerHTML = `
+            <div class="badge" data-t="${t.category}">${t.emoji}</div>
+            <div class="itxt"><div class="t1">${t.merchant}</div><div class="t2">${t.category}</div></div>
+            <div class="iamt">-${fmtUSD(t.amount)}</div>
+          `;
+          list.appendChild(row);
+        })
+        group.appendChild(list);
+        root.appendChild(group);
+      })
+    }
+
+    renderActivity();
+
+    // Help
+    document.getElementById('help').addEventListener('click',()=>{
+      alert('This is a non-functional demo meant for UI mock/testing.');
+    })
+  </script>
+</body>
+</html>
