@@ -6,160 +6,156 @@
 <title>Homeowner Cashback Program</title>
 <style>
   :root{
-    /* Column width tuned to the screenshot */
-    --container-desktop: 720px;      /* main text column */
-    --container-tablet: 640px;
-    --gutter: 20px;
+    /* Keep the desktop column exactly like the screenshot */
+    --content-max: 800px;       /* screenshot column width */
+    --header-max: 1120px;       /* top bar width */
+    --gutter: 20px;             /* desktop side padding */
+    --gutter-m: 16px;           /* mobile side padding */
+    --gap: 18px;
 
-    /* Colors */
     --nav-bg:#0f2e53;
-    --nav-crumb:#cfe0ff;
-    --nav-sep:#89a7d9;
-    --badge:#cf2e2e;
+    --nav-pill:#cf2e2e;
+    --crumb:#cfe0ff;
+    --crumb-sep:#89a7d9;
     --notice:#ffc107;
     --notice-left:#ff9900;
-    --ink:#333;
     --muted:#4b5563;
-
-    /* Type scales (fluid) */
-    --h1: clamp(26px, 2.8vw + 14px, 36px);
-    --h3: clamp(16px, 1.2vw + 10px, 18px);
-    --body: clamp(15px, 0.6vw + 11px, 16px);
-    --small: 14px;
+    --req-bg:#f7f8fa;
+    --hot-bg:#fff3cd;
+    --hot-border:#ffeaa7;
+    --hot-text:#856404;
   }
 
-  /* Reset */
-  *,*::before,*::after{box-sizing:border-box}
-  html,body{margin:0;padding:0}
-  body{font-family:Arial,Helvetica,sans-serif; color:var(--ink); line-height:1.6; background:#fff}
+  /* Base reset */
+  *,*::before,*::after{ box-sizing: border-box; }
+  html,body{ margin:0; padding:0; }
+  body{ font-family: Arial, Helvetica, sans-serif; color:#333; line-height:1.6; background:#fff; }
+  img{ max-width:100%; height:auto; display:block; }
 
-  /* Header / Breadcrumb bar */
-  .header{background:var(--nav-bg)}
+  /* Header (breadcrumb bar) */
+  .header{ background:var(--nav-bg); }
   .nav{
-    max-width: calc(var(--container-desktop) + 2*var(--gutter));
+    max-width:var(--header-max);
     margin:0 auto;
-    display:flex; align-items:center;
-    padding:12px var(--gutter);
+    display:flex;
+    align-items:center;
+    padding:12px calc(var(--gutter) + env(safe-area-inset-left,0)) 12px calc(var(--gutter) + env(safe-area-inset-left,0));
     color:#fff;
   }
   .usa{
-    width:32px;height:32px;border-radius:50%;
-    background:var(--badge); color:#fff;
-    display:flex;align-items:center;justify-content:center;
+    width:32px; height:32px; border-radius:50%;
+    background:var(--nav-pill); display:flex; align-items:center; justify-content:center;
     font:700 12px/1 Arial; margin-right:16px;
+    flex:0 0 32px;
   }
-  .crumbs{font-size:var(--small); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
-  .crumbs a{color:var(--nav-crumb); text-decoration:none}
-  .crumbs a:hover{text-decoration:underline; color:#fff}
-  .crumbs .sep{color:var(--nav-sep); padding:0 6px}
+  .crumbs{
+    min-width:0; /* allow ellipsis */
+    font-size:14px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+  }
+  .crumbs a{ color:var(--crumb); text-decoration:none; }
+  .crumbs a:hover{ color:#fff; text-decoration:underline; }
+  .sep{ color:var(--crumb-sep); padding:0 6px; }
 
   /* Notice banner */
   .notice{
-    background:var(--notice); color:#1f2328;
-    border-left:4px solid var(--notice-left);
-    font-weight:700; font-size:15px;
-    padding:12px 16px; text-align:center;
+    background:var(--notice); color:#1f2328; border-left:4px solid var(--notice-left);
+    font-weight:700; font-size:15px; padding:12px 16px; text-align:center;
+    overflow-wrap:anywhere;
   }
 
-  /* Main column (matches screenshot margins) */
+  /* Main content column – EXACT margins like screenshot */
   .container{
-    max-width: var(--container-desktop);
+    width:min(100%, var(--content-max));
     margin:0 auto;
-    padding:36px var(--gutter) 8px;
+    padding:36px calc(var(--gutter) + env(safe-area-inset-left,0)) 8px calc(var(--gutter) + env(safe-area-inset-left,0));
+    overflow-wrap:anywhere;
   }
 
-  /* Headline */
+  /* Headline & text */
   .title{
-    font-size:var(--h1);
-    line-height:1.25; color:var(--ink);
-    font-weight:800; letter-spacing:.1px;
+    font-size:36px; line-height:1.25; font-weight:800; color:#333; letter-spacing:.1px;
     margin:0 0 22px;
   }
-
-  /* Intro & paragraphs */
-  .intro{font-size:var(--body); color:var(--muted); margin:0 0 22px}
-  .intro .u{font-weight:700; text-decoration:underline}
-  .block{font-size:var(--body); color:#444; margin:18px 0}
+  .intro{ font-size:16px; color:var(--muted); margin:0 0 22px; }
+  .u{ text-decoration:underline; font-weight:700; }
 
   /* Hero image */
-  .hero{width:100%; display:block; margin:22px 0 8px; border-radius:4px; height:auto}
+  .hero{ margin:22px 0 8px; border-radius:4px; }
+
+  /* Paragraph blocks */
+  .block{ font-size:16px; color:#444; margin:18px 0; }
 
   /* Requirements box */
   .req{
-    background:#f7f8fa; border-left:4px solid var(--notice);
+    background:var(--req-bg); border-left:4px solid var(--notice);
     padding:22px; margin:26px 0;
   }
-  .req h3{font-size:var(--h3); font-weight:800; margin:0 0 14px; color:var(--ink)}
-  .req ol{list-style:none; margin:0; padding:0; counter-reset:req}
-  .req li{counter-increment:req; position:relative; padding-left:28px; margin:10px 0; font-size:var(--body)}
-  .req li::before{content:counter(req) "."; position:absolute; left:0; top:0; font-weight:700; color:var(--ink)}
+  .req h3{ font-size:18px; font-weight:800; margin:0 0 14px; color:#333; }
+  .req ol{ list-style:none; margin:0; padding:0; counter-reset:req; }
+  .req li{ counter-increment:req; position:relative; padding-left:28px; margin:10px 0; }
+  .req li::before{ content:counter(req) "."; position:absolute; left:0; top:0; font-weight:700; color:#333; }
 
-  /* CTA */
-  .cta{margin:28px 0 14px}
-  .cta h3{font-size:var(--h3); font-weight:800; margin:0 0 10px; color:var(--ink)}
-  .step{margin:8px 0; font-size:var(--body)}
-  .step b{font-weight:700}
+  /* CTA / steps */
+  .cta{ margin:28px 0 14px; }
+  .cta h3{ font-size:18px; font-weight:800; margin:0 0 10px; color:#333; }
+  .step{ margin:8px 0; }
+  .step b{ font-weight:700; }
 
   /* Year buttons */
-  .when{text-align:center; margin:30px 0 16px}
-  .when h3{font-size:var(--h3); font-weight:800; margin:0 0 18px; color:var(--ink)}
-  .years{display:flex; gap:18px; justify-content:center; max-width:420px; margin:0 auto}
+  .when{ text-align:center; margin:30px 0 16px; }
+  .when h3{ font-size:18px; font-weight:800; margin:0 0 18px; color:#333; }
+  .years{ display:flex; gap:18px; justify-content:center; max-width:420px; margin:0 auto; }
   .btn{
     flex:1; text-decoration:none; text-align:center; cursor:pointer;
-    background:linear-gradient(180deg,#fdd867 0%,#f7a70e 100%); color:#000;
-    border:2px solid #000; border-radius:8px; padding:16px 20px;
-    font:800 18px/1 Arial; text-shadow:0 1px 0 rgba(255,255,255,.55);
+    background:linear-gradient(180deg,#fdd867 0%, #f7a70e 100%);
+    color:#000; border:2px solid #000; border-radius:8px;
+    padding:16px 20px; font:800 18px/1 Arial;
+    text-shadow:0 1px 0 rgba(255,255,255,.55);
     box-shadow:4px 4px 0 #000;
     transition:transform .05s ease, box-shadow .05s ease, filter .1s ease;
   }
-  .btn:hover{filter:brightness(1.05)}
-  .btn:active{transform:translate(4px,4px); box-shadow:0 0 0 #000}
+  .btn:hover{ filter:brightness(1.05); }
+  .btn:active{ transform:translate(4px,4px); box-shadow:0 0 0 #000; }
 
   /* Hot tip */
   .tip{
-    background:#fff3cd; border:1px solid #ffeaa7; border-left:4px solid var(--notice);
-    padding:16px; border-radius:0 5px 5px 0; margin:24px 0;
-    color:#856404; font-size:15px;
+    background:var(--hot-bg); border:1px solid var(--hot-border); border-left:4px solid var(--notice);
+    padding:16px; border-radius:0 5px 5px 0; margin:24px 0; color:var(--hot-text); font-size:15px;
   }
-  .tip b{font-weight:800}
-  .tip a{color:#0a66c2; text-decoration:underline}
+  .tip b{ font-weight:800; }
+  .tip a{ color:#0a66c2; text-decoration:underline; }
 
   /* National tag */
-  .national{ text-align:center; color:#718096; font-size:14px; font-weight:600; margin:18px 0 0 }
-  .national::before{content:"🏛️"; margin-right:6px}
+  .national{ text-align:center; color:#718096; font-size:14px; font-weight:600; margin:18px 0 0; }
+  .national::before{ content:"🏛️"; margin-right:6px; }
 
   /* Footer */
-  .footer{background:var(--nav-bg); color:#fff; padding:36px var(--gutter); margin-top:36px}
-  .foot{max-width: calc(var(--container-desktop) + 2*var(--gutter)); margin:0 auto; text-align:center}
-  .links{margin-bottom:16px}
-  .links a{color:var(--nav-crumb); text-decoration:none; margin:0 14px; font-size:14px}
-  .links a:hover{color:#fff; text-decoration:underline}
-  .dept{font-size:16px; font-weight:800; margin-bottom:6px}
-  .disc{font-size:12px; color:#cfe0ff; opacity:.9}
+  .footer{ background:var(--nav-bg); color:#fff; padding:36px calc(var(--gutter) + env(safe-area-inset-right,0)); margin-top:36px; }
+  .foot{ max-width:var(--header-max); margin:0 auto; text-align:center; }
+  .links{ margin-bottom:16px; }
+  .links a{ color:var(--crumb); text-decoration:none; margin:0 14px; font-size:14px; }
+  .links a:hover{ color:#fff; text-decoration:underline; }
+  .dept{ font-size:16px; font-weight:800; margin-bottom:6px; }
+  .disc{ font-size:12px; color:var(--crumb); opacity:.9; }
 
-  /* ====== RESPONSIVE MARGINS & TYPE ====== */
-
-  /* Tablet: keep narrow column, slightly tighter paddings */
-  @media (max-width: 1024px){
-    .container{ max-width: var(--container-tablet); padding:30px var(--gutter) 8px; }
-    .nav{ padding:10px var(--gutter); }
+  /* ===== Responsive tuning ===== */
+  @media (max-width: 900px){
+    /* lock the same margins but scale typography down smoothly */
+    .title{ font-size: clamp(24px, 4.8vw, 32px); margin-bottom:16px; }
+    .intro, .block{ font-size:15px; }
+    .req{ padding:18px; }
+    .req h3, .cta h3, .when h3{ font-size:16px; }
   }
+  @media (max-width: 520px){
+    .nav{ padding:10px calc(var(--gutter-m) + env(safe-area-inset-left,0)); }
+    .usa{ width:30px; height:30px; font-size:11px; margin-right:12px; }
+    .crumbs{ font-size:13px; }
+    .notice{ font-size:14px; padding:10px 12px; }
+    .container{ padding:24px calc(var(--gutter-m) + env(safe-area-inset-left,0)) 6px; }
 
-  /* Phones: maintain same visual margins as screenshot by using side padding */
-  @media (max-width: 640px){
-    :root{
-      --gutter: 16px;            /* a bit tighter on mobile but still roomy */
-    }
-    .years{ gap:12px; }
-    .btn{ padding:14px 16px; font-weight:800; font-size:17px; }
-    .links a{ margin:0 10px; }
-  }
-
-  /* Very small phones */
-  @media (max-width: 380px){
-    :root{ --gutter: 14px; }
-    .years{ flex-direction:column; gap:12px; max-width:unset }
-    .btn{ width:100% }
+    /* stack buttons full width for thumbs */
+    .years{ flex-direction:column; gap:12px; max-width:500px; }
+    .btn{ width:100%; padding:14px 16px; font-size:17px; }
   }
 </style>
 </head>
@@ -180,7 +176,7 @@
   <!-- Notice -->
   <div class="notice">⚠️ NOTICE: Limited program period for 2025 Homeowner Cashback Program - Apply by deadline</div>
 
-  <!-- Content (single narrow column like screenshot) -->
+  <!-- Main column (locked to screenshot margins) -->
   <main class="container">
     <h1 class="title">In September 2025, American Homeowners Get Up To $185,000 With The New "FaCOP" Initiative.</h1>
 
@@ -192,7 +188,7 @@
 
     <a href="https://hpkpn.ttrk.io/click">
       <img class="hero" alt="Congress Chamber"
-           src="https://res.cloudinary.com/dndik3mpf/image/upload/v1755657346/aa1a3c7376456215537e65f7ec639991_gvi7la.webp"/>
+           src="https://res.cloudinary.com/dndik3mpf/image/upload/v1755657346/aa1a3c7376456215537e65f7ec639991_gvi7la.webp">
     </a>
 
     <div class="block">
