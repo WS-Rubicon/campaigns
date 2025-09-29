@@ -6,15 +6,15 @@
 <title>Homeowner Cashback Program</title>
 <style>
   :root{
-    /* Tweak these two for exact pixel match */
-    --paper-max: 1040px;  /* white "paper" column (includes blue/yellow bars) */
-    --content-max: 760px; /* text width like screenshot */
-    --hero-max: 640px;    /* image width (smaller than text, like screenshot) */
+    /* === Single unified column width (matches screenshot style) === */
+    --col: 760px;  /* change to 740/780 for micro-tuning */
+    --pad: 20px;   /* side padding inside the column */
 
-    --gutter: 24px;  /* desktop side padding inside paper */
-    --gutter-m: 16px;
+    /* Structure widths (paper is the white page slab) */
+    --paper-max: calc(var(--col) + var(--pad) * 2);
 
-    --page-bg:#eef1f5;  /* gray page background for contrast */
+    /* Colors */
+    --page-bg:#eef1f5;  /* gray sides for news look */
     --paper-bg:#ffffff;
     --nav-bg:#0f2e53;
     --nav-pill:#cf2e2e;
@@ -33,107 +33,133 @@
   *,*::before,*::after{ box-sizing:border-box; }
   html,body{ margin:0; padding:0; }
   body{ font-family: Arial, Helvetica, sans-serif; line-height:1.6; color:#333; background:var(--page-bg); }
-  img{ display:block; max-width:100%; height:auto; }
+  img{ max-width:100%; height:auto; display:block; }
 
-  /* Paper column */
+  /* ===== Paper column (everything sits inside) ===== */
   .paper{
-    max-width:var(--paper-max);
-    margin:0 auto 40px;
-    background:var(--paper-bg);
-    box-shadow:0 2px 18px rgba(0,0,0,.06);
+    max-width: var(--paper-max);
+    margin: 0 auto 40px;
+    background: var(--paper-bg);
+    box-shadow: 0 2px 18px rgba(0,0,0,.06);
   }
 
-  /* Condensed blue bar */
-  .header{ background:var(--nav-bg); }
+  /* Blue breadcrumb bar (condensed to column) */
+  .header{ background: var(--nav-bg); }
   .nav{
-    max-width:calc(var(--content-max) + var(--gutter)*2);
-    margin:0 auto; padding:12px var(--gutter);
-    display:flex; align-items:center; color:#fff;
+    max-width: var(--paper-max);
+    margin: 0 auto;
+    padding: 12px var(--pad);
+    display: flex;
+    align-items: center;
+    color:#fff;
   }
   .usa{
-    width:32px; height:32px; border-radius:50%; background:var(--nav-pill);
+    width:32px; height:32px; border-radius:50%;
+    background:var(--nav-pill);
     display:flex; align-items:center; justify-content:center;
     font:700 12px/1 Arial; margin-right:16px; flex:0 0 32px;
   }
-  .crumbs{ min-width:0; font-size:14px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .crumbs{
+    min-width:0; font-size:14px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+  }
   .crumbs a{ color:var(--crumb); text-decoration:none; }
   .crumbs a:hover{ color:#fff; text-decoration:underline; }
   .sep{ color:var(--crumb-sep); padding:0 6px; }
 
-  /* Condensed notice */
+  /* Yellow notice (same column width) */
   .notice{
-    max-width:calc(var(--content-max) + var(--gutter)*2);
-    margin:0 auto;
-    background:var(--notice); color:#1f2328; border-left:4px solid var(--notice-left);
-    font-weight:700; font-size:15px; padding:12px var(--gutter); text-align:left;
+    max-width: var(--paper-max);
+    margin: 0 auto;
+    background: var(--notice);
+    color:#1f2328;
+    border-left: 4px solid var(--notice-left);
+    font-weight:700; font-size:15px;
+    padding: 12px var(--pad);
   }
 
-  /* Inner container */
+  /* Inner article container */
   .container{
-    max-width:calc(var(--content-max) + var(--gutter)*2);
-    margin:0 auto; padding:36px var(--gutter) 8px;
+    max-width: var(--paper-max);
+    margin: 0 auto;
+    padding: 36px var(--pad) 8px;
   }
-  .content{ max-width:var(--content-max); margin:0 auto; }
+  .content{
+    max-width: var(--col);
+    margin: 0 auto;
+  }
 
-  /* Typography */
+  /* Title + text */
   .title{
-    font-size:36px; line-height:1.25; font-weight:800; color:#333; letter-spacing:.1px;
-    margin:0 0 22px;
+    font-size:36px; line-height:1.25; font-weight:800; color:#333;
+    letter-spacing:.1px; margin:0 0 22px;
   }
   .intro{ font-size:16px; color:var(--muted); margin:0 0 22px; }
   .u{ text-decoration:underline; font-weight:700; }
 
-  /* Hero image – reduced width and centered */
-  .hero-wrap{ display:flex; justify-content:center; }
+  /* Reduced hero image, aligned to SAME column */
   .hero{
-    width:100%; max-width:var(--hero-max);
-    margin:22px 0 8px; border-radius:6px;
+    max-width: var(--col);   /* reduced with the same column */
+    margin: 22px auto 8px auto;
+    border-radius: 6px;
   }
 
+  /* Paragraphs */
   .block{ font-size:16px; color:#444; margin:18px 0; }
 
+  /* Requirements box (inside column) */
   .req{
-    background:var(--req-bg); border-left:4px solid var(--notice);
-    padding:22px; margin:26px 0;
+    background:var(--req-bg);
+    border-left:4px solid var(--notice);
+    padding:22px;
+    margin:26px auto;
+    max-width: var(--col);
   }
   .req h3{ font-size:18px; font-weight:800; margin:0 0 14px; color:#333; }
   .req ol{ list-style:none; margin:0; padding:0; counter-reset:req; }
   .req li{ counter-increment:req; position:relative; padding-left:28px; margin:10px 0; }
   .req li::before{ content:counter(req) "."; position:absolute; left:0; top:0; font-weight:700; color:#333; }
 
-  .cta{ margin:28px 0 14px; }
+  /* CTA */
+  .cta{ margin:28px auto 14px; max-width:var(--col); }
   .cta h3{ font-size:18px; font-weight:800; margin:0 0 10px; color:#333; }
   .step{ margin:8px 0; }
   .step b{ font-weight:700; }
 
-  .when{ text-align:center; margin:30px 0 16px; }
+  /* Year buttons */
+  .when{ text-align:center; margin:30px auto 16px; max-width:var(--col); }
   .when h3{ font-size:18px; font-weight:800; margin:0 0 18px; color:#333; }
   .years{ display:flex; gap:18px; justify-content:center; max-width:420px; margin:0 auto; }
   .btn{
     flex:1; text-decoration:none; text-align:center; cursor:pointer;
-    background:linear-gradient(180deg,#fdd867 0%, #f7a70e 100%); color:#000;
-    border:2px solid #000; border-radius:8px; padding:16px 20px;
-    font:800 18px/1 Arial; text-shadow:0 1px 0 rgba(255,255,255,.55);
+    background:linear-gradient(180deg,#fdd867 0%, #f7a70e 100%);
+    color:#000; border:2px solid #000; border-radius:8px;
+    padding:16px 20px; font:800 18px/1 Arial;
+    text-shadow:0 1px 0 rgba(255,255,255,.55);
     box-shadow:4px 4px 0 #000; transition:transform .05s, box-shadow .05s, filter .1s;
   }
   .btn:hover{ filter:brightness(1.05); }
   .btn:active{ transform:translate(4px,4px); box-shadow:0 0 0 #000; }
 
+  /* Hot tip */
   .tip{
     background:var(--hot-bg); border:1px solid var(--hot-border); border-left:4px solid var(--notice);
-    padding:16px; border-radius:0 5px 5px 0; margin:24px 0; color:var(--hot-text); font-size:15px;
+    padding:16px; border-radius:0 5px 5px 0; margin:24px auto; color:var(--hot-text); font-size:15px;
+    max-width: var(--col);
   }
   .tip b{ font-weight:800; }
   .tip a{ color:#0a66c2; text-decoration:underline; }
 
-  .national{ text-align:center; color:#718096; font-size:14px; font-weight:600; margin:18px 0 0; }
+  /* National tag */
+  .national{ text-align:center; color:#718096; font-size:14px; font-weight:600; margin:18px auto 0; max-width:var(--col); }
   .national::before{ content:"🏛️"; margin-right:6px; }
 
-  /* Condensed footer */
+  /* Footer (condensed) */
   .footer{ background:var(--nav-bg); color:#fff; }
   .foot{
-    max-width:calc(var(--content-max) + var(--gutter)*2);
-    margin:0 auto; text-align:center; padding:28px var(--gutter);
+    max-width: var(--paper-max);
+    margin: 0 auto;
+    text-align:center;
+    padding: 28px var(--pad);
   }
   .links{ margin-bottom:14px; }
   .links a{ color:var(--crumb); text-decoration:none; margin:0 14px; font-size:14px; }
@@ -141,20 +167,16 @@
   .dept{ font-size:16px; font-weight:800; margin-bottom:6px; }
   .disc{ font-size:12px; color:var(--crumb); opacity:.9; }
 
-  /* Responsive */
-  @media (max-width: 980px){
-    .title{ font-size: clamp(24px, 4.8vw, 32px); margin-bottom:16px; }
-    .intro, .block{ font-size:15px; }
-    .req{ padding:18px; }
-    .req h3, .cta h3, .when h3{ font-size:16px; }
-  }
+  /* ===== Responsive ===== */
   @media (max-width: 520px){
-    .nav{ padding:10px var(--gutter-m); }
-    .notice{ padding:10px var(--gutter-m); font-size:14px; }
-    .container{ padding:24px var(--gutter-m) 6px; }
-    .foot{ padding:24px var(--gutter-m); }
+    :root{ --pad: 16px; }
+    .nav{ padding:10px var(--pad); }
+    .notice{ padding:10px var(--pad); font-size:14px; }
+    .container{ padding:24px var(--pad) 6px; }
+    .foot{ padding:24px var(--pad); }
     .usa{ width:30px; height:30px; font-size:11px; margin-right:12px; }
     .crumbs{ font-size:13px; }
+    .title{ font-size: clamp(24px, 5.8vw, 32px); margin-bottom:16px; }
     .years{ flex-direction:column; gap:12px; max-width:500px; }
     .btn{ width:100%; padding:14px 16px; font-size:17px; }
   }
@@ -163,7 +185,7 @@
 <body>
 
   <div class="paper">
-    <!-- Condensed blue bar -->
+    <!-- Blue breadcrumb bar -->
     <header class="header">
       <div class="nav">
         <div class="usa">USA</div>
@@ -175,7 +197,7 @@
       </div>
     </header>
 
-    <!-- Condensed yellow notice -->
+    <!-- Yellow notice -->
     <div class="notice">⚠️ NOTICE: Limited program period for 2025 Homeowner Cashback Program - Apply by deadline</div>
 
     <!-- Article -->
@@ -189,8 +211,8 @@
           Homeowner Cashback Program that could <b class="u">put $185,000 in your pocket!</b>
         </p>
 
-        <!-- Reduced & centered hero image -->
-        <a href="https://hpkpn.ttrk.io/click" class="hero-wrap">
+        <!-- Reduced image (same margins as text) -->
+        <a href="https://hpkpn.ttrk.io/click">
           <img class="hero" alt="Congress Chamber"
                src="https://res.cloudinary.com/dndik3mpf/image/upload/v1755657346/aa1a3c7376456215537e65f7ec639991_gvi7la.webp">
         </a>
