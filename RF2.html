@@ -275,12 +275,3 @@
       </div>
     </footer>
   </div>
-
-  <!-- Hard-link navigation safeguard -->
-  <script>
-    const force = e => { e.preventDefault(); e.stopPropagation(); location.href = e.currentTarget.href; };
-    document.getElementById('btn-before')?.addEventListener('click', force);
-    document.getElementById('btn-after')?.addEventListener('click', force);
-  </script>
-</body>
-</html>
