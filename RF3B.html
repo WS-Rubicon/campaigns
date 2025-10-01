@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Homeowner Cashback Program</title>
+  <style>
+    :root{
+      /* Unified article column and spacing */
+      --col: 760px;        /* tweak to 740/780 for pixel match */
+      --pad: 20px;         /* side padding inside paper */
+      --paper-max: calc(var(--col) + var(--pad) * 2);
+
+      /* Colors */
+      --page-bg:#eef1f5;   /* gray edges for “news” contrast */
+      --paper-bg:#ffffff;
+      --nav-bg:#1c3d72;
+      --nav-pill:#dc3545;
+      --crumb:#cfe0ff;
+      --notice:#ffc107;
+      --notice-left:#ff8800;
+      --muted:#555;
+      --req-bg:#f8f9fa;
+      --hot-bg:#fff3cd;
+      --hot-border:#ffeaa7;
+      --hot-text:#856404;
+    }
+
+    /* Reset/base */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; background: var(--page-bg); }
+    img { max-width: 100%; height: auto; display: block; }
+
+    /* ===== Paper wrapper (condenses everything) ===== */
+    .paper{
+      max-width: var(--paper-max);
+      margin: 0 auto 40px;
+      background: var(--paper-bg);
+      box-shadow: 0 2px 18px rgba(0,0,0,.06);
+    }
+
+    /* Header (kept your class names; now constrained) */
+    .header { background-color: var(--nav-bg); color: white; }
+    .nav-container {
+      max-width: var(--paper-max);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      padding: 8px var(--pad);          /* tightened */
+    }
+    .usa-badge {
+      background-color: var(--nav-pill);
+      color: white;
+      padding: 5px 10px;
+      border-radius: 50px;
+      font-weight: bold;
+      font-size: 12px;
+      margin-right: 16px;
+    }
+    .nav-links { display: flex; gap: 10px; font-size: 14px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
+    .nav-links span { color: #cfe0ff; }
+
+    /* Notice banner (constrained to paper) */
+    .notice-wrap { background: var(--paper-bg); }
+    .notice-banner{
+      max-width: var(--paper-max);
+      margin: 0 auto 10px;              /* tightened gap below */
+      background-color: var(--notice);
+      color: #212529;
+      padding: 10px var(--pad);         /* tightened */
+      font-weight: bold;
+      border-left: 4px solid var(--notice-left);
+      text-align: left;
+    }
+
+    /* Main content column */
+    .container{
+      max-width: var(--paper-max);
+      margin: 0 auto;
+      padding: 18px var(--pad) 8px;     /* tightened top padding */
+    }
+    .content-inner{
+      max-width: var(--col);
+      margin: 0 auto;
+    }
+
+    .main-title{
+      font-size: 36px;
+      color: #4a4a4a;
+      margin: 8px 0 12px;              /* tighter above & below */
+      line-height: 1.12;               /* tighter multi-line */
+      letter-spacing: 0;
+    }
+
+    .intro-text{
+      font-size: 16px;
+      color: var(--muted);
+      margin: 6px 0 16px;              /* tighter */
+      line-height: 1.6;
+    }
+    .highlight { text-decoration: underline; font-weight: bold; }
+
+    /* Hero image: reduced width and centered inside the same column */
+    .hero-image{
+      max-width: var(--col);
+      border-radius: 8px;
+      margin: 20px auto 8px auto;      /* slight tighten */
+    }
+
+    /* Content sections */
+    .content-section { margin: 16px 0; font-size: 16px; line-height: 1.6; }
+    .benefits-text { margin: 16px 0; }
+
+    /* Requirements box (stays within the same column) */
+    .requirements-section{
+      background-color: var(--req-bg);
+      padding: 20px;                   /* tighter */
+      border-left: 4px solid var(--notice);
+      margin: 22px auto;               /* tighter */
+      max-width: var(--col);
+    }
+    .requirements-title{ font-size: 18px; font-weight: bold; color: #333; margin-bottom: 12px; }
+    .requirements-list{ list-style: none; counter-reset: requirement-counter; padding:0; margin:0; }
+    .requirements-list li{
+      counter-increment: requirement-counter;
+      margin-bottom: 10px;
+      position: relative;
+      padding-left: 30px;
+    }
+    .requirements-list li::before{
+      content: counter(requirement-counter) ".";
+      position: absolute; left: 0;
+      font-weight: bold; color: #333;
+    }
+
+    /* CTA */
+    .cta-section{ margin: 24px auto 12px; max-width: var(--col); }
+    .cta-title{ font-size: 18px; color: #333; margin-bottom: 10px; font-weight: bold; }
+    .steps{ margin: 10px 0; }
+    .step{ margin-bottom: 10px; }
+    .step-number{ font-weight: bold; }
+
+    /* Home Purchase Section */
+    .home-purchase-section{ text-align: center; margin: 24px auto 14px; max-width: var(--col); }
+    .home-purchase-title{ font-size: 18px; color: #333; margin-bottom: 16px; font-weight: bold; }
+    .year-buttons{
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+    .year-button{
+      background: linear-gradient(to bottom, #fdd867 0%, #f7a70e 100%);
+      color: #000;
+      border: 2px solid #000;
+      padding: 16px 20px;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      text-align: center;
+      flex: 1;
+      box-shadow: 4px 4px 0px #000;
+      transition: all 0.1s ease-out;
+      position: relative;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+      text-decoration: none;
+    }
+    .year-button:hover{ background: linear-gradient(to bottom, #ffe08a 0%, #fdb933 100%); text-decoration: none; }
+    .year-button:active{ box-shadow: 0 0 0 #000; transform: translate(4px, 4px); transition: all 0.05s ease-in; }
+
+    /* Hot Tip */
+    .hot-tip{
+      background-color: var(--hot-bg);
+      border: 1px solid var(--hot-border);
+      border-left: 4px solid var(--notice);
+      padding: 14px;                   /* tightened */
+      margin: 22px auto;               /* tightened */
+      border-radius: 0 5px 5px 0;
+      max-width: var(--col);
+      color: var(--hot-text);
+      line-height: 1.55;
+    }
+    .hot-tip-title{ color: var(--hot-text); font-weight: bold; margin-bottom: 8px; }
+    .hot-tip-link{ color: #0066cc; text-decoration: underline; }
+
+    /* National indicator */
+    .national-indicator{
+      text-align: center;
+      margin: 16px auto 0;             /* tightened */
+      color: #718096;
+      font-size: 14px;
+      font-weight: 600;
+      max-width: var(--col);
+    }
+    .national-indicator::before{ content: "🏛️"; margin-right: 6px; }
+
+    /* Footer (condensed inside paper) */
+    .footer{ background-color: var(--nav-bg); color: white; text-align: center; margin-top: 28px; }
+    .footer-inner{
+      max-width: var(--paper-max);
+      margin: 0 auto;
+      padding: 24px var(--pad);        /* tightened */
+    }
+    .footer-links{ margin-bottom: 12px; }
+    .footer-links a{ color: #ccc; text-decoration: none; margin: 0 15px; font-size: 14px; }
+    .footer-links a:hover{ color: white; }
+    .footer-department{ font-size: 16px; margin-bottom: 8px; font-weight: bold; }
+    .footer-disclaimer{ font-size: 12px; color: #ccc; margin-top: 6px; }
+
+    /* Responsive tweaks */
+    @media (max-width: 520px){
+      :root{ --pad:16px; }
+      .nav-container{ padding: 8px var(--pad); }
+      .notice-banner{ padding: 10px var(--pad); margin-bottom: 8px; font-size: 14px; }
+      .container{ padding: 16px var(--pad) 6px; }
+      .main-title{ font-size: clamp(24px, 5.6vw, 32px); margin: 6px 0 10px; line-height: 1.14; }
+      .year-buttons{ flex-direction: column; gap: 12px; max-width: 500px; }
+      .year-button{ width: 100%; padding: 14px 16px; font-size: 17px; }
+      .footer-inner{ padding: 20px var(--pad); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Paper wrapper starts -->
+  <div class="paper">
+
+    <!-- Header (kept your classes/structure for compatibility) -->
+    <header class="header">
+      <div class="nav-container">
+        <div class="usa-badge">USA</div>
+        <nav class="nav-links">
+          <span>Home</span> > <span>Financial Programs</span> > <span>Homeowner Cashback Program</span>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Notice (condensed) -->
+    <div class="notice-wrap">
+      <div class="notice-banner">
+        ⚠️ NOTICE: Limited program period for 2025 Homeowner Cashback Program - Apply by deadline
+      </div>
+    </div>
+
+    <!-- Main content -->
+    <div class="container">
+      <div class="content-inner">
+        <h1 class="main-title">In September 2025, American Homeowners Get Up To $185,000 With The New "FHA" Initiative.</h1>
+
+        <p class="intro-text">
+          (Washington, D.C.) - If you were born before 2004, have a credit score <strong>above 620</strong> and
+          <strong>own a single family home worth more than $160k</strong> - you are advised to
+          <strong class="highlight">take advantage</strong> of the new Homeowner Cashback Program that could
+          <strong class="highlight">put $185,000 in your pocket!</strong>
+        </p>
+
+        <!-- Reduced image, same margins as text -->
+        <a href="https://hpkpn.ttrk.io/click" class="hero-image-link">
+          <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1755657346/aa1a3c7376456215537e65f7ec639991_gvi7la.webp"
+               alt="Congress Chamber" class="hero-image">
+        </a>
+
+        <div class="content-section">
+          <p>Inflation is through the roof right now and smart Homeowners are using this program to get up to $185,000 in cash!
+            There is <strong>NO COST</strong> to see if you qualify &amp; <strong>no requirements</strong> on how to spend it.</p>
+        </div>
+
+        <div class="content-section">
+          <p class="benefits-text">In fact, many homeowners are <strong>paying for home renovations</strong>,
+            <strong>paying off debts</strong> &amp; even <strong>taking vacations!</strong></p>
+        </div>
+
+        <div class="requirements-section">
+          <h3 class="requirements-title">There are only 3 requirements:</h3>
+          <ol class="requirements-list">
+            <li>Must be a US Citizen</li>
+            <li>Must own a <strong>Single Family Home Worth Over $160k</strong></li>
+            <li>Must have a <strong>Credit Score Above 620</strong></li>
+          </ol>
+        </div>
+
+        <div class="cta-section">
+          <h3 class="cta-title">Want to See How Much You Can Get? Here's How</h3>
+          <div class="steps">
+            <div class="step">
+              <span class="step-number">Step 1:</span> Click the year you purchased your home to instantly check your eligibility for free.
+            </div>
+            <div class="step">
+              <span class="step-number">Step 2:</span> View your cash-out offer and claim it!
+            </div>
+          </div>
+        </div>
+
+        <div class="home-purchase-section">
+          <h3 class="home-purchase-title">When Did You Buy Your Home?</h3>
+          <div class="year-buttons">
+            <a id="button-before-1985" href="https://hpkpn.ttrk.io/click" class="year-button">Before 1985</a>
+            <a id="button-after-1985"  href="https://hpkpn.ttrk.io/click" class="year-button">After 1985</a>
+          </div>
+        </div>
+
+        <div class="hot-tip">
+          <div class="hot-tip-title">HOT TIP:</div>
+          <div class="hot-tip-text">
+            This program is particularly popular with homeowners who are on a fixed income or are on social security and need extra cash
+            to consolidate high interest debts or finally start that home improvement project.
+            <strong>Better yet, if you have a job and have good or excellent credit, you can qualify for the full $185,000!</strong>
+            <a href="#" class="hot-tip-link">See how much you could get &gt;&gt;</a>
+          </div>
+        </div>
+
+        <div class="national-indicator">National</div>
+      </div>
+    </div>
+
+    <!-- Footer (condensed inside paper; kept your classes) -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">Accessibility</a>
+          <a href="#">Contact Us</a>
+        </div>
+        <div class="footer-disclaimer">This is an official homeowner assistance program service</div>
+      </div>
+    </footer>
+
+  </div><!-- /paper -->
+
+  <!-- ===== Your RedTrack + helper code (unchanged behavior) ===== -->
+  <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
+
+  <script>
+    let userLocation = null;
+
+    // Get user's geolocation (kept as-is)
+    async function getUserLocation() {
+      try {
+        const response = await fetch('https://geo.ipify.org/api/v2/country,city?apiKey=at_JKtyyWskmuI07I6RieQ3a6EBhlt5T');
+        const data = await response.json();
+        userLocation = data;
+        console.log('User location:', userLocation);
+      } catch (error) {
+        console.error('Error getting location:', error);
+      }
+    }
+    getUserLocation();
+
+    document.addEventListener('DOMContentLoaded', function() {
+      // Keep footer links on RedTrack
+      const footerLinks = document.querySelectorAll('.footer-links a');
+      footerLinks.forEach(link => { link.href = 'https://hpkpn.ttrk.io/click'; });
+
+      // Fix hot tip link
+      const hotTipLink = document.querySelector('.hot-tip-link');
+      if (hotTipLink) { hotTipLink.href = 'https://hpkpn.ttrk.io/click'; }
+
+      // === CODE FIX START (your original click override) ===
+      function handleButtonClick(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        window.location.href = this.href;
+      }
+      const button1 = document.getElementById('button-before-1985');
+      const button2 = document.getElementById('button-after-1985');
+      if (button1) { button1.addEventListener('click', handleButtonClick); }
+      if (button2) { button2.addEventListener('click', handleButtonClick); }
+      // === CODE FIX END ===
+    });
+  </script>
+</body>
+</html>
