@@ -28,8 +28,8 @@
             overflow: hidden;
         }
         .header {
-            background-color: #0d2c4e;
-            color: #ffffff;
+            background-color: #2D4036; /* Dark green from image */
+            color: #E0E0E0; /* Lighter text for contrast */
             padding: 25px 40px;
             display: flex;
             align-items: center;
@@ -44,13 +44,23 @@
             font-weight: bold;
             font-size: 28px;
             display: flex;
+            flex-direction: column; /* Stack "Life Insurance" and "Guardians" */
             align-items: center;
+            line-height: 1.1; /* Adjust line height for stacked text */
+            text-align: center;
+            flex-grow: 1; /* Allow logo to take up more space in header */
+        }
+        .logo span {
+            display: block; /* Make spans block-level for stacking */
+            font-size: 26px; /* Adjust font size */
+            letter-spacing: 1.5px; /* Add some letter spacing */
+        }
+        .logo span:first-child {
+            font-size: 22px;
+            margin-bottom: -5px; /* Bring words closer */
         }
         .logo svg {
-            width: 40px;
-            height: 40px;
-            margin-right: 12px;
-            fill: #ffffff;
+            display: none; /* Hide the default SVG logo */
         }
         .content {
             padding: 40px;
@@ -137,13 +147,14 @@
             border-top: 1px solid #dce4e9;
         }
         .confirm-button {
+            display: inline-block;
             background-color: #28a745;
             color: white;
             padding: 15px 40px;
-            border: none;
             border-radius: 6px;
             font-size: 18px;
             font-weight: bold;
+            text-decoration: none;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.2s ease;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -164,10 +175,9 @@
     <div class="container">
         <header class="header">
             <div class="logo">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2L1 9l4 2.18V17h14v-5.82L23 9L12 2zm0 2.31L19.46 9H4.54L12 4.31zM6 12.55V15H4v-2.45l-2-1.09V17h2v-2h2v2h2v-2h2v2h2v-2h2v2h2v-7.55l-2 1.09V15h-2v-2.45L12 10.43 6 12.55z"/></svg>
-                <span>National Protection Services</span>
+                <span>LIFE INSURANCE</span>
+                <span>GUARDIANS</span>
             </div>
-            <h1>Secure Document Portal</h1>
         </header>
 
         <main class="content">
@@ -182,7 +192,7 @@
                     </div>
                     <div class="info-item">
                         <span class="label">Policy Number</span>
-                        <span class="value">NPS-FE-884-295730</span>
+                        <span class="value">LIG-FE-884-295730</span>
                     </div>
                     <div class="info-item">
                         <span class="label">Date of Issue</span>
@@ -223,9 +233,9 @@
         </main>
         
         <footer class="footer">
-            <button class="confirm-button" onclick="alert('Confirmation Submitted!\nPolicy #NPS-FE-884-295730 is now active.')">
+            <a href="https://clearpathbenefitstoday.com/cm1" class="confirm-button">
                 Confirm & Accept Agreement
-            </button>
+            </a>
             <p class="disclaimer">
                 By clicking "Confirm & Accept Agreement", you are finalizing your policy activation. A full copy of your policy documents will be sent to your registered address and email within 5-7 business days.
             </p>
