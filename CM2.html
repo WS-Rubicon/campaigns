@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Congratulations, Ernest Wilson - Approved!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-green: #4CAF50; /* High converting green */
+            --dark-green: #2D4036; /* From previous page header */
+            --light-green: #e8f5e9;
+            --text-dark: #333;
+            --text-light: #666;
+            --background-light: #f8fcf8;
+            --border-color: #ddd;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--background-light);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align to top */
+            min-height: 100vh;
+            color: var(--text-dark);
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin: 40px 20px; /* Add margin top/bottom and sides */
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .header {
+            background-color: var(--dark-green);
+            color: #E0E0E0;
+            padding: 25px 40px;
+            text-align: center;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            font-size: 28px;
+            line-height: 1.1;
+            letter-spacing: 1.5px;
+        }
+        .logo span {
+            display: block;
+        }
+        .logo span:first-child {
+            font-size: 22px;
+            margin-bottom: -5px;
+        }
+
+        .content {
+            padding: 40px;
+            text-align: center;
+        }
+
+        .congratulations-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 38px;
+            font-weight: 700;
+            color: var(--dark-green);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .sub-message {
+            font-size: 18px;
+            color: var(--text-light);
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .approved-banner {
+            background-color: var(--primary-green);
+            color: white;
+            padding: 30px 20px;
+            margin: 0 auto 40px auto;
+            border-radius: 10px;
+            width: fit-content;
+            min-width: 70%; /* Ensure it's wide */
+            box-shadow: 0 6px 20px rgba(0, 128, 0, 0.3);
+            position: relative;
+            transform: translateY(0);
+            animation: bounceIn 1s ease-out forwards;
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0.8) translateY(20px); opacity: 0; }
+            50% { transform: scale(1.05) translateY(-5px); opacity: 1; }
+            70% { transform: scale(0.98) translateY(2px); }
+            100% { transform: scale(1) translateY(0); opacity: 1; }
+        }
+
+
+        .approved-banner h2 {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 52px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .approved-banner p {
+            font-size: 20px;
+            margin-top: 10px;
+            font-weight: 600;
+        }
+
+        .next-steps {
+            text-align: left;
+            padding: 0 40px;
+            margin-bottom: 40px;
+        }
+
+        .next-steps h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            color: var(--dark-green);
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--light-green);
+            padding-bottom: 10px;
+        }
+
+        .next-steps ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .next-steps li {
+            background-color: var(--light-green);
+            border-left: 5px solid var(--primary-green);
+            margin-bottom: 15px;
+            padding: 15px 20px;
+            border-radius: 8px;
+            font-size: 17px;
+            line-height: 1.5;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .next-steps li strong {
+            color: var(--dark-green);
+        }
+
+        .footer-legal {
+            background-color: #f0f0f0;
+            padding: 30px 40px;
+            font-size: 13px;
+            color: #777;
+            text-align: justify;
+            line-height: 1.8;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-legal a {
+            color: var(--primary-green);
+            text-decoration: none;
+        }
+        .footer-legal a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                margin: 20px 10px;
+            }
+            .content, .next-steps, .footer-legal {
+                padding: 30px 20px;
+            }
+            .congratulations-title {
+                font-size: 30px;
+            }
+            .approved-banner h2 {
+                font-size: 40px;
+            }
+            .approved-banner p {
+                font-size: 18px;
+            }
+            .next-steps h3 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <span>LIFE INSURANCE</span>
+                <span>GUARDIANS</span>
+            </div>
+        </header>
+
+        <main class="content">
+            <h1 class="congratulations-title">Congratulations, Ernest Wilson!</h1>
+            
+            <p class="sub-message">
+                We're thrilled to inform you that your final expense benefit has been **approved** and is now active.
+                Your family's future is now more secure.
+            </p>
+
+            <div class="approved-banner">
+                <h2>APPROVED</h2>
+                <p>Your $25,000 Final Expense Benefit is Active!</p>
+            </div>
+
+            <div class="next-steps">
+                <h3>What Happens Next?</h3>
+                <ul>
+                    <li>
+                        <strong>Policy Documents:</strong> A complete set of your policy documents, including your official policy number,
+                        will be sent to your registered email address and postal mail within 7-10 business days.
+                    </li>
+                    <li>
+                        <strong>Welcome Packet:</strong> Look out for a welcome packet with important information about your benefits
+                        and how to access our customer support.
+                    </li>
+                    <li>
+                        <strong>Review Your Policy:</strong> Please review all documents carefully upon receipt. If you have any questions,
+                        our team is ready to assist you.
+                    </li>
+                    <li>
+                        <strong>Stay Updated:</strong> Keep your contact information current with us to ensure you receive all important communications.
+                    </li>
+                </ul>
+            </div>
+        </main>
+        
+        <footer class="footer-legal">
+            <p>
+                This confirmation is subject to the terms and conditions outlined in your official policy documents.
+                This communication does not constitute the full policy; the complete policy is the legal contract
+                and supersedes any information provided herein. By receiving this notification, you acknowledge
+                that your benefit is active as per the details confirmed during the application process.
+                Any discrepancies should be reported immediately. For detailed information, please refer to your
+                policy booklet or contact our customer service department.
+            </p>
+            <p>
+                &copy; 2025 Life Insurance Guardians. All rights reserved. <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+            </p>
+        </footer>
+    </div>
+
+</body>
+</html>
