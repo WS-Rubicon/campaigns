@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benefit Confirmation: Ernest Wilson</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Lato', 'Arial', sans-serif;
+            background-color: #f4f7f9;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background-color: #ffffff;
+            border: 1px solid #dce4e9;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+        .header {
+            background-color: #0d2c4e;
+            color: #ffffff;
+            padding: 25px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 700;
+        }
+        .logo {
+            font-weight: bold;
+            font-size: 28px;
+            display: flex;
+            align-items: center;
+        }
+        .logo svg {
+            width: 40px;
+            height: 40px;
+            margin-right: 12px;
+            fill: #ffffff;
+        }
+        .content {
+            padding: 40px;
+            color: #333;
+        }
+        .document-title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            color: #0d2c4e;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e1e8ed;
+            padding-bottom: 20px;
+        }
+        .section {
+            margin-bottom: 25px;
+        }
+        .section h2 {
+            font-size: 18px;
+            color: #0d2c4e;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #e1e8ed;
+            padding-bottom: 8px;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        .info-item {
+            background-color: #f9fafb;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid #e1e8ed;
+        }
+        .info-item .label {
+            font-size: 14px;
+            color: #5a7184;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .info-item .value {
+            font-size: 18px;
+            font-weight: 700;
+            color: #0d2c4e;
+        }
+        .benefit-amount {
+            background-color: #e6f7ff;
+            border-left: 5px solid #007bff;
+            color: #004085;
+            text-align: center;
+        }
+        .benefit-amount .value {
+            font-size: 32px;
+            color: #004085;
+        }
+        .signature-section {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e1e8ed;
+        }
+        .signature-display {
+            font-family: 'Dancing Script', cursive;
+            font-size: 42px;
+            color: #2c3e50;
+            border-bottom: 2px solid #95a5a6;
+            padding-bottom: 5px;
+            max-width: 350px;
+        }
+        .signature-label {
+            font-size: 14px;
+            color: #5a7184;
+            margin-bottom: 10px;
+        }
+        .date-signed {
+            font-size: 14px;
+            color: #333;
+            margin-top: 10px;
+        }
+        .footer {
+            padding: 30px 40px;
+            text-align: center;
+            background-color: #f9fafb;
+            border-top: 1px solid #dce4e9;
+        }
+        .confirm-button {
+            background-color: #28a745;
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 6px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .confirm-button:hover {
+            background-color: #218838;
+            transform: translateY(-2px);
+        }
+        .disclaimer {
+            font-size: 12px;
+            color: #7f8c8d;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2L1 9l4 2.18V17h14v-5.82L23 9L12 2zm0 2.31L19.46 9H4.54L12 4.31zM6 12.55V15H4v-2.45l-2-1.09V17h2v-2h2v2h2v-2h2v2h2v-2h2v2h2v-7.55l-2 1.09V15h-2v-2.45L12 10.43 6 12.55z"/></svg>
+                <span>National Protection Services</span>
+            </div>
+            <h1>Secure Document Portal</h1>
+        </header>
+
+        <main class="content">
+            <h1 class="document-title">Confirmation of Final Expense Benefit</h1>
+            
+            <div class="section">
+                <h2>Beneficiary and Policy Details</h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="label">Beneficiary Name</span>
+                        <span class="value">Ernest Wilson</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Policy Number</span>
+                        <span class="value">NPS-FE-884-295730</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Date of Issue</span>
+                        <span class="value">October 6, 2025</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Plan Type</span>
+                        <span class="value">Whole Life / Final Expense</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Benefit Amount</h2>
+                 <div class="info-grid">
+                    <div class="info-item benefit-amount" style="grid-column: 1 / -1;">
+                        <span class="label">Guaranteed Payout Amount</span>
+                        <span class="value">$25,000.00 USD</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Terms of Agreement</h2>
+                <p>This document confirms the issuance of the Final Expense insurance policy detailed above. By signing electronically below, you, <strong>Ernest Wilson</strong>, acknowledge that you have reviewed the policy details, understand the terms and conditions, and agree to the provisions outlined in your policy documents. This electronic signature carries the same legal weight as a handwritten signature.</p>
+            </div>
+
+            <div class="signature-section">
+                <h2>Electronic Signature & Confirmation</h2>
+                <div class="signature-label">E-Signature of Applicant:</div>
+                <div class="signature-display">
+                    Ernest Wilson
+                </div>
+                <div class="date-signed">
+                    Signed On: October 6, 2025
+                </div>
+            </div>
+        </main>
+        
+        <footer class="footer">
+            <button class="confirm-button" onclick="alert('Confirmation Submitted!\nPolicy #NPS-FE-884-295730 is now active.')">
+                Confirm & Accept Agreement
+            </button>
+            <p class="disclaimer">
+                By clicking "Confirm & Accept Agreement", you are finalizing your policy activation. A full copy of your policy documents will be sent to your registered address and email within 5-7 business days.
+            </p>
+        </footer>
+    </div>
+
+</body>
+</html>
