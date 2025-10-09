@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lander A - News Style</title>
+    <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            background: #f5f5f5;
+            line-height: 1.6;
+        }
+        .breaking-bar {
+            background: #c41e3a;
+            color: white;
+            padding: 12px;
+            text-align: center;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+        .header-nav {
+            background: white;
+            border-bottom: 3px solid #000;
+            padding: 20px 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #000;
+            text-align: center;
+            letter-spacing: -2px;
+        }
+        .date-line {
+            text-align: center;
+            color: #666;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        .main-content {
+            background: white;
+            margin-top: 20px;
+            padding: 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .article-header {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        h1 {
+            font-size: 2.8rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #000;
+        }
+        .byline {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .article-meta {
+            display: flex;
+            gap: 20px;
+            font-size: 13px;
+            color: #999;
+        }
+        .lead-text {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+        .article-body {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #333;
+        }
+        .article-body p {
+            margin-bottom: 20px;
+        }
+        .highlight-box {
+            background: #fffacd;
+            border-left: 5px solid #ffd700;
+            padding: 20px;
+            margin: 30px 0;
+            font-size: 17px;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+            padding: 25px;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+        }
+        .stat-item {
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #c41e3a;
+        }
+        .stat-label {
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+        }
+        .cta-section {
+            background: linear-gradient(135deg, #1e3a8a, #1e40af);
+            color: white;
+            padding: 40px;
+            margin: 40px -40px 0;
+            text-align: center;
+        }
+        .cta-headline {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .cta-button {
+            display: inline-block;
+            background: #ffd700;
+            color: #000;
+            padding: 18px 50px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: transform 0.3s;
+        }
+        .cta-button:hover {
+            transform: scale(1.05);
+        }
+        .disclaimer {
+            font-size: 12px;
+            color: #999;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            font-style: italic;
+        }
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .main-content { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="breaking-bar">
+        BREAKING: New Federal Program Announced for Seniors Born Before 1960
+    </div>
+    
+    <div class="header-nav">
+        <div class="container">
+            <div class="logo">The Senior Tribune</div>
+            <div class="date-line">Thursday, October 9, 2025 | Special Report</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="main-content">
+            <div class="article-header">
+                <h1>Congressional Report Reveals Billions in Unclaimed Senior Benefits</h1>
+                <div class="byline">By Sarah Mitchell, Senior Affairs Correspondent</div>
+                <div class="article-meta">
+                    <span>Published: 2 hours ago</span>
+                    <span>|</span>
+                    <span>Read Time: 3 minutes</span>
+                    <span>|</span>
+                    <span>Updated: 10:47 AM EST</span>
+                </div>
+            </div>
+
+            <div class="article-body">
+                <p class="lead-text">
+                    A shocking new report from the Government Accountability Office has revealed that American seniors are missing out on an average of $4,871 per year in unclaimed benefits and programs.
+                </p>
+
+                <p>
+                    WASHINGTON — Federal auditors discovered that nearly 78% of eligible seniors are not taking advantage of programs specifically designed to reduce their healthcare, prescription, and living costs. The findings come at a critical time as inflation continues to impact fixed-income retirees.
+                </p>
+
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">$4,871</div>
+                        <div class="stat-label">Average Annual Savings</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">78%</div>
+                        <div class="stat-label">Seniors Missing Benefits</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">11</div>
+                        <div class="stat-label">Unknown Programs</div>
+                    </div>
+                </div>
+
+                <p>
+                    "Most seniors simply don't know these programs exist," explained Robert Chen, the lead auditor on the report. "We're talking about legitimate federal and state programs that are fully funded but underutilized."
+                </p>
+
+                <div class="highlight-box">
+                    <strong>Key Finding:</strong> The report identified 11 specific programs that most seniors have never heard of, including prescription assistance, property tax freezes, and utility subsidies. Eligibility often depends on age, not income.
+                </div>
+
+                <p>
+                    The investigation began after Senator Patricia Williams received numerous complaints from constituents struggling with rising costs despite qualifying for assistance. "It's unconscionable that these programs exist but aren't being properly communicated to our senior population," Williams stated at yesterday's press conference.
+                </p>
+
+                <p>
+                    Among the most overlooked benefits are the Medicare Extra Help program, which can save up to $5,100 annually on prescriptions, and state-specific property tax exemptions that can reduce housing costs by 50% or more for qualifying seniors.
+                </p>
+
+                <p>
+                    The report emphasizes that many of these benefits have December 31st deadlines for 2025 enrollment, creating urgency for seniors to review their eligibility immediately.
+                </p>
+            </div>
+
+            <div class="cta-section">
+                <h2 class="cta-headline">See Which Programs You Qualify For</h2>
+                <p>Independent researchers have compiled all 11 programs into a free eligibility guide</p>
+                <a href="https://hpkpn.ttrk.io/click" class="cta-button">View Your Free Benefits Report →</a>
+                <p style="margin-top: 15px; font-size: 14px;">No registration required • Takes 2 minutes • 100% Free</p>
+            </div>
+
+            <div class="disclaimer">
+                This is an advertisement. The Senior Tribune is an independent publication providing news and information about senior benefits and programs. Results vary by individual circumstances.
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<!-- LANDER B - Personal Story Style -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lander B - Personal Story</title>
+    <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(to bottom, #e8f5e9, #ffffff);
+            line-height: 1.7;
+            color: #2c3e50;
+        }
+        .testimonial-header {
+            background: white;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+        }
+        .profile-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .profile-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            font-weight: bold;
+        }
+        .profile-info h2 {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        .profile-info p {
+            color: #7f8c8d;
+            font-size: 1rem;
+        }
+        .verified-badge {
+            display: inline-block;
+            background: #27ae60;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+        .story-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .story-box {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        .story-title {
+            font-size: 2.2rem;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            text-align: center;
+            line-height: 1.3;
+        }
+        .story-content {
+            font-size: 1.15rem;
+            color: #34495e;
+            line-height: 1.9;
+        }
+        .story-content p {
+            margin-bottom: 25px;
+        }
+        .highlight-quote {
+            background: linear-gradient(135deg, #ffeaa7, #fdcb6e);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 35px 0;
+            font-size: 1.2rem;
+            font-style: italic;
+            text-align: center;
+            color: #2d3436;
+        }
+        .before-after {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 40px 0;
+        }
+        .ba-card {
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        .before-card {
+            background: #ffebee;
+            border: 2px solid #ef5350;
+        }
+        .after-card {
+            background: #e8f5e9;
+            border: 2px solid #66bb6a;
+        }
+        .ba-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+        .before-card h3 {
+            color: #c62828;
+        }
+        .after-card h3 {
+            color: #2e7d32;
+        }
+        .ba-list {
+            text-align: left;
+            list-style: none;
+            font-size: 1rem;
+        }
+        .ba-list li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        .before-card li::before {
+            content: "✗";
+            position: absolute;
+            left: 0;
+            color: #ef5350;
+            font-weight: bold;
+        }
+        .after-card li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #66bb6a;
+            font-weight: bold;
+        }
+        .discovery-section {
+            background: #f8f9fa;
+            padding: 35px;
+            border-radius: 15px;
+            margin: 40px 0;
+        }
+        .discovery-title {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .benefit-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 25px;
+        }
+        .benefit-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+        .benefit-amount {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #27ae60;
+            margin-bottom: 5px;
+        }
+        .benefit-desc {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+        .cta-section {
+            background: linear-gradient(135deg, #6c63ff, #5a52d5);
+            padding: 50px 30px;
+            border-radius: 20px;
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+        }
+        .cta-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .cta-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #6c63ff;
+            padding: 18px 60px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        .timer {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 30px;
+            margin-top: 20px;
+            font-size: 1rem;
+        }
+        @media (max-width: 768px) {
+            .before-after { grid-template-columns: 1fr; }
+            .story-box { padding: 25px; }
+            .story-title { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="testimonial-header">
+        <div class="profile-section">
+            <div class="profile-image">MK</div>
+            <div class="profile-info">
+                <h2>Margaret Kennedy</h2>
+                <p>Retired Teacher • Age 68 • Phoenix, AZ</p>
+                <span class="verified-badge">✓ Verified Story</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="story-container">
+        <div class="story-box">
+            <h1 class="story-title">"I Was Leaving $413 on the Table Every Single Month"</h1>
+            
+            <div class="story-content">
+                <p>
+                    <strong>My name is Margaret, and for three years, I had no idea I was eligible for benefits that could have saved me nearly $15,000.</strong>
+                </p>
+                
+                <p>
+                    Like many retirees, I thought I had everything figured out. I had my Social Security, my teacher's pension, and Medicare. I assumed that was all there was. Boy, was I wrong.
+                </p>
+
+                <div class="highlight-quote">
+                    "The day I discovered these hidden benefits, I literally cried. All those months of skipping medications and cutting coupons... and help was available the entire time."
+                </div>
+
+                <p>
+                    It started when my neighbor Betty mentioned she'd found some report online about benefits for seniors. I was skeptical at first – you know how the internet can be. But Betty showed me her new prescription costs: $4 instead of $187!
+                </p>
+
+                <div class="before-after">
+                    <div class="ba-card before-card">
+                        <h3>Before Discovery</h3>
+                        <ul class="ba-list">
+                            <li>$287/month prescriptions</li>
+                            <li>Choosing between meds & groceries</li>
+                            <li>$1,850 property taxes</li>
+                            <li>Avoiding doctor visits</li>
+                            <li>No dental coverage</li>
+                        </ul>
+                    </div>
+                    <div class="ba-card after-card">
+                        <h3>After Discovery</h3>
+                        <ul class="ba-list">
+                            <li>$12/month prescriptions</li>
+                            <li>Extra $413 monthly</li>
+                            <li>$925 property taxes (50% off)</li>
+                            <li>Free preventive care</li>
+                            <li>Dental discount program</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <p>
+                    The report Betty found listed 11 different programs I'd never heard of. Not from my doctor, not from Medicare, not from anyone. Programs that had been available to me for YEARS.
+                </p>
+
+                <p>
+                    The Medicare Extra Help program alone saves me $275 every month on prescriptions. Then there was a property tax freeze for seniors over 65 in Arizona – another $925 yearly. A utility discount program through my power company – $45 monthly. It just kept adding up!
+                </p>
+
+                <div class="discovery-section">
+                    <h3 class="discovery-title">What I'm Saving Now (Every Year)</h3>
+                    <div class="benefit-cards">
+                        <div class="benefit-card">
+                            <div class="benefit-amount">$3,300</div>
+                            <div class="benefit-desc">Prescription Assistance</div>
+                        </div>
+                        <div class="benefit-card">
+                            <div class="benefit-amount">$925</div>
+                            <div class="benefit-desc">Property Tax Freeze</div>
+                        </div>
+                        <div class="benefit-card">
+                            <div class="benefit-amount">$540</div>
+                            <div class="benefit-desc">Utility Discounts</div>
+                        </div>
+                        <div class="benefit-card">
+                            <div class="benefit-amount">$191</div>
+                            <div class="benefit-desc">Food Programs</div>
+                        </div>
+                    </div>
+                </div>
+
+                <p>
+                    The best part? Most of these programs aren't based on being poor. They're based on AGE. If you're over 65 (some start at 60), you likely qualify for something. I wish I had known sooner.
+                </p>
+
+                <p>
+                    I've told everyone at my church, my book club, even strangers at the grocery store. No senior should struggle when help is available. You just need to know where to look.
+                </p>
+            </div>
+
+            <div class="cta-section">
+                <h2 class="cta-title">Get The Same Report Margaret Used</h2>
+                <p class="cta-subtitle">See all 11 programs you might be missing</p>
+                <a href="https://hpkpn.ttrk.io/click" class="cta-button">Check Your Benefits (Free) →</a>
+                <div class="timer">⏰ December deadline approaching for 2025 enrollment</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<!-- LANDER C - Quiz/Interactive Style -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lander C - Quiz Style</title>
+    <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: #1a1a2e;
+            color: #eee;
+            min-height: 100vh;
+        }
+        .top-bar {
+            background: linear-gradient(90deg, #ff6b6b, #ff8e53);
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+            animation: slideDown 0.5s ease;
+        }
+        @keyframes slideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+        .quiz-container {
+            max-width: 700px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+        .quiz-header {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: fadeIn 1s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .quiz-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .quiz-subtitle {
+            font-size: 1.2rem;
+            color: #a8a8a8;
+        }
+        .progress-bar {
+            background: #2d2d44;
+            height: 8px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            background: linear-gradient(90deg, #4facfe, #00f2fe);
+            height: 100%;
+            width: 0%;
+            transition: width 0.5s ease;
+            border-radius: 10px;
+        }
+        .question-card {
+            background: #16213e;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            margin-bottom: 30px;
+            border: 1px solid #2d2d44;
+            animation: slideUp 0.5s ease;
+        }
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .question-number {
+            display: inline-block;
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .question-text {
+            font-size: 1.6rem;
+            margin-bottom: 30px;
+            line-height: 1.4;
+        }
+        .answer-options {
+            display: grid;
+            gap: 15px;
+        }
+        .answer-btn {
+            background: #0f3460;
+            border: 2px solid #2d2d44;
+            padding: 20px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            text-align: left;
+            color: #eee;
+            position: relative;
+            overflow: hidden;
+        }
+        .answer-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.5s;
+        }
+        .answer-btn:hover::before {
+            left: 100%;
+        }
+        .answer-btn:hover {
+            border-color: #667eea;
+            transform: translateX(5px);
+            background: #1a4d7d;
+        }
+        .answer-btn.selected {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-color: #667eea;
+        }
+        .answer-icon {
+            display: inline-block;
+            margin-right: 10px;
+            font-size: 1.3rem;
+        }
+        .results-section {
+            display: none;
+            background: linear-gradient(135deg, #0f3460, #16213e);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            animation: fadeIn 1s ease;
+            border: 2px solid #667eea;
+        }
+        .results-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #4facfe;
+        }
+        .eligibility-score {
+            font-size: 5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 20px 0;
+        }
+        .benefits-preview {
+            background: #1a1a2e;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: left;
+        }
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #2d2d44;
+        }
+        .benefit-item:last-child {
+            border-bottom: none;
+        }
+        .benefit-check {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+            border-radius: 50%;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        .benefit-text {
+            flex: 1;
+            font-size: 1.1rem;
+        }
+        .benefit-amount {
+            color: #4facfe;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        .cta-button-quiz {
+            display: inline-block;
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            color: white;
+            padding: 20px 60px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            margin-top: 30px;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(240, 147, 251, 0.3);
+            animation: pulse 2s infinite;
+        }
+        .cta-button-quiz:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(240, 147, 251, 0.4);
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 30px;
+            font-size: 0.9rem;
+        }
+        .badge-icon {
+            font-size: 1.3rem;
+        }
+        .loading-text {
+            display: none;
+            font-size: 1.2rem;
+            margin: 20px 0;
+            color: #4facfe;
+        }
+        .loading-dots {
+            display: inline-block;
+            animation: dots 1.5s infinite;
+        }
+        @keyframes dots {
+            0%, 20% { content: '.'; }
+            40% { content: '..'; }
+            60%, 100% { content: '...'; }
+        }
+        @media (max-width: 768px) {
+            .quiz-title { font-size: 2rem; }
+            .question-text { font-size: 1.3rem; }
+            .question-card { padding: 25px; }
+        }
