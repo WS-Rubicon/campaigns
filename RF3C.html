@@ -7,12 +7,12 @@
   <style>
     :root{
       /* Unified article column and spacing */
-      --col: 760px;        /* tweak to 740/780 for pixel match */
-      --pad: 20px;         /* side padding inside paper */
+      --col: 760px;
+      --pad: 20px;
       --paper-max: calc(var(--col) + var(--pad) * 2);
 
       /* Colors */
-      --page-bg:#eef1f5;   /* gray edges for “news” contrast */
+      --page-bg:#eef1f5;
       --paper-bg:#ffffff;
       --nav-bg:#1c3d72;
       --nav-pill:#dc3545;
@@ -29,8 +29,9 @@
     /* Reset/base */
     *, *::before, *::after { box-sizing: border-box; }
     html, body { margin: 0; padding: 0; }
-    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; background: var(--page-bg); }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; background: var(--page-bg); }
     img { max-width: 100%; height: auto; display: block; }
+    a { color: #0066cc; }
 
     /* ===== Paper wrapper (condenses everything) ===== */
     .paper{
@@ -40,14 +41,14 @@
       box-shadow: 0 2px 18px rgba(0,0,0,.06);
     }
 
-    /* Header (kept your class names; now constrained) */
+    /* Header */
     .header { background-color: var(--nav-bg); color: white; }
     .nav-container {
       max-width: var(--paper-max);
       margin: 0 auto;
       display: flex;
       align-items: center;
-      padding: 8px var(--pad);          /* tightened */
+      padding: 8px var(--pad);
     }
     .usa-badge {
       background-color: var(--nav-pill);
@@ -59,16 +60,16 @@
       margin-right: 16px;
     }
     .nav-links { display: flex; gap: 10px; font-size: 14px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
-    .nav-links span { color: #cfe0ff; }
+    .nav-links span { color: var(--crumb); }
 
-    /* Notice banner (constrained to paper) */
+    /* Notice banner */
     .notice-wrap { background: var(--paper-bg); }
     .notice-banner{
       max-width: var(--paper-max);
-      margin: 0 auto 10px;              /* tightened gap below */
+      margin: 0 auto 10px;
       background-color: var(--notice);
       color: #212529;
-      padding: 10px var(--pad);         /* tightened */
+      padding: 10px var(--pad);
       font-weight: bold;
       border-left: 4px solid var(--notice-left);
       text-align: left;
@@ -78,7 +79,7 @@
     .container{
       max-width: var(--paper-max);
       margin: 0 auto;
-      padding: 18px var(--pad) 8px;     /* tightened top padding */
+      padding: 18px var(--pad) 8px;
     }
     .content-inner{
       max-width: var(--col);
@@ -88,36 +89,36 @@
     .main-title{
       font-size: 36px;
       color: #4a4a4a;
-      margin: 8px 0 12px;              /* tighter above & below */
-      line-height: 1.12;               /* tighter multi-line */
-      letter-spacing: 0;
+      margin: 8px 0 12px;
+      line-height: 1.12;
+      font-weight: 700; /* Bolder for impact */
     }
 
     .intro-text{
       font-size: 16px;
       color: var(--muted);
-      margin: 6px 0 16px;              /* tighter */
+      margin: 6px 0 16px;
       line-height: 1.6;
     }
     .highlight { text-decoration: underline; font-weight: bold; }
 
-    /* Hero image: reduced width and centered inside the same column */
+    /* Hero image */
     .hero-image{
       max-width: var(--col);
       border-radius: 8px;
-      margin: 20px auto 8px auto;      /* slight tighten */
+      margin: 20px auto 8px auto;
     }
 
     /* Content sections */
     .content-section { margin: 16px 0; font-size: 16px; line-height: 1.6; }
     .benefits-text { margin: 16px 0; }
 
-    /* Requirements box (stays within the same column) */
+    /* Requirements box */
     .requirements-section{
       background-color: var(--req-bg);
-      padding: 20px;                   /* tighter */
+      padding: 20px;
       border-left: 4px solid var(--notice);
-      margin: 22px auto;               /* tighter */
+      margin: 22px auto;
       max-width: var(--col);
     }
     .requirements-title{ font-size: 18px; font-weight: bold; color: #333; margin-bottom: 12px; }
@@ -166,7 +167,7 @@
       transition: all 0.1s ease-out;
       position: relative;
       text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-      text-decoration: none;
+      text-decoration: none; /* Add this for consistency */
     }
     .year-button:hover{ background: linear-gradient(to bottom, #ffe08a 0%, #fdb933 100%); text-decoration: none; }
     .year-button:active{ box-shadow: 0 0 0 #000; transform: translate(4px, 4px); transition: all 0.05s ease-in; }
@@ -176,20 +177,19 @@
       background-color: var(--hot-bg);
       border: 1px solid var(--hot-border);
       border-left: 4px solid var(--notice);
-      padding: 14px;                   /* tightened */
-      margin: 22px auto;               /* tightened */
+      padding: 14px;
+      margin: 22px auto;
       border-radius: 0 5px 5px 0;
       max-width: var(--col);
       color: var(--hot-text);
       line-height: 1.55;
     }
     .hot-tip-title{ color: var(--hot-text); font-weight: bold; margin-bottom: 8px; }
-    .hot-tip-link{ color: #0066cc; text-decoration: underline; }
 
     /* National indicator */
     .national-indicator{
       text-align: center;
-      margin: 16px auto 0;             /* tightened */
+      margin: 16px auto 0;
       color: #718096;
       font-size: 14px;
       font-weight: 600;
@@ -197,56 +197,67 @@
     }
     .national-indicator::before{ content: "🏛️"; margin-right: 6px; }
 
-    /* Footer (condensed inside paper) */
+    /* Footer */
     .footer{ background-color: var(--nav-bg); color: white; text-align: center; margin-top: 28px; }
     .footer-inner{
       max-width: var(--paper-max);
       margin: 0 auto;
-      padding: 24px var(--pad);        /* tightened */
+      padding: 24px var(--pad);
     }
     .footer-links{ margin-bottom: 12px; }
     .footer-links a{ color: #ccc; text-decoration: none; margin: 0 15px; font-size: 14px; }
     .footer-links a:hover{ color: white; }
-    .footer-department{ font-size: 16px; margin-bottom: 8px; font-weight: bold; }
     .footer-disclaimer{ font-size: 12px; color: #ccc; margin-top: 6px; }
 
-    /* Responsive tweaks */
+
+    /* ===== RESPONSIVE FIXES ===== */
     @media (max-width: 520px){
       :root{ --pad:16px; }
-      .nav-container{ padding: 8px var(--pad); }
-      .notice-banner{ padding: 10px var(--pad); margin-bottom: 8px; font-size: 14px; }
+
+      .notice-banner{ padding: 12px var(--pad); margin-bottom: 8px; font-size: 14px; line-height: 1.4; }
       .container{ padding: 16px var(--pad) 6px; }
-      .main-title{ font-size: clamp(24px, 5.6vw, 32px); margin: 6px 0 10px; line-height: 1.14; }
-      .year-buttons{ flex-direction: column; gap: 12px; max-width: 500px; }
-      .year-button{ width: 100%; padding: 14px 16px; font-size: 17px; }
+
+      /* FIX: Make title font size responsive and reduce margins */
+      .main-title{ font-size: clamp(26px, 6.5vw, 32px); margin: 6px 0 12px; line-height: 1.15; }
+
+      /* FIX: Scale down intro and body text */
+      .intro-text { font-size: 15px; }
+      .content-section, .benefits-text { font-size: 15px; margin: 12px 0; }
+
+      /* FIX: Tighten spacing on info boxes */
+      .requirements-section, .hot-tip { margin: 20px auto; padding: 16px; }
+      .requirements-title, .cta-title, .home-purchase-title { font-size: 17px; }
+
+      /* FIX: Stack year buttons vertically */
+      .year-buttons{ flex-direction: column; gap: 14px; }
+      .year-button{ width: 100%; padding: 15px 16px; font-size: 18px; }
+
       .footer-inner{ padding: 20px var(--pad); }
+      .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 15px; }
+      .footer-links a { margin: 0; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Paper wrapper starts -->
   <div class="paper">
 
-    <!-- Header (kept your classes/structure for compatibility) -->
     <header class="header">
       <div class="nav-container">
         <div class="usa-badge">USA</div>
         <nav class="nav-links">
-          <span>Home</span> > <span>Financial Programs</span> > <span>Homeowner Cashback Program</span>
+          <span>Home</span> &gt; <span>Financial Programs</span> &gt; <span>Homeowner Cashback Program</span>
         </nav>
       </div>
     </header>
 
-    <!-- Notice (condensed) -->
     <div class="notice-wrap">
       <div class="notice-banner">
         ⚠️ NOTICE: Limited program period for 2025 Homeowner Cashback Program - Apply by deadline
       </div>
     </div>
 
-    <!-- Main content -->
-    <div class="container">
+    <main class="container">
       <div class="content-inner">
         <h1 class="main-title">In October 2025, American Homeowners Get Up To $185,000 With The New "FHA" Initiative.</h1>
 
@@ -257,7 +268,6 @@
           <strong class="highlight">put $185,000 in your pocket!</strong>
         </p>
 
-        <!-- Reduced image, same margins as text -->
         <a href="https://hpkpn.ttrk.io/click" class="hero-image-link">
           <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1755657346/aa1a3c7376456215537e65f7ec639991_gvi7la.webp"
                alt="Congress Chamber" class="hero-image">
@@ -265,7 +275,7 @@
 
         <div class="content-section">
           <p>Inflation is through the roof right now and smart Homeowners are using this program to get up to $185,000 in cash!
-            There is <strong>NO COST</strong> to see if you qualify &amp; <strong>no requirements</strong> on how to spend it.</p>
+             There is <strong>NO COST</strong> to see if you qualify &amp; <strong>no requirements</strong> on how to spend it.</p>
         </div>
 
         <div class="content-section">
@@ -314,9 +324,8 @@
 
         <div class="national-indicator">National</div>
       </div>
-    </div>
+    </main>
 
-    <!-- Footer (condensed inside paper; kept your classes) -->
     <footer class="footer">
       <div class="footer-inner">
         <div class="footer-links">
@@ -329,47 +338,28 @@
       </div>
     </footer>
 
-  </div><!-- /paper -->
-
-  <!-- ===== Your RedTrack + helper code (unchanged behavior) ===== -->
-  <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
+  </div><script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
 
   <script>
-    let userLocation = null;
-
-    // Get user's geolocation (kept as-is)
-    async function getUserLocation() {
-      try {
-        const response = await fetch('https://geo.ipify.org/api/v2/country,city?apiKey=at_JKtyyWskmuI07I6RieQ3a6EBhlt5T');
-        const data = await response.json();
-        userLocation = data;
-        console.log('User location:', userLocation);
-      } catch (error) {
-        console.error('Error getting location:', error);
-      }
-    }
-    getUserLocation();
-
     document.addEventListener('DOMContentLoaded', function() {
-      // Keep footer links on RedTrack
-      const footerLinks = document.querySelectorAll('.footer-links a');
-      footerLinks.forEach(link => { link.href = 'https://hpkpn.ttrk.io/click'; });
+      const trackingUrl = 'https://hpkpn.ttrk.io/click';
 
-      // Fix hot tip link
-      const hotTipLink = document.querySelector('.hot-tip-link');
-      if (hotTipLink) { hotTipLink.href = 'https://hpkpn.ttrk.io/click'; }
+      // Update all relevant links
+      document.querySelectorAll('.footer-links a, .hot-tip-link, .hero-image-link').forEach(link => {
+        if(link) link.href = trackingUrl;
+      });
 
-      // === CODE FIX START (your original click override) ===
+      // The click handler for the buttons is not strictly necessary as the <a> tag will navigate
+      // but is kept here in case of future logic (like analytics) being added.
       function handleButtonClick(event) {
-        event.preventDefault();
-        event.stopPropagation();
-        window.location.href = this.href;
+        // This function can be expanded for tracking clicks before redirecting
+        // For now, it just lets the default link behavior happen.
       }
+
       const button1 = document.getElementById('button-before-1985');
       const button2 = document.getElementById('button-after-1985');
       if (button1) { button1.addEventListener('click', handleButtonClick); }
       if (button2) { button2.addEventListener('click', handleButtonClick); }
-      // === CODE FIX END ===
     });
   </script>
 </body>
