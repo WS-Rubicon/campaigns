@@ -167,7 +167,7 @@
       transition: all 0.1s ease-out;
       position: relative;
       text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-      text-decoration: none; /* Add this for consistency */
+      text-decoration: none;
     }
     .year-button:hover{ background: linear-gradient(to bottom, #ffe08a 0%, #fdb933 100%); text-decoration: none; }
     .year-button:active{ box-shadow: 0 0 0 #000; transform: translate(4px, 4px); transition: all 0.05s ease-in; }
@@ -217,18 +217,21 @@
       .notice-banner{ padding: 12px var(--pad); margin-bottom: 8px; font-size: 14px; line-height: 1.4; }
       .container{ padding: 16px var(--pad) 6px; }
 
-      /* FIX: Make title font size responsive and reduce margins */
       .main-title{ font-size: clamp(26px, 6.5vw, 32px); margin: 6px 0 12px; line-height: 1.15; }
 
-      /* FIX: Scale down intro and body text */
       .intro-text { font-size: 15px; }
       .content-section, .benefits-text { font-size: 15px; margin: 12px 0; }
+      
+      /* THIS IS THE NEW FIX FOR THE IMAGE */
+      .hero-image {
+        width: 100%;
+        max-width: 100%;
+        margin: 16px auto;
+      }
 
-      /* FIX: Tighten spacing on info boxes */
       .requirements-section, .hot-tip { margin: 20px auto; padding: 16px; }
       .requirements-title, .cta-title, .home-purchase-title { font-size: 17px; }
 
-      /* FIX: Stack year buttons vertically */
       .year-buttons{ flex-direction: column; gap: 14px; }
       .year-button{ width: 100%; padding: 15px 16px; font-size: 18px; }
 
@@ -344,16 +347,12 @@
     document.addEventListener('DOMContentLoaded', function() {
       const trackingUrl = 'https://hpkpn.ttrk.io/click';
 
-      // Update all relevant links
       document.querySelectorAll('.footer-links a, .hot-tip-link, .hero-image-link').forEach(link => {
         if(link) link.href = trackingUrl;
       });
 
-      // The click handler for the buttons is not strictly necessary as the <a> tag will navigate
-      // but is kept here in case of future logic (like analytics) being added.
       function handleButtonClick(event) {
-        // This function can be expanded for tracking clicks before redirecting
-        // For now, it just lets the default link behavior happen.
+        // Future logic can go here
       }
 
       const button1 = document.getElementById('button-before-1985');
