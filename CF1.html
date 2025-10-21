@@ -1,329 +1,684 @@
-import React, { useState } from 'react';
-import { ChevronRight } from 'lucide-react';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carsfast - Car Financing</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-export default function CarsastApp() {
-  const [page, setPage] = useState('landing'); // 'landing' or 'form'
-  const [step, setStep] = useState(1);
-  const [formData, setFormData] = useState({
-    budget: '',
-    existingVehicle: '',
-    canadian: '',
-    birthDay: '',
-    birthMonth: '',
-    birthYear: '',
-    employment: '',
-    company: '',
-    income: '',
-    incomeLength: '',
-    homeStatus: '',
-    homePayment: 2500
-  });
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: #f5f5f5;
+        }
 
-  const totalSteps = 10;
+        .landing-page {
+            display: block;
+        }
 
-  const handleStartApplication = () => {
-    setPage('form');
-    setStep(1);
-  };
+        .landing-page.hidden {
+            display: none;
+        }
 
-  const handleRadioChange = (field, value) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
-  };
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 80px;
+            background: #f5f5f5;
+        }
 
-  const handleInputChange = (field, value) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
-  };
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+        }
 
-  const canProceed = () => {
-    switch(step) {
-      case 1: return formData.budget !== '';
-      case 2: return formData.existingVehicle !== '';
-      case 3: return formData.canadian !== '';
-      case 4: return formData.birthDay && formData.birthMonth && formData.birthYear;
-      case 5: return formData.employment !== '';
-      case 6: return formData.company !== '';
-      case 7: return formData.income !== '';
-      case 8: return formData.incomeLength !== '';
-      case 9: return formData.homeStatus !== '';
-      case 10: return true;
-      default: return false;
-    }
-  };
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: #4a90e2;
+        }
 
-  const handleNext = () => {
-    if (step < totalSteps) setStep(step + 1);
-    else handleSubmit();
-  };
+        .logo-sub {
+            font-size: 8px;
+            letter-spacing: 2px;
+            color: #999;
+            margin-top: -4px;
+        }
 
-  const handleSubmit = () => {
-    console.log('Form submitted:', formData);
-    alert('Application submitted! Check console for details.');
-  };
+        .apply-btn {
+            background: #4a90e2;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+        }
 
-  const renderFormStep = () => {
-    switch(step) {
-      case 1:
-        return (
-          <div>
-            <h2 className="text-2xl font-bold mb-6">What is your Monthly Budget?</h2>
-            <div className="space-y-3">
-              {['$250-$375/month', '$376-$500/month', '$500+/month'].map(option => (
-                <label key={option} className="flex items-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-gray-300">
-                  <input type="radio" name="budget" value={option} onChange={(e) => handleRadioChange('budget', e.target.value)} checked={formData.budget === option} className="w-5 h-5" />
-                  <span className="ml-4 text-gray-700">{option}</span>
-                </label>
-              ))}
+        .apply-btn:hover {
+            background: #3b7bd1;
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            padding: 60px 80px;
+            background: #f5f5f5;
+            min-height: 550px;
+            position: relative;
+        }
+
+        .hero-left {
+            flex: 0 0 40%;
+            padding-right: 40px;
+        }
+
+        .hero-title {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.15;
+            color: #000;
+            margin-bottom: 20px;
+        }
+
+        .hero-title .blue {
+            color: #4a90e2;
+        }
+
+        .hero-text {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .no-signup {
+            background: #dfe9f3;
+            padding: 12px 18px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #333;
+            display: inline-block;
+        }
+
+        .hero-right {
+            flex: 1;
+            position: relative;
+            height: 450px;
+        }
+
+        .car-image {
+            width: 100%;
+            height: 100%;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .vehicle-selector {
+            background: #4a90e2;
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 380px;
+            z-index: 10;
+        }
+
+        .vehicle-selector h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .vehicle-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+
+        .vehicle-btn {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 18px 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .vehicle-btn:hover {
+            border-color: #4a90e2;
+            background: #f9f9f9;
+        }
+
+        .vehicle-icon {
+            font-size: 28px;
+            margin-bottom: 6px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .vehicle-btn span {
+            font-size: 12px;
+            font-weight: 600;
+            color: #333;
+            display: block;
+        }
+
+        .vehicle-stat {
+            font-size: 12px;
+            color: white;
+            line-height: 1.5;
+        }
+
+        .vehicle-stat .number {
+            font-weight: 700;
+            font-size: 13px;
+            color: #4a90e2;
+        }
+
+        .featured-section {
+            background: white;
+            padding: 50px 80px;
+            text-align: center;
+        }
+
+        .featured-label {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+
+        .featured-logos {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .featured-logos img {
+            height: 45px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .why-section {
+            background: white;
+            padding: 80px;
+            text-align: center;
+        }
+
+        .why-title {
+            font-size: 38px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #000;
+        }
+
+        .why-text {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.7;
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .form-page {
+            display: none;
+        }
+
+        .form-page.active {
+            display: block;
+        }
+
+        .form-header {
+            background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-header::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: white;
+            transform: skewY(-3deg);
+        }
+
+        .form-header img {
+            height: 40px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .form-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 200px);
+            padding: 40px 20px;
+            background: #f5f5f5;
+        }
+
+        .form-box {
+            background: white;
+            border-radius: 12px;
+            padding: 50px;
+            width: 100%;
+            max-width: 700px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .progress-bar {
+            margin-bottom: 30px;
+        }
+
+        .progress-label {
+            font-size: 13px;
+            color: #999;
+            margin-bottom: 10px;
+        }
+
+        .progress-fill {
+            width: 100%;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill-bar {
+            height: 100%;
+            background: #1abc9c;
+            transition: width 0.3s ease;
+        }
+
+        .form-box h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #000;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .radio-option:hover {
+            border-color: #4a90e2;
+            background: #f9f9f9;
+        }
+
+        .radio-option input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            margin-right: 15px;
+        }
+
+        .radio-option label {
+            cursor: pointer;
+            flex: 1;
+            color: #333;
+        }
+
+        select, input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        select:focus, input[type="text"]:focus {
+            outline: none;
+            border-color: #4a90e2;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            margin: 20px 0;
+        }
+
+        .slider-value {
+            text-align: center;
+            font-size: 32px;
+            font-weight: bold;
+            color: #333;
+            margin: 20px 0;
+        }
+
+        .slider-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #999;
+        }
+
+        .form-footer {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .security-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 13px;
+            color: #666;
+        }
+
+        .security-badges {
+            height: 40px;
+            margin-bottom: 20px;
+        }
+
+        .continue-btn {
+            width: 100%;
+            padding: 15px;
+            background: #4a90e2;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: background 0.3s;
+        }
+
+        .continue-btn:hover:not(:disabled) {
+            background: #3b7bd1;
+        }
+
+        .continue-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .footer-links {
+            text-align: center;
+            font-size: 11px;
+            color: #999;
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+
+        .footer-links a {
+            color: #4a90e2;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="landing-page" id="landingPage">
+        <header>
+            <div class="logo-container">
+                <div class="logo">carsfast</div>
+                <div class="logo-sub">LENDING ARCH</div>
             </div>
-          </div>
-        );
-      case 2:
-        return (
-          <div>
-            <h2 className="text-2xl font-bold mb-6">Do you have an Existing Vehicle?</h2>
-            <div className="space-y-3">
-              {['No', 'Yes, I want to trade', 'Yes, I\'m keeping it'].map(option => (
-                <label key={option} className="flex items-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-gray-300">
-                  <input type="radio" name="vehicle" value={option} onChange={(e) => handleRadioChange('existingVehicle', e.target.value)} checked={formData.existingVehicle === option} className="w-5 h-5" />
-                  <span className="ml-4 text-gray-700">{option}</span>
-                </label>
-              ))}
-            </div>
-          </div>
-        );
-      case 3:
-        return (
-          <div>
-            <h2 className="text-2xl font-bold mb-6">Are you a Canadian citizen or permanent resident?</h2>
-            <div className="space-y-3">
-              {['Yes', 'No'].map(option => (
-                <label key={option} className="flex items-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-gray-300">
-                  <input type="radio" name="canadian" value={option} onChange={(e) => handleRadioChange('canadian', e.target.value)} checked={formData.canadian === option} className="w-5 h-5" />
-                  <span className="ml-4 text-gray-700">{option}</span>
-                </label>
-              ))}
-            </div>
-          </div>
-        );
-      case 4:
-        return (
-          <div>
-            <h2 className="text-2xl font-bold mb-6">What is your Date of Birth?</h2>
-            <div className="space-y-3">
-              <select value={formData.birthDay} onChange={(e) => handleInputChange('birthDay', e.target.value)} className="w-full p-3 border-2 border-gray-200 rounded-lg">
-                <option value="">Day</option>
-                {Array.from({length: 31}, (_, i) => i + 1).map(d => <option key={d} value={d}>{d}</option>)}
-              </select>
-              <select value={formData.birthMonth} onChange={(e) => handleInputChange('birthMonth', e.target.value)} className="w-full p-3 border-2 border-gray-200 rounded-lg">
-                <option value="">Month</option>
-                {['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'].map(m => <option key={m} value={m}>{m}</option>)}
-              </select>
-              <select value={formData.birthYear} onChange={(e) => handleInputChange('birthYear', e.target.value)} className="w-full p-3 border-2 border-gray-200 rounded-lg">
-                <option value="">Year</option>
-                {Array.from({length: 80}, (_, i) => new Date().getFullYear() - i).map(y => <option key={y} value={y}>{y}</option>)}
-              </select>
-            </div>
-          </div>
-        );
-      case 5:
-        return (
-          <div>
-            <h2 className="text-2xl font-bold mb-6">What is your Employment Status?</h2>
-            <div className="grid grid-cols-2 gap-3">
-              {['Employed', 'Self Employed', 'Retired', 'Disability', 'Other', 'Unemployed'].map(option => (
-                <label key={option} className="flex items-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-gray-300">
-                  <input type="radio" name="employment" value={option} onChange={(e) => handleRadioChange('employment', e.target.value)} checked={formData.employment === option} className="w-5 h-5" />
-                  <span className="ml-3 text-gray-700 text-sm">{option}</span>
-                </label>
-              ))}
-            </div>
-          </div>
-        );
-      case 6:
-        return (
-          <div>
-            <h2 className="text-2xl font-bold mb-6">Where are you Working?</h2>
-            <input type="text" placeholder="Company Name" value={formData.company} onChange={(e) => handleInputChange('company', e.target.value)} className="w-full p-3 border-2 border-gray-200 rounded-lg" />
-          </div>
-        );
-      case 7:
-        return (
-          <div>
-            <h2 className="text-2xl font-bold mb-6">What is your current Monthly Gross Income?</h2>
-            <div className="grid grid-cols-2 gap-3">
-              {['$1800 to $2200', '$2200 to $3000', '$3000 to $4500', 'Over $4500', 'Under $1800'].map(option => (
-                <label key={option} className="flex items-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-gray-300">
-                  <input type="radio" name="income" value={option} onChange={(e) => handleRadioChange('income', e.target.value)} checked={formData.income === option} className="w-5 h-5" />
-                  <span className="ml-3 text-gray-700 text-sm">{option}</span>
-                </label>
-              ))}
-            </div>
-          </div>
-        );
-      case 8:
-        return (
-          <div>
-            <h2 className="text-2xl font-bold mb-6">How long have you been earning this income?</h2>
-            <div className="grid grid-cols-2 gap-3">
-              {['3 - 6 Months', '6 - 12 Months', '12 Months - 2 Years', '2 Years +', 'Less Than 3 Months'].map(option => (
-                <label key={option} className="flex items-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-gray-300">
-                  <input type="radio" name="incomeLength" value={option} onChange={(e) => handleRadioChange('incomeLength', e.target.value)} checked={formData.incomeLength === option} className="w-5 h-5" />
-                  <span className="ml-3 text-gray-700 text-sm">{option}</span>
-                </label>
-              ))}
-            </div>
-          </div>
-        );
-      case 9:
-        return (
-          <div>
-            <h2 className="text-2xl font-bold mb-6">Do you Own or Rent your home?</h2>
-            <div className="space-y-3">
-              {['Own', 'Rent', 'Other'].map(option => (
-                <label key={option} className="flex items-center p-4 border-2 border-gray-200 rounded-lg cursor-pointer hover:border-gray-300">
-                  <input type="radio" name="homeStatus" value={option} onChange={(e) => handleRadioChange('homeStatus', e.target.value)} checked={formData.homeStatus === option} className="w-5 h-5" />
-                  <span className="ml-4 text-gray-700">{option}</span>
-                </label>
-              ))}
-            </div>
-          </div>
-        );
-      case 10:
-        return (
-          <div>
-            <h2 className="text-2xl font-bold mb-6">What Are Your Monthly (Rent Or Mortgage) Payments?</h2>
-            <div className="mt-8">
-              <div className="text-center mb-6">
-                <span className="text-3xl font-bold text-gray-800">${formData.homePayment.toLocaleString()}</span>
-              </div>
-              <input type="range" min="0" max="5000" step="50" value={formData.homePayment} onChange={(e) => handleInputChange('homePayment', parseInt(e.target.value))} className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer" />
-              <div className="flex justify-between text-sm text-gray-600 mt-2">
-                <span>$0</span>
-                <span>$5,000</span>
-              </div>
-            </div>
-          </div>
-        );
-      default: return null;
-    }
-  };
-
-  if (page === 'landing') {
-    return (
-      <div className="bg-gray-100">
-        <header className="flex justify-between items-center px-20 py-6 bg-gray-100">
-          <div>
-            <div className="text-2xl font-bold text-blue-500">carsfast</div>
-            <div className="text-xs tracking-widest text-gray-500">LENDING ARCH</div>
-          </div>
-          <button onClick={handleStartApplication} className="bg-blue-500 text-white px-6 py-2 rounded-full font-semibold hover:bg-blue-600">Apply Now</button>
+            <button class="apply-btn" onclick="startApplication()">Apply Now</button>
         </header>
 
-        <section className="flex items-center px-20 py-16 bg-gray-100 min-h-screen">
-          <div className="flex-1 pr-20">
-            <h1 className="text-5xl font-bold mb-6 leading-tight">Get Your Car Financing Approved in a Matter of <span className="text-blue-500">Minutes!</span></h1>
-            <p className="text-gray-600 mb-6 leading-relaxed">Get approved today through the Carsfast network of Dealers across Canada. Our auto finance network specializes in assisting people with all types of credit including consumer proposals! Your job is your credit to get car loans in Canada.</p>
-            <div className="bg-blue-100 inline-block px-4 py-3 rounded-lg text-gray-800 font-semibold text-sm">No Sign-up or Log-in Required</div>
-          </div>
-
-          <div className="flex-1 relative h-96 flex items-center justify-center">
-            <div className="w-full h-full bg-contain bg-no-repeat bg-center" style={{backgroundImage: "url('https://res.cloudinary.com/dndik3mpf/image/upload/v1761010206/bnr-car_lrhlil.png')"}}></div>
-            
-            <div className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-blue-500 text-white p-8 rounded-xl shadow-lg w-80">
-              <h3 className="text-lg font-bold mb-6">Start by clicking on your preferred type of vehicle:</h3>
-              <div className="grid grid-cols-2 gap-3 mb-6">
-                <button onClick={handleStartApplication} className="bg-white text-gray-800 p-4 rounded-lg text-center hover:bg-gray-100">
-                  <div className="text-3xl mb-2">🚗</div>
-                  <span className="font-semibold text-sm">Car</span>
-                </button>
-                <button onClick={handleStartApplication} className="bg-white text-gray-800 p-4 rounded-lg text-center hover:bg-gray-100">
-                  <div className="text-3xl mb-2">🚙</div>
-                  <span className="font-semibold text-sm">Truck</span>
-                </button>
-                <button onClick={handleStartApplication} className="bg-white text-gray-800 p-4 rounded-lg text-center hover:bg-gray-100">
-                  <div className="text-3xl mb-2">🚐</div>
-                  <span className="font-semibold text-sm">Van</span>
-                </button>
-                <button onClick={handleStartApplication} className="bg-white text-gray-800 p-4 rounded-lg text-center hover:bg-gray-100">
-                  <div className="text-3xl mb-2">🚙</div>
-                  <span className="font-semibold text-sm">SUV</span>
-                </button>
-              </div>
-              <div className="text-sm text-white"><span className="font-bold text-blue-300">15,750</span> car buyers found the perfect car!</div>
+        <section class="hero">
+            <div class="hero-left">
+                <h1 class="hero-title">Get Your Car Financing Approved in a Matter of <span class="blue">Minutes!</span></h1>
+                <p class="hero-text">Get approved today through the Carsfast network of Dealers across Canada. Our auto finance network specializes in assisting people with all types of credit including consumer proposals! Your job is your credit to get car loans in Canada.</p>
+                <div class="no-signup">No Sign-up or Log-in Required</div>
             </div>
-          </div>
+
+            <div class="hero-right">
+                <div class="car-image" style="background-image: url('https://res.cloudinary.com/dndik3mpf/image/upload/v1761010206/bnr-car_lrhlil.png');"></div>
+                
+                <div class="vehicle-selector">
+                    <h3>Start by clicking on your preferred type of vehicle:</h3>
+                    <div class="vehicle-grid">
+                        <button class="vehicle-btn" onclick="startApplication()">
+                            <div class="vehicle-icon">🚗</div>
+                            <span>Car</span>
+                        </button>
+                        <button class="vehicle-btn" onclick="startApplication()">
+                            <div class="vehicle-icon">🚙</div>
+                            <span>Truck</span>
+                        </button>
+                        <button class="vehicle-btn" onclick="startApplication()">
+                            <div class="vehicle-icon">🚐</div>
+                            <span>Van</span>
+                        </button>
+                        <button class="vehicle-btn" onclick="startApplication()">
+                            <div class="vehicle-icon">🚙</div>
+                            <span>SUV</span>
+                        </button>
+                    </div>
+                    <div class="vehicle-stat"><span class="number">15,750</span> car buyers found the perfect car!</div>
+                </div>
+            </div>
         </section>
 
-        <section className="bg-white px-20 py-16 text-center">
-          <div className="text-gray-500 text-sm mb-6">As Featured In</div>
-          <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1761010266/Screenshot_2025-10-20_182954_z96kt6.png" alt="Featured In" className="max-w-3xl mx-auto h-auto" />
+        <section class="featured-section">
+            <div class="featured-label">As Featured In</div>
+            <div class="featured-logos">
+                <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1761010266/Screenshot_2025-10-20_182954_z96kt6.png" alt="Featured In" style="max-width: 100%; height: auto;">
+            </div>
         </section>
 
-        <section className="bg-white px-20 py-24 text-center">
-          <h2 className="text-5xl font-bold mb-8">Why Choose Us For Your Auto Financing Needs?</h2>
-          <p className="text-gray-600 text-lg leading-relaxed max-w-2xl mx-auto">Many Canadians are shut out of the traditional car lending market. Bad and limited credit histories should not stop ANYONE from getting reliable transportation.</p>
+        <section class="why-section">
+            <h2 class="why-title">Why Choose Us For Your Auto Financing Needs?</h2>
+            <p class="why-text">Many Canadians are shut out of the traditional car lending market. Bad and limited credit histories should not stop ANYONE from getting reliable transportation.</p>
         </section>
-      </div>
-    );
-  }
-
-  return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-500 to-blue-400">
-      <div className="bg-blue-500 text-white p-6 text-center relative overflow-hidden">
-        <div className="absolute top-0 left-0 right-0 h-32 bg-blue-500"></div>
-        <div className="absolute top-20 left-0 right-0 h-32 bg-white transform -skew-y-2"></div>
-        <div className="relative z-10 pt-8">
-          <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1761011044/logo2_bsr5wr.png" alt="Carsfast" className="h-12 mx-auto" />
-        </div>
-      </div>
-
-      <div className="flex justify-center items-center min-h-[calc(100vh-140px)] px-4 py-8">
-        <div className="bg-white rounded-lg p-8 w-full max-w-2xl shadow-lg">
-          <div className="mb-8">
-            <div className="flex justify-between items-center mb-4">
-              <span className="text-sm text-gray-600">Step {step} of {totalSteps}</span>
-            </div>
-            <div className="w-full bg-gray-200 h-2 rounded-full overflow-hidden">
-              <div className="bg-teal-500 h-full rounded-full transition-all duration-300" style={{width: `${(step / totalSteps) * 100}%`}}></div>
-            </div>
-          </div>
-
-          {renderFormStep()}
-
-          <div className="mt-12 pt-8 border-t border-gray-200">
-            <div className="flex items-center justify-between mb-6 text-sm">
-              <div className="flex items-center gap-2">
-                <span className="text-green-600">🔒</span>
-                <span className="text-gray-600">Safe, Secure, & Confidential</span>
-              </div>
-              <div className="text-gray-600">
-                <span className="text-teal-500">✓</span> <span>15,750 car buyers found the perfect car!</span>
-              </div>
-            </div>
-
-            <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1761011051/Screenshot_2025-10-20_184340_ff5j30.png" alt="Security badges" className="h-12 mb-6" />
-
-            <button onClick={handleNext} disabled={!canProceed()} className={`w-full py-3 rounded-lg font-semibold text-white flex items-center justify-center gap-2 transition-all ${canProceed() ? 'bg-blue-500 hover:bg-blue-600' : 'bg-gray-300 cursor-not-allowed'}`}>
-              Continue
-              <ChevronRight size={20} />
-            </button>
-          </div>
-
-          <div className="text-center text-xs text-gray-500 mt-6 space-y-2">
-            <p className="text-gray-600">Copyright © 2025 Copyright notice: this website and its content are copyrighted by Consumer Genius Inc. and all rights therein are reserved.</p>
-            <div className="flex justify-center gap-3 flex-wrap">
-              <a href="#" className="text-blue-600 hover:underline">PARTNER WITH US</a>
-              <span>|</span>
-              <a href="#" className="text-blue-600 hover:underline">NEWS</a>
-              <span>|</span>
-              <a href="#" className="text-blue-600 hover:underline">PRIVACY POLICY</a>
-              <span>|</span>
-              <a href="#" className="text-blue-600 hover:underline">TERMS OF USE</a>
-              <span>|</span>
-              <a href="#" className="text-blue-600 hover:underline">SUBJECT RIGHTS REQUESTS</a>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
-  );
-}
+
+    <div class="form-page" id="formPage">
+        <div class="form-header">
+            <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1761011044/logo2_bsr5wr.png" alt="Carsfast">
+        </div>
+
+        <div class="form-container">
+            <div class="form-box">
+                <div class="progress-bar">
+                    <div class="progress-label">Step <span id="stepNumber">1</span> of 10</div>
+                    <div class="progress-fill">
+                        <div class="progress-fill-bar" id="progressBar" style="width: 10%"></div>
+                    </div>
+                </div>
+
+                <div id="formContent"></div>
+
+                <div class="form-footer">
+                    <div class="security-info">
+                        <div>🔒 Safe, Secure, & Confidential</div>
+                        <div>✓ 15,750 car buyers found the perfect car!</div>
+                    </div>
+                    <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1761011051/Screenshot_2025-10-20_184340_ff5j30.png" alt="Security badges" class="security-badges">
+                    <button class="continue-btn" id="continueBtn" onclick="nextStep()">Continue →</button>
+                </div>
+
+                <div class="footer-links">
+                    <p>Copyright © 2025 Copyright notice: this website and its content are copyrighted by Consumer Genius Inc.</p>
+                    <div>
+                        <a href="#">PARTNER WITH US</a> | <a href="#">NEWS</a> | <a href="#">PRIVACY POLICY</a> | <a href="#">TERMS OF USE</a> | <a href="#">SUBJECT RIGHTS REQUESTS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentStep = 1;
+        const totalSteps = 10;
+
+        function startApplication() {
+            document.getElementById('landingPage').classList.add('hidden');
+            document.getElementById('formPage').classList.add('active');
+            renderStep(1);
+        }
+
+        function renderStep(step) {
+            currentStep = step;
+            document.getElementById('stepNumber').textContent = step;
+            document.getElementById('progressBar').style.width = (step / totalSteps * 100) + '%';
+
+            var content = document.getElementById('formContent');
+            var html = '';
+
+            if (step === 1) {
+                html = '<h2>What is your Monthly Budget?</h2><div class="form-group">' +
+                    '<div class="radio-option"><input type="radio" name="budget" value="1" id="b1"><label for="b1">$250-$375/month</label></div>' +
+                    '<div class="radio-option"><input type="radio" name="budget" value="2" id="b2"><label for="b2">$376-$500/month</label></div>' +
+                    '<div class="radio-option"><input type="radio" name="budget" value="3" id="b3"><label for="b3">$500+/month</label></div>' +
+                    '</div>';
+            } else if (step === 2) {
+                html = '<h2>Do you have an Existing Vehicle?</h2><div class="form-group">' +
+                    '<div class="radio-option"><input type="radio" name="vehicle" value="1" id="v1"><label for="v1">No</label></div>' +
+                    '<div class="radio-option"><input type="radio" name="vehicle" value="2" id="v2"><label for="v2">Yes, I want to trade</label></div>' +
+                    '<div class="radio-option"><input type="radio" name="vehicle" value="3" id="v3"><label for="v3">Yes, I am keeping it</label></div>' +
+                    '</div>';
+            } else if (step === 3) {
+                html = '<h2>Are you a Canadian citizen or permanent resident?</h2><div class="form-group">' +
+                    '<div class="radio-option"><input type="radio" name="canadian" value="1" id="c1"><label for="c1">Yes</label></div>' +
+                    '<div class="radio-option"><input type="radio" name="canadian" value="2" id="c2"><label for="c2">No</label></div>' +
+                    '</div>';
+            } else if (step === 4) {
+                html = '<h2>What is your Date of Birth?</h2><div class="form-group">' +
+                    '<select name="day" id="day"><option value="">Day</option>' +
+                    '<option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option>' +
+                    '<option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option>' +
+                    '<option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option>' +
+                    '<option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option>' +
+                    '<option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option>' +
+                    '<option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option>' +
+                    '<option value="31">31</option></select>' +
+                    '<select name="month" id="month"><option value="">Month</option>' +
+                    '<option value="1">January</option><option value="2">February</option><option value="3">March</option><option value="4">April</option>' +
+                    '<option value="5">May</option><option value="6">June</option><option value="7">July</option><option value="8">August</option>' +
+                    '<option value="9">September</option><option value="10">October</option><option value="11">November</option><option value="12">December</option></select>' +
+                    '<select name="year" id="year"><option value="">Year</option>';
+                for (var i = 0; i < 80; i++) {
+                    var year = new Date().getFullYear() - i;
+                    html += '<option value="' + year + '">' + year + '</option>';
+                }
+                html += '</select></div>';
+            } else if (step === 5) {
+                html = '<h2>What is your Employment Status?</h2><div class="form-group">' +
+                    '<div class="radio-option"><input type="radio" name="employment" value="1" id="e1"><label for="e1">Employed</label></div>' +
+                    '<div class="radio-option"><input type="radio" name="employment" value="2" id="e2"><label for="e2">Self Employed</label></div>' +
+                    '<div class="radio-option"><input type="radio" name="employment" value="3" id="e3"><label for="e3">Retired</label></div>' +
+                    '<div class="radio-option"><input type="radio" name="employment" value="4" id="e4"><label for="e4">Disability</label></div>' +
+                    '<div class="radio-option"><input type="radio" name="employment" value="5" id="e5"><label for="e5">Other</label></div>' +
+                    '<div class="radio-option"><input type="radio" name="employment" value="6" id="e6"><label for="e6">Unemployed</label></div>' +
+                    '</div>';
+            } else if (step === 6) {
+                html = '<h2>Where are you Working?</h2><div class="form-group">' +
+                    '<input type="text" placeholder="Company Name" id="company"></div>';
+            } else if (step === 7) {
+                html = '<h2>What is your current Monthly Gross Income?</h2><div class="form-group">' +
+                    '<div class="radio-option"><input type="radio" name="income" value="1" id="i1"><label for="i1">$1800 to $2200</label></div>' +
+                    '<div class="radio-option"><input type="radio" name="income" value="2" id="i2"><label for="i2">$2200 to $3000</label></div>' +
+                    '<div class="radio-option"><input type="radio" name="income" value="3" id="i3"><label for="i3">$3000 to $4500</label></div>' +
+                    '<div class="radio-option"><input type="radio" name="income" value="4" id="i4"><label for="i4">Over $4500</label></div>' +
+                    '<div class="radio-option"><input type="radio" name="income" value="5" id="i5"><label for="i5">Under $1800</label></div>' +
+                    '</div>';
+            } else if (step === 8) {
+                html = '<h2>How long have you been earning this income?</h2><div class="form-group">' +
+                    '<div class="radio-option"><input type="radio" name="incomeLength" value="1" id="il1"><label for="il1">3 - 6 Months</label></div>' +
+                    '<div class="radio-option"><input type="radio" name="incomeLength" value="2" id="il2"><label for="il2">6 - 12 Months</label></div>' +
+                    '<div class="radio-option"><input type="radio" name="incomeLength" value="3" id="il3"><label for="il3">12 Months - 2 Years</label></div>' +
+                    '<div class="radio-option"><input type="radio" name="incomeLength" value="4" id="il4"><label for="il4">2 Years +</label></div>' +
+                    '<div class="radio-option"><input type="radio" name="incomeLength" value="5" id="il5"><label for="il5">Less Than 3 Months</label></div>' +
+                    '</div>';
+            } else if (step === 9) {
+                html = '<h2>Do you Own or Rent your home?</h2><div class="form-group">' +
+                    '<div class="radio-option"><input type="radio" name="homeStatus" value="1" id="h1"><label for="h1">Own</label></div>' +
+                    '<div class="radio-option"><input type="radio" name="homeStatus" value="2" id="h2"><label for="h2">Rent</label></div>' +
+                    '<div class="radio-option"><input type="radio" name="homeStatus" value="3" id="h3"><label for="h3">Other</label></div>' +
+                    '</div>';
+            } else if (step === 10) {
+                html = '<h2>What Are Your Monthly (Rent Or Mortgage) Payments?</h2>' +
+                    '<div class="slider-value">$<span id="paymentValue">2500</span></div>' +
+                    '<input type="range" name="homePayment" id="homePayment" min="0" max="5000" step="50" value="2500" oninput="document.getElementById(\'paymentValue\').textContent = this.value">' +
+                    '<div class="slider-labels"><span>$0</span><span>$5,000</span></div>';
+            }
+
+            content.innerHTML = html;
+            updateButtonState();
+        }
+
+        function updateButtonState() {
+            var btn = document.getElementById('continueBtn');
+            var isValid = false;
+
+            if (currentStep === 1) {
+                isValid = document.querySelector('input[name="budget"]:checked') !== null;
+            } else if (currentStep === 2) {
+                isValid = document.querySelector('input[name="vehicle"]:checked') !== null;
+            } else if (currentStep === 3) {
+                isValid = document.querySelector('input[name="canadian"]:checked') !== null;
+            } else if (currentStep === 4) {
+                isValid = document.getElementById('day').value && document.getElementById('month').value && document.getElementById('year').value;
+            } else if (currentStep === 5) {
+                isValid = document.querySelector('input[name="employment"]:checked') !== null;
+            } else if (currentStep === 6) {
+                isValid = document.getElementById('company').value.length > 0;
+            } else if (currentStep === 7) {
+                isValid = document.querySelector('input[name="income"]:checked') !== null;
+            } else if (currentStep === 8) {
+                isValid = document.querySelector('input[name="incomeLength"]:checked') !== null;
+            } else if (currentStep === 9) {
+                isValid = document.querySelector('input[name="homeStatus"]:checked') !== null;
+            } else if (currentStep === 10) {
+                isValid = true;
+            }
+
+            btn.disabled = !isValid;
+        }
+
+        function nextStep() {
+            if (currentStep < totalSteps) {
+                renderStep(currentStep + 1);
+            } else {
+                alert('Application submitted!');
+            }
+        }
+
+        document.addEventListener('change', updateButtonState);
+        document.addEventListener('input', updateButtonState);
+    </script>
+</body>
+</html>
