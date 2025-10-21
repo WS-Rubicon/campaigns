@@ -3,187 +3,284 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Congratulations! You're Approved</title>
+    <title>Your Application Status</title>
     <style>
         /* --- General Styles & Body --- */
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f0f2f5; /* Light grey background */
+            background-color: #f8f9fa;
             margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            color: #333;
+            color: #495057;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* --- Blue Wave Header --- */
+        .header-swoosh {
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            height: 350px;
+            width: 150%;
+            position: absolute;
+            top: -150px;
+            left: -25%;
+            z-index: 0;
+            border-radius: 0 0 50% 50%;
+        }
+
+        /* --- Top Bar & Logo --- */
+        header {
+            padding: 20px 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: white;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            font-weight: 400;
+            opacity: 0.8;
         }
 
         /* --- Main Content Container --- */
-        .approval-container {
-            background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            padding: 40px;
-            max-width: 500px;
+        .main-container {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
             width: 90%;
-            margin: 20px;
+            margin: 20px auto 40px auto;
+            background-color: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            overflow: hidden; /* To keep the top corners rounded */
         }
 
-        /* --- Checkmark Icon --- */
+        .container-header {
+            background-color: #e9f5ff;
+            padding: 20px 30px;
+            text-align: center;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .container-header h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #004085;
+            margin: 0;
+        }
+
+        .progress-bar {
+            background-color: #dee2e6;
+            border-radius: 5px;
+            height: 8px;
+            margin-top: 15px;
+            overflow: hidden;
+        }
+        
+        .progress-bar-fill {
+            width: 100%;
+            height: 100%;
+            background-color: #28a745; /* Green for completion */
+            border-radius: 5px;
+        }
+        
+        .container-body {
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        /* --- Approval Content --- */
         .checkmark-icon {
-            width: 80px;
-            height: 80px;
+            width: 60px;
+            height: 60px;
             margin-bottom: 20px;
         }
-
-        .checkmark-circle {
-            stroke-dasharray: 166;
-            stroke-dashoffset: 166;
-            stroke-width: 3;
-            stroke-miterlimit: 10;
-            stroke: #28a745; /* Success Green */
-            fill: none;
-            animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
-        }
-
-        .checkmark-check {
-            transform-origin: 50% 50%;
-            stroke-dasharray: 48;
-            stroke-dashoffset: 48;
-            stroke-width: 4;
-            animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.6s forwards;
-        }
-
-        @keyframes stroke {
-            100% {
-                stroke-dashoffset: 0;
-            }
-        }
-
-        /* --- Typography --- */
-        h1 {
-            color: #28a745;
-            font-size: 2.5rem;
-            margin: 0 0 10px 0;
-            font-weight: 700;
-        }
-
+        
         h2 {
-            font-size: 1.75rem;
-            margin: 0 0 20px 0;
-            color: #1c1e21;
-            font-weight: 600;
+            font-size: 2rem;
+            margin: 0 0 15px 0;
+            color: #212529;
+            font-weight: 700;
         }
 
         p {
-            font-size: 1.1rem;
+            font-size: 1rem;
             line-height: 1.6;
-            color: #4b4f56;
-            margin: 0 0 20px 0;
+            margin: 0 0 15px 0;
         }
-        
+
         .amount {
-            font-size: 3rem;
+            font-size: 2.8rem;
             font-weight: 700;
-            color: #1c1e21;
+            color: #212529;
             margin: 10px 0 25px 0;
         }
 
         /* --- Call-to-Action Button --- */
         .cta-button {
-            display: inline-flex;
+            display: flex;
             align-items: center;
             justify-content: center;
             background-color: #28a745;
             color: #ffffff;
             border: none;
             border-radius: 8px;
-            padding: 16px 32px;
-            font-size: 1.25rem;
+            padding: 16px 24px;
+            font-size: 1.2rem;
             font-weight: 600;
             text-decoration: none;
             cursor: pointer;
-            transition: background-color 0.2s ease-in-out, transform 0.1s ease;
             width: 100%;
-            box-sizing: border-box; /* Ensures padding doesn't affect width */
+            box-sizing: border-box;
+            transition: background-color 0.2s ease-in-out;
+            margin-top: 20px;
         }
 
         .cta-button:hover {
-            background-color: #218838; /* Darker green on hover */
+            background-color: #218838;
         }
-
-        .cta-button:active {
-            transform: scale(0.98); /* Slight shrink on click */
-        }
-
+        
         .cta-button .arrow-icon {
             width: 24px;
             height: 24px;
             margin-left: 10px;
         }
 
-        /* --- Footer Text --- */
-        .footer-text {
-            font-size: 0.8rem;
-            color: #8a8d91;
-            margin-top: 30px;
-            margin-bottom: 0;
+        /* --- Security & Social Proof Section --- */
+        .security-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+            border-top: 1px solid #dee2e6;
+            font-size: 0.9rem;
+            color: #495057;
+        }
+        
+        .security-info span {
+            display: flex;
+            align-items: center;
+        }
+        
+        .security-info svg {
+            width: 18px;
+            height: 18px;
+            margin-right: 8px;
+        }
+        
+        .trust-seals {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin: 30px auto;
+            filter: grayscale(1);
+            opacity: 0.6;
+        }
+        
+        .trust-seals img {
+            height: 30px;
         }
 
-        /* --- Responsive Design for Mobile --- */
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 20px 40px 40px 40px;
+            font-size: 0.75rem;
+            color: #6c757d;
+        }
+
+        footer a {
+            color: #6c757d;
+            text-decoration: none;
+            margin: 0 8px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* --- Responsive Adjustments --- */
         @media (max-width: 600px) {
-            .approval-container {
-                padding: 30px 20px;
-            }
-            h1 {
-                font-size: 2rem;
-            }
-            h2 {
-                font-size: 1.5rem;
-            }
-            .amount {
-                font-size: 2.5rem;
-            }
-            p {
-                font-size: 1rem;
-            }
-            .cta-button {
-                font-size: 1.1rem;
-                padding: 14px 24px;
-            }
+            .header-swoosh { height: 250px; }
+            header { padding: 20px; }
+            .logo { font-size: 1.5rem; }
+            .container-header h1 { font-size: 1.2rem; }
+            .container-body { padding: 30px 20px; }
+            h2 { font-size: 1.8rem; }
+            .amount { font-size: 2.2rem; }
+            .security-info { flex-direction: column; gap: 10px; }
         }
-
     </style>
 </head>
 <body>
 
-    <main class="approval-container">
-        
-        <svg class="checkmark-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-            <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
-            <path class="checkmark-check" fill="none" stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
-        </svg>
+    <div class="header-swoosh"></div>
 
-        <h1>Congratulations!</h1>
-        
-        <h2>You're Approved!</h2>
-        
-        <p>You have been pre-qualified for funds up to:</p>
-        
-        <p class="amount">$27,000 CAD</p>
-        
-        <p>Click below to finalize your details and claim your funds now.</p>
-        
-        <a href="#" class="cta-button">
-            <span>Claim My Funds</span>
-            <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+    <header>
+        <div class="logo">carsfast<span>LENDINGGROUP</span></div>
+    </header>
+
+    <main class="main-container">
+        <div class="container-header">
+            <h1>Your Application Status</h1>
+            <div class="progress-bar">
+                <div class="progress-bar-fill"></div>
+            </div>
+        </div>
+        <div class="container-body">
+            
+            <svg class="checkmark-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                <circle fill="none" stroke="#28a745" stroke-width="3" cx="26" cy="26" r="25"/>
+                <path fill="none" stroke="#28a745" stroke-linecap="round" stroke-width="4" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
             </svg>
-        </a>
 
-        <p class="footer-text">This is a limited-time offer. Your funds are available for the next 24 hours.</p>
+            <h2>You're Approved!</h2>
+            
+            <p>Based on the information provided, you have been approved for funds up to:</p>
+            
+            <p class="amount">$27,000 CAD</p>
+            
+            <a href="#" class="cta-button">
+                <span>Claim My Funds Now</span>
+                <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+            </a>
 
+        </div>
+        <div class="security-info">
+             <span>
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 20.417l4.5-1.5a11.955 11.955 0 013.843 1.832A12.02 12.02 0 0012 21.944a12.02 12.02 0 003.657-1.197 11.955 11.955 0 013.843-1.832l4.5 1.5A12.02 12.02 0 0021 8.984a11.955 11.955 0 01-2.382-5.001z"/></svg>
+                Safe, Secure, & Confidential
+            </span>
+            <span>
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6-4a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                Funds are ready for you
+            </span>
+        </div>
     </main>
+    
+    <div class="trust-seals">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Norton-logo-2021.svg/2560px-Norton-logo-2021.svg.png" alt="Norton Secured">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/McAfee_Logo.svg/2560px-McAfee_Logo.svg.png" alt="McAfee Secure">
+        <img src="https://www.truste.com/wp-content/uploads/2021/11/truste-certified-logo-color.svg" alt="TRUSTe Certified">
+    </div>
+    
+    <footer>
+        <p>Copyright © 2025 Copyright notice this website and its content are copyrighted by Consumer Genius Inc. and all rights therein are reserved. Copyrights are asserted to each aspect of the site, in whole and in part, including and not limited to the text, images, composition, and funnel to guide visitors through screening questions. No portion of this website may be reproduced in any form or by any means without the prior written consent of Consumer Genius Inc.</p>
+        <p>
+            <a href="#">PARTNER WITH US</a> | 
+            <a href="#">NEWS</a> | 
+            <a href="#">PRIVACY POLICY</a> | 
+            <a href="#">TERMS OF USE</a> | 
+            <a href="#">SUBJECT RIGHTS REQUESTS</a>
+        </p>
+    </footer>
 
 </body>
 </html>
