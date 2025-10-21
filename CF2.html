@@ -34,16 +34,9 @@
             z-index: 2;
         }
 
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: white;
-            letter-spacing: -1px;
-        }
-
-        .logo span {
-            font-weight: 400;
-            opacity: 0.8;
+        .logo img {
+            height: 40px; /* Adjust height as needed */
+            max-width: 100%;
         }
 
         /* --- Main Content Container --- */
@@ -208,7 +201,7 @@
         @media (max-width: 600px) {
             .header-swoosh { height: 250px; }
             header { padding: 20px; }
-            .logo { font-size: 1.5rem; }
+            .logo img { height: 35px; }
             .container-header h1 { font-size: 1.2rem; }
             .container-body { padding: 30px 20px; }
             h2 { font-size: 1.8rem; }
@@ -222,7 +215,9 @@
     <div class="header-swoosh"></div>
 
     <header>
-        <div class="logo">carsfast<span>LENDINGGROUP</span></div>
+        <div class="logo">
+            <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1761011044/logo2_bsr5wr.png" alt="Company Logo">
+        </div>
     </header>
 
     <main class="main-container">
@@ -243,7 +238,7 @@
             
             <p>Based on the information provided, you have been approved for funds up to:</p>
             
-            <p class="amount">$27,000 CAD</p>
+            <p class="amount">$32,500 CAD</p>
             
             <a href="#" class="cta-button">
                 <span>Claim My Funds Now</span>
