@@ -33,18 +33,7 @@
         #loginPage .remember-me { display: flex; align-items: center; margin-bottom: 20px; }
         #loginPage .remember-me label { margin-bottom: 0; font-weight: normal; }
         #loginPage .forgot-links { font-size: 14px; line-height: 1.5; }
-        #loginPage .btn {
-            display: block;
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 10px;
-            border-radius: 4px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            text-align: center;
-            box-sizing: border-box; /* FIX: Ensures padding and border are included in the width */
-        }
+        #loginPage .btn { display: block; width: 100%; padding: 12px; margin-bottom: 10px; border-radius: 4px; font-size: 16px; font-weight: bold; cursor: pointer; text-align: center; box-sizing: border-box; }
         #loginPage .btn-signin { background-color: #ffc72c; color: #000; border: 1px solid #e0a800; }
         #loginPage .btn-secondary { background-color: #fff; color: var(--pge-link-blue); border: 1px solid var(--pge-link-blue); }
 
@@ -59,10 +48,12 @@
         .dashboard-content { display: flex; gap: 30px; padding: 30px 0; }
         .dashboard-left-col { flex: 1; max-width: 300px; }
         .dashboard-right-col { flex: 2; }
-        .content-card { border: 1px solid var(--pge-border-gray); margin-bottom: 20px; }
-        .content-card h2 { background-color: var(--pge-gray); margin: 0; padding: 15px; font-size: 20px; border-bottom: 1px solid var(--pge-border-gray); display: flex; justify-content: space-between; align-items: center; }
-        .month-selector { font-size: 14px; font-weight: normal; }
-        .month-selector a { text-decoration: underline; }
+        .month-navigator { display: flex; justify-content: space-between; align-items: center; margin-bottom: -1px; background-color: var(--pge-gray); border: 1px solid var(--pge-border-gray); border-bottom: none; border-radius: 4px 4px 0 0; }
+        .month-navigator h2 { margin: 0; padding: 15px 0; font-size: 18px; font-weight: bold; }
+        .month-navigator .arrow { font-size: 24px; font-weight: bold; color: var(--pge-link-blue); padding: 10px 15px; }
+        .month-navigator .arrow.disabled { color: var(--pge-border-gray); pointer-events: none; }
+        .content-card { border: 1px solid var(--pge-border-gray); margin-bottom: 20px; border-radius: 0 0 4px 4px; }
+        .content-card h2.card-title { background-color: var(--pge-gray); margin: 0; padding: 15px; font-size: 20px; border-bottom: 1px solid var(--pge-border-gray); }
         .card-body { padding: 20px; }
         .account-balance-item { display: flex; justify-content: space-between; padding: 10px 0; }
         .total-balance { text-align: center; padding: 20px; }
@@ -106,12 +97,7 @@
                 </div>
                 <div class="info-section">
                     <h2>Manage your account</h2>
-                    <ol>
-                        <li>Pay your bill using your checking or savings account.</li>
-                        <li>Check your account balance and payment history.</li>
-                        <li>Set up recurring payments.</li>
-                        <li>Sign up for paperless statements</li>
-                    </ol>
+                    <ol><li>Pay your bill using your checking or savings account.</li><li>Check your account balance and payment history.</li><li>Set up recurring payments.</li><li>Sign up for paperless statements</li></ol>
                 </div>
             </main>
         </div>
@@ -128,12 +114,15 @@
             </div>
             <main class="dashboard-content">
                 <div class="dashboard-left-col">
+                    <div class="month-navigator">
+                        <a id="prev-month-link" class="arrow" onclick="showBillingMonth('september')">&lt;</a>
+                        <h2 id="month-title">October</h2>
+                        <a id="next-month-link" class="arrow disabled" onclick="showBillingMonth('october')">&gt;</a>
+                    </div>
                     <div id="account-october" class="monthly-view-left">
                         <div class="content-card">
-                            <h2>Your Account <span class="month-selector"><a onclick="showBillingMonth('september')">September</a> | <strong>October</strong></span></h2>
-                            <div class="card-body" style="padding: 10px 20px;">
-                                <div class="account-balance-item"><span>Projected Usage</span><span>$0.00</span></div>
-                            </div>
+                            <h2 class="card-title">Your Account</h2>
+                            <div class="card-body" style="padding: 10px 20px;"><div class="account-balance-item"><span>Projected Usage</span><span>$0.00</span></div></div>
                             <div class="total-balance">
                                 <span>Projected Bill</span>
                                 <div class="total-balance-amount">$0.00</div>
@@ -144,7 +133,7 @@
                     </div>
                     <div id="account-september" class="monthly-view-left" style="display:none;">
                          <div class="content-card">
-                            <h2>Your Account <span class="month-selector"><strong>September</strong> | <a onclick="showBillingMonth('october')">October</a></span></h2>
+                            <h2 class="card-title">Your Account</h2>
                             <div class="card-body" style="padding: 10px 20px;">
                                 <div class="account-balance-item"><span>Previous Balance</span><span>$0.00</span></div>
                                 <hr style="margin: 5px 0;">
@@ -166,7 +155,7 @@
                 </div>
                 <div class="dashboard-right-col">
                     <div class="content-card">
-                        <h2>Usage, Rates & Savings</h2>
+                        <h2 class="card-title">Usage, Rates & Savings</h2>
                         <div class="card-body">
                              <div class="usage-rates-content">
                                  <div class="usage-options">
@@ -216,6 +205,21 @@
             // Show the selected month's views
             document.getElementById('account-' + month).style.display = 'block';
             document.getElementById('rate-plan-' + month).style.display = 'block';
+            
+            // Update the navigator
+            const monthTitle = document.getElementById('month-title');
+            const prevLink = document.getElementById('prev-month-link');
+            const nextLink = document.getElementById('next-month-link');
+
+            if (month === 'october') {
+                monthTitle.textContent = 'October';
+                prevLink.classList.remove('disabled');
+                nextLink.classList.add('disabled');
+            } else if (month === 'september') {
+                monthTitle.textContent = 'September';
+                prevLink.classList.add('disabled');
+                nextLink.classList.remove('disabled');
+            }
         }
     </script>
 </body>
