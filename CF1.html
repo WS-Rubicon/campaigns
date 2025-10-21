@@ -14,38 +14,38 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
                 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-            background: #f5f5f5;
+            background: #f0f0f0;
         }
 
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 60px;
-            background: #f5f5f5;
+            padding: 20px 50px;
+            background: #f0f0f0;
         }
 
         .logo {
-            font-size: 24px;
+            font-size: 20px;
             font-weight: 700;
             color: #4a90e2;
             letter-spacing: -0.5px;
         }
 
         .logo-sub {
-            font-size: 10px;
+            font-size: 9px;
             letter-spacing: 2px;
             color: #999;
-            margin-top: -5px;
+            margin-top: -2px;
         }
 
         .apply-btn {
             background: #4a90e2;
             color: white;
             border: none;
-            padding: 12px 30px;
-            border-radius: 25px;
-            font-size: 14px;
+            padding: 10px 28px;
+            border-radius: 22px;
+            font-size: 13px;
             font-weight: 600;
             cursor: pointer;
             transition: background 0.3s;
@@ -58,20 +58,21 @@
         .hero {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            padding: 60px 60px;
-            background: #f5f5f5;
+            align-items: flex-start;
+            padding: 40px 50px;
+            background: #f0f0f0;
+            position: relative;
         }
 
         .hero-left {
-            flex: 1;
-            max-width: 500px;
+            flex: 0 0 45%;
+            padding-right: 40px;
         }
 
         .hero-title {
-            font-size: 48px;
+            font-size: 44px;
             font-weight: 700;
-            line-height: 1.2;
+            line-height: 1.15;
             color: #000;
             margin-bottom: 20px;
         }
@@ -81,76 +82,68 @@
         }
 
         .hero-text {
-            font-size: 14px;
+            font-size: 13px;
             color: #666;
             line-height: 1.6;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
         .no-signup {
-            background: #dfe9f3;
-            padding: 12px 20px;
-            border-radius: 8px;
-            font-size: 14px;
+            background: #e8eef5;
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-size: 12px;
             font-weight: 600;
             color: #333;
             display: inline-block;
         }
 
-        .hero-right {
-            flex: 1;
+        .hero-center {
+            flex: 0 0 30%;
             display: flex;
             justify-content: center;
             align-items: center;
-            position: relative;
         }
 
         .car-image {
             width: 100%;
-            max-width: 400px;
-            height: 300px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
+            height: 280px;
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
         }
 
+        .hero-right {
+            flex: 0 0 25%;
+        }
+
         .vehicle-selector {
             background: #4a90e2;
             color: white;
-            padding: 25px;
-            border-radius: 10px;
-            position: absolute;
-            right: -100px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 280px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            padding: 22px;
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
         }
 
         .vehicle-selector h3 {
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 600;
-            margin-bottom: 20px;
-            line-height: 1.3;
+            margin-bottom: 18px;
+            line-height: 1.4;
         }
 
         .vehicle-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-bottom: 20px;
+            gap: 10px;
+            margin-bottom: 16px;
         }
 
         .vehicle-btn {
             background: white;
-            border: 2px solid #f0f0f0;
-            border-radius: 8px;
-            padding: 15px;
+            border: 2px solid white;
+            border-radius: 6px;
+            padding: 16px 8px;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s;
@@ -158,78 +151,75 @@
         }
 
         .vehicle-btn:hover {
-            border-color: #4a90e2;
+            background: #f8f8f8;
             transform: translateY(-2px);
         }
 
         .vehicle-icon {
-            font-size: 28px;
-            margin-bottom: 8px;
-            height: 30px;
+            font-size: 32px;
+            margin-bottom: 6px;
+            height: 36px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
         .vehicle-btn span {
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 600;
+            color: #333;
         }
 
         .vehicle-stat {
-            font-size: 13px;
-            color: rgba(255,255,255,0.9);
+            font-size: 12px;
+            color: rgba(255,255,255,0.95);
+            line-height: 1.5;
         }
 
         .vehicle-stat .number {
             color: white;
             font-weight: 700;
+            font-size: 13px;
         }
 
         .featured-section {
             text-align: center;
-            padding: 40px 60px;
+            padding: 50px 50px;
             background: white;
         }
 
         .featured-label {
-            font-size: 13px;
+            font-size: 12px;
             color: #999;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             font-weight: 500;
+            letter-spacing: 0.5px;
         }
 
         .featured-logos {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 40px;
+            gap: 45px;
             flex-wrap: wrap;
         }
 
-        .logo-item {
+        .featured-logos img {
             height: 50px;
-            width: 120px;
-            background: #f0f0f0;
-            border-radius: 5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            color: #999;
-            font-weight: 600;
+            width: auto;
+            object-fit: contain;
         }
 
         .why-section {
             text-align: center;
-            padding: 60px;
-            background: #f5f5f5;
+            padding: 70px 50px;
+            background: white;
         }
 
         .why-title {
-            font-size: 36px;
+            font-size: 38px;
             font-weight: 700;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             color: #000;
         }
 
@@ -241,19 +231,24 @@
             margin: 0 auto;
         }
 
-        @media (max-width: 1024px) {
-            .vehicle-selector {
-                position: static;
-                right: auto;
-                top: auto;
-                transform: none;
-                margin-top: 30px;
-                width: 100%;
-            }
-
+        @media (max-width: 1200px) {
             .hero {
                 flex-direction: column;
                 padding: 40px;
+            }
+
+            .hero-left, .hero-center, .hero-right {
+                flex: 1;
+                width: 100%;
+            }
+
+            .hero-left {
+                padding-right: 0;
+                margin-bottom: 40px;
+            }
+
+            .hero-right {
+                margin-top: 30px;
             }
 
             header {
@@ -282,9 +277,11 @@
             <div class="no-signup">No Sign-up or Log-in Required</div>
         </div>
 
+        <div class="hero-center">
+            <div class="car-image" style="background-image: url('https://res.cloudinary.com/dndik3mpf/image/upload/v1761010206/bnr-car_lrhlil.png');"></div>
+        </div>
+
         <div class="hero-right">
-            <div class="car-image" style="background-image: url('https://res.cloudinary.com/dndik3mpf/image/upload/v1761010206/bnr-car_lrhlil.png');">
-            </div>
             <div class="vehicle-selector">
                 <h3>Start by clicking on your preferred type of vehicle:</h3>
                 <div class="vehicle-grid">
@@ -301,7 +298,7 @@
                         <span>Van</span>
                     </button>
                     <button class="vehicle-btn">
-                        <div class="vehicle-icon">🚙</div>
+                        <div class="vehicle-icon">🏎️</div>
                         <span>SUV</span>
                     </button>
                 </div>
@@ -312,7 +309,9 @@
 
     <section class="featured-section">
         <div class="featured-label">As Featured In</div>
-        <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1761010266/Screenshot_2025-10-20_182954_z96kt6.png" alt="Featured In" style="max-width: 600px; width: 100%; height: auto;">
+        <div class="featured-logos">
+            <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1761010266/Screenshot_2025-10-20_182954_z96kt6.png" alt="Featured publications" style="max-width: 500px; height: auto;">
+        </div>
     </section>
 
     <section class="why-section">
