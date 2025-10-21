@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qualified Solar Survey</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f8f8f8;
+            min-height: 100vh;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 80px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .header {
+            margin-bottom: 50px;
+        }
+
+        .title {
+            font-size: 28px;
+            font-weight: normal;
+            color: #333;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .instruction {
+            font-size: 13px;
+            color: #666;
+            font-weight: normal;
+        }
+
+        .form-box {
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 0;
+            padding: 0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .question-header {
+            padding: 12px 20px;
+            background: #e8e8e8;
+            border-bottom: 1px solid #ccc;
+            text-align: left;
+            font-size: 12px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .question-content {
+            padding: 25px 20px;
+        }
+
+        .question-text {
+            font-size: 15px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .options {
+            margin-bottom: 25px;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            margin-bottom: 8px;
+            background: #e8e8e8;
+            border-radius: 0;
+            cursor: pointer;
+        }
+
+        .option input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            margin-right: 15px;
+            cursor: pointer;
+            accent-color: #333;
+        }
+
+        .option label {
+            font-size: 14px;
+            color: #333;
+            cursor: pointer;
+            flex: 1;
+            text-align: center;
+            font-weight: normal;
+        }
+
+        .button-container {
+            padding: 0 20px 20px 20px;
+            text-align: center;
+        }
+
+        .next-btn {
+            background: #00a86a;
+            color: white;
+            border: none;
+            padding: 10px 35px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .next-btn:hover {
+            background: #008c54;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">Qualified Solar Survey</h1>
+            <h2 class="subtitle">Lower Bills, Powered by Solar Panels!</h2>
+            <p class="instruction">Fill out this short form to see if you qualify.</p>
+        </div>
+
+        <div class="form-box">
+            <div class="question-header">Question 1</div>
+            
+            <div class="question-content">
+                <p class="question-text">Are you a homeowner?</p>
+                
+                <div class="options">
+                    <div class="option">
+                        <input type="radio" id="yes" name="homeowner" value="yes" checked>
+                        <label for="yes">Yes</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" id="no" name="homeowner" value="no">
+                        <label for="no">No</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="button-container">
+                <button class="next-btn">Next</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
