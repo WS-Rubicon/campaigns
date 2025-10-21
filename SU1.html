@@ -82,6 +82,13 @@
             margin-bottom: 20px;
         }
 
+        .question-subtext {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 15px;
+            font-weight: normal;
+        }
+
         .options {
             margin-bottom: 25px;
         }
@@ -135,6 +142,133 @@
         .next-btn:hover {
             background: #008c54;
         }
+
+        .back-link {
+            font-size: 13px;
+            color: #00a86a;
+            text-decoration: none;
+            cursor: pointer;
+            margin-top: 10px;
+            display: inline-block;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #00a86a;
+            border-radius: 3px;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"]::placeholder {
+            color: #999;
+        }
+
+        .error-message {
+            color: #d9534f;
+            font-size: 12px;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .change-link {
+            font-size: 12px;
+            color: #00a86a;
+            text-decoration: none;
+            float: right;
+            cursor: pointer;
+        }
+
+        .change-link:hover {
+            text-decoration: underline;
+        }
+
+        .location-text {
+            font-size: 13px;
+            color: #666;
+            margin-top: 10px;
+            text-align: left;
+        }
+
+        .button-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .button-option {
+            padding: 15px;
+            background: #e8e8e8;
+            border: 2px solid transparent;
+            border-radius: 0;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: normal;
+            color: #333;
+            transition: all 0.2s;
+        }
+
+        .button-option:hover {
+            background: #d8d8d8;
+        }
+
+        .button-option.selected {
+            border-color: #00a86a;
+            background: #e8f8f0;
+        }
+
+        .icon-button {
+            padding: 20px;
+            background: white;
+            border: 2px solid #ccc;
+            border-radius: 0;
+            cursor: pointer;
+            text-align: center;
+            font-size: 12px;
+            color: #333;
+            transition: all 0.2s;
+        }
+
+        .icon-button:hover {
+            border-color: #999;
+        }
+
+        .icon-button.selected {
+            border-color: #00a86a;
+            background: #e8f8f0;
+        }
+
+        .icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        @media (min-width: 600px) {
+            .icon-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
     </style>
 </head>
 <body>
@@ -145,28 +279,230 @@
             <p class="instruction">Fill out this short form to see if you qualify.</p>
         </div>
 
-        <div class="form-box">
-            <div class="question-header">Question 1</div>
-            
-            <div class="question-content">
-                <p class="question-text">Are you a homeowner?</p>
-                
-                <div class="options">
-                    <div class="option">
-                        <input type="radio" id="yes" name="homeowner" value="yes" checked>
-                        <label for="yes">Yes</label>
-                    </div>
-                    <div class="option">
-                        <input type="radio" id="no" name="homeowner" value="no">
-                        <label for="no">No</label>
+        <!-- PAGE 1: Are you a homeowner? -->
+        <div class="page active" id="page1">
+            <div class="form-box">
+                <div class="question-header">Question 1</div>
+                <div class="question-content">
+                    <p class="question-text">Are you a homeowner?</p>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="homeowner_yes" name="homeowner" value="yes" checked>
+                            <label for="homeowner_yes">Yes</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="homeowner_no" name="homeowner" value="no">
+                            <label for="homeowner_no">No</label>
+                        </div>
                     </div>
                 </div>
+                <div class="button-container">
+                    <a href="javascript:void(0)" onclick="goToPage(2)" class="next-btn">Next</a>
+                </div>
             </div>
+        </div>
 
-            <div class="button-container">
-                <a href="https://clearpathbenefitstoday.com/su2" class="next-btn">Next</a>
+        <!-- PAGE 2: What is your ZIP code? -->
+        <div class="page" id="page2">
+            <div class="form-box">
+                <div class="question-header">Question 2 of 14</div>
+                <div class="question-content">
+                    <p class="question-text">What is your ZIP code?</p>
+                    <input type="text" id="zipcode" placeholder="Enter ZIP Code">
+                </div>
+                <div class="button-container">
+                    <a href="javascript:void(0)" onclick="goToPage(3)" class="next-btn">Next</a>
+                    <div class="back-link" onclick="goToPage(1)">Back</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE 3: Who's your electric utility provider? -->
+        <div class="page" id="page3">
+            <div class="form-box">
+                <div class="question-header">Question 3 of 14</div>
+                <div class="question-content">
+                    <p class="question-text">Who's your electric utility provider?</p>
+                    <div class="button-grid">
+                        <button class="button-option" onclick="selectUtility(this)">Pacific Gas & Electric</button>
+                        <button class="button-option" onclick="selectUtility(this)">Southern California Edison</button>
+                        <button class="button-option" onclick="selectUtility(this)">San Diego Gas & Electric</button>
+                        <button class="button-option" onclick="selectUtility(this)">LA Department of Water and Power</button>
+                        <button class="button-option" onclick="selectUtility(this)">Other</button>
+                    </div>
+                </div>
+                <div class="button-container">
+                    <a href="javascript:void(0)" onclick="goToPage(4)" class="next-btn">Next</a>
+                    <div class="back-link" onclick="goToPage(2)">Back</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE 4: How much is your average monthly electric bill? -->
+        <div class="page" id="page4">
+            <div class="form-box">
+                <div class="question-header">Question 4 of 13</div>
+                <div class="question-content">
+                    <p class="question-text">How much is your average monthly electric bill?</p>
+                    <div class="button-grid">
+                        <button class="button-option" onclick="selectBill(this)">$0 - $99</button>
+                        <button class="button-option" onclick="selectBill(this)">$100 - $150</button>
+                        <button class="button-option" onclick="selectBill(this)" style="background: #90EE90; border-color: #00a86a;">$151 - $250</button>
+                        <button class="button-option" onclick="selectBill(this)">$251 - $500</button>
+                        <button class="button-option" onclick="selectBill(this)">$501+</button>
+                    </div>
+                </div>
+                <div class="button-container">
+                    <a href="javascript:void(0)" onclick="goToPage(5)" class="next-btn">Next</a>
+                    <div class="back-link" onclick="goToPage(3)">Back</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE 5: How sunny is your roof area? -->
+        <div class="page" id="page5">
+            <div class="form-box">
+                <div class="question-header">Question 5 of 13</div>
+                <div class="question-content">
+                    <p class="question-text">How sunny is your roof area?</p>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="sun_full" name="sunnyness" value="full" checked>
+                            <label for="sun_full">Full Sun</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="sun_partial" name="sunnyness" value="partial">
+                            <label for="sun_partial">Partial Sun</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="sun_none" name="sunnyness" value="none">
+                            <label for="sun_none">No Sun</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="sun_uncertain" name="sunnyness" value="uncertain">
+                            <label for="sun_uncertain">Uncertain</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="button-container">
+                    <a href="javascript:void(0)" onclick="goToPage(6)" class="next-btn">Next</a>
+                    <div class="back-link" onclick="goToPage(4)">Back</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE 6: What type of home do you have? -->
+        <div class="page" id="page6">
+            <div class="form-box">
+                <div class="question-header">Question 6 of 13</div>
+                <div class="question-content">
+                    <p class="question-text">What type of home do you have?</p>
+                    <div class="icon-grid">
+                        <button class="icon-button selected" onclick="selectHome(this)"><div class="icon">🏠</div>Single Family</button>
+                        <button class="icon-button" onclick="selectHome(this)"><div class="icon">🏢</div>Townhouse/Condo</button>
+                        <button class="icon-button" onclick="selectHome(this)"><div class="icon">🚐</div>Mobile/Trailer</button>
+                        <button class="icon-button" onclick="selectHome(this)"><div class="icon">🏭</div>Manufactured</button>
+                    </div>
+                </div>
+                <div class="button-container">
+                    <a href="javascript:void(0)" onclick="goToPage(7)" class="next-btn">Next</a>
+                    <div class="back-link" onclick="goToPage(5)">Back</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE 7: What is your credit score? -->
+        <div class="page" id="page7">
+            <div class="form-box">
+                <div class="question-header">Question 7 of 13</div>
+                <div class="question-content">
+                    <p class="question-text">What is your credit score?</p>
+                    <p class="question-subtext">(Most people have "Good" credit)</p>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="credit_excellent" name="credit" value="excellent">
+                            <label for="credit_excellent">Excellent (720 and above)</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="credit_good" name="credit" value="good" checked>
+                            <label for="credit_good">Good (660-719)</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="credit_average" name="credit" value="average">
+                            <label for="credit_average">Average (620-659)</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="credit_below" name="credit" value="below">
+                            <label for="credit_below">Below Average (580-619)</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="credit_poor" name="credit" value="poor">
+                            <label for="credit_poor">Poor (579 or less)</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="button-container">
+                    <a href="javascript:void(0)" onclick="goToPage(8)" class="next-btn">Next</a>
+                    <div class="back-link" onclick="goToPage(6)">Back</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE 8: Have you or your spouse served in the military? -->
+        <div class="page" id="page8">
+            <div class="form-box">
+                <div class="question-header">Question 8 of 13</div>
+                <div class="question-content">
+                    <p class="question-text">Have you or your spouse served in the military?</p>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="military_yes" name="military" value="yes">
+                            <label for="military_yes">Yes, we're a Veteran household</label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="military_no" name="military" value="no" checked>
+                            <label for="military_no">No, we're not a Veteran household</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="button-container">
+                    <a href="https://clearpathbenefitstoday.com/su2" class="next-btn">Next</a>
+                    <div class="back-link" onclick="goToPage(7)">Back</div>
+                </div>
             </div>
         </div>
     </div>
+
+    <script>
+        function goToPage(pageNum) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById('page' + pageNum).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        function selectUtility(btn) {
+            document.querySelectorAll('.button-option').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+        }
+
+        function selectBill(btn) {
+            document.querySelectorAll('.button-grid .button-option').forEach(b => {
+                if (b === btn) {
+                    b.style.background = '#90EE90';
+                    b.style.borderColor = '#00a86a';
+                } else {
+                    b.style.background = '#e8e8e8';
+                    b.style.borderColor = 'transparent';
+                }
+            });
+        }
+
+        function selectHome(btn) {
+            document.querySelectorAll('.icon-button').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+        }
+    </script>
 </body>
 </html>
