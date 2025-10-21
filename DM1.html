@@ -33,7 +33,18 @@
         #loginPage .remember-me { display: flex; align-items: center; margin-bottom: 20px; }
         #loginPage .remember-me label { margin-bottom: 0; font-weight: normal; }
         #loginPage .forgot-links { font-size: 14px; line-height: 1.5; }
-        #loginPage .btn { display: block; width: 100%; padding: 12px; margin-bottom: 10px; border-radius: 4px; font-size: 16px; font-weight: bold; cursor: pointer; text-align: center; }
+        #loginPage .btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+            box-sizing: border-box; /* FIX: Ensures padding and border are included in the width */
+        }
         #loginPage .btn-signin { background-color: #ffc72c; color: #000; border: 1px solid #e0a800; }
         #loginPage .btn-secondary { background-color: #fff; color: var(--pge-link-blue); border: 1px solid var(--pge-link-blue); }
 
