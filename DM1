@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Basic Reset & Body Styles */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            background-color: #fff;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .page-container {
+            flex: 1;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 20px 0;
+        }
+
+        .logo {
+            width: 80px;
+        }
+
+        /* Main Content Layout */
+        .main-content {
+            display: flex;
+            gap: 60px; /* Space between the two columns */
+            padding: 20px 0;
+        }
+
+        .login-section {
+            flex: 1;
+            max-width: 350px;
+        }
+
+        .info-section {
+            flex: 1.5;
+            border: 1px solid #e0e0e0;
+            padding: 24px;
+            height: fit-content;
+        }
+
+        /* Login Section Styles */
+        .note {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        form input[type="text"],
+        form input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .password-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .password-wrapper i {
+            position: absolute;
+            right: 15px;
+            color: #777;
+            cursor: pointer;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .remember-me input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        .remember-me label {
+            margin-bottom: 0;
+            font-weight: normal;
+        }
+
+        .forgot-links {
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .forgot-links a, .info-link {
+            color: #0068b3;
+            text-decoration: none;
+        }
+
+        .forgot-links a:hover, .info-link:hover {
+            text-decoration: underline;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: #ffc72c;
+            color: #000;
+            border: 1px solid #e0a800;
+        }
+
+        .btn-secondary {
+            background-color: #fff;
+            color: #0068b3;
+            border: 1px solid #0068b3;
+        }
+
+        /* Info Section Styles */
+        .info-section h2 {
+            margin-top: 0;
+            font-size: 24px;
+            font-weight: normal;
+        }
+
+        .info-section ol {
+            padding-left: 20px;
+            line-height: 1.6;
+        }
+
+        .info-section hr {
+            border: none;
+            border-top: 1px solid #e0e0e0;
+            margin: 20px 0;
+        }
+
+        /* Feedback Tab */
+        .feedback-tab {
+            position: fixed;
+            right: -28px;
+            top: 50%;
+            transform: translateY(-50%) rotate(90deg);
+            background-color: #0068b3;
+            color: white;
+            padding: 8px 15px;
+            cursor: pointer;
+            font-size: 14px;
+            border-radius: 4px 4px 0 0;
+        }
+
+
+        /* Footer Styles */
+        footer {
+            background-color: #f8f9fa;
+            padding: 40px 0;
+            border-top: 1px solid #e7e7e7;
+            width: 100%;
+        }
+
+        .footer-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .footer-column {
+            flex: 1;
+        }
+
+        .footer-column h3 {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: #0068b3;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .footer-column ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            line-height: 32px;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 50%;
+            color: #0068b3;
+            margin-right: 5px;
+            font-size: 14px;
+        }
+
+        .social-icons a:hover {
+            background-color: #0068b3;
+            color: #fff;
+        }
+        
+        /* Media query for smaller screens */
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .login-section {
+                max-width: 100%;
+            }
+
+            .footer-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <header>
+            <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1761008246/MyAcct_PGE_Logo_nzxznb.png" alt="Company Logo" class="logo">
+        </header>
+        <main class="main-content">
+            <div class="login-section">
+                <p class="note">NOTE: If you logged in after June 9, 2025, the Username is your email.</p>
+                <form>
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username">
+
+                    <label for="password">Password</label>
+                    <div class="password-wrapper">
+                         <input type="password" id="password" name="password">
+                         <i class="fa-regular fa-eye-slash"></i>
+                    </div>
+
+                    <div class="remember-me">
+                        <input type="checkbox" id="remember" name="remember">
+                        <label for="remember">Remember this username</label>
+                    </div>
+
+                    <p class="forgot-links">
+                        Forgot your <a href="#">Username</a> or <a href="#">Password</a>?<br>
+                        Trouble with sign-in? <a href="#">Visit the Help Center</a>.
+                    </p>
+
+                    <button type="submit" class="btn btn-primary">Sign In</button>
+                    <button type="button" class="btn btn-secondary">Register</button>
+                    <button type="button" class="btn btn-secondary">Guest Bill Pay</button>
+                </form>
+            </div>
+            <div class="info-section">
+                <h2>Manage your account</h2>
+                <p>Sign in to manage your account. You can:</p>
+                <ol>
+                    <li>Pay your bill using your checking or savings account.</li>
+                    <li>Check your account balance and payment history.</li>
+                    <li>Set up recurring payments.</li>
+                    <li>Sign up for paperless statements</li>
+                    <li>Extend your due date with a payment arrangement.</li>
+                </ol>
+                <hr>
+                <a href="#" class="info-link">Want to know more?</a>
+            </div>
+        </main>
+    </div>
+    <div class="feedback-tab">Feedback</div>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>About</h3>
+                <ul>
+                    <li><a href="#">About PG&E</a></li>
+                    <li><a href="#">Company Information</a></li>
+                    <li><a href="#">Giving Locally</a></li>
+                    <li><a href="#">Educational Resources</a></li>
+                    <li><a href="#">First Responder Resources</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">PG&E Systems</a></li>
+                    <li><a href="#">In Your Community</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>News</h3>
+                <ul>
+                    <li><a href="#">Currents</a></li>
+                    <li><a href="#">News Releases</a></li>
+                    <li><a href="#">Corporate Sustainability</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Site Feedback</a></li>
+                    <li><a href="#">Doing Business with PG&E</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Connect</h3>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
