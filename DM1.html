@@ -3,95 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Sign In & Billing</title>
+    <title>PG&E Portal</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        /* Base Styles */
-        body { font-family: Arial, Helvetica, sans-serif; margin: 0; background-color: #fff; color: #333; display: flex; flex-direction: column; min-height: 100vh; }
-        .page-container { flex: 1; max-width: 1100px; margin: 0 auto; padding: 20px; }
-        header { padding: 20px 0; }
-        .logo { width: 80px; }
-        .feedback-tab { position: fixed; right: -28px; top: 50%; transform: translateY(-50%) rotate(90deg); background-color: #0068b3; color: white; padding: 8px 15px; cursor: pointer; font-size: 14px; border-radius: 4px 4px 0 0; }
+        /* Global Styles */
+        :root {
+            --pge-dark-blue: #003f6b;
+            --pge-light-blue: #d4e4f0;
+            --pge-link-blue: #0068b3;
+            --pge-yellow: #f9a825;
+            --pge-gray: #f5f5f5;
+            --pge-dark-gray: #333;
+            --pge-border-gray: #e0e0e0;
+        }
+        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; margin: 0; background-color: #fff; color: var(--pge-dark-gray); display: flex; flex-direction: column; min-height: 100vh; }
+        .page-container { flex: 1; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        a { text-decoration: none; color: var(--pge-link-blue); }
+        hr { border: 0; border-top: 1px solid var(--pge-border-gray); }
 
         /* Login Page Styles */
-        .login-page-content { display: flex; gap: 60px; padding: 20px 0; }
-        .login-section { flex: 1; max-width: 350px; }
-        .info-section { flex: 1.5; border: 1px solid #e0e0e0; padding: 24px; height: fit-content; }
-        .note { font-size: 14px; color: #555; margin-bottom: 20px; }
-        form label { display: block; margin-bottom: 5px; font-weight: bold; font-size: 14px; }
-        form input[type="text"], form input[type="password"] { width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
-        .password-wrapper { position: relative; display: flex; align-items: center; }
-        .password-wrapper i { position: absolute; right: 15px; color: #777; cursor: pointer; }
-        .remember-me { display: flex; align-items: center; margin-bottom: 20px; }
-        .remember-me input[type="checkbox"] { margin-right: 10px; }
-        .remember-me label { margin-bottom: 0; font-weight: normal; }
-        .forgot-links { font-size: 14px; line-height: 1.5; margin-bottom: 20px; }
-        .forgot-links a, .info-link { color: #0068b3; text-decoration: none; }
-        .forgot-links a:hover, .info-link:hover { text-decoration: underline; }
-        .info-section h2 { margin-top: 0; font-size: 24px; font-weight: normal; }
-        .info-section ol { padding-left: 20px; line-height: 1.6; }
-        .info-section hr { border: none; border-top: 1px solid #e0e0e0; margin: 20px 0; }
-        .btn.login-btn { display: block; width: 100%; padding: 12px; margin-bottom: 10px; }
-        .btn-secondary { background-color: #fff; color: #0068b3; border: 1px solid #0068b3; }
-        .btn-signin { background-color: #ffc72c; color: #000; border: 1px solid #e0a800; }
+        #loginPage .login-page-content { display: flex; gap: 60px; padding: 20px 0; }
+        #loginPage .login-section { flex: 1; max-width: 350px; }
+        #loginPage .info-section { flex: 1.5; border: 1px solid var(--pge-border-gray); padding: 24px; height: fit-content; }
+        #loginPage .note { font-size: 14px; color: #555; margin-bottom: 20px; }
+        #loginPage form label { display: block; margin-bottom: 5px; font-weight: bold; font-size: 14px; }
+        #loginPage form input[type="text"], #loginPage form input[type="password"] { width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        #loginPage .password-wrapper { position: relative; display: flex; align-items: center; }
+        #loginPage .password-wrapper i { position: absolute; right: 15px; color: #777; cursor: pointer; }
+        #loginPage .remember-me { display: flex; align-items: center; margin-bottom: 20px; }
+        #loginPage .remember-me label { margin-bottom: 0; font-weight: normal; }
+        #loginPage .forgot-links { font-size: 14px; line-height: 1.5; }
+        #loginPage .btn { display: block; width: 100%; padding: 12px; margin-bottom: 10px; border-radius: 4px; font-size: 16px; font-weight: bold; cursor: pointer; text-align: center; }
+        #loginPage .btn-signin { background-color: #ffc72c; color: #000; border: 1px solid #e0a800; }
+        #loginPage .btn-secondary { background-color: #fff; color: var(--pge-link-blue); border: 1px solid var(--pge-link-blue); }
 
-        /* Billing Page Styles */
-        .billing-page-content { padding: 20px 0; }
-        .billing-header { text-align: center; margin-bottom: 30px; }
-        .billing-card { border: 1px solid #e0e0e0; border-radius: 8px; max-width: 600px; margin: 0 auto; padding: 30px; text-align: center; }
-        .month-selector { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-        .month-selector a, .month-selector span { font-size: 24px; color: #0068b3; text-decoration: none; padding: 0 15px; cursor: pointer; }
-        .month-selector span.disabled { color: #ccc; cursor: default; }
-        .month-selector h2 { margin: 0; font-size: 28px; font-weight: normal; }
-        .amount-due { font-size: 64px; font-weight: bold; margin: 20px 0; color: #333; }
-        .bill-details p { margin: 5px 0; color: #555; }
-        .btn { display: inline-block; width: auto; padding: 12px 40px; margin-top: 20px; border: none; border-radius: 4px; font-size: 16px; font-weight: bold; cursor: pointer; text-decoration: none; }
-        .btn-pay { background-color: #0068b3; color: #fff; border: 1px solid #005c9e; }
-        .btn-disabled { background-color: #ccc; color: #fff; border: 1px solid #bbb; cursor: not-allowed; }
+        /* Dashboard Page Styles */
+        .main-nav { background-color: var(--pge-dark-blue); padding: 10px 0; }
+        .main-nav ul { display: flex; list-style: none; margin: 0; padding: 0; justify-content: center; }
+        .main-nav ul li a { color: white; padding: 10px 15px; text-transform: uppercase; font-size: 14px; font-weight: bold; }
+        .main-nav ul li.active a { border-bottom: 3px solid var(--pge-yellow); }
+        .account-info-bar { background-color: var(--pge-light-blue); padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .account-info-bar .user-greeting { font-size: 18px; font-weight: bold; }
+        .edit-profile-btn { background-color: var(--pge-yellow); color: var(--pge-dark-gray); padding: 10px 20px; border-radius: 4px; font-weight: bold; }
+        .dashboard-content { display: flex; gap: 30px; padding: 30px 0; }
+        .dashboard-left-col { flex: 1; max-width: 300px; }
+        .dashboard-right-col { flex: 2; }
+        .content-card { border: 1px solid var(--pge-border-gray); margin-bottom: 20px; }
+        .content-card h2 { background-color: var(--pge-gray); margin: 0; padding: 15px; font-size: 20px; border-bottom: 1px solid var(--pge-border-gray); }
+        .card-body { padding: 20px; }
+        .account-balance-item { display: flex; justify-content: space-between; padding: 10px 0; }
+        .total-balance { text-align: center; padding: 20px; }
+        .total-balance-amount { font-size: 36px; font-weight: bold; color: var(--pge-dark-blue); }
+        .left-nav-menu .nav-item { background-color: var(--pge-dark-blue); color: white; padding: 20px; font-size: 16px; border-bottom: 1px solid #00558b; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+        .usage-rates-content { display: flex; gap: 30px; }
+        .usage-options { flex: 2; }
+        .rate-plan { flex: 1; text-align: center; }
+        .usage-option-item { display: flex; align-items: center; padding: 15px 0; border-bottom: 1px solid var(--pge-border-gray); font-size: 16px; }
+        .usage-option-item:last-child { border-bottom: none; }
+        .usage-option-item i { font-size: 24px; color: var(--pge-link-blue); margin-right: 20px; width: 30px; text-align: center; }
+        .rate-plan h3 { font-size: 18px; }
+        .rate-plan-name { font-size: 24px; font-weight: bold; margin: 10px 0; }
+        .rate-plan .compare-btn { background-color: var(--pge-yellow); color: var(--pge-dark-gray); padding: 10px 20px; display: inline-block; border-radius: 4px; font-weight: bold; margin-top: 10px; }
 
         /* Footer Styles */
-        footer { background-color: #f8f9fa; padding: 40px 0; border-top: 1px solid #e7e7e7; width: 100%; }
-        .footer-container { max-width: 1100px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; gap: 20px; }
-        .footer-column { flex: 1; }
-        .footer-column h3 { font-size: 16px; color: #333; margin-bottom: 15px; }
-        .footer-column ul { list-style: none; padding: 0; margin: 0; }
+        footer { background-color: var(--pge-gray); padding: 40px 0; border-top: 1px solid var(--pge-border-gray); width: 100%; margin-top: auto; }
+        .footer-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; gap: 20px; }
+        .footer-column h3 { font-size: 16px; }
+        .footer-column ul { list-style: none; padding: 0; }
         .footer-column ul li { margin-bottom: 10px; }
-        .footer-column ul li a { color: #0068b3; text-decoration: none; font-size: 14px; }
-        .footer-column ul li a:hover { text-decoration: underline; }
-        .social-icons a { display: inline-block; width: 32px; height: 32px; line-height: 32px; text-align: center; border: 1px solid #ccc; border-radius: 50%; color: #0068b3; margin-right: 5px; font-size: 14px; }
-        .social-icons a:hover { background-color: #0068b3; color: #fff; }
     </style>
 </head>
 <body>
-
-    <div class="page-container">
-        <header>
-            <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1761008246/MyAcct_PGE_Logo_nzxznb.png" alt="Company Logo" class="logo">
-        </header>
-
-        <main id="loginPage" class="page-view">
-            <div class="login-page-content">
+    <div id="loginPage" class="page-view">
+        <div class="page-container">
+            <header>
+                <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1761008246/MyAcct_PGE_Logo_nzxznb.png" alt="Company Logo" style="width:80px;">
+            </header>
+            <main class="login-page-content">
                 <div class="login-section">
                     <p class="note">NOTE: If you logged in after June 9, 2025, the Username is your email.</p>
                     <form onsubmit="return false;">
                         <label for="username">Username</label>
-                        <input type="text" id="username" name="username" value="your_email@example.com">
+                        <input type="text" id="username" value="A1Johnson@gmail.com">
                         <label for="password">Password</label>
                         <div class="password-wrapper">
-                            <input type="password" id="password" name="password" value="************">
+                            <input type="password" id="password" value="************">
                             <i class="fa-regular fa-eye-slash"></i>
                         </div>
                         <div class="remember-me">
-                            <input type="checkbox" id="remember" name="remember" checked>
+                            <input type="checkbox" id="remember" checked>
                             <label for="remember">Remember this username</label>
                         </div>
-                        <p class="forgot-links">
-                            Forgot your <a href="#">Username</a> or <a href="#">Password</a>?<br>
-                            Trouble with sign-in? <a href="#">Visit the Help Center</a>.
-                        </p>
-                        <a href="#" class="btn login-btn btn-signin" onclick="showPage('billingPage')">Sign In</a>
-                        <button type="button" class="btn login-btn btn-secondary">Register</button>
-                        <button type="button" class="btn login-btn btn-secondary">Guest Bill Pay</button>
+                        <p class="forgot-links"><a href="#">Forgot Username or Password?</a></p>
+                        <a href="#" class="btn btn-signin" onclick="showPage('dashboardPage')">Sign In</a>
+                        <button type="button" class="btn btn-secondary">Register</button>
                     </form>
                 </div>
                 <div class="info-section">
@@ -102,84 +107,109 @@
                         <li>Check your account balance and payment history.</li>
                         <li>Set up recurring payments.</li>
                         <li>Sign up for paperless statements</li>
-                        <li>Extend your due date with a payment arrangement.</li>
                     </ol>
-                    <hr>
-                    <a href="#" class="info-link">Want to know more?</a>
                 </div>
-            </div>
-        </main>
-
-        <main id="billingPage" class="page-view" style="display:none;">
-             <div class="billing-page-content">
-                <div class="billing-header">
-                    <h1>Billing & Payments</h1>
-                </div>
-                <div id="septemberBill" class="billing-month-view">
-                    <div class="billing-card">
-                        <div class="month-selector">
-                            <span class="disabled">&lt;</span>
-                            <h2>September</h2>
-                            <a onclick="showMonth('octoberBill')" title="Next Month">&gt;</a>
-                        </div>
-                        <hr>
-                        <div class="bill-details">
-                            <div class="amount-due">$573.00</div>
-                            <p><strong>Amount Due</strong></p>
-                            <p>Due Oct 15, 2025</p>
-                            <p>Bill for Sep 1 - Sep 30, 2025</p>
-                            <a href="#" class="btn btn-pay">Pay Bill</a>
-                        </div>
-                    </div>
-                </div>
-                <div id="octoberBill" class="billing-month-view" style="display:none;">
-                    <div class="billing-card">
-                        <div class="month-selector">
-                            <a onclick="showMonth('septemberBill')" title="Previous Month">&lt;</a>
-                            <h2>October</h2>
-                            <span class="disabled">&gt;</span>
-                        </div>
-                        <hr>
-                        <div class="bill-details">
-                            <div class="amount-due">$0.00</div>
-                            <p><strong>Projected Bill</strong></p>
-                            <p>Bill for Oct 1 - Oct 31, 2025</p>
-                            <a href="#" class="btn btn-disabled">Pay Bill</a>
-                        </div>
-                    </div>
-                </div>
-             </div>
-        </main>
+            </main>
+        </div>
     </div>
 
-    <div class="feedback-tab">Feedback</div>
-
+    <div id="dashboardPage" class="page-view" style="display:none;">
+        <nav class="main-nav">
+            <div class="page-container">
+                 <ul>
+                    <li class="active"><a href="#">Your Account</a></li>
+                    <li><a href="#">Customer Service</a></li>
+                    <li><a href="#">Outages</a></li>
+                    <li><a href="#">Rate Plans</a></li>
+                    <li><a href="#">Save Energy & Money</a></li>
+                 </ul>
+            </div>
+        </nav>
+        <div class="page-container">
+            <div class="account-info-bar">
+                <div class="user-greeting">Hi, Alex Johnson</div>
+                <a href="#" class="edit-profile-btn">EDIT PROFILE & ALERTS</a>
+            </div>
+            <main class="dashboard-content">
+                <div class="dashboard-left-col">
+                    <div class="content-card">
+                        <h2>Your Account</h2>
+                        <div class="card-body" style="padding: 10px 20px;">
+                            <div class="account-balance-item">
+                                <span>Last Payment 6/12 <small>Thank You</small></span>
+                                <span>$36.62</span>
+                            </div>
+                            <hr style="margin: 5px 0;">
+                            <div class="account-balance-item">
+                                <span><i class="fa-solid fa-plus" style="font-size: 10px;"></i> Bill Charges due 6/29</span>
+                                <span>$36.62</span>
+                            </div>
+                        </div>
+                        <div class="total-balance">
+                            <span>Total Balance</span>
+                            <div class="total-balance-amount">$0.00</div>
+                            <small>You are enrolled in a Recurring Payment program.</small><br>
+                            <a href="#">Manage Recurring Payments ></a>
+                        </div>
+                    </div>
+                    <div class="left-nav-menu">
+                        <div class="nav-item">PAYMENT OPTIONS <i class="fa-solid fa-chevron-down"></i></div>
+                        <div class="nav-item">BILL & PAYMENT HISTORY <i class="fa-solid fa-chevron-down"></i></div>
+                        <div class="nav-item">SERVICE REQUESTS <i class="fa-solid fa-chevron-down"></i></div>
+                    </div>
+                </div>
+                <div class="dashboard-right-col">
+                    <div class="content-card">
+                        <h2>Usage, Rates & Savings</h2>
+                        <div class="card-body">
+                             <div class="usage-rates-content">
+                                 <div class="usage-options">
+                                    <div class="usage-option-item">
+                                        <i class="fa-solid fa-chart-bar"></i>
+                                        <div><strong>ENERGY USAGE DETAILS</strong><br><small>See usage & costs over time.</small></div>
+                                    </div>
+                                    <div class="usage-option-item">
+                                        <i class="fa-solid fa-copy"></i>
+                                        <div><strong>COMPARE BILLS</strong><br><small>See why your bills differ.</small></div>
+                                    </div>
+                                    <div class="usage-option-item">
+                                        <i class="fa-solid fa-leaf"></i>
+                                        <div><strong>HOME ENERGY CHECKUP</strong><br><small>Learn how you use energy.</small></div>
+                                    </div>
+                                     <div class="usage-option-item">
+                                        <i class="fa-solid fa-dollar-sign"></i>
+                                        <div><strong>WAYS TO SAVE</strong><br><small>See how to lower your bill.</small></div>
+                                    </div>
+                                 </div>
+                                 <div class="rate-plan">
+                                    <h3>YOUR RATE PLAN</h3>
+                                    <div class="rate-plan-name">Time-of-Use Rate Plan (E6)</div>
+                                    <small>with</small>
+                                    <div><strong>SmartRate</strong></div>
+                                    <a href="#" class="compare-btn">COMPARE RATE PLANS</a><br>
+                                    <a href="#" style="margin-top: 15px; display: inline-block;">Change your Rate Plan</a>
+                                 </div>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    
     <footer>
         <div class="footer-container">
-            <div class="footer-column"><h3>About</h3><ul><li><a href="#">About PG&E</a></li><li><a href="#">Company Information</a></li><li><a href="#">Giving Locally</a></li></ul></div>
-            <div class="footer-column"><h3>News</h3><ul><li><a href="#">Currents</a></li><li><a href="#">News Releases</a></li><li><a href="#">Corporate Sustainability</a></li></ul></div>
-            <div class="footer-column"><h3>Contact Us</h3><ul><li><a href="#">Contact Us</a></li><li><a href="#">Help Center</a></li><li><a href="#">Site Feedback</a></li></ul></div>
-            <div class="footer-column"><h3>Connect</h3><div class="social-icons"><a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a><a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a><a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a><a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a></div></div>
+            <div class="footer-column"><h3>About</h3><ul><li><a href="#">About PG&E</a></li><li><a href="#">Company Information</a></li></ul></div>
+            <div class="footer-column"><h3>News</h3><ul><li><a href="#">News Releases</a></li><li><a href="#">Corporate Sustainability</a></li></ul></div>
+            <div class="footer-column"><h3>Contact Us</h3><ul><li><a href="#">Help Center</a></li><li><a href="#">Site Feedback</a></li></ul></div>
+            <div class="footer-column"><h3>Connect</h3><ul><li><a href="#">Facebook</a></li><li><a href="#">Twitter</a></li></ul></div>
         </div>
     </footer>
 
     <script>
         function showPage(pageId) {
-            // Hide all main page views
-            document.querySelectorAll('.page-view').forEach(function(page) {
-                page.style.display = 'none';
-            });
-            // Show the requested page
+            document.querySelectorAll('.page-view').forEach(page => page.style.display = 'none');
             document.getElementById(pageId).style.display = 'block';
-        }
-
-        function showMonth(monthId) {
-            // Hide all month views within the billing page
-            document.querySelectorAll('.billing-month-view').forEach(function(month) {
-                month.style.display = 'none';
-            });
-            // Show the requested month
-            document.getElementById(monthId).style.display = 'block';
         }
     </script>
 </body>
