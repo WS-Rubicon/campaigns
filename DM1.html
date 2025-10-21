@@ -18,7 +18,7 @@
         }
         body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; margin: 0; background-color: #fff; color: var(--pge-dark-gray); display: flex; flex-direction: column; min-height: 100vh; }
         .page-container { flex: 1; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        a { text-decoration: none; color: var(--pge-link-blue); }
+        a { text-decoration: none; color: var(--pge-link-blue); cursor: pointer; }
         hr { border: 0; border-top: 1px solid var(--pge-border-gray); }
 
         /* Login Page Styles */
@@ -49,7 +49,9 @@
         .dashboard-left-col { flex: 1; max-width: 300px; }
         .dashboard-right-col { flex: 2; }
         .content-card { border: 1px solid var(--pge-border-gray); margin-bottom: 20px; }
-        .content-card h2 { background-color: var(--pge-gray); margin: 0; padding: 15px; font-size: 20px; border-bottom: 1px solid var(--pge-border-gray); }
+        .content-card h2 { background-color: var(--pge-gray); margin: 0; padding: 15px; font-size: 20px; border-bottom: 1px solid var(--pge-border-gray); display: flex; justify-content: space-between; align-items: center; }
+        .month-selector { font-size: 14px; font-weight: normal; }
+        .month-selector a { text-decoration: underline; }
         .card-body { padding: 20px; }
         .account-balance-item { display: flex; justify-content: space-between; padding: 10px 0; }
         .total-balance { text-align: center; padding: 20px; }
@@ -76,9 +78,7 @@
 <body>
     <div id="loginPage" class="page-view">
         <div class="page-container">
-            <header>
-                <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1761008246/MyAcct_PGE_Logo_nzxznb.png" alt="Company Logo" style="width:80px;">
-            </header>
+             <header><img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1761008246/MyAcct_PGE_Logo_nzxznb.png" alt="Company Logo" style="width:80px;"></header>
             <main class="login-page-content">
                 <div class="login-section">
                     <p class="note">NOTE: If you logged in after June 9, 2025, the Username is your email.</p>
@@ -86,14 +86,8 @@
                         <label for="username">Username</label>
                         <input type="text" id="username" value="A1Johnson@gmail.com">
                         <label for="password">Password</label>
-                        <div class="password-wrapper">
-                            <input type="password" id="password" value="************">
-                            <i class="fa-regular fa-eye-slash"></i>
-                        </div>
-                        <div class="remember-me">
-                            <input type="checkbox" id="remember" checked>
-                            <label for="remember">Remember this username</label>
-                        </div>
+                        <div class="password-wrapper"><input type="password" id="password" value="************"><i class="fa-regular fa-eye-slash"></i></div>
+                        <div class="remember-me"><input type="checkbox" id="remember" checked><label for="remember">Remember this username</label></div>
                         <p class="forgot-links"><a href="#">Forgot Username or Password?</a></p>
                         <a href="#" class="btn btn-signin" onclick="showPage('dashboardPage')">Sign In</a>
                         <button type="button" class="btn btn-secondary">Register</button>
@@ -101,7 +95,6 @@
                 </div>
                 <div class="info-section">
                     <h2>Manage your account</h2>
-                    <p>Sign in to manage your account. You can:</p>
                     <ol>
                         <li>Pay your bill using your checking or savings account.</li>
                         <li>Check your account balance and payment history.</li>
@@ -115,15 +108,7 @@
 
     <div id="dashboardPage" class="page-view" style="display:none;">
         <nav class="main-nav">
-            <div class="page-container">
-                 <ul>
-                    <li class="active"><a href="#">Your Account</a></li>
-                    <li><a href="#">Customer Service</a></li>
-                    <li><a href="#">Outages</a></li>
-                    <li><a href="#">Rate Plans</a></li>
-                    <li><a href="#">Save Energy & Money</a></li>
-                 </ul>
-            </div>
+            <div class="page-container"><ul><li class="active"><a href="#">Your Account</a></li><li><a href="#">Customer Service</a></li><li><a href="#">Outages</a></li><li><a href="#">Rate Plans</a></li><li><a href="#">Save Energy & Money</a></li></ul></div>
         </nav>
         <div class="page-container">
             <div class="account-info-bar">
@@ -132,24 +117,34 @@
             </div>
             <main class="dashboard-content">
                 <div class="dashboard-left-col">
-                    <div class="content-card">
-                        <h2>Your Account</h2>
-                        <div class="card-body" style="padding: 10px 20px;">
-                            <div class="account-balance-item">
-                                <span>Last Payment 6/12 <small>Thank You</small></span>
-                                <span>$36.62</span>
+                    <div id="account-october" class="monthly-view-left">
+                        <div class="content-card">
+                            <h2>Your Account <span class="month-selector"><a onclick="showBillingMonth('september')">September</a> | <strong>October</strong></span></h2>
+                            <div class="card-body" style="padding: 10px 20px;">
+                                <div class="account-balance-item"><span>Projected Usage</span><span>$0.00</span></div>
                             </div>
-                            <hr style="margin: 5px 0;">
-                            <div class="account-balance-item">
-                                <span><i class="fa-solid fa-plus" style="font-size: 10px;"></i> Bill Charges due 6/29</span>
-                                <span>$36.62</span>
+                            <div class="total-balance">
+                                <span>Projected Bill</span>
+                                <div class="total-balance-amount">$0.00</div>
+                                <small>You are enrolled in the $0 Electricity Initiative.</small><br>
+                                <a href="#">Learn More ></a>
                             </div>
                         </div>
-                        <div class="total-balance">
-                            <span>Total Balance</span>
-                            <div class="total-balance-amount">$0.00</div>
-                            <small>You are enrolled in a Recurring Payment program.</small><br>
-                            <a href="#">Manage Recurring Payments ></a>
+                    </div>
+                    <div id="account-september" class="monthly-view-left" style="display:none;">
+                         <div class="content-card">
+                            <h2>Your Account <span class="month-selector"><strong>September</strong> | <a onclick="showBillingMonth('october')">October</a></span></h2>
+                            <div class="card-body" style="padding: 10px 20px;">
+                                <div class="account-balance-item"><span>Previous Balance</span><span>$0.00</span></div>
+                                <hr style="margin: 5px 0;">
+                                <div class="account-balance-item"><span><i class="fa-solid fa-plus" style="font-size: 10px;"></i> Bill Charges due 9/29</span><span>$573.00</span></div>
+                            </div>
+                            <div class="total-balance">
+                                <span>Total Balance</span>
+                                <div class="total-balance-amount">$573.00</div>
+                                <small>Payment will be automatically withdrawn on 9/29.</small><br>
+                                <a href="#">Manage Recurring Payments ></a>
+                            </div>
                         </div>
                     </div>
                     <div class="left-nav-menu">
@@ -164,24 +159,17 @@
                         <div class="card-body">
                              <div class="usage-rates-content">
                                  <div class="usage-options">
-                                    <div class="usage-option-item">
-                                        <i class="fa-solid fa-chart-bar"></i>
-                                        <div><strong>ENERGY USAGE DETAILS</strong><br><small>See usage & costs over time.</small></div>
-                                    </div>
-                                    <div class="usage-option-item">
-                                        <i class="fa-solid fa-copy"></i>
-                                        <div><strong>COMPARE BILLS</strong><br><small>See why your bills differ.</small></div>
-                                    </div>
-                                    <div class="usage-option-item">
-                                        <i class="fa-solid fa-leaf"></i>
-                                        <div><strong>HOME ENERGY CHECKUP</strong><br><small>Learn how you use energy.</small></div>
-                                    </div>
-                                     <div class="usage-option-item">
-                                        <i class="fa-solid fa-dollar-sign"></i>
-                                        <div><strong>WAYS TO SAVE</strong><br><small>See how to lower your bill.</small></div>
-                                    </div>
+                                    <div class="usage-option-item"><i class="fa-solid fa-chart-bar"></i><div><strong>ENERGY USAGE DETAILS</strong><br><small>See usage & costs over time.</small></div></div>
+                                    <div class="usage-option-item"><i class="fa-solid fa-copy"></i><div><strong>COMPARE BILLS</strong><br><small>See why your bills differ.</small></div></div>
+                                    <div class="usage-option-item"><i class="fa-solid fa-leaf"></i><div><strong>HOME ENERGY CHECKUP</strong><br><small>Learn how you use energy.</small></div></div>
+                                    <div class="usage-option-item"><i class="fa-solid fa-dollar-sign"></i><div><strong>WAYS TO SAVE</strong><br><small>See how to lower your bill.</small></div></div>
                                  </div>
-                                 <div class="rate-plan">
+                                 <div id="rate-plan-october" class="rate-plan monthly-view-right">
+                                    <h3>YOUR RATE PLAN</h3>
+                                    <div class="rate-plan-name" style="color: #2e7d32;">$0 Electricity Initiative</div>
+                                    <a href="#" class="compare-btn">VIEW PLAN DETAILS</a><br>
+                                 </div>
+                                 <div id="rate-plan-september" class="rate-plan monthly-view-right" style="display:none;">
                                     <h3>YOUR RATE PLAN</h3>
                                     <div class="rate-plan-name">Time-of-Use Rate Plan (E6)</div>
                                     <small>with</small>
@@ -210,6 +198,13 @@
         function showPage(pageId) {
             document.querySelectorAll('.page-view').forEach(page => page.style.display = 'none');
             document.getElementById(pageId).style.display = 'block';
+        }
+        function showBillingMonth(month) {
+            // Hide all monthly views
+            document.querySelectorAll('.monthly-view-left, .monthly-view-right').forEach(view => view.style.display = 'none');
+            // Show the selected month's views
+            document.getElementById('account-' + month).style.display = 'block';
+            document.getElementById('rate-plan-' + month).style.display = 'block';
         }
     </script>
 </body>
