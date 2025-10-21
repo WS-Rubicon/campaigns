@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Congratulations! You're Approved</title>
+    <style>
+        /* --- General Styles & Body --- */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f0f2f5; /* Light grey background */
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        /* --- Main Content Container --- */
+        .approval-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 40px;
+            max-width: 500px;
+            width: 90%;
+            margin: 20px;
+        }
+
+        /* --- Checkmark Icon --- */
+        .checkmark-icon {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+        }
+
+        .checkmark-circle {
+            stroke-dasharray: 166;
+            stroke-dashoffset: 166;
+            stroke-width: 3;
+            stroke-miterlimit: 10;
+            stroke: #28a745; /* Success Green */
+            fill: none;
+            animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+        }
+
+        .checkmark-check {
+            transform-origin: 50% 50%;
+            stroke-dasharray: 48;
+            stroke-dashoffset: 48;
+            stroke-width: 4;
+            animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.6s forwards;
+        }
+
+        @keyframes stroke {
+            100% {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        /* --- Typography --- */
+        h1 {
+            color: #28a745;
+            font-size: 2.5rem;
+            margin: 0 0 10px 0;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            margin: 0 0 20px 0;
+            color: #1c1e21;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #4b4f56;
+            margin: 0 0 20px 0;
+        }
+        
+        .amount {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #1c1e21;
+            margin: 10px 0 25px 0;
+        }
+
+        /* --- Call-to-Action Button --- */
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #28a745;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            padding: 16px 32px;
+            font-size: 1.25rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out, transform 0.1s ease;
+            width: 100%;
+            box-sizing: border-box; /* Ensures padding doesn't affect width */
+        }
+
+        .cta-button:hover {
+            background-color: #218838; /* Darker green on hover */
+        }
+
+        .cta-button:active {
+            transform: scale(0.98); /* Slight shrink on click */
+        }
+
+        .cta-button .arrow-icon {
+            width: 24px;
+            height: 24px;
+            margin-left: 10px;
+        }
+
+        /* --- Footer Text --- */
+        .footer-text {
+            font-size: 0.8rem;
+            color: #8a8d91;
+            margin-top: 30px;
+            margin-bottom: 0;
+        }
+
+        /* --- Responsive Design for Mobile --- */
+        @media (max-width: 600px) {
+            .approval-container {
+                padding: 30px 20px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+            .amount {
+                font-size: 2.5rem;
+            }
+            p {
+                font-size: 1rem;
+            }
+            .cta-button {
+                font-size: 1.1rem;
+                padding: 14px 24px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <main class="approval-container">
+        
+        <svg class="checkmark-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+            <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+            <path class="checkmark-check" fill="none" stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+        </svg>
+
+        <h1>Congratulations!</h1>
+        
+        <h2>You're Approved!</h2>
+        
+        <p>You have been pre-qualified for funds up to:</p>
+        
+        <p class="amount">$27,000 CAD</p>
+        
+        <p>Click below to finalize your details and claim your funds now.</p>
+        
+        <a href="#" class="cta-button">
+            <span>Claim My Funds</span>
+            <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+        </a>
+
+        <p class="footer-text">This is a limited-time offer. Your funds are available for the next 24 hours.</p>
+
+    </main>
+
+</body>
+</html>
