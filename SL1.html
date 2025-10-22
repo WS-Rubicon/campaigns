@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>$0 Electricity Initiative</title>
+  <style>
+    :root{
+      /* Unified article column and spacing */
+      --col: 760px;
+      --pad: 20px;
+      --paper-max: calc(var(--col) + var(--pad) * 2);
+
+      /* Colors */
+      --page-bg:#eef1f5;
+      --paper-bg:#ffffff;
+      --nav-bg:#1c3d72;
+      --nav-pill:#dc3545;
+      --crumb:#cfe0ff;
+      --notice:#ffc107;
+      --notice-left:#ff8800;
+      --muted:#555;
+      --req-bg:#f8f9fa;
+      --hot-bg:#fff3cd;
+      --hot-border:#ffeaa7;
+      --hot-text:#856404;
+    }
+
+    /* Reset/base */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; background: var(--page-bg); }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: #0066cc; }
+
+    /* ===== Paper wrapper (condenses everything) ===== */
+    .paper{
+      max-width: var(--paper-max);
+      margin: 0 auto 40px;
+      background: var(--paper-bg);
+      box-shadow: 0 2px 18px rgba(0,0,0,.06);
+    }
+
+    /* Header */
+    .header { background-color: var(--nav-bg); color: white; }
+    .nav-container {
+      max-width: var(--paper-max);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      padding: 8px var(--pad);
+    }
+    .usa-badge {
+      background-color: var(--nav-pill);
+      color: white;
+      padding: 5px 10px;
+      border-radius: 50px;
+      font-weight: bold;
+      font-size: 12px;
+      margin-right: 16px;
+    }
+    .nav-links { display: flex; gap: 10px; font-size: 14px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
+    .nav-links span { color: var(--crumb); }
+
+    /* Notice banner */
+    .notice-wrap { background: var(--paper-bg); }
+    .notice-banner{
+      max-width: var(--paper-max);
+      margin: 0 auto 10px;
+      background-color: var(--notice);
+      color: #212529;
+      padding: 10px var(--pad);
+      font-weight: bold;
+      border-left: 4px solid var(--notice-left);
+      text-align: left;
+    }
+
+    /* Main content column */
+    .container{
+      max-width: var(--paper-max);
+      margin: 0 auto;
+      padding: 18px var(--pad) 8px;
+    }
+    .content-inner{
+      max-width: var(--col);
+      margin: 0 auto;
+    }
+
+    .main-title{
+      font-size: 36px;
+      color: #4a4a4a;
+      margin: 8px 0 12px;
+      line-height: 1.12;
+      font-weight: 700; /* Bolder for impact */
+    }
+
+    .intro-text{
+      font-size: 16px;
+      color: var(--muted);
+      margin: 6px 0 16px;
+      line-height: 1.6;
+    }
+    .highlight { text-decoration: underline; font-weight: bold; }
+
+    /* Hero image */
+    .hero-image{
+      max-width: var(--col);
+      border-radius: 8px;
+      margin: 20px auto 8px auto;
+    }
+
+    /* Content sections */
+    .content-section { margin: 16px 0; font-size: 16px; line-height: 1.6; }
+    .benefits-text { margin: 16px 0; }
+
+    /* Requirements box */
+    .requirements-section{
+      background-color: var(--req-bg);
+      padding: 20px;
+      border-left: 4px solid var(--notice);
+      margin: 22px auto;
+      max-width: var(--col);
+    }
+    .requirements-title{ font-size: 18px; font-weight: bold; color: #333; margin-bottom: 12px; }
+    .requirements-list{ list-style: none; counter-reset: requirement-counter; padding:0; margin:0; }
+    .requirements-list li{
+      counter-increment: requirement-counter;
+      margin-bottom: 10px;
+      position: relative;
+      padding-left: 30px;
+    }
+    .requirements-list li::before{
+      content: counter(requirement-counter) ".";
+      position: absolute; left: 0;
+      font-weight: bold; color: #333;
+    }
+
+    /* CTA */
+    .cta-section{ margin: 24px auto 12px; max-width: var(--col); }
+    .cta-title{ font-size: 18px; color: #333; margin-bottom: 10px; font-weight: bold; }
+    .steps{ margin: 10px 0; }
+    .step{ margin-bottom: 10px; }
+    .step-number{ font-weight: bold; }
+
+    /* Home Purchase Section */
+    .home-purchase-section{ text-align: center; margin: 24px auto 14px; max-width: var(--col); }
+    .home-purchase-title{ font-size: 18px; color: #333; margin-bottom: 16px; font-weight: bold; }
+    .year-buttons{
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+    .year-button{
+      background: linear-gradient(to bottom, #fdd867 0%, #f7a70e 100%);
+      color: #000;
+      border: 2px solid #000;
+      padding: 16px 20px;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      text-align: center;
+      flex: 1;
+      box-shadow: 4px 4px 0px #000;
+      transition: all 0.1s ease-out;
+      position: relative;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+      text-decoration: none;
+    }
+    .year-button:hover{ background: linear-gradient(to bottom, #ffe08a 0%, #fdb933 100%); text-decoration: none; }
+    .year-button:active{ box-shadow: 0 0 0 #000; transform: translate(4px, 4px); transition: all 0.05s ease-in; }
+
+    /* Hot Tip */
+    .hot-tip{
+      background-color: var(--hot-bg);
+      border: 1px solid var(--hot-border);
+      border-left: 4px solid var(--notice);
+      padding: 14px;
+      margin: 22px auto;
+      border-radius: 0 5px 5px 0;
+      max-width: var(--col);
+      color: var(--hot-text);
+      line-height: 1.55;
+    }
+    .hot-tip-title{ color: var(--hot-text); font-weight: bold; margin-bottom: 8px; }
+
+    /* National indicator */
+    .national-indicator{
+      text-align: center;
+      margin: 16px auto 0;
+      color: #718096;
+      font-size: 14px;
+      font-weight: 600;
+      max-width: var(--col);
+    }
+    .national-indicator::before{ content: "💡"; margin-right: 6px; }
+
+    /* Footer */
+    .footer{ background-color: var(--nav-bg); color: white; text-align: center; margin-top: 28px; }
+    .footer-inner{
+      max-width: var(--paper-max);
+      margin: 0 auto;
+      padding: 24px var(--pad);
+    }
+    .footer-links{ margin-bottom: 12px; }
+    .footer-links a{ color: #ccc; text-decoration: none; margin: 0 15px; font-size: 14px; }
+    .footer-links a:hover{ color: white; }
+    .footer-disclaimer{ font-size: 12px; color: #ccc; margin-top: 6px; }
+
+
+    /* ===== RESPONSIVE FIXES ===== */
+    @media (max-width: 520px){
+      :root{ --pad:16px; }
+
+      .notice-banner{ padding: 12px var(--pad); margin-bottom: 8px; font-size: 14px; line-height: 1.4; }
+      .container{ padding: 16px var(--pad) 6px; }
+
+      .main-title{ font-size: clamp(26px, 6.5vw, 32px); margin: 6px 0 12px; line-height: 1.15; }
+
+      .intro-text { font-size: 15px; }
+      .content-section, .benefits-text { font-size: 15px; margin: 12px 0; }
+      
+      /* THIS IS THE NEW FIX FOR THE IMAGE */
+      .hero-image {
+        width: 100%;
+        max-width: 100%;
+        margin: 16px auto;
+      }
+
+      .requirements-section, .hot-tip { margin: 20px auto; padding: 16px; }
+      .requirements-title, .cta-title, .home-purchase-title { font-size: 17px; }
+
+      .year-buttons{ flex-direction: column; gap: 14px; }
+      .year-button{ width: 100%; padding: 15px 16px; font-size: 18px; }
+
+      .footer-inner{ padding: 20px var(--pad); }
+      .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 15px; }
+      .footer-links a { margin: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="paper">
+
+    <header class="header">
+      <div class="nav-container">
+        <div class="usa-badge">USA</div>
+        <nav class="nav-links">
+          <span>Home</span> &gt; <span>Homeowner Programs</span> &gt; <span>$0 Electricity Initiative</span>
+        </nav>
+      </div>
+    </header>
+
+    <div class="notice-wrap">
+      <div class="notice-banner">
+        ⚠️ NOTICE: Limited enrollment period for 2025 $0 Electricity Initiative - Check Your Zip Code
+      </div>
+    </div>
+
+    <main class="container">
+      <div class="content-inner">
+        <h1 class="main-title">New $0 Electricity Initiative Helps American Homeowners Eliminate Their Electric Bill in October 2025.</h1>
+
+        <p class="intro-text">
+          (Washington, D.C.) - If you are a homeowner, you are advised to check your eligibility for a new $0 Electricity Initiative.
+          This 2025 program can help you
+          <strong class="highlight">eliminate your electric bill</strong> and
+          <strong class="highlight">lock in a $0/mo payment.</strong>
+        </p>
+
+        <a href="#" class="hero-image-link">
+          <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1729633834/solar-panels-on-roof_j7bklq.webp"
+               alt="Solar panels on a home roof" class="hero-image">
+        </a>
+
+        <div class="content-section">
+          <p>With energy rates constantly rising, smart homeowners are using this new initiative to get solar panels installed at <strong>NO COST</strong>
+             and lock in a fixed, low monthly payment (often $0). There is <strong>NO COST</strong> to see if you qualify.</p>
+        </div>
+
+        <div class="content-section">
+          <p class="benefits-text">This program allows homeowners to <strong>stop renting their power</strong> from the utility company
+             and <strong>start owning it</strong>, saving thousands of dollars per year.</p>
+        </div>
+
+        <div class="requirements-section">
+          <h3 class="requirements-title">There are only 3 requirements:</h3>
+          <ol class="requirements-list">
+            <li>Must be the Homeowner</li>
+            <li>Must live in an eligible Zip Code</li>
+            <li>Must have a roof with adequate sunlight</li>
+          </ol>
+        </div>
+
+        <div class="cta-section">
+          <h3 class="cta-title">Want to See If You Qualify for $0/mo? Here's How</h3>
+          <div class="steps">
+            <div class="step">
+              <span class="step-number">Step 1:</span> Click "Yes" or "No" below to answer a simple question.
+            </div>
+            <div class="step">
+              <span class="step-number">Step 2:</span> Answer a few quick questions to instantly check your eligibility for free!
+            </div>
+          </div>
+        </div>
+
+        <div class="home-purchase-section">
+          <h3 class="home-purchase-title">Do You Pay More Than $100/mo For Electricity?</h3>
+          <div class="year-buttons">
+            <a id="button-yes" href="#" class="year-button">Yes</a>
+            <a id="button-no"  href="#" class="year-button">No</a>
+          </div>
+        </div>
+
+        <div class="hot-tip">
+          <div class="hot-tip-title">HOT TIP:</div>
+          <div class="hot-tip-text">
+            This program is extremely popular with homeowners on a fixed income or social security who are tired of unpredictable, high energy bills.
+            By locking in a $0/mo rate, they can protect themselves from future utility price hikes.
+            <strong>You can check your eligibility online in 60 seconds.</strong>
+            <a href="#" class="hot-tip-link">See if you qualify &gt;&gt;</a>
+          </div>
+        </div>
+
+        <div class="national-indicator">National</div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">Accessibility</a>
+          <a href="#">Contact Us</a>
+        </div>
+        <div class="footer-disclaimer">This is an official homeowner savings program service</div>
+      </div>
+    </footer>
+
+  </div>
+  
+  <script type="text/javascript" src="//YOUR_TRACKER_DOMAIN/track.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // *** REPLACE THIS WITH YOUR TRACKING LINK ***
+      const trackingUrl = '#'; 
+
+      document.querySelectorAll('.footer-links a, .hot-tip-link, .hero-image-link').forEach(link => {
+        if(link) link.href = trackingUrl;
+      });
+
+      function handleButtonClick(event) {
+        // Future logic can go here
+      }
+
+      // *** Updated button IDs to match new HTML ***
+      const button1 = document.getElementById('button-yes');
+      const button2 = document.getElementById('button-no');
+      
+      if (button1) { 
+        button1.href = trackingUrl;
+        button1.addEventListener('click', handleButtonClick); 
+      }
+      if (button2) { 
+        button2.href = trackingUrl;
+        button2.addEventListener('click', handleButtonClick); 
+      }
+    });
+  </script>
+</body>
+</html>
