@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top 5 Canadian Auto Financing Options - Carsfast</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: #f5f5f5;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 80px;
+            background: #f5f5f5;
+        }
+
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: #4a90e2;
+        }
+
+        .logo-sub {
+            font-size: 8px;
+            letter-spacing: 2px;
+            color: #999;
+            margin-top: -4px;
+        }
+
+        .apply-btn {
+            background: #4a90e2;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .apply-btn:hover {
+            background: #3b7bd1;
+        }
+
+        .page-header {
+            text-align: center;
+            padding: 60px 80px 40px;
+            background: #f5f5f5;
+        }
+
+        .page-title {
+            font-size: 42px;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 15px;
+        }
+
+        .page-title .blue {
+            color: #4a90e2;
+        }
+
+        .page-subtitle {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .listicle-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 80px 80px;
+        }
+
+        .automaker-card {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            transition: all 0.3s;
+        }
+
+        .automaker-card:hover {
+            box-shadow: 0 6px 25px rgba(0,0,0,0.12);
+            transform: translateY(-2px);
+        }
+
+        .rank-badge {
+            font-size: 48px;
+            font-weight: 800;
+            color: #4a90e2;
+            min-width: 70px;
+            text-align: center;
+        }
+
+        .logo-section {
+            min-width: 150px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f9f9f9;
+            border-radius: 8px;
+            border: 2px dashed #ddd;
+        }
+
+        .logo-placeholder {
+            font-size: 12px;
+            color: #999;
+            text-align: center;
+        }
+
+        .automaker-logo {
+            max-width: 140px;
+            max-height: 90px;
+            object-fit: contain;
+        }
+
+        .content-section {
+            flex: 1;
+        }
+
+        .automaker-name {
+            font-size: 28px;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 10px;
+        }
+
+        .approval-amount {
+            font-size: 20px;
+            font-weight: 600;
+            color: #4a90e2;
+            margin-bottom: 15px;
+        }
+
+        .automaker-description {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .features-list {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .feature-tag {
+            background: #dfe9f3;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .card-cta-btn {
+            background: #4a90e2;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .card-cta-btn:hover {
+            background: #3b7bd1;
+        }
+
+        .disclaimer {
+            text-align: center;
+            padding: 40px 80px;
+            background: #fff;
+            margin-top: 40px;
+        }
+
+        .disclaimer-text {
+            font-size: 12px;
+            color: #999;
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            text-align: center;
+            padding: 40px 80px;
+            background: #f5f5f5;
+            font-size: 11px;
+            color: #999;
+        }
+
+        .footer-links a {
+            color: #999;
+            text-decoration: none;
+            margin: 0 8px;
+        }
+
+        .footer-links a:hover {
+            color: #4a90e2;
+        }
+
+        @media (max-width: 768px) {
+            header, .page-header, .listicle-container, .disclaimer, .footer-links {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .automaker-card {
+                flex-direction: column;
+                padding: 25px;
+                gap: 20px;
+            }
+
+            .rank-badge {
+                font-size: 36px;
+                min-width: auto;
+            }
+
+            .page-title {
+                font-size: 32px;
+            }
+
+            .automaker-name {
+                font-size: 24px;
+            }
+
+            .features-list {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="logo">CARSFAST</div>
+            <div class="logo-sub">AUTOMOTIVE FINANCING</div>
+        </div>
+        <button class="apply-btn" onclick="applyNow()">APPLY NOW</button>
+    </header>
+
+    <div class="page-header">
+        <h1 class="page-title">Top 5 <span class="blue">Pre-Approved</span> Auto Financing Options</h1>
+        <p class="page-subtitle">Compare Canada's leading automakers with pre-approved financing amounts. Get behind the wheel of your dream vehicle with competitive rates and flexible terms.</p>
+    </div>
+
+    <div class="listicle-container">
+        <!-- Toyota -->
+        <div class="automaker-card">
+            <div class="rank-badge">#1</div>
+            <div class="logo-section">
+                <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1761340786/download_uu5hjd.png" alt="Toyota" class="automaker-logo">
+            </div>
+            <div class="content-section">
+                <h2 class="automaker-name">Toyota</h2>
+                <div class="approval-amount">Pre-Approved: Up to $38,500 CAD</div>
+                <p class="automaker-description">
+                    Canada's most trusted automotive brand offers exceptional reliability and industry-leading resale value. With a comprehensive lineup from the efficient Corolla to the rugged Tacoma, Toyota provides versatile options for every lifestyle with legendary dependability.
+                </p>
+                <div class="features-list">
+                    <span class="feature-tag">✓ Best Resale Value</span>
+                    <span class="feature-tag">✓ Legendary Reliability</span>
+                    <span class="feature-tag">✓ Hybrid Options</span>
+                </div>
+                <button class="card-cta-btn" onclick="applyNow()">Get Pre-Approved Now →</button>
+            </div>
+        </div>
+
+        <!-- Honda -->
+        <div class="automaker-card">
+            <div class="rank-badge">#2</div>
+            <div class="logo-section">
+                <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1761340786/honda-automobiels-1_ex3nzx.svg" alt="Honda" class="automaker-logo">
+            </div>
+            <div class="content-section">
+                <h2 class="automaker-name">Honda</h2>
+                <div class="approval-amount">Pre-Approved: Up to $36,800 CAD</div>
+                <p class="automaker-description">
+                    Renowned for engineering excellence and fuel efficiency, Honda delivers vehicles that combine performance with practicality. From the sporty Civic to the spacious Pilot, Honda's lineup offers cutting-edge technology and outstanding long-term value for Canadian drivers.
+                </p>
+                <div class="features-list">
+                    <span class="feature-tag">✓ Fuel Efficiency</span>
+                    <span class="feature-tag">✓ Advanced Safety</span>
+                    <span class="feature-tag">✓ Low Maintenance</span>
+                </div>
+                <button class="card-cta-btn" onclick="applyNow()">Get Pre-Approved Now →</button>
+            </div>
+        </div>
+
+        <!-- Chevrolet -->
+        <div class="automaker-card">
+            <div class="rank-badge">#3</div>
+            <div class="logo-section">
+                <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1761340786/download_l8vyxh.jpg" alt="Chevrolet" class="automaker-logo">
+            </div>
+            <div class="content-section">
+                <h2 class="automaker-name">Chevrolet</h2>
+                <div class="approval-amount">Pre-Approved: Up to $35,200 CAD</div>
+                <p class="automaker-description">
+                    An iconic North American brand delivering powerful performance and bold design. Chevrolet's diverse range includes everything from efficient sedans to capable trucks, all backed by comprehensive warranty coverage and competitive financing options tailored for Canadian buyers.
+                </p>
+                <div class="features-list">
+                    <span class="feature-tag">✓ Powerful Engines</span>
+                    <span class="feature-tag">✓ Spacious Interiors</span>
+                    <span class="feature-tag">✓ Competitive Pricing</span>
+                </div>
+                <button class="card-cta-btn" onclick="applyNow()">Get Pre-Approved Now →</button>
+            </div>
+        </div>
+
+        <!-- Nissan -->
+        <div class="automaker-card">
+            <div class="rank-badge">#4</div>
+            <div class="logo-section">
+                <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1761340787/Nissan_2020_logo_npvqho.svg" alt="Nissan" class="automaker-logo">
+            </div>
+            <div class="content-section">
+                <h2 class="automaker-name">Nissan</h2>
+                <div class="approval-amount">Pre-Approved: Up to $33,900 CAD</div>
+                <p class="automaker-description">
+                    Innovation meets affordability with Nissan's modern vehicle lineup. Known for intelligent technology and confident styling, Nissan offers feature-rich vehicles like the popular Rogue and versatile Altima, providing excellent value with flexible financing plans for every budget.
+                </p>
+                <div class="features-list">
+                    <span class="feature-tag">✓ Innovative Tech</span>
+                    <span class="feature-tag">✓ Value Pricing</span>
+                    <span class="feature-tag">✓ AWD Options</span>
+                </div>
+                <button class="card-cta-btn" onclick="applyNow()">Get Pre-Approved Now →</button>
+            </div>
+        </div>
+
+        <!-- Tesla -->
+        <div class="automaker-card">
+            <div class="rank-badge">#5</div>
+            <div class="logo-section">
+                <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1761340787/39-396698_tesla-logo-_eps-motors_-tesla-logo-icon_vyew3k.jpg" alt="Tesla" class="automaker-logo">
+            </div>
+            <div class="content-section">
+                <h2 class="automaker-name">Tesla</h2>
+                <div class="approval-amount">Pre-Approved: Up to $40,000 CAD</div>
+                <p class="automaker-description">
+                    Leading the electric revolution with groundbreaking technology and performance. Tesla's all-electric vehicles offer zero emissions, incredible acceleration, and access to the extensive Supercharger network across Canada. Experience the future of driving with cutting-edge autonomous features.
+                </p>
+                <div class="features-list">
+                    <span class="feature-tag">✓ Zero Emissions</span>
+                    <span class="feature-tag">✓ Autopilot Tech</span>
+                    <span class="feature-tag">✓ Supercharger Network</span>
+                </div>
+                <button class="card-cta-btn" onclick="applyNow()">Get Pre-Approved Now →</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="disclaimer">
+        <p class="disclaimer-text">
+            <strong>Disclaimer:</strong> Pre-approval amounts are estimates based on current market conditions and typical financing terms for qualified applicants. Actual approval amounts may vary based on individual creditworthiness, income verification, employment history, and debt-to-income ratio. All financing is subject to lender approval. Rates, terms, and conditions apply. The listed manufacturers are not affiliated with or endorsed by Carsfast. Vehicle availability may vary by location. Please consult with a financing specialist for personalized quotes and current rates. Offers valid for Canadian residents only.
+        </p>
+    </div>
+
+    <div class="footer-links">
+        <p>Copyright © 2025 Copyright notice: this website and its content are copyrighted by Consumer Genius Inc.</p>
+        <div style="margin-top: 15px;">
+            <a href="#">PARTNER WITH US</a> | <a href="#">NEWS</a> | <a href="#">PRIVACY POLICY</a> | <a href="#">TERMS OF USE</a> | <a href="#">SUBJECT RIGHTS REQUESTS</a>
+        </div>
+    </div>
+
+    <script>
+        function applyNow() {
+            // Replace with your actual application URL
+            window.location.href = 'https://clearpathbenefitstoday.com/cf2';
+        }
+
+        // Add smooth scroll behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
