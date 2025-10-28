@@ -111,7 +111,17 @@
             margin-top: 8px;
             font-weight: bold;
         }
+        /* START: Added Clickable Chart Style */
+        .chart-bar-wrapper.clickable {
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+        }
+        .chart-bar-wrapper.clickable:hover {
+            opacity: 0.85; /* Nice little hover effect */
+        }
+        /* END: Added Clickable Chart Style */
         /* END: New Chart Styles */
+
 
         /* Footer Styles */
         footer { background-color: var(--pge-gray); padding: 40px 0; border-top: 1px solid var(--pge-border-gray); width: 100%; margin-top: auto; }
@@ -322,52 +332,52 @@
                         <div class="card-body">
                             <p>Your monthly usage before and after enrolling in the <strong>$0 Electricity Initiative</strong> in July.</p>
                             <div class="chart-container">
-                                <div class="chart-bar-wrapper">
+                                <div class="chart-bar-wrapper clickable" onclick="showBillingMonth('january')">
                                     <div class="chart-label-price">$521.72</div>
                                     <div class="chart-bar" style="height: 70%;"></div>
                                     <div class="chart-label-month">Jan</div>
                                 </div>
-                                <div class="chart-bar-wrapper">
+                                <div class="chart-bar-wrapper clickable" onclick="showBillingMonth('february')">
                                     <div class="chart-label-price">$542.11</div>
                                     <div class="chart-bar" style="height: 75%;"></div>
                                     <div class="chart-label-month">Feb</div>
                                 </div>
-                                <div class="chart-bar-wrapper">
+                                <div class="chart-bar-wrapper clickable" onclick="showBillingMonth('march')">
                                     <div class="chart-label-price">$563.89</div>
                                     <div class="chart-bar" style="height: 80%;"></div>
                                     <div class="chart-label-month">Mar</div>
                                 </div>
-                                <div class="chart-bar-wrapper">
+                                <div class="chart-bar-wrapper clickable" onclick="showBillingMonth('april')">
                                     <div class="chart-label-price">$578.04</div>
                                     <div class="chart-bar" style="height: 85%;"></div>
                                     <div class="chart-label-month">Apr</div>
                                 </div>
-                                <div class="chart-bar-wrapper">
+                                <div class="chart-bar-wrapper clickable" onclick="showBillingMonth('may')">
                                     <div class="chart-label-price">$581.66</div>
                                     <div class="chart-bar" style="height: 90%;"></div>
                                     <div class="chart-label-month">May</div>
                                 </div>
-                                <div class="chart-bar-wrapper">
+                                <div class="chart-bar-wrapper clickable" onclick="showBillingMonth('june')">
                                     <div class="chart-label-price">$592.40</div>
                                     <div class="chart-bar" style="height: 95%;"></div>
                                     <div class="chart-label-month">Jun</div>
                                 </div>
-                                <div class="chart-bar-wrapper">
+                                <div class="chart-bar-wrapper clickable" onclick="showBillingMonth('july')">
                                     <div class="chart-label-price">$0.00</div>
                                     <div class="chart-bar chart-bar-zero"></div>
                                     <div class="chart-label-month">Jul</div>
                                 </div>
-                                <div class="chart-bar-wrapper">
+                                <div class="chart-bar-wrapper clickable" onclick="showBillingMonth('august')">
                                     <div class="chart-label-price">$0.00</div>
                                     <div class="chart-bar chart-bar-zero"></div>
                                     <div class="chart-label-month">Aug</div>
                                 </div>
-                                <div class="chart-bar-wrapper">
+                                <div class="chart-bar-wrapper clickable" onclick="showBillingMonth('september')">
                                     <div class="chart-label-price">$0.00</div>
                                     <div class="chart-bar chart-bar-zero"></div>
                                     <div class="chart-label-month">Sep</div>
                                 </div>
-                                <div class="chart-bar-wrapper">
+                                <div class="chart-bar-wrapper clickable" onclick="showBillingMonth('october')">
                                     <div class="chart-label-price">$0.00</div>
                                     <div class="chart-bar chart-bar-zero"></div>
                                     <div class="chart-label-month">Oct</div>
@@ -500,6 +510,7 @@
             
             // Update the navigator
             const monthTitle = document.getElementById('month-title');
+Example
             const prevLink = document.getElementById('prev-month-link');
             const nextLink = document.getElementById('next-month-link');
 
