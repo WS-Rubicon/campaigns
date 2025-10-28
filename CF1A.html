@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carsfast - Car Financing</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: #f5f5f5;
+        }
+
+        .landing-page {
+            display: block;
+        }
+
+        .landing-page.hidden {
+            display: none;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 80px;
+            background: #f5f5f5;
+        }
+
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: #4a90e2;
+        }
+
+        .logo-sub {
+            font-size: 8px;
+            letter-spacing: 2px;
+            color: #999;
+            margin-top: -4px;
+        }
+
+        .apply-btn {
+            background: #4a90e2;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .apply-btn:hover {
+            background: #3b7bd1;
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            padding: 60px 80px;
+            background: #f5f5f5;
+            min-height: 550px;
+            position: relative;
+        }
+
+        .hero-left {
+            flex: 0 0 40%;
+            padding-right: 40px;
+        }
+
+        .hero-title {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.15;
+            color: #000;
+            margin-bottom: 20px;
+        }
+
+        .hero-title .blue {
+            color: #4a90e2;
+        }
+
+        .hero-text {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .no-signup {
+            background: #dfe9f3;
+            padding: 12px 18px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #333;
+            display: inline-block;
+        }
+
+        .hero-right {
+            flex: 1;
+            position: relative;
+            height: 450px;
+        }
+
+        .car-image {
+            width: 100%;
+            height: 100%;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .vehicle-selector {
+            background: #4a90e2;
+            color: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 380px;
+            z-index: 10;
+        }
+
+        .vehicle-selector h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .vehicle-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+
+        .vehicle-btn {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 18px 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .vehicle-btn:hover {
+            border-color: #4a90e2;
+            background: #f9f9f9;
+        }
+
+        .vehicle-icon {
+            font-size: 28px;
+            margin-bottom: 6px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .vehicle-btn span {
+            font-size: 12px;
+            font-weight: 600;
+            color: #333;
+            display: block;
+        }
+
+        .vehicle-stat {
+            font-size: 12px;
+            color: white;
+            line-height: 1.5;
+        }
+
+        .vehicle-stat .number {
+            font-weight: 700;
+            font-size: 13px;
+            color: #4a90e2;
+        }
+
+        .featured-section {
+            background: white;
+            padding: 50px 80px;
+            text-align: center;
+        }
+
+        .featured-label {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+
+        .featured-logos {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .featured-logos img {
+            height: 45px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .why-section {
+            background: white;
+            padding: 80px;
+            text-align: center;
+        }
+
+        .why-title {
+            font-size: 38px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #000;
+        }
+
+        .why-text {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.7;
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .form-page {
+            display: none;
+        }
+
+        .form-page.active {
+            display: block;
+        }
+
+        .form-header {
+            background: linear-gradient(to right, #4a90e2 0%, #5ba3f5 100%);
+            color: white;
+            padding: 80px 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .form-header img {
+            height: 60px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .form-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 100px 20px 40px 20px;
+            background: #f0f0f0;
+        }
+
+        .form-box {
+            background: white;
+            border-radius: 8px;
+            padding: 60px;
+            width: 100%;
+            max-width: 800px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .progress-bar {
+            margin-bottom: 30px;
+        }
+
+        .progress-label {
+            font-size: 13px;
+            color: #999;
+            margin-bottom: 10px;
+        }
+
+        .progress-fill {
+            width: 100%;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill-bar {
+            height: 100%;
+            background: #1abc9c;
+            transition: width 0.3s ease;
+        }
+
+        .form-box h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #000;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .radio-option:hover {
+            border-color: #4a90e2;
+            background: #f9f9f9;
+        }
+
+        .radio-option input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            margin-right: 15px;
+        }
+
+        .radio-option label {
+            cursor: pointer;
+            flex: 1;
+            color: #333;
+        }
+
+        select, input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        select:focus, input[type="text"]:focus {
+            outline: none;
+            border-color: #4a90e2;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            margin: 20px 0;
+        }
+
+        .slider-value {
+            text-align: center;
+            font-size: 32px;
+            font-weight: bold;
+            color: #333;
+            margin: 20px 0;
+        }
+
+        .slider-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #999;
+        }
+
+        .form-footer {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .security-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .security-badges {
+            height: 120px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .continue-btn {
+            width: 100%;
+            padding: 18px;
+            background: #4a90e2;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: background 0.3s;
+        }
+
+        .continue-btn:hover:not(:disabled) {
+            background: #3b7bd1;
+        }
+
+        .continue-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .footer-links {
+            text-align: center;
+            font-size: 11px;
+            color: #999;
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+
+        .footer-links a {
+            color: #4a90e2;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="landing-page" id="landingPage">
+        <header>
+            <div class="logo-container">
+                <div class="logo">carsfast</div>
+                <div class="logo-sub">LENDING ARCH</div>
+            </div>
+            <button class="apply-btn" onclick="startApplication()">Apply Now</button>
+        </header>
+
+        <section class="hero">
+            <div class="hero-left">
+                <h1 class="hero-title">Get Your Car Financing Approved in a Matter of <span class="blue">Minutes!</span></h1>
+                <p class="hero-text">Get approved today through the Carsfast network of Dealers across Canada. Our auto finance network specializes in assisting people with all types of credit including consumer proposals! Your job is your credit to get car loans in Canada.</p>
+                <div class="no-signup">No Sign-up or Log-in Required</div>
+            </div>
+
+            <div class="hero-right">
+                <div class="car-image" style="background-image: url('https://res.cloudinary.com/dndik3mpf/image/upload/v1761010206/bnr-car_lrhlil.png');"></div>
+                
+                <div class="vehicle-selector">
+                    <h3>Start by clicking on your preferred type of vehicle:</h3>
+                    <div class="vehicle-grid">
+                        <button class="vehicle-btn" onclick="startApplication()">
+                            <div class="vehicle-icon">🚗</div>
+                            <span>Car</span>
+                        </button>
+                        <button class="vehicle-btn" onclick="startApplication()">
+                            <div class="vehicle-icon">🚙</div>
+                            <span>Truck</span>
+                        </button>
+                        <button class="vehicle-btn" onclick="startApplication()">
+                            <div class="vehicle-icon">🚐</div>
+                            <span>Van</span>
+                        </button>
+                        <button class="vehicle-btn" onclick="startApplication()">
+                            <div class="vehicle-icon">🚙</div>
+                            <span>SUV</span>
+                        </button>
+                    </div>
+                    <div class="vehicle-stat"><span class="number">15,750</span> car buyers found the perfect car!</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="featured-section">
+            <div class="featured-label">As Featured In</div>
+            <div class="featured-logos">
+                <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1761010266/Screenshot_2025-10-20_182954_z96kt6.png" alt="Featured In" style="max-width: 100%; height: auto;">
+            </div>
+        </section>
+
+        <section class="why-section">
+            <h2 class="why-title">Why Choose Us For Your Auto Financing Needs?</h2>
+            <p class="why-text">Many Canadians are shut out of the traditional car lending market. Bad and limited credit histories should not stop ANYONE from getting reliable transportation.</p>
+        </section>
+    </div>
+
+    <div class="form-page" id="formPage">
+        <div class="form-header">
+            <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1761011044/logo2_bsr5wr.png" alt="Carsfast">
+        </div>
+
+        <div class="form-container">
+            <div class="form-box">
+                <div class="progress-bar">
+                    <div class="progress-label">Step <span id="stepNumber">1</span> of 10</div>
+                    <div class="progress-fill">
+                        <div class="progress-fill-bar" id="progressBar" style="width: 10%"></div>
+                    </div>
+                </div>
+
+                <div id="formContent"></div>
+
+                <div class="form-footer">
+                    <div class="security-info">
+                        <div>🔒 Safe, Secure, & Confidential</div>
+                        <div>✓ 15,750 car buyers found the perfect car!</div>
+                    </div>
+                    <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1761011051/Screenshot_2025-10-20_184340_ff5j30.png" alt="Security badges" class="security-badges">
+                    <button class="continue-btn" id="continueBtn" onclick="nextStep()">Continue →</button>
+                </div>
+
+                <div class="footer-links">
+                    <p>Copyright © 2025 Copyright notice: this website and its content are copyrighted by Consumer Genius Inc.</p>
+                    <div>
+                        <a href="#">PARTNER WITH US</a> | <a href="#">NEWS</a> | <a href="#">PRIVACY POLICY</a> | <a href="#">TERMS OF USE</a> | <a href="#">SUBJECT RIGHTS REQUESTS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentStep = 1;
+        const totalSteps = 10;
+
+        function startApplication() {
+            document.getElementById('landingPage').classList.add('hidden');
+            document.getElementById('formPage').classList.add('active');
+            renderStep(1);
+        }
+
+        function renderStep(step) {
+            currentStep = step;
+            document.getElementById('stepNumber').textContent = step;
+            document.getElementById('progressBar').style.width = (step / totalSteps * 100) + '%';
+
+            var content = document.getElementById('formContent');
+            var html = '';
+
+            if (step === 1) {
+                html = '<h2>What is your Monthly Budget?</h2><div class="form-group">' +
+                    '<div class="radio-option"><input type="radio" name="budget" value="1" id="b1"><label for="b1">$250-$375/month</label></div>' +
+                    '<div class="radio-option"><input type="radio" name="budget" value="2" id="b2"><label for="b2">$376-$500/month</label></div>' +
+                    '<div class="radio-option"><input type="radio" name="budget" value="3" id="b3"><label for="b3">$500+/month</label></div>' +
+                    '</div>';
+            } else if (step === 2) {
+                html = '<h2>Do you have an Existing Vehicle?</h2><div class="form-group">' +
+                    '<div class="radio-option"><input type="radio" name="vehicle" value="1" id="v1"><label for="v1">No</label></div>' +
+                    '<div class="radio-option"><input type="radio" name="vehicle" value="2" id="v2"><label for="v2">Yes, I want to trade</label></div>' +
+                    '<div class="radio-option"><input type="radio" name="vehicle" value="3" id="v3"><label for="v3">Yes, I am keeping it</label></div>' +
+                    '</div>';
+            } else if (step === 3) {
+                html = '<h2>Are you a Canadian citizen or permanent resident?</h2><div class="form-group">' +
+                    '<div class="radio-option"><input type="radio" name="canadian" value="1" id="c1"><label for="c1">Yes</label></div>' +
+                    '<div class="radio-option"><input type="radio" name="canadian" value="2" id="c2"><label for="c2">No</label></div>' +
+                    '</div>';
+            } else if (step === 4) {
+                html = '<h2>What is your Date of Birth?</h2><div class="form-group">' +
+                    '<select name="day" id="day"><option value="">Day</option>' +
+                    '<option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option>' +
+                    '<option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option>' +
+                    '<option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option>' +
+                    '<option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option>' +
+                    '<option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option>' +
+                    '<option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option>' +
+                    '<option value="31">31</option></select>' +
+                    '<select name="month" id="month"><option value="">Month</option>' +
+                    '<option value="1">January</option><option value="2">February</option><option value="3">March</option><option value="4">April</option>' +
+                    '<option value="5">May</option><option value="6">June</option><option value="7">July</option><option value="8">August</option>' +
+                    '<option value="9">September</option><option value="10">October</option><option value="11">November</option><option value="12">December</option></select>' +
+                    '<select name="year" id="year"><option value="">Year</option>';
+                for (var i = 0; i < 80; i++) {
+                    var year = new Date().getFullYear() - i;
+                    html += '<option value="' + year + '">' + year + '</option>';
+                }
+                html += '</select></div>';
+            } else if (step === 5) {
+                html = '<h2>What is your Employment Status?</h2><div class="form-group">' +
+                    '<div class="radio-option"><input type="radio" name="employment" value="1" id="e1"><label for="e1">Employed</label></div>' +
+                    '<div class="radio-option"><input type="radio" name="employment" value="2" id="e2"><label for="e2">Self Employed</label></div>' +
+                    '<div class="radio-option"><input type="radio" name="employment" value="3" id="e3"><label for="e3">Retired</label></div>' +
+                    '<div class="radio-option"><input type="radio" name="employment" value="4" id="e4"><label for="e4">Disability</label></div>' +
+                    '<div class="radio-option"><input type="radio" name="employment" value="5" id="e5"><label for="e5">Other</label></div>' +
+                    '<div class="radio-option"><input type="radio" name="employment" value="6" id="e6"><label for="e6">Unemployed</label></div>' +
+                    '</div>';
+            } else if (step === 6) {
+                html = '<h2>Where are you Working?</h2><div class="form-group">' +
+                    '<input type="text" placeholder="Company Name" id="company"></div>';
+            } else if (step === 7) {
+                html = '<h2>What is your current Monthly Gross Income?</h2><div class="form-group">' +
+                    '<div class="radio-option"><input type="radio" name="income" value="1" id="i1"><label for="i1">$1800 to $2200</label></div>' +
+                    '<div class="radio-option"><input type="radio" name="income" value="2" id="i2"><label for="i2">$2200 to $3000</label></div>' +
+                    '<div class="radio-option"><input type="radio" name="income" value="3" id="i3"><label for="i3">$3000 to $4500</label></div>' +
+                    '<div class="radio-option"><input type="radio" name="income" value="4" id="i4"><label for="i4">Over $4500</label></div>' +
+                    '<div class="radio-option"><input type="radio" name="income" value="5" id="i5"><label for="i5">Under $1800</label></div>' +
+                    '</div>';
+            } else if (step === 8) {
+                html = '<h2>How long have you been earning this income?</h2><div class="form-group">' +
+                    '<div class="radio-option"><input type="radio" name="incomeLength" value="1" id="il1"><label for="il1">3 - 6 Months</label></div>' +
+                    '<div class="radio-option"><input type="radio" name="incomeLength" value="2" id="il2"><label for="il2">6 - 12 Months</label></div>' +
+                    '<div class="radio-option"><input type="radio" name="incomeLength" value="3" id="il3"><label for="il3">12 Months - 2 Years</label></div>' +
+                    '<div class="radio-option"><input type="radio" name="incomeLength" value="4" id="il4"><label for="il4">2 Years +</label></div>' +
+                    '<div class="radio-option"><input type="radio" name="incomeLength" value="5" id="il5"><label for="il5">Less Than 3 Months</label></div>' +
+                    '</div>';
+            } else if (step === 9) {
+                html = '<h2>Do you Own or Rent your home?</h2><div class="form-group">' +
+                    '<div class="radio-option"><input type="radio" name="homeStatus" value="1" id="h1"><label for="h1">Own</label></div>' +
+                    '<div class="radio-option"><input type="radio" name="homeStatus" value="2" id="h2"><label for="h2">Rent</label></div>' +
+                    '<div class="radio-option"><input type="radio" name="homeStatus" value="3" id="h3"><label for="h3">Other</label></div>' +
+                    '</div>';
+            } else if (step === 10) {
+                html = '<h2>What Are Your Monthly (Rent Or Mortgage) Payments?</h2>' +
+                    '<div class="slider-value">$<span id="paymentValue">2500</span></div>' +
+                    '<input type="range" name="homePayment" id="homePayment" min="0" max="5000" step="50" value="2500" oninput="document.getElementById(\'paymentValue\').textContent = this.value">' +
+                    '<div class="slider-labels"><span>$0</span><span>$5,000</span></div>';
+            }
+
+            content.innerHTML = html;
+            updateButtonState();
+        }
+
+        function updateButtonState() {
+            var btn = document.getElementById('continueBtn');
+            var isValid = false;
+
+            if (currentStep === 1) {
+                isValid = document.querySelector('input[name="budget"]:checked') !== null;
+            } else if (currentStep === 2) {
+                isValid = document.querySelector('input[name="vehicle"]:checked') !== null;
+            } else if (currentStep === 3) {
+                isValid = document.querySelector('input[name="canadian"]:checked') !== null;
+            } else if (currentStep === 4) {
+                isValid = document.getElementById('day').value && document.getElementById('month').value && document.getElementById('year').value;
+            } else if (currentStep === 5) {
+                isValid = document.querySelector('input[name="employment"]:checked') !== null;
+            } else if (currentStep === 6) {
+                isValid = document.getElementById('company').value.length > 0;
+            } else if (currentStep === 7) {
+                isValid = document.querySelector('input[name="income"]:checked') !== null;
+            } else if (currentStep === 8) {
+                isValid = document.querySelector('input[name="incomeLength"]:checked') !== null;
+            } else if (currentStep === 9) {
+                isValid = document.querySelector('input[name="homeStatus"]:checked') !== null;
+            } else if (currentStep === 10) {
+                isValid = true;
+            }
+
+            btn.disabled = !isValid;
+        }
+
+        function nextStep() {
+            if (currentStep < totalSteps) {
+                renderStep(currentStep + 1);
+            } else {
+                window.location.href = 'https://clearpathbenefitstoday.com/cf2';
+            }
+        }
+
+        document.addEventListener('change', updateButtonState);
+        document.addEventListener('input', updateButtonState);
+    </script>
+</body>
+</html>
