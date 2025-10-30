@@ -3,19 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Club Wyndham Login</title>
+    <title>Club Wyndham Portal</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         /* Global Styles */
+        :root {
+            --brand-blue: #0033a0;
+            --brand-orange: #c94b23;
+            --brand-loan-color: #0068b3;
+            --status-green: #2e7d32; /* Green for success/canceled */
+        }
+        
         body {
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             margin: 0;
             color: #333;
-            /* Flex column layout to push footer to bottom */
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            /* Full-screen background image */
             background: url('https://res.cloudinary.com/dndik3mpf/image/upload/v1761861311/cw-homepage-banner-1990x810_tslkjf.avif') no-repeat center center;
             background-size: cover;
         }
@@ -23,132 +28,130 @@
         a {
             text-decoration: none;
             cursor: pointer;
+            color: var(--brand-loan-color);
         }
 
         /* Top Navigation Header */
         .top-nav {
-            background-color: #0033a0; /* UPDATED: Matched to logo background */
+            background-color: var(--brand-blue); /* Matched to logo background */
             padding: 10px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             width: 100%;
             box-sizing: border-box;
-            flex-shrink: 0; /* Prevents header from shrinking */
+            flex-shrink: 0; 
         }
 
-        .top-nav .nav-left {
-            display: flex;
-            align-items: center;
-        }
-
-        .top-nav .logo {
-            height: 35px; /* Adjusted height for the provided logo image */
-            margin-right: 30px;
-        }
-
-        .top-nav nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            gap: 20px;
-        }
-
-        .top-nav nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: bold;
-        }
-        
-        /* Style for the right-side utility links */
-        .top-nav .utility-navigation a {
-            font-weight: normal;
-            font-size: 13px;
-        }
-
-        .top-nav .utility-navigation i {
-            margin-right: 5px;
-        }
+        .top-nav .nav-left { display: flex; align-items: center; }
+        .top-nav .logo { height: 35px; margin-right: 30px; }
+        .top-nav nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 20px; }
+        .top-nav nav a { color: white; text-decoration: none; font-size: 14px; font-weight: bold; }
+        .top-nav .utility-navigation a { font-weight: normal; font-size: 13px; }
+        .top-nav .utility-navigation i { margin-right: 5px; }
 
         /* Main Content Area */
         .page-view {
-            flex-grow: 1; /* Takes up all available space between header and footer */
+            flex-grow: 1;
             display: flex;
-            align-items: center; /* Vertically centers the login box */
-            padding: 40px; /* Provides side padding */
+            justify-content: center; /* Center the portal box */
+            align-items: center; /* Vertically center */
+            padding: 40px;
             box-sizing: border-box;
         }
         
-        /* Login Box Styles */
-        .login-section {
+        /* Portal Box Styles */
+        .portal-section {
             background-color: white;
             padding: 24px 30px;
             border-radius: 4px;
-            width: 350px;
+            width: 100%;
+            max-width: 600px; /* Can be narrower now */
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
-        .login-section .form-intro {
-            font-size: 11px;
-            color: #555;
-            text-transform: uppercase;
-            margin: 0 0 5px 0;
-            font-weight: bold;
-        }
-
-        .login-section h3 {
+        .portal-section h3 {
             font-size: 24px;
-            margin: 0 0 20px 0;
+            margin: 0 0 5px 0;
             color: #333;
-            font-weight: 500; /* Lighter than bold */
+            font-weight: 500;
         }
 
-        /* Form Input Fields */
-        .login-section form input[type="text"],
-        .login-section form input[type="password"] {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            font-size: 16px;
-        }
-        
-        /* Form Login Button */
-        .login-section .btn-login {
-            background-color: #c94b23; /* Orange/red from screenshot */
-            color: white;
-            border: none;
-            width: 100%;
-            padding: 12px;
-            border-radius: 4px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        
-        /* "Get help" link */
-        .login-section .help-link {
-            display: block;
-            text-align: center;
-            margin-top: 20px;
+        .portal-section .welcome-text {
             font-size: 14px;
-            color: #0068b3; /* Standard link blue */
+            color: #555;
+            margin-bottom: 20px;
         }
 
-        .login-section .help-link:hover {
-            text-decoration: underline;
+        hr {
+            border: 0;
+            border-top: 1px solid #e0e0e0;
+            margin: 20px 0;
+        }
+        
+        /* NEW: Canceled Status Box */
+        .status-box {
+            padding: 20px;
+            border-radius: 4px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .status-box.canceled {
+            background-color: #f0f9f0; /* Light green */
+            border: 1px solid var(--status-green);
+        }
+        
+        .status-box .status-title {
+            font-size: 22px;
+            font-weight: bold;
+            color: var(--status-green);
+            margin: 0;
+        }
+
+        /* Account Summary Section */
+        .account-summary {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px 30px;
+        }
+        
+        .summary-item {
+            font-size: 14px;
+        }
+        
+        .summary-item .label {
+            font-weight: bold;
+            color: #333;
+            display: block;
+            margin-bottom: 3px;
+        }
+        
+        .summary-item .value {
+            font-size: 16px;
+            color: #000;
+        }
+        
+        /* NEW: Canceled status value styling */
+        .summary-item .status-value.canceled {
+            color: var(--status-green);
+            font-weight: bold;
+        }
+        
+        /* NEW: Final confirmation message */
+        .final-message {
+            font-size: 14px;
+            color: #444;
+            text-align: center;
+            margin-top: 25px;
         }
 
         /* Bottom Footer Bar */
         .bottom-bar {
-            background-color: #0033a0; /* UPDATED: Same dark blue as header */
+            background-color: var(--brand-blue);
             height: 40px;
             width: 100%;
-            flex-shrink: 0; /* Prevents footer from shrinking */
+            flex-shrink: 0;
         }
     </style>
 </head>
@@ -171,27 +174,48 @@
             <ul>
                 <li><a href="#"><i class="fa-solid fa-magnifying-glass"></i> Search</a></li>
                 <li><a href="#">Register</a></li>
-                <li><a href="#">Sign In</a></li>
+                <li><a href="#">Sign Out</a></li>
             </ul>
         </nav>
     </header>
 
-    <main id="loginPage" class="page-view">
+    <main id="dashboardPage" class="page-view">
         
-        <div class="login-section">
-            <p class="form-intro">Sign into your account</p>
-            <h3>Let's get you on vacation</h3>
-            
-            <form onsubmit="return false;">
-                <input type="text" id="username" value="MGilberg@gmail.com">
-                <input type="password" id="password" value="************">
-                
-                <button type="submit" class="btn btn-login">Login</button>
-            </form>
-            
-            <a href="#" class="help-link">Get help signing in</a>
-        </div>
+        <div class="portal-section">
+            <h3>Owner Account Portal</h3>
+            <p class="welcome-text">Welcome, <strong>mgilberg@gmail.com</strong></p>
 
+            <div class="status-box canceled">
+                <h4 class="status-title">Account Canceled</h4>
+            </div>
+
+            <div class="account-summary">
+                <div class="summary-item">
+                    <span class="label">Account Status</span>
+                    <span class="value status-value canceled">CANCELED</span>
+                </div>
+                <div class="summary-item">
+                    <span class="label">Loan Status</span>
+                    <span class="value">Terminated</span>
+                </div>
+                <div class="summary-item">
+                    <span class="label">Next Payment Due</span>
+                    <span class="value">$0.00</span>
+                </div>
+                <div class="summary-item">
+                    <span class="label">Current Monthly Dues</span>
+                    <span class="value">$0.00</span>
+                </div>
+            </div>
+            
+            <hr>
+
+            <p class="final-message">
+                Your account has been successfully canceled as of 10/30/2025.
+                <br>You have no further payment obligations.
+            </p>
+
+        </div>
     </main>
 
     <footer class="bottom-bar"></footer>
