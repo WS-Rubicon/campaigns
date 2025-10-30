@@ -183,6 +183,15 @@
             margin: 30px 0 15px 0;
             border-bottom: 1px solid var(--border-gray);
             padding-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        #return-to-current {
+            font-size: 13px;
+            font-weight: bold;
+            display: none; /* Hidden by default */
         }
 
         .account-summary-grid {
@@ -205,6 +214,9 @@
         .summary-item .value.apr {
             color: var(--login-orange);
         }
+        .summary-item .value.owing {
+            color: var(--login-orange);
+        }
 
         .activity-controls {
             display: flex;
@@ -218,7 +230,6 @@
             border-radius: 4px;
         }
         
-        /* This is the parent div for each table */
         .activity-table-container {
             display: none; /* All are hidden by default */
         }
@@ -276,6 +287,10 @@
             font-size: 36px;
             font-weight: bold;
         }
+        .balance-box .amount.owing {
+             color: #ffc; /* Yellowish to show warning */
+        }
+
         .due-details {
             margin-top: 15px;
             font-size: 14px;
@@ -289,16 +304,23 @@
             font-weight: bold;
         }
         .btn-make-payment {
-            background-color: #555;
-            color: #aaa;
             border: none;
             width: 100%;
             padding: 12px;
             border-radius: 4px;
             font-size: 16px;
             font-weight: bold;
-            cursor: not-allowed;
             margin-top: 20px;
+        }
+        .btn-make-payment.disabled {
+            background-color: #555;
+            color: #aaa;
+            cursor: not-allowed;
+        }
+        .btn-make-payment.active {
+            background-color: #4caf50; /* Green 'go' button */
+            color: white;
+            cursor: pointer;
         }
 
     </style>
@@ -382,11 +404,13 @@
                 <div class="account-summary-grid">
                     <div class="summary-item">
                         <div class="label">Current Balance</div>
-                        <div class="value canceled">$0.00</div>
+                        <div id="balance-summary-current" class="value canceled">$0.00</div>
+                        <div id="balance-summary-sep" class="value owing" style="display:none;">$22,394.06</div>
                     </div>
                     <div class="summary-item">
                         <div class="label">Last Payment</div>
-                        <div class="value">$0.00 (Account Canceled)</div>
+                        <div id="last-payment-current" class="value">$0.00 (Account Canceled)</div>
+                        <div id="last-payment-sep" class="value" style="display:none;">$634.00 (on Aug 15, 2025)</div>
                     </div>
                     <div class="summary-item">
                         <div class="label">Original Loan Amount</div>
@@ -394,7 +418,8 @@
                     </div>
                     <div class="summary-item">
                         <div class="label">Next Payment Due</div>
-                        <div class="value">--</div>
+                        <div id="next-payment-current" class="value">--</div>
+                        <div id="next-payment-sep" class="value" style="display:none;">Sep 15, 2025</div>
                     </div>
                     <div class="summary-item">
                         <div class="label">Interest Rate (APR)</div>
@@ -406,7 +431,10 @@
                     </div>
                 </div>
 
-                <h3>Your Recent Activity</h3>
+                <h3>
+                    Your Recent Activity
+                    <a href="#" id="return-to-current" onclick="showSnapshot('current'); return false;">&laquo; Return to Current Month (Oct 30)</a>
+                </h3>
                 <div class="activity-controls">
                     <select id="year-select" onchange="showActivity()">
                         <option value="">Select Year...</option>
@@ -426,13 +454,13 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="canceled-row">
+                            <tr id="canceled-row" class="canceled-row">
                                 <td>Oct 30, 2025</td>
                                 <td>Account Canceled & Finalized</td>
                                 <td class="number">$0.00</td><td class="number">$0.00</td>
                                 <td class="number">$0.00</td><td class="number">$0.00</td>
                             </tr>
-                            <tr><td>Sep 15, 2025</td><td>Monthly Payment</td><td class="number">$112.50</td><td class="number">$357.50</td><td class="number">$164.00</td><td class="number">$634.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('september'); return false;">Sep 15, 2025</a></td><td>Monthly Payment</td><td class="number">$112.50</td><td class="number">$357.50</td><td class="number">$164.00</td><td class="number">$634.00</td></tr>
                             <tr><td>Aug 15, 2025</td><td>Monthly Payment</td><td class="number">$110.80</td><td class="number">$359.20</td><td class="number">$164.00</td><td class="number">$634.00</td></tr>
                             <tr><td>Jul 15, 2025</td><td>Monthly Payment</td><td class="number">$109.12</td><td class="number">$360.88</td><td class="number">$164.00</td><td class="number">$634.00</td></tr>
                             <tr><td>Jun 15, 2025</td><td>Monthly Payment</td><td class="number">$107.45</td><td class="number">$362.55</td><td class="number">$164.00</td><td class="number">$634.00</td></tr>
@@ -506,23 +534,27 @@
             <aside class="right-sidebar">
                 <div class="balance-box">
                     <div class="label">Current Balance:</div>
-                    <div class="amount">$0.00</div>
+                    <div id="balance-sidebar-current" class="amount">$0.00</div>
+                    <div id="balance-sidebar-sep" class="amount owing" style="display:none;">$22,394.06</div>
                 </div>
                 <div class="due-details">
                     <div class="detail-row">
                         <span>Due Date:</span>
-                        <span class="value">--</span>
+                        <span id="due-date-current" class="value">--</span>
+                        <span id="due-date-sep" class="value" style="display:none;">Sep 15, 2025</span>
                     </div>
                     <div class="detail-row">
                         <span>Minimum Due:</span>
-                        <span class="value">$0.00</span>
+                        <span id="min-due-current" class="value">$0.00</span>
+                        <span id="min-due-sep" class="value" style="display:none;">$634.00</span>
                     </div>
                      <div class="detail-row">
                         <span>Past Due Amount:</span>
                         <span class="value">$0.00</span>
                     </div>
                 </div>
-                <button class="btn-make-payment" disabled>MAKE PAYMENT</button>
+                <button id="btn-payment-current" class="btn-make-payment disabled" disabled>MAKE PAYMENT</button>
+                <button id="btn-payment-sep" class="btn-make-payment active" style="display:none;">MAKE PAYMENT</button>
             </aside>
             
         </div>
@@ -534,24 +566,57 @@
                 page.style.display = 'none';
             });
             document.getElementById(pageId).style.display = 'flex';
+            
+            // If we are returning to login, reset the dashboard state
+            if (pageId === 'loginPage') {
+                showSnapshot('current'); // Reset to default $0 state
+                document.getElementById('year-select').value = ''; // Reset dropdown
+                showActivity(); // Hide all tables
+            }
         }
 
         function showActivity() {
             var selectedYear = document.getElementById('year-select').value;
-            
-            // Hide all activity table containers and the placeholder
             document.querySelectorAll('.activity-table-container').forEach(container => {
                 container.style.display = 'none';
             });
             document.getElementById('no-activity-selected').style.display = 'none';
 
             if (selectedYear) {
-                // Show the selected year's table container
                 document.getElementById('activity-' + selectedYear).style.display = 'block';
             } else {
-                // Show the placeholder if "Select Year" is chosen
                 document.getElementById('no-activity-selected').style.display = 'block';
             }
+        }
+        
+        /**
+         * Toggles the dashboard between the 'current' (Oct 30) canceled state
+         * and the 'september' (Sep 15) owing state.
+         */
+        function showSnapshot(state) {
+            var isSeptember = (state === 'september');
+            
+            // Toggle all elements based on the state
+            document.getElementById('return-to-current').style.display = isSeptember ? 'block' : 'none';
+            document.getElementById('canceled-row').style.display = isSeptember ? 'none' : 'table-row';
+
+            // Sidebar toggles
+            document.getElementById('balance-sidebar-current').style.display = isSeptember ? 'none' : 'block';
+            document.getElementById('balance-sidebar-sep').style.display = isSeptember ? 'block' : 'none';
+            document.getElementById('due-date-current').style.display = isSeptember ? 'none' : 'inline';
+            document.getElementById('due-date-sep').style.display = isSeptember ? 'inline' : 'none';
+            document.getElementById('min-due-current').style.display = isSeptember ? 'none' : 'inline';
+            document.getElementById('min-due-sep').style.display = isSeptember ? 'inline' : 'none';
+            document.getElementById('btn-payment-current').style.display = isSeptember ? 'none' : 'block';
+            document.getElementById('btn-payment-sep').style.display = isSeptember ? 'block' : 'none';
+
+            // Main Content Toggles
+            document.getElementById('balance-summary-current').style.display = isSeptember ? 'none' : 'block';
+            document.getElementById('balance-summary-sep').style.display = isSeptember ? 'block' : 'none';
+            document.getElementById('last-payment-current').style.display = isSeptember ? 'none' : 'block';
+            document.getElementById('last-payment-sep').style.display = isSeptember ? 'block' : 'none';
+            document.getElementById('next-payment-current').style.display = isSeptember ? 'none' : 'block';
+            document.getElementById('next-payment-sep').style.display = isSeptember ? 'block' : 'none';
         }
         
         // Ensure the login page is the only one visible on load
