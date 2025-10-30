@@ -23,6 +23,7 @@
             min-height: 100vh;
             background: url('https://res.cloudinary.com/dndik3mpf/image/upload/v1761861311/cw-homepage-banner-1990x810_tslkjf.avif') no-repeat center center;
             background-size: cover;
+            background-attachment: fixed; /* Keeps background still */
         }
 
         a {
@@ -54,92 +55,141 @@
         .page-view {
             flex-grow: 1;
             display: flex;
-            justify-content: center; /* Center the portal box */
-            align-items: center; /* Vertically center */
+            align-items: center; /* Vertically centers the box */
             padding: 40px;
             box-sizing: border-box;
         }
+
+        /* By default, center the portal box. Login page will override this. */
+        #dashboardPage {
+            justify-content: center;
+        }
         
-        /* Portal Box Styles */
-        .portal-section {
+        /* === LOGIN PAGE STYLES === */
+        #loginPage .login-section {
+            background-color: white;
+            padding: 24px 30px;
+            border-radius: 4px;
+            width: 350px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        #loginPage .form-intro {
+            font-size: 11px;
+            color: #555;
+            text-transform: uppercase;
+            margin: 0 0 5px 0;
+            font-weight: bold;
+        }
+
+        #loginPage h3 {
+            font-size: 24px;
+            margin: 0 0 20px 0;
+            color: #333;
+            font-weight: 500;
+        }
+
+        #loginPage form input[type="text"],
+        #loginPage form input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        
+        #loginPage .btn-login {
+            background-color: var(--brand-orange);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 12px;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        #loginPage .help-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        /* === CANCELED PORTAL STYLES === */
+        #dashboardPage .portal-section {
             background-color: white;
             padding: 24px 30px;
             border-radius: 4px;
             width: 100%;
-            max-width: 600px; /* Can be narrower now */
+            max-width: 600px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
-        .portal-section h3 {
+        #dashboardPage h3 {
             font-size: 24px;
             margin: 0 0 5px 0;
             color: #333;
             font-weight: 500;
         }
 
-        .portal-section .welcome-text {
+        #dashboardPage .welcome-text {
             font-size: 14px;
             color: #555;
             margin-bottom: 20px;
         }
 
-        hr {
+        #dashboardPage hr {
             border: 0;
             border-top: 1px solid #e0e0e0;
             margin: 20px 0;
         }
         
-        /* NEW: Canceled Status Box */
-        .status-box {
+        #dashboardPage .status-box {
             padding: 20px;
             border-radius: 4px;
             text-align: center;
             margin-bottom: 20px;
         }
         
-        .status-box.canceled {
+        #dashboardPage .status-box.canceled {
             background-color: #f0f9f0; /* Light green */
             border: 1px solid var(--status-green);
         }
         
-        .status-box .status-title {
+        #dashboardPage .status-title {
             font-size: 22px;
             font-weight: bold;
             color: var(--status-green);
             margin: 0;
         }
 
-        /* Account Summary Section */
-        .account-summary {
+        #dashboardPage .account-summary {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 15px 30px;
         }
         
-        .summary-item {
-            font-size: 14px;
-        }
+        #dashboardPage .summary-item { font-size: 14px; }
         
-        .summary-item .label {
+        #dashboardPage .summary-item .label {
             font-weight: bold;
             color: #333;
             display: block;
             margin-bottom: 3px;
         }
         
-        .summary-item .value {
-            font-size: 16px;
-            color: #000;
-        }
+        #dashboardPage .summary-item .value { font-size: 16px; color: #000; }
         
-        /* NEW: Canceled status value styling */
-        .summary-item .status-value.canceled {
+        #dashboardPage .summary-item .status-value.canceled {
             color: var(--status-green);
             font-weight: bold;
         }
         
-        /* NEW: Final confirmation message */
-        .final-message {
+        #dashboardPage .final-message {
             font-size: 14px;
             color: #444;
             text-align: center;
@@ -174,13 +224,29 @@
             <ul>
                 <li><a href="#"><i class="fa-solid fa-magnifying-glass"></i> Search</a></li>
                 <li><a href="#">Register</a></li>
-                <li><a href="#">Sign Out</a></li>
+                <li id="nav-login-link"><a href="#">Sign In</a></li>
+                <li id="nav-logout-link" style="display:none;"><a href="#">Sign Out</a></li>
             </ul>
         </nav>
     </header>
 
-    <main id="dashboardPage" class="page-view">
-        
+    <main id="loginPage" class="page-view">
+        <div class="login-section">
+            <p class="form-intro">Sign into your account</p>
+            <h3>Let's get you on vacation</h3>
+            
+            <form onsubmit="showPage('dashboardPage'); return false;">
+                <input type="text" id="username" value="mgilberg@gmail.com">
+                <input type="password" id="password" value="************">
+                
+                <button type="submit" class="btn btn-login">Login</button>
+            </form>
+            
+            <a href="#" class="help-link">Get help signing in</a>
+        </div>
+    </main>
+
+    <main id="dashboardPage" class="page-view" style="display:none;">
         <div class="portal-section">
             <h3>Owner Account Portal</h3>
             <p class="welcome-text">Welcome, <strong>mgilberg@gmail.com</strong></p>
@@ -214,11 +280,32 @@
                 Your account has been successfully canceled as of 10/30/2025.
                 <br>You have no further payment obligations.
             </p>
-
         </div>
     </main>
 
     <footer class="bottom-bar"></footer>
+
+    <script>
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page-view').forEach(page => page.style.display = 'none');
+            
+            // Show the target page
+            document.getElementById(pageId).style.display = 'flex'; // Use 'flex' to match main style
+            
+            // Toggle the Sign In / Sign Out links in the header
+            var loginLink = document.getElementById('nav-login-link');
+            var logoutLink = document.getElementById('nav-logout-link');
+            
+            if (pageId === 'dashboardPage') {
+                loginLink.style.display = 'none';
+                logoutLink.style.display = 'inline'; // 'inline' is default for <li>
+            } else {
+                loginLink.style.display = 'inline';
+                logoutLink.style.display = 'none';
+            }
+        }
+    </script>
 
 </body>
 </html>
