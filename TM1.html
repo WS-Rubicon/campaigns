@@ -12,6 +12,9 @@
             --brand-orange: #c94b23;
             --brand-loan-color: #0068b3;
             --status-green: #2e7d32; /* Green for success/canceled */
+            --light-green-bg: #f0f9f0;
+            --light-gray-bg: #f9f9f9;
+            --border-gray: #e0e0e0;
         }
         
         body {
@@ -34,7 +37,7 @@
 
         /* Top Navigation Header */
         .top-nav {
-            background-color: var(--brand-blue); /* Matched to logo background */
+            background-color: var(--brand-blue);
             padding: 10px 40px;
             display: flex;
             justify-content: space-between;
@@ -55,12 +58,12 @@
         .page-view {
             flex-grow: 1;
             display: flex;
-            align-items: center; /* Vertically centers the box */
+            align-items: center;
             padding: 40px;
             box-sizing: border-box;
         }
 
-        /* By default, center the portal box. Login page will override this. */
+        /* Center the dashboard box */
         #dashboardPage {
             justify-content: center;
         }
@@ -119,13 +122,13 @@
             font-size: 14px;
         }
 
-        /* === CANCELED PORTAL STYLES === */
+        /* === DASHBOARD PORTAL STYLES === */
         #dashboardPage .portal-section {
             background-color: white;
             padding: 24px 30px;
             border-radius: 4px;
             width: 100%;
-            max-width: 600px;
+            max-width: 850px; /* Wider for table */
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
@@ -134,6 +137,11 @@
             margin: 0 0 5px 0;
             color: #333;
             font-weight: 500;
+        }
+        
+        #dashboardPage h4 {
+            font-size: 18px;
+            margin: 0 0 15px 0;
         }
 
         #dashboardPage .welcome-text {
@@ -144,19 +152,20 @@
 
         #dashboardPage hr {
             border: 0;
-            border-top: 1px solid #e0e0e0;
-            margin: 20px 0;
+            border-top: 1px solid var(--border-gray);
+            margin: 25px 0;
         }
         
+        /* Canceled Status Box */
         #dashboardPage .status-box {
-            padding: 20px;
+            padding: 15px 20px;
             border-radius: 4px;
             text-align: center;
             margin-bottom: 20px;
         }
         
         #dashboardPage .status-box.canceled {
-            background-color: #f0f9f0; /* Light green */
+            background-color: var(--light-green-bg);
             border: 1px solid var(--status-green);
         }
         
@@ -166,10 +175,16 @@
             color: var(--status-green);
             margin: 0;
         }
+        
+        #dashboardPage .status-box p {
+            margin: 5px 0 0 0; 
+            color: var(--status-green);
+        }
 
+        /* Account Summary Grid */
         #dashboardPage .account-summary {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 15px 30px;
         }
         
@@ -184,16 +199,46 @@
         
         #dashboardPage .summary-item .value { font-size: 16px; color: #000; }
         
-        #dashboardPage .summary-item .status-value.canceled {
+        #dashboardPage .summary-item .value.current-status {
             color: var(--status-green);
             font-weight: bold;
         }
         
-        #dashboardPage .final-message {
+        #dashboardPage .summary-item .value.apr {
+            color: var(--brand-orange);
+            font-weight: bold;
+        }
+
+        /* Payment History Table */
+        .payment-table {
+            width: 100%;
+            border-collapse: collapse;
             font-size: 14px;
-            color: #444;
-            text-align: center;
-            margin-top: 25px;
+        }
+        
+        .payment-table th, .payment-table td {
+            padding: 12px 10px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-gray);
+        }
+        
+        .payment-table th {
+            background-color: var(--light-gray-bg);
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #555;
+        }
+        
+        .payment-table .number {
+            text-align: right;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        
+        /* Highlight row for canceled status */
+        .payment-table tr.canceled-row {
+            background-color: var(--light-green-bg);
+            font-weight: bold;
+            color: var(--status-green);
         }
 
         /* Bottom Footer Bar */
@@ -238,7 +283,6 @@
             <form onsubmit="showPage('dashboardPage'); return false;">
                 <input type="text" id="username" value="mgilberg@gmail.com">
                 <input type="password" id="password" value="************">
-                
                 <button type="submit" class="btn btn-login">Login</button>
             </form>
             
@@ -253,33 +297,117 @@
 
             <div class="status-box canceled">
                 <h4 class="status-title">Account Canceled</h4>
+                <p>Your account was successfully finalized on 10/30/2025.</p>
             </div>
 
             <div class="account-summary">
                 <div class="summary-item">
-                    <span class="label">Account Status</span>
-                    <span class="value status-value canceled">CANCELED</span>
+                    <span class="label">Current Monthly Payment</span>
+                    <span class="value current-status">$0.00</span>
                 </div>
                 <div class="summary-item">
-                    <span class="label">Loan Status</span>
-                    <span class="value">Terminated</span>
+                    <span class="label">Remaining Loan Balance</span>
+                    <span class="value current-status">$0.00</span>
                 </div>
                 <div class="summary-item">
-                    <span class="label">Next Payment Due</span>
-                    <span class="value">$0.00</span>
+                    <span class="label">Original Purchase Price</span>
+                    <span class="value">$28,000.00</span>
                 </div>
                 <div class="summary-item">
-                    <span class="label">Current Monthly Dues</span>
-                    <span class="value">$0.00</span>
+                    <span class="label">Original Amount Financed</span>
+                    <span class="value">$25,200.00</span>
+                </div>
+                <div class="summary-item">
+                    <span class="label">Interest Rate (APR)</span>
+                    <span class="value apr">18.99%</span>
+                </div>
+                <div class="summary-item">
+                    <span class="label">Original Loan Term</span>
+                    <span class="value">120 Months</span>
                 </div>
             </div>
             
             <hr>
 
-            <p class="final-message">
-                Your account has been successfully canceled as of 10/30/2025.
-                <br>You have no further payment obligations.
-            </p>
+            <h4>Payment History (2023-2025)</h4>
+            <table class="payment-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th class="number">Loan Principal</th>
+                        <th class="number">Interest Paid</th>
+                        <th class="number">Maint. Dues</th>
+                        <th class="number">Total Payment</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="canceled-row">
+                        <td>Oct 30, 2025</td>
+                        <td>Account Canceled & Finalized</td>
+                        <td class="number">$0.00</td>
+                        <td class="number">$0.00</td>
+                        <td class="number">$0.00</td>
+                        <td class="number">$0.00</td>
+                    </tr>
+                    <tr>
+                        <td>Sep 15, 2025</td>
+                        <td>Monthly Payment</td>
+                        <td class="number">$112.50</td>
+                        <td class="number">$357.50</td>
+                        <td class="number">$164.00</td>
+                        <td class="number">$634.00</td>
+                    </tr>
+                    <tr>
+                        <td>Aug 15, 2025</td>
+                        <td>Monthly Payment</td>
+                        <td class="number">$110.80</td>
+                        <td class="number">$359.20</td>
+                        <td class="number">$164.00</td>
+                        <td class="number">$634.00</td>
+                    </tr>
+                    <tr>
+                        <td>Jul 15, 2025</td>
+                        <td>Monthly Payment</td>
+                        <td class="number">$109.12</td>
+                        <td class="number">$360.88</td>
+                        <td class="number">$164.00</td>
+                        <td class="number">$634.00</td>
+                    </tr>
+                    <tr>
+                        <td>Jun 15, 2024</td>
+                        <td>Monthly Payment</td>
+                        <td class="number">$95.20</td>
+                        <td class="number">$374.80</td>
+                        <td class="number">$153.00</td>
+                        <td class="number">$623.00</td>
+                    </tr>
+                    <tr>
+                        <td>May 15, 2024</td>
+                        <td>Monthly Payment</td>
+                        <td class="number">$93.70</td>
+                        <td class="number">$376.30</td>
+                        <td class="number">$153.00</td>
+                        <td class="number">$623.00</td>
+                    </tr>
+                     <tr>
+                        <td>Apr 15, 2023</td>
+                        <td>Monthly Payment</td>
+                        <td class="number">$81.45</td>
+                        <td class="number">$388.55</td>
+                        <td class="number">$143.00</td>
+                        <td class="number">$613.00</td>
+                    </tr>
+                    <tr>
+                        <td>Mar 15, 2023</td>
+                        <td>Monthly Payment</td>
+                        <td class="number">$80.18</td>
+                        <td class="number">$389.82</td>
+                        <td class="number">$143.00</td>
+                        <td class="number">$613.00</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </main>
 
