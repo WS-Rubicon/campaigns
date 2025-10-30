@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Wyndham Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            color: #333;
+            /* Flex column layout to push footer to bottom */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            /* Full-screen background image */
+            background: url('https://res.cloudinary.com/dndik3mpf/image/upload/v1761861311/cw-homepage-banner-1990x810_tslkjf.avif') no-repeat center center;
+            background-size: cover;
+        }
+
+        a {
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Top Navigation Header */
+        .top-nav {
+            background-color: #00326f; /* Dark blue from screenshot */
+            padding: 10px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            box-sizing: border-box;
+            flex-shrink: 0; /* Prevents header from shrinking */
+        }
+
+        .top-nav .nav-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .top-nav .logo {
+            height: 35px; /* Adjusted height for the provided logo image */
+            margin-right: 30px;
+        }
+
+        .top-nav nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .top-nav nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        /* Style for the right-side utility links */
+        .top-nav .utility-navigation a {
+            font-weight: normal;
+            font-size: 13px;
+        }
+
+        .top-nav .utility-navigation i {
+            margin-right: 5px;
+        }
+
+        /* Main Content Area */
+        .page-view {
+            flex-grow: 1; /* Takes up all available space between header and footer */
+            display: flex;
+            align-items: center; /* Vertically centers the login box */
+            padding: 40px; /* Provides side padding */
+            box-sizing: border-box;
+        }
+        
+        /* Login Box Styles */
+        .login-section {
+            background-color: white;
+            padding: 24px 30px;
+            border-radius: 4px;
+            width: 350px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-section .form-intro {
+            font-size: 11px;
+            color: #555;
+            text-transform: uppercase;
+            margin: 0 0 5px 0;
+            font-weight: bold;
+        }
+
+        .login-section h3 {
+            font-size: 24px;
+            margin: 0 0 20px 0;
+            color: #333;
+            font-weight: 500; /* Lighter than bold */
+        }
+
+        /* Form Input Fields */
+        .login-section form input[type="text"],
+        .login-section form input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        
+        /* Form Login Button */
+        .login-section .btn-login {
+            background-color: #c94b23; /* Orange/red from screenshot */
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 12px;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        /* "Get help" link */
+        .login-section .help-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #0068b3; /* Standard link blue */
+        }
+
+        .login-section .help-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Bottom Footer Bar */
+        .bottom-bar {
+            background-color: #00326f; /* Same dark blue as header */
+            height: 40px;
+            width: 100%;
+            flex-shrink: 0; /* Prevents footer from shrinking */
+        }
+    </style>
+</head>
+<body>
+
+    <header class="top-nav">
+        <div class="nav-left">
+            <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1761861231/Screenshot_2025-10-30_at_2.50.13_PM_jvzdrg.png" alt="Club Wyndham Logo" class="logo">
+            <nav class="main-navigation">
+                <ul>
+                    <li><a href="#">Club Benefits</a></li>
+                    <li><a href="#">Resorts</a></li>
+                    <li><a href="#">Owner Guide</a></li>
+                    <li><a href="#">Deals & Offers</a></li>
+                    <li><a href="#">Help</a></li>
+                </ul>
+            </nav>
+        </div>
+        <nav class="utility-navigation">
+            <ul>
+                <li><a href="#"><i class="fa-solid fa-magnifying-glass"></i> Search</a></li>
+                <li><a href="#">Register</a></li>
+                <li><a href="#">Sign In</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="loginPage" class="page-view">
+        
+        <div class="login-section">
+            <p class="form-intro">Sign into your account</p>
+            <h3>Let's get you on vacation</h3>
+            
+            <form onsubmit="return false;">
+                <input type="text" id="username" placeholder="Username*">
+                <input type="password" id="password" placeholder="Password*">
+                
+                <button type="submit" class="btn btn-login">Login</button>
+            </form>
+            
+            <a href="#" class="help-link">Get help signing in</a>
+        </div>
+
+    </main>
+
+    <footer class="bottom-bar"></footer>
+
+</body>
+</html>
