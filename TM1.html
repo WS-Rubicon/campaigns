@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wyndham Owner Portal</title>
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         /* === GLOBAL STYLES === */
@@ -328,7 +327,6 @@
 </head>
 <body>
 
-    <!-- === PAGE 1: LOGIN PAGE (WYNDHAM THEME) === -->
     <div id="loginPage" class="page-view">
         <header class="top-nav">
             <div class="nav-left">
@@ -357,7 +355,7 @@
                 <p class="form-intro">Sign into your account</p>
                 <h3>Let's get you on vacation</h3>
                 <form onsubmit="showPage('dashboardPage'); return false;">
-                    <input type="text" id="username" value="mgilberg@gmail.com">
+                    <input type="text" id="username" value="sgilberg@gmail.com">
                     <input type="password" id="password" value="************">
                     <button type="submit" class="btn-login">Login</button>
                 </form>
@@ -369,7 +367,6 @@
     </div>
 
 
-    <!-- === PAGE 2: DASHBOARD PAGE (BARCLAYS THEME) === -->
     <div id="dashboardPage" class="page-view">
         
         <header class="portal-header">
@@ -379,7 +376,7 @@
                 <i class="fa-solid fa-house"></i>
             </div>
             <div class="header-right">
-                <span><strong>Mark Gilberg</strong></span> | 
+                <span><strong>Stephen Gilberg</strong></span> | 
                 <a href="#">Account Settings</a> | 
                 <a href="#">Owner Account</a>
             </div>
@@ -387,7 +384,6 @@
 
         <div class="main-layout">
             
-            <!-- Left Sidebar -->
             <nav class="left-sidebar">
                 <ul class="nav-menu">
                     <li class="active"><a href="#"><i class="fa-solid fa-chart-pie"></i> DASHBOARD</a></li>
@@ -399,7 +395,6 @@
                 </ul>
             </nav>
             
-            <!-- Main Content -->
             <main class="content-area">
                 <h2>
                     Your Account Summary
@@ -438,7 +433,6 @@
                     <a href="#" id="return-to-current" onclick="showSnapshot('current'); return false;">&laquo; Return to Current Month (Oct 30)</a>
                 </h3>
                 <div class="activity-controls">
-                    <!-- UPDATED: 2025 is now selected by default -->
                     <select id="year-select" onchange="showActivity()">
                         <option value="">Select Year...</option>
                         <option value="2025" selected>2025</option>
@@ -447,8 +441,6 @@
                     </select>
                 </div>
                 
-                <!-- 2025 Table -->
-                <!-- UPDATED: This table is now visible by default -->
                 <div id="activity-2025" class="activity-table-container" style="display:block;">
                     <table class="activity-table">
                         <thead>
@@ -458,7 +450,6 @@
                                 <th class="number">Maint. Dues</th><th class="number">Total Payment</th>
                             </tr>
                         </thead>
-                        <!-- All dates are now clickable snapshots -->
                         <tbody>
                             <tr id="canceled-row" class="canceled-row">
                                 <td>Oct 30, 2025</td>
@@ -479,7 +470,6 @@
                     </table>
                 </div>
                 
-                <!-- 2024 Table -->
                 <div id="activity-2024" class="activity-table-container">
                     <table class="activity-table">
                         <thead>
@@ -501,12 +491,11 @@
                             <tr><td><a href="#" onclick="showSnapshot('Apr 15, 2024', '24,284.69', '623.00', 'Mar 15, 2024', '623.00'); return false;">Apr 15, 2024</a></td><td>Monthly Payment</td><td class="number">$86.13</td><td class="number">$383.87</td><td class="number">$153.00</td><td class="number">$623.00</td></tr>
                             <tr><td><a href="#" onclick="showSnapshot('Mar 15, 2024', '24,370.82', '623.00', 'Feb 15, 2024', '623.00'); return false;">Mar 15, 2024</a></td><td>Monthly Payment</td><td class="number">$84.75</td><td class="number">$385.25</td><td class="number">$153.00</td><td class="number">$623.00</td></tr>
                             <tr><td><a href="#" onclick="showSnapshot('Feb 15, 2024', '24,455.57', '623.00', 'Jan 15, 2024', '623.00'); return false;">Feb 15, 2024</a></td><td>Monthly Payment</td><td class="number">$83.39</td><td class="number">$386.61</td><td class="number">$153.00</td><td class="number">$623.00</td></tr>
-                            <tr><td><a href="#" onclick="showSnapshot('Jan 15, 2024', '24,538.96', '613.00', 'Dec 15, 2023', '623.00'); return false;">Jan 15, 2024</a></td><td>Monthly Payment</td><td class="number">$82.04</td><td class="number">$387.96</td><td class_name="number">$153.00</td><td class="number">$623.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Jan 15, 2024', '24,538.96', '613.00', 'Dec 15, 2023', '623.00'); return false;">Jan 15, 2024</a></td><td>Monthly Payment</td><td class="number">$82.04</td><td class="number">$387.96</td><td class="number">$153.00</td><td class="number">$623.00</td></tr>
                         </tbody>
                     </table>
                 </div>
 
-                <!-- 2023 Table -->
                 <div id="activity-2023" class="activity-table-container">
                     <table class="activity-table">
                          <thead>
@@ -533,15 +522,12 @@
                     </table>
                 </div>
                 
-                <!-- Initial placeholder message -->
-                <!-- UPDATED: This is now hidden by default -->
                 <div id="no-activity-selected" class="no-activity" style="display:none;">
                     <p>There were no transactions for the selected period.</p>
                 </div>
                 
             </main>
             
-            <!-- Right Sidebar -->
             <aside class="right-sidebar">
                 <div class="balance-box">
                     <div class="label">Current Balance:</div>
@@ -567,7 +553,6 @@
         </div>
     </div>
 
-    <!-- === JAVASCRIPT === -->
     <script>
         function showPage(pageId) {
             document.querySelectorAll('.page-view').forEach(page => {
@@ -575,11 +560,10 @@
             });
             document.getElementById(pageId).style.display = 'flex';
             
-            // If we are returning to login, reset the dashboard state
             if (pageId === 'loginPage') {
-                showSnapshot('current'); // Reset to default $0 state
-                document.getElementById('year-select').value = '2025'; // Reset dropdown
-                showActivity(); // Show 2025 table
+                showSnapshot('current');
+                document.getElementById('year-select').value = '2025';
+                showActivity();
             } else if (pageId === 'dashboardPage') {
                 // On first load of dashboard, ensure 2025 is shown
                 document.getElementById('year-select').value = '2025';
