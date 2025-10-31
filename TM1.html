@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wyndham Owner Portal</title>
+    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         /* === GLOBAL STYLES === */
@@ -327,6 +328,7 @@
 </head>
 <body>
 
+    <!-- === PAGE 1: LOGIN PAGE (WYNDHAM THEME) === -->
     <div id="loginPage" class="page-view">
         <header class="top-nav">
             <div class="nav-left">
@@ -367,6 +369,7 @@
     </div>
 
 
+    <!-- === PAGE 2: DASHBOARD PAGE (BARCLAYS THEME) === -->
     <div id="dashboardPage" class="page-view">
         
         <header class="portal-header">
@@ -384,6 +387,7 @@
 
         <div class="main-layout">
             
+            <!-- Left Sidebar -->
             <nav class="left-sidebar">
                 <ul class="nav-menu">
                     <li class="active"><a href="#"><i class="fa-solid fa-chart-pie"></i> DASHBOARD</a></li>
@@ -395,6 +399,7 @@
                 </ul>
             </nav>
             
+            <!-- Main Content -->
             <main class="content-area">
                 <h2>
                     Your Account Summary
@@ -404,13 +409,11 @@
                 <div class="account-summary-grid">
                     <div class="summary-item">
                         <div class="label">Current Balance</div>
-                        <div id="balance-summary-current" class="value canceled">$0.00</div>
-                        <div id="balance-summary-sep" class="value owing" style="display:none;">$22,394.06</div>
+                        <div id="balance-summary" class="value canceled">$0.00</div>
                     </div>
                     <div class="summary-item">
                         <div class="label">Last Payment</div>
-                        <div id="last-payment-current" class="value">$0.00 (Account Canceled)</div>
-                        <div id="last-payment-sep" class="value" style="display:none;">$634.00 (on Aug 15, 2025)</div>
+                        <div id="last-payment" class="value">$0.00 (Account Canceled)</div>
                     </div>
                     <div class="summary-item">
                         <div class="label">Original Loan Amount</div>
@@ -418,8 +421,7 @@
                     </div>
                     <div class="summary-item">
                         <div class="label">Next Payment Due</div>
-                        <div id="next-payment-current" class="value">--</div>
-                        <div id="next-payment-sep" class="value" style="display:none;">Sep 15, 2025</div>
+                        <div id="next-payment" class="value">--</div>
                     </div>
                     <div class="summary-item">
                         <div class="label">Interest Rate (APR)</div>
@@ -436,15 +438,18 @@
                     <a href="#" id="return-to-current" onclick="showSnapshot('current'); return false;">&laquo; Return to Current Month (Oct 30)</a>
                 </h3>
                 <div class="activity-controls">
+                    <!-- UPDATED: 2025 is now selected by default -->
                     <select id="year-select" onchange="showActivity()">
                         <option value="">Select Year...</option>
-                        <option value="2025">2025</option>
+                        <option value="2025" selected>2025</option>
                         <option value="2024">2024</option>
                         <option value="2023">2023</option>
                     </select>
                 </div>
                 
-                <div id="activity-2025" class="activity-table-container">
+                <!-- 2025 Table -->
+                <!-- UPDATED: This table is now visible by default -->
+                <div id="activity-2025" class="activity-table-container" style="display:block;">
                     <table class="activity-table">
                         <thead>
                             <tr>
@@ -453,6 +458,7 @@
                                 <th class="number">Maint. Dues</th><th class="number">Total Payment</th>
                             </tr>
                         </thead>
+                        <!-- All dates are now clickable snapshots -->
                         <tbody>
                             <tr id="canceled-row" class="canceled-row">
                                 <td>Oct 30, 2025</td>
@@ -460,19 +466,20 @@
                                 <td class="number">$0.00</td><td class="number">$0.00</td>
                                 <td class="number">$0.00</td><td class="number">$0.00</td>
                             </tr>
-                            <tr><td><a href="#" onclick="showSnapshot('september'); return false;">Sep 15, 2025</a></td><td>Monthly Payment</td><td class="number">$112.50</td><td class="number">$357.50</td><td class="number">$164.00</td><td class="number">$634.00</td></tr>
-                            <tr><td>Aug 15, 2025</td><td>Monthly Payment</td><td class="number">$110.80</td><td class="number">$359.20</td><td class="number">$164.00</td><td class="number">$634.00</td></tr>
-                            <tr><td>Jul 15, 2025</td><td>Monthly Payment</td><td class="number">$109.12</td><td class="number">$360.88</td><td class="number">$164.00</td><td class="number">$634.00</td></tr>
-                            <tr><td>Jun 15, 2025</td><td>Monthly Payment</td><td class="number">$107.45</td><td class="number">$362.55</td><td class="number">$164.00</td><td class="number">$634.00</td></tr>
-                            <tr><td>May 15, 2025</td><td>Monthly Payment</td><td class="number">$105.81</td><td class="number">$364.19</td><td class="number">$164.00</td><td class="number">$634.00</td></tr>
-                            <tr><td>Apr 15, 2025</td><td>Monthly Payment</td><td class="number">$104.18</td><td class="number">$365.82</td><td class="number">$164.00</td><td class="number">$634.00</td></tr>
-                            <tr><td>Mar 15, 2025</td><td>Monthly Payment</td><td class="number">$102.57</td><td class="number">$367.43</td><td class="number">$164.00</td><td class="number">$634.00</td></tr>
-                            <tr><td>Feb 15, 2025</td><td>Monthly Payment</td><td class="number">$100.98</td><td class="number">$369.02</td><td class="number">$164.00</td><td class="number">$634.00</td></tr>
-                            <tr><td>Jan 15, 2025</td><td>Monthly Payment</td><td class="number">$99.41</td><td class="number">$370.59</td><td class="number">$164.00</td><td class="number">$634.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Sep 15, 2025', '22,590.84', '634.00', 'Aug 15, 2025', '634.00'); return false;">Sep 15, 2025</a></td><td>Monthly Payment</td><td class="number">$112.50</td><td class="number">$357.50</td><td class="number">$164.00</td><td class="number">$634.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Aug 15, 2025', '22,703.34', '634.00', 'Jul 15, 2025', '634.00'); return false;">Aug 15, 2025</a></td><td>Monthly Payment</td><td class="number">$110.80</td><td class="number">$359.20</td><td class="number">$164.00</td><td class="number">$634.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Jul 15, 2025', '22,814.14', '634.00', 'Jun 15, 2025', '634.00'); return false;">Jul 15, 2025</a></td><td>Monthly Payment</td><td class="number">$109.12</td><td class="number">$360.88</td><td class="number">$164.00</td><td class="number">$634.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Jun 15, 2025', '22,923.26', '634.00', 'May 15, 2025', '634.00'); return false;">Jun 15, 2025</a></td><td>Monthly Payment</td><td class="number">$107.45</td><td class="number">$362.55</td><td class="number">$164.00</td><td class="number">$634.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('May 15, 2025', '23,030.71', '634.00', 'Apr 15, 2025', '634.00'); return false;">May 15, 2025</a></td><td>Monthly Payment</td><td class="number">$105.81</td><td class="number">$364.19</td><td class="number">$164.00</td><td class="number">$634.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Apr 15, 2025', '23,136.52', '634.00', 'Mar 15, 2025', '634.00'); return false;">Apr 15, 2025</a></td><td>Monthly Payment</td><td class="number">$104.18</td><td class="number">$365.82</td><td class="number">$164.00</td><td class="number">$634.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Mar 15, 2025', '23,240.70', '634.00', 'Feb 15, 2025', '634.00'); return false;">Mar 15, 2025</a></td><td>Monthly Payment</td><td class="number">$102.57</td><td class="number">$367.43</td><td class="number">$164.00</td><td class="number">$634.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Feb 15, 2025', '23,343.27', '634.00', 'Jan 15, 2025', '634.00'); return false;">Feb 15, 2025</a></td><td>Monthly Payment</td><td class="number">$100.98</td><td class="number">$369.02</td><td class="number">$164.00</td><td class="number">$634.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Jan 15, 2025', '23,444.25', '623.00', 'Dec 15, 2024', '634.00'); return false;">Jan 15, 2025</a></td><td>Monthly Payment</td><td class="number">$99.41</td><td class="number">$370.59</td><td class="number">$164.00</td><td class="number">$634.00</td></tr>
                         </tbody>
                     </table>
                 </div>
                 
+                <!-- 2024 Table -->
                 <div id="activity-2024" class="activity-table-container">
                     <table class="activity-table">
                         <thead>
@@ -483,22 +490,23 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td>Dec 15, 2024</td><td>Monthly Payment</td><td class="number">$97.86</td><td class="number">$372.14</td><td class="number">$153.00</td><td class="number">$623.00</td></tr>
-                            <tr><td>Nov 15, 2024</td><td>Monthly Payment</td><td class="number">$96.33</td><td class="number">$373.67</td><td class="number">$153.00</td><td class="number">$623.00</td></tr>
-                            <tr><td>Oct 15, 2024</td><td>Monthly Payment</td><td class="number">$94.81</td><td class="number">$375.19</td><td class="number">$153.00</td><td class="number">$623.00</td></tr>
-                            <tr><td>Sep 15, 2024</td><td>Monthly Payment</td><td class="number">$93.32</td><td class="number">$376.68</td><td class="number">$153.00</td><td class="number">$623.00</td></tr>
-                            <tr><td>Aug 15, 2024</td><td>Monthly Payment</td><td class="number">$91.84</td><td class="number">$378.16</td><td class="number">$153.00</td><td class="number">$623.00</td></tr>
-                            <tr><td>Jul 15, 2024</td><td>Monthly Payment</td><td class="number">$90.39</td><td class="number">$379.61</td><td class="number">$153.00</td><td class="number">$623.00</td></tr>
-                            <tr><td>Jun 15, 2024</td><td>Monthly Payment</td><td class="number">$88.95</td><td class="number">$381.05</td><td class="number">$153.00</td><td class="number">$623.00</td></tr>
-                            <tr><td>May 15, 2024</td><td>Monthly Payment</td><td class="number">$87.53</td><td class="number">$382.47</td><td class="number">$153.00</td><td class="number">$623.00</td></tr>
-                            <tr><td>Apr 15, 2024</td><td>Monthly Payment</td><td class="number">$86.13</td><td class="number">$383.87</td><td class="number">$153.00</td><td class="number">$623.00</td></tr>
-                            <tr><td>Mar 15, 2024</td><td>Monthly Payment</td><td class="number">$84.75</td><td class="number">$385.25</td><td class="number">$153.00</td><td class="number">$623.00</td></tr>
-                            <tr><td>Feb 15, 2024</td><td>Monthly Payment</td><td class="number">$83.39</td><td class="number">$386.61</td><td class="number">$153.00</td><td class="number">$623.00</td></tr>
-                            <tr><td>Jan 15, 2024</td><td>Monthly Payment</td><td class="number">$82.04</td><td class="number">$387.96</td><td class="number">$153.00</td><td class="number">$623.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Dec 15, 2024', '23,543.66', '623.00', 'Nov 15, 2024', '623.00'); return false;">Dec 15, 2024</a></td><td>Monthly Payment</td><td class="number">$97.86</td><td class="number">$372.14</td><td class="number">$153.00</td><td class="number">$623.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Nov 15, 2024', '23,641.52', '623.00', 'Oct 15, 2024', '623.00'); return false;">Nov 15, 2024</a></td><td>Monthly Payment</td><td class="number">$96.33</td><td class="number">$373.67</td><td class="number">$153.00</td><td class="number">$623.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Oct 15, 2024', '23,737.85', '623.00', 'Sep 15, 2024', '623.00'); return false;">Oct 15, 2024</a></td><td>Monthly Payment</td><td class="number">$94.81</td><td class="number">$375.19</td><td class="number">$153.00</td><td class="number">$623.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Sep 15, 2024', '23,832.66', '623.00', 'Aug 15, 2024', '623.00'); return false;">Sep 15, 2024</a></td><td>Monthly Payment</td><td class="number">$93.32</td><td class="number">$376.68</td><td class="number">$153.00</td><td class="number">$623.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Aug 15, 2024', '23,925.98', '623.00', 'Jul 15, 2024', '623.00'); return false;">Aug 15, 2024</a></td><td>Monthly Payment</td><td class="number">$91.84</td><td class="number">$378.16</td><td class="number">$153.00</td><td class="number">$623.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Jul 15, 2024', '24,017.82', '623.00', 'Jun 15, 2024', '623.00'); return false;">Jul 15, 2024</a></td><td>Monthly Payment</td><td class="number">$90.39</td><td class="number">$379.61</td><td class="number">$153.00</td><td class="number">$623.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Jun 15, 2024', '24,108.21', '623.00', 'May 15, 2024', '623.00'); return false;">Jun 15, 2024</a></td><td>Monthly Payment</td><td class="number">$88.95</td><td class="number">$381.05</td><td class="number">$153.00</td><td class="number">$623.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('May 15, 2024', '24,197.16', '623.00', 'Apr 15, 2024', '623.00'); return false;">May 15, 2024</a></td><td>Monthly Payment</td><td class="number">$87.53</td><td class="number">$382.47</td><td class="number">$153.00</td><td class="number">$623.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Apr 15, 2024', '24,284.69', '623.00', 'Mar 15, 2024', '623.00'); return false;">Apr 15, 2024</a></td><td>Monthly Payment</td><td class="number">$86.13</td><td class="number">$383.87</td><td class="number">$153.00</td><td class="number">$623.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Mar 15, 2024', '24,370.82', '623.00', 'Feb 15, 2024', '623.00'); return false;">Mar 15, 2024</a></td><td>Monthly Payment</td><td class="number">$84.75</td><td class="number">$385.25</td><td class="number">$153.00</td><td class="number">$623.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Feb 15, 2024', '24,455.57', '623.00', 'Jan 15, 2024', '623.00'); return false;">Feb 15, 2024</a></td><td>Monthly Payment</td><td class="number">$83.39</td><td class="number">$386.61</td><td class="number">$153.00</td><td class="number">$623.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Jan 15, 2024', '24,538.96', '613.00', 'Dec 15, 2023', '623.00'); return false;">Jan 15, 2024</a></td><td>Monthly Payment</td><td class="number">$82.04</td><td class="number">$387.96</td><td class_name="number">$153.00</td><td class="number">$623.00</td></tr>
                         </tbody>
                     </table>
                 </div>
 
+                <!-- 2023 Table -->
                 <div id="activity-2023" class="activity-table-container">
                     <table class="activity-table">
                          <thead>
@@ -509,57 +517,57 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td>Dec 15, 2023</td><td>Monthly Payment</td><td class="number">$80.72</td><td class="number">$389.28</td><td class="number">$143.00</td><td class="number">$613.00</td></tr>
-                            <tr><td>Nov 15, 2023</td><td>Monthly Payment</td><td class="number">$79.42</td><td class="number">$390.58</td><td class="number">$143.00</td><td class="number">$613.00</td></tr>
-                            <tr><td>Oct 15, 2023</td><td>Monthly Payment</td><td class="number">$78.17</td><td class="number">$391.83</td><td class="number">$143.00</td><td class="number">$613.00</td></tr>
-                            <tr><td>Sep 15, 2023</td><td>Monthly Payment</td><td class="number">$76.93</td><td class="number">$393.07</td><td class="number">$143.00</td><td class="number">$613.00</td></tr>
-                            <tr><td>Aug 15, 2023</td><td>Monthly Payment</td><td class="number">$75.71</td><td class="number">$394.29</td><td class="number">$143.00</td><td class="number">$613.00</td></tr>
-                            <tr><td>Jul 15, 2023</td><td>Monthly Payment</td><td class="number">$74.51</td><td class="number">$395.49</td><td class="number">$143.00</td><td class="number">$613.00</td></tr>
-                            <tr><td>Jun 15, 2023</td><td>Monthly Payment</td><td class="number">$73.33</td><td class="number">$396.67</td><td class="number">$143.00</td><td class="number">$613.00</td></tr>
-                            <tr><td>May 15, 2023</td><td>Monthly Payment</td><td class="number">$72.16</td><td class="number">$397.84</td><td class="number">$143.00</td><td class="number">$613.00</td></tr>
-                            <tr><td>Apr 15, 2023</td><td>Monthly Payment</td><td class="number">$71.01</td><td class="number">$398.99</td><td class="number">$143.00</td><td class="number">$613.00</td></tr>
-                            <tr><td>Mar 15, 2023</td><td>Monthly Payment</td><td class="number">$69.88</td><td class="number">$400.12</td><td class="number">$143.00</td><td class="number">$613.00</td></tr>
-                            <tr><td>Feb 15, 2023</td><td>Monthly Payment</td><td class="number">$68.77</td><td class="number">$401.23</td><td class="number">$143.00</td><td class="number">$613.00</td></tr>
-                            <tr><td>Jan 15, 2023</td><td>Monthly Payment</td><td class="number">$67.67</td><td class="number">$402.33</td><td class="number">$143.00</td><td class="number">$613.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Dec 15, 2023', '24,621.00', '613.00', 'Nov 15, 2023', '613.00'); return false;">Dec 15, 2023</a></td><td>Monthly Payment</td><td class="number">$80.72</td><td class="number">$389.28</td><td class="number">$143.00</td><td class="number">$613.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Nov 15, 2023', '24,701.72', '613.00', 'Oct 15, 2023', '613.00'); return false;">Nov 15, 2023</a></td><td>Monthly Payment</td><td class="number">$79.42</td><td class="number">$390.58</td><td class="number">$143.00</td><td class="number">$613.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Oct 15, 2023', '24,781.14', '613.00', 'Sep 15, 2023', '613.00'); return false;">Oct 15, 2023</a></td><td>Monthly Payment</td><td class="number">$78.17</td><td class="number">$391.83</td><td class="number">$143.00</td><td class="number">$613.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Sep 15, 2023', '24,859.31', '613.00', 'Aug 15, 2023', '613.00'); return false;">Sep 15, 2023</a></td><td>Monthly Payment</td><td class="number">$76.93</td><td class="number">$393.07</td><td class="number">$143.00</td><td class="number">$613.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Aug 15, 2023', '24,936.24', '613.00', 'Jul 15, 2023', '613.00'); return false;">Aug 15, 2023</a></td><td>Monthly Payment</td><td class="number">$75.71</td><td class="number">$394.29</td><td class="number">$143.00</td><td class="number">$613.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Jul 15, 2023', '25,011.95', '613.00', 'Jun 15, 2023', '613.00'); return false;">Jul 15, 2023</a></td><td>Monthly Payment</td><td class="number">$74.51</td><td class="number">$395.49</td><td class="number">$143.00</td><td class="number">$613.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Jun 15, 2023', '25,086.46', '613.00', 'May 15, 2023', '613.00'); return false;">Jun 15, 2023</a></td><td>Monthly Payment</td><td class="number">$73.33</td><td class="number">$396.67</td><td class="number">$143.00</td><td class="number">$613.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('May 15, 2023', '25,159.79', '613.00', 'Apr 15, 2023', '613.00'); return false;">May 15, 2023</a></td><td>Monthly Payment</td><td class="number">$72.16</td><td class="number">$397.84</td><td class="number">$143.00</td><td class="number">$613.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Apr 15, 2023', '25,231.95', '613.00', 'Mar 15, 2023', '613.00'); return false;">Apr 15, 2023</a></td><td>Monthly Payment</td><td class="number">$71.01</td><td class="number">$398.99</td><td class="number">$143.00</td><td class="number">$613.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Mar 15, 2023', '25,302.96', '613.00', 'Feb 15, 2023', '613.00'); return false;">Mar 15, 2023</a></td><td>Monthly Payment</td><td class="number">$69.88</td><td class="number">$400.12</td><td class="number">$143.00</td><td class="number">$613.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Feb 15, 2023', '25,372.84', '613.00', 'Jan 15, 2023', '613.00'); return false;">Feb 15, 2023</a></td><td>Monthly Payment</td><td class="number">$68.77</td><td class="number">$401.23</td><td class="number">$143.00</td><td class="number">$613.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Jan 15, 2023', '25,441.61', 'N/A', 'N/A', '613.00'); return false;">Jan 15, 2023</a></td><td>Monthly Payment</td><td class="number">$67.67</td><td class="number">$402.33</td><td class="number">$143.00</td><td class="number">$613.00</td></tr>
                         </tbody>
                     </table>
                 </div>
                 
-                <div id="no-activity-selected" class="no-activity" style="display:block;">
+                <!-- Initial placeholder message -->
+                <!-- UPDATED: This is now hidden by default -->
+                <div id="no-activity-selected" class="no-activity" style="display:none;">
                     <p>There were no transactions for the selected period.</p>
                 </div>
                 
             </main>
             
+            <!-- Right Sidebar -->
             <aside class="right-sidebar">
                 <div class="balance-box">
                     <div class="label">Current Balance:</div>
-                    <div id="balance-sidebar-current" class="amount">$0.00</div>
-                    <div id="balance-sidebar-sep" class="amount owing" style="display:none;">$22,394.06</div>
+                    <div id="balance-sidebar" class="amount">$0.00</div>
                 </div>
                 <div class="due-details">
                     <div class="detail-row">
                         <span>Due Date:</span>
-                        <span id="due-date-current" class="value">--</span>
-                        <span id="due-date-sep" class="value" style="display:none;">Sep 15, 2025</span>
+                        <span id="due-date" class="value">--</span>
                     </div>
                     <div class="detail-row">
                         <span>Minimum Due:</span>
-                        <span id="min-due-current" class="value">$0.00</span>
-                        <span id="min-due-sep" class="value" style="display:none;">$634.00</span>
+                        <span id="min-due" class="value">$0.00</span>
                     </div>
                      <div class="detail-row">
                         <span>Past Due Amount:</span>
                         <span class="value">$0.00</span>
                     </div>
                 </div>
-                <button id="btn-payment-current" class="btn-make-payment disabled" disabled>MAKE PAYMENT</button>
-                <button id="btn-payment-sep" class="btn-make-payment active" style="display:none;">MAKE PAYMENT</button>
+                <button id="btn-payment" class="btn-make-payment disabled" disabled>MAKE PAYMENT</button>
             </aside>
             
         </div>
     </div>
 
+    <!-- === JAVASCRIPT === -->
     <script>
         function showPage(pageId) {
             document.querySelectorAll('.page-view').forEach(page => {
@@ -570,13 +578,19 @@
             // If we are returning to login, reset the dashboard state
             if (pageId === 'loginPage') {
                 showSnapshot('current'); // Reset to default $0 state
-                document.getElementById('year-select').value = ''; // Reset dropdown
-                showActivity(); // Hide all tables
+                document.getElementById('year-select').value = '2025'; // Reset dropdown
+                showActivity(); // Show 2025 table
+            } else if (pageId === 'dashboardPage') {
+                // On first load of dashboard, ensure 2025 is shown
+                document.getElementById('year-select').value = '2025';
+                showActivity();
+                showSnapshot('current'); // Ensure it's the $0 state
             }
         }
 
         function showActivity() {
             var selectedYear = document.getElementById('year-select').value;
+            
             document.querySelectorAll('.activity-table-container').forEach(container => {
                 container.style.display = 'none';
             });
@@ -591,37 +605,50 @@
         
         /**
          * Toggles the dashboard between the 'current' (Oct 30) canceled state
-         * and the 'september' (Sep 15) owing state.
+         * and a historical snapshot.
          */
-        function showSnapshot(state) {
-            var isSeptember = (state === 'september');
+        function showSnapshot(date, payoff, lastPay, lastPayDate, minDue) {
+            var isCurrent = (date === 'current');
+
+            // Set element text content
+            document.getElementById('balance-summary').textContent = isCurrent ? '$0.00' : '$' + payoff;
+            document.getElementById('last-payment').textContent = isCurrent ? '$0.00 (Account Canceled)' : (lastPay === 'N/A' ? 'N/A - First Payment' : '$' + lastPay + ' (on ' + lastPayDate + ')');
+            document.getElementById('next-payment').textContent = isCurrent ? '--' : date;
             
-            // Toggle all elements based on the state
-            document.getElementById('return-to-current').style.display = isSeptember ? 'block' : 'none';
-            document.getElementById('canceled-row').style.display = isSeptember ? 'none' : 'table-row';
+            document.getElementById('balance-sidebar').textContent = isCurrent ? '$0.00' : '$' + payoff;
+            document.getElementById('due-date').textContent = isCurrent ? '--' : date;
+            document.getElementById('min-due').textContent = isCurrent ? '$0.00' : '$' + minDue;
 
-            // Sidebar toggles
-            document.getElementById('balance-sidebar-current').style.display = isSeptember ? 'none' : 'block';
-            document.getElementById('balance-sidebar-sep').style.display = isSeptember ? 'block' : 'none';
-            document.getElementById('due-date-current').style.display = isSeptember ? 'none' : 'inline';
-            document.getElementById('due-date-sep').style.display = isSeptember ? 'inline' : 'none';
-            document.getElementById('min-due-current').style.display = isSeptember ? 'none' : 'inline';
-            document.getElementById('min-due-sep').style.display = isSeptember ? 'inline' : 'none';
-            document.getElementById('btn-payment-current').style.display = isSeptember ? 'none' : 'block';
-            document.getElementById('btn-payment-sep').style.display = isSeptember ? 'block' : 'none';
+            // Toggle visibility
+            document.getElementById('return-to-current').style.display = isCurrent ? 'none' : 'block';
+            document.getElementById('canceled-row').style.display = isCurrent ? 'table-row' : 'none';
 
-            // Main Content Toggles
-            document.getElementById('balance-summary-current').style.display = isSeptember ? 'none' : 'block';
-            document.getElementById('balance-summary-sep').style.display = isSeptember ? 'block' : 'none';
-            document.getElementById('last-payment-current').style.display = isSeptember ? 'none' : 'block';
-            document.getElementById('last-payment-sep').style.display = isSeptember ? 'block' : 'none';
-            document.getElementById('next-payment-current').style.display = isSeptember ? 'none' : 'block';
-            document.getElementById('next-payment-sep').style.display = isSeptember ? 'block' : 'none';
+            // Toggle classes and properties
+            var balanceSummary = document.getElementById('balance-summary');
+            var balanceSidebar = document.getElementById('balance-sidebar');
+            var btnPayment = document.getElementById('btn-payment');
+            
+            if (isCurrent) {
+                balanceSummary.className = 'value canceled';
+                balanceSidebar.className = 'amount';
+                balanceSidebar.classList.remove('owing');
+                
+                btnPayment.className = 'btn-make-payment disabled';
+                btnPayment.disabled = true;
+            } else {
+                balanceSummary.className = 'value owing';
+                balanceSidebar.className = 'amount owing';
+                
+                btnPayment.className = 'btn-make-payment active';
+                btnPayment.disabled = false;
+            }
         }
         
         // Ensure the login page is the only one visible on load
         document.addEventListener('DOMContentLoaded', (event) => {
             showPage('loginPage');
+            // Set default snapshot state for when dashboard loads
+            showSnapshot('current');
         });
     </script>
 
