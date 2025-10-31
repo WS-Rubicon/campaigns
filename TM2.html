@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wyndham Owner Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* === GLOBAL STYLES === */
+        :root {
+            --login-blue: #0033a0;
+            --login-orange: #c94b23;
+            --portal-dark-blue: #00264d;
+            --portal-light-blue: #0d467f;
+            --portal-link-blue: #0068b3;
+            --status-green: #2e7d32;
+            --light-green-bg: #f0f9f0;
+            --light-gray-bg: #f9f9f9;
+            --border-gray: #e0e0e0;
+        }
+        
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            color: #333;
+            background-color: #f4f4f4; /* Default bg for portal */
+        }
+
+        a {
+            text-decoration: none;
+            cursor: pointer;
+            color: var(--portal-link-blue);
+        }
+        
+        /* === PAGE 1: LOGIN PAGE STYLES === */
+        #loginPage {
+            display: flex; /* Initially visible */
+            flex-direction: column;
+            min-height: 100vh;
+            background: url('https://res.cloudinary.com/dndik3mpf/image/upload/v1761861311/cw-homepage-banner-1990x810_tslkjf.avif') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        #loginPage .top-nav {
+            background-color: var(--login-blue);
+            padding: 10px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            box-sizing: border-box;
+            flex-shrink: 0; 
+        }
+        #loginPage .top-nav .nav-left { display: flex; align-items: center; }
+        #loginPage .top-nav .logo { height: 35px; margin-right: 30px; }
+        #loginPage .top-nav nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 20px; }
+        #loginPage .top-nav nav a { color: white; text-decoration: none; font-size: 14px; font-weight: bold; }
+        #loginPage .top-nav .utility-navigation a { font-weight: normal; font-size: 13px; }
+        #loginPage .top-nav .utility-navigation i { margin-right: 5px; }
+
+        #loginPage .login-view-container {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            padding: 40px;
+            box-sizing: border-box;
+        }
+        
+        #loginPage .login-section {
+            background-color: white;
+            padding: 24px 30px;
+            border-radius: 4px;
+            width: 350px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        #loginPage .form-intro {
+            font-size: 11px; color: #555; text-transform: uppercase;
+            margin: 0 0 5px 0; font-weight: bold;
+        }
+        #loginPage h3 {
+            font-size: 24px; margin: 0 0 20px 0; color: #333; font-weight: 500;
+        }
+        #loginPage form input[type="text"],
+        #loginPage form input[type="password"] {
+            width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc;
+            border-radius: 4px; box-sizing: border-box; font-size: 16px;
+        }
+        #loginPage .btn-login {
+            background-color: var(--login-orange); color: white; border: none;
+            width: 100%; padding: 12px; border-radius: 4px;
+            font-size: 16px; font-weight: bold; cursor: pointer;
+        }
+        #loginPage .help-link {
+            display: block; text-align: center; margin-top: 20px; font-size: 14px;
+        }
+        #loginPage .bottom-bar {
+            background-color: var(--login-blue);
+            height: 40px; width: 100%; flex-shrink: 0;
+        }
+
+
+        /* === PAGE 2: DASHBOARD PORTAL STYLES === */
+        #dashboardPage {
+            display: none; /* Hidden by default */
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        .portal-header {
+            background-color: white;
+            border-bottom: 1px solid var(--border-gray);
+            padding: 10px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-shrink: 0;
+        }
+        .portal-header .header-left { display: flex; align-items: center; gap: 20px; }
+        .portal-header .header-left i { font-size: 20px; color: #555; }
+        .portal-header .wyndham-rewards-logo {
+            font-weight: bold;
+            color: var(--portal-light-blue);
+            font-size: 20px;
+        }
+        .portal-header .header-right { display: flex; align-items: center; gap: 15px; font-size: 14px; }
+        .portal-header .header-right span { color: #333; }
+        .portal-header .header-right a { color: var(--portal-link-blue); }
+
+        .main-layout {
+            display: flex;
+            flex-grow: 1;
+        }
+        
+        .left-sidebar {
+            background-color: var(--portal-dark-blue);
+            color: white;
+            width: 230px;
+            flex-shrink: 0;
+            padding-top: 20px;
+        }
+        .left-sidebar .nav-menu { list-style: none; padding: 0; margin: 0; }
+        .left-sidebar .nav-menu li a {
+            display: block;
+            padding: 15px 25px;
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            border-bottom: 1px solid #001a33;
+        }
+        .left-sidebar .nav-menu li.active a {
+            background-color: var(--portal-light-blue);
+            font-weight: bold;
+        }
+        .left-sidebar .nav-menu li a i {
+            margin-right: 12px;
+            width: 20px;
+        }
+        
+        .content-area {
+            flex-grow: 1;
+            padding: 30px;
+            background-color: white;
+        }
+        .content-area h2 {
+            font-size: 26px;
+            font-weight: 300;
+            margin: 0 0 25px 0;
+            border-bottom: 1px solid var(--border-gray);
+            padding-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .content-area h2 a {
+            font-size: 14px;
+            font-weight: normal;
+        }
+        .content-area h3 {
+            font-size: 20px;
+            font-weight: 300;
+            color: #444;
+            margin: 30px 0 15px 0;
+            border-bottom: 1px solid var(--border-gray);
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        #return-to-current {
+            font-size: 13px;
+            font-weight: bold;
+            display: none; /* Hidden by default */
+        }
+
+        .account-summary-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px 30px;
+            font-size: 14px;
+        }
+        .summary-item .label {
+            color: #555;
+            margin-bottom: 3px;
+        }
+        .summary-item .value {
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .summary-item .value.canceled {
+            color: var(--status-green);
+        }
+        .summary-item .value.apr {
+            color: var(--login-orange);
+        }
+        .summary-item .value.owing {
+            color: var(--login-orange);
+        }
+
+        .activity-controls {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 15px;
+        }
+        .activity-controls select {
+            font-size: 14px;
+            padding: 8px 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        
+        .activity-table-container {
+            display: none; /* All are hidden by default */
+        }
+
+        .activity-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        .activity-table th, .activity-table td {
+            padding: 12px 10px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-gray);
+        }
+        .activity-table th {
+            background-color: var(--light-gray-bg);
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #555;
+        }
+        .activity-table .number {
+            text-align: right;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .activity-table tr.canceled-row {
+            background-color: var(--light-green-bg);
+            font-weight: bold;
+            color: var(--status-green);
+        }
+        
+        .no-activity {
+            text-align: center;
+            padding: 30px;
+            font-size: 16px;
+            color: #777;
+        }
+        
+        .right-sidebar {
+            background-color: var(--portal-dark-blue);
+            color: white;
+            width: 280px;
+            flex-shrink: 0;
+            padding: 20px;
+        }
+        .balance-box {
+            text-align: center;
+            border-bottom: 1px solid var(--portal-light-blue);
+            padding-bottom: 15px;
+        }
+        .balance-box .label {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        .balance-box .amount {
+            font-size: 36px;
+            font-weight: bold;
+        }
+        .balance-box .amount.owing {
+             color: #ffc; /* Yellowish to show warning */
+        }
+
+        .due-details {
+            margin-top: 15px;
+            font-size: 14px;
+        }
+        .due-details .detail-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .due-details .detail-row .value {
+            font-weight: bold;
+        }
+        .btn-make-payment {
+            border: none;
+            width: 100%;
+            padding: 12px;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .btn-make-payment.disabled {
+            background-color: #555;
+            color: #aaa;
+            cursor: not-allowed;
+        }
+        .btn-make-payment.active {
+            background-color: #4caf50; /* Green 'go' button */
+            color: white;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="loginPage" class="page-view">
+        <header class="top-nav">
+            <div class="nav-left">
+                <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1761861231/Screenshot_2025-10-30_at_2.50.13_PM_jvzdrg.png" alt="Club Wyndham Logo" class="logo">
+                <nav class="main-navigation">
+                    <ul>
+                        <li><a href="#">Club Benefits</a></li>
+                        <li><a href="#">Resorts</a></li>
+                        <li><a href="#">Owner Guide</a></li>
+                        <li><a href="#">Deals & Offers</a></li>
+                        <li><a href="#">Help</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <nav class="utility-navigation">
+                <ul>
+                    <li><a href="#"><i class="fa-solid fa-magnifying-glass"></i> Search</a></li>
+                    <li><a href="#">Register</a></li>
+                    <li id="nav-login-link"><a href="#">Sign In</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="login-view-container">
+            <div class="login-section">
+                <p class="form-intro">Sign into your account</p>
+                <h3>Let's get you on vacation</h3>
+                <form onsubmit="showPage('dashboardPage'); return false;">
+                    <input type="text" id="username" value="bgilberg@gmail.com">
+                    <input type="password" id="password" value="************">
+                    <button type="submit" class="btn-login">Login</button>
+                </form>
+                <a href="#" class="help-link">Get help signing in</a>
+            </div>
+        </main>
+        
+        <footer class="bottom-bar"></footer>
+    </div>
+
+
+    <div id="dashboardPage" class="page-view">
+        
+        <header class="portal-header">
+            <div class="header-left">
+                <div class="wyndham-rewards-logo">WYNDHAM <i class="fa-regular fa-registered"></i> REWARDS</div>
+                <i class="fa-regular fa-envelope"></i>
+                <i class="fa-solid fa-house"></i>
+            </div>
+            <div class="header-right">
+                <span><strong>Bella Gilberg</strong></span> | 
+                <a href="#">Account Settings</a> | 
+                <a href="#">Owner Account</a>
+            </div>
+        </header>
+
+        <div class="main-layout">
+            
+            <nav class="left-sidebar">
+                <ul class="nav-menu">
+                    <li class="active"><a href="#"><i class="fa-solid fa-chart-pie"></i> DASHBOARD</a></li>
+                    <li><a href="#"><i class="fa-solid fa-right-left"></i> TRANSACTIONS</a></li>
+                    <li><a href="#"><i class="fa-regular fa-credit-card"></i> PAYMENTS</a></li>
+                    <li><a href="#"><i class="fa-solid fa-file-invoice"></i> STATEMENTS</a></li>
+                    <li><a href="#"><i class="fa-solid fa-shield-halved"></i> SERVICES</a></li>
+                    <li><a href="#"><i class="fa-solid fa-bell"></i> ALERTS</a></li>
+                </ul>
+            </nav>
+            
+            <main class="content-area">
+                <h2>
+                    Your Account Summary
+                    <a href="#" onclick="showPage('loginPage'); return false;">Log Out <i class="fa-solid fa-right-from-bracket"></i></a>
+                </h2>
+                
+                <div class="account-summary-grid">
+                    <div class="summary-item">
+                        <div class="label">Current Balance</div>
+                        <div id="balance-summary" class="value canceled">$0.00</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="label">Last Payment</div>
+                        <div id="last-payment" class="value">$0.00 (Account Canceled)</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="label">Original Loan Amount</div>
+                        <div class="value">$25,200.00</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="label">Next Payment Due</div>
+                        <div id="next-payment" class="value">--</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="label">Interest Rate (APR)</div>
+                        <div class="value apr">18.99%</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="label">Past Due Amount</div>
+                        <div class="value">$0.00</div>
+                    </div>
+                </div>
+
+                <h3>
+                    Your Recent Activity
+                    <a href="#" id="return-to-current" onclick="showSnapshot('current'); return false;">&laquo; Return to Current Month (Oct 30)</a>
+                </h3>
+                <div class="activity-controls">
+                    <select id="year-select" onchange="showActivity()">
+                        <option value="">Select Year...</option>
+                        <option value="2025" selected>2025</option>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                    </select>
+                </div>
+                
+                <div id="activity-2025" class="activity-table-container" style="display:block;">
+                    <table class="activity-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th><th>Description</th>
+                                <th class="number">Loan Principal</th><th class="number">Interest Paid</th>
+                                <th class="number">Maint. Dues</th><th class="number">Total Payment</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr id="canceled-row" class="canceled-row">
+                                <td>Oct 30, 2025</td>
+                                <td>Account Canceled & Finalized</td>
+                                <td class="number">$0.00</td><td class="number">$0.00</td>
+                                <td class="number">$0.00</td><td class="number">$0.00</td>
+                            </tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Sep 15, 2025', '22,590.84', '634.00', 'Aug 15, 2025', '634.00'); return false;">Sep 15, 2025</a></td><td>Monthly Payment</td><td class="number">$112.50</td><td class="number">$357.50</td><td class="number">$164.00</td><td class="number">$634.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Aug 15, 2025', '22,703.34', '634.00', 'Jul 15, 2025', '634.00'); return false;">Aug 15, 2025</a></td><td>Monthly Payment</td><td class="number">$110.80</td><td class="number">$359.20</td><td class="number">$164.00</td><td class="number">$634.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Jul 15, 2025', '22,814.14', '634.00', 'Jun 15, 2025', '634.00'); return false;">Jul 15, 2025</a></td><td>Monthly Payment</td><td class="number">$109.12</td><td class="number">$360.88</td><td class="number">$164.00</td><td class="number">$634.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Jun 15, 2025', '22,923.26', '634.00', 'May 15, 2025', '634.00'); return false;">Jun 15, 2025</a></td><td>Monthly Payment</td><td class="number">$107.45</td><td class="number">$362.55</td><td class="number">$164.00</td><td class="number">$634.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('May 15, 2025', '23,030.71', '634.00', 'Apr 15, 2025', '634.00'); return false;">May 15, 2025</a></td><td>Monthly Payment</td><td class="number">$105.81</td><td class="number">$364.19</td><td class="number">$164.00</td><td class="number">$634.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Apr 15, 2025', '23,136.52', '634.00', 'Mar 15, 2025', '634.00'); return false;">Apr 15, 2025</a></td><td>Monthly Payment</td><td class="number">$104.18</td><td class="number">$365.82</td><td class="number">$164.00</td><td class="number">$634.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Mar 15, 2025', '23,240.70', '634.00', 'Feb 15, 2025', '634.00'); return false;">Mar 15, 2025</a></td><td>Monthly Payment</td><td class="number">$102.57</td><td class="number">$367.43</td><td class="number">$164.00</td><td class="number">$634.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Feb 15, 2025', '23,343.27', '634.00', 'Jan 15, 2025', '634.00'); return false;">Feb 15, 2025</a></td><td>Monthly Payment</td><td class="number">$100.98</td><td class="number">$369.02</td><td class="number">$164.00</td><td class="number">$634.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Jan 15, 2025', '23,444.25', '623.00', 'Dec 15, 2024', '634.00'); return false;">Jan 15, 2025</a></td><td>Monthly Payment</td><td class="number">$99.41</td><td class="number">$370.59</td><td class="number">$164.00</td><td class="number">$634.00</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div id="activity-2024" class="activity-table-container">
+                    <table class="activity-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th><th>Description</th>
+                                <th class="number">Loan Principal</th><th class="number">Interest Paid</th>
+                                <th class="number">Maint. Dues</th><th class="number">Total Payment</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><a href="#" onclick="showSnapshot('Dec 15, 2024', '23,543.66', '623.00', 'Nov 15, 2024', '623.00'); return false;">Dec 15, 2024</a></td><td>Monthly Payment</td><td class="number">$97.86</td><td class="number">$372.14</td><td class="number">$153.00</td><td class="number">$623.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Nov 15, 2024', '23,641.52', '623.00', 'Oct 15, 2024', '623.00'); return false;">Nov 15, 2024</a></td><td>Monthly Payment</td><td class="number">$96.33</td><td class="number">$373.67</td><td class="number">$153.00</td><td class="number">$623.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Oct 15, 2024', '23,737.85', '623.00', 'Sep 15, 2024', '623.00'); return false;">Oct 15, 2024</a></td><td>Monthly Payment</td><td class="number">$94.81</td><td class="number">$375.19</td><td class="number">$153.00</td><td class="number">$623.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Sep 15, 2024', '23,832.66', '623.00', 'Aug 15, 2024', '623.00'); return false;">Sep 15, 2024</a></td><td>Monthly Payment</td><td class="number">$93.32</td><td class="number">$376.68</td><td class="number">$153.00</td><td class="number">$623.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Aug 15, 2024', '23,925.98', '623.00', 'Jul 15, 2024', '623.00'); return false;">Aug 15, 2024</a></td><td>Monthly Payment</td><td class="number">$91.84</td><td class="number">$378.16</td><td class="number">$153.00</td><td class="number">$623.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Jul 15, 2024', '24,017.82', '623.00', 'Jun 15, 2024', '623.00'); return false;">Jul 15, 2024</a></td><td>Monthly Payment</td><td class="number">$90.39</td><td class="number">$379.61</td><td class="number">$153.00</td><td class="number">$623.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Jun 15, 2024', '24,108.21', '623.00', 'May 15, 2024', '623.00'); return false;">Jun 15, 2024</a></td><td>Monthly Payment</td><td class="number">$88.95</td><td class="number">$381.05</td><td class="number">$153.00</td><td class="number">$623.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('May 15, 2024', '24,197.16', '623.00', 'Apr 15, 2024', '623.00'); return false;">May 15, 2024</a></td><td>Monthly Payment</td><td class="number">$87.53</td><td class="number">$382.47</td><td class="number">$153.00</td><td class="number">$623.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Apr 15, 2024', '24,284.69', '623.00', 'Mar 15, 2024', '623.00'); return false;">Apr 15, 2024</a></td><td>Monthly Payment</td><td class="number">$86.13</td><td class="number">$383.87</td><td class="number">$153.00</td><td class="number">$623.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Mar 15, 2024', '24,370.82', '623.00', 'Feb 15, 2024', '623.00'); return false;">Mar 15, 2024</a></td><td>Monthly Payment</td><td class="number">$84.75</td><td class="number">$385.25</td><td class="number">$153.00</td><td class="number">$623.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Feb 15, 2024', '24,455.57', '623.00', 'Jan 15, 2024', '623.00'); return false;">Feb 15, 2024</a></td><td>Monthly Payment</td><td class="number">$83.39</td><td class="number">$386.61</td><td class="number">$153.00</td><td class="number">$623.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Jan 15, 2024', '24,538.96', '613.00', 'Dec 15, 2023', '623.00'); return false;">Jan 15, 2024</a></td><td>Monthly Payment</td><td class="number">$82.04</td><td class="number">$387.96</td><td class="number">$153.00</td><td class="number">$623.00</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="activity-2023" class="activity-table-container">
+                    <table class="activity-table">
+                         <thead>
+                            <tr>
+                                <th>Date</th><th>Description</th>
+                                <th class="number">Loan Principal</th><th class="number">Interest Paid</th>
+                                <th class="number">Maint. Dues</th><th class="number">Total Payment</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><a href="#" onclick="showSnapshot('Dec 15, 2023', '24,621.00', '613.00', 'Nov 15, 2023', '613.00'); return false;">Dec 15, 2023</a></td><td>Monthly Payment</td><td class="number">$80.72</td><td class="number">$389.28</td><td class="number">$143.00</td><td class="number">$613.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Nov 15, 2023', '24,701.72', '613.00', 'Oct 15, 2023', '613.00'); return false;">Nov 15, 2023</a></td><td>Monthly Payment</td><td class="number">$79.42</td><td class="number">$390.58</td><td class="number">$143.00</td><td class="number">$613.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Oct 15, 2023', '24,781.14', '613.00', 'Sep 15, 2023', '613.00'); return false;">Oct 15, 2023</a></td><td>Monthly Payment</td><td class="number">$78.17</td><td class="number">$391.83</td><td class="number">$143.00</td><td class="number">$613.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Sep 15, 2023', '24,859.31', '613.00', 'Aug 15, 2023', '613.00'); return false;">Sep 15, 2023</a></td><td>Monthly Payment</td><td class="number">$76.93</td><td class="number">$393.07</td><td class="number">$143.00</td><td class="number">$613.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Aug 15, 2023', '24,936.24', '613.00', 'Jul 15, 2023', '613.00'); return false;">Aug 15, 2023</a></td><td>Monthly Payment</td><td class="number">$75.71</td><td class="number">$394.29</td><td class="number">$143.00</td><td class="number">$613.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Jul 15, 2023', '25,011.95', '613.00', 'Jun 15, 2023', '613.00'); return false;">Jul 15, 2023</a></td><td>Monthly Payment</td><td class="number">$74.51</td><td class="number">$395.49</td><td class="number">$143.00</td><td class="number">$613.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Jun 15, 2023', '25,086.46', '613.00', 'May 15, 2023', '613.00'); return false;">Jun 15, 2023</a></td><td>Monthly Payment</td><td class="number">$73.33</td><td class="number">$396.67</td><td class="number">$143.00</td><td class="number">$613.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('May 15, 2023', '25,159.79', '613.00', 'Apr 15, 2023', '613.00'); return false;">May 15, 2023</a></td><td>Monthly Payment</td><td class="number">$72.16</td><td class="number">$397.84</td><td class="number">$143.00</td><td class="number">$613.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Apr 15, 2023', '25,231.95', '613.00', 'Mar 15, 2023', '613.00'); return false;">Apr 15, 2023</a></td><td>Monthly Payment</td><td class="number">$71.01</td><td class="number">$398.99</td><td class="number">$143.00</td><td class_name="number">$613.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Mar 15, 2023', '25,302.96', '613.00', 'Feb 15, 2023', '613.00'); return false;">Mar 15, 2023</a></td><td>Monthly Payment</td><td class="number">$69.88</td><td class="number">$400.12</td><td class="number">$143.00</td><td class="number">$613.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Feb 15, 2023', '25,372.84', '613.00', 'Jan 15, 2023', '613.00'); return false;">Feb 15, 2023</a></td><td>Monthly Payment</td><td class="number">$68.77</td><td class="number">$401.23</td><td class="number">$143.00</td><td class="number">$613.00</td></tr>
+                            <tr><td><a href="#" onclick="showSnapshot('Jan 15, 2023', '25,441.61', 'N/A', 'N/A', '613.00'); return false;">Jan 15, 2023</a></td><td>Monthly Payment</td><td class="number">$67.67</td><td class="number">$402.33</td><td class="number">$143.00</td><td class="number">$613.00</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div id="no-activity-selected" class="no-activity" style="display:none;">
+                    <p>There were no transactions for the selected period.</p>
+                </div>
+                
+            </main>
+            
+            <aside class="right-sidebar">
+                <div class="balance-box">
+                    <div class="label">Current Balance:</div>
+                    <div id="balance-sidebar" class="amount">$0.00</div>
+                </div>
+                <div class="due-details">
+                    <div class="detail-row">
+                        <span>Due Date:</span>
+                        <span id="due-date" class="value">--</span>
+                    </div>
+                    <div class="detail-row">
+                        <span>Minimum Due:</span>
+                        <span id="min-due" class="value">$0.00</span>
+                    </div>
+                     <div class="detail-row">
+                        <span>Past Due Amount:</span>
+                        <span class="value">$0.00</span>
+                    </div>
+                </div>
+                <button id="btn-payment" class="btn-make-payment disabled" disabled>MAKE PAYMENT</button>
+            </aside>
+            
+        </div>
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            document.querySelectorAll('.page-view').forEach(page => {
+                page.style.display = 'none';
+            });
+            document.getElementById(pageId).style.display = 'flex';
+            
+            if (pageId === 'loginPage') {
+                showSnapshot('current');
+                document.getElementById('year-select').value = '2025';
+                showActivity();
+            } else if (pageId === 'dashboardPage') {
+                // On first load of dashboard, ensure 2025 is shown
+                document.getElementById('year-select').value = '2025';
+                showActivity();
+                showSnapshot('current'); // Ensure it's the $0 state
+            }
+        }
+
+        function showActivity() {
+            var selectedYear = document.getElementById('year-select').value;
+            
+            document.querySelectorAll('.activity-table-container').forEach(container => {
+                container.style.display = 'none';
+            });
+            document.getElementById('no-activity-selected').style.display = 'none';
+
+            if (selectedYear) {
+                document.getElementById('activity-' + selectedYear).style.display = 'block';
+            } else {
+                document.getElementById('no-activity-selected').style.display = 'block';
+            }
+        }
+        
+        /**
+         * Toggles the dashboard between the 'current' (Oct 30) canceled state
+         * and a historical snapshot.
+         */
+        function showSnapshot(date, payoff, lastPay, lastPayDate, minDue) {
+            var isCurrent = (date === 'current');
+
+            // Set element text content
+            document.getElementById('balance-summary').textContent = isCurrent ? '$0.00' : '$' + payoff;
+            document.getElementById('last-payment').textContent = isCurrent ? '$0.00 (Account Canceled)' : (lastPay === 'N/A' ? 'N/A - First Payment' : '$' + lastPay + ' (on ' + lastPayDate + ')');
+            document.getElementById('next-payment').textContent = isCurrent ? '--' : date;
+            
+            document.getElementById('balance-sidebar').textContent = isCurrent ? '$0.00' : '$' + payoff;
+            document.getElementById('due-date').textContent = isCurrent ? '--' : date;
+            document.getElementById('min-due').textContent = isCurrent ? '$0.00' : '$' + minDue;
+
+            // Toggle visibility
+            document.getElementById('return-to-current').style.display = isCurrent ? 'none' : 'block';
+            document.getElementById('canceled-row').style.display = isCurrent ? 'table-row' : 'none';
+
+            // Toggle classes and properties
+            var balanceSummary = document.getElementById('balance-summary');
+            var balanceSidebar = document.getElementById('balance-sidebar');
+            var btnPayment = document.getElementById('btn-payment');
+            
+            if (isCurrent) {
+                balanceSummary.className = 'value canceled';
+                balanceSidebar.className = 'amount';
+                balanceSidebar.classList.remove('owing');
+                
+                btnPayment.className = 'btn-make-payment disabled';
+                btnPayment.disabled = true;
+            } else {
+                balanceSummary.className = 'value owing';
+                balanceSidebar.className = 'amount owing';
+                
+                btnPayment.className = 'btn-make-payment active';
+                btnPayment.disabled = false;
+            }
+        }
+        
+        // Ensure the login page is the only one visible on load
+        document.addEventListener('DOMContentLoaded', (event) => {
+            showPage('loginPage');
+            // Set default snapshot state for when dashboard loads
+            showSnapshot('current');
+        });
+    </script>
+
+</body>
+</html>
