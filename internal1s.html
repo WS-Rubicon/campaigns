@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Buying System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            background: #ffffff;
+            color: #1d1d1f;
+            line-height: 1.4;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-content {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-dots {
+            display: flex;
+            gap: 12px;
+        }
+
+        .nav-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #d2d2d7;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .nav-dot.active {
+            background: #007aff;
+            transform: scale(1.3);
+        }
+
+        .section-count {
+            font-size: 13px;
+            color: #86868b;
+            font-weight: 500;
+        }
+
+        /* Sections */
+        .section {
+            min-height: 100vh;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 40px 60px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .section.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .content {
+            max-width: 980px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* Typography */
+        .super-title {
+            font-size: 80px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 20px;
+            line-height: 1.05;
+        }
+
+        .title {
+            font-size: 56px;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            margin-bottom: 16px;
+            line-height: 1.1;
+        }
+
+        .subtitle {
+            font-size: 28px;
+            font-weight: 400;
+            color: #86868b;
+            margin-bottom: 40px;
+            line-height: 1.3;
+        }
+
+        .body-large {
+            font-size: 21px;
+            font-weight: 400;
+            color: #1d1d1f;
+            line-height: 1.5;
+            margin-bottom: 30px;
+        }
+
+        .number-huge {
+            font-size: 120px;
+            font-weight: 700;
+            color: #007aff;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .number-label {
+            font-size: 24px;
+            font-weight: 500;
+            color: #86868b;
+            margin-bottom: 60px;
+        }
+
+        /* Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .card {
+            background: #f5f5f7;
+            border-radius: 18px;
+            padding: 40px;
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-emoji {
+            font-size: 48px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .card-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .card-text {
+            font-size: 17px;
+            color: #86868b;
+            line-height: 1.5;
+        }
+
+        /* List */
+        .checklist {
+            text-align: left;
+            max-width: 700px;
+            margin: 40px auto;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 24px;
+            font-size: 21px;
+            line-height: 1.5;
+        }
+
+        .check {
+            color: #007aff;
+            font-size: 28px;
+            margin-right: 16px;
+            font-weight: 600;
+        }
+
+        /* Stats */
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+            margin: 60px 0;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 64px;
+            font-weight: 700;
+            color: #007aff;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 17px;
+            color: #86868b;
+            font-weight: 500;
+        }
+
+        /* Button */
+        .btn {
+            display: inline-block;
+            background: #007aff;
+            color: white;
+            padding: 16px 32px;
+            border-radius: 980px;
+            font-size: 17px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s;
+            margin-top: 20px;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn:hover {
+            background: #0051d5;
+            transform: scale(1.05);
+        }
+
+        /* Highlight Box */
+        .highlight {
+            background: #007aff;
+            color: white;
+            border-radius: 18px;
+            padding: 40px;
+            margin: 40px 0;
+        }
+
+        .highlight .title {
+            color: white;
+        }
+
+        .highlight .body-large {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Progress */
+        .progress-bar {
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 100;
+        }
+
+        .progress-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #d2d2d7;
+            transition: all 0.3s;
+        }
+
+        .progress-dot.active {
+            background: #007aff;
+            width: 24px;
+            border-radius: 4px;
+        }
+
+        /* Timeline */
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            max-width: 800px;
+            margin: 60px auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #d2d2d7;
+            z-index: 0;
+        }
+
+        .timeline-item {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .timeline-dot {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #007aff;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            margin: 0 auto 16px;
+        }
+
+        .timeline-label {
+            font-size: 15px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .timeline-text {
+            font-size: 13px;
+            color: #86868b;
+        }
+
+        /* Navigation Arrows */
+        .nav-arrows {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            display: flex;
+            gap: 12px;
+            z-index: 100;
+        }
+
+        .arrow-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(0, 122, 255, 0.1);
+            border: none;
+            color: #007aff;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .arrow-btn:hover {
+            background: #007aff;
+            color: white;
+        }
+
+        .arrow-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .super-title { font-size: 48px; }
+            .title { font-size: 36px; }
+            .subtitle { font-size: 21px; }
+            .body-large { font-size: 17px; }
+            .number-huge { font-size: 72px; }
+            .stats { gap: 40px; }
+            .stat-number { font-size: 48px; }
+            .card-grid { grid-template-columns: 1fr; }
+            .timeline { flex-direction: column; gap: 40px; }
+            .timeline::before { display: none; }
+            .nav-arrows { bottom: 20px; right: 20px; }
+            .progress-bar { bottom: 20px; }
+        }
+
+        /* Phase Badge */
+        .phase-badge {
+            display: inline-block;
+            background: rgba(0, 122, 255, 0.1);
+            color: #007aff;
+            padding: 8px 20px;
+            border-radius: 980px;
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        /* Two Column */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            text-align: left;
+            max-width: 900px;
+            margin: 40px auto;
+        }
+
+        @media (max-width: 768px) {
+            .two-col { grid-template-columns: 1fr; gap: 30px; }
+        }
+
+        .col-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .col-text {
+            font-size: 17px;
+            color: #86868b;
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-content">
+            <div class="nav-dots" id="navDots"></div>
+            <div class="section-count" id="sectionCount">1 / 14</div>
+        </div>
+    </nav>
+
+    <!-- Section 1: Hero -->
+    <section class="section active">
+        <div class="content">
+            <div class="super-title">Media Buying</div>
+            <div class="subtitle">Test. Scale. Win.</div>
+            <div class="body-large">Your simple system for finding winning Ecomm products</div>
+            <button class="btn" onclick="nextSection()">Let's Start →</button>
+        </div>
+    </section>
+
+    <!-- Section 2: The Basics -->
+    <section class="section">
+        <div class="content">
+            <div class="phase-badge">THE BASICS</div>
+            <div class="title">Here's how it works</div>
+            
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">Media Buyers</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">Products Each</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">12</div>
+                    <div class="stat-label">Tests Per Week</div>
+                </div>
+            </div>
+
+            <div class="body-large">Every Monday, you get 2 Ecomm products to test.<br>Launch campaigns Monday & Tuesday. Review Wednesday.<br>Min 4 campaigns per week ($400 total spend).</div>
+        </div>
+    </section>
+
+    <!-- Section 3: Your Week -->
+    <section class="section">
+        <div class="content">
+            <div class="phase-badge">YOUR WEEK</div>
+            <div class="title">What you do each week</div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot">M</div>
+                    <div class="timeline-label">Monday</div>
+                    <div class="timeline-text">Team meeting<br>Launch 2 campaigns</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot">T</div>
+                    <div class="timeline-label">Tuesday</div>
+                    <div class="timeline-text">Launch 2 more<br>4 campaigns running</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot">W</div>
+                    <div class="timeline-label">Wednesday</div>
+                    <div class="timeline-text">Review results<br>Kill or graduate</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot">F</div>
+                    <div class="timeline-label">Friday</div>
+                    <div class="timeline-text">Full report<br>Plan next week</div>
+                </div>
+            </div>
+
+            <div class="body-large">One meeting per week. Two Slack updates.</div>
+        </div>
+    </section>
+
+    <!-- Section 4: Phase 1 -->
+    <section class="section">
+        <div class="content">
+            <div class="phase-badge">PHASE 1</div>
+            <div class="title">Test Competitor Ads</div>
+            <div class="subtitle">No creation needed • Just test what's working</div>
+            
+            <div class="body-large" style="margin-bottom: 50px;">You'll launch 4 campaigns minimum per week:<br>2 products × 2 campaigns each (Monday + Tuesday)</div>
+
+            <div class="card-grid">
+                <div class="card">
+                    <span class="card-emoji">🔍</span>
+                    <div class="card-title">Step 1: Research</div>
+                    <div class="card-text">Go to Facebook Ad Library & Pipiads. Find competitor ads already running for your product. Save 10-15 winning ads.</div>
+                </div>
+                <div class="card">
+                    <span class="card-emoji">📅</span>
+                    <div class="card-title">Step 2: Monday Launch</div>
+                    <div class="card-text">Launch 1 campaign per product (2 total). Use competitor ads you found. $100/day budget each.</div>
+                </div>
+                <div class="card">
+                    <span class="card-emoji">📅</span>
+                    <div class="card-title">Step 3: Tuesday Launch</div>
+                    <div class="card-text">Launch 1 MORE campaign per product (2 more total). Different competitor angles. $100/day each.</div>
+                </div>
+            </div>
+
+            <div class="highlight" style="margin-top: 40px;">
+                <div class="body-large">Total: 4 campaigns running by Tuesday<br>Budget: $400 total ($200 per product)<br>Let them run. Don't touch. Review Wednesday.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: FB Ad Structure -->
+    <section class="section">
+        <div class="content">
+            <div class="phase-badge">SUCCESS METRICS</div>
+            <div class="title">What moves forward?</div>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <span class="card-emoji">1️⃣</span>
+                    <div class="card-title">Phase 1 → Phase 2</div>
+                    <div class="card-text" style="margin-top: 20px;">After $200 spend, need ANY of these:</div>
+                    <div class="col-text" style="margin-top: 12px;">• 1+ sale at $100 CPA or better</div>
+                    <div class="col-text">• 2+ sales under $100 CPA</div>
+                    <div class="col-text">• 15+ ATCs under $13 each</div>
+                    <div class="col-text">• 3%+ CTR with engagement</div>
+                </div>
+                <div class="card">
+                    <span class="card-emoji">2️⃣</span>
+                    <div class="card-title">Phase 2 → Phase 3</div>
+                    <div class="card-text" style="margin-top: 20px;">Simple:</div>
+                    <div class="col-text" style="font-size: 21px; color: #007aff; font-weight: 600; margin-top: 20px;">Is it profitable?</div>
+                    <div class="col-text" style="margin-top: 12px;">Break even or better (2.0x ROAS+)</div>
+                    <div class="col-text">Any positive ROI = scalable</div>
+                    <div class="col-text">Move to Phase 3 for team scaling</div>
+                </div>
+            </div>
+
+            <div class="highlight" style="margin-top: 40px;">
+                <div class="body-large">Phase 1: Find signal<br>Phase 2: Prove profit<br>Phase 3: Scale to max</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 7: Phase 2 -->
+    <section class="section">
+        <div class="content">
+            <div class="phase-badge">PHASE 2</div>
+            <div class="title">Prove It's Profitable</div>
+            <div class="subtitle">2-3 weeks • Your product solo</div>
+            
+            <div class="two-col">
+                <div>
+                    <div class="col-title">What You Do</div>
+                    <div class="col-text">→ Create 5-10 custom video ads</div>
+                    <div class="col-text">→ Test different hooks & angles</div>
+                    <div class="col-text">→ Write better ad copy</div>
+                    <div class="col-text">→ Scale budget gradually</div>
+                </div>
+                <div>
+                    <div class="col-title">Success Metric</div>
+                    <div class="col-text" style="font-size: 32px; color: #007aff; font-weight: 600; margin: 20px 0;">Break Even or Better</div>
+                    <div class="col-text">100% ROI minimum (2.0x ROAS)</div>
+                    <div class="col-text">Any profit = scalable = move to Phase 3</div>
+                </div>
+            </div>
+
+            <div class="highlight" style="margin-top: 40px;">
+                <div class="body-large">If it's profitable, even slightly, it graduates.<br>Phase 3 is where we make it massive.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 8: Phase 2 Success -->
+    <section class="section">
+        <div class="content">
+            <div class="phase-badge">PHASE 2 → PHASE 3</div>
+            <div class="title">Is it profitable?</div>
+            <div class="subtitle">That's all we need to know</div>
+            
+            <div class="number-huge">2.0x</div>
+            <div class="number-label">Break Even or Better (100% ROI)</div>
+
+            <div class="body-large" style="margin: 40px 0;">Any positive ROI = scalable = moves to Phase 3</div>
+
+            <div class="card-grid">
+                <div class="card">
+                    <span class="card-emoji">✅</span>
+                    <div class="card-title">What We're Looking For</div>
+                    <div class="card-text">Making money, even slightly</div>
+                    <div class="card-text">Consistent over 3-5 days</div>
+                    <div class="card-text">Able to scale budget up</div>
+                </div>
+                <div class="card">
+                    <span class="card-emoji">🚀</span>
+                    <div class="card-title">What Happens Next</div>
+                    <div class="card-text">Product moves to Phase 3</div>
+                    <div class="card-text">Entire team takes it over</div>
+                    <div class="card-text">Scale to $100K+/day</div>
+                </div>
+            </div>
+
+            <div class="highlight" style="margin-top: 40px;">
+                <div class="body-large">You proved it works solo.<br>Now the team makes it massive.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 9: Phase 3 -->
+    <section class="section">
+        <div class="content">
+            <div class="phase-badge">PHASE 3</div>
+            <div class="title">Scale to the Moon</div>
+            <div class="subtitle">Everyone works on this winner together</div>
+            
+            <div class="number-huge">$100K+</div>
+            <div class="number-label">Daily spend goal (stay profitable)</div>
+
+            <div class="card-grid">
+                <div class="card">
+                    <span class="card-emoji">👥</span>
+                    <div class="card-title">Full Team</div>
+                    <div class="card-text">All 6 media buyers focus on this product. More hands = faster scaling.</div>
+                </div>
+                <div class="card">
+                    <span class="card-emoji">🎬</span>
+                    <div class="card-title">Advanced Creatives</div>
+                    <div class="card-text">Professional videos, multiple angles, constant testing. Keep it fresh.</div>
+                </div>
+                <div class="card">
+                    <span class="card-emoji">🌐</span>
+                    <div class="card-title">Multi-Platform</div>
+                    <div class="card-text">Facebook, TikTok, Google, Pinterest, Snapchat. Test everywhere.</div>
+                </div>
+            </div>
+
+            <div class="divider" style="margin: 50px 0;"></div>
+
+            <div class="two-col">
+                <div>
+                    <div class="col-title">Optimize Everything</div>
+                    <div class="col-text">→ Shopify page (copy, images, layout)</div>
+                    <div class="col-text">→ Product descriptions</div>
+                    <div class="col-text">→ Checkout flow</div>
+                    <div class="col-text">→ Upsells & bundles</div>
+                </div>
+                <div>
+                    <div class="col-title">The Goal</div>
+                    <div class="col-text">→ Scale as high as possible</div>
+                    <div class="col-text">→ Stay profitable (any positive ROI)</div>
+                    <div class="col-text">→ Target: $100K+ daily spend</div>
+                    <div class="col-text">→ If ROAS drops, pull back and optimize</div>
+                </div>
+            </div>
+
+            <div class="body-large" style="margin-top: 40px;">This is where 1 product can generate $1M+ per month.</div>
+        </div>
+    </section>
+
+    <!-- Section 10: Wednesday Check-in -->
+    <section class="section">
+        <div class="content">
+            <div class="phase-badge">WEDNESDAY CHECK-IN</div>
+            <div class="title">Mid-week update</div>
+            <div class="subtitle">Post in #media-buying-updates by 12 PM</div>
+            
+            <div class="body-large" style="margin-bottom: 40px;">Quick status after your Monday-Tuesday tests</div>
+
+            <div class="highlight">
+                <div class="col-title" style="color: white; margin-bottom: 20px;">Template</div>
+                <div class="body-large" style="text-align: left; font-size: 19px;">
+                    <strong>**[Your Name] - Wed Check-in**</strong><br><br>
+                    
+                    <strong>Product A:</strong> [Name]<br>
+                    → Spent: $200 | Sales: X | ATCs: X<br>
+                    → Decision: Kill ❌ / Graduate ✅<br><br>
+                    
+                    <strong>Product B:</strong> [Name]<br>
+                    → Spent: $200 | Sales: X | ATCs: X<br>
+                    → Decision: Kill ❌ / Graduate ✅
+                </div>
+            </div>
+
+            <div class="body-large" style="margin-top: 40px;">Takes 60 seconds. Keeps everyone aligned.</div>
+        </div>
+    </section>
+
+    <!-- Section 11: Friday Report -->
+    <section class="section">
+        <div class="content">
+            <div class="phase-badge">FRIDAY REPORT</div>
+            <div class="title">Full weekly update</div>
+            <div class="subtitle">Post in #weekly-reports by 5 PM</div>
+            
+            <div class="highlight">
+                <div class="body-large" style="text-align: left; font-size: 17px;">
+                    <strong>**Week [X] - [Your Name]**</strong><br><br>
+                    
+                    <strong>NEW PRODUCTS (Phase 1):</strong><br>
+                    • Product A: $200 spent | 2 sales, 12 ATCs | Graduate to P2 ✅<br>
+                    • Product B: $200 spent | 0 sales, 3 ATCs | KILL ❌<br><br>
+                    
+                    <strong>PHASE 2 (Proving Profit):</strong><br>
+                    • Product X: Made 8 custom creatives, break-even, scalable ✅<br>
+                    • Moving to Phase 3 - team will take over<br><br>
+                    
+                    <strong>PHASE 3 (Team Scaling):</strong><br>
+                    • Product Y: My role - TikTok testing, 3 new videos<br>
+                    • Team scaled to $12K/day, still profitable<br>
+                    • Optimized Shopify page, +15% conversion<br><br>
+                    
+                    <strong>NEXT WEEK:</strong><br>
+                    • Take Product A to Phase 2 custom creatives<br>
+                    • Continue TikTok testing for Product Y
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 12: Tracker -->
+    <section class="section">
+        <div class="content">
+            <div class="phase-badge">SHARED TRACKER</div>
+            <div class="title">Keep it updated</div>
+            
+            <div class="checklist">
+                <div class="checklist-item">
+                    <span class="check">→</span>
+                    <span>Product name & phase</span>
+                </div>
+                <div class="checklist-item">
+                    <span class="check">→</span>
+                    <span>How much you spent</span>
+                </div>
+                <div class="checklist-item">
+                    <span class="check">→</span>
+                    <span>Sales & add-to-carts</span>
+                </div>
+                <div class="checklist-item">
+                    <span class="check">→</span>
+                    <span>ROAS (if scaling)</span>
+                </div>
+                <div class="checklist-item">
+                    <span class="check">→</span>
+                    <span>What's next</span>
+                </div>
+            </div>
+
+            <div class="body-large" style="margin-top: 40px;">Update after Wednesday review and in your Friday report.</div>
+        </div>
+    </section>
+
+    <!-- Section 13: Goals -->
+    <section class="section">
+        <div class="content">
+            <div class="phase-badge">THE GOAL</div>
+            <div class="title">What success looks like</div>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-title">Month 1</div>
+                    <div class="col-text">48-60 products tested</div>
+                    <div class="col-text">3-6 in Phase 2</div>
+                    <div class="col-text">1-2 team winners scaling</div>
+                    <div class="col-text" style="font-size: 24px; color: #007aff; font-weight: 600; margin-top: 12px;">$10K-20K revenue</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Month 2</div>
+                    <div class="col-text">96-120 products tested</div>
+                    <div class="col-text">8-12 in Phase 2</div>
+                    <div class="col-text">2-4 team winners scaling</div>
+                    <div class="col-text" style="font-size: 24px; color: #007aff; font-weight: 600; margin-top: 12px;">$50K-100K revenue</div>
+                </div>
+                <div class="card">
+                    <div class="card-title">Month 3</div>
+                    <div class="col-text">144-180 products tested</div>
+                    <div class="col-text">3-6 team winners</div>
+                    <div class="col-text">Scaling multi-platform</div>
+                    <div class="col-text" style="font-size: 24px; color: #007aff; font-weight: 600; margin-top: 12px;">$200K-500K revenue</div>
+                </div>
+            </div>
+
+            <div class="body-large" style="margin-top: 40px;">When 6 people focus on scaling 1 winner,<br>it can hit $1M+/month.</div>
+        </div>
+    </section>
+
+    <!-- Section 14: Keys to Success -->
+    <section class="section">
+        <div class="content">
+            <div class="title">Remember</div>
+            
+            <div class="checklist">
+                <div class="checklist-item">
+                    <span class="check">→</span>
+                    <span>Phase 1: Fast testing, no creation needed</span>
+                </div>
+                <div class="checklist-item">
+                    <span class="check">→</span>
+                    <span>Phase 2: Any profit = move to Phase 3</span>
+                </div>
+                <div class="checklist-item">
+                    <span class="check">→</span>
+                    <span>Phase 3: Entire team scales winners together</span>
+                </div>
+                <div class="checklist-item">
+                    <span class="check">→</span>
+                    <span>Most products fail - that's the game</span>
+                </div>
+                <div class="checklist-item">
+                    <span class="check">→</span>
+                    <span>Wednesday & Friday updates, no excuses</span>
+                </div>
+            </div>
+
+            <div class="highlight" style="margin-top: 60px;">
+                <div class="title" style="font-size: 48px;">Let's build $100K/day winners 🚀</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Navigation Arrows -->
+    <div class="nav-arrows">
+        <button class="arrow-btn" onclick="prevSection()" id="prevBtn">←</button>
+        <button class="arrow-btn" onclick="nextSection()" id="nextBtn">→</button>
+    </div>
+
+    <script>
+        let currentSection = 0;
+        const sections = document.querySelectorAll('.section');
+        const totalSections = sections.length;
+
+        // Initialize navigation
+        function initNav() {
+            const navDots = document.getElementById('navDots');
+            const progressBar = document.getElementById('progressBar');
+            
+            for (let i = 0; i < totalSections; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'nav-dot' + (i === 0 ? ' active' : '');
+                dot.onclick = () => goToSection(i);
+                navDots.appendChild(dot);
+
+                const progressDot = document.createElement('div');
+                progressDot.className = 'progress-dot' + (i === 0 ? ' active' : '');
+                progressBar.appendChild(progressDot);
+            }
+            updateNav();
+        }
+
+        function goToSection(index) {
+            sections[currentSection].classList.remove('active');
+            currentSection = index;
+            sections[currentSection].classList.add('active');
+            updateNav();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function nextSection() {
+            if (currentSection < totalSections - 1) {
+                goToSection(currentSection + 1);
+            }
+        }
+
+        function prevSection() {
+            if (currentSection > 0) {
+                goToSection(currentSection - 1);
+            }
+        }
+
+        function updateNav() {
+            // Update dots
+            document.querySelectorAll('.nav-dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentSection);
+            });
+
+            // Update progress dots
+            document.querySelectorAll('.progress-dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentSection);
+            });
+
+            // Update section count
+            document.getElementById('sectionCount').textContent = 
+                `${currentSection + 1} / ${totalSections}`;
+
+            // Update buttons
+            document.getElementById('prevBtn').disabled = currentSection === 0;
+            document.getElementById('nextBtn').disabled = currentSection === totalSections - 1;
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSection();
+            if (e.key === 'ArrowLeft') prevSection();
+        });
+
+        // Swipe navigation for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) nextSection();
+            if (touchEndX > touchStartX + 50) prevSection();
+        }
+
+        // Initialize
+        initNav();
+    </script>
+</body>
+</html>
