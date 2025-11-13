@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The 5 Skincare Mistakes That Are Aging Your Face Faster</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f8f8;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Section */
+        .hero-section {
+            background: linear-gradient(135deg, #2d3561 0%, #3d4578 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .hero-section h1 {
+            font-size: 3em;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            font-family: 'Georgia', serif;
+        }
+
+        .hero-section .subtitle {
+            font-size: 1.3em;
+            font-style: italic;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .author-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .author-details {
+            text-align: left;
+        }
+
+        .author-details .name {
+            font-size: 1em;
+            font-weight: 400;
+        }
+
+        .author-details .date {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        /* Content Sections */
+        .content-section {
+            background: white;
+            padding: 60px 20px;
+        }
+
+        .chapter-label {
+            color: #8b94b8;
+            font-size: 0.9em;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            line-height: 1.3;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .content-text {
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #444;
+        }
+
+        .content-text em {
+            font-style: italic;
+        }
+
+        /* Image with Caption */
+        .image-container {
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .image-caption {
+            font-size: 0.95em;
+            font-style: italic;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        /* Purple Discovery Section */
+        .discovery-section {
+            background: linear-gradient(135deg, #7b68ab 0%, #9b8ac4 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .discovery-section h2 {
+            font-size: 2.8em;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .discovery-section p {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+
+        /* Mistakes Section */
+        .mistakes-section {
+            background: white;
+            padding: 80px 20px;
+        }
+
+        .mistakes-section h2 {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .skin-comparison {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+
+        .skin-diagram {
+            text-align: center;
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .skin-diagram h3 {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+        }
+
+        .diagram-placeholder {
+            background: #f5f5f5;
+            border-radius: 8px;
+            padding: 40px 20px;
+            margin-bottom: 10px;
+        }
+
+        .mistakes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .mistake-card {
+            background: #fafafa;
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 4px solid #3d4578;
+        }
+
+        .mistake-number {
+            background: #3d4578;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .mistake-card h3 {
+            font-size: 1.4em;
+            margin-bottom: 15px;
+        }
+
+        .mistake-card p {
+            font-size: 1.05em;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* Ingredients Section */
+        .ingredients-section {
+            background: white;
+            padding: 60px 20px;
+        }
+
+        .ingredients-section h2 {
+            font-size: 2.3em;
+            text-align: center;
+            margin-bottom: 40px;
+            line-height: 1.3;
+        }
+
+        .research-highlight {
+            background: #f9f9f9;
+            border-left: 4px solid #7b68ab;
+            padding: 20px 30px;
+            margin: 30px 0;
+            font-size: 1.1em;
+            line-height: 1.7;
+        }
+
+        .research-highlight strong {
+            color: #3d4578;
+        }
+
+        .research-reference {
+            background: #f0eef7;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+            font-size: 0.95em;
+        }
+
+        .research-reference img {
+            max-width: 100%;
+            margin-bottom: 10px;
+        }
+
+        /* Breakthrough Section */
+        .breakthrough-section {
+            background: #f5f0f7;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .breakthrough-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+        }
+
+        .breakthrough-section p {
+            font-size: 1.2em;
+            line-height: 1.7;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Product Ingredients */
+        .product-ingredients {
+            background: white;
+            padding: 60px 20px;
+        }
+
+        .ingredient-list {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .ingredient-item {
+            background: #fafafa;
+            padding: 20px 30px;
+            margin: 15px 0;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+        }
+
+        .ingredient-item:hover {
+            background: #f0f0f0;
+            transform: translateX(5px);
+        }
+
+        .ingredient-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #e0e0e0;
+            margin-right: 15px;
+        }
+
+        .ingredient-name {
+            flex: 1;
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+
+        .ingredient-percentage {
+            color: #3d4578;
+            font-weight: 700;
+            font-size: 1.1em;
+        }
+
+        .plus-icon {
+            color: #8b94b8;
+            font-size: 1.5em;
+            margin-left: 10px;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            background: #7b68ab;
+            color: white;
+            padding: 18px 60px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.1em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 30px 0;
+        }
+
+        .cta-button:hover {
+            background: #6a5899;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Transformation Section */
+        .transformation-section {
+            background: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .transformation-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .transformation-section .subtitle {
+            font-size: 1.1em;
+            font-style: italic;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        /* Results Section */
+        .results-section {
+            background: #f8f8f8;
+            padding: 80px 20px;
+        }
+
+        .results-section h2 {
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .result-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .result-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .result-image {
+            position: relative;
+            background: #e0e0e0;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .result-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .result-label {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 8px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        .result-content {
+            padding: 25px;
+        }
+
+        .result-title {
+            font-size: 1em;
+            font-style: italic;
+            color: #888;
+            margin-bottom: 15px;
+        }
+
+        .result-testimonial {
+            font-size: 1.05em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #444;
+        }
+
+        .result-author {
+            font-weight: 700;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+
+        .result-age {
+            color: #888;
+            font-size: 0.95em;
+        }
+
+        /* Final CTA Section */
+        .final-cta {
+            background: linear-gradient(135deg, #2d3561 0%, #3d4578 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .final-cta h2 {
+            font-size: 2.8em;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .final-cta p {
+            font-size: 1.3em;
+            margin-bottom: 40px;
+            line-height: 1.6;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .final-cta .cta-button {
+            background: #7b68ab;
+        }
+
+        .final-cta .cta-button:hover {
+            background: #6a5899;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2em;
+            }
+
+            .hero-section .subtitle {
+                font-size: 1.1em;
+            }
+
+            .section-title {
+                font-size: 1.8em;
+            }
+
+            .content-text {
+                font-size: 1.1em;
+            }
+
+            .skin-comparison {
+                flex-direction: column;
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .final-cta h2 {
+                font-size: 2em;
+            }
+
+            .final-cta p {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1>The 5 Skincare Mistakes That Are Aging Your Face Faster</h1>
+            <p class="subtitle">And the one nighttime breakthrough that's giving women the radiant, youthful glow they thought was impossible after 35</p>
+            
+            <div class="author-info">
+                <div class="author-avatar">👩‍⚕️</div>
+                <div class="author-details">
+                    <div class="name">A Special Investigation by Dr. Elena Martinez, Clinical Skin Science Institute</div>
+                    <div class="date">November 13, 2025</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chapter One -->
+    <section class="content-section">
+        <div class="container">
+            <div class="chapter-label">Chapter One</div>
+            <h2 class="section-title">The Client Who Changed Everything</h2>
+            
+            <p class="content-text">Margaret sat across from me in my consultation room, her hands clutching a shopping bag filled with expensive skincare products. At 42, she'd spent thousands on serums, treatments, and professional facials. Yet her skin looked tired, dull, and older than her years.</p>
+            
+            <p class="content-text">"I do everything right," she said, her voice breaking slightly. "I have a 10-step routine. I use retinol. I get regular peels. But every morning, I wake up and my skin looks... lifeless. My daughter's friends think I'm her grandmother."</p>
+            
+            <p class="content-text">She pulled out product after product—$200 serums, dermatologist-prescribed treatments, award-winning night creams. Each one promised transformation. None had delivered.</p>
+            
+            <p class="content-text">"What am I doing wrong?" she whispered. "Why can't I get my glow back?"</p>
+            
+            <div class="image-container">
+                <div style="background: #e8e2f0; padding: 60px; border-radius: 8px; text-align: center; color: #999;">
+                    [Image: Woman looking at her reflection, concerned about dull skin]
+                </div>
+                <p class="image-caption">The exhaustion and frustration were written all over her face</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chapter Two -->
+    <section class="content-section" style="background: #f8f8f8;">
+        <div class="container">
+            <div class="chapter-label">Chapter Two</div>
+            <h2 class="section-title">The Investigation That Shook My Practice</h2>
+            
+            <p class="content-text">Margaret wasn't alone. I had dozens of patients with the same story—diligent routines, expensive products, zero results. Some had even made their skin worse with harsh treatments and aggressive exfoliation.</p>
+            
+            <p class="content-text">I spent the next eight months diving deep into clinical research on skin regeneration, cellular turnover, and nighttime skin repair mechanisms. What I discovered fundamentally changed how I approach anti-aging skincare.</p>
+            
+            <p class="content-text"><em>That question kept me up at night for months. Why were intelligent, committed women failing to achieve healthy, radiant skin despite doing "everything right"?</em></p>
+        </div>
+    </section>
+
+    <!-- Discovery Section -->
+    <section class="discovery-section">
+        <div class="container">
+            <h2>What I Discovered Changed My Practice Forever</h2>
+            <p>After reviewing hundreds of failed skincare regimens, I uncovered 5 fundamental mistakes that 9 out of 10 women make with their nighttime routine</p>
+        </div>
+    </section>
+
+    <!-- Mistakes Section -->
+    <section class="mistakes-section">
+        <div class="container">
+            <p class="content-text" style="max-width: 800px; margin: 0 auto 40px;">We weren't treating aging skin—we were treating our assumptions about it. For years, the beauty industry had convinced women that more products, stronger actives, and aggressive treatments were the answer.</p>
+            
+            <p class="content-text" style="max-width: 800px; margin: 0 auto 40px;">But breakthrough research revealed that skin aging isn't just about wrinkles or spots—it's about compromised cellular regeneration, impaired barrier function, and disrupted nighttime repair cycles. The complicated routines we'd been following weren't just ineffective—they were actively interfering with our skin's natural renewal process.</p>
+            
+            <div class="image-container">
+                <div style="background: #e8e2f0; padding: 60px; border-radius: 8px; text-align: center; color: #999;">
+                    [Image: Before/after comparison showing glowing, radiant skin]
+                </div>
+                <p class="image-caption">"I finally have the glow I thought I'd lost forever" - Margaret</p>
+            </div>
+            
+            <h2 style="margin-top: 60px;">The 5 Critical Mistakes We Were All Making</h2>
+            
+            <div class="skin-comparison">
+                <div class="skin-diagram">
+                    <h3>Youthful, Glowing Skin</h3>
+                    <div class="diagram-placeholder">
+                        <p style="color: #666;">Active cell turnover<br>Strong barrier<br>Optimal hydration<br>Even tone</p>
+                    </div>
+                </div>
+                <div class="skin-diagram">
+                    <h3>Aging, Dull Skin</h3>
+                    <div class="diagram-placeholder">
+                        <p style="color: #666;">Slow cell turnover<br>Weak barrier<br>Dehydration<br>Uneven pigmentation<br>Loss of radiance</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mistakes-grid">
+                <div class="mistake-card">
+                    <div class="mistake-number">1</div>
+                    <h3>The "More is Better" Trap</h3>
+                    <p>Layering 7-10 products overwhelms skin and prevents penetration of active ingredients. Your skin can't absorb everything, so expensive serums sit on the surface doing nothing while your money goes down the drain.</p>
+                </div>
+                
+                <div class="mistake-card">
+                    <div class="mistake-number">2</div>
+                    <h3>Ignoring Nighttime Repair Cycles</h3>
+                    <p>Your skin regenerates differently at night, but most products ignore circadian biology. Without supporting your skin's natural repair schedule, you're working against your body's most powerful anti-aging mechanism.</p>
+                </div>
+                
+                <div class="mistake-card">
+                    <div class="mistake-number">3</div>
+                    <h3>The Moisture Barrier Breakdown</h3>
+                    <p>Harsh actives and aggressive exfoliation strip your protective barrier. Without a healthy barrier, you can't retain hydration or achieve that dewy glow—your skin just gets drier and duller.</p>
+                </div>
+                
+                <div class="mistake-card">
+                    <div class="mistake-number">4</div>
+                    <h3>Missing Antioxidant Protection</h3>
+                    <p>Nighttime environmental damage from pollution and oxidative stress goes unchecked. Your skin can't repair damage while new damage keeps happening. It's like trying to fill a bucket with a hole in it.</p>
+                </div>
+                
+                <div class="mistake-card" style="grid-column: 1 / -1; max-width: 600px; margin: 0 auto; width: 100%;">
+                    <div class="mistake-number">5</div>
+                    <h3>Targeting Surface Issues, Not Root Causes</h3>
+                    <p>Most products treat symptoms like fine lines or dark spots instead of addressing why skin loses its glow in the first place. Real radiance comes from cellular health, not just cosmetic coverage.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ingredients Section -->
+    <section class="ingredients-section">
+        <div class="container">
+            <h2>The Only Ingredients Clinically Proven to Restore Nighttime Glow</h2>
+            
+            <div class="research-highlight">
+                <p>Every expensive serum and complex routine failed because they missed the 5 ingredients science says actually work overnight: <strong>retinol, niacinamide, hyaluronic acid, vitamin C, and peptides.</strong> These compounds accelerate cellular turnover, boost collagen production, lock in moisture, and neutralize free radicals while you sleep. Our formula combines all five at clinical concentrations, which is why it works when everything else doesn't.</p>
+            </div>
+            
+            <div class="research-reference">
+                <div style="background: white; padding: 15px; border-radius: 4px; margin-bottom: 15px;">
+                    <strong>NIH | National Library of Medicine</strong><br>
+                    <small>National Center for Biotechnology Information</small>
+                </div>
+                <div style="background: white; padding: 15px; border-radius: 4px;">
+                    <strong>PMC</strong> PubMed Central®<br>
+                    <p style="margin: 10px 0;"><strong>Comprehensive Review: Synergistic Effects of Multi-Active Nighttime Treatments on Skin Regeneration</strong></p>
+                    <p style="font-size: 0.9em; line-height: 1.6;">Clinical studies demonstrate that <span style="background: #e8dcf7;">retinol</span> increases cellular turnover by up to 40% when combined with barrier-supporting ingredients like <span style="background: #e8dcf7;">niacinamide</span>. <span style="background: #e8dcf7;">Hyaluronic acid</span> penetrates deeper during sleep cycles, while <span style="background: #e8dcf7;">vitamin C</span> and <span style="background: #e8dcf7;">peptides</span> work synergistically to stimulate collagen synthesis during peak repair hours...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Breakthrough Section -->
+    <section class="breakthrough-section">
+        <div class="container">
+            <h2>The Breakthrough That Changes Everything</h2>
+            <p>Working with sleep researchers and frustrated by my own patients' failures, I developed what we now call the "Circadian Glow Protocol"</p>
+            <p style="margin-top: 20px;">Instead of overwhelming your skin, we work with it. Instead of harsh single actives, we use five clinically-proven ingredients that enhance each other. Instead of fighting your skin's natural rhythm, we amplify your body's most powerful regeneration window—while you sleep.</p>
+        </div>
+    </section>
+
+    <!-- Product Ingredients -->
+    <section class="product-ingredients">
+        <div class="container">
+            <div class="ingredient-list">
+                <div class="ingredient-item">
+                    <div class="ingredient-icon" style="background: #f9e4c8;"></div>
+                    <span class="ingredient-name">Retinol (Vitamin A)</span>
+                    <span class="ingredient-percentage">0.5%</span>
+                    <span class="plus-icon">⊕</span>
+                </div>
+                
+                <div class="ingredient-item">
+                    <div class="ingredient-icon" style="background: #e8dcf7;"></div>
+                    <span class="ingredient-name">Niacinamide (Vitamin B3)</span>
+                    <span class="ingredient-percentage">5%</span>
+                    <span class="plus-icon">⊕</span>
+                </div>
+                
+                <div class="ingredient-item">
+                    <div class="ingredient-icon" style="background: #d4e8f7;"></div>
+                    <span class="ingredient-name">Hyaluronic Acid</span>
+                    <span class="ingredient-percentage">2%</span>
+                    <span class="plus-icon">⊕</span>
+                </div>
+                
+                <div class="ingredient-item">
+                    <div class="ingredient-icon" style="background: #ffe8d4;"></div>
+                    <span class="ingredient-name">Vitamin C (Stable)</span>
+                    <span class="ingredient-percentage">10%</span>
+                    <span class="plus-icon">⊕</span>
+                </div>
+                
+                <div class="ingredient-item">
+                    <div class="ingredient-icon" style="background: #f7e8f0;"></div>
+                    <span class="ingredient-name">Peptide Complex</span>
+                    <span class="ingredient-percentage">3%</span>
+                    <span class="plus-icon">⊕</span>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <a href="#" class="cta-button">Get Your Glow Mask</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transformation Section -->
+    <section class="transformation-section">
+        <div class="container">
+            <h2>Margaret's 14-Day Transformation</h2>
+            <p class="subtitle">The client who started this journey became our first success story</p>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results-section">
+        <div class="container">
+            <h2>The Results Speak for Themselves</h2>
+            
+            <div class="results-grid">
+                <div class="result-card">
+                    <div class="result-image">
+                        <div style="background: #e8dcf7; height: 100%; display: flex; align-items: center; justify-content: center; color: #999;">
+                            [Before/After Image]
+                        </div>
+                        <div class="result-label">WEEK 1 → WEEK 2</div>
+                    </div>
+                    <div class="result-content">
+                        <p class="result-title">14 Night Transformation</p>
+                        <p class="result-testimonial">After trying every expensive serum on the market, this simple overnight mask gave me results in two weeks that I couldn't achieve in two years. My coworkers keep asking if I got Botox. I just smile and tell them I'm finally sleeping well.</p>
+                        <p class="result-author">Margaret C.</p>
+                        <p class="result-age">Age 42</p>
+                    </div>
+                </div>
+                
+                <div class="result-card">
+                    <div class="result-image">
+                        <div style="background: #f7e8f0; height: 100%; display: flex; align-items: center; justify-content: center; color: #999;">
+                            [Before/After Image]
+                        </div>
+                        <div class="result-label">BEFORE → 21 DAYS</div>
+                    </div>
+                    <div class="result-content">
+                        <p class="result-title">3 Week Transformation</p>
+                        <p class="result-testimonial">I'd resigned myself to looking tired and dull in my 50s. Three weeks with this mask and I literally glow when I wake up. No makeup needed. My husband said I look 10 years younger. Best $60 I've ever spent on skincare.</p>
+                        <p class="result-author">Linda R.</p>
+                        <p class="result-age">Age 53</p>
+                    </div>
+                </div>
+                
+                <div class="result-card">
+                    <div class="result-image">
+                        <div style="background: #d4e8f7; height: 100%; display: flex; align-items: center; justify-content: center; color: #999;">
+                            [Before/After Image]
+                        </div>
+                        <div class="result-label">BEFORE → 10 DAYS</div>
+                    </div>
+                    <div class="result-content">
+                        <p class="result-title">10 Night Transformation</p>
+                        <p class="result-testimonial">My skin looked gray and exhausted from stress and lack of sleep. Within 10 days, the dullness was gone. My dark circles faded. Friends keep commenting on how "rested" I look even though my schedule hasn't changed at all.</p>
+                        <p class="result-author">Jennifer K.</p>
+                        <p class="result-age">Age 38</p>
+                    </div>
+                </div>
+                
+                <div class="result-card">
+                    <div class="result-image">
+                        <div style="background: #ffe8d4; height: 100%; display: flex; align-items: center; justify-content: center; color: #999;">
+                            [Before/After Image]
+                        </div>
+                        <div class="result-label">BEFORE → 28 DAYS</div>
+                    </div>
+                    <div class="result-content">
+                        <p class="result-title">4 Week Transformation</p>
+                        <p class="result-testimonial">I have sensitive skin and was scared to try another product. But this formula is so gentle yet powerful. One month in and my skin texture is smoother, my tone is more even, and I have this natural radiance I haven't had since my 20s.</p>
+                        <p class="result-author">Patricia M.</p>
+                        <p class="result-age">Age 47</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Wake Up Glowing Tomorrow Morning</h2>
+            <p>Don't waste another night with products that don't work. Experience the overnight transformation that's giving women their confidence back—one sleep cycle at a time.</p>
+            <a href="#" class="cta-button">Get Your Glow Mask</a>
+        </div>
+    </section>
+</body>
+</html>
