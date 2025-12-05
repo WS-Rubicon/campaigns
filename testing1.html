@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Device is at Risk - Protect Now | SecureShield Pro</title>
+    <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Alert Banner */
+        .alert-banner {
+            background: linear-gradient(90deg, #ff4444, #cc0000);
+            padding: 12px 0;
+            text-align: center;
+            font-weight: 600;
+            animation: pulse 2s infinite;
+            box-shadow: 0 4px 20px rgba(255, 68, 68, 0.4);
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.9; }
+        }
+
+        .alert-banner .blink {
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50%, 100% { opacity: 1; }
+            25%, 75% { opacity: 0.5; }
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .warning-icon {
+            font-size: 80px;
+            color: #ff4444;
+            margin-bottom: 20px;
+            animation: shake 0.5s infinite;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero h1 span {
+            color: #ff4444;
+        }
+
+        .subtitle {
+            font-size: 22px;
+            margin-bottom: 30px;
+            color: #e0e0e0;
+        }
+
+        /* Threat Detection Box */
+        .threat-box {
+            background: rgba(255, 68, 68, 0.1);
+            border: 2px solid #ff4444;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px auto;
+            max-width: 600px;
+            box-shadow: 0 10px 40px rgba(255, 68, 68, 0.3);
+        }
+
+        .threat-box h3 {
+            color: #ff4444;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .threat-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            margin: 10px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            border-left: 4px solid #ff4444;
+        }
+
+        .threat-icon {
+            font-size: 24px;
+            margin-right: 15px;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #00d4ff, #0099cc);
+            color: #ffffff;
+            font-size: 24px;
+            font-weight: bold;
+            padding: 20px 60px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.4);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            animation: glow 2s infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 10px 40px rgba(0, 212, 255, 0.4); }
+            50% { box-shadow: 0 10px 60px rgba(0, 212, 255, 0.8); }
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 50px rgba(0, 212, 255, 0.6);
+        }
+
+        .cta-subtext {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #b0b0b0;
+        }
+
+        /* Timer */
+        .timer-box {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 40px auto;
+            max-width: 500px;
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .timer-box h4 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #ffaa00;
+        }
+
+        .countdown {
+            font-size: 36px;
+            font-weight: bold;
+            color: #ff4444;
+            font-family: 'Courier New', monospace;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 60px 0;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: #00d4ff;
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #00d4ff;
+        }
+
+        .feature-card p {
+            color: #c0c0c0;
+            line-height: 1.6;
+        }
+
+        /* Trust Badges */
+        .trust-section {
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 18px;
+            color: #00d4ff;
+        }
+
+        .badge-icon {
+            font-size: 32px;
+        }
+
+        /* Stats Section */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: bold;
+            color: #00d4ff;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            color: #b0b0b0;
+        }
+
+        /* Final CTA Section */
+        .final-cta {
+            background: linear-gradient(135deg, rgba(255, 68, 68, 0.2), rgba(204, 0, 0, 0.2));
+            padding: 60px 0;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .final-cta h2 {
+            font-size: 38px;
+            margin-bottom: 20px;
+        }
+
+        .final-cta p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            color: #e0e0e0;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 30px 0;
+            text-align: center;
+            color: #808080;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 32px;
+            }
+            
+            .subtitle {
+                font-size: 18px;
+            }
+            
+            .cta-button {
+                font-size: 20px;
+                padding: 18px 40px;
+            }
+            
+            .countdown {
+                font-size: 28px;
+            }
+            
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Alert Banner -->
+    <div class="alert-banner">
+        <span class="blink">⚠️ WARNING:</span> Your device may be infected with malware - Scan recommended immediately!
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="warning-icon">🛡️</div>
+            <h1>Your Device is <span>At Risk</span></h1>
+            <p class="subtitle">Detected threats could steal your personal data, passwords, and financial information</p>
+
+            <!-- Threat Detection Box -->
+            <div class="threat-box">
+                <h3>⚠️ Active Threats Detected:</h3>
+                <div class="threat-item">
+                    <span class="threat-icon">🦠</span>
+                    <div>
+                        <strong>Trojan.Generic.KD</strong><br>
+                        <small>High Risk - Detected 2 hours ago</small>
+                    </div>
+                </div>
+                <div class="threat-item">
+                    <span class="threat-icon">🕷️</span>
+                    <div>
+                        <strong>Adware.Tracker.BH</strong><br>
+                        <small>Medium Risk - Tracking your activity</small>
+                    </div>
+                </div>
+                <div class="threat-item">
+                    <span class="threat-icon">🎣</span>
+                    <div>
+                        <strong>Phishing.Attempt.17</strong><br>
+                        <small>Critical Risk - Password theft attempt</small>
+                    </div>
+                </div>
+            </div>
+
+            <a href="https://hpkpn.ttrk.io/click" class="cta-button">🔒 PROTECT MY DEVICE NOW</a>
+            <p class="cta-subtext">✓ 100% Free Scan • ✓ 60-Second Setup • ✓ Trusted by 50M+ Users</p>
+
+            <!-- Countdown Timer -->
+            <div class="timer-box">
+                <h4>⏰ Limited Time Protection Offer Expires In:</h4>
+                <div class="countdown" id="countdown">14:59</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="container">
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-number">50M+</div>
+                <div class="stat-label">Protected Users</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">99.9%</div>
+                <div class="stat-label">Threat Detection Rate</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Real-Time Protection</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">4.9★</div>
+                <div class="stat-label">User Rating</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2>Complete Protection Against All Threats</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Real-Time Scanning</h3>
+                    <p>Advanced AI-powered protection monitors your device 24/7, blocking threats before they can cause damage.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Password Protection</h3>
+                    <p>Secure vault keeps your passwords encrypted and safe from hackers and keyloggers.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3>Safe Browsing</h3>
+                    <p>Block malicious websites, phishing attempts, and dangerous downloads automatically.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔥</div>
+                    <h3>Firewall Protection</h3>
+                    <p>Advanced firewall prevents unauthorized access and keeps hackers out of your device.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📧</div>
+                    <h3>Email Security</h3>
+                    <p>Scan attachments and links in real-time to protect against email-based threats.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Lightning Fast</h3>
+                    <p>Optimized performance ensures your device runs smoothly without slowdowns.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Badges -->
+    <section class="trust-section">
+        <div class="container">
+            <h2>Trusted by Industry Leaders</h2>
+            <div class="trust-badges">
+                <div class="badge">
+                    <span class="badge-icon">✓</span>
+                    <span>Norton Certified</span>
+                </div>
+                <div class="badge">
+                    <span class="badge-icon">✓</span>
+                    <span>McAfee Approved</span>
+                </div>
+                <div class="badge">
+                    <span class="badge-icon">✓</span>
+                    <span>BBB A+ Rated</span>
+                </div>
+                <div class="badge">
+                    <span class="badge-icon">✓</span>
+                    <span>TrustPilot 4.9★</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Don't Wait Until It's Too Late</h2>
+            <p>Cybercriminals are targeting unprotected devices right now.<br>Protect yourself before they strike.</p>
+            <a href="https://hpkpn.ttrk.io/click" class="cta-button">🔒 GET PROTECTED NOW</a>
+            <p class="cta-subtext">✓ Instant Download • ✓ No Credit Card Required • ✓ 30-Day Money-Back Guarantee</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 SecureShield Pro. All rights reserved. | <a href="https://hpkpn.ttrk.io/click" style="color: #00d4ff; text-decoration: none;">Privacy Policy</a> | <a href="https://hpkpn.ttrk.io/click" style="color: #00d4ff; text-decoration: none;">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Countdown Timer
+        let timeLeft = 899; // 14:59 in seconds
+        const countdownElement = document.getElementById('countdown');
+
+        function updateCountdown() {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            countdownElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            
+            if (timeLeft > 0) {
+                timeLeft--;
+            } else {
+                timeLeft = 899; // Reset timer
+            }
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Add click tracking to all links
+        document.querySelectorAll('a[href="https://hpkpn.ttrk.io/click"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                // RedTrack will handle the click tracking
+                console.log('CTA clicked');
+            });
+        });
+    </script>
+</body>
+</html>
