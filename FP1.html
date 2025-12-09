@@ -394,15 +394,20 @@
         .agent-avatar {
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 28px;
-            color: white;
             position: relative;
-            box-shadow: 0 4px 12px rgba(72, 187, 120, 0.3);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            border: 3px solid #48bb78;
+        }
+
+        .agent-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .online-indicator {
@@ -880,7 +885,7 @@
                         <div class="agent-ready-section">
                             <div class="agent-status">
                                 <div class="agent-avatar">
-                                    👤
+                                    <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1754973337/Gemini_Generated_Image_v0356lv0356lv035_zpa88q.png" alt="Licensed Specialist">
                                     <div class="online-indicator"></div>
                                 </div>
                                 <div class="agent-info">
