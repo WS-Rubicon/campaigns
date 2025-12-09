@@ -66,6 +66,80 @@
             width: 100%;
         }
 
+        /* Loading Screen */
+        .loading-screen {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: white;
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .loading-screen.active {
+            display: flex;
+        }
+
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid #e2e8f0;
+            border-top-color: #48bb78;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .loading-text {
+            font-size: 20px;
+            color: #2d4a2d;
+            font-weight: 600;
+            text-align: center;
+            max-width: 400px;
+        }
+
+        .loading-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .loading-step {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 16px;
+            color: #64748b;
+            opacity: 0.3;
+            transition: all 0.5s ease;
+        }
+
+        .loading-step.complete {
+            color: #48bb78;
+            opacity: 1;
+        }
+
+        .loading-step-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid currentColor;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
         /* Header */
         .header {
             background: linear-gradient(135deg, #2d4a2d 0%, #3d5a3d 100%);
@@ -268,6 +342,27 @@
             text-align: center;
         }
 
+        .vip-banner {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            padding: 15px 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 2px solid #f59e0b;
+        }
+
+        .vip-banner-icon {
+            font-size: 24px;
+        }
+
+        .vip-banner-text {
+            font-size: 15px;
+            color: #92400e;
+            font-weight: 700;
+        }
+
         .success-icon {
             width: 80px;
             height: 80px;
@@ -283,11 +378,18 @@
         }
 
         .congrats-heading {
-            font-size: 32px;
+            font-size: 36px;
             color: #1a202c;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             font-weight: 800;
             letter-spacing: -0.5px;
+        }
+
+        .personalized-subheading {
+            font-size: 20px;
+            color: #2d4a2d;
+            margin-bottom: 25px;
+            font-weight: 600;
         }
 
         .congrats-text {
@@ -298,6 +400,80 @@
             max-width: 650px;
             margin-left: auto;
             margin-right: auto;
+        }
+
+        .agent-ready-section {
+            background: linear-gradient(135deg, #e6fffa 0%, #f0fdf4 100%);
+            border: 2px solid #6ee7b7;
+            border-radius: 16px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .agent-status {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .agent-avatar {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: white;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(72, 187, 120, 0.3);
+        }
+
+        .online-indicator {
+            position: absolute;
+            bottom: 2px;
+            right: 2px;
+            width: 16px;
+            height: 16px;
+            background: #10b981;
+            border: 3px solid white;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.1); }
+        }
+
+        .agent-info {
+            text-align: left;
+        }
+
+        .agent-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: #047857;
+            margin-bottom: 3px;
+        }
+
+        .agent-title {
+            font-size: 14px;
+            color: #059669;
+            font-weight: 500;
+        }
+
+        .agent-message {
+            font-size: 16px;
+            color: #065f46;
+            font-weight: 600;
+            margin-top: 15px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 8px;
         }
 
         .call-card {
@@ -313,9 +489,20 @@
             font-size: 16px;
             color: #64748b;
             font-weight: 600;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             text-transform: uppercase;
             letter-spacing: 1px;
+        }
+
+        .personal-reference {
+            font-size: 14px;
+            color: #2d4a2d;
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding: 10px 20px;
+            background: #e6fffa;
+            border-radius: 8px;
+            display: inline-block;
         }
 
         .phone-button {
@@ -390,11 +577,11 @@
             letter-spacing: 0.5px;
         }
 
-        .act-quickly {
-            font-size: 20px;
+        .reservation-text {
+            font-size: 15px;
             color: #742a2a;
-            font-weight: 700;
-            margin-top: 20px;
+            font-weight: 600;
+            margin-top: 15px;
         }
 
         .trust-section {
@@ -402,7 +589,7 @@
             justify-content: center;
             gap: 30px;
             flex-wrap: wrap;
-            margin: 40px 0;
+            margin: 30px 0;
             padding: 25px;
             background: #f8fafc;
             border-radius: 10px;
@@ -420,13 +607,6 @@
         .trust-icon {
             color: #48bb78;
             font-size: 20px;
-        }
-
-        .limited-text {
-            font-size: 16px;
-            color: #4a5568;
-            margin-top: 20px;
-            line-height: 1.6;
         }
 
         /* Disclaimer */
@@ -487,7 +667,11 @@
             }
 
             .congrats-heading {
-                font-size: 26px;
+                font-size: 28px;
+            }
+
+            .personalized-subheading {
+                font-size: 18px;
             }
 
             .features-grid {
@@ -536,10 +720,37 @@
             .age-selection-section {
                 padding: 30px 20px;
             }
+
+            .agent-status {
+                flex-direction: column;
+            }
+
+            .agent-info {
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="loading-screen">
+        <div class="spinner"></div>
+        <div class="loading-text">Preparing your personalized quote...</div>
+        <div class="loading-steps">
+            <div class="loading-step" id="step1">
+                <div class="loading-step-icon">✓</div>
+                <span>Verifying your age eligibility</span>
+            </div>
+            <div class="loading-step" id="step2">
+                <div class="loading-step-icon">✓</div>
+                <span>Matching you with a licensed specialist</span>
+            </div>
+            <div class="loading-step" id="step3">
+                <div class="loading-step-icon">✓</div>
+                <span>Preparing your coverage options</span>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <div class="progress-bar step-1">
             <div class="progress-fill"></div>
@@ -635,16 +846,42 @@
                     <div class="step-dot active"></div>
                 </div>
 
+                <div class="vip-banner">
+                    <span class="vip-banner-icon">⭐</span>
+                    <span class="vip-banner-text">PRIORITY APPLICATION - YOUR SPOT IS RESERVED</span>
+                </div>
+
                 <div class="success-icon">✓</div>
 
-                <h2 class="congrats-heading">Congratulations on Taking the Next Step!</h2>
+                <h2 class="congrats-heading">Perfect! You're All Set</h2>
+                <p class="personalized-subheading" id="ageRangeText">Your application for ages 50-70 has been prepared</p>
 
                 <p class="congrats-text">
-                    You can now review paid final-expense insurance options up to $50,000 to help with final expenses and unpaid debts. A licensed insurance specialist is ready to help you find the right coverage for your needs.
+                    Great news! We've prepared your personalized quote and matched you with a licensed specialist who has your information ready. They're standing by to walk you through your coverage options and answer any questions.
                 </p>
 
+                <div class="agent-ready-section">
+                    <div class="agent-status">
+                        <div class="agent-avatar">
+                            👤
+                            <div class="online-indicator"></div>
+                        </div>
+                        <div class="agent-info">
+                            <div class="agent-name">Licensed Specialist Ready</div>
+                            <div class="agent-title">Final Expense Coverage Expert</div>
+                        </div>
+                    </div>
+                    <div class="agent-message">
+                        "Hi! I have your <span id="ageRangeAgent">50-70</span> age bracket application ready. Let's get you the coverage you need - I'm here to help!"
+                    </div>
+                </div>
+
                 <div class="call-card">
-                    <div class="helpline-label">Final Expense Helpline</div>
+                    <div class="helpline-label">Your Direct Line to Your Specialist</div>
+                    
+                    <div class="personal-reference">
+                        📋 Reference: <span id="refNumber">AGE-50-70-2025</span>
+                    </div>
                     
                     <a href="tel:+18778310325" class="phone-button">
                         <span>☎</span>
@@ -658,26 +895,22 @@
                         </div>
                         <div class="trust-badge">
                             <span class="trust-icon">✓</span>
-                            <span>A+ Rated</span>
+                            <span>Your Info Ready</span>
                         </div>
                         <div class="trust-badge">
                             <span class="trust-icon">✓</span>
-                            <span>24/7 Available</span>
+                            <span>No Wait Time</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="urgency-section">
-                    <p class="urgency-text">⚠️ Demand is high, try to call within:</p>
+                    <p class="urgency-text">⏰ Your reserved spot will be released in:</p>
 
                     <div class="countdown-container">
                         <div class="countdown-item">
-                            <span class="countdown-number" id="hours">00</span>
-                            <div class="countdown-label">Hour</div>
-                        </div>
-                        <div class="countdown-item">
-                            <span class="countdown-number" id="minutes">01</span>
-                            <div class="countdown-label">Minute</div>
+                            <span class="countdown-number" id="minutes">05</span>
+                            <div class="countdown-label">Minutes</div>
                         </div>
                         <div class="countdown-item">
                             <span class="countdown-number" id="seconds">00</span>
@@ -685,8 +918,7 @@
                         </div>
                     </div>
 
-                    <p class="act-quickly">Act Quickly!</p>
-                    <p class="limited-text">Limited availability. Call now to review quotes and secure coverage.</p>
+                    <p class="reservation-text">Call now to keep your priority status and speak with your dedicated specialist</p>
                 </div>
             </div>
 
@@ -708,37 +940,68 @@
 
     <script>
         var selectedAge = '';
+        var ageRangeText = {
+            'Under 50': 'under 50',
+            '50 - 70': '50-70',
+            'Over 70': 'over 70'
+        };
 
         function goToCallPage(age) {
             selectedAge = age;
             
-            // Hide step 1, show step 2
-            document.querySelector('.step-1').classList.remove('active');
-            document.querySelector('.step-2').classList.add('active');
+            // Show loading screen
+            document.querySelector('.loading-screen').classList.add('active');
             
-            // Update progress bar
-            document.querySelector('.progress-bar').classList.remove('step-1');
-            document.querySelector('.progress-bar').classList.add('step-2');
+            // Simulate loading steps
+            setTimeout(function() {
+                document.getElementById('step1').classList.add('complete');
+            }, 600);
             
-            // Scroll to top smoothly
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+            setTimeout(function() {
+                document.getElementById('step2').classList.add('complete');
+            }, 1200);
             
-            // Start countdown after a brief delay
-            setTimeout(startCountdown, 500);
+            setTimeout(function() {
+                document.getElementById('step3').classList.add('complete');
+            }, 1800);
+            
+            // After loading, show step 2
+            setTimeout(function() {
+                // Hide loading screen
+                document.querySelector('.loading-screen').classList.remove('active');
+                
+                // Hide step 1, show step 2
+                document.querySelector('.step-1').classList.remove('active');
+                document.querySelector('.step-2').classList.add('active');
+                
+                // Update progress bar
+                document.querySelector('.progress-bar').classList.remove('step-1');
+                document.querySelector('.progress-bar').classList.add('step-2');
+                
+                // Personalize the page
+                var ageText = ageRangeText[age];
+                document.getElementById('ageRangeText').textContent = 'Your application for ages ' + age.toLowerCase() + ' has been prepared';
+                document.getElementById('ageRangeAgent').textContent = age.toLowerCase();
+                document.getElementById('refNumber').textContent = 'AGE-' + ageText.toUpperCase() + '-' + new Date().getFullYear();
+                
+                // Scroll to top smoothly
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+                
+                // Start countdown
+                startCountdown();
+            }, 2400);
         }
 
         function startCountdown() {
-            var totalSeconds = 60; // 1 minute countdown
+            var totalSeconds = 300; // 5 minute countdown
             
             function updateCountdown() {
-                var hours = Math.floor(totalSeconds / 3600);
-                var minutes = Math.floor((totalSeconds % 3600) / 60);
+                var minutes = Math.floor(totalSeconds / 60);
                 var seconds = totalSeconds % 60;
                 
-                document.getElementById('hours').textContent = (hours < 10 ? '0' : '') + hours;
                 document.getElementById('minutes').textContent = (minutes < 10 ? '0' : '') + minutes;
                 document.getElementById('seconds').textContent = (seconds < 10 ? '0' : '') + seconds;
                 
@@ -746,7 +1009,7 @@
                     totalSeconds--;
                     setTimeout(updateCountdown, 1000);
                 } else {
-                    document.querySelector('.urgency-text').innerHTML = '⚠️ <strong>Time Expired!</strong> Call now before spots fill up!';
+                    document.querySelector('.urgency-text').innerHTML = '⚠️ <strong>Reservation Expired!</strong> Call immediately to secure a new spot!';
                 }
             }
             
