@@ -970,13 +970,23 @@
         });
 
         function goToCallPage(age) {
-            if (isProcessing) return;
+            if (isProcessing) {
+                console.log('Already processing, ignoring click');
+                return;
+            }
             isProcessing = true;
+            console.log('Starting transition for age:', age);
             
             selectedAge = age;
             
+            // Reset loading steps
+            document.getElementById('step1').classList.remove('complete');
+            document.getElementById('step2').classList.remove('complete');
+            document.getElementById('step3').classList.remove('complete');
+            
             // Show loading screen
             document.querySelector('.loading-screen').classList.add('active');
+            console.log('Loading screen shown');
             
             // Simulate loading steps
             setTimeout(function() {
@@ -993,56 +1003,104 @@
             
             // After loading, show step 2
             setTimeout(function() {
-                // Hide loading screen
-                document.querySelector('.loading-screen').classList.remove('active');
-                
-                // Hide step 1, show step 2
-                document.querySelector('.step-1').classList.remove('active');
-                document.querySelector('.step-2').classList.add('active');
-                
-                // Update progress bar
-                document.querySelector('.progress-bar').classList.remove('step-1');
-                document.querySelector('.progress-bar').classList.add('step-2');
-                
-                // Personalize the page
-                var ageText = ageRangeText[age];
-                document.getElementById('ageRangeText').textContent = 'Your application for ages ' + age.toLowerCase() + ' has been prepared';
-                document.getElementById('ageRangeAgent').textContent = age.toLowerCase();
-                document.getElementById('refNumber').textContent = 'AGE-' + ageText.toUpperCase() + '-' + new Date().getFullYear();
-                
-                // Scroll to top smoothly
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-                
-                // Start countdown
-                startCountdown();
-                
-                // Reset processing flag
-                isProcessing = false;
+                try {
+                    console.log('Transitioning to step 2');
+                    
+                    // Hide loading screen first
+                    document.querySelector('.loading-screen').classList.remove('active');
+                    
+                    // Get the steps
+                    var step1 = document.querySelector('.step-1');
+                    var step2 = document.querySelector('.step-2');
+                    
+                    console.log('Step 1 element:', step1);
+                    console.log('Step 2 element:', step2);
+                    
+                    // Hide step 1, show step 2
+                    if (step1) {
+                        step1.classList.remove('active');
+                        console.log('Step 1 hidden');
+                    }
+                    if (step2) {
+                        step2.classList.add('active');
+                        console.log('Step 2 shown');
+                    }
+                    
+                    // Update progress bar
+                    var progressBar = document.querySelector('.progress-bar');
+                    if (progressBar) {
+                        progressBar.classList.remove('step-1');
+                        progressBar.classList.add('step-2');
+                    }
+                    
+                    // Personalize the page
+                    var ageText = ageRangeText[age];
+                    var ageRangeTextEl = document.getElementById('ageRangeText');
+                    var ageRangeAgentEl = document.getElementById('ageRangeAgent');
+                    var refNumberEl = document.getElementById('refNumber');
+                    
+                    if (ageRangeTextEl) {
+                        ageRangeTextEl.textContent = 'Your application for ages ' + age.toLowerCase() + ' has been prepared';
+                    }
+                    if (ageRangeAgentEl) {
+                        ageRangeAgentEl.textContent = age.toLowerCase();
+                    }
+                    if (refNumberEl) {
+                        refNumberEl.textContent = 'AGE-' + ageText.toUpperCase() + '-' + new Date().getFullYear();
+                    }
+                    
+                    // Scroll to top
+                    window.scrollTo(0, 0);
+                    
+                    // Start countdown
+                    startCountdown();
+                    
+                    console.log('Transition complete');
+                    
+                    // Reset processing flag
+                    isProcessing = false;
+                } catch(e) {
+                    console.error('Error transitioning to step 2:', e);
+                    isProcessing = false;
+                }
             }, 2400);
         }
 
+        var countdownInterval = null;
+
         function startCountdown() {
+            // Clear any existing countdown
+            if (countdownInterval) {
+                clearInterval(countdownInterval);
+            }
+            
             var totalSeconds = 300; // 5 minute countdown
             
             function updateCountdown() {
                 var minutes = Math.floor(totalSeconds / 60);
                 var seconds = totalSeconds % 60;
                 
-                document.getElementById('minutes').textContent = (minutes < 10 ? '0' : '') + minutes;
-                document.getElementById('seconds').textContent = (seconds < 10 ? '0' : '') + seconds;
+                var minutesEl = document.getElementById('minutes');
+                var secondsEl = document.getElementById('seconds');
+                
+                if (minutesEl) minutesEl.textContent = (minutes < 10 ? '0' : '') + minutes;
+                if (secondsEl) secondsEl.textContent = (seconds < 10 ? '0' : '') + seconds;
                 
                 if (totalSeconds > 0) {
                     totalSeconds--;
-                    setTimeout(updateCountdown, 1000);
                 } else {
-                    document.querySelector('.urgency-text').innerHTML = '⚠️ <strong>Reservation Expired!</strong> Call immediately to secure a new spot!';
+                    var urgencyTextEl = document.querySelector('.urgency-text');
+                    if (urgencyTextEl) {
+                        urgencyTextEl.innerHTML = '⚠️ <strong>Reservation Expired!</strong> Call immediately to secure a new spot!';
+                    }
+                    if (countdownInterval) {
+                        clearInterval(countdownInterval);
+                    }
                 }
             }
             
             updateCountdown();
+            countdownInterval = setInterval(updateCountdown, 1000);
         }
 
         // Track phone clicks
