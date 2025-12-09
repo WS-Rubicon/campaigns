@@ -48,6 +48,7 @@
             background: #e2e8f0;
             position: relative;
             overflow: hidden;
+            display: none;
         }
 
         .progress-fill {
@@ -59,6 +60,10 @@
 
         .progress-bar.step-1 .progress-fill {
             width: 50%;
+        }
+
+        .progress-bar.step-2 {
+            display: block;
         }
 
         .progress-bar.step-2 .progress-fill {
@@ -170,10 +175,14 @@
         }
 
         .step-indicator {
-            display: flex;
+            display: none;
             justify-content: center;
             gap: 12px;
             margin-bottom: 40px;
+        }
+
+        .step-2 .step-indicator {
+            display: flex;
         }
 
         .step-dot {
