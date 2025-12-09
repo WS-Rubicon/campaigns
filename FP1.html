@@ -1015,10 +1015,11 @@
                 loadingScreen.classList.remove('active');
                 loadingScreen.style.display = 'none';
                 
-                // Force hide step 1
+                // COMPLETELY REMOVE step 1 from DOM
                 var step1 = document.querySelector('.step-1');
-                step1.classList.remove('active');
-                step1.style.display = 'none';
+                if (step1) {
+                    step1.remove();
+                }
                 
                 // Force show step 2
                 var step2 = document.querySelector('.step-2');
