@@ -297,6 +297,8 @@
             text-align: center;
             border: none;
             box-shadow: 0 4px 12px rgba(184, 160, 46, 0.3);
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
         }
 
         .age-button:hover {
@@ -306,6 +308,11 @@
 
         .age-button:active {
             transform: translateY(-1px);
+        }
+
+        .age-button.processing {
+            opacity: 0.6;
+            pointer-events: none;
         }
 
         .footer-stats {
@@ -804,13 +811,13 @@
                     <h2 class="age-selection-title">Select Your Age Range to Continue:</h2>
 
                     <div class="age-buttons">
-                        <div class="age-button" onclick="goToCallPage('Under 50')">
+                        <div class="age-button" data-age="Under 50">
                             Under 50
                         </div>
-                        <div class="age-button" onclick="goToCallPage('50 - 70')">
+                        <div class="age-button" data-age="50 - 70">
                             50 - 70
                         </div>
-                        <div class="age-button" onclick="goToCallPage('Over 70')">
+                        <div class="age-button" data-age="Over 70">
                             Over 70
                         </div>
                     </div>
@@ -945,8 +952,27 @@
             '50 - 70': '50-70',
             'Over 70': 'over 70'
         };
+        var isProcessing = false;
+
+        // Add click handlers to age buttons
+        document.addEventListener('DOMContentLoaded', function() {
+            var ageButtons = document.querySelectorAll('.age-button');
+            ageButtons.forEach(function(button) {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    if (!isProcessing) {
+                        var age = this.getAttribute('data-age');
+                        this.classList.add('processing');
+                        goToCallPage(age);
+                    }
+                });
+            });
+        });
 
         function goToCallPage(age) {
+            if (isProcessing) return;
+            isProcessing = true;
+            
             selectedAge = age;
             
             // Show loading screen
@@ -992,6 +1018,9 @@
                 
                 // Start countdown
                 startCountdown();
+                
+                // Reset processing flag
+                isProcessing = false;
             }, 2400);
         }
 
