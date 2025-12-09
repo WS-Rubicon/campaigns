@@ -801,6 +801,29 @@
         var countdownInterval = null;
         var isProcessing = false;
 
+        // Random agent names
+        var agentNames = [
+            'Sarah Johnson',
+            'Michael Davis',
+            'Jennifer Martinez',
+            'David Thompson',
+            'Lisa Anderson',
+            'Robert Wilson',
+            'Karen White',
+            'James Brown',
+            'Patricia Garcia',
+            'Christopher Miller',
+            'Nancy Rodriguez',
+            'Daniel Moore',
+            'Sandra Taylor',
+            'Matthew Thomas',
+            'Carol Jackson'
+        ];
+
+        function getRandomAgentName() {
+            return agentNames[Math.floor(Math.random() * agentNames.length)];
+        }
+
         // Add click handlers to age buttons
         document.addEventListener('DOMContentLoaded', function() {
             var ageButtons = document.querySelectorAll('.age-button');
@@ -850,6 +873,7 @@
                 
                 var ageText = ageRangeText[age];
                 var refNumber = 'AGE-' + ageText.toUpperCase() + '-' + new Date().getFullYear();
+                var agentName = getRandomAgentName();
                 
                 // COMPLETELY REPLACE the entire container with page 2
                 document.getElementById('mainContainer').innerHTML = `
@@ -889,12 +913,12 @@
                                     <div class="online-indicator"></div>
                                 </div>
                                 <div class="agent-info">
-                                    <div class="agent-name">Licensed Specialist Ready</div>
-                                    <div class="agent-title">Final Expense Coverage Expert</div>
+                                    <div class="agent-name">${agentName}</div>
+                                    <div class="agent-title">Licensed Insurance Specialist</div>
                                 </div>
                             </div>
                             <div class="agent-message">
-                                "Hi! I have your ${age.toLowerCase()} age bracket application ready. Let's get you the coverage you need - I'm here to help!"
+                                "Hi! I'm ${agentName.split(' ')[0]} and I have your ${age.toLowerCase()} age bracket application ready. Let's get you the coverage you need - I'm here to help!"
                             </div>
                         </div>
 
