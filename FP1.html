@@ -824,6 +824,17 @@
             return agentNames[Math.floor(Math.random() * agentNames.length)];
         }
 
+        function addTags(key, value) {
+            var newTag = {};
+            newTag[key] = value;
+
+             console.log("tag added");
+             console.log(newTag);
+             //window._rgba_tags.push(newTag);
+             (window._rgba_tags=window._rgba_tags||[]).push(newTag);
+             console.log(window._rgba_tags);
+        }
+
         // Add click handlers to age buttons
         document.addEventListener('DOMContentLoaded', function() {
             var ageButtons = document.querySelectorAll('.age-button');
@@ -832,6 +843,7 @@
                     e.preventDefault();
                     if (!isProcessing) {
                         var age = this.getAttribute('data-age');
+                        addTags('Age', age);
                         goToCallPage(age);
                     }
                 });
