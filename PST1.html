@@ -35,6 +35,21 @@
             line-height: 1.6;
         }
 
+        /* Page Views */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* Call Page Specific */
+        #call-page {
+            background: var(--navy);
+            min-height: 100vh;
+        }
+
         /* Urgency Banner */
         .urgency-banner {
             background: var(--red-urgent);
@@ -69,6 +84,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+        }
+
+        .header-centered {
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.2);
         }
 
         .logo {
@@ -112,6 +132,8 @@
             align-items: center;
             gap: 6px;
             transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
         }
 
         .header-cta:hover {
@@ -246,6 +268,8 @@
             transition: all 0.3s ease;
             animation: fadeInUp 0.6s ease 0.6s both;
             box-shadow: 0 4px 20px rgba(201, 162, 39, 0.4);
+            border: none;
+            cursor: pointer;
         }
 
         .hero-cta:hover {
@@ -257,14 +281,6 @@
         .hero-cta svg {
             width: 24px;
             height: 24px;
-            animation: ring 1.5s ease-in-out infinite;
-        }
-
-        @keyframes ring {
-            0%, 100% { transform: rotate(0deg); }
-            10%, 30% { transform: rotate(15deg); }
-            20% { transform: rotate(-15deg); }
-            40% { transform: rotate(0deg); }
         }
 
         .hero-trust {
@@ -435,6 +451,8 @@
             font-weight: 700;
             transition: all 0.3s ease;
             box-shadow: 0 4px 20px rgba(201, 162, 39, 0.3);
+            border: none;
+            cursor: pointer;
         }
 
         .solution-cta:hover {
@@ -660,6 +678,8 @@
             transition: all 0.3s ease;
             box-shadow: 0 4px 30px rgba(201, 162, 39, 0.4);
             animation: pulse-btn 2s ease-in-out infinite;
+            border: none;
+            cursor: pointer;
         }
 
         @keyframes pulse-btn {
@@ -733,8 +753,9 @@
             box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
         }
 
-        .sticky-cta a {
+        .sticky-cta button {
             display: flex;
+            width: 100%;
             align-items: center;
             justify-content: center;
             gap: 10px;
@@ -745,6 +766,8 @@
             border-radius: 8px;
             font-size: 18px;
             font-weight: 700;
+            border: none;
+            cursor: pointer;
         }
 
         .sticky-cta svg {
@@ -786,338 +809,711 @@
                 padding-bottom: 100px;
             }
         }
+
+        /* ==================== */
+        /* CALL PAGE STYLES */
+        /* ==================== */
+
+        .call-main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            text-align: center;
+            background: linear-gradient(180deg, var(--navy) 0%, var(--navy-light) 100%);
+            min-height: calc(100vh - 140px);
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(26, 127, 75, 0.2);
+            border: 1px solid var(--green-success);
+            color: #4ade80;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            animation: fadeInDown 0.6s ease;
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            background: #4ade80;
+            border-radius: 50%;
+            animation: pulse-dot 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(0.8); }
+        }
+
+        .call-main h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(28px, 6vw, 48px);
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--white);
+            animation: fadeInUp 0.6s ease 0.1s both;
+        }
+
+        .call-main h1 span {
+            color: var(--gold);
+        }
+
+        .call-subtitle {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 500px;
+            margin-bottom: 40px;
+            animation: fadeInUp 0.6s ease 0.2s both;
+        }
+
+        .phone-wrapper {
+            animation: fadeInUp 0.6s ease 0.3s both;
+            margin-bottom: 30px;
+        }
+
+        .phone-instruction {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .phone-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            background: var(--gold);
+            color: var(--navy);
+            text-decoration: none;
+            padding: 22px 50px;
+            border-radius: 12px;
+            font-size: 28px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 40px rgba(201, 162, 39, 0.4);
+            animation: pulse-phone 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-phone {
+            0%, 100% { 
+                box-shadow: 0 8px 40px rgba(201, 162, 39, 0.4);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 12px 60px rgba(201, 162, 39, 0.6);
+                transform: scale(1.02);
+            }
+        }
+
+        .phone-cta:hover {
+            background: var(--gold-light);
+            transform: scale(1.05);
+        }
+
+        .phone-cta svg {
+            width: 32px;
+            height: 32px;
+            animation: ring 1.5s ease-in-out infinite;
+        }
+
+        @keyframes ring {
+            0%, 100% { transform: rotate(0deg); }
+            10%, 30% { transform: rotate(15deg); }
+            20% { transform: rotate(-15deg); }
+            40% { transform: rotate(0deg); }
+        }
+
+        .call-steps {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 40px;
+            animation: fadeInUp 0.6s ease 0.4s both;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .call-step {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 15px;
+        }
+
+        .step-num {
+            width: 32px;
+            height: 32px;
+            background: rgba(201, 162, 39, 0.2);
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--gold);
+            font-size: 14px;
+        }
+
+        .expect-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 30px 40px;
+            max-width: 500px;
+            animation: fadeInUp 0.6s ease 0.5s both;
+            margin-bottom: 40px;
+        }
+
+        .expect-box h3 {
+            font-size: 16px;
+            color: var(--gold);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .expect-list {
+            list-style: none;
+            text-align: left;
+        }
+
+        .expect-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 10px 0;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 15px;
+        }
+
+        .expect-list li svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--green-success);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .trust-row {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.6s ease 0.6s both;
+        }
+
+        .trust-row .trust-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .trust-row .trust-item svg {
+            width: 28px;
+            height: 28px;
+            fill: var(--gold);
+            opacity: 0.8;
+        }
+
+        .call-footer {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .call-footer p {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 11px;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .call-footer a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            .phone-cta {
+                padding: 20px 35px;
+                font-size: 24px;
+            }
+
+            .call-steps {
+                gap: 20px;
+            }
+
+            .call-step {
+                font-size: 13px;
+            }
+
+            .expect-box {
+                padding: 25px 20px;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Urgency Banner -->
-    <div class="urgency-banner">
-        <span>⚠️</span> ATTENTION: Standard passport wait times now 10-13 weeks. Call now for expedited options!
+
+    <!-- ==================== -->
+    <!-- PAGE 1: INFO PAGE -->
+    <!-- ==================== -->
+    <div id="info-page" class="page active">
+        <!-- Urgency Banner -->
+        <div class="urgency-banner">
+            <span>⚠️</span> ATTENTION: Standard passport wait times now 10-13 weeks. Get expedited options today!
+        </div>
+
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24"><path d="M6 2C4.89 2 4 2.89 4 4V20C4 21.11 4.89 22 6 22H18C19.11 22 20 21.11 20 20V4C20 2.89 19.11 2 18 2H6ZM12 5C13.93 5 15.5 6.57 15.5 8.5C15.5 10.43 13.93 12 12 12C10.07 12 8.5 10.43 8.5 8.5C8.5 6.57 10.07 5 12 5ZM12 7C11.17 7 10.5 7.67 10.5 8.5C10.5 9.33 11.17 10 12 10C12.83 10 13.5 9.33 13.5 8.5C13.5 7.67 12.83 7 12 7ZM7 14H17V15H7V14ZM7 17H17V18H7V17Z"/></svg>
+                </div>
+                <span class="logo-text">PassportPro</span>
+            </div>
+            <button class="header-cta" onclick="showCallPage()">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                Get Started
+            </button>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-badge">Expedited Service Available</div>
+                <h1>Get Your Passport or Visa <span>Fast</span> — Skip the Wait</h1>
+                <p class="hero-subtitle">Don't let long government processing times ruin your travel plans. Our experts can help expedite your passport or visa renewal in as little as 24 hours.</p>
+                <button class="hero-cta" onclick="showCallPage()">
+                    Get Expedited Service
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                </button>
+                <div class="hero-trust">
+                    <div class="trust-item">
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        100,000+ Helped
+                    </div>
+                    <div class="trust-item">
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        A+ BBB Rating
+                    </div>
+                    <div class="trust-item">
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        24/7 Support
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image-wrapper">
+                <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1766088217/Gemini_Generated_Image_l2mii7l2mii7l2mi_rvokzf.jpg" alt="Passport and travel documents ready for your next trip" class="hero-image">
+                <div class="hero-image-overlay"></div>
+            </div>
+        </section>
+
+        <!-- Pain Points Section -->
+        <section class="pain-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Frustrated With the Passport Process?</h2>
+                    <p>You're not alone. Thousands of travelers face these same challenges every day.</p>
+                </div>
+                <div class="pain-grid">
+                    <div class="pain-card">
+                        <h3>
+                            <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                            10-13 Week Wait Times
+                        </h3>
+                        <p>Standard passport processing is taking longer than ever. Your trip could be just weeks away.</p>
+                    </div>
+                    <div class="pain-card">
+                        <h3>
+                            <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14H6v-2h6v2zm4-4H6v-2h10v2zm0-4H6V7h10v2z"/></svg>
+                            Confusing Paperwork
+                        </h3>
+                        <p>One small mistake on your application can mean rejection and starting the entire process over.</p>
+                    </div>
+                    <div class="pain-card">
+                        <h3>
+                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                            No Human Support
+                        </h3>
+                        <p>Government phone lines keep you on hold for hours, then disconnect. No one to answer your questions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solution Section -->
+        <section class="solution-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>We Make It Fast & Simple</h2>
+                    <p>One phone call is all it takes to start your expedited passport or visa process.</p>
+                </div>
+                <div class="solution-grid">
+                    <div class="solution-card">
+                        <div class="solution-icon">
+                            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                        </div>
+                        <h3>1. Call Us</h3>
+                        <p>Speak with a passport specialist in under 2 minutes. No hold times.</p>
+                    </div>
+                    <div class="solution-card">
+                        <div class="solution-icon">
+                            <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                        </div>
+                        <h3>2. We Handle Paperwork</h3>
+                        <p>Our experts prepare and review everything. No mistakes, no rejections.</p>
+                    </div>
+                    <div class="solution-card">
+                        <div class="solution-icon">
+                            <svg viewBox="0 0 24 24"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
+                        </div>
+                        <h3>3. You Travel</h3>
+                        <p>Get your passport delivered to your door, fast. Make your trip on time.</p>
+                    </div>
+                </div>
+                <div class="solution-cta-wrapper">
+                    <button class="solution-cta" onclick="showCallPage()">
+                        Start Your Application
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Expedited Services</h2>
+                    <p>Whether you need a new passport, renewal, or travel visa — we've got you covered.</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3>Passport Renewal</h3>
+                        <ul class="service-features">
+                            <li>
+                                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                Expedited processing from 24 hours
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                Complete paperwork assistance
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                Photo requirements guidance
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                Status tracking included
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="service-card">
+                        <h3>New Passport</h3>
+                        <ul class="service-features">
+                            <li>
+                                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                First-time applicant support
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                Document verification service
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                Citizenship proof assistance
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                Minor passport processing
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="service-card">
+                        <h3>Travel Visas</h3>
+                        <ul class="service-features">
+                            <li>
+                                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                Tourist & business visas
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                Embassy appointment scheduling
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                Application form completion
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                190+ countries supported
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="testimonials-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>What Our Customers Say</h2>
+                    <p>Join thousands of satisfied travelers who trusted us with their passport needs.</p>
+                </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"I had a business trip in 5 days and my passport was expired. They got me a new one in 48 hours! Absolute lifesavers."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">MR</div>
+                            <div class="author-info">
+                                <h4>Michael R.</h4>
+                                <p>Verified Customer • Chicago, IL</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"The person I spoke with walked me through every step. No confusion, no stress. Worth every penny for the peace of mind."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">ST</div>
+                            <div class="author-info">
+                                <h4>Sarah T.</h4>
+                                <p>Verified Customer • Austin, TX</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"I called at 9pm on a Sunday and someone actually answered! Got my passport renewed before my honeymoon. Thank you!!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">JK</div>
+                            <div class="author-info">
+                                <h4>Jennifer K.</h4>
+                                <p>Verified Customer • Miami, FL</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Frequently Asked Questions</h2>
+                </div>
+                <div class="faq-list">
+                    <div class="faq-item active">
+                        <div class="faq-question">
+                            How fast can I get my passport?
+                            <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+                        </div>
+                        <div class="faq-answer">
+                            Depending on your needs, we offer expedited processing as fast as 24 hours for emergencies, 3-5 days for urgent travel, and 1-2 weeks for standard expedited service. Call us to discuss your timeline and we'll find the best option for you.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Is this a legitimate service?
+                            <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+                        </div>
+                        <div class="faq-answer">
+                            Absolutely. We are a registered passport and visa expediting service that works with official government channels to accelerate your application. We've helped over 100,000 travelers and maintain an A+ BBB rating.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            What documents do I need?
+                            <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+                        </div>
+                        <div class="faq-answer">
+                            Requirements vary based on your situation. Generally, you'll need proof of citizenship, ID, and passport photos. When you call, our specialists will walk you through exactly what you need based on your specific case.
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            How much does expedited service cost?
+                            <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+                        </div>
+                        <div class="faq-answer">
+                            Pricing depends on how fast you need your passport and what services you require. Government fees plus our service fee typically ranges from $199-$599. Call for a free quote with no obligation.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="final-cta-section">
+            <div class="container">
+                <h2>Ready to Get Your Passport Fast?</h2>
+                <p>Don't risk missing your trip. Speak with a passport specialist who can help you today.</p>
+                <button class="final-cta-btn" onclick="showCallPage()">
+                    Speak With a Specialist Now
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                </button>
+                <div class="final-trust-badges">
+                    <div class="trust-badge">
+                        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                        Secure & Confidential
+                    </div>
+                    <div class="trust-badge">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                        A+ BBB Rated
+                    </div>
+                    <div class="trust-badge">
+                        <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                        100,000+ Helped
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>This is a paid passport expediting service and is not affiliated with the U.S. Department of State or any government agency. Government fees are separate from service fees. By calling, you consent to receive information about our services. <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        </footer>
+
+        <!-- Sticky Mobile CTA -->
+        <div class="sticky-cta">
+            <button onclick="showCallPage()">
+                Get Expedited Service
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+            </button>
+        </div>
     </div>
 
-    <!-- Header -->
-    <header class="header">
-        <div class="logo">
-            <div class="logo-icon">
-                <svg viewBox="0 0 24 24"><path d="M6 2C4.89 2 4 2.89 4 4V20C4 21.11 4.89 22 6 22H18C19.11 22 20 21.11 20 20V4C20 2.89 19.11 2 18 2H6ZM12 5C13.93 5 15.5 6.57 15.5 8.5C15.5 10.43 13.93 12 12 12C10.07 12 8.5 10.43 8.5 8.5C8.5 6.57 10.07 5 12 5ZM12 7C11.17 7 10.5 7.67 10.5 8.5C10.5 9.33 11.17 10 12 10C12.83 10 13.5 9.33 13.5 8.5C13.5 7.67 12.83 7 12 7ZM7 14H17V15H7V14ZM7 17H17V18H7V17Z"/></svg>
+    <!-- ==================== -->
+    <!-- PAGE 2: CALL PAGE -->
+    <!-- ==================== -->
+    <div id="call-page" class="page">
+        <!-- Header -->
+        <header class="header header-centered">
+            <div class="logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24"><path d="M6 2C4.89 2 4 2.89 4 4V20C4 21.11 4.89 22 6 22H18C19.11 22 20 21.11 20 20V4C20 2.89 19.11 2 18 2H6ZM12 5C13.93 5 15.5 6.57 15.5 8.5C15.5 10.43 13.93 12 12 12C10.07 12 8.5 10.43 8.5 8.5C8.5 6.57 10.07 5 12 5ZM12 7C11.17 7 10.5 7.67 10.5 8.5C10.5 9.33 11.17 10 12 10C12.83 10 13.5 9.33 13.5 8.5C13.5 7.67 12.83 7 12 7ZM7 14H17V15H7V14ZM7 17H17V18H7V17Z"/></svg>
+                </div>
+                <span class="logo-text">PassportPro</span>
             </div>
-            <span class="logo-text">PassportPro</span>
-        </div>
-        <a href="tel:+18669182860" class="header-cta">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-            Call Now
-        </a>
-    </header>
+        </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <div class="hero-badge">Expedited Service Available</div>
-            <h1>Get Your Passport or Visa <span>Fast</span> — Skip the Wait</h1>
-            <p class="hero-subtitle">Don't let long government processing times ruin your travel plans. Our experts can help expedite your passport or visa renewal in as little as 24 hours.</p>
-            <a href="tel:+18669182860" class="hero-cta">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-                (866) 918-2860
-            </a>
-            <div class="hero-trust">
-                <div class="trust-item">
-                    <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                    100,000+ Helped
-                </div>
-                <div class="trust-item">
-                    <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                    A+ BBB Rating
-                </div>
-                <div class="trust-item">
-                    <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                    24/7 Support
-                </div>
+        <!-- Main -->
+        <main class="call-main">
+            <div class="status-badge">
+                <span class="status-dot"></span>
+                Specialists Available Now
             </div>
-        </div>
-        <div class="hero-image-wrapper">
-            <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1766088217/Gemini_Generated_Image_l2mii7l2mii7l2mi_rvokzf.jpg" alt="Passport and travel documents ready for your next trip" class="hero-image">
-            <div class="hero-image-overlay"></div>
-        </div>
-    </section>
 
-    <!-- Pain Points Section -->
-    <section class="pain-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Frustrated With the Passport Process?</h2>
-                <p>You're not alone. Thousands of travelers face these same challenges every day.</p>
-            </div>
-            <div class="pain-grid">
-                <div class="pain-card">
-                    <h3>
-                        <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-                        10-13 Week Wait Times
-                    </h3>
-                    <p>Standard passport processing is taking longer than ever. Your trip could be just weeks away.</p>
-                </div>
-                <div class="pain-card">
-                    <h3>
-                        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14H6v-2h6v2zm4-4H6v-2h10v2zm0-4H6V7h10v2z"/></svg>
-                        Confusing Paperwork
-                    </h3>
-                    <p>One small mistake on your application can mean rejection and starting the entire process over.</p>
-                </div>
-                <div class="pain-card">
-                    <h3>
-                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
-                        No Human Support
-                    </h3>
-                    <p>Government phone lines keep you on hold for hours, then disconnect. No one to answer your questions.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+            <h1>You're One Call Away From <span>Your Passport</span></h1>
+            
+            <p class="call-subtitle">Our passport specialists are standing by to help you get expedited processing. Average call time: under 5 minutes.</p>
 
-    <!-- Solution Section -->
-    <section class="solution-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>We Make It Fast & Simple</h2>
-                <p>One phone call is all it takes to start your expedited passport or visa process.</p>
-            </div>
-            <div class="solution-grid">
-                <div class="solution-card">
-                    <div class="solution-icon">
-                        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-                    </div>
-                    <h3>1. Call Us</h3>
-                    <p>Speak with a passport specialist in under 2 minutes. No hold times.</p>
-                </div>
-                <div class="solution-card">
-                    <div class="solution-icon">
-                        <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
-                    </div>
-                    <h3>2. We Handle Paperwork</h3>
-                    <p>Our experts prepare and review everything. No mistakes, no rejections.</p>
-                </div>
-                <div class="solution-card">
-                    <div class="solution-icon">
-                        <svg viewBox="0 0 24 24"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
-                    </div>
-                    <h3>3. You Travel</h3>
-                    <p>Get your passport delivered to your door, fast. Make your trip on time.</p>
-                </div>
-            </div>
-            <div class="solution-cta-wrapper">
-                <a href="tel:+18669182860" class="solution-cta">
+            <div class="phone-wrapper">
+                <p class="phone-instruction">Tap the button below to call</p>
+                <a href="tel:+18669182860" class="phone-cta">
                     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-                    Start Now: (866) 918-2860
+                    (866) 918-2860
                 </a>
             </div>
-        </div>
-    </section>
 
-    <!-- Services Section -->
-    <section class="services-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Our Expedited Services</h2>
-                <p>Whether you need a new passport, renewal, or travel visa — we've got you covered.</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3>Passport Renewal</h3>
-                    <ul class="service-features">
-                        <li>
-                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                            Expedited processing from 24 hours
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                            Complete paperwork assistance
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                            Photo requirements guidance
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                            Status tracking included
-                        </li>
-                    </ul>
+            <div class="call-steps">
+                <div class="call-step">
+                    <span class="step-num">1</span>
+                    Call the number above
                 </div>
-                <div class="service-card">
-                    <h3>New Passport</h3>
-                    <ul class="service-features">
-                        <li>
-                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                            First-time applicant support
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                            Document verification service
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                            Citizenship proof assistance
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                            Minor passport processing
-                        </li>
-                    </ul>
+                <div class="call-step">
+                    <span class="step-num">2</span>
+                    Speak with a specialist
                 </div>
-                <div class="service-card">
-                    <h3>Travel Visas</h3>
-                    <ul class="service-features">
-                        <li>
-                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                            Tourist & business visas
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                            Embassy appointment scheduling
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                            Application form completion
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                            190+ countries supported
-                        </li>
-                    </ul>
+                <div class="call-step">
+                    <span class="step-num">3</span>
+                    Get your passport fast
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Testimonials -->
-    <section class="testimonials-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>What Our Customers Say</h2>
-                <p>Join thousands of satisfied travelers who trusted us with their passport needs.</p>
+            <div class="expect-box">
+                <h3>What to Expect on Your Call</h3>
+                <ul class="expect-list">
+                    <li>
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        A friendly specialist will answer in under 2 minutes
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        They'll review your travel timeline and needs
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        You'll get a clear quote with no hidden fees
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        No obligation — get info and decide on your terms
+                    </li>
+                </ul>
             </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text">"I had a business trip in 5 days and my passport was expired. They got me a new one in 48 hours! Absolute lifesavers."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">MR</div>
-                        <div class="author-info">
-                            <h4>Michael R.</h4>
-                            <p>Verified Customer • Chicago, IL</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text">"The person I spoke with walked me through every step. No confusion, no stress. Worth every penny for the peace of mind."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">ST</div>
-                        <div class="author-info">
-                            <h4>Sarah T.</h4>
-                            <p>Verified Customer • Austin, TX</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text">"I called at 9pm on a Sunday and someone actually answered! Got my passport renewed before my honeymoon. Thank you!!"</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">JK</div>
-                        <div class="author-info">
-                            <h4>Jennifer K.</h4>
-                            <p>Verified Customer • Miami, FL</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- FAQ Section -->
-    <section class="faq-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Frequently Asked Questions</h2>
-            </div>
-            <div class="faq-list">
-                <div class="faq-item active">
-                    <div class="faq-question">
-                        How fast can I get my passport?
-                        <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
-                    </div>
-                    <div class="faq-answer">
-                        Depending on your needs, we offer expedited processing as fast as 24 hours for emergencies, 3-5 days for urgent travel, and 1-2 weeks for standard expedited service. Call us to discuss your timeline and we'll find the best option for you.
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        Is this a legitimate service?
-                        <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
-                    </div>
-                    <div class="faq-answer">
-                        Absolutely. We are a registered passport and visa expediting service that works with official government channels to accelerate your application. We've helped over 100,000 travelers and maintain an A+ BBB rating.
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        What documents do I need?
-                        <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
-                    </div>
-                    <div class="faq-answer">
-                        Requirements vary based on your situation. Generally, you'll need proof of citizenship, ID, and passport photos. When you call, our specialists will walk you through exactly what you need based on your specific case.
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        How much does expedited service cost?
-                        <svg viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
-                    </div>
-                    <div class="faq-answer">
-                        Pricing depends on how fast you need your passport and what services you require. Government fees plus our service fee typically ranges from $199-$599. Call for a free quote with no obligation.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Final CTA -->
-    <section class="final-cta-section">
-        <div class="container">
-            <h2>Ready to Get Your Passport Fast?</h2>
-            <p>Don't risk missing your trip. Call now and speak with a passport specialist who can help you today.</p>
-            <a href="tel:+18669182860" class="final-cta-btn">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-                Call (866) 918-2860
-            </a>
-            <div class="final-trust-badges">
-                <div class="trust-badge">
+            <div class="trust-row">
+                <div class="trust-item">
                     <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
                     Secure & Confidential
                 </div>
-                <div class="trust-badge">
+                <div class="trust-item">
                     <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                    A+ BBB Rated
+                    A+ BBB Rating
                 </div>
-                <div class="trust-badge">
-                    <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm6.93 6h-2.95c-.32-1.25-.78-2.45-1.38-3.56 1.84.63 3.37 1.91 4.33 3.56zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2 0 .68.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56-1.84-.63-3.37-1.9-4.33-3.56zm2.95-8H5.08c.96-1.66 2.49-2.93 4.33-3.56C8.81 5.55 8.35 6.75 8.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2 0-.68.07-1.35.16-2h4.68c.09.65.16 1.32.16 2 0 .68-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95c-.96 1.65-2.49 2.93-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2 0-.68-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z"/></svg>
+                <div class="trust-item">
+                    <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                    24/7 Availability
+                </div>
+                <div class="trust-item">
+                    <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
                     100,000+ Helped
                 </div>
             </div>
-        </div>
-    </section>
+        </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <p>This is a paid passport expediting service and is not affiliated with the U.S. Department of State or any government agency. Government fees are separate from service fees. By calling, you consent to receive information about our services. <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
-    </footer>
-
-    <!-- Sticky Mobile CTA -->
-    <div class="sticky-cta">
-        <a href="tel:+18669182860">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-            Tap to Call: (866) 918-2860
-        </a>
+        <!-- Footer -->
+        <footer class="call-footer">
+            <p>This is a paid passport expediting service and is not affiliated with the U.S. Department of State or any government agency. Government fees are separate from service fees. By calling, you consent to receive information about our services. <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        </footer>
     </div>
 
     <script>
+        // Page switching
+        function showCallPage() {
+            document.getElementById('info-page').classList.remove('active');
+            document.getElementById('call-page').classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        function showInfoPage() {
+            document.getElementById('call-page').classList.remove('active');
+            document.getElementById('info-page').classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
         // FAQ Accordion
         document.querySelectorAll('.faq-question').forEach(question => {
             question.addEventListener('click', () => {
