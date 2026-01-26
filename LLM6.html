@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>See Why 14,000+ Homeowners Upgraded Their Siding | Real Stories</title>
+    <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Crimson+Pro:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --teal: #0D9488;
+            --teal-dark: #0F766E;
+            --teal-light: rgba(13, 148, 136, 0.1);
+            --coral: #F97316;
+            --coral-light: rgba(249, 115, 22, 0.15);
+            --dark: #18181B;
+            --gray: #71717A;
+            --light-gray: #F4F4F5;
+            --white: #FFFFFF;
+            --cream: #FFFBEB;
+            --star: #FBBF24;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--white); color: var(--dark); line-height: 1.6; }
+        .hl { background: linear-gradient(to top, var(--coral-light) 40%, transparent 40%); padding: 0 4px; }
+        .social-bar { background: var(--teal); color: var(--white); padding: 12px 20px; text-align: center; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; }
+        .social-bar-item { display: flex; align-items: center; gap: 6px; }
+        .stars { display: flex; gap: 2px; }
+        .stars svg { width: 16px; height: 16px; fill: var(--star); }
+        .hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 80vh; overflow: hidden; }
+        .hero-content { padding: 60px 48px; display: flex; flex-direction: column; justify-content: center; background: var(--white); }
+        .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--cream); color: var(--coral); padding: 8px 16px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 24px; width: fit-content; }
+        .hero-badge svg { width: 18px; height: 18px; }
+        .hero h1 { font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 800; line-height: 1.15; color: var(--dark); margin-bottom: 20px; }
+        .hero h1 span { color: var(--teal); }
+        .hero-text { font-size: 1.15rem; color: var(--gray); margin-bottom: 32px; max-width: 480px; }
+        .mini-testimonial { background: var(--light-gray); border-radius: 16px; padding: 20px 24px; display: flex; align-items: flex-start; gap: 16px; max-width: 480px; }
+        .mini-avatar { width: 48px; height: 48px; background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--white); font-weight: 700; font-size: 1.1rem; flex-shrink: 0; }
+        .mini-content { flex: 1; }
+        .mini-quote { font-family: 'Crimson Pro', serif; font-size: 1.05rem; font-style: italic; color: var(--dark); margin-bottom: 8px; line-height: 1.5; }
+        .mini-author { font-size: 0.85rem; color: var(--gray); }
+        .mini-author strong { color: var(--dark); }
+        .hero-image { position: relative; overflow: hidden; }
+        .hero-image img { width: 100%; height: 100%; object-fit: cover; }
+        .hero-image-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%); padding: 40px 24px 24px; }
+        .overlay-stat { color: var(--white); text-align: center; }
+        .overlay-stat .number { font-size: 2.5rem; font-weight: 800; }
+        .overlay-stat .label { font-size: 0.9rem; opacity: 0.9; }
+        .question-section { background: var(--light-gray); padding: 60px 24px; }
+        .question-container { max-width: 600px; margin: 0 auto; text-align: center; }
+        .question-header { margin-bottom: 32px; }
+        .question-label { font-size: 0.85rem; color: var(--teal); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+        .question-title { font-size: clamp(1.4rem, 3.5vw, 1.9rem); font-weight: 700; color: var(--dark); line-height: 1.3; }
+        .question-options { display: flex; flex-direction: column; gap: 14px; }
+        .question-btn { display: flex; align-items: center; justify-content: space-between; padding: 20px 28px; background: var(--white); border: 2px solid var(--white); border-radius: 14px; text-decoration: none; color: var(--dark); font-weight: 600; font-size: 1.05rem; transition: all 0.25s ease; box-shadow: 0 2px 12px rgba(0,0,0,0.04); }
+        .question-btn:hover { border-color: var(--teal); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(13, 148, 136, 0.15); }
+        .question-btn svg { width: 20px; height: 20px; color: var(--teal); opacity: 0; transform: translateX(-8px); transition: all 0.25s ease; }
+        .question-btn:hover svg { opacity: 1; transform: translateX(0); }
+        .question-btn span { font-size: 0.85rem; font-weight: 400; color: var(--gray); }
+        .testimonials-section { padding: 70px 24px; background: var(--white); }
+        .testimonials-header { text-align: center; max-width: 600px; margin: 0 auto 48px; }
+        .testimonials-header h2 { font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 700; color: var(--dark); margin-bottom: 12px; }
+        .testimonials-header p { color: var(--gray); font-size: 1.05rem; }
+        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; max-width: 1000px; margin: 0 auto; }
+        .testimonial-card { background: var(--white); border: 1px solid rgba(0,0,0,0.06); border-radius: 20px; padding: 28px; box-shadow: 0 4px 24px rgba(0,0,0,0.04); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .testimonial-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+        .testimonial-card.featured { background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%); color: var(--white); }
+        .testimonial-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+        .testimonial-stars { display: flex; gap: 3px; }
+        .testimonial-stars svg { width: 18px; height: 18px; fill: var(--star); }
+        .testimonial-savings { background: var(--teal-light); color: var(--teal); padding: 4px 12px; border-radius: 50px; font-size: 0.8rem; font-weight: 700; }
+        .testimonial-card.featured .testimonial-savings { background: rgba(255,255,255,0.2); color: var(--white); }
+        .testimonial-quote { font-family: 'Crimson Pro', serif; font-size: 1.1rem; line-height: 1.6; margin-bottom: 20px; }
+        .testimonial-author { display: flex; align-items: center; gap: 12px; }
+        .author-avatar { width: 44px; height: 44px; background: var(--light-gray); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--teal); }
+        .testimonial-card.featured .author-avatar { background: rgba(255,255,255,0.2); color: var(--white); }
+        .author-info { flex: 1; }
+        .author-name { font-weight: 600; font-size: 0.95rem; }
+        .author-location { font-size: 0.85rem; opacity: 0.7; }
+        .verified-badge { display: flex; align-items: center; gap: 4px; font-size: 0.75rem; color: var(--teal); font-weight: 600; }
+        .testimonial-card.featured .verified-badge { color: rgba(255,255,255,0.9); }
+        .verified-badge svg { width: 14px; height: 14px; }
+        .cta-section { background: var(--dark); padding: 60px 24px; text-align: center; }
+        .cta-container { max-width: 600px; margin: 0 auto; }
+        .cta-section h2 { font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: 700; color: var(--white); margin-bottom: 12px; line-height: 1.3; }
+        .cta-section p { color: rgba(255,255,255,0.7); font-size: 1.1rem; margin-bottom: 28px; }
+        .cta-button { display: inline-flex; align-items: center; gap: 10px; background: var(--coral); color: var(--white); padding: 18px 42px; border-radius: 60px; font-size: 1.1rem; font-weight: 700; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 24px rgba(249, 115, 22, 0.4); }
+        .cta-button:hover { background: #EA580C; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(249, 115, 22, 0.5); }
+        .cta-button svg { width: 20px; height: 20px; transition: transform 0.3s ease; }
+        .cta-button:hover svg { transform: translateX(4px); }
+        .cta-trust { display: flex; align-items: center; justify-content: center; gap: 24px; margin-top: 24px; flex-wrap: wrap; }
+        .cta-trust-item { display: flex; align-items: center; gap: 6px; color: rgba(255,255,255,0.6); font-size: 0.9rem; }
+        .cta-trust-item svg { width: 18px; height: 18px; color: var(--teal); }
+        .footer { background: #0F0F10; color: rgba(255,255,255,0.5); padding: 24px; text-align: center; font-size: 0.85rem; }
+        @media (max-width: 900px) {
+            .hero { grid-template-columns: 1fr; }
+            .hero-content { padding: 48px 24px; order: 2; }
+            .hero-image { height: 50vh; order: 1; }
+            .mini-testimonial { max-width: 100%; }
+            .testimonials-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="social-bar">
+        <div class="social-bar-item">
+            <div class="stars">
+                <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            </div>
+            <strong>4.9/5</strong> from 3,412 reviews
+        </div>
+        <div class="social-bar-item"><strong>14,200+</strong> homes transformed</div>
+    </div>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                Trusted by Homeowners
+            </div>
+            <h1>"Our Home Looks<br><span>Brand New</span><br>Again"</h1>
+            <p class="hero-text">That's what homeowners keep telling us. See why <span class="hl">14,000+ families</span> upgraded their siding — and what they're saying about it.</p>
+            <div class="mini-testimonial">
+                <div class="mini-avatar">DM</div>
+                <div class="mini-content">
+                    <p class="mini-quote">"Neighbors keep asking who did our house. The energy savings alone paid for the upgrade."</p>
+                    <p class="mini-author"><strong>David M.</strong> · Chicago, IL · Saved $8,400</p>
+                </div>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1769414774/Gemini_Generated_Image_5si11m5si11m5si1_wdculh.png" alt="Beautiful home with new siding">
+            <div class="hero-image-overlay">
+                <div class="overlay-stat">
+                    <div class="number">$7,240</div>
+                    <div class="label">Average homeowner savings</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="question-section">
+        <div class="question-container">
+            <div class="question-header">
+                <div class="question-label">Quick Question</div>
+                <h2>What bugs you most about<br>your current siding?</h2>
+            </div>
+            <div class="question-options">
+                <a href="#" class="question-btn">
+                    <div>It looks faded or worn out<span>Most common complaint — affects curb appeal</span></div>
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </a>
+                <a href="#" class="question-btn">
+                    <div>I can see cracks or warping<span>This often leads to moisture damage if left alone</span></div>
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </a>
+                <a href="#" class="question-btn">
+                    <div>My energy bills are too high<span>Old siding is often the hidden culprit</span></div>
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </a>
+                <a href="#" class="question-btn">
+                    <div>All of the above / Just exploring<span>No problem — let's see what fits your home</span></div>
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-section">
+        <div class="testimonials-header">
+            <h2>Real Stories from Real Homeowners</h2>
+            <p>Don't just take our word for it — here's what families are saying after upgrading their siding.</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-top">
+                    <div class="testimonial-stars">
+                        <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+                    <span class="testimonial-savings">Saved $6,800</span>
+                </div>
+                <p class="testimonial-quote">"We had the ugliest house on the block. Now people slow down to look. My wife cried when she saw it finished — I'm not kidding."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">RJ</div>
+                    <div class="author-info"><div class="author-name">Robert J.</div><div class="author-location">Minneapolis, MN</div></div>
+                    <div class="verified-badge"><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>Verified</div>
+                </div>
+            </div>
+
+            <div class="testimonial-card featured">
+                <div class="testimonial-top">
+                    <div class="testimonial-stars">
+                        <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+                    <span class="testimonial-savings">Saved $9,100</span>
+                </div>
+                <p class="testimonial-quote">"Best investment we've made in 20 years of homeownership. Our heating bill dropped $89/month — and the house appraised $32K higher when we refinanced."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">LT</div>
+                    <div class="author-info"><div class="author-name">Linda T.</div><div class="author-location">Columbus, OH</div></div>
+                    <div class="verified-badge"><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>Verified</div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-top">
+                    <div class="testimonial-stars">
+                        <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                    </div>
+                    <span class="testimonial-savings">Saved $5,200</span>
+                </div>
+                <p class="testimonial-quote">"We were embarrassed to have people over. Now we host every holiday. The crew finished in 3 days and cleaned up like they were never here."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">KP</div>
+                    <div class="author-info"><div class="author-name">Karen P.</div><div class="author-location">Atlanta, GA</div></div>
+                    <div class="verified-badge"><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>Verified</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2>Ready to Transform<br>Your Home's Exterior?</h2>
+            <p>Get a free, no-obligation quote and join thousands of happy homeowners.</p>
+            <a href="#" class="cta-button">Get My Free Quote<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg></a>
+            <div class="cta-trust">
+                <div class="cta-trust-item"><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>No commitment</div>
+                <div class="cta-trust-item"><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>Takes 2 minutes</div>
+                <div class="cta-trust-item"><svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>See pricing today</div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2025 Home Improvement Partners. All rights reserved. | Results may vary. Testimonials represent individual experiences.</p>
+    </footer>
+</body>
+</html>
