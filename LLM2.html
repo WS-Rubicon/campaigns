@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>See What Your New Bathroom Could Look Like | Free Estimate</title>
+    <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #1a2744;
+            --bright-blue: #2563eb;
+            --sky: #60a5fa;
+            --mint: #10b981;
+            --coral: #f97316;
+            --light: #f8fafc;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--light);
+            color: var(--navy);
+        }
+
+        /* Highlight for skimmers */
+        .hl {
+            background: linear-gradient(to top, rgba(249, 115, 22, 0.25) 40%, transparent 40%);
+            padding: 0 3px;
+        }
+
+        /* Sticky Header */
+        .sticky-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--navy);
+            color: white;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            font-size: 14px;
+        }
+
+        .sticky-header .urgency {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pulse-dot {
+            width: 10px;
+            height: 10px;
+            background: var(--mint);
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        .sticky-cta {
+            background: var(--coral);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 13px;
+            transition: transform 0.2s;
+        }
+
+        .sticky-cta:hover {
+            transform: scale(1.05);
+        }
+
+        /* Hero */
+        .hero {
+            padding-top: 60px;
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--navy) 0%, #2d3f5f 100%);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            overflow: hidden;
+        }
+
+        .hero-left {
+            padding: 80px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+
+        .promo-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 10px 20px;
+            border-radius: 50px;
+            color: white;
+            font-size: 13px;
+            margin-bottom: 30px;
+            width: fit-content;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .promo-badge .tag {
+            background: var(--coral);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 11px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+            color: white;
+            line-height: 1.2;
+            margin-bottom: 25px;
+            animation: fadeIn 0.6s ease-out 0.1s both;
+        }
+
+        .hero h1 .line {
+            display: block;
+        }
+
+        .hero h1 .hl-white {
+            background: linear-gradient(to top, rgba(96, 165, 250, 0.4) 40%, transparent 40%);
+            padding: 0 4px;
+        }
+
+        .hero-subtitle {
+            color: rgba(255,255,255,0.85);
+            font-size: 17px;
+            line-height: 1.7;
+            margin-bottom: 40px;
+            max-width: 480px;
+            animation: fadeIn 0.6s ease-out 0.2s both;
+        }
+
+        .trust-indicators {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+            animation: fadeIn 0.6s ease-out 0.3s both;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            font-size: 14px;
+        }
+
+        .trust-icon {
+            width: 36px;
+            height: 36px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .trust-icon svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--mint);
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(135deg, var(--coral), #ea580c);
+            color: white;
+            padding: 20px 40px;
+            border-radius: 60px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            box-shadow: 0 20px 40px rgba(249, 115, 22, 0.3);
+            transition: all 0.3s ease;
+            animation: fadeIn 0.6s ease-out 0.4s both;
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 25px 50px rgba(249, 115, 22, 0.4);
+        }
+
+        .hero-cta svg {
+            animation: bounce 1s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(5px); }
+        }
+
+        .hero-right {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .hero-image-container {
+            position: relative;
+            width: 100%;
+            max-width: 550px;
+        }
+
+        .hero-image-container img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.3);
+        }
+
+        .savings-badge {
+            position: absolute;
+            bottom: 20px;
+            right: -20px;
+            background: white;
+            color: var(--navy);
+            padding: 20px 30px;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            animation: slideInRight 0.6s ease-out 0.6s both;
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .savings-badge .amount {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--mint);
+        }
+
+        .savings-badge .text {
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* Social Proof Bar */
+        .social-proof {
+            background: white;
+            padding: 30px 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .proof-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .proof-text {
+            font-size: 13px;
+            color: #666;
+        }
+
+        .proof-text strong {
+            display: block;
+            color: var(--navy);
+            font-size: 15px;
+        }
+
+        .review-stars {
+            color: #fbbf24;
+            font-size: 18px;
+        }
+
+        /* Quiz Section - Pain Point Questions */
+        .quiz-section {
+            padding: 100px 60px;
+            background: white;
+            text-align: center;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--bright-blue);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .quiz-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .quiz-section > p {
+            color: #666;
+            font-size: 16px;
+            max-width: 550px;
+            margin: 0 auto 50px;
+        }
+
+        .quiz-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Single opening question - curiosity driven */
+        .opening-question {
+            background: var(--light);
+            border-radius: 20px;
+            padding: 50px 40px;
+            margin-bottom: 40px;
+        }
+
+        .opening-question .question-text {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .opening-question .question-subtext {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .opening-options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .opening-option {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px 25px;
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: var(--navy);
+            text-align: left;
+        }
+
+        .opening-option:hover {
+            border-color: var(--bright-blue);
+            background: rgba(37, 99, 235, 0.03);
+            transform: translateX(5px);
+        }
+
+        .opening-option .emoji {
+            font-size: 28px;
+        }
+
+        .opening-option .option-text {
+            flex: 1;
+        }
+
+        .opening-option .option-title {
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .opening-option .option-desc {
+            font-size: 13px;
+            color: #666;
+        }
+
+        .opening-option .arrow {
+            color: #ccc;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .opening-option:hover .arrow {
+            color: var(--bright-blue);
+            transform: translateX(3px);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 60px;
+            background: var(--navy);
+        }
+
+        .testimonials h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: white;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .testimonials > p {
+            text-align: center;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 60px;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            padding: 35px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .testimonial-stars {
+            color: #fbbf24;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-text {
+            color: rgba(255,255,255,0.9);
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .testimonial-text .hl-test {
+            background: linear-gradient(to top, rgba(96, 165, 250, 0.3) 40%, transparent 40%);
+            padding: 0 2px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--sky), var(--bright-blue));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .author-info {
+            color: white;
+        }
+
+        .author-info strong {
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .author-info span {
+            font-size: 13px;
+            opacity: 0.7;
+        }
+
+        /* What You Get Section */
+        .benefits-section {
+            padding: 100px 60px;
+            background: var(--light);
+        }
+
+        .benefits-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 35px 30px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--bright-blue), var(--sky));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .benefit-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: white;
+        }
+
+        .benefit-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .benefit-card p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            padding: 100px 60px;
+            background: white;
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+
+        .final-cta p {
+            font-size: 17px;
+            color: #666;
+            margin-bottom: 40px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .final-cta .hero-cta {
+            animation: none;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 60px;
+            background: var(--light);
+            text-align: center;
+            font-size: 13px;
+            color: #666;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        footer a {
+            color: #666;
+        }
+
+        /* Mobile */
+        @media (max-width: 900px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-left {
+                padding: 40px 25px 60px;
+                text-align: center;
+            }
+
+            .promo-badge {
+                margin: 0 auto 25px;
+            }
+
+            .trust-indicators {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .hero-cta {
+                margin: 0 auto;
+            }
+
+            .hero-right {
+                padding: 0 25px 60px;
+            }
+
+            .savings-badge {
+                display: none;
+            }
+
+            .social-proof {
+                padding: 25px;
+                gap: 30px;
+            }
+
+            .quiz-section,
+            .benefits-section,
+            .testimonials,
+            .final-cta {
+                padding: 60px 25px;
+            }
+
+            .testimonial-grid,
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sticky-header {
+                font-size: 12px;
+                padding: 10px 15px;
+            }
+
+            .sticky-cta {
+                padding: 8px 16px;
+                font-size: 11px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="sticky-header">
+        <div class="urgency">
+            <span class="pulse-dot"></span>
+            <span><strong>247</strong> homeowners checked savings today</span>
+        </div>
+        <a href="#quiz" class="sticky-cta">See My Savings →</a>
+    </header>
+
+    <section class="hero">
+        <div class="hero-left">
+            <div class="promo-badge">
+                <span class="tag">Limited</span>
+                <span>Save up to 40% this month</span>
+            </div>
+            <h1>
+                <span class="line">Tired of <span class="hl-white">Staring</span> at That</span>
+                <span class="line"><span class="hl-white">Outdated Bathroom</span></span>
+                <span class="line">Every Morning?</span>
+            </h1>
+            <p class="hero-subtitle">You know it needs work. You've been <span class="hl">putting it off</span> because contractors are expensive, unreliable, or both. What if there was a <span class="hl">smarter way</span>?</p>
+            <div class="trust-indicators">
+                <div class="trust-item">
+                    <div class="trust-icon">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                    </div>
+                    <span>Vetted Pros Only</span>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">
+                        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/>
+                        </svg>
+                    </div>
+                    <span>$0 Down Options</span>
+                </div>
+            </div>
+            <a href="#quiz" class="hero-cta">
+                Check My Savings
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
+            </a>
+        </div>
+        <div class="hero-right">
+            <div class="hero-image-container">
+                <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1769414785/Gemini_Generated_Image_dyxkwndyxkwndyxk_wqrlnk.jpg" alt="Beautiful bathroom remodel">
+                <div class="savings-badge">
+                    <div class="amount">$4,200</div>
+                    <div class="text">Avg. savings vs. retail</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="social-proof">
+        <div class="proof-item">
+            <div>
+                <div class="review-stars">★★★★★</div>
+                <div class="proof-text">4.9/5 from 2,847 reviews</div>
+            </div>
+        </div>
+        <div class="proof-item">
+            <div class="proof-text">
+                <strong>15,000+</strong>
+                Bathrooms completed
+            </div>
+        </div>
+        <div class="proof-item">
+            <div class="proof-text">
+                <strong>$4,200</strong>
+                Avg. savings
+            </div>
+        </div>
+        <div class="proof-item">
+            <div class="proof-text">
+                <strong>5-Year</strong>
+                Warranty included
+            </div>
+        </div>
+    </section>
+
+    <!-- Single Curiosity Question - Gets them started -->
+    <section class="quiz-section" id="quiz">
+        <span class="section-tag">Quick Question</span>
+        <h2>Let's Find Your <span class="hl">Perfect Match</span></h2>
+        <p>Answer one quick question and we'll show you what's possible for your bathroom.</p>
+        
+        <div class="quiz-container">
+            <div class="opening-question">
+                <p class="question-text">What bugs you most about your current bathroom?</p>
+                <p class="question-subtext">Pick the one that makes you cringe every time...</p>
+                
+                <div class="opening-options">
+                    <a href="#" class="opening-option">
+                        <span class="emoji">😤</span>
+                        <div class="option-text">
+                            <div class="option-title">It looks dated and embarrassing</div>
+                            <div class="option-desc">I avoid having guests use it</div>
+                        </div>
+                        <span class="arrow">→</span>
+                    </a>
+                    <a href="#" class="opening-option">
+                        <span class="emoji">🚿</span>
+                        <div class="option-text">
+                            <div class="option-title">The tub/shower is a nightmare</div>
+                            <div class="option-desc">Hard to get in, hard to clean, just... bad</div>
+                        </div>
+                        <span class="arrow">→</span>
+                    </a>
+                    <a href="#" class="opening-option">
+                        <span class="emoji">📦</span>
+                        <div class="option-text">
+                            <div class="option-title">Zero storage, constant clutter</div>
+                            <div class="option-desc">Stuff everywhere, never organized</div>
+                        </div>
+                        <span class="arrow">→</span>
+                    </a>
+                    <a href="#" class="opening-option">
+                        <span class="emoji">✨</span>
+                        <div class="option-text">
+                            <div class="option-title">All of the above, honestly</div>
+                            <div class="option-desc">It's time for a full transformation</div>
+                        </div>
+                        <span class="arrow">→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <h2>Real Homeowners. <span class="hl">Real Savings.</span></h2>
+        <p>See what others are saying after making the switch.</p>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"Got <span class="hl-test">3 quotes in 48 hours</span>. The contractor I chose was <span class="hl-test">$6,000 less</span> than the first quote I got on my own. My new walk-in shower is stunning."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">SM</div>
+                    <div class="author-info">
+                        <strong>Sarah M.</strong>
+                        <span>Phoenix, AZ</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"Was nervous about finding <span class="hl-test">reliable contractors</span>. Every pro they matched me with was professional, showed up on time, and the work quality <span class="hl-test">exceeded expectations</span>."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">DK</div>
+                    <div class="author-info">
+                        <strong>David K.</strong>
+                        <span>Dallas, TX</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"The <span class="hl-test">$0 down financing</span> was a game-changer. My monthly payment is <span class="hl-test">less than my cable bill</span>. Wish I had done this sooner!"</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">LT</div>
+                    <div class="author-info">
+                        <strong>Lisa T.</strong>
+                        <span>Atlanta, GA</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="benefits-section">
+        <h2>Here's What <span class="hl">You Get</span></h2>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                </div>
+                <h3><span class="hl">Multiple Quotes</span></h3>
+                <p>Up to 4 quotes from top-rated local pros</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/>
+                    </svg>
+                </div>
+                <h3><span class="hl">$0 Down</span></h3>
+                <p>Flexible financing from $89/month</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                    </svg>
+                </div>
+                <h3><span class="hl">Vetted Pros</span></h3>
+                <p>Licensed, insured, background checked</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M5 13l4 4L19 7"/>
+                    </svg>
+                </div>
+                <h3><span class="hl">5-Year Warranty</span></h3>
+                <p>Every project fully guaranteed</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="final-cta">
+        <h2>Ready to <span class="hl">Love Your Bathroom</span> Again?</h2>
+        <p>Takes 60 seconds. No obligation. See what you could save.</p>
+        <a href="#quiz" class="hero-cta">
+            Check My Savings →
+        </a>
+    </section>
+
+    <footer>
+        <p>© 2026 Bathroom Remodel Pros. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms</a></p>
+        <p style="margin-top: 10px; font-size: 11px;">By clicking above, you agree to receive calls/texts about your project.</p>
+    </footer>
+</body>
+</html>
