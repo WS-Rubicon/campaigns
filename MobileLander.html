@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeshare Refunds Article</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: #fff;
+            max-width: 414px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .article-container {
+            background: white;
+        }
+        
+        .hero-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .article-content {
+            padding: 20px;
+        }
+        
+        .category {
+            color: #666;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        
+        h1 {
+            font-size: 28px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+        }
+        
+        .meta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .meta-divider {
+            color: #ccc;
+        }
+        
+        .article-body p {
+            margin-bottom: 18px;
+            font-size: 17px;
+            color: #333;
+            line-height: 1.7;
+        }
+        
+        .highlight-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 16px;
+            margin: 24px 0;
+        }
+        
+        .highlight-box p {
+            margin: 0;
+            font-size: 15px;
+            color: #856404;
+        }
+        
+        .highlight-box strong {
+            font-weight: 700;
+        }
+        
+        h2 {
+            font-size: 22px;
+            font-weight: 700;
+            margin: 28px 0 16px 0;
+            color: #1a1a1a;
+        }
+        
+        .checklist {
+            margin: 20px 0;
+        }
+        
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 14px;
+        }
+        
+        .check-icon {
+            width: 20px;
+            height: 20px;
+            background: #28a745;
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-right: 12px;
+            margin-top: 2px;
+            position: relative;
+        }
+        
+        .check-icon::after {
+            content: '✓';
+            color: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .checklist-item p {
+            margin: 0;
+            font-size: 16px;
+        }
+        
+        .info-box {
+            background: #e3f2fd;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 24px 0;
+        }
+        
+        .info-box ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .info-box li {
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: #1565c0;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .info-box li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        
+        .process-steps {
+            margin: 24px 0;
+        }
+        
+        .step {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+        
+        .step-number {
+            width: 32px;
+            height: 32px;
+            background: #007bff;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .step-content h3 {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: #1a1a1a;
+        }
+        
+        .step-content p {
+            font-size: 15px;
+            color: #666;
+            margin: 0;
+        }
+        
+        .cta-button {
+            background: #28a745;
+            color: white;
+            text-align: center;
+            padding: 16px 24px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 700;
+            margin: 32px 0;
+            display: block;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+        }
+        
+        .trust-signals {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 24px 0;
+        }
+        
+        .trust-signals h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            text-align: center;
+            color: #1a1a1a;
+        }
+        
+        .trust-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        
+        .trust-item .check-icon {
+            margin-top: 0;
+        }
+        
+        .trust-item p {
+            margin: 0;
+            font-size: 15px;
+            color: #333;
+        }
+        
+        .disclaimer {
+            font-size: 12px;
+            color: #999;
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid #e0e0e0;
+            margin-top: 32px;
+        }
+    </style>
+</head>
+<body>
+    <div class="article-container">
+        <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1770290588/First-Time-Share-in-Mexico_ayx1qg.jpg" alt="Timeshare in Mexico" class="hero-image">
+        
+        <div class="article-content">
+            <div class="category">Consumer Alert</div>
+            
+            <h1>Timeshare Owners Are Getting Refunded Up To $25,000</h1>
+            
+            <div class="meta">
+                <span>By Sarah Mitchell</span>
+                <span class="meta-divider">•</span>
+                <span>February 5, 2026</span>
+                <span class="meta-divider">•</span>
+                <span>5 min read</span>
+            </div>
+            
+            <div class="article-body">
+                <p>If you own a timeshare in Mexico or the United States, you may be eligible for a significant refund as part of a major settlement that's helping thousands of owners escape their contracts.</p>
+                
+                <p>Recent legal developments have opened the door for timeshare owners who were pressured into purchasing or misled about the terms of their agreements to receive compensation and completely exit their timeshare obligations.</p>
+                
+                <div class="highlight-box">
+                    <p><strong>Time Sensitive:</strong> This settlement has a limited enrollment period. Owners must submit their claims before the deadline to qualify for refunds.</p>
+                </div>
+                
+                <h2>Who Qualifies for a Refund?</h2>
+                
+                <p>You may be eligible if any of the following apply to your situation:</p>
+                
+                <div class="checklist">
+                    <div class="checklist-item">
+                        <div class="check-icon"></div>
+                        <p>You were pressured or rushed into purchasing during a high-pressure sales presentation</p>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="check-icon"></div>
+                        <p>You were promised rental income or investment returns that never materialized</p>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="check-icon"></div>
+                        <p>Your maintenance fees have increased significantly beyond what was originally stated</p>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="check-icon"></div>
+                        <p>You've had difficulty booking reservations or using your timeshare as promised</p>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="check-icon"></div>
+                        <p>You purchased a timeshare in Mexico or the US within the last 10 years</p>
+                    </div>
+                </div>
+                
+                <h2>How Much Can You Receive?</h2>
+                
+                <p>Refund amounts vary based on several factors including your purchase price, payments made, and specific circumstances of your case. Recent settlements have resulted in:</p>
+                
+                <div class="info-box">
+                    <ul>
+                        <li>Average refunds of $15,000-$25,000</li>
+                        <li>Complete cancellation of remaining payments</li>
+                        <li>Elimination of future maintenance fees</li>
+                        <li>No upfront costs or fees to qualify</li>
+                    </ul>
+                </div>
+                
+                <h2>What's The Process?</h2>
+                
+                <p>Getting started is simple and there's no obligation. Here's how it works:</p>
+                
+                <div class="process-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Submit Your Information</h3>
+                            <p>Fill out a quick form to see if you qualify</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Free Consultation</h3>
+                            <p>A specialist reviews your case and explains your options</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>We Handle Everything</h3>
+                            <p>Legal experts manage your case from start to finish</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Receive Your Refund</h3>
+                            <p>Get compensated and finally be free from your timeshare</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <p>The entire process typically takes 60-90 days, and you won't pay anything unless you receive a refund or successful contract cancellation.</p>
+                
+                <a href="#" class="cta-button">Check If You Qualify →</a>
+                
+                <div class="trust-signals">
+                    <h3>Why Thousands Trust Us</h3>
+                    <div class="trust-item">
+                        <div class="check-icon"></div>
+                        <p>Over 12,000 timeshare owners helped</p>
+                    </div>
+                    <div class="trust-item">
+                        <div class="check-icon"></div>
+                        <p>$180+ million recovered for clients</p>
+                    </div>
+                    <div class="trust-item">
+                        <div class="check-icon"></div>
+                        <p>No fees unless you get results</p>
+                    </div>
+                    <div class="trust-item">
+                        <div class="check-icon"></div>
+                        <p>A+ BBB Rating</p>
+                    </div>
+                </div>
+                
+                <h2>Don't Wait - Act Now</h2>
+                
+                <p>Thousands have already received their refunds. The settlement period is limited, so it's important to check your eligibility before the deadline passes.</p>
+                
+                <p>Many timeshare owners who felt trapped by their contracts have successfully exited their agreements and received substantial refunds. If you've been struggling with your timeshare obligations, now may be your opportunity to finally break free.</p>
+                
+                <a href="#" class="cta-button">Get Your Free Case Review</a>
+                
+                <div class="disclaimer">
+                    Results vary by case. Refund amounts are not guaranteed and depend on individual circumstances. This is not a government program. Legal services provided by licensed attorneys.
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
