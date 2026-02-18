@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>See If You Qualify — Life Insurance in Minutes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sage: #2D6A4F;
+    --sage-light: #40916C;
+    --sage-pale: #D8F3DC;
+    --sage-glow: rgba(45, 106, 79, 0.08);
+    --cream: #FDFAF5;
+    --cream-dark: #F5F0E8;
+    --warm-white: #FFFDF9;
+    --charcoal: #1B2A1F;
+    --charcoal-soft: #2D3D32;
+    --text-primary: #1B2A1F;
+    --text-secondary: #5C6E62;
+    --text-muted: #8A9B8F;
+    --border: #E4DDD3;
+    --border-light: #EDE8E0;
+    --red-soft: #D64545;
+    --font-serif: 'Source Serif 4', Georgia, serif;
+    --font-sans: 'Outfit', -apple-system, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--cream);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ─── HEADER ─── */
+  .header {
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border-light);
+    background: var(--warm-white);
+  }
+  .logo {
+    font-family: var(--font-serif);
+    font-size: 21px;
+    font-weight: 700;
+    color: var(--charcoal);
+    letter-spacing: -0.3px;
+  }
+  .logo span { color: var(--sage); }
+  .header-secure {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+  .header-secure svg { opacity: 0.6; }
+
+  /* ─── MAIN CONTAINER ─── */
+  .main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px 60px;
+    position: relative;
+  }
+
+  .main::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      radial-gradient(ellipse at 20% 0%, rgba(45,106,79,0.04) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 100%, rgba(232,197,109,0.04) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ─── PROGRESS DOTS ─── */
+  .progress-dots {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 1;
+  }
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--border);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .dot.active {
+    background: var(--sage);
+    width: 32px;
+    border-radius: 5px;
+  }
+  .dot.completed {
+    background: var(--sage-light);
+  }
+
+  /* ─── QUESTION CARD ─── */
+  .card-container {
+    width: 100%;
+    max-width: 540px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .question-card {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .question-card.active {
+    display: flex;
+    animation: cardEnter 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  @keyframes cardEnter {
+    from { opacity: 0; transform: translateY(20px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  .question-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 28px;
+    font-size: 30px;
+    background: var(--sage-pale);
+  }
+
+  .question-text {
+    font-family: var(--font-serif);
+    font-size: clamp(24px, 4.5vw, 32px);
+    font-weight: 600;
+    color: var(--charcoal);
+    line-height: 1.35;
+    margin-bottom: 10px;
+    max-width: 480px;
+    letter-spacing: -0.3px;
+  }
+
+  .question-sub {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 36px;
+    max-width: 420px;
+    font-weight: 400;
+  }
+
+  /* ─── YES / NO BUTTONS ─── */
+  .yn-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    width: 100%;
+    max-width: 400px;
+  }
+  .yn-btn {
+    position: relative;
+    padding: 22px 20px;
+    border: 2px solid var(--border);
+    border-radius: 16px;
+    background: var(--warm-white);
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-sans);
+  }
+  .yn-btn:hover {
+    border-color: var(--sage-light);
+    background: var(--sage-glow);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(45, 106, 79, 0.08);
+  }
+  .yn-btn:active {
+    transform: translateY(0);
+  }
+  .yn-btn .yn-label {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--charcoal);
+  }
+  .yn-btn .yn-sub {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+  .yn-btn.selected {
+    border-color: var(--sage);
+    background: var(--sage-glow);
+    box-shadow: 0 0 0 4px rgba(45, 106, 79, 0.1);
+  }
+  .yn-btn.selected .yn-label { color: var(--sage); }
+
+  @keyframes btnPulse {
+    0% { box-shadow: 0 0 0 0 rgba(45,106,79,0.3); }
+    70% { box-shadow: 0 0 0 12px rgba(45,106,79,0); }
+    100% { box-shadow: 0 0 0 0 rgba(45,106,79,0); }
+  }
+  .yn-btn.pulse { animation: btnPulse 0.4s ease-out; }
+
+  /* ─── INFO CAPTURE STEP ─── */
+  .info-capture {
+    width: 100%;
+    max-width: 400px;
+  }
+  .form-group {
+    margin-bottom: 16px;
+    text-align: left;
+  }
+  .form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--charcoal-soft);
+    margin-bottom: 6px;
+    letter-spacing: 0.2px;
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .input-field {
+    width: 100%;
+    padding: 15px 16px;
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    font-family: var(--font-sans);
+    font-size: 16px;
+    color: var(--charcoal);
+    background: var(--warm-white);
+    transition: all 0.25s ease;
+    outline: none;
+    -webkit-appearance: none;
+  }
+  .input-field::placeholder { color: var(--text-muted); }
+  .input-field:focus {
+    border-color: var(--sage);
+    box-shadow: 0 0 0 4px rgba(45, 106, 79, 0.1);
+  }
+  .input-field.error {
+    border-color: var(--red-soft);
+    box-shadow: 0 0 0 4px rgba(214, 69, 69, 0.08);
+  }
+  .error-text {
+    font-size: 12px;
+    color: var(--red-soft);
+    margin-top: 4px;
+    display: none;
+  }
+  .error-text.visible { display: block; }
+
+  select.input-field {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238A9B8F' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+  }
+
+  /* ─── CTA BUTTON ─── */
+  .cta-btn {
+    width: 100%;
+    padding: 18px 24px;
+    border: none;
+    border-radius: 14px;
+    font-family: var(--font-sans);
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    letter-spacing: 0.2px;
+    background: var(--sage);
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(45, 106, 79, 0.25);
+    margin-top: 8px;
+  }
+  .cta-btn:hover {
+    background: var(--sage-light);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 24px rgba(45, 106, 79, 0.3);
+  }
+  .cta-btn:active { transform: translateY(0); }
+
+  /* ─── BACK LINK ─── */
+  .back-link {
+    margin-top: 20px;
+    font-size: 14px;
+    color: var(--text-muted);
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .back-link:hover { color: var(--text-secondary); }
+
+  /* ─── TRUST LINE ─── */
+  .trust-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border-light);
+    width: 100%;
+    max-width: 400px;
+    flex-wrap: wrap;
+  }
+  .trust-chip {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    color: var(--text-muted);
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .trust-chip svg { opacity: 0.5; flex-shrink: 0; }
+
+  /* ─── FINAL SCREEN ─── */
+  .final-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--sage);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    animation: scaleIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  @keyframes scaleIn {
+    from { transform: scale(0); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  .est-card {
+    width: 100%;
+    max-width: 380px;
+    background: var(--charcoal);
+    border-radius: 16px;
+    padding: 28px;
+    margin: 28px 0;
+    text-align: center;
+  }
+  .est-card .micro {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .est-card .price {
+    font-family: var(--font-serif);
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--sage-pale);
+    line-height: 1;
+  }
+  .est-card .price span {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--text-muted);
+    margin-left: 2px;
+  }
+  .est-card .note {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 8px;
+    line-height: 1.4;
+  }
+
+  /* ─── COUNTER BADGE ─── */
+  .counter-badge {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--charcoal);
+    color: var(--cream);
+    padding: 10px 20px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 500;
+    z-index: 100;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+  .counter-badge.visible { opacity: 1; }
+  .counter-badge .num { color: var(--sage-pale); font-weight: 700; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 480px) {
+    .header { padding: 14px 16px; }
+    .main { padding: 32px 16px 80px; }
+    .progress-dots { margin-bottom: 32px; }
+    .question-icon { width: 56px; height: 56px; font-size: 26px; border-radius: 16px; margin-bottom: 22px; }
+    .question-text { margin-bottom: 8px; }
+    .yn-row { gap: 12px; max-width: 100%; }
+    .yn-btn { padding: 18px 16px; }
+    .info-capture { max-width: 100%; }
+    .form-row { grid-template-columns: 1fr; }
+    .trust-line { gap: 10px; }
+  }
+
+  .consent {
+    font-size: 11px;
+    color: var(--text-muted);
+    line-height: 1.5;
+    text-align: center;
+    margin-top: 14px;
+    max-width: 380px;
+  }
+  .consent a { color: var(--sage-light); }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="logo">haven<span>life</span></div>
+  <div class="header-secure">
+    <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+    Secure &amp; encrypted
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- PROGRESS -->
+  <div class="progress-dots" id="progressDots">
+    <div class="dot active"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+  </div>
+
+  <div class="card-container">
+
+    <!-- ═══════ Q1: VISUALIZATION — LOSS OF INCOME ═══════ -->
+    <div class="question-card active" id="q1">
+      <div class="question-icon">🏠</div>
+      <div class="question-text">If something happened to you tomorrow, could your family cover the mortgage and bills without your income?</div>
+      <div class="question-sub">Most families can't go more than 30 days.</div>
+      <div class="yn-row">
+        <button class="yn-btn" onclick="answer(1, 'yes')">
+          <span class="yn-label">Yes, they could</span>
+        </button>
+        <button class="yn-btn" onclick="answer(1, 'no')">
+          <span class="yn-label">No, not likely</span>
+        </button>
+      </div>
+      <div class="trust-line">
+        <div class="trust-chip">
+          <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          No spam
+        </div>
+        <div class="trust-chip">
+          <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg>
+          Takes 30 seconds
+        </div>
+        <div class="trust-chip">
+          <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg>
+          100% free
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════ Q2: VISUALIZATION — DEPENDENTS ═══════ -->
+    <div class="question-card" id="q2">
+      <div class="question-icon">👨‍👩‍👧‍👦</div>
+      <div class="question-text">Do you have people counting on you — a spouse, kids, or aging parents?</div>
+      <div class="question-sub">Life insurance is how you take care of them, even when you can't be there.</div>
+      <div class="yn-row">
+        <button class="yn-btn" onclick="answer(2, 'yes')">
+          <span class="yn-label">Yes, I do</span>
+        </button>
+        <button class="yn-btn" onclick="answer(2, 'no')">
+          <span class="yn-label">No, not right now</span>
+        </button>
+      </div>
+      <button class="back-link" onclick="goBack(2)">← Go back</button>
+    </div>
+
+    <!-- ═══════ Q3: PAIN POINT VALIDATION ═══════ -->
+    <div class="question-card" id="q3">
+      <div class="question-icon">⏳</div>
+      <div class="question-text">Have you been putting this off because it seemed too expensive or too complicated?</div>
+      <div class="question-sub">Most people qualify for coverage starting under $2/day — with no medical exam required.</div>
+      <div class="yn-row">
+        <button class="yn-btn" onclick="answer(3, 'yes')">
+          <span class="yn-label">Yes, exactly</span>
+        </button>
+        <button class="yn-btn" onclick="answer(3, 'no')">
+          <span class="yn-label">No, other reasons</span>
+        </button>
+      </div>
+      <button class="back-link" onclick="goBack(3)">← Go back</button>
+    </div>
+
+    <!-- ═══════ Q4: INTENT CONFIRMATION ═══════ -->
+    <div class="question-card" id="q4">
+      <div class="question-icon">⚡</div>
+      <div class="question-text">Would it give you peace of mind to see what you actually qualify for — right now, in under a minute?</div>
+      <div class="question-sub">No commitment. No credit card. Just your personalized estimate.</div>
+      <div class="yn-row">
+        <button class="yn-btn" onclick="answer(4, 'yes')">
+          <span class="yn-label">Yes, show me</span>
+        </button>
+        <button class="yn-btn" onclick="answer(4, 'no')">
+          <span class="yn-label">Maybe later</span>
+        </button>
+      </div>
+      <button class="back-link" onclick="goBack(4)">← Go back</button>
+    </div>
+
+    <!-- ═══════ Q5: INFO CAPTURE ═══════ -->
+    <div class="question-card" id="q5">
+      <div class="question-icon">📋</div>
+      <div class="question-text">Last step — let's pull your rates.</div>
+      <div class="question-sub">We just need a few details to match you with the best carriers in your area.</div>
+      <div class="info-capture">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Zip Code</label>
+            <input class="input-field" type="text" id="zip" placeholder="e.g. 90210" maxlength="5" inputmode="numeric">
+            <div class="error-text" id="zipErr">Enter a 5-digit zip code</div>
+          </div>
+          <div class="form-group">
+            <label>Date of Birth</label>
+            <input class="input-field" type="date" id="dob">
+            <div class="error-text" id="dobErr">Required</div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Gender</label>
+            <select class="input-field" id="gender">
+              <option value="">Select</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+            <div class="error-text" id="genErr">Required</div>
+          </div>
+          <div class="form-group">
+            <label>Coverage Amount</label>
+            <select class="input-field" id="coverage">
+              <option value="100000">$100,000</option>
+              <option value="250000">$250,000</option>
+              <option value="500000" selected>$500,000</option>
+              <option value="750000">$750,000</option>
+              <option value="1000000">$1,000,000</option>
+              <option value="1500000">$1,500,000</option>
+              <option value="2000000">$2,000,000</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input class="input-field" type="text" id="fname" placeholder="John">
+            <div class="error-text" id="fnErr">Required</div>
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input class="input-field" type="text" id="lname" placeholder="Smith">
+            <div class="error-text" id="lnErr">Required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input class="input-field" type="email" id="email" placeholder="john@email.com">
+          <div class="error-text" id="emErr">Enter a valid email</div>
+        </div>
+        <div class="form-group">
+          <label>Phone</label>
+          <input class="input-field" type="tel" id="phone" placeholder="(555) 123-4567">
+          <div class="error-text" id="phErr">Enter a valid phone number</div>
+        </div>
+        <button class="cta-btn" onclick="submitForm()">See My Quotes →</button>
+        <p class="consent">By clicking "See My Quotes" you agree to our <a href="#">Terms</a> &amp; <a href="#">Privacy Policy</a> and consent to be contacted by licensed insurance agents via phone, email, or text. Consent is not required for purchase.</p>
+      </div>
+      <button class="back-link" onclick="goBack(5)">← Go back</button>
+    </div>
+
+    <!-- ═══════ FINAL SCREEN ═══════ -->
+    <div class="question-card" id="qFinal">
+      <div class="final-icon">
+        <svg width="38" height="38" fill="none" stroke="#fff" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+      </div>
+      <div class="question-text">You're all set.</div>
+      <div class="question-sub">We've matched your profile with top-rated carriers. A licensed agent will reach out shortly with your personalized options.</div>
+      <div class="est-card">
+        <div class="micro">Estimated starting rate</div>
+        <div class="price" id="estRate">$27<span>/mo</span></div>
+        <div class="note">Based on your profile — final rate may vary</div>
+      </div>
+      <button class="cta-btn" onclick="alert('Redirect to carrier offers / thank-you page')">View My Matched Carriers</button>
+      <div class="trust-line">
+        <div class="trust-chip">
+          <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg>
+          A+ rated carriers
+        </div>
+        <div class="trust-chip">
+          <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg>
+          No medical exam
+        </div>
+        <div class="trust-chip">
+          <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Cancel anytime
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- FLOATING COUNTER -->
+<div class="counter-badge" id="counter">
+  <span class="num">2,847</span> people checked their rate today
+</div>
+
+<script>
+  let current = 1;
+  const total = 5;
+  const answers = {};
+
+  function updateDots() {
+    const dots = document.querySelectorAll('.dot');
+    dots.forEach((d, i) => {
+      d.classList.remove('active', 'completed');
+      if (i + 1 === current) d.classList.add('active');
+      else if (i + 1 < current) d.classList.add('completed');
+    });
+  }
+
+  function showQuestion(n) {
+    document.querySelectorAll('.question-card').forEach(c => c.classList.remove('active'));
+    if (n > total) {
+      document.getElementById('qFinal').classList.add('active');
+      document.querySelector('.progress-dots').style.display = 'none';
+    } else {
+      document.getElementById(`q${n}`).classList.add('active');
+    }
+    updateDots();
+  }
+
+  function answer(q, val) {
+    answers[`q${q}`] = val;
+
+    const btns = document.querySelectorAll(`#q${q} .yn-btn`);
+    btns.forEach(b => b.classList.remove('selected', 'pulse'));
+    const idx = val === 'yes' ? 0 : 1;
+    btns[idx].classList.add('selected', 'pulse');
+
+    // Auto-advance
+    setTimeout(() => {
+      current = q + 1;
+      showQuestion(current);
+    }, 350);
+  }
+
+  function goBack(from) {
+    current = from - 1;
+    showQuestion(current);
+  }
+
+  function submitForm() {
+    document.querySelectorAll('.input-field').forEach(f => f.classList.remove('error'));
+    document.querySelectorAll('.error-text').forEach(e => e.classList.remove('visible'));
+
+    const zip = document.getElementById('zip').value.trim();
+    const dob = document.getElementById('dob').value;
+    const gender = document.getElementById('gender').value;
+    const fname = document.getElementById('fname').value.trim();
+    const lname = document.getElementById('lname').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+
+    let valid = true;
+
+    if (!/^\d{5}$/.test(zip)) {
+      document.getElementById('zip').classList.add('error');
+      document.getElementById('zipErr').classList.add('visible');
+      valid = false;
+    }
+    if (!dob) {
+      document.getElementById('dob').classList.add('error');
+      document.getElementById('dobErr').classList.add('visible');
+      valid = false;
+    }
+    if (!gender) {
+      document.getElementById('gender').classList.add('error');
+      document.getElementById('genErr').classList.add('visible');
+      valid = false;
+    }
+    if (!fname) {
+      document.getElementById('fname').classList.add('error');
+      document.getElementById('fnErr').classList.add('visible');
+      valid = false;
+    }
+    if (!lname) {
+      document.getElementById('lname').classList.add('error');
+      document.getElementById('lnErr').classList.add('visible');
+      valid = false;
+    }
+    if (!email || !/\S+@\S+\.\S+/.test(email)) {
+      document.getElementById('email').classList.add('error');
+      document.getElementById('emErr').classList.add('visible');
+      valid = false;
+    }
+    if (!phone || phone.replace(/\D/g, '').length < 10) {
+      document.getElementById('phone').classList.add('error');
+      document.getElementById('phErr').classList.add('visible');
+      valid = false;
+    }
+
+    if (!valid) return;
+
+    // Calc rough estimate
+    const age = calcAge(dob);
+    const coverage = parseInt(document.getElementById('coverage').value) || 500000;
+    let rate = (coverage / 100000) * 7;
+    if (age > 40) rate *= 1.35;
+    if (age > 50) rate *= 1.6;
+    if (age > 60) rate *= 2.1;
+    rate = Math.max(14, Math.round(rate));
+    document.getElementById('estRate').innerHTML = `$${rate}<span>/mo</span>`;
+
+    current = total + 1;
+    showQuestion(current);
+  }
+
+  function calcAge(dob) {
+    const b = new Date(dob);
+    const t = new Date();
+    let a = t.getFullYear() - b.getFullYear();
+    const m = t.getMonth() - b.getMonth();
+    if (m < 0 || (m === 0 && t.getDate() < b.getDate())) a--;
+    return a;
+  }
+
+  // Phone formatting
+  document.getElementById('phone')?.addEventListener('input', function(e) {
+    let v = e.target.value.replace(/\D/g, '');
+    if (v.length > 0) {
+      if (v.length <= 3) v = '(' + v;
+      else if (v.length <= 6) v = '(' + v.slice(0,3) + ') ' + v.slice(3);
+      else v = '(' + v.slice(0,3) + ') ' + v.slice(3,6) + '-' + v.slice(6,10);
+    }
+    e.target.value = v;
+  });
+
+  // Zip only numbers
+  document.getElementById('zip')?.addEventListener('input', function(e) {
+    e.target.value = e.target.value.replace(/\D/g, '').slice(0, 5);
+  });
+
+  // Social proof badge
+  setTimeout(() => {
+    document.getElementById('counter').classList.add('visible');
+    setTimeout(() => document.getElementById('counter').classList.remove('visible'), 5000);
+  }, 2000);
+</script>
+
+</body>
+</html>
