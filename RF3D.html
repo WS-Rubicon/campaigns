@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Homeowner Cashback Program - Eligibility Check</title>
+    <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
+    <style>
+        :root {
+            --col: 760px;
+            --pad: 20px;
+            --paper-max: calc(var(--col) + var(--pad) * 2);
+            --page-bg: #eef1f5;
+            --paper-bg: #ffffff;
+            --nav-bg: #1c3d72;
+            --nav-pill: #dc3545;
+            --crumb: #cfe0ff;
+            --notice: #ffc107;
+            --notice-left: #ff8800;
+            --muted: #555;
+            --req-bg: #f8f9fa;
+            --hot-bg: #fff3cd;
+            --hot-border: #ffeaa7;
+            --hot-text: #856404;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; }
+        html, body { margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                         Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: var(--page-bg);
+        }
+        img { max-width: 100%; height: auto; display: block; }
+        a { color: #0066cc; }
+
+        .paper {
+            max-width: var(--paper-max);
+            margin: 0 auto 40px;
+            background: var(--paper-bg);
+            box-shadow: 0 2px 18px rgba(0,0,0,.06);
+        }
+
+        .header { background-color: var(--nav-bg); color: white; }
+
+        .nav-container {
+            max-width: var(--paper-max);
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            padding: 8px var(--pad);
+        }
+
+        .usa-badge {
+            background-color: var(--nav-pill);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 12px;
+            margin-right: 16px;
+            flex-shrink: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 10px;
+            font-size: 14px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        .nav-links span { color: var(--crumb); }
+
+        .notice-wrap { background: var(--paper-bg); }
+
+        .notice-banner {
+            max-width: var(--paper-max);
+            margin: 0 auto 10px;
+            background-color: var(--notice);
+            color: #212529;
+            padding: 10px var(--pad);
+            font-weight: bold;
+            border-left: 4px solid var(--notice-left);
+            text-align: left;
+        }
+
+        .container {
+            max-width: var(--paper-max);
+            margin: 0 auto;
+            padding: 18px var(--pad) 8px;
+        }
+
+        .content-inner {
+            max-width: var(--col);
+            margin: 0 auto;
+        }
+
+        .main-title {
+            font-size: 36px;
+            color: #4a4a4a;
+            margin: 8px 0 12px;
+            line-height: 1.12;
+            font-weight: 700;
+        }
+
+        .intro-text {
+            font-size: 16px;
+            color: var(--muted);
+            margin: 6px 0 16px;
+            line-height: 1.6;
+        }
+
+        .highlight {
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        .hero-image {
+            max-width: var(--col);
+            border-radius: 8px;
+            margin: 20px auto 8px auto;
+        }
+
+        .content-section {
+            margin: 16px 0;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .requirements-section {
+            background-color: var(--req-bg);
+            padding: 20px;
+            border-left: 4px solid var(--notice);
+            margin: 22px auto;
+            max-width: var(--col);
+        }
+
+        .requirements-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 12px;
+        }
+
+        .requirements-list {
+            list-style: none;
+            counter-reset: requirement-counter;
+            padding: 0;
+            margin: 0;
+        }
+
+        .requirements-list li {
+            counter-increment: requirement-counter;
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .requirements-list li::before {
+            content: counter(requirement-counter) ".";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* ── Quiz Section ── */
+        .quiz-section {
+            margin: 28px auto;
+            max-width: var(--col);
+        }
+
+        .quiz-header {
+            text-align: center;
+            margin-bottom: 6px;
+        }
+
+        .quiz-header h2 {
+            font-size: 20px;
+            color: #333;
+            margin: 0 0 12px;
+        }
+
+        .progress-bar-wrap {
+            background: #e2e8f0;
+            border-radius: 20px;
+            height: 10px;
+            max-width: 400px;
+            margin: 0 auto 6px;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #1c3d72, #2a5db0);
+            border-radius: 20px;
+            transition: width 0.4s ease;
+        }
+
+        .progress-text {
+            text-align: center;
+            font-size: 13px;
+            color: #718096;
+            margin-bottom: 18px;
+        }
+
+        .quiz-step {
+            display: none;
+            animation: fadeIn 0.35s ease;
+        }
+
+        .quiz-step.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .quiz-question {
+            font-size: 19px;
+            font-weight: 700;
+            color: #333;
+            text-align: center;
+            margin: 0 0 18px;
+            line-height: 1.35;
+        }
+
+        .quiz-answers {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-width: 420px;
+            margin: 0 auto;
+        }
+
+        .quiz-answer {
+            background: linear-gradient(to bottom, #fdd867 0%, #f7a70e 100%);
+            color: #000;
+            border: 2px solid #000;
+            padding: 16px 20px;
+            border-radius: 8px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+            box-shadow: 4px 4px 0px #000;
+            transition: all 0.1s ease-out;
+            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+            user-select: none;
+        }
+
+        .quiz-answer:hover {
+            background: linear-gradient(to bottom, #ffe08a 0%, #fdb933 100%);
+        }
+
+        .quiz-answer:active {
+            box-shadow: 0 0 0 #000;
+            transform: translate(4px, 4px);
+            transition: all 0.05s ease-in;
+        }
+
+        /* ── Result Screen ── */
+        .quiz-result {
+            display: none;
+            text-align: center;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .quiz-result.active { display: block; }
+
+        .result-icon {
+            font-size: 56px;
+            margin-bottom: 8px;
+        }
+
+        .result-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1c3d72;
+            margin: 0 0 8px;
+        }
+
+        .result-subtitle {
+            font-size: 16px;
+            color: var(--muted);
+            margin: 0 0 22px;
+            line-height: 1.5;
+        }
+
+        .result-cta {
+            display: inline-block;
+            background: linear-gradient(to bottom, #28a745 0%, #1e7e34 100%);
+            color: #fff;
+            border: 2px solid #155724;
+            padding: 18px 40px;
+            border-radius: 8px;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 4px 4px 0px #155724;
+            transition: all 0.1s ease-out;
+        }
+
+        .result-cta:hover {
+            background: linear-gradient(to bottom, #34ce57 0%, #28a745 100%);
+            color: #fff;
+        }
+
+        .result-cta:active {
+            box-shadow: 0 0 0 #155724;
+            transform: translate(4px, 4px);
+            transition: all 0.05s ease-in;
+        }
+
+        .result-fine {
+            font-size: 12px;
+            color: #999;
+            margin-top: 14px;
+        }
+
+        /* ── Hot Tip ── */
+        .hot-tip {
+            background-color: var(--hot-bg);
+            border: 1px solid var(--hot-border);
+            border-left: 4px solid var(--notice);
+            padding: 14px;
+            margin: 22px auto;
+            border-radius: 0 5px 5px 0;
+            max-width: var(--col);
+            color: var(--hot-text);
+            line-height: 1.55;
+        }
+
+        .hot-tip-title {
+            color: var(--hot-text);
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .national-indicator {
+            text-align: center;
+            margin: 16px auto 0;
+            color: #718096;
+            font-size: 14px;
+            font-weight: 600;
+            max-width: var(--col);
+        }
+        .national-indicator::before { content: "\1F3DB\FE0F"; margin-right: 6px; }
+
+        .footer {
+            background-color: var(--nav-bg);
+            color: white;
+            text-align: center;
+            margin-top: 28px;
+        }
+
+        .footer-inner {
+            max-width: var(--paper-max);
+            margin: 0 auto;
+            padding: 24px var(--pad);
+        }
+
+        .footer-links { margin-bottom: 12px; }
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+        }
+        .footer-links a:hover { color: white; }
+
+        .footer-disclaimer {
+            font-size: 12px;
+            color: #ccc;
+            margin-top: 6px;
+        }
+
+        @media (max-width: 520px) {
+            :root { --pad: 16px; }
+            .notice-banner {
+                padding: 12px var(--pad);
+                margin-bottom: 8px;
+                font-size: 14px;
+                line-height: 1.4;
+            }
+            .container { padding: 16px var(--pad) 6px; }
+            .main-title {
+                font-size: clamp(26px, 6.5vw, 32px);
+                margin: 6px 0 12px;
+                line-height: 1.15;
+            }
+            .intro-text { font-size: 15px; }
+            .content-section {
+                font-size: 15px;
+                margin: 12px 0;
+            }
+            .hero-image {
+                width: 100%;
+                max-width: 100%;
+                margin: 16px auto;
+            }
+            .requirements-section, .hot-tip {
+                margin: 20px auto;
+                padding: 16px;
+            }
+            .requirements-title {
+                font-size: 17px;
+            }
+            .quiz-question { font-size: 17px; }
+            .quiz-answer { padding: 15px 16px; font-size: 16px; }
+            .result-cta { padding: 16px 30px; font-size: 18px; }
+            .footer-inner { padding: 20px var(--pad); }
+            .footer-links {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px 15px;
+            }
+            .footer-links a { margin: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="paper">
+        <header class="header">
+            <div class="nav-container">
+                <span class="usa-badge">USA</span>
+                <nav class="nav-links">
+                    <span>Home</span>
+                    <span>&gt;</span>
+                    <span>Financial Programs</span>
+                    <span>&gt;</span>
+                    <span>Homeowner Cashback Program</span>
+                </nav>
+            </div>
+        </header>
+
+        <div class="notice-wrap">
+            <div class="notice-banner">
+                &#9888;&#65039; NOTICE: Limited program period for 2025 Homeowner Cashback Program
+                &mdash; Apply by deadline
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="content-inner">
+
+                <h1 class="main-title">
+                    Starting March 2026, American Homeowners Get Up To $185,000 With The
+                    New &ldquo;FHA&rdquo; Initiative.
+                </h1>
+
+                <p class="intro-text">
+                    (Washington, D.C.) &mdash; If you were born before 2004, have a credit score
+                    <span class="highlight">above 620</span> and
+                    <span class="highlight">own a single family home worth more than $160k</span>
+                    &mdash; you are advised to <span class="highlight">take advantage</span> of the
+                    new Homeowner Cashback Program that could
+                    <span class="highlight">put $185,000 in your pocket!</span>
+                </p>
+
+                <img src="https://res.cloudinary.com/dndik3mpf/image/upload/v1755657346/aa1a3c7376456215537e65f7ec639991_gvi7la.webp"
+                     alt="Congress Chamber" class="hero-image">
+
+                <div class="content-section">
+                    <p>
+                        Inflation is through the roof right now and smart Homeowners are using
+                        this program to get up to $185,000 in cash! There is
+                        <span class="highlight">NO COST</span> to see if you qualify &amp;
+                        <span class="highlight">no requirements</span> on how to spend it.
+                    </p>
+                    <p>
+                        In fact, many homeowners are
+                        <span class="highlight">paying for home renovations</span>,
+                        <span class="highlight">paying off debts</span> &amp; even
+                        <span class="highlight">taking vacations!</span>
+                    </p>
+                </div>
+
+                <div class="requirements-section">
+                    <h2 class="requirements-title">There are only 3 requirements:</h2>
+                    <ul class="requirements-list">
+                        <li>Must be a US Citizen</li>
+                        <li>Must own a <span class="highlight">Single Family Home Worth Over $160k</span></li>
+                        <li>Must have a <span class="highlight">Credit Score Above 620</span></li>
+                    </ul>
+                </div>
+
+                <!-- ── Quiz Flow ── -->
+                <div class="quiz-section" id="quiz">
+
+                    <div class="quiz-header">
+                        <h2>Quick Eligibility Check (3 Questions)</h2>
+                        <div class="progress-bar-wrap">
+                            <div class="progress-bar-fill" id="progressBar" style="width: 33%"></div>
+                        </div>
+                        <div class="progress-text" id="progressText">Question 1 of 3</div>
+                    </div>
+
+                    <!-- Q1 -->
+                    <div class="quiz-step active" id="step1">
+                        <p class="quiz-question">Do you currently own a single-family home?</p>
+                        <div class="quiz-answers">
+                            <button class="quiz-answer" data-next="2" data-answer="yes">Yes, I own my home</button>
+                            <button class="quiz-answer" data-next="2" data-answer="no">No, I rent</button>
+                        </div>
+                    </div>
+
+                    <!-- Q2 -->
+                    <div class="quiz-step" id="step2">
+                        <p class="quiz-question">Do you believe your home is worth more today than what you still owe on it?</p>
+                        <div class="quiz-answers">
+                            <button class="quiz-answer" data-next="3" data-answer="yes">Yes, it&rsquo;s worth more</button>
+                            <button class="quiz-answer" data-next="3" data-answer="maybe">I think so</button>
+                            <button class="quiz-answer" data-next="3" data-answer="no">Not sure</button>
+                        </div>
+                    </div>
+
+                    <!-- Q3 -->
+                    <div class="quiz-step" id="step3">
+                        <p class="quiz-question">If you qualified for up to $185,000 in cash, would you use it to pay off debt, renovate, or cover expenses?</p>
+                        <div class="quiz-answers">
+                            <button class="quiz-answer" data-next="result" data-answer="yes">Yes, that would help me</button>
+                            <button class="quiz-answer" data-next="result" data-answer="no">No thanks</button>
+                        </div>
+                    </div>
+
+                    <!-- Result -->
+                    <div class="quiz-result" id="quizResult">
+                        <div class="result-icon">&#9989;</div>
+                        <h3 class="result-title">Great News &mdash; You May Qualify!</h3>
+                        <p class="result-subtitle">
+                            Based on your answers, you could be eligible for up to
+                            <strong>$185,000</strong> through the Homeowner Cashback Program.<br>
+                            Click below to see your personalized offer.
+                        </p>
+                        <a href="https://hpkpn.ttrk.io/click" class="js-offer-link cta-link result-cta">
+                            See My Cash-Out Offer &rarr;
+                        </a>
+                        <p class="result-fine">Free to check &bull; No SSN required &bull; Takes 60 seconds</p>
+                    </div>
+
+                </div>
+
+                <div class="hot-tip">
+                    <div class="hot-tip-title">HOT TIP:</div>
+                    <p>
+                        This program is particularly popular with homeowners who are on a fixed
+                        income or are on social security and need extra cash to consolidate high
+                        interest debts or finally start that home improvement project.
+                        <strong>Better yet, if you have a job and have good or excellent credit,
+                        you can qualify for the full $185,000!</strong>
+                    </p>
+                </div>
+
+                <div class="national-indicator">National</div>
+
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Use</a>
+                <a href="#">Accessibility</a>
+                <a href="#">Contact Us</a>
+            </div>
+            <div class="footer-disclaimer">
+                This is an official homeowner assistance program service
+            </div>
+        </div>
+    </footer>
+
+    <!-- Quiz logic -->
+    <script>
+    (function() {
+        var steps = document.querySelectorAll('.quiz-step');
+        var result = document.getElementById('quizResult');
+        var bar = document.getElementById('progressBar');
+        var text = document.getElementById('progressText');
+        var total = 3;
+
+        document.querySelectorAll('.quiz-answer').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var next = btn.getAttribute('data-next');
+                var current = btn.closest('.quiz-step');
+
+                if (next === 'result') {
+                    current.classList.remove('active');
+                    bar.style.width = '100%';
+                    text.textContent = 'Complete!';
+                    result.classList.add('active');
+                    result.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else {
+                    var nextStep = document.getElementById('step' + next);
+                    current.classList.remove('active');
+                    nextStep.classList.add('active');
+                    var pct = (parseInt(next) / total) * 100;
+                    bar.style.width = pct + '%';
+                    text.textContent = 'Question ' + next + ' of ' + total;
+                    nextStep.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            });
+        });
+    })();
+    </script>
+    <!-- Redirect click handler -->
+    <script>
+    (function() {
+        function handleButtonClick(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            window.location.href = this.href;
+        }
+        document.querySelectorAll('a.js-offer-link').forEach(function(btn) {
+            btn.addEventListener('click', handleButtonClick);
+        });
+    })();
+    </script>
+    <!-- Click ID passthrough -->
+    <script>
+    (function(){
+        var p=new URLSearchParams(window.location.search);
+        var c=p.get('rtkcid')||p.get('sub2')||p.get('clickid')||p.get('rt_clickid');
+        if(c){document.querySelectorAll('a.js-offer-link,a.cta-link').forEach(function(l){
+            var s=l.href.indexOf('?')>-1?'&':'?';
+            l.href=l.href+s+'sub2='+encodeURIComponent(c)
+        })}
+    })();
+    </script>
+    <!-- RedTrack track.js -->
+    <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
+</body>
+</html>
