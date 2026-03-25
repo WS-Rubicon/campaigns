@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Payment Reduction Calculator &mdash; Homeowner Savings Estimate</title>
+    <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; }
+        html, body { margin: 0; padding: 0; height: 100%; }
+        body {
+            font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #f0f2f5;
+            color: #1b1b1b;
+            line-height: 1.5;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .gov-banner {
+            background: #1b2a4a;
+            color: #fff;
+            font-size: 12px;
+            padding: 6px 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .gov-banner .flag { font-size: 14px; }
+        .gov-banner span { opacity: 0.85; }
+        .site-header {
+            background: #112e51;
+            border-bottom: 4px solid #dce4ef;
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .seal {
+            width: 46px; height: 46px;
+            background: #dce4ef;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+        .site-title {
+            color: #fff;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+        }
+        .site-subtitle {
+            color: #aec6e8;
+            font-size: 12px;
+            margin-top: 1px;
+        }
+        /* CHANGE AP-1: Alert bar — savings-focused, not scarcity */
+        .alert-bar {
+            background: #e7f2fa;
+            border-left: 5px solid #0071bc;
+            padding: 10px 24px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #112e51;
+        }
+        .main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 32px 16px;
+        }
+        .card {
+            background: #fff;
+            border: 1px solid #d6d7d9;
+            border-top: 6px solid #112e51;
+            border-radius: 4px;
+            max-width: 560px;
+            width: 100%;
+            padding: 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .card-header { padding: 28px 32px 0; }
+        .card-body { padding: 20px 32px 32px; }
+        .form-number {
+            font-size: 11px;
+            color: #71767a;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0 0 6px;
+        }
+        .card-title {
+            font-size: 26px;
+            font-weight: 700;
+            color: #1b2a4a;
+            margin: 0 0 4px;
+            line-height: 1.2;
+        }
+        .card-subtitle {
+            font-size: 14px;
+            color: #5b616b;
+            margin: 0 0 20px;
+            line-height: 1.5;
+        }
+        .progress-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        .progress-track {
+            flex: 1;
+            height: 8px;
+            background: #d6d7d9;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            background: #0071bc;
+            border-radius: 4px;
+            transition: width 0.45s ease;
+        }
+        .progress-label {
+            font-size: 13px;
+            color: #5b616b;
+            white-space: nowrap;
+            min-width: 80px;
+            text-align: right;
+        }
+        .divider {
+            border: none;
+            border-top: 1px solid #dfe1e2;
+            margin: 0 0 24px;
+        }
+        .screen { display: none; }
+        .screen.active { display: block; animation: fadeUp 0.3s ease; }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .q-label {
+            font-size: 11px;
+            color: #71767a;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin: 0 0 8px;
+            font-weight: 600;
+        }
+        .q-text {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1b2a4a;
+            margin: 0 0 24px;
+            line-height: 1.3;
+        }
+        .answers {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .answer-btn {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+            background: #fff;
+            border: 2px solid #5b616b;
+            border-radius: 6px;
+            padding: 16px 18px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #1b2a4a;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            text-align: left;
+        }
+        .answer-btn:hover { border-color: #0071bc; background: #e7f2fa; }
+        .answer-btn:active { background: #d0e5f5; }
+        .answer-btn .radio {
+            width: 22px; height: 22px;
+            border: 2px solid #5b616b;
+            border-radius: 50%;
+            flex-shrink: 0;
+            position: relative;
+            transition: all 0.15s ease;
+        }
+        .answer-btn:hover .radio { border-color: #0071bc; }
+        .answer-btn.selected .radio { border-color: #0071bc; background: #0071bc; }
+        .answer-btn.selected .radio::after {
+            content: '';
+            position: absolute;
+            top: 4px; left: 4px;
+            width: 10px; height: 10px;
+            background: #fff;
+            border-radius: 50%;
+        }
+        .answer-btn.selected { border-color: #0071bc; background: #e7f2fa; }
+        .processing-text {
+            text-align: center;
+            padding: 40px 0;
+        }
+        .processing-text .spinner {
+            width: 40px; height: 40px;
+            border: 4px solid #d6d7d9;
+            border-top-color: #0071bc;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 16px;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .processing-text p {
+            font-size: 16px;
+            color: #5b616b;
+            margin: 4px 0;
+        }
+        .processing-text .bold { color: #1b2a4a; font-weight: 700; }
+        .result-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #e7f4e4;
+            border: 1px solid #94d082;
+            color: #216e1f;
+            padding: 6px 14px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+        }
+        .result-badge .check {
+            width: 18px; height: 18px;
+            background: #2e8540;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .result-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1b2a4a;
+            margin: 0 0 8px;
+            line-height: 1.25;
+        }
+        /* CHANGE AP-2: Monthly savings callout instead of lump sum */
+        .savings-row {
+            display: flex;
+            gap: 16px;
+            margin: 16px 0;
+        }
+        .savings-card {
+            flex: 1;
+            text-align: center;
+            padding: 14px 8px;
+            border-radius: 6px;
+        }
+        .savings-card.monthly {
+            background: #e7f4e4;
+            border: 1px solid #94d082;
+        }
+        .savings-card.total {
+            background: #e7f2fa;
+            border: 1px solid #73b3e7;
+        }
+        .savings-card .label {
+            font-size: 11px;
+            color: #5b616b;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+        .savings-card .value {
+            font-size: 28px;
+            font-weight: 700;
+            margin-top: 4px;
+        }
+        .savings-card.monthly .value { color: #2e8540; }
+        .savings-card.total .value { color: #0071bc; }
+        .result-desc {
+            font-size: 15px;
+            color: #5b616b;
+            margin: 0 0 24px;
+            line-height: 1.6;
+        }
+        .cta-btn {
+            display: block;
+            width: 100%;
+            background: #0071bc;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 18px 24px;
+            font-size: 18px;
+            font-weight: 700;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.15s ease;
+        }
+        .cta-btn:hover { background: #205493; color: #fff; }
+        .cta-btn:active { background: #112e51; }
+        .cta-fine {
+            text-align: center;
+            font-size: 12px;
+            color: #71767a;
+            margin-top: 12px;
+        }
+        .cta-fine svg { vertical-align: middle; margin-right: 2px; }
+        .reservation-timer {
+            text-align: center;
+            margin-top: 16px;
+            padding: 10px 16px;
+            background: #fef3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #856404;
+            font-weight: 600;
+        }
+        .reservation-timer .timer-value {
+            font-weight: 700;
+            font-variant-numeric: tabular-nums;
+        }
+        .site-footer {
+            background: #1b2a4a;
+            color: #aeb0b5;
+            text-align: center;
+            padding: 20px 16px;
+            font-size: 12px;
+        }
+        .footer-links { margin-bottom: 8px; }
+        .footer-links a { color: #aeb0b5; text-decoration: none; margin: 0 12px; }
+        .footer-links a:hover { color: #fff; }
+        .footer-note { color: #71767a; font-size: 11px; }
+        @media (max-width: 600px) {
+            .site-header { padding: 10px 16px; }
+            .site-title { font-size: 15px; }
+            .seal { width: 38px; height: 38px; font-size: 20px; }
+            .card-header { padding: 22px 20px 0; }
+            .card-body { padding: 16px 20px 28px; }
+            .card-title { font-size: 22px; }
+            .q-text { font-size: 18px; }
+            .answer-btn { padding: 14px 14px; font-size: 15px; }
+            .savings-card .value { font-size: 24px; }
+            .cta-btn { padding: 16px 20px; font-size: 16px; }
+            .main { padding: 20px 12px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Gov Banner -->
+    <div class="gov-banner">
+        <span class="flag">&#x1F1FA;&#x1F1F8;</span>
+        <!-- CHANGE AP-1: "Calculator" framing — certainty of result -->
+        <span>An official homeowner savings estimate tool &nbsp;|&nbsp; Payment Reduction Calculator</span>
+    </div>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="seal">&#x1F3DB;</div>
+        <div>
+            <div class="site-title">Payment Reduction Calculator</div>
+            <div class="site-subtitle">Federal Housing Administration &bull; Monthly Savings Estimator</div>
+        </div>
+    </header>
+
+    <!-- CHANGE AP-1: Alert bar — savings stat, not scarcity -->
+    <div class="alert-bar">
+        &#128200; Average homeowner reducing their payment by $347/month through this program in 2026
+    </div>
+
+    <!-- Main -->
+    <main class="main">
+        <div class="card">
+            <div class="card-header">
+                <!-- CHANGE AP-1: Calculator framing -->
+                <p class="form-number">Calculator PRC-2026 &bull; Savings Estimate</p>
+                <h1 class="card-title">Calculate Your Monthly Savings</h1>
+                <p class="card-subtitle">Answer 3 questions and we will estimate how much your monthly payment could drop.</p>
+            </div>
+            <div class="card-body">
+
+                <!-- Progress -->
+                <div class="progress-row" id="progressRow">
+                    <div class="progress-track">
+                        <div class="progress-fill" id="progressFill" style="width:0%"></div>
+                    </div>
+                    <div class="progress-label" id="progressLabel">0 of 3</div>
+                </div>
+
+                <hr class="divider">
+
+                <!-- CHANGE AP-2: Questions positioned as calculator inputs -->
+
+                <!-- Q1 -->
+                <div class="screen active" id="s1">
+                    <p class="q-label">Input 1 of 3</p>
+                    <p class="q-text">How long have you been paying your current mortgage?</p>
+                    <div class="answers">
+                        <button class="answer-btn" data-next="2" data-q1="5+ years"><span class="radio"></span>5+ years</button>
+                        <button class="answer-btn" data-next="2" data-q1="3-4 years"><span class="radio"></span>3&ndash;4 years</button>
+                        <button class="answer-btn" data-next="2" data-q1="under 3 years"><span class="radio"></span>Less than 3 years</button>
+                    </div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="screen" id="s2">
+                    <p class="q-label">Input 2 of 3</p>
+                    <p class="q-text">What is your estimated monthly mortgage payment?</p>
+                    <div class="answers">
+                        <button class="answer-btn" data-next="3"><span class="radio"></span>Under $1,500</button>
+                        <button class="answer-btn" data-next="3"><span class="radio"></span>$1,500 &ndash; $2,500</button>
+                        <button class="answer-btn" data-next="3"><span class="radio"></span>$2,500 &ndash; $3,500</button>
+                        <button class="answer-btn" data-next="3"><span class="radio"></span>Over $3,500</button>
+                    </div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="screen" id="s3">
+                    <p class="q-label">Input 3 of 3</p>
+                    <p class="q-text">What would you do with extra cash each month?</p>
+                    <div class="answers">
+                        <button class="answer-btn" data-next="processing"><span class="radio"></span>Pay off credit cards and debt</button>
+                        <button class="answer-btn" data-next="processing"><span class="radio"></span>Save for emergencies</button>
+                        <button class="answer-btn" data-next="processing"><span class="radio"></span>Home improvements</button>
+                        <button class="answer-btn" data-next="processing"><span class="radio"></span>General household expenses</button>
+                    </div>
+                </div>
+
+                <!-- Processing -->
+                <div class="screen" id="sProcessing">
+                    <div class="processing-text">
+                        <div class="spinner"></div>
+                        <p class="bold">Calculating your savings&hellip;</p>
+                        <p>Running estimates against current available rates</p>
+                    </div>
+                </div>
+
+                <!-- Result — Q1-echo (proven) + timer (proven) + CHANGE AP-2: dual savings display -->
+                <div class="screen" id="sResult">
+                    <div class="result-badge">
+                        <span class="check">&#10003;</span> Savings Found
+                    </div>
+                    <!-- Q1-echo headline (locked winner from cycle-002) -->
+                    <h2 class="result-title" id="resultTitle">Based on 5+ Years of Payments, Here Is Your Estimated Reduction</h2>
+                    <!-- CHANGE AP-2: Show monthly AND total — calculator users expect numbers -->
+                    <div class="savings-row">
+                        <div class="savings-card monthly">
+                            <div class="label">Estimated Monthly Savings</div>
+                            <div class="value">$347</div>
+                        </div>
+                        <div class="savings-card total">
+                            <div class="label">Available Cash-Out</div>
+                            <div class="value">$185K</div>
+                        </div>
+                    </div>
+                    <p class="result-desc">
+                        Based on your inputs, you may be able to significantly reduce your
+                        monthly payment and access available equity. See your personalized
+                        offer with exact figures.
+                    </p>
+                    <a href="https://hpkpn.ttrk.io/click" class="js-offer-link cta-link cta-btn">
+                        View My Personalized Offer &rarr;
+                    </a>
+                    <p class="cta-fine">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#71767a" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        Secure &bull; No SSN required &bull; Free estimate &bull; 60 seconds
+                    </p>
+                    <!-- 10-min timer (locked winner from cycle-002) -->
+                    <div class="reservation-timer">
+                        Your savings estimate expires in <span class="timer-value" id="reservationTimer">10:00</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+            <a href="#">Accessibility</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="footer-note">Payment Reduction Calculator &bull; Federal Housing Administration &bull; National</div>
+    </footer>
+
+    <!-- Quiz Logic -->
+    <script>
+    (function() {
+        var fill = document.getElementById('progressFill');
+        var label = document.getElementById('progressLabel');
+        var total = 3;
+        var current = 1;
+        var q1Answer = '';
+
+        document.querySelectorAll('.answer-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var next = btn.getAttribute('data-next');
+                var screen = btn.closest('.screen');
+
+                if (btn.hasAttribute('data-q1')) {
+                    q1Answer = btn.getAttribute('data-q1');
+                }
+
+                btn.classList.add('selected');
+
+                setTimeout(function() {
+                    screen.classList.remove('active');
+
+                    if (next === 'processing') {
+                        fill.style.width = '100%';
+                        label.textContent = '3 of 3';
+
+                        var proc = document.getElementById('sProcessing');
+                        proc.classList.add('active');
+
+                        setTimeout(function() {
+                            proc.classList.remove('active');
+                            var titleEl = document.getElementById('resultTitle');
+                            if (q1Answer === '5+ years') {
+                                titleEl.textContent = 'Based on 5+ Years of Payments, Here Is Your Estimated Reduction';
+                            } else if (q1Answer === '3-4 years') {
+                                titleEl.textContent = 'Based on 3-4 Years of Payments, Here Is Your Estimated Reduction';
+                            } else {
+                                titleEl.textContent = 'Based on Your Payment History, Here Is Your Estimated Reduction';
+                            }
+                            document.getElementById('sResult').classList.add('active');
+                            document.getElementById('progressRow').style.display = 'none';
+                            startReservationTimer();
+                        }, 2200);
+
+                    } else {
+                        var nextNum = parseInt(next);
+                        current = nextNum;
+                        fill.style.width = ((nextNum - 1) / total * 100) + '%';
+                        label.textContent = (nextNum - 1) + ' of ' + total;
+                        document.getElementById('s' + next).classList.add('active');
+                    }
+                }, 300);
+            });
+        });
+
+        function startReservationTimer() {
+            var timerEl = document.getElementById('reservationTimer');
+            if (!timerEl) return;
+            var remaining = 10 * 60;
+            function tick() {
+                var min = Math.floor(remaining / 60);
+                var sec = remaining % 60;
+                timerEl.textContent = min + ':' + (sec < 10 ? '0' : '') + sec;
+                if (remaining > 0) {
+                    remaining--;
+                    setTimeout(tick, 1000);
+                }
+            }
+            tick();
+        }
+    })();
+    </script>
+    <!-- Redirect click handler -->
+    <script>
+    (function() {
+        function handleButtonClick(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            window.location.href = this.href;
+        }
+        document.querySelectorAll('a.js-offer-link').forEach(function(btn) {
+            btn.addEventListener('click', handleButtonClick);
+        });
+    })();
+    </script>
+    <!-- Click ID passthrough -->
+    <script>
+    (function(){
+        var p=new URLSearchParams(window.location.search);
+        var c=p.get('rtkcid')||p.get('sub2')||p.get('clickid')||p.get('rt_clickid');
+        if(c){document.querySelectorAll('a.js-offer-link,a.cta-link').forEach(function(l){
+            var s=l.href.indexOf('?')>-1?'&':'?';
+            l.href=l.href+s+'sub2='+encodeURIComponent(c)
+        })}
+    })();
+    </script>
+    <!-- RedTrack track.js -->
+    <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
+</body>
+</html>
