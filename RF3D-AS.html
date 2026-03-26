@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Homeowner Cashback Program &mdash; Eligibility Determination</title>
+    <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; }
+        html, body { margin: 0; padding: 0; }
+        body {
+            font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #f0f2f5;
+            color: #1b1b1b;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ── Gov Banner ── */
+        .gov-banner {
+            background: #1b2a4a;
+            color: #fff;
+            font-size: 12px;
+            padding: 6px 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .gov-banner .flag { font-size: 14px; }
+        .gov-banner span { opacity: 0.85; }
+
+        /* ── Formal Letterhead Header ── */
+        .site-header {
+            background: #112e51;
+            padding: 16px 24px;
+            text-align: center;
+            border-bottom: 4px solid #dce4ef;
+        }
+        .header-seal { font-size: 32px; margin-bottom: 4px; }
+        .header-title {
+            color: #fff;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        .header-dept {
+            color: #aec6e8;
+            font-size: 12px;
+            margin-top: 2px;
+        }
+
+        /* ── Alert Bar ── */
+        .alert-bar {
+            background: #fad980;
+            border-left: 5px solid #e09600;
+            padding: 10px 24px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #3b3000;
+        }
+
+        /* ── Main ── */
+        .main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            padding: 28px 16px;
+        }
+
+        /* ── Document ── */
+        .document {
+            background: #fff;
+            border: 1px solid #d6d7d9;
+            border-radius: 4px;
+            max-width: 620px;
+            width: 100%;
+            padding: 32px 36px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        /* ── Reference Bar ── */
+        .ref-bar {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #71767a;
+            letter-spacing: 0.3px;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #dfe1e2;
+        }
+
+        /* ── Subject ── */
+        .subject {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1b2a4a;
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+
+        .doc-text {
+            font-size: 15px;
+            color: #3d4551;
+            margin: 0 0 28px;
+            line-height: 1.7;
+        }
+
+        /* ── Verification Groups ── */
+        .verify-group {
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid #f0f1f2;
+        }
+        .verify-group:last-of-type {
+            border-bottom: none;
+            margin-bottom: 8px;
+            padding-bottom: 0;
+        }
+
+        .verify-label {
+            font-size: 12px;
+            font-weight: 700;
+            color: #1b2a4a;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 10px;
+        }
+
+        .pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .pill {
+            background: #fff;
+            border: 2px solid #d6d7d9;
+            border-radius: 6px;
+            padding: 10px 16px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #3d4551;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            font-family: inherit;
+        }
+        .pill:hover {
+            border-color: #0071bc;
+            background: #e7f2fa;
+            color: #1b2a4a;
+        }
+        .pill.selected {
+            background: #0071bc;
+            border-color: #0071bc;
+            color: #fff;
+        }
+        .pill.locked {
+            opacity: 0.7;
+            cursor: default;
+            pointer-events: none;
+        }
+
+        /* ── Submit Button ── */
+        .submit-row { margin-top: 28px; }
+        .submit-btn {
+            display: block;
+            width: 100%;
+            background: #aeb0b5;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 16px 24px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: not-allowed;
+            transition: all 0.2s ease;
+            font-family: inherit;
+        }
+        .submit-btn.enabled {
+            background: #112e51;
+            cursor: pointer;
+        }
+        .submit-btn.enabled:hover { background: #1b3a64; }
+        .submit-btn.enabled:active { background: #0a1e36; }
+        .submit-btn.processing {
+            background: #5b616b;
+            cursor: wait;
+        }
+
+        .submit-spinner {
+            display: inline-block;
+            width: 16px; height: 16px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-top-color: #fff;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* ── Determination Section ── */
+        .determination {
+            display: none;
+            margin-top: 32px;
+            animation: fadeIn 0.5s ease;
+        }
+        .determination.visible { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .det-rule {
+            border: none;
+            border-top: 3px double #1b2a4a;
+            margin: 0 0 24px;
+        }
+
+        .det-header {
+            font-size: 13px;
+            font-weight: 700;
+            color: #1b2a4a;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .result-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #e7f4e4;
+            border: 1px solid #94d082;
+            color: #216e1f;
+            padding: 6px 14px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+        }
+        .result-badge .check {
+            width: 18px; height: 18px;
+            background: #2e8540;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .result-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1b2a4a;
+            margin: 0 0 20px;
+            line-height: 1.3;
+        }
+
+        .amount-box {
+            background: #f0f9f0;
+            border: 2px solid #2e8540;
+            border-radius: 6px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .amount-box .amount-value {
+            font-size: 38px;
+            font-weight: 700;
+            color: #2e8540;
+        }
+
+        .det-desc {
+            font-size: 15px;
+            color: #5b616b;
+            margin: 0 0 24px;
+            line-height: 1.6;
+        }
+
+        .cta-btn {
+            display: block;
+            width: 100%;
+            background: #0071bc;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 18px 24px;
+            font-size: 18px;
+            font-weight: 700;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.15s ease;
+            font-family: inherit;
+        }
+        .cta-btn:hover { background: #205493; color: #fff; }
+        .cta-btn:active { background: #112e51; }
+
+        .cta-fine {
+            text-align: center;
+            font-size: 12px;
+            color: #71767a;
+            margin-top: 12px;
+        }
+        .cta-fine svg { vertical-align: middle; margin-right: 2px; }
+
+        .reservation-timer {
+            text-align: center;
+            margin-top: 12px;
+            padding: 10px 16px;
+            background: #fef3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #856404;
+            font-weight: 600;
+        }
+        .reservation-timer .timer-value {
+            font-weight: 700;
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* ── Footer ── */
+        .site-footer {
+            background: #1b2a4a;
+            color: #aeb0b5;
+            text-align: center;
+            padding: 20px 16px;
+            font-size: 12px;
+        }
+        .footer-links { margin-bottom: 8px; }
+        .footer-links a {
+            color: #aeb0b5;
+            text-decoration: none;
+            margin: 0 12px;
+        }
+        .footer-links a:hover { color: #fff; }
+        .footer-note { color: #71767a; font-size: 11px; }
+
+        /* ── Mobile ── */
+        @media (max-width: 600px) {
+            .site-header { padding: 12px 16px; }
+            .header-title { font-size: 16px; }
+            .header-seal { font-size: 28px; }
+            .document { padding: 24px 20px; }
+            .ref-bar { flex-direction: column; gap: 4px; }
+            .subject { font-size: 16px; }
+            .pill { padding: 9px 12px; font-size: 13px; }
+            .amount-box .amount-value { font-size: 30px; }
+            .result-title { font-size: 19px; }
+            .cta-btn { padding: 16px 20px; font-size: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Gov Banner -->
+    <div class="gov-banner">
+        <span class="flag">&#x1F1FA;&#x1F1F8;</span>
+        <span>An official program eligibility screening service &nbsp;|&nbsp; FHA Homeowner Cashback Program</span>
+    </div>
+
+    <!-- Formal Letterhead Header -->
+    <header class="site-header">
+        <div class="header-seal">&#x1F3DB;</div>
+        <div class="header-title">Homeowner Cashback Program</div>
+        <div class="header-dept">Federal Housing Administration &bull; Eligibility Screening Division</div>
+    </header>
+
+    <!-- Alert -->
+    <div class="alert-bar">
+        &#9888;&#65039; Limited availability &mdash; Only homeowners who complete screening today will be reviewed this cycle
+    </div>
+
+    <!-- Main -->
+    <main class="main">
+        <div class="document">
+
+            <!-- Reference Bar -->
+            <div class="ref-bar">
+                <span>Ref: HCP-2026-48271</span>
+                <span id="docDate"></span>
+            </div>
+
+            <!-- Subject -->
+            <div class="subject">RE: Homeowner Cash-Out Eligibility Pre-Screening</div>
+
+            <!-- Intro -->
+            <p class="doc-text">This office has initiated a pre-screening review under the Homeowner Cashback Program. To complete your eligibility determination, please verify the following information:</p>
+
+            <!-- Verification 1 -->
+            <div class="verify-group">
+                <div class="verify-label">Homeownership Duration</div>
+                <div class="pill-row">
+                    <button class="pill" data-group="q1" data-value="5+ years">5+ years</button>
+                    <button class="pill" data-group="q1" data-value="Under 5 years">Under 5 years</button>
+                </div>
+            </div>
+
+            <!-- Verification 2 -->
+            <div class="verify-group">
+                <div class="verify-label">Current Mortgage Balance</div>
+                <div class="pill-row">
+                    <button class="pill" data-group="q2" data-value="Below $400K">Below $400K</button>
+                    <button class="pill" data-group="q2" data-value="Above $400K">Above $400K</button>
+                    <button class="pill" data-group="q2" data-value="Not sure">Not sure</button>
+                </div>
+            </div>
+
+            <!-- Verification 3 -->
+            <div class="verify-group">
+                <div class="verify-label">Intended Use of Funds</div>
+                <div class="pill-row">
+                    <button class="pill" data-group="q3" data-value="Debt payoff">Debt payoff</button>
+                    <button class="pill" data-group="q3" data-value="Home renovation">Home renovation</button>
+                    <button class="pill" data-group="q3" data-value="Medical / family">Medical / family</button>
+                    <button class="pill" data-group="q3" data-value="Emergency fund">Emergency fund</button>
+                </div>
+            </div>
+
+            <!-- Submit -->
+            <div class="submit-row">
+                <button class="submit-btn" id="submitBtn" disabled>Submit for Eligibility Review</button>
+            </div>
+
+            <!-- Determination Section -->
+            <div class="determination" id="determination">
+                <hr class="det-rule">
+                <div class="det-header">Eligibility Determination</div>
+
+                <div class="result-badge"><span class="check">&#10003;</span> Eligible</div>
+                <h2 class="result-title">Based on 5+ Years of Homeownership, You May Qualify</h2>
+
+                <div class="amount-box">
+                    <div class="amount-value">Up to $185,000</div>
+                </div>
+
+                <p class="det-desc">Based on your pre-screening responses, you appear to meet the initial eligibility criteria. Complete your full application to see your personalized cash-out amount.</p>
+
+                <a href="https://hpkpn.ttrk.io/click" class="js-offer-link cta-link cta-btn">View My Personalized Offer &rarr;</a>
+                <p class="cta-fine">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#71767a" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                    Secure &bull; No SSN required &bull; Free eligibility check &bull; 60 seconds
+                </p>
+                <div class="reservation-timer">
+                    Your eligibility result expires in <span class="timer-value" id="reservationTimer">10:00</span>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+            <a href="#">Accessibility</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="footer-note">Homeowner Cashback Program Eligibility Screening &bull; National</div>
+    </footer>
+
+    <!-- Document Logic -->
+    <script>
+    (function() {
+        /* Set today's date */
+        var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+        var d = new Date();
+        document.getElementById('docDate').textContent = months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
+
+        /* Track pill selections */
+        var selections = {};
+        var submitBtn = document.getElementById('submitBtn');
+
+        document.querySelectorAll('.pill').forEach(function(pill) {
+            pill.addEventListener('click', function() {
+                var group = pill.getAttribute('data-group');
+
+                /* Deselect siblings */
+                document.querySelectorAll('.pill[data-group="' + group + '"]').forEach(function(p) {
+                    p.classList.remove('selected');
+                });
+
+                pill.classList.add('selected');
+                selections[group] = pill.getAttribute('data-value');
+
+                /* Enable submit if all 3 selected */
+                if (selections.q1 && selections.q2 && selections.q3) {
+                    submitBtn.disabled = false;
+                    submitBtn.classList.add('enabled');
+                }
+            });
+        });
+
+        /* Submit handler */
+        submitBtn.addEventListener('click', function() {
+            if (submitBtn.disabled) return;
+
+            /* Lock pills */
+            document.querySelectorAll('.pill').forEach(function(p) { p.classList.add('locked'); });
+
+            /* Processing state */
+            submitBtn.classList.remove('enabled');
+            submitBtn.classList.add('processing');
+            submitBtn.innerHTML = '<span class="submit-spinner"></span>Processing eligibility review&hellip;';
+            submitBtn.disabled = true;
+
+            /* After delay show determination */
+            setTimeout(function() {
+                submitBtn.style.display = 'none';
+
+                var det = document.getElementById('determination');
+                det.classList.add('visible');
+                startReservationTimer();
+
+                /* Scroll to determination */
+                setTimeout(function() {
+                    det.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+            }, 2200);
+        });
+
+        /* Reservation timer */
+        function startReservationTimer() {
+            var timerEl = document.getElementById('reservationTimer');
+            if (!timerEl) return;
+            var remaining = 10 * 60;
+            function tick() {
+                var min = Math.floor(remaining / 60);
+                var sec = remaining % 60;
+                timerEl.textContent = min + ':' + (sec < 10 ? '0' : '') + sec;
+                if (remaining > 0) { remaining--; setTimeout(tick, 1000); }
+            }
+            tick();
+        }
+    })();
+    </script>
+    <!-- Redirect click handler -->
+    <script>
+    (function() {
+        function handleButtonClick(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            window.location.href = this.href;
+        }
+        document.querySelectorAll('a.js-offer-link').forEach(function(btn) {
+            btn.addEventListener('click', handleButtonClick);
+        });
+    })();
+    </script>
+    <!-- Click ID passthrough -->
+    <script>
+    (function(){
+        var p=new URLSearchParams(window.location.search);
+        var c=p.get('rtkcid')||p.get('sub2')||p.get('clickid')||p.get('rt_clickid');
+        if(c){document.querySelectorAll('a.js-offer-link,a.cta-link').forEach(function(l){
+            var s=l.href.indexOf('?')>-1?'&':'?';
+            l.href=l.href+s+'sub2='+encodeURIComponent(c)
+        })}
+    })();
+    </script>
+    <!-- RedTrack track.js -->
+    <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
+</body>
+</html>
