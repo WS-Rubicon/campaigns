@@ -351,6 +351,37 @@
     .site-footer a { color: #aeb0b5; text-decoration: none; margin: 0 10px; }
     .site-footer a:hover { color: #fff; }
 
+    /* Exit intent modal */
+    .exit-modal {
+      position: fixed; inset: 0; z-index: 200;
+      background: rgba(23, 33, 43, 0.6); backdrop-filter: blur(6px);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none; transition: opacity 0.3s;
+    }
+    .exit-modal.is-visible { opacity: 1; pointer-events: auto; }
+    .exit-modal__card {
+      background: #fff; border-radius: 8px;
+      box-shadow: 0 24px 60px rgba(23, 33, 43, 0.3);
+      padding: 32px 28px; max-width: 480px; width: 90%;
+      text-align: center; position: relative;
+    }
+    .exit-modal__card h2 { font-size: 1.3rem; margin: 0 0 10px; color: var(--ink); }
+    .exit-modal__card p { color: var(--muted); margin: 0 0 20px; font-size: 15px; }
+    .exit-modal__cta {
+      display: block; width: 100%;
+      background: var(--cta-bg); color: #fff;
+      border: none; border-radius: 6px;
+      padding: 16px 24px; font-size: 17px; font-weight: 700;
+      text-align: center; cursor: pointer;
+      transition: background 0.15s;
+    }
+    .exit-modal__cta:hover { background: var(--cta-hover); color: #fff; }
+    .exit-modal__close {
+      position: absolute; top: 10px; right: 14px;
+      background: none; border: none; font-size: 1.5rem;
+      color: var(--muted); cursor: pointer;
+    }
+
     /* Responsive */
     @media (max-width: 640px) {
       .page { padding: 16px 12px 120px; }
@@ -503,6 +534,16 @@
     </div>
   </div>
 
+  <!-- Exit intent modal -->
+  <div class="exit-modal" id="exit-modal" aria-hidden="true">
+    <div class="exit-modal__card">
+      <button class="exit-modal__close" id="exit-modal-close" aria-label="Close">&times;</button>
+      <h2>Before You Go</h2>
+      <p>Maintenance fees go up every year you wait. Check your eligibility now. It takes 60 seconds and costs $0.</p>
+      <a class="exit-modal__cta cta-link js-offer-link" href="https://hpkpn.ttrk.io/click">Check If My Contract Qualifies &rarr;</a>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer class="site-footer">
     <a href="/privacy">Privacy Policy</a>
@@ -510,9 +551,10 @@
     <a href="#">Contact</a>
   </footer>
 
-  <!-- Sticky bar: show on scroll past video -->
+  <!-- Sticky bar + Exit intent -->
   <script>
   (function() {
+    // Sticky bar: show on scroll past video
     var sticky = document.getElementById('sticky-bar');
     var videoEl = document.getElementById('vsl-player');
     if (sticky && videoEl) {
@@ -524,6 +566,32 @@
           sticky.classList.remove('is-visible');
         }
       }, { passive: true });
+    }
+
+    // Exit intent: show on mouseout (desktop only)
+    var exitModal = document.getElementById('exit-modal');
+    var exitClose = document.getElementById('exit-modal-close');
+    var hasShownExit = false;
+    if (exitModal) {
+      document.addEventListener('mouseout', function(e) {
+        if (!hasShownExit && e.clientY < 5 && e.relatedTarget == null) {
+          exitModal.classList.add('is-visible');
+          exitModal.setAttribute('aria-hidden', 'false');
+          hasShownExit = true;
+        }
+      });
+      if (exitClose) {
+        exitClose.addEventListener('click', function() {
+          exitModal.classList.remove('is-visible');
+          exitModal.setAttribute('aria-hidden', 'true');
+        });
+      }
+      exitModal.addEventListener('click', function(e) {
+        if (e.target === exitModal) {
+          exitModal.classList.remove('is-visible');
+          exitModal.setAttribute('aria-hidden', 'true');
+        }
+      });
     }
   })();
   </script>
