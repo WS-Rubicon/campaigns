@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Timeshare Exit: How 47,000+ Owners Got Out</title>
+  <meta name="description" content="A timeshare attorney reveals the legal exit path. $0 to check eligibility.">
+  <meta property="og:title" content="Timeshare Exit: How 47,000+ Owners Got Out">
+  <meta property="og:description" content="A timeshare attorney reveals the legal exit path. $0 to check eligibility.">
+  <meta property="og:type" content="article">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#128221;</text></svg>">
+  <style>
+    :root {
+      --bg: #f5f0e8;
+      --ink: #17212b;
+      --muted: #5f6e7a;
+      --panel: #fffdf8;
+      --line: rgba(23, 33, 43, 0.14);
+      --accent: #c85a1f;
+      --accent-strong: #a83d0a;
+      --cta-start: #22c55e;
+      --cta-end: #16a34a;
+      --shadow: 0 24px 60px rgba(23, 33, 43, 0.14);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      background: radial-gradient(circle at top left, rgba(200, 90, 31, 0.08), transparent 28%),
+        linear-gradient(180deg, #fbf7f0 0%, var(--bg) 100%);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    img, video, iframe { display: block; width: 100%; border: 0; }
+
+    /* Page container */
+    .page { max-width: 860px; margin: 0 auto; padding: 24px 18px 140px; }
+
+    /* Hero card */
+    .hero {
+      background: linear-gradient(135deg, rgba(255,255,255,0.96), rgba(255,245,229,0.93));
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .hero__copy { padding: 28px 24px 0; text-align: center; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 7px 14px; border-radius: 999px;
+      background: rgba(200, 90, 31, 0.08);
+      color: var(--accent-strong);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700;
+    }
+    h1 {
+      margin: 16px auto 10px; max-width: 780px;
+      font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+      line-height: 1.08; letter-spacing: -0.03em;
+    }
+    .hero__subheadline {
+      margin: 0 auto; max-width: 640px;
+      font-size: clamp(0.95rem, 2vw, 1.15rem);
+      color: var(--muted);
+    }
+
+    /* Proof bar */
+    .hero__proof-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 10px;
+      margin: 20px 0 0;
+      padding: 0 24px 24px;
+    }
+    .proof-pill {
+      padding: 12px 14px; border-radius: 16px;
+      background: rgba(255,255,255,0.88);
+      border: 1px solid var(--line);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 13px; text-align: center; color: var(--ink);
+    }
+    .proof-pill strong { display: block; font-size: 14px; color: var(--accent-strong); }
+
+    /* Video shell */
+    .video-shell { padding: 0 24px 24px; }
+    .vsl-video-shell, .vsl-video-embed {
+      aspect-ratio: 16 / 9;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #231a16, #4f3326);
+      box-shadow: 0 18px 44px rgba(23, 33, 43, 0.2);
+      overflow: hidden;
+    }
+    .vsl-video-shell { position: relative; }
+    .vsl-video-shell__overlay {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(180deg, rgba(0,0,0,0.06), rgba(0,0,0,0.4));
+    }
+    .vsl-video-shell__play {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 80px; height: 80px; border-radius: 999px;
+      background: rgba(255,255,255,0.92); color: var(--accent-strong);
+      font-size: 28px; font-weight: 700;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.22);
+    }
+    .video-caption {
+      margin: 12px 8px 0; color: var(--muted); text-align: center;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 13px;
+    }
+
+    /* CTA buttons */
+    .cta-timed {
+      text-align: center; margin: 24px 0;
+      opacity: 0; pointer-events: none; transform: translateY(8px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .cta-timed.is-visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
+    .primary-cta, .sticky-bar__cta, .exit-modal__cta {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 54px; padding: 0 32px; border-radius: 999px;
+      background: linear-gradient(180deg, var(--cta-start), var(--cta-end));
+      color: #fff; font-weight: 700; font-size: 1.05rem;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      letter-spacing: 0.01em;
+      box-shadow: 0 14px 24px rgba(34, 197, 94, 0.22);
+      transition: background 0.2s, transform 0.2s;
+    }
+    .primary-cta:hover, .sticky-bar__cta:hover { transform: translateY(-2px); }
+    .cta-note {
+      margin-top: 8px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 13px; color: var(--muted);
+    }
+
+    /* Content sections */
+    .section-card {
+      background: rgba(255,255,255,0.92);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      padding: 28px 24px;
+      margin-top: 24px;
+    }
+    .section-card h2 {
+      font-size: 1.3rem; margin-bottom: 14px; text-align: center;
+    }
+    .steps-list {
+      list-style: none; padding: 0; margin: 0;
+    }
+    .steps-list li {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 0.95rem; color: var(--ink);
+      display: flex; align-items: center; gap: 12px;
+    }
+    .steps-list li:last-child { border-bottom: none; }
+    .step-num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 28px; height: 28px; border-radius: 999px;
+      background: var(--accent); color: #fff; font-size: 13px; font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* FAQ */
+    .faq-item {
+      border: 1px solid var(--line); border-radius: 14px;
+      margin-bottom: 8px; overflow: hidden;
+    }
+    .faq-item summary {
+      padding: 14px 18px; cursor: pointer; font-weight: 600;
+      font-size: 0.95rem; background: rgba(255,255,255,0.7);
+      list-style: none;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    .faq-item summary::marker, .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after { content: "+"; float: right; font-size: 1.2rem; color: var(--muted); }
+    .faq-item[open] summary::after { content: "\2212"; }
+    .faq-item p {
+      padding: 0 18px 14px; color: var(--muted); font-size: 0.9rem;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    /* Sticky CTA bar */
+    .sticky-bar {
+      position: fixed; left: 16px; right: 16px; bottom: 16px;
+      max-width: 860px; margin: 0 auto;
+      background: rgba(255,253,248,0.97); backdrop-filter: blur(12px);
+      border: 1px solid var(--line); border-radius: 18px;
+      box-shadow: 0 -8px 32px rgba(23, 33, 43, 0.14);
+      padding: 14px 20px;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      transform: translateY(140%); transition: transform 0.4s ease;
+      z-index: 100;
+    }
+    .sticky-bar.is-visible { transform: translateY(0); }
+    .sticky-bar__text {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 14px; color: var(--muted); flex: 1;
+    }
+    .sticky-bar__cta { flex-shrink: 0; min-height: 48px; font-size: 0.95rem; padding: 0 24px; }
+
+    /* Exit intent modal */
+    .exit-modal {
+      position: fixed; inset: 0; z-index: 200;
+      background: rgba(23, 33, 43, 0.6); backdrop-filter: blur(6px);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none; transition: opacity 0.3s;
+    }
+    .exit-modal.is-visible { opacity: 1; pointer-events: auto; }
+    .exit-modal__card {
+      background: var(--panel); border-radius: 22px;
+      box-shadow: 0 24px 60px rgba(23, 33, 43, 0.3);
+      padding: 32px 28px; max-width: 480px; width: 90%;
+      text-align: center;
+    }
+    .exit-modal__card h2 { font-size: 1.4rem; margin-bottom: 12px; }
+    .exit-modal__card p { color: var(--muted); margin-bottom: 20px; font-size: 0.95rem; }
+    .exit-modal__close {
+      position: absolute; top: 12px; right: 16px;
+      background: none; border: none; font-size: 1.5rem;
+      color: var(--muted); cursor: pointer;
+    }
+
+    /* Compliance footer */
+    .compliance {
+      margin-top: 48px; padding-top: 20px;
+      border-top: 1px solid var(--line);
+      text-align: center;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 12px; color: var(--muted); opacity: 0.7;
+    }
+    .compliance p { margin-bottom: 6px; }
+    .compliance a { color: var(--muted); text-decoration: underline; }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .page { padding: 14px 12px 120px; }
+      .hero__copy { padding: 20px 16px 0; }
+      .video-shell { padding: 0 16px 16px; }
+      .hero__proof-bar { padding: 0 16px 16px; grid-template-columns: 1fr 1fr; }
+      .primary-cta, .sticky-bar__cta, .exit-modal__cta {
+        width: 100%; min-height: 52px; font-size: 1rem;
+      }
+      .sticky-bar { flex-direction: column; gap: 10px; padding: 12px 16px; }
+      .section-card { padding: 20px 16px; }
+    }
+  </style>
+<script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
+</head>
+<body>
+  <div class="page">
+
+    <!-- Hero -->
+    <div class="hero">
+      <div class="hero__copy">
+        <span class="eyebrow">WATCH THE PRESENTATION</span>
+        <h1>Resort Developers Profit $1,120 a Year From Every Owner Who Stays Silent</h1>
+        <p class="hero__subheadline">A timeshare contracts attorney explains the legal exit that helped 47,000+ owners walk away from $2B in obligations.</p>
+      </div>
+
+      <div class="hero__proof-bar">
+        <div class="proof-pill"><strong>Attorney-Backed Exit</strong></div><div class="proof-pill"><strong>$0 Upfront</strong></div><div class="proof-pill"><strong>47,000+ Exits Completed</strong></div><div class="proof-pill"><strong>92% Completion Rate</strong></div>
+      </div>
+
+      <div class="video-shell">
+        <video id="vsl-player" class="vsl-video-embed" controls playsinline crossorigin="anonymous" preload="metadata" src="https://rubicon-artifacts-store.onrender.com/artifacts/creative-video-clip/2026/03/30/timeshare-vsl-a-heygen.mp4-a704a9c6d9c6.mp4"></video>
+        <p class="video-caption">Watch the full presentation, then take the next step below.</p>
+      </div>
+    </div>
+
+    <!-- Immediate CTA (always visible, no delay — above the fold) -->
+    <div style="text-align:center;margin:24px 0">
+      <a class="primary-cta cta-link js-offer-link" href="https://hpkpn.ttrk.io/click">Check If I Qualify to Exit</a>
+      <p class="cta-note">No cost. No obligation. Takes 60 seconds.</p>
+    </div>
+
+    <!-- Timed CTA (appears after video plays) -->
+    <div class="cta-timed" id="cta-timed" data-reveal-at="120">
+      <a class="primary-cta cta-link js-offer-link" href="https://hpkpn.ttrk.io/click">Check If I Qualify to Exit</a>
+      <p class="cta-note">No cost. No obligation. Takes 60 seconds.</p>
+    </div>
+
+    <!-- How It Works -->
+    <div class="section-card">
+      <h2>How It Works</h2>
+      <ol class="steps-list">
+        <li><span class="step-num">1</span> Watch the presentation above</li>
+        <li><span class="step-num">2</span> Click the button to check your eligibility</li>
+        <li><span class="step-num">3</span> A specialist reviews your case at no cost to you</li>
+      </ol>
+      <div style="text-align:center;margin-top:18px">
+        <a class="primary-cta cta-link js-offer-link" href="https://hpkpn.ttrk.io/click">Check If I Qualify to Exit</a>
+      </div>
+    </div>
+
+    <!-- Summary + CTA -->
+    <div class="section-card" style="text-align:center">
+      <p style="color:var(--muted);font-size:0.95rem;margin-bottom:18px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif">I paid $1,120 a year in maintenance costs that rose 8% every year. Over 30 years, that contract costs $50,000 to $100,000 or more. 47,000+ owners already used attorney-backed legal exits to walk away from over $2B in total obligations. Watch the presentation, then click below to check if you qualify. The evaluation costs $0.</p>
+      <a class="primary-cta cta-link js-offer-link" href="https://hpkpn.ttrk.io/click">Check If I Qualify to Exit</a>
+    </div>
+
+    <!-- FAQ -->
+    <div class="section-card"><h2>Common Questions</h2><details class="faq-item"><summary>How long does the exit process take?</summary><p>Most owners complete the exit in 6 to 18 months. An attorney reviews your specific contract and timeline during the evaluation.</p></details><details class="faq-item"><summary>Do I pay anything upfront?</summary><p>No. The initial evaluation costs $0. You only pay if the legal team accepts your case and the exit succeeds.</p></details><details class="faq-item"><summary>What if the resort threatens me?</summary><p>Resorts use scare tactics like collection threats and credit warnings. An attorney-backed exit handles all of that on your behalf.</p></details><details class="faq-item"><summary>Are my maintenance costs too low to qualify?</summary><p>Costs rise an average of 8% per year. A $1,120 cost today becomes $2,400 in 10 years and $5,200 in 20 years. The earlier you exit, the more you save.</p></details></div>
+
+    <!-- Compliance footer -->
+    <footer class="compliance">
+      <p>This is an advertisement. Results vary. Eligibility depends on individual circumstances. This is not legal advice. A licensed attorney evaluates your case independently.</p>
+      <p>Results vary. Eligibility depends on individual circumstances.</p>
+      <p><a href="/privacy">Privacy Policy</a> &nbsp;|&nbsp; <a href="/terms">Terms of Service</a></p>
+    </footer>
+
+  </div>
+
+  <!-- Sticky CTA bar -->
+  <div class="sticky-bar" id="sticky-bar">
+    <span class="sticky-bar__text">Ready to check your eligibility?</span>
+    <a class="sticky-bar__cta cta-link js-offer-link" href="https://hpkpn.ttrk.io/click">Check If I Qualify to Exit</a>
+  </div>
+
+  <!-- Exit intent modal -->
+  <div class="exit-modal" id="exit-modal" aria-hidden="true">
+    <div class="exit-modal__card" style="position:relative">
+      <button class="exit-modal__close" id="exit-modal-close" aria-label="Close">&times;</button>
+      <h2>Before You Go</h2>
+      <p>Maintenance fees go up every year you wait. Check your eligibility now — it takes 60 seconds.</p>
+      <a class="exit-modal__cta cta-link js-offer-link" href="https://hpkpn.ttrk.io/click">Check If I Qualify to Exit</a>
+    </div>
+  </div>
+
+  <script>
+(function() {
+  var video = document.getElementById('vsl-player');
+  var cta = document.getElementById('cta-timed');
+  var revealAt = 120;
+  var revealed = false;
+  if (video && cta) {
+    video.addEventListener('timeupdate', function() {
+      if (!revealed && video.currentTime >= revealAt) {
+        cta.classList.add('is-visible');
+        revealed = true;
+      }
+    });
+  }
+})();
+</script>
+
+  <!-- Sticky bar + Exit intent JavaScript -->
+  <script>
+  (function() {
+    // Sticky bar: show when user scrolls past video
+    var sticky = document.getElementById('sticky-bar');
+    var videoEl = document.getElementById('vsl-player');
+    if (sticky && videoEl) {
+      var threshold = videoEl.getBoundingClientRect().bottom + window.scrollY + 200;
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > threshold) {
+          sticky.classList.add('is-visible');
+        } else {
+          sticky.classList.remove('is-visible');
+        }
+      }, { passive: true });
+    }
+
+    // Exit intent: show on mouseout (desktop only)
+    var exitModal = document.getElementById('exit-modal');
+    var exitClose = document.getElementById('exit-modal-close');
+    var hasShownExit = false;
+    if (exitModal) {
+      document.addEventListener('mouseout', function(e) {
+        if (!hasShownExit && e.clientY < 5 && e.relatedTarget == null) {
+          exitModal.classList.add('is-visible');
+          exitModal.setAttribute('aria-hidden', 'false');
+          hasShownExit = true;
+        }
+      });
+      if (exitClose) {
+        exitClose.addEventListener('click', function() {
+          exitModal.classList.remove('is-visible');
+          exitModal.setAttribute('aria-hidden', 'true');
+        });
+      }
+      exitModal.addEventListener('click', function(e) {
+        if (e.target === exitModal) {
+          exitModal.classList.remove('is-visible');
+          exitModal.setAttribute('aria-hidden', 'true');
+        }
+      });
+    }
+  })();
+  </script>
+<!-- Redirect click handler -->
+<script>
+(function() {
+    function handleButtonClick(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        window.location.href = this.href;
+    }
+    document.querySelectorAll('a.js-offer-link').forEach(function(btn) {
+        btn.addEventListener('click', handleButtonClick);
+    });
+})();
+</script>
+<script>
+(function(){
+    // rubicon_clickid_passthrough_v2
+    var p=new URLSearchParams(window.location.search);
+    var _clean=function(v){
+        if(v===null||v===undefined) return null;
+        var s=String(v).trim();
+        if(!s) return null;
+        if(/^\{[a-zA-Z0-9_]+\}$/.test(s)) return null;
+        if(/^\{\{[a-zA-Z0-9_]+\}\}$/.test(s)) return null;
+        return s;
+    };
+    var rtkcid=_clean(p.get('rtkcid'));
+    var clickid=_clean(p.get('clickid'));
+    var rt_clickid=_clean(p.get('rt_clickid'));
+    var raw_sub1=_clean(p.get('sub1'));
+    var raw_sub2=_clean(p.get('sub2'));
+    var raw_sub3=_clean(p.get('sub3'));
+    var raw_sub4=_clean(p.get('sub4'));
+    var raw_sub5=_clean(p.get('sub5'));
+    var rt_ad=_clean(p.get('rt_ad'));
+    var rt_source=_clean(p.get('rt_source'));
+    var rt_adgroup=_clean(p.get('rt_adgroup'));
+    var rt_campaign=_clean(p.get('rt_campaign'));
+    var ef_transaction_id=_clean(p.get('_ef_transaction_id'))||_clean(p.get('ef_transaction_id'))||_clean(p.get('transaction_id'));
+    var _cookieValue=function(keys,prefix){
+        try{
+            var parts=document.cookie.split(';');
+            for(var i=0;i<parts.length;i+=1){
+                var entry=parts[i].trim();
+                if(!entry) continue;
+                var eq=entry.indexOf('=');
+                if(eq<=0) continue;
+                var key=entry.slice(0,eq).trim().toLowerCase();
+                var value=_clean(decodeURIComponent(entry.slice(eq+1)));
+                if(!value) continue;
+                for(var j=0;j<keys.length;j+=1){if(key===keys[j]) return value;}
+                if(prefix&&key.indexOf(prefix)===0) return value;
+            }
+        }catch(_){}
+        return null;
+    };
+    var _storedIdentityValue=function(name){
+        var buckets=[];
+        try{if(window.localStorage){buckets.push(window.localStorage.getItem('_rb_external_click_identity'));}}catch(_){}
+        try{if(window.sessionStorage){buckets.push(window.sessionStorage.getItem('_rb_external_click_identity'));}}catch(_){}
+        buckets.push(_cookieValue(['_rb_external_click_identity'], null));
+        for(var i=0;i<buckets.length;i+=1){
+            var raw=buckets[i];
+            if(!raw) continue;
+            try{
+                var parsed=JSON.parse(raw);
+                var value=_clean(parsed&&parsed[name]);
+                if(value) return value;
+            }catch(_){}
+        }
+        return null;
+    };
+    if(!ef_transaction_id){
+        ef_transaction_id=_cookieValue(['transaction_id','ef_transaction_id','_ef_transaction_id'],'ef_tid_')||_storedIdentityValue('everflow_transaction_id');
+    }
+    var _isDigits=function(s){return !!s&&/^[0-9]+$/.test(s)};
+    var _isSourceToken=function(s){
+        if(!s) return false;
+        var t=String(s).trim().toLowerCase();
+        return ['facebook','fb','meta','instagram','google','taboola','outbrain','tiktok','snapchat','newsbreak','native'].indexOf(t)>=0;
+    };
+    var _applyTrackingContext=function(u,c){
+        try{
+            Array.from(u.searchParams.entries()).forEach(function(pair){
+                var key=pair[0];
+                var value=pair[1];
+                if(_clean(value)===null){u.searchParams.delete(key)}
+            });
+            if(c){u.searchParams.set('sub2',c)}
+            [
+              ['transaction_id',ef_transaction_id],['ef_transaction_id',ef_transaction_id],['_ef_transaction_id',ef_transaction_id],
+              ['sub1',rt_ad||raw_sub1],['sub3',rt_source||raw_sub3],['sub4',rt_adgroup||raw_sub4],['sub5',rt_campaign||raw_sub5]
+            ].forEach(function(pair){
+                var key=pair[0], value=pair[1];
+                if(value&&!_clean(u.searchParams.get(key))){u.searchParams.set(key,value)}
+            });
+        }catch(_){}
+        return u;
+    };
+    var c=rtkcid||clickid||rt_clickid||(function(){
+        if(raw_sub2&&raw_sub3){
+            if(_isSourceToken(raw_sub3)&&!_isSourceToken(raw_sub2)) return raw_sub2;
+            if(_isSourceToken(raw_sub2)&&!_isSourceToken(raw_sub3)) return raw_sub3;
+            if(_isDigits(raw_sub2)&&!_isDigits(raw_sub3)) return raw_sub3;
+            if(_isDigits(raw_sub3)&&!_isDigits(raw_sub2)) return raw_sub2;
+            if(raw_sub3.length>raw_sub2.length+2) return raw_sub3;
+            return raw_sub2;
+        }
+        return raw_sub3||raw_sub2;
+    })();
+    document.querySelectorAll('a.js-offer-link,a.cta-link,a.cta-button').forEach(function(l){
+        try{var u=new URL(l.href,window.location.origin);_applyTrackingContext(u,c);l.href=u.toString()}catch(_){
+            var pairs=[];
+            if(c){pairs.push('sub2='+encodeURIComponent(c))}
+            if(ef_transaction_id){pairs.push('_ef_transaction_id='+encodeURIComponent(ef_transaction_id));pairs.push('transaction_id='+encodeURIComponent(ef_transaction_id))}
+            if(pairs.length){var s=l.href.indexOf('?')>-1?'&':'?';l.href=l.href+s+pairs.join('&')}
+        }}
+    });
+})();
+</script>
+<!-- RedTrack track.js -->
+<script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
+</body>
+</html>
