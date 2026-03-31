@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Contract Exit Eligibility Check | Official Review</title>
+    <meta name="description" content="Complete this official eligibility check to find out if your solar lease or PPA qualifies for legal cancellation. No SSN required. Results in under 60 seconds.">
+    <meta name="robots" content="noindex, nofollow">
+    <script src="https://hpkpn.ttrk.io/unilpclick.js?attribution=lastpaid&cookiedomain=&cookieduration=90&defaultcampaignid=691d78abcdbf3e26c4ddb304&regviewonce=false"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --navy: #162e51;
+            --blue: #005ea2;
+            --blue-dk: #0050a0;
+            --blue-lt: #d9e8f6;
+            --green: #1a7a3c;
+            --green-lt: #e5f3eb;
+            --gray-bg: #f0f0f0;
+            --gray-border: #c9cdd1;
+            --gray-mid: #71767a;
+            --gray-dk: #3d4551;
+            --ink: #1b1b1b;
+            --white: #ffffff;
+        }
+
+        html { height: 100%; }
+        body {
+            min-height: 100%;
+            font-family: 'Public Sans', -apple-system, sans-serif;
+            background: var(--gray-bg);
+            color: var(--ink);
+            -webkit-font-smoothing: antialiased;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .gov-banner { background: #1b2a3b; border-bottom: 1px solid rgba(255,255,255,.1); }
+        .gov-banner-inner { max-width: 800px; margin: 0 auto; padding: 5px 20px; display: flex; align-items: center; justify-content: space-between; }
+        .gov-banner-left { font-size: 11px; color: rgba(255,255,255,.65); display: flex; align-items: center; gap: 7px; }
+        .gov-dot { width: 7px; height: 7px; border-radius: 50%; background: #00a91c; display: inline-block; flex-shrink: 0; }
+        .gov-banner-right { font-size: 11px; color: rgba(255,255,255,.4); display: flex; align-items: center; gap: 5px; }
+
+        .site-hdr { background: var(--navy); border-bottom: 4px solid var(--blue); }
+        .site-hdr-inner { max-width: 800px; margin: 0 auto; padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+        .hdr-brand { display: flex; align-items: center; gap: 14px; }
+        .hdr-seal { width: 46px; height: 46px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+        .hdr-name { font-size: 15px; font-weight: 700; color: white; line-height: 1.2; }
+        .hdr-sub { font-size: 11px; color: rgba(255,255,255,.5); letter-spacing: .6px; text-transform: uppercase; margin-top: 3px; }
+        .hdr-secure { font-size: 11px; color: rgba(255,255,255,.45); display: flex; align-items: center; gap: 5px; white-space: nowrap; }
+
+        .step-nav { background: white; border-bottom: 1px solid var(--gray-border); display: none; }
+        .step-nav-inner { max-width: 800px; margin: 0 auto; padding: 0 20px; display: flex; }
+        .step-tab { padding: 13px 18px 13px 0; font-size: 12px; font-weight: 600; color: var(--gray-mid); letter-spacing: .2px; display: flex; align-items: center; gap: 8px; border-bottom: 3px solid transparent; margin-bottom: -1px; flex: 1; }
+        .step-num { width: 22px; height: 22px; border-radius: 50%; background: var(--gray-border); color: var(--gray-mid); font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .step-tab.active { color: var(--blue); border-bottom-color: var(--blue); }
+        .step-tab.active .step-num { background: var(--blue); color: white; }
+        .step-tab.done { color: var(--green); }
+        .step-tab.done .step-num { background: var(--green); color: white; font-size: 10px; }
+        @media (max-width: 480px) { .step-tab { padding: 11px 10px 11px 0; font-size: 11px; } }
+
+        .main { flex: 1; padding: 28px 16px 48px; }
+        .card { background: white; border: 1px solid var(--gray-border); border-radius: 3px; max-width: 640px; margin: 0 auto; }
+        .card-head { background: #f8f9fa; border-bottom: 1px solid var(--gray-border); padding: 12px 24px; display: none; align-items: center; justify-content: space-between; }
+        .card-head-label { font-size: 11px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: var(--gray-mid); }
+        .card-head-step { font-size: 12px; font-weight: 600; color: var(--blue); }
+        .card-body { padding: 32px 28px 36px; }
+
+        .screen { display: none; }
+        .screen.active { display: block; }
+
+        .intro-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: var(--blue); margin-bottom: 10px; }
+        .intro-title { font-size: clamp(20px, 4.5vw, 26px); font-weight: 800; color: var(--ink); line-height: 1.2; margin-bottom: 12px; }
+        .intro-sub { font-size: 15px; color: var(--gray-dk); line-height: 1.65; margin-bottom: 22px; }
+        .info-box { background: var(--blue-lt); border-left: 4px solid var(--blue); padding: 14px 16px; margin-bottom: 24px; }
+        .info-box p { font-size: 13px; color: var(--gray-dk); line-height: 1.55; }
+        .req-list { list-style: none; margin-bottom: 28px; display: flex; flex-direction: column; gap: 9px; }
+        .req-list li { font-size: 14px; color: var(--gray-dk); display: flex; align-items: center; gap: 10px; }
+        .req-ck { width: 18px; height: 18px; border-radius: 2px; background: var(--green); display: flex; align-items: center; justify-content: center; color: white; font-size: 10px; font-weight: 800; flex-shrink: 0; }
+
+        .q-section-label { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--blue); margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--gray-border); }
+        .q-text { font-size: clamp(17px, 3.5vw, 21px); font-weight: 700; color: var(--ink); line-height: 1.35; margin-bottom: 22px; }
+        .opts { display: flex; flex-direction: column; gap: 8px; }
+        .opt { display: flex; align-items: center; gap: 14px; background: white; border: 1px solid var(--gray-border); border-radius: 3px; padding: 13px 16px; font-size: 15px; font-weight: 400; color: var(--ink); cursor: pointer; text-align: left; width: 100%; font-family: 'Public Sans', sans-serif; line-height: 1.4; transition: border-color .1s, background .1s; min-height: 52px; }
+        .opt:hover { border-color: var(--blue); background: #f0f5fb; }
+        .opt:hover .opt-radio { border-color: var(--blue); }
+        .opt-radio { width: 18px; height: 18px; border: 2px solid #9a9ea5; border-radius: 50%; flex-shrink: 0; transition: border-color .1s; }
+
+        .processing-wrap { text-align: center; padding: 20px 0 12px; }
+        .processing-spinner { width: 52px; height: 52px; border: 3px solid var(--gray-border); border-top-color: var(--blue); border-radius: 50%; animation: spin .9s linear infinite; margin: 0 auto 22px; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .processing-h { font-size: 17px; font-weight: 700; color: var(--ink); margin-bottom: 22px; }
+        .processing-steps { list-style: none; text-align: left; max-width: 320px; margin: 0 auto; border: 1px solid var(--gray-border); overflow: hidden; }
+        .processing-steps li { font-size: 13px; color: var(--gray-dk); padding: 11px 16px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid var(--gray-border); background: white; opacity: 0; animation: fadeIn .4s ease forwards; }
+        .processing-steps li:last-child { border-bottom: none; }
+        .processing-steps li:nth-child(1) { animation-delay: .2s; }
+        .processing-steps li:nth-child(2) { animation-delay: .75s; }
+        .processing-steps li:nth-child(3) { animation-delay: 1.4s; }
+        @keyframes fadeIn { to { opacity: 1; } }
+        .proc-mark { width: 20px; height: 20px; background: var(--green); border-radius: 2px; display: flex; align-items: center; justify-content: center; color: white; font-size: 11px; font-weight: 800; flex-shrink: 0; }
+
+        .det-box { background: var(--green-lt); border: 1px solid #a3d9b7; border-left: 5px solid var(--green); padding: 18px 20px; margin-bottom: 24px; display: flex; align-items: flex-start; gap: 16px; }
+        .det-icon { width: 38px; height: 38px; background: var(--green); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 17px; font-weight: 800; flex-shrink: 0; }
+        .det-label { font-size: 10px; font-weight: 700; letter-spacing: 1.8px; text-transform: uppercase; color: var(--green); margin-bottom: 4px; }
+        .det-title { font-size: 17px; font-weight: 800; color: var(--ink); line-height: 1.25; }
+        .res-body { font-size: 15px; color: var(--gray-dk); line-height: 1.65; margin-bottom: 22px; }
+        .res-provider { border: 1px solid var(--gray-border); padding: 14px 16px; display: flex; align-items: center; gap: 14px; margin-bottom: 22px; background: #f8f9fa; }
+        .res-provider-icon { width: 44px; height: 44px; background: var(--navy); border-radius: 4px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .res-provider-text { font-size: 13px; color: var(--gray-dk); line-height: 1.45; }
+        .res-provider-text strong { color: var(--ink); display: block; font-size: 14px; font-weight: 700; margin-bottom: 2px; }
+        .btn-cta { display: block; background: var(--blue); color: white; font-family: 'Public Sans', sans-serif; font-size: 16px; font-weight: 700; padding: 16px 24px; border-radius: 3px; text-align: center; text-decoration: none; width: 100%; letter-spacing: .2px; transition: background .1s; margin-bottom: 10px; }
+        .btn-cta:hover { background: var(--blue-dk); }
+        .btn-note { font-size: 12px; color: var(--gray-mid); text-align: center; margin-bottom: 22px; }
+        .trust-row { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--gray-border); margin-bottom: 18px; }
+        .trust-cell { background: white; padding: 12px 8px; text-align: center; border-right: 1px solid var(--gray-border); }
+        .trust-cell:last-child { border-right: none; }
+        .trust-val { font-size: 17px; font-weight: 800; color: var(--ink); line-height: 1; margin-bottom: 3px; }
+        .trust-lbl { font-size: 10px; color: var(--gray-mid); font-weight: 600; letter-spacing: .3px; text-transform: uppercase; }
+        .res-disc { font-size: 11px; color: var(--gray-mid); line-height: 1.6; padding-top: 14px; border-top: 1px solid var(--gray-border); }
+
+        .btn-start { display: block; background: var(--blue); color: white; font-family: 'Public Sans', sans-serif; font-size: 16px; font-weight: 700; padding: 16px 24px; border-radius: 3px; text-align: center; cursor: pointer; border: none; width: 100%; letter-spacing: .2px; transition: background .1s; }
+        .btn-start:hover { background: var(--blue-dk); }
+
+        .ftr { background: var(--navy); padding: 18px 24px; text-align: center; font-size: 11px; color: rgba(255,255,255,.35); line-height: 1.8; }
+        .ftr a { color: rgba(255,255,255,.35); text-decoration: none; }
+        .ftr a:hover { text-decoration: underline; }
+
+        @media (max-width: 600px) {
+            .card-body { padding: 24px 18px 28px; }
+            .main { padding: 16px 10px 40px; }
+            .trust-row { grid-template-columns: repeat(2, 1fr); }
+            .trust-cell:nth-child(2) { border-right: none; }
+            .trust-cell:nth-child(3) { border-top: 1px solid var(--gray-border); }
+            .trust-cell:nth-child(4) { border-top: 1px solid var(--gray-border); border-right: none; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="gov-banner">
+    <div class="gov-banner-inner">
+        <div class="gov-banner-left">
+            <span class="gov-dot"></span>
+            An Official Solar Contract Exit Eligibility Resource
+        </div>
+        <div class="gov-banner-right">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Secure &amp; Encrypted
+        </div>
+    </div>
+</div>
+
+<div class="site-hdr">
+    <div class="site-hdr-inner">
+        <div class="hdr-brand">
+            <div class="hdr-seal">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="20" cy="20" r="19" stroke="rgba(255,255,255,.25)" stroke-width="1.5"/>
+                    <path d="M20 6 L22.8 14H32L24.6 19L27.4 27L20 22L12.6 27L15.4 19L8 14H17.2Z" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="1.2" stroke-linejoin="round"/>
+                    <circle cx="20" cy="20" r="7" stroke="rgba(255,255,255,.3)" stroke-width="1"/>
+                </svg>
+            </div>
+            <div>
+                <div class="hdr-name">Solar Contract Authority</div>
+                <div class="hdr-sub">Solar Lease Exit Eligibility Program</div>
+            </div>
+        </div>
+        <div class="hdr-secure">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Secure Connection
+        </div>
+    </div>
+</div>
+
+<div class="step-nav" id="stepNav">
+    <div class="step-nav-inner">
+        <div class="step-tab" id="tab1"><span class="step-num" id="tnum1">1</span> Contract</div>
+        <div class="step-tab" id="tab2"><span class="step-num" id="tnum2">2</span> Promises</div>
+        <div class="step-tab" id="tab3"><span class="step-num" id="tnum3">3</span> Exit Intent</div>
+    </div>
+</div>
+
+<div class="main">
+    <div class="card">
+        <div class="card-head" id="cardHead">
+            <div class="card-head-label">Eligibility Application</div>
+            <div class="card-head-step" id="cardHeadStep"></div>
+        </div>
+        <div class="card-body">
+
+            <!-- S0: Intro -->
+            <div class="screen active" id="s0">
+                <div class="intro-eyebrow">Official Eligibility Check</div>
+                <h1 class="intro-title">Solar Contract Exit Eligibility Check</h1>
+                <p class="intro-sub">Answer 3 quick questions to find out if your solar lease or PPA qualifies for legal cancellation under applicable consumer protection laws.</p>
+                <div class="info-box">
+                    <p>This check does <strong>not</strong> require your Social Security Number, financial account information, or any upfront commitment. Results are provided immediately upon completion.</p>
+                </div>
+                <ul class="req-list">
+                    <li><span class="req-ck">&#10003;</span> No SSN or financial details required</li>
+                    <li><span class="req-ck">&#10003;</span> Free with no cost or obligation</li>
+                    <li><span class="req-ck">&#10003;</span> Determination issued in under 60 seconds</li>
+                </ul>
+                <button class="btn-start" onclick="goTo(1)">Begin Eligibility Check &#8594;</button>
+            </div>
+
+            <!-- S1: Q1 - Contract Burden -->
+            <div class="screen" id="s1">
+                <div class="q-section-label">Section 1 of 3 &mdash; Contract Burden</div>
+                <div class="q-text">Are you currently making monthly payments on a solar lease or PPA that isn't saving you what was originally promised?</div>
+                <div class="opts">
+                    <button class="opt" onclick="goTo(2)">
+                        <span class="opt-radio"></span>
+                        Yes, my payments are higher than my actual electricity savings
+                    </button>
+                    <button class="opt" onclick="goTo(2)">
+                        <span class="opt-radio"></span>
+                        Yes, though my savings are close to what I was told
+                    </button>
+                    <button class="opt" onclick="goTo(2)">
+                        <span class="opt-radio"></span>
+                        No, but I want out of my contract for other reasons
+                    </button>
+                </div>
+            </div>
+
+            <!-- S2: Q2 - Broken Promises -->
+            <div class="screen" id="s2">
+                <div class="q-section-label">Section 2 of 3 &mdash; Company Conduct</div>
+                <div class="q-text">Did your solar company fail to deliver on promises made during the sale, such as guaranteed savings, free maintenance, or system performance?</div>
+                <div class="opts">
+                    <button class="opt" onclick="goTo(3)">
+                        <span class="opt-radio"></span>
+                        Yes, multiple promises were not fulfilled
+                    </button>
+                    <button class="opt" onclick="goTo(3)">
+                        <span class="opt-radio"></span>
+                        Yes, at least one major promise was not met
+                    </button>
+                    <button class="opt" onclick="goTo(3)">
+                        <span class="opt-radio"></span>
+                        No major issues with the company itself
+                    </button>
+                </div>
+            </div>
+
+            <!-- S3: Q3 - Exit Intent -->
+            <div class="screen" id="s3">
+                <div class="q-section-label">Section 3 of 3 &mdash; Exit Intent</div>
+                <div class="q-text">If a qualified specialist could review your solar contract and determine whether you have legal grounds to cancel with no further payments, would you want that information?</div>
+                <div class="opts">
+                    <button class="opt" onclick="goChecking()">
+                        <span class="opt-radio"></span>
+                        Yes, I want to know my options right away
+                    </button>
+                    <button class="opt" onclick="goChecking()">
+                        <span class="opt-radio"></span>
+                        Possibly, I would like to learn more first
+                    </button>
+                    <button class="opt" onclick="goChecking()">
+                        <span class="opt-radio"></span>
+                        No, I plan to keep my current contract
+                    </button>
+                </div>
+            </div>
+
+            <!-- S4: Processing -->
+            <div class="screen" id="s4">
+                <div class="processing-wrap">
+                    <div class="processing-spinner"></div>
+                    <div class="processing-h">Processing Your Application&hellip;</div>
+                    <ul class="processing-steps">
+                        <li><span class="proc-mark">&#10003;</span> Reviewing submitted responses</li>
+                        <li><span class="proc-mark">&#10003;</span> Checking cancellation eligibility</li>
+                        <li><span class="proc-mark">&#10003;</span> Matching qualified exit programs</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- S5: Results -->
+            <div class="screen" id="s5">
+                <div class="det-box">
+                    <div class="det-icon">&#10003;</div>
+                    <div>
+                        <div class="det-label">Eligibility Determination</div>
+                        <div class="det-title">Potentially Eligible for Contract Cancellation</div>
+                    </div>
+                </div>
+                <p class="res-body">Based on the information you provided, your solar contract may qualify for legal cancellation. Your next step is a free contract review with Stonegate's licensed specialists, who will confirm your specific situation at no cost and with no commitment required.</p>
+                <div class="res-provider">
+                    <div class="res-provider-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <div class="res-provider-text">
+                        <strong>Stonegate Firm</strong>
+                        Recommended provider &bull; A+ BBB Rating &bull; Licensed solar contract specialists
+                    </div>
+                </div>
+                <a href="https://hpkpn.ttrk.io/click" class="btn-cta cta-btn">Proceed to Free Contract Review &#8594;</a>
+                <div class="btn-note">Free &nbsp;&middot;&nbsp; No SSN Required &nbsp;&middot;&nbsp; No Upfront Fees &nbsp;&middot;&nbsp; No Commitment</div>
+                <div class="trust-row">
+                    <div class="trust-cell">
+                        <div class="trust-val">A+</div>
+                        <div class="trust-lbl">BBB Rating</div>
+                    </div>
+                    <div class="trust-cell">
+                        <div class="trust-val">94%</div>
+                        <div class="trust-lbl">Success Rate</div>
+                    </div>
+                    <div class="trust-cell">
+                        <div class="trust-val">12,847</div>
+                        <div class="trust-lbl">Reviews</div>
+                    </div>
+                    <div class="trust-cell">
+                        <div class="trust-val">100%</div>
+                        <div class="trust-lbl">Guarantee</div>
+                    </div>
+                </div>
+                <p class="res-disc">Not all solar contracts qualify for cancellation. Eligibility depends on contract type, provider, state, and other factors. Results vary. Consult with a legal professional regarding your specific contract. We may receive compensation from companies listed.</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="ftr">
+    <a href="/terms.html">Terms of Use</a> &nbsp;&middot;&nbsp; <a href="/privacy-policy.html">Privacy Policy</a><br>
+    &copy; 2026 Solar Contract Authority. We independently review our recommendations and may receive compensation from services listed.
+</div>
+
+<script>
+(function () {
+    var BASE_URL = 'https://hpkpn.ttrk.io/click';
+    var TRACKING_KEYS = ['cmpid','sub1','sub2','sub3','sub4','sub5','sub6','sub7','sub8','sub9','sub10','utm_source','utm_medium','utm_campaign','ref_id','rtkcid','clickid','rt_clickid'];
+    var trackingParams = {};
+    var urlParams = new URLSearchParams(window.location.search);
+    TRACKING_KEYS.forEach(function (k) { var v = urlParams.get(k); if (v) trackingParams[k] = v; });
+    try { sessionStorage.setItem('tracking_params', JSON.stringify(trackingParams)); } catch (e) {}
+
+    function buildURL() {
+        var u = new URL(BASE_URL);
+        Object.keys(trackingParams).forEach(function (k) { u.searchParams.set(k, trackingParams[k]); });
+        return u.toString();
+    }
+
+    var finalURL = buildURL();
+
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.cta-btn').forEach(function (el) {
+            el.setAttribute('href', finalURL);
+        });
+    });
+
+    function updateNav(n) {
+        var nav = document.getElementById('stepNav');
+        var head = document.getElementById('cardHead');
+        var stepEl = document.getElementById('cardHeadStep');
+
+        if (n >= 1 && n <= 3) {
+            if (nav) nav.style.display = 'block';
+            if (head) head.style.display = 'flex';
+            if (stepEl) stepEl.textContent = 'Step ' + n + ' of 3';
+        } else {
+            if (nav) nav.style.display = 'none';
+            if (head) head.style.display = 'none';
+        }
+
+        for (var i = 1; i <= 3; i++) {
+            var tab = document.getElementById('tab' + i);
+            var tnum = document.getElementById('tnum' + i);
+            if (!tab) continue;
+            tab.className = 'step-tab';
+            tnum.textContent = i;
+            if (i < n) { tab.classList.add('done'); tnum.textContent = '\u2713'; }
+            else if (i === n) { tab.classList.add('active'); }
+        }
+    }
+
+    window.goTo = function (n) {
+        document.querySelectorAll('.screen').forEach(function (s) { s.classList.remove('active'); });
+        var target = document.getElementById('s' + n);
+        if (target) target.classList.add('active');
+        updateNav(n);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    window.goChecking = function () {
+        goTo(4);
+        setTimeout(function () { goTo(5); }, 2400);
+    };
+})();
+</script>
+
+</body>
+</html>
