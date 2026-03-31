@@ -334,10 +334,13 @@
 <script>
 (function () {
     var BASE_URL = 'https://hpkpn.ttrk.io/click';
-    var TRACKING_KEYS = ['cmpid','sub1','sub2','sub3','sub4','sub5','sub6','sub7','sub8','sub9','sub10','utm_source','utm_medium','utm_campaign','ref_id','rtkcid','clickid','rt_clickid'];
+    var TRACKING_KEYS = ['cmpid','sub1','sub2','sub3','sub4','sub5','sub6','sub7','sub8','sub9','sub10','utm_source','utm_medium','utm_campaign','ref_id','clickid','rt_clickid'];
     var trackingParams = {};
     var urlParams = new URLSearchParams(window.location.search);
     TRACKING_KEYS.forEach(function (k) { var v = urlParams.get(k); if (v) trackingParams[k] = v; });
+    // Map rtkcid to clickid — RT's /click endpoint expects clickid param
+    var rtkcid = urlParams.get('rtkcid');
+    if (rtkcid && !trackingParams['clickid']) trackingParams['clickid'] = rtkcid;
     try { sessionStorage.setItem('tracking_params', JSON.stringify(trackingParams)); } catch (e) {}
 
     function buildURL() {
