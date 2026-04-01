@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeshare Exit — Free Eligibility Check</title>
+    <meta name="description" content="Find out if your timeshare contract can be legally cancelled. Free 30-second check. No SSN required.">
+    <meta name="robots" content="noindex, nofollow">
+    <script src="https://hpkpn.ttrk.io/unilpclick.js?attribution=lastpaid&cookiedomain=&cookieduration=90&defaultcampaignid=68e374a8246ae5e16b8347ea&regviewonce=false"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --navy: #162e51;
+            --blue: #0071bc;
+            --blue-dk: #205493;
+            --blue-lt: #d9e8f6;
+            --green: #2e8540;
+            --green-lt: #e7f4e4;
+            --gray-bg: #f0f2f5;
+            --gray-border: #d6d7d9;
+            --gray-mid: #5b616b;
+            --gray-dk: #3d4551;
+            --ink: #1b1b1b;
+            --white: #ffffff;
+        }
+        html { height: 100%; }
+        body {
+            min-height: 100%;
+            font-family: 'Public Sans', -apple-system, sans-serif;
+            background: var(--gray-bg);
+            color: var(--ink);
+            -webkit-font-smoothing: antialiased;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header - warm professional, not gov */
+        .site-hdr { background: var(--navy); border-bottom: 3px solid var(--blue); }
+        .site-hdr-inner { max-width: 640px; margin: 0 auto; padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; }
+        .hdr-brand { display: flex; align-items: center; gap: 12px; }
+        .hdr-icon { width: 36px; height: 36px; background: rgba(255,255,255,.08); border-radius: 6px; display: flex; align-items: center; justify-content: center; }
+        .hdr-name { font-size: 15px; font-weight: 700; color: white; }
+        .hdr-sub { font-size: 11px; color: rgba(255,255,255,.5); margin-top: 2px; }
+        .hdr-secure { font-size: 11px; color: rgba(255,255,255,.4); display: flex; align-items: center; gap: 5px; }
+
+        /* Social proof bar */
+        .proof-bar { background: #f8f9fa; border-bottom: 1px solid var(--gray-border); }
+        .proof-bar-inner { max-width: 640px; margin: 0 auto; padding: 8px 20px; font-size: 12px; color: var(--gray-mid); display: flex; align-items: center; gap: 8px; }
+        .proof-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
+
+        /* Main */
+        .main { flex: 1; padding: 24px 16px 48px; }
+        .card { background: white; border: 1px solid var(--gray-border); border-radius: 6px; max-width: 640px; margin: 0 auto; overflow: hidden; }
+        .card-body { padding: 28px 24px 32px; }
+
+        /* Progress dots */
+        .progress-dots { display: flex; justify-content: center; gap: 8px; margin-bottom: 20px; }
+        .pdot { width: 8px; height: 8px; border-radius: 50%; background: var(--gray-border); transition: background 0.3s; }
+        .pdot.active { background: var(--blue); }
+        .pdot.done { background: var(--green); }
+
+        /* Question */
+        .q-label { font-size: 12px; font-weight: 600; color: var(--gray-mid); margin-bottom: 12px; }
+        .q-text { font-size: clamp(19px, 4vw, 22px); font-weight: 700; color: var(--ink); line-height: 1.35; margin-bottom: 22px; }
+        .opts { display: flex; flex-direction: column; gap: 10px; }
+        .opt {
+            display: flex; align-items: center; gap: 14px;
+            background: white; border: 1px solid var(--gray-border); border-radius: 6px;
+            padding: 16px 18px; font-size: 16px; font-weight: 400; color: var(--ink);
+            cursor: pointer; text-align: left; width: 100%;
+            font-family: 'Public Sans', sans-serif; line-height: 1.4;
+            transition: border-color .15s, background .15s, opacity .3s, transform .05s;
+            min-height: 54px; position: relative;
+        }
+        .opt:hover { border-color: var(--blue); background: #f0f5fb; }
+        .opt:active { transform: scale(0.98); }
+        .opt-radio {
+            width: 20px; height: 20px; border: 2px solid #9a9ea5; border-radius: 50%;
+            flex-shrink: 0; transition: all .15s; position: relative;
+        }
+        .opt.selected { border-color: var(--blue); background: #e8f0fe; }
+        .opt.selected .opt-radio { border-color: var(--blue); background: var(--blue); }
+        .opt.selected .opt-radio::after {
+            content: ''; position: absolute; top: 4px; left: 4px;
+            width: 8px; height: 8px; background: white; border-radius: 50%;
+            animation: popIn .2s ease;
+        }
+        .opt.dimmed { opacity: 0.3; pointer-events: none; }
+        @keyframes popIn { 0% { transform: scale(0); } 70% { transform: scale(1.3); } 100% { transform: scale(1); } }
+
+        /* Screens */
+        .screen { display: none; }
+        .screen.active { display: block; animation: slideIn .35s ease; }
+        @keyframes slideIn { from { opacity: 0; transform: translateX(24px); } to { opacity: 1; transform: translateX(0); } }
+
+        /* Handoff / Results (NO processing, NO eligible badge) */
+        .handoff-echo { font-size: 13px; font-weight: 600; color: var(--blue); letter-spacing: .3px; margin-bottom: 8px; }
+        .handoff-title { font-size: clamp(19px, 4vw, 23px); font-weight: 800; color: var(--ink); line-height: 1.25; margin-bottom: 16px; }
+        .handoff-body { font-size: 16px; color: var(--gray-dk); line-height: 1.65; margin-bottom: 22px; }
+        .provider-card {
+            border: 1px solid var(--gray-border); padding: 14px 16px;
+            display: flex; align-items: center; gap: 14px;
+            margin-bottom: 22px; background: #f8f9fa; border-radius: 6px;
+        }
+        .provider-icon {
+            width: 44px; height: 44px; background: var(--navy); border-radius: 6px;
+            display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+        }
+        .provider-text { font-size: 13px; color: var(--gray-dk); line-height: 1.45; }
+        .provider-text strong { color: var(--ink); display: block; font-size: 14px; font-weight: 700; margin-bottom: 2px; }
+
+        .btn-cta {
+            display: block; background: var(--blue); color: white;
+            font-family: 'Public Sans', sans-serif; font-size: 17px; font-weight: 700;
+            padding: 17px 24px; border-radius: 6px; text-align: center;
+            text-decoration: none; width: 100%; transition: background .15s;
+            margin-bottom: 10px; letter-spacing: .2px;
+        }
+        .btn-cta:hover { background: var(--blue-dk); }
+        .btn-note { font-size: 12px; color: var(--gray-mid); text-align: center; margin-bottom: 20px; }
+
+        .trust-row { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--gray-border); border-radius: 6px; overflow: hidden; margin-bottom: 18px; }
+        .trust-cell { background: white; padding: 12px 8px; text-align: center; border-right: 1px solid var(--gray-border); }
+        .trust-cell:last-child { border-right: none; }
+        .trust-val { font-size: 17px; font-weight: 800; color: var(--ink); line-height: 1; margin-bottom: 3px; }
+        .trust-lbl { font-size: 10px; color: var(--gray-mid); font-weight: 600; letter-spacing: .3px; text-transform: uppercase; }
+
+        .phone-line { text-align: center; font-size: 13px; color: var(--gray-mid); margin-bottom: 18px; }
+        .phone-line a { color: var(--blue); font-weight: 600; text-decoration: none; }
+
+        .disc { font-size: 11px; color: var(--gray-mid); line-height: 1.6; padding-top: 14px; border-top: 1px solid var(--gray-border); }
+
+        /* Reassurance note below Q1 */
+        .q-reassure { margin-top: 16px; font-size: 12px; color: var(--gray-mid); display: flex; flex-wrap: wrap; gap: 6px 14px; }
+        .q-reassure span { display: flex; align-items: center; gap: 4px; }
+
+        /* Footer */
+        .ftr { background: var(--navy); padding: 16px 24px; text-align: center; font-size: 11px; color: rgba(255,255,255,.35); line-height: 1.8; }
+        .ftr a { color: rgba(255,255,255,.35); text-decoration: none; }
+
+        @media (max-width: 600px) {
+            .card { border-radius: 0; border-left: none; border-right: none; max-width: 100%; }
+            .main { padding: 12px 0 40px; }
+            .card-body { padding: 22px 18px 28px; }
+            .trust-row { grid-template-columns: repeat(2, 1fr); }
+            .trust-cell:nth-child(2) { border-right: none; }
+            .trust-cell:nth-child(3) { border-top: 1px solid var(--gray-border); }
+            .trust-cell:nth-child(4) { border-top: 1px solid var(--gray-border); border-right: none; }
+            .opt { padding: 16px 16px; font-size: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="site-hdr">
+    <div class="site-hdr-inner">
+        <div class="hdr-brand">
+            <div class="hdr-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+                <div class="hdr-name">Timeshare Exit Review</div>
+                <div class="hdr-sub">Attorney-Backed Exit Program</div>
+            </div>
+        </div>
+        <div class="hdr-secure">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Secure
+        </div>
+    </div>
+</div>
+
+<div class="proof-bar">
+    <div class="proof-bar-inner">
+        <span class="proof-dot"></span>
+        2,147 owners have checked their eligibility this month
+    </div>
+</div>
+
+<div class="main">
+    <div class="card">
+        <div class="card-body">
+
+            <!-- Q1: Identity + Grievance (VISIBLE ON LOAD — no intro screen) -->
+            <div class="screen active" id="s1">
+                <div class="progress-dots">
+                    <div class="pdot active" id="d1"></div>
+                    <div class="pdot" id="d2"></div>
+                </div>
+                <div class="q-label">Question 1 of 2</div>
+                <div class="q-text">When you think about your timeshare, which sounds most like you?</div>
+                <div class="opts" id="opts1">
+                    <button class="opt" data-q1="regret" onclick="selectQ1(this)">
+                        <span class="opt-radio"></span>
+                        I regret ever signing that contract
+                    </button>
+                    <button class="opt" data-q1="stuck" onclick="selectQ1(this)">
+                        <span class="opt-radio"></span>
+                        I feel stuck and don't see a way out
+                    </button>
+                    <button class="opt" data-q1="family" onclick="selectQ1(this)">
+                        <span class="opt-radio"></span>
+                        I worry my family will be stuck with it after I'm gone
+                    </button>
+                    <button class="opt" data-q1="done" onclick="selectQ1(this)">
+                        <span class="opt-radio"></span>
+                        I just want it over with
+                    </button>
+                </div>
+                <div class="q-reassure">
+                    <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> No SSN required</span>
+                    <span>Free, no obligation</span>
+                    <span>Takes 30 seconds</span>
+                </div>
+            </div>
+
+            <!-- Q2: Commitment + Aspirational -->
+            <div class="screen" id="s2">
+                <div class="progress-dots">
+                    <div class="pdot done" id="d1b"></div>
+                    <div class="pdot active" id="d2b"></div>
+                </div>
+                <div class="q-label">Question 2 of 2</div>
+                <div class="q-text">What would being free of your timeshare mean to you?</div>
+                <div class="opts" id="opts2">
+                    <button class="opt" data-q2="fees" onclick="selectQ2(this)">
+                        <span class="opt-radio"></span>
+                        No more fees draining my account every year
+                    </button>
+                    <button class="opt" data-q2="kids" onclick="selectQ2(this)">
+                        <span class="opt-radio"></span>
+                        My kids won't be stuck with this contract
+                    </button>
+                    <button class="opt" data-q2="peace" onclick="selectQ2(this)">
+                        <span class="opt-radio"></span>
+                        Peace of mind knowing it's finally over
+                    </button>
+                    <button class="opt" data-q2="all" onclick="selectQ2(this)">
+                        <span class="opt-radio"></span>
+                        All of the above
+                    </button>
+                </div>
+            </div>
+
+            <!-- Handoff screen (NO processing animation, NO "eligible" badge) -->
+            <div class="screen" id="s3">
+                <div class="handoff-echo" id="echoLabel"></div>
+                <div class="handoff-title" id="echoTitle">Your Situation Matches the Profile of Owners Who Have Successfully Exited</div>
+                <p class="handoff-body">Thousands of timeshare owners in situations just like yours have already had their contracts legally cancelled and their obligations eliminated for good.<br><br>Your next step is a free case review with Stonegate Firm's licensed attorneys. They will confirm whether your specific contract qualifies. There is no cost and no commitment required.</p>
+                <div class="provider-card">
+                    <div class="provider-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <div class="provider-text">
+                        <strong>Stonegate Firm</strong>
+                        Attorney-backed timeshare exit &bull; A+ BBB Rating &bull; 47,000+ owners exited
+                    </div>
+                </div>
+                <a href="https://hpkpn.ttrk.io/click" class="btn-cta js-offer-link">Get My Free Case Review</a>
+                <div class="btn-note">Free &nbsp;&middot;&nbsp; No SSN Required &nbsp;&middot;&nbsp; No Upfront Cost &nbsp;&middot;&nbsp; No Obligation</div>
+                <div class="phone-line">Prefer to speak with someone? <a href="tel:+18005551234">Call (800) 555-1234</a></div>
+                <div class="trust-row">
+                    <div class="trust-cell">
+                        <div class="trust-val">A+</div>
+                        <div class="trust-lbl">BBB Rating</div>
+                    </div>
+                    <div class="trust-cell">
+                        <div class="trust-val">95%+</div>
+                        <div class="trust-lbl">Success Rate</div>
+                    </div>
+                    <div class="trust-cell">
+                        <div class="trust-val">47K+</div>
+                        <div class="trust-lbl">Owners Exited</div>
+                    </div>
+                    <div class="trust-cell">
+                        <div class="trust-val">100%</div>
+                        <div class="trust-lbl">Money-Back</div>
+                    </div>
+                </div>
+                <p class="disc">Not all timeshare contracts qualify for cancellation. Eligibility depends on contract type, resort, state, and other factors. Results vary. Consult with a licensed attorney regarding your specific contract. We may receive compensation from listed providers.</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="ftr">
+    <a href="/terms.html">Terms of Use</a> &nbsp;&middot;&nbsp; <a href="/privacy-policy.html">Privacy Policy</a><br>
+    &copy; 2026 Timeshare Exit Review. This is an advertisement. Results vary.
+</div>
+
+<script>
+(function() {
+    var BASE_URL = 'https://hpkpn.ttrk.io/click';
+    var TRACKING_KEYS = ['cmpid','sub1','sub2','sub3','sub4','sub5','sub6','sub7','sub8','sub9','sub10','utm_source','utm_medium','utm_campaign','ref_id','clickid','rt_clickid'];
+    var trackingParams = {};
+    var urlParams = new URLSearchParams(window.location.search);
+    TRACKING_KEYS.forEach(function(k) { var v = urlParams.get(k); if (v) trackingParams[k] = v; });
+    var rtkcid = urlParams.get('rtkcid');
+    if (rtkcid && !trackingParams['clickid']) trackingParams['clickid'] = rtkcid;
+    try { sessionStorage.setItem('tracking_params', JSON.stringify(trackingParams)); } catch(e) {}
+
+    function buildURL() {
+        var u = new URL(BASE_URL);
+        Object.keys(trackingParams).forEach(function(k) { u.searchParams.set(k, trackingParams[k]); });
+        return u.toString();
+    }
+    var finalURL = buildURL();
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.js-offer-link').forEach(function(el) { el.setAttribute('href', finalURL); });
+    });
+
+    // State
+    var q1Answer = '';
+    var q2Answer = '';
+
+    var echoTitles = {
+        regret: 'Owners Who Regret Their Contract Often Have the Strongest Exit Cases',
+        stuck: 'Feeling Trapped Is Exactly Why Attorney-Backed Exits Exist',
+        family: 'Protecting Your Family From Inherited Timeshare Debt Starts Here',
+        done: 'Your Situation Matches the Profile of Owners Who Have Successfully Exited'
+    };
+    var echoLabels = {
+        regret: 'Contract regret identified',
+        stuck: 'Exit barriers identified',
+        family: 'Inheritance protection flagged',
+        done: 'Exit intent confirmed'
+    };
+
+    function showScreen(id) {
+        document.querySelectorAll('.screen').forEach(function(s) { s.classList.remove('active'); });
+        var el = document.getElementById(id);
+        if (el) el.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function dimOthers(btn, container) {
+        btn.classList.add('selected');
+        container.querySelectorAll('.opt').forEach(function(o) {
+            if (o !== btn) o.classList.add('dimmed');
+        });
+    }
+
+    window.selectQ1 = function(btn) {
+        q1Answer = btn.getAttribute('data-q1') || 'done';
+        dimOthers(btn, document.getElementById('opts1'));
+        setTimeout(function() { showScreen('s2'); }, 500);
+    };
+
+    window.selectQ2 = function(btn) {
+        q2Answer = btn.getAttribute('data-q2') || 'all';
+        dimOthers(btn, document.getElementById('opts2'));
+
+        // Apply answer echo
+        var titleEl = document.getElementById('echoTitle');
+        var labelEl = document.getElementById('echoLabel');
+        if (titleEl) titleEl.textContent = echoTitles[q1Answer] || echoTitles['done'];
+        if (labelEl) labelEl.textContent = echoLabels[q1Answer] || echoLabels['done'];
+
+        // Instant transition to handoff (NO processing animation)
+        setTimeout(function() { showScreen('s3'); }, 500);
+    };
+})();
+</script>
+
+</body>
+</html>
