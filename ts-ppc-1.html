@@ -180,17 +180,40 @@
             margin-bottom: 35px;
         }
 
-        .hero-image-container {
-            position: relative;
+        .trust-bar-hero {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
             margin: 40px 0;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, #112e51 0%, #1a3a5c 100%);
             border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
         }
 
-        .hero-image {
-            width: 100%;
+        .trust-bar-item {
+            text-align: center;
+            color: white;
+        }
+
+        .trust-bar-value {
+            font-size: 28px;
+            font-weight: 800;
             display: block;
+            line-height: 1.2;
+        }
+
+        .trust-bar-label {
+            font-size: 12px;
+            opacity: 0.8;
+            margin-top: 4px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .trust-bar-divider {
+            width: 1px;
+            background: rgba(255,255,255,0.2);
         }
 
         .description {
@@ -768,9 +791,17 @@
                 font-size: 17px;
             }
 
-            .features-grid {
-                grid-template-columns: 1fr;
-                gap: 15px;
+            .trust-bar-hero {
+                gap: 20px;
+                padding: 25px 15px;
+            }
+
+            .trust-bar-value {
+                font-size: 22px;
+            }
+
+            .trust-bar-label {
+                font-size: 10px;
             }
 
             .payment-toggle {
@@ -859,8 +890,21 @@
             <h1 class="main-heading">Still Paying Maintenance Fees on a Timeshare You Never Use?</h1>
             <p class="sub-heading">Thousands of owners are legally canceling their contracts. Find out if you qualify.</p>
 
-            <div class="hero-image-container">
-                <img src="/assets/images/ts_ppc_hero.png" alt="Timeshare Exit Assessment" class="hero-image">
+            <div class="trust-bar-hero">
+                <div class="trust-bar-item">
+                    <span class="trust-bar-value">47,000+</span>
+                    <span class="trust-bar-label">Owners Helped</span>
+                </div>
+                <div class="trust-bar-divider"></div>
+                <div class="trust-bar-item">
+                    <span class="trust-bar-value">A+</span>
+                    <span class="trust-bar-label">BBB Rating</span>
+                </div>
+                <div class="trust-bar-divider"></div>
+                <div class="trust-bar-item">
+                    <span class="trust-bar-value">95%+</span>
+                    <span class="trust-bar-label">Success Rate</span>
+                </div>
             </div>
 
             <p class="description">
@@ -886,20 +930,6 @@
                 </li>
             </ul>
 
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">&#9878;</div>
-                    <div class="feature-text">Attorney-Led Exit Process</div>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">&#128274;</div>
-                    <div class="feature-text">Permanent Cancellation</div>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">&#9989;</div>
-                    <div class="feature-text">95%+ Success Rate</div>
-                </div>
-            </div>
 
             <div class="qualification-section">
                 <h2 class="qualification-title">Check Your Exit Eligibility</h2>
@@ -955,16 +985,6 @@
                 <button type="button" class="submit-btn" id="checkEligibility" disabled onclick="handleSubmit()">Check My Eligibility</button>
             </div>
 
-            <div class="footer-stats">
-                <div class="stat-item">
-                    <span class="stat-number">47,000+</span>
-                    <div class="stat-label">Owners Helped Exit</div>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">$1,120</span>
-                    <div class="stat-label">Avg. Annual Fee Eliminated</div>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -1086,14 +1106,14 @@
                             '<div class="step-dot active"></div>' +
                         '</div>' +
                         '<div class="vip-banner">' +
-                            '<span class="vip-banner-icon">&#9888;</span>' +
-                            '<span class="vip-banner-text">YOUR CONTRACT MAY QUALIFY FOR IMMEDIATE EXIT</span>' +
+                            '<span class="vip-banner-icon">&#9878;</span>' +
+                            '<span class="vip-banner-text">CASE REVIEW PREPARED</span>' +
                         '</div>' +
                         '<div class="success-icon">&#10003;</div>' +
-                        '<h2 class="congrats-heading">You May Qualify for Exit</h2>' +
+                        '<h2 class="congrats-heading">Your Case Is Ready for Review</h2>' +
                         '<p class="personalized-subheading">' + resort + ' owners in ' + state + ' have strong exit options</p>' +
                         '<p class="congrats-text">' +
-                            'Based on your information, your ' + resort + ' contract may be eligible for legal cancellation. A licensed exit specialist is ready to review your specific situation, explain your options, and help you understand if permanent cancellation is possible.' +
+                            'Based on your information, your ' + resort + ' contract has been flagged for review. A case specialist is standing by to walk you through the cancellation process and confirm your eligibility.' +
                         '</p>' +
                         '<div class="agent-ready-section">' +
                             '<div class="agent-status">' +
@@ -1103,15 +1123,15 @@
                                 '</div>' +
                                 '<div class="agent-info">' +
                                     '<div class="agent-name">' + agentName + '</div>' +
-                                    '<div class="agent-title">Licensed Timeshare Exit Specialist</div>' +
+                                    '<div class="agent-title">Case Review Specialist</div>' +
                                 '</div>' +
                             '</div>' +
                             '<div class="agent-message">' +
-                                '"I\'ve handled ' + resort + ' exits before. Owners in ' + state + ' often have strong grounds for contract cancellation. Let me walk you through your specific options."' +
+                                '"I have your ' + resort + ' case file ready. ' + state + ' owners typically have strong legal standing for contract cancellation. Call me directly and I\'ll walk you through the next steps."' +
                             '</div>' +
                         '</div>' +
                         '<div class="call-card">' +
-                            '<div class="helpline-label">Speak With Your Exit Specialist Now</div>' +
+                            '<div class="helpline-label">Your Direct Case Review Line</div>' +
                             '<div class="personal-reference">' +
                                 'Case Reference: ' + refNumber +
                             '</div>' +
