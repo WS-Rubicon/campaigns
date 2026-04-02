@@ -282,38 +282,103 @@
             margin-bottom: 30px;
         }
 
-        .fee-buttons {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .fee-button {
-            background: linear-gradient(135deg, #112e51 0%, #1a3a5c 100%);
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #4a5568;
+            margin-bottom: 8px;
+        }
+
+        .form-select {
+            width: 100%;
+            padding: 14px 16px;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            background: white;
+            color: #1a202c;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2364748b' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+
+        .form-select:focus {
+            outline: none;
+            border-color: #112e51;
+        }
+
+        .payment-toggle {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .toggle-btn {
+            padding: 14px;
+            font-size: 16px;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            background: white;
+            color: #4a5568;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+        }
+
+        .toggle-btn:hover {
+            border-color: #112e51;
+            color: #112e51;
+        }
+
+        .toggle-btn.selected {
+            border-color: #112e51;
+            background: #112e51;
             color: white;
-            padding: 24px 16px;
-            border-radius: 10px;
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            max-width: 400px;
+            margin: 30px auto 0;
+            padding: 18px;
             font-size: 18px;
             font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: center;
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #00bf63 0%, #00a654 100%);
+            color: white;
             border: none;
-            box-shadow: 0 4px 12px rgba(17, 46, 81, 0.25);
-            user-select: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 191, 99, 0.3);
         }
 
-        .fee-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(17, 46, 81, 0.35);
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 191, 99, 0.4);
         }
 
-        .fee-button .fee-label {
-            display: block;
-            font-size: 12px;
-            font-weight: 500;
-            opacity: 0.8;
-            margin-top: 6px;
+        .submit-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
         }
 
         .footer-stats {
@@ -708,14 +773,8 @@
                 gap: 15px;
             }
 
-            .fee-buttons {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-
-            .fee-button {
-                font-size: 18px;
-                padding: 20px;
+            .payment-toggle {
+                grid-template-columns: 1fr 1fr;
             }
 
             .phone-button {
@@ -771,7 +830,7 @@
         <div class="loading-steps">
             <div class="loading-step" id="step1">
                 <div class="loading-step-icon">&#10003;</div>
-                <span>Reviewing your fee bracket</span>
+                <span>Reviewing your resort contract</span>
             </div>
             <div class="loading-step" id="step2">
                 <div class="loading-step-icon">&#10003;</div>
@@ -843,23 +902,57 @@
             </div>
 
             <div class="qualification-section">
-                <h2 class="qualification-title">How Much Are You Paying in Annual Fees?</h2>
-                <p class="qualification-subtitle">Select your range to check your exit eligibility</p>
+                <h2 class="qualification-title">Check Your Exit Eligibility</h2>
+                <p class="qualification-subtitle">Tell us about your timeshare to see your options</p>
 
-                <div class="fee-buttons">
-                    <div class="fee-button" data-fee="Under $1,000">
-                        Under $1,000
-                        <span class="fee-label">per year</span>
-                    </div>
-                    <div class="fee-button" data-fee="$1,000 - $2,500">
-                        $1,000 - $2,500
-                        <span class="fee-label">per year</span>
-                    </div>
-                    <div class="fee-button" data-fee="Over $2,500">
-                        Over $2,500
-                        <span class="fee-label">per year</span>
+                <div class="form-group">
+                    <label class="form-label">Which resort company?</label>
+                    <select class="form-select" id="resortSelect">
+                        <option value="">Select your resort...</option>
+                        <option value="Wyndham">Wyndham</option>
+                        <option value="Marriott Vacations">Marriott Vacations</option>
+                        <option value="Hilton Grand Vacations">Hilton Grand Vacations</option>
+                        <option value="Holiday Inn Club">Holiday Inn Club</option>
+                        <option value="Diamond Resorts">Diamond Resorts</option>
+                        <option value="Bluegreen">Bluegreen Vacations</option>
+                        <option value="Westgate">Westgate Resorts</option>
+                        <option value="Hyatt Residence Club">Hyatt Residence Club</option>
+                        <option value="Vistana (Sheraton)">Vistana (Sheraton)</option>
+                        <option value="Orange Lake">Orange Lake</option>
+                        <option value="Silverleaf">Silverleaf</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">What state are you in?</label>
+                    <select class="form-select" id="stateSelect">
+                        <option value="">Select your state...</option>
+                        <option>Alabama</option><option>Alaska</option><option>Arizona</option><option>Arkansas</option>
+                        <option>California</option><option>Colorado</option><option>Connecticut</option><option>Delaware</option>
+                        <option>Florida</option><option>Georgia</option><option>Hawaii</option><option>Idaho</option>
+                        <option>Illinois</option><option>Indiana</option><option>Iowa</option><option>Kansas</option>
+                        <option>Kentucky</option><option>Louisiana</option><option>Maine</option><option>Maryland</option>
+                        <option>Massachusetts</option><option>Michigan</option><option>Minnesota</option><option>Mississippi</option>
+                        <option>Missouri</option><option>Montana</option><option>Nebraska</option><option>Nevada</option>
+                        <option>New Hampshire</option><option>New Jersey</option><option>New Mexico</option><option>New York</option>
+                        <option>North Carolina</option><option>North Dakota</option><option>Ohio</option><option>Oklahoma</option>
+                        <option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option><option>South Carolina</option>
+                        <option>South Dakota</option><option>Tennessee</option><option>Texas</option><option>Utah</option>
+                        <option>Vermont</option><option>Virginia</option><option>Washington</option><option>West Virginia</option>
+                        <option>Wisconsin</option><option>Wyoming</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Are you still making payments on your timeshare?</label>
+                    <div class="payment-toggle">
+                        <button type="button" class="toggle-btn" data-value="yes" onclick="selectPayment(this)">Yes</button>
+                        <button type="button" class="toggle-btn" data-value="no" onclick="selectPayment(this)">No, Paid in Full</button>
                     </div>
                 </div>
+
+                <button type="button" class="submit-btn" id="checkEligibility" disabled onclick="handleSubmit()">Check My Eligibility</button>
             </div>
 
             <div class="footer-stats">
@@ -876,9 +969,14 @@
     </div>
 
     <script>
-        var selectedFee = '';
+        var selectedResort = '';
+        var selectedState = '';
+        var selectedPayment = '';
         var countdownInterval = null;
         var isProcessing = false;
+        var SG_URL = 'https://here.everydayamericanoffers.com/68e374a8246ae5e16b8347ea';
+        var DQ_RESORTS = ['Westgate', 'Bluegreen'];
+        var DQ_STATES = ['North Carolina'];
 
         var agentNames = [
             'David Mitchell',
@@ -903,24 +1001,50 @@
             (window._rgba_tags = window._rgba_tags || []).push(newTag);
         }
 
+        function selectPayment(btn) {
+            var btns = document.querySelectorAll('.toggle-btn');
+            btns.forEach(function(b) { b.classList.remove('selected'); });
+            btn.classList.add('selected');
+            selectedPayment = btn.getAttribute('data-value');
+            checkFormReady();
+        }
+
+        function checkFormReady() {
+            var resort = document.getElementById('resortSelect').value;
+            var state = document.getElementById('stateSelect').value;
+            var btn = document.getElementById('checkEligibility');
+            btn.disabled = !(resort && state && selectedPayment);
+        }
+
+        function handleSubmit() {
+            var resort = document.getElementById('resortSelect').value;
+            var state = document.getElementById('stateSelect').value;
+            var paidInFull = selectedPayment === 'no';
+
+            addTags('Resort', resort);
+            addTags('State', state);
+            addTags('PaidInFull', paidInFull ? 'yes' : 'no');
+
+            var isDQ = DQ_RESORTS.indexOf(resort) !== -1 || DQ_STATES.indexOf(state) !== -1 || paidInFull;
+
+            if (isDQ) {
+                window.location.href = SG_URL;
+                return;
+            }
+
+            goToCallPage(resort, state);
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
-            var feeButtons = document.querySelectorAll('.fee-button');
-            feeButtons.forEach(function(button) {
-                button.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    if (!isProcessing) {
-                        var fee = this.getAttribute('data-fee');
-                        addTags('AnnualFees', fee);
-                        goToCallPage(fee);
-                    }
-                });
-            });
+            document.getElementById('resortSelect').addEventListener('change', checkFormReady);
+            document.getElementById('stateSelect').addEventListener('change', checkFormReady);
         });
 
-        function goToCallPage(fee) {
+        function goToCallPage(resort, state) {
             if (isProcessing) return;
             isProcessing = true;
-            selectedFee = fee;
+            selectedResort = resort;
+            selectedState = state;
 
             var loadingSteps = document.querySelectorAll('.loading-step');
             loadingSteps.forEach(function(step) {
@@ -947,7 +1071,6 @@
 
                 var refNumber = 'TS-EXIT-' + Math.floor(Math.random() * 90000 + 10000);
                 var agentName = getRandomAgentName();
-                var feeContext = fee === 'Over $2,500' ? 'high-fee' : fee === '$1,000 - $2,500' ? 'mid-fee' : 'standard';
 
                 document.getElementById('mainContainer').innerHTML =
                     '<div class="progress-bar">' +
@@ -968,9 +1091,9 @@
                         '</div>' +
                         '<div class="success-icon">&#10003;</div>' +
                         '<h2 class="congrats-heading">You May Qualify for Exit</h2>' +
-                        '<p class="personalized-subheading">Owners paying ' + fee.toLowerCase() + '/year in fees have strong exit options</p>' +
+                        '<p class="personalized-subheading">' + resort + ' owners in ' + state + ' have strong exit options</p>' +
                         '<p class="congrats-text">' +
-                            'Based on your fee range, your timeshare contract may be eligible for legal cancellation. A licensed exit specialist is ready to review your specific situation, explain your options, and help you understand if permanent cancellation is possible for your resort.' +
+                            'Based on your information, your ' + resort + ' contract may be eligible for legal cancellation. A licensed exit specialist is ready to review your specific situation, explain your options, and help you understand if permanent cancellation is possible.' +
                         '</p>' +
                         '<div class="agent-ready-section">' +
                             '<div class="agent-status">' +
@@ -984,7 +1107,7 @@
                                 '</div>' +
                             '</div>' +
                             '<div class="agent-message">' +
-                                '"I\'ve reviewed cases like yours before. Owners paying ' + fee.toLowerCase() + ' annually in maintenance fees often have strong grounds for contract cancellation. Let me walk you through your specific options."' +
+                                '"I\'ve handled ' + resort + ' exits before. Owners in ' + state + ' often have strong grounds for contract cancellation. Let me walk you through your specific options."' +
                             '</div>' +
                         '</div>' +
                         '<div class="call-card">' +
@@ -1081,7 +1204,8 @@
         document.addEventListener('click', function(e) {
             if (e.target.closest('a[href^="tel:"]')) {
                 addTags('CallInitiated', 'true');
-                addTags('FeeRange', selectedFee);
+                addTags('Resort', selectedResort);
+                addTags('State', selectedState);
             }
         });
     </script>
