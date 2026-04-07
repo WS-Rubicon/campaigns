@@ -1,215 +1,339 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex, nofollow">
-    <title>Timeshare Cancellation & Refunds</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-    <script src="https://b-js.ringba.com/CAfa1ef8e8ba3346b58f81b2fb0b92b886" async></script>
-    <style>
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Open Sans', sans-serif; background: #f5f5f5; color: #0A0908; line-height: 1.5; min-height: 100vh; display: flex; flex-direction: column; }
-        .site-header { background: #0074E0; padding: 12px 20px; text-align: center; }
-        .site-header .logo { color: #fff; font-size: 20px; font-weight: 700; text-decoration: none; letter-spacing: -0.5px; }
-        .hero { background: #fff; padding: 30px 20px 20px; text-align: center; border-bottom: 1px solid #e0e0e0; }
-        .hero h1 { font-size: 28px; font-weight: 700; color: #0A0908; max-width: 700px; margin: 0 auto 12px; line-height: 1.25; }
-        .hero p { font-size: 16px; color: #555; max-width: 600px; margin: 0 auto; line-height: 1.5; }
-        .main-container { flex: 1; display: flex; justify-content: center; padding: 30px 16px 40px; }
-        .quiz-wrapper { width: 100%; max-width: 640px; }
-        .quiz-card { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); padding: 32px 28px; position: relative; overflow: hidden; }
-        .step { display: none; animation: slideInLeft 0.25s ease-out; }
-        .step.active { display: block; }
-        @keyframes slideInLeft { from { opacity: 0; transform: translateX(30px); } to { opacity: 1; transform: translateX(0); } }
-        .step-question { font-size: 20px; font-weight: 700; text-align: center; margin-bottom: 20px; color: #0A0908; }
-        .form-select { width: 100%; padding: 14px 16px; font-size: 16px; font-family: 'Open Sans', sans-serif; border: 2px solid #d0d0d0; border-radius: 8px; background: #fff; color: #333; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23666' d='M6 8L0 0h12z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; cursor: pointer; transition: border-color 0.2s; }
-        .form-select:focus { outline: none; border-color: #0074E0; }
-        .btn-continue { display: block; width: 100%; margin-top: 16px; padding: 16px 24px; font-size: 18px; font-weight: 600; font-family: 'Open Sans', sans-serif; color: #fff; background: #0074E0; border: none; border-radius: 8px; cursor: pointer; transition: background 0.3s ease; }
-        .btn-continue:hover { background: #005bb5; }
-        .btn-continue:disabled { background: #a0c4e8; cursor: not-allowed; }
-        .loading-list { list-style: none; padding: 20px 0; }
-        .loading-list li { display: flex; align-items: center; gap: 12px; padding: 12px 0; font-size: 16px; font-weight: 600; opacity: 0; transform: translateY(10px); transition: opacity 0.4s ease, transform 0.4s ease; }
-        .loading-list li.show { opacity: 1; transform: translateY(0); }
-        .loading-list li .check-icon { width: 24px; height: 24px; border-radius: 50%; background: #e0e0e0; display: flex; align-items: center; justify-content: center; transition: background 0.3s; flex-shrink: 0; }
-        .loading-list li.done .check-icon { background: #22c55e; }
-        .loading-list li .check-icon svg { width: 14px; height: 14px; opacity: 0; transition: opacity 0.3s; }
-        .loading-list li.done .check-icon svg { opacity: 1; }
-        .loading-spinner { display: inline-block; width: 18px; height: 18px; border: 2px solid #d0d0d0; border-top-color: #0074E0; border-radius: 50%; animation: spin 0.6s linear infinite; }
-        @keyframes spin { to { transform: rotate(360deg); } }
-        .loading-list li.loading .check-icon { background: transparent; }
-        .good-news-header { text-align: center; margin-bottom: 20px; }
-        .good-news-header h2 { font-size: 22px; font-weight: 700; color: #22c55e; margin-bottom: 8px; }
-        .good-news-header p { font-size: 15px; color: #555; }
-        .call-card { background: #f8fafb; border: 1px solid #e0e0e0; border-radius: 12px; padding: 28px 24px; text-align: center; margin: 20px 0; }
-        .call-card-label { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: #555; margin-bottom: 14px; }
-        .phone-cta { display: inline-flex; align-items: center; gap: 10px; background: #0074E0; color: #fff; padding: 18px 40px; font-size: 22px; font-weight: 700; text-decoration: none; border-radius: 8px; transition: background 0.2s; font-variant-numeric: tabular-nums; letter-spacing: 0.02em; }
-        .phone-cta:hover { background: #005bb5; }
-        .call-hours { font-size: 14px; color: #888; margin-top: 12px; }
-        .call-badges { display: flex; justify-content: center; gap: 20px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e0e0e0; flex-wrap: wrap; }
-        .call-badge { font-size: 13px; font-weight: 600; color: #333; display: flex; align-items: center; gap: 6px; }
-        .call-badge-check { color: #22c55e; font-size: 16px; }
-        .call-context { background: #fff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px 20px; margin-top: 16px; font-size: 14px; color: #555; line-height: 1.6; text-align: left; }
-        .call-context strong { color: #0074E0; display: block; margin-bottom: 6px; }
-        .trust-section { text-align: center; margin-top: 24px; padding-top: 20px; border-top: 1px solid #e0e0e0; }
-        .trustpilot-badge { display: inline-flex; flex-direction: column; align-items: center; gap: 4px; }
-        .trustpilot-stars { display: flex; gap: 3px; }
-        .trustpilot-stars .star { width: 24px; height: 24px; background: #00B67A; display: flex; align-items: center; justify-content: center; }
-        .trustpilot-stars .star svg { width: 14px; height: 14px; fill: #fff; }
-        .trustpilot-label { font-size: 14px; font-weight: 700; color: #333; }
-        .trustpilot-rating { font-size: 13px; color: #696969; }
-        .site-footer { background: #fff; border-top: 1px solid #e0e0e0; padding: 24px 20px; text-align: center; }
-        .footer-links { display: flex; justify-content: center; gap: 20px; margin-bottom: 16px; flex-wrap: wrap; }
-        .footer-links a { font-size: 13px; color: #0074E0; text-decoration: none; }
-        .footer-links a:hover { text-decoration: underline; }
-        .footer-disclaimer { font-size: 11px; color: #999; max-width: 700px; margin: 0 auto; line-height: 1.6; }
-        .footer-disclaimer p { margin-bottom: 8px; }
-        .sticky-call-bar { position: fixed; bottom: 0; left: 0; right: 0; background: #0074E0; padding: 10px 16px; box-shadow: 0 -2px 12px rgba(0,0,0,0.15); z-index: 999; text-align: center; transform: translateY(100%); transition: transform 0.3s ease; }
-        .sticky-call-bar.show { transform: translateY(0); }
-        .sticky-call-bar a { color: #fff; font-size: 18px; font-weight: 700; text-decoration: none; letter-spacing: 0.02em; }
-        .sticky-call-bar .sticky-sub { display: block; font-size: 11px; color: rgba(255,255,255,0.7); margin-top: 2px; }
-        @media (max-width: 600px) {
-            .hero h1 { font-size: 22px; } .hero p { font-size: 14px; } .hero img { max-width: 100% !important; }
-            .quiz-card { padding: 24px 18px; } .step-question { font-size: 18px; }
-            .phone-cta { font-size: 18px; padding: 16px 28px; }
-            .call-badges { flex-direction: column; align-items: center; gap: 8px; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Timeshare Cancellation Eligibility</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://b-js.ringba.com/CAfa1ef8e8ba3346b58f81b2fb0b92b886" async></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:'Roboto',sans-serif;background:#fff;color:#161616;line-height:1.5;min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased}
+.site-header{background:#fafbff;padding:14px 20px;text-align:center;border-bottom:1px solid #eef0f6}
+.site-logo{display:inline-flex;align-items:center;gap:10px;text-decoration:none}
+.site-logo .logo-icon{width:40px;height:40px;flex-shrink:0}
+.site-logo .logo-text{font-family:'DM Serif Display',serif;font-size:22px;color:#1a2744;font-weight:400;letter-spacing:-0.3px;line-height:1.1}
+.site-logo .logo-text .dot-com{font-family:'Roboto',sans-serif;font-size:13px;font-weight:500;color:#888;letter-spacing:0}
+.main-content{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px 40px}
+.form-container{max-width:560px;width:100%;text-align:center}
+h2.main-heading{font-family:'DM Serif Display',serif;font-size:2.5rem;font-weight:900;color:#1e40af;line-height:1.2;margin-bottom:16px}
+p.sub-text{font-family:'Roboto',sans-serif;font-size:19px;color:#000;line-height:1.5;margin-bottom:40px}
+.select-label{font-family:'Roboto',sans-serif;font-size:15px;color:#555;text-align:left;margin-bottom:8px;display:block;max-width:380px;margin-left:auto;margin-right:auto}
+.custom-dropdown{position:relative;margin-bottom:24px;max-width:380px;width:100%;margin-left:auto;margin-right:auto}
+.dropdown-trigger{display:flex;align-items:center;justify-content:space-between;width:100%;padding:14px 16px;font-family:'Roboto',sans-serif;font-size:18px;color:#161616;background:#fff;border:1px solid #c4c4c5;border-radius:6px;cursor:pointer;outline:none;transition:border-color .2s,box-shadow .2s;text-align:left}
+.dropdown-trigger:hover{border-color:#999}
+.dropdown-trigger.open{border-color:#0764f3;box-shadow:0 0 0 2px rgba(7,100,243,0.08);border-bottom-left-radius:0;border-bottom-right-radius:0}
+.dropdown-trigger .placeholder{color:#9ca3af}
+.dropdown-trigger .chevron{flex-shrink:0;width:20px;height:20px;transition:transform .2s}
+.dropdown-trigger.open .chevron{transform:rotate(180deg)}
+.dropdown-panel{display:none;position:absolute;top:100%;left:0;right:0;max-height:280px;overflow-y:auto;background:#fff;border:1px solid #0764f3;border-top:none;border-bottom-left-radius:6px;border-bottom-right-radius:6px;box-shadow:0 8px 24px rgba(0,0,0,0.1);z-index:100}
+.dropdown-panel.open{display:block}
+.dropdown-option{padding:12px 16px;font-family:'Roboto',sans-serif;font-size:16px;color:#161616;cursor:pointer;transition:background .15s,color .15s}
+.dropdown-option:hover{background:#0764f3;color:#fff}
+.dropdown-option.selected{background:#eef2ff;color:#0764f3;font-weight:500}
+.dropdown-option.selected:hover{background:#0764f3;color:#fff}
+.dropdown-panel::-webkit-scrollbar{width:6px}
+.dropdown-panel::-webkit-scrollbar-track{background:#f5f5f5;border-radius:0 0 6px 0}
+.dropdown-panel::-webkit-scrollbar-thumb{background:#ccc;border-radius:3px}
+.dropdown-panel::-webkit-scrollbar-thumb:hover{background:#aaa}
+.btn-primary{display:flex;align-items:center;justify-content:space-between;width:100%;max-width:380px;margin:0 auto;padding:16px 24px;font-family:'Roboto',sans-serif;font-size:19px;font-weight:500;color:#fff;background:#0764f3;border:none;border-radius:8px;cursor:pointer;transition:background .2s;text-align:left}
+.btn-primary:hover{background:#0558d4}
+.btn-primary .arrow{font-size:22px;opacity:0.8}
+.btn-primary:disabled{opacity:0.6;cursor:not-allowed}
+.micro-copy{font-family:'Roboto',sans-serif;font-size:16px;color:#000;text-align:center;margin-top:20px;line-height:1.6;max-width:380px;margin-left:auto;margin-right:auto}
+.loader-screen{text-align:center;padding:60px 20px}
+.loader-screen h2{font-family:'DM Serif Display',serif;font-size:38px;font-weight:400;color:#161616;margin-bottom:12px}
+.loader-screen h4{font-family:'Roboto',sans-serif;font-size:20px;font-weight:700;color:#161616;margin-bottom:40px}
+.spinner-wrap{position:relative;width:100px;height:100px;margin:0 auto 30px}
+.spinner-circle{width:100px;height:100px;border:3px solid #1a56db;border-radius:50%;animation:drawCircle 2s ease-in-out forwards}
+.checkmark{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:40px;height:40px;opacity:0}
+.checkmark polyline{stroke:#1a56db;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:50;stroke-dashoffset:50}
+.checkmark.show{opacity:1}
+.checkmark.show polyline{animation:drawCheck 0.5s ease-in-out forwards}
+@keyframes drawCircle{0%{stroke-dasharray:0 314;stroke-dashoffset:0}100%{stroke-dasharray:314 314;stroke-dashoffset:0}}
+@keyframes drawCheck{to{stroke-dashoffset:0}}
+.step{display:none}
+.step.active{display:block}
+.step.slide-in{animation:slideIn 0.35s ease-out}
+@keyframes slideIn{from{opacity:0;transform:translateX(30px)}to{opacity:1;transform:translateX(0)}}
+.call-heading{font-family:'DM Serif Display',serif;font-size:38px;font-weight:400;color:#161616;margin-bottom:8px}
+.call-sub{font-family:'Roboto',sans-serif;font-size:20px;font-weight:700;color:#161616;line-height:1.4;margin-bottom:32px}
+.call-card{background:#fafbff;border:1px solid #eef0f6;border-radius:12px;padding:32px 24px;text-align:center;margin-bottom:24px}
+.call-card-label{font-family:'Roboto',sans-serif;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:#555;margin-bottom:14px}
+.phone-cta{display:inline-flex;align-items:center;gap:12px;padding:16px 40px;font-family:'Roboto',sans-serif;font-size:22px;font-weight:700;color:#1a56db;background:rgba(63,135,246,0.1);border:1px solid #bfdbfe;border-radius:5px;text-decoration:none;transition:background .2s;letter-spacing:.02em;font-variant-numeric:tabular-nums}
+.phone-cta:hover{background:rgba(63,135,246,0.18)}
+.call-hours{font-family:'Roboto',sans-serif;font-size:14px;color:#555;margin-top:12px}
+.call-badges{display:flex;justify-content:center;gap:20px;margin-top:16px;padding-top:16px;border-top:1px solid #eef0f6;flex-wrap:wrap}
+.call-badge{font-family:'Roboto',sans-serif;font-size:13px;font-weight:600;color:#333;display:flex;align-items:center;gap:6px}
+.call-badge-check{color:#22c55e;font-size:16px}
+.call-context{background:#fafbff;border:1px solid #eef0f6;border-radius:8px;padding:16px 20px;font-family:'Roboto',sans-serif;font-size:14px;color:#555;line-height:1.6;text-align:left}
+.call-context strong{color:#1a56db;display:block;margin-bottom:6px;font-size:15px}
+.bbb-section{display:flex;align-items:center;gap:12px;margin-top:28px;justify-content:center}
+.bbb-section img{height:56px;width:auto}
+.bbb-text{text-align:left}
+.bbb-text h6{font-family:'Roboto',sans-serif;font-size:14px;font-weight:700;color:#161616;margin-bottom:2px}
+.bbb-text p{font-family:'Roboto',sans-serif;font-size:13px;color:#555}
+.site-footer{background:#fafbff;padding:28px 20px 20px;text-align:center;border-top:1px solid #eef0f6}
+.featured-label{font-family:'Roboto',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:#555;margin-bottom:16px}
+.featured-logos{display:flex;align-items:center;justify-content:center;gap:32px;margin-bottom:20px;flex-wrap:wrap}
+.featured-logos img{height:36px;width:auto;opacity:0.85;filter:grayscale(100%)}
+.footer-links{display:flex;justify-content:center;gap:20px;font-size:14px}
+.footer-links a{color:#555;text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:#161616;text-decoration:underline}
+.sticky-call{position:fixed;bottom:0;left:0;right:0;background:#1a56db;padding:10px 16px;box-shadow:0 -2px 12px rgba(0,0,0,0.15);z-index:999;text-align:center;transform:translateY(100%);transition:transform .3s}
+.sticky-call.show{transform:translateY(0)}
+.sticky-call a{color:#fff;font-size:18px;font-weight:700;text-decoration:none;font-family:'Roboto',sans-serif}
+.sticky-call .sticky-sub{display:block;font-size:11px;color:rgba(255,255,255,.7);margin-top:2px}
+@media(max-width:600px){
+  h2.main-heading,.call-heading,.loader-screen h2{font-size:30px}
+  .main-content{padding:24px 16px 16px}
+  .phone-cta{font-size:18px;padding:14px 28px}
+  .call-badges{flex-direction:column;align-items:center;gap:8px}
+}
+</style>
 </head>
 <body>
-    <header class="site-header"><span class="logo">GetTimeshareFree.com</span></header>
-    <section class="hero">
-        <h1>UPDATE: Some Timeshare Owners May Be Entitled To Cancellation &amp; Refunds</h1>
-        <p>Our legal team will make sure your timeshare is legally cancelled, and that you receive any cash settlement you may be owed.</p>
-        <img src="https://start.timesharecancellation.co/sgf-01-timeshare-relief/0ea6c942-736b-49f8-27bf-d70d0e036300.webp" alt="Consumer advocacy firm" style="width:auto; max-width:480px; height:auto; border-radius:8px; margin:16px auto 0; display:block;">
-    </section>
-    <main class="main-container">
-        <div class="quiz-wrapper">
-            <div class="quiz-card">
-                <!-- Step 1: Resort dropdown -->
-                <div class="step active" id="step-1">
-                    <p class="step-question">Which Company Did You Purchase Your Timeshare From?</p>
-                    <select class="form-select" id="resort-select">
-                        <option value="" disabled selected>Select Resort</option>
-                        <option value="Bluegreen">Bluegreen</option>
-                        <option value="Capital Vacations">Capital Vacations</option>
-                        <option value="Crown Resorts">Crown Resorts</option>
-                        <option value="Diamond">Diamond</option>
-                        <option value="Disney Vacation Club">Disney Vacation Club</option>
-                        <option value="ExPloria">ExPloria</option>
-                        <option value="Festiva">Festiva</option>
-                        <option value="Flagship">Flagship</option>
-                        <option value="Grandview">Grandview</option>
-                        <option value="Hilton">Hilton</option>
-                        <option value="Holiday Inn">Holiday Inn</option>
-                        <option value="Hyatt">Hyatt</option>
-                        <option value="Kings Creek">Kings Creek</option>
-                        <option value="Landex Resorts International, Inc">Landex Resorts International, Inc</option>
-                        <option value="Marriott">Marriott</option>
-                        <option value="Massanutten Resort">Massanutten Resort</option>
-                        <option value="Orange Lake Resort">Orange Lake Resort</option>
-                        <option value="RCI">RCI</option>
-                        <option value="Royal Holiday">Royal Holiday</option>
-                        <option value="Sapphire Resorts">Sapphire Resorts</option>
-                        <option value="Shell Vacation Club">Shell Vacation Club</option>
-                        <option value="Sheraton">Sheraton</option>
-                        <option value="Silverleaf">Silverleaf</option>
-                        <option value="Soliel Management">Soliel Management</option>
-                        <option value="Spinnaker">Spinnaker</option>
-                        <option value="Starwood Resorts">Starwood Resorts</option>
-                        <option value="Tahiti Village">Tahiti Village</option>
-                        <option value="Travel Resorts of America">Travel Resorts of America</option>
-                        <option value="Unlimited Vacation Club">Unlimited Vacation Club</option>
-                        <option value="Vacation Internationale">Vacation Internationale</option>
-                        <option value="Vacation Villages">Vacation Villages</option>
-                        <option value="Vidanta">Vidanta</option>
-                        <option value="Vistana">Vistana</option>
-                        <option value="Welk">Welk</option>
-                        <option value="Westgate">Westgate</option>
-                        <option value="Westin">Westin</option>
-                        <option value="Williamsburg Plantation">Williamsburg Plantation</option>
-                        <option value="Worldmark">Worldmark</option>
-                        <option value="Wyndham">Wyndham</option>
-                        <option value="Not Sure / Other">Not Sure / Other</option>
-                    </select>
-                    <button class="btn-continue" id="btn-step1" disabled>Continue</button>
-                </div>
-                <!-- Step 2: Loading -->
-                <div class="step" id="step-2">
-                    <p class="step-question">Reviewing your information...</p>
-                    <ul class="loading-list" id="loading-list">
-                        <li id="load-item-1"><span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span>Checking your answers</span></li>
-                        <li id="load-item-2"><span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span>Checking timeshare settlement database</span></li>
-                        <li id="load-item-3"><span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span><span>Confirming eligibility</span></li>
-                    </ul>
-                </div>
-                <!-- Step 3: Call -->
-                <div class="step" id="step-3">
-                    <div class="good-news-header">
-                        <h2>Good News! You May Qualify!</h2>
-                        <p>Based on your selection, there are strong indications your contract may be eligible for cancellation. Speak with a specialist to confirm your options.</p>
-                    </div>
-                    <div class="call-card">
-                        <p class="call-card-label">Speak with a cancellation specialist</p>
-                        <a href="tel:+18337870370" class="phone-cta">833-787-0370</a>
-                        <p class="call-hours">Available Mon-Sat, 8am-8pm ET</p>
-                        <div class="call-badges">
-                            <span class="call-badge"><span class="call-badge-check">&#10003;</span> Free Assessment</span>
-                            <span class="call-badge"><span class="call-badge-check">&#10003;</span> No Obligation</span>
-                            <span class="call-badge"><span class="call-badge-check">&#10003;</span> Attorney-Backed</span>
-                        </div>
-                    </div>
-                    <div class="call-context"><strong>What to expect on the call:</strong>Your specialist will ask a few questions about your contract, explain your legal options, and let you know if your case qualifies for cancellation. The call takes about 3 minutes. There is no cost and no obligation.</div>
-                </div>
-            </div>
-            <div class="trust-section">
-                <div class="trustpilot-badge">
-                    <div class="trustpilot-stars"><span class="star"><svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 17,14 19,22 12,17 5,22 7,14 2,9 9,9"/></svg></span><span class="star"><svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 17,14 19,22 12,17 5,22 7,14 2,9 9,9"/></svg></span><span class="star"><svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 17,14 19,22 12,17 5,22 7,14 2,9 9,9"/></svg></span><span class="star"><svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 17,14 19,22 12,17 5,22 7,14 2,9 9,9"/></svg></span><span class="star"><svg viewBox="0 0 24 24"><polygon points="12,2 15,9 22,9 17,14 19,22 12,17 5,22 7,14 2,9 9,9"/></svg></span></div>
-                    <span class="trustpilot-label">Excellent</span>
-                    <span class="trustpilot-rating">Based on 4,200+ reviews</span>
-                </div>
-            </div>
+
+<header class="site-header">
+  <div class="site-logo">
+    <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="20" cy="20" r="19" stroke="#c9a84c" stroke-width="1.5" fill="none"/>
+      <circle cx="20" cy="20" r="16" stroke="#c9a84c" stroke-width="0.5" fill="none"/>
+      <path d="M20 8 L26 14 L26 28 Q26 32 20 34 Q14 32 14 28 L14 14 Z" fill="none" stroke="#1a2744" stroke-width="1.5" stroke-linejoin="round"/>
+      <polyline points="16 21 19 24 25 17" fill="none" stroke="#c9a84c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span class="logo-text">GetTimeshareFree<span class="dot-com">.com</span></span>
+  </div>
+</header>
+
+<main class="main-content">
+  <div class="form-container">
+
+    <!-- Step 1: Resort dropdown -->
+    <div class="step active" id="step-resort">
+      <h2 class="main-heading">Is Your Timeshare On Our Immediate Cancellation List?</h2>
+      <p class="sub-text">Some owners may qualify for a refund of fees paid.</p>
+
+      <label class="select-label">Select your resort company</label>
+      <div class="custom-dropdown" id="resortDropdown">
+        <button type="button" class="dropdown-trigger" id="dropdownTrigger">
+          <span class="placeholder" id="dropdownLabel">Select Resort</span>
+          <svg class="chevron" viewBox="0 0 20 20" fill="none" stroke="#666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 8 10 13 15 8"/></svg>
+        </button>
+        <div class="dropdown-panel" id="dropdownPanel">
+          <div class="dropdown-option" data-value="Bluegreen">Bluegreen</div>
+          <div class="dropdown-option" data-value="Capital Vacations">Capital Vacations</div>
+          <div class="dropdown-option" data-value="Crown Resorts">Crown Resorts</div>
+          <div class="dropdown-option" data-value="Diamond">Diamond</div>
+          <div class="dropdown-option" data-value="Disney Vacation Club">Disney Vacation Club</div>
+          <div class="dropdown-option" data-value="ExPloria">ExPloria</div>
+          <div class="dropdown-option" data-value="Festiva">Festiva</div>
+          <div class="dropdown-option" data-value="Flagship">Flagship</div>
+          <div class="dropdown-option" data-value="Grandview">Grandview</div>
+          <div class="dropdown-option" data-value="Hilton">Hilton</div>
+          <div class="dropdown-option" data-value="Holiday Inn">Holiday Inn</div>
+          <div class="dropdown-option" data-value="Hyatt">Hyatt</div>
+          <div class="dropdown-option" data-value="Kings Creek">Kings Creek</div>
+          <div class="dropdown-option" data-value="Landex Resorts International, Inc">Landex Resorts International, Inc</div>
+          <div class="dropdown-option" data-value="Marriott">Marriott</div>
+          <div class="dropdown-option" data-value="Massanutten Resort">Massanutten Resort</div>
+          <div class="dropdown-option" data-value="Orange Lake Resort">Orange Lake Resort</div>
+          <div class="dropdown-option" data-value="RCI">RCI</div>
+          <div class="dropdown-option" data-value="Royal Holiday">Royal Holiday</div>
+          <div class="dropdown-option" data-value="Sapphire Resorts">Sapphire Resorts</div>
+          <div class="dropdown-option" data-value="Shell Vacation Club">Shell Vacation Club</div>
+          <div class="dropdown-option" data-value="Sheraton">Sheraton</div>
+          <div class="dropdown-option" data-value="Silverleaf">Silverleaf</div>
+          <div class="dropdown-option" data-value="Soliel Management">Soliel Management</div>
+          <div class="dropdown-option" data-value="Spinnaker">Spinnaker</div>
+          <div class="dropdown-option" data-value="Starwood Resorts">Starwood Resorts</div>
+          <div class="dropdown-option" data-value="Tahiti Village">Tahiti Village</div>
+          <div class="dropdown-option" data-value="Travel Resorts of America">Travel Resorts of America</div>
+          <div class="dropdown-option" data-value="Unlimited Vacation Club">Unlimited Vacation Club</div>
+          <div class="dropdown-option" data-value="Vacation Internationale">Vacation Internationale</div>
+          <div class="dropdown-option" data-value="Vacation Villages">Vacation Villages</div>
+          <div class="dropdown-option" data-value="Vidanta">Vidanta</div>
+          <div class="dropdown-option" data-value="Vistana">Vistana</div>
+          <div class="dropdown-option" data-value="Welk">Welk</div>
+          <div class="dropdown-option" data-value="Westgate">Westgate</div>
+          <div class="dropdown-option" data-value="Westin">Westin</div>
+          <div class="dropdown-option" data-value="Williamsburg Plantation">Williamsburg Plantation</div>
+          <div class="dropdown-option" data-value="Worldmark">Worldmark</div>
+          <div class="dropdown-option" data-value="Wyndham">Wyndham</div>
+          <div class="dropdown-option" data-value="Not Sure / Other">Not Sure / Other</div>
         </div>
-    </main>
-    <div class="sticky-call-bar" id="stickyCall"><a href="tel:+18337870370">833-787-0370</a><span class="sticky-sub">Free Case Review. No Obligation.</span></div>
-    <footer class="site-footer">
-        <div class="footer-links"><a href="#">Privacy Policy</a><a href="#">Terms of Use</a></div>
-        <div class="footer-disclaimer">
-            <p><strong>MARKETING DISCLOSURE:</strong> This website is a marketplace. As such you should know that the owner has a monetary connection to the products and services advertised on the site. The owner receives payment whenever a qualified lead is referred but that is the extent of it.</p>
-            <p><strong>ADVERTISING DISCLOSURE:</strong> This website and the products &amp; services referred to on the site are advertising marketplaces. This website is an advertisement and not a news publication. Any photographs of persons used on this site are models. The owner of this site and of the products and services referred to on this site only provides a service where consumers can obtain and compare.</p>
-            <p>&copy; 2026 GetTimeshareFree.com. All rights reserved. This site is not affiliated with, maintained, authorized, endorsed by, or sponsored by any timeshare company.</p>
+      </div>
+
+      <button class="btn-primary" id="btnCheck" disabled>
+        <span>Check Eligibility</span>
+        <span class="arrow">&rarr;</span>
+      </button>
+
+      <p class="micro-copy">Our system cross-references your resort with known cancellation precedents and active legal actions.</p>
+    </div>
+
+    <!-- Step: Loading -->
+    <div class="step" id="step-loading">
+      <div class="loader-screen">
+        <h2>Evaluating your answers ...</h2>
+        <h4>Give us just a moment</h4>
+        <div class="spinner-wrap">
+          <svg class="spinner-circle" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="46" fill="none" stroke="#1a56db" stroke-width="3" stroke-dasharray="0 289" stroke-linecap="round">
+              <animate attributeName="stroke-dasharray" values="0 289;289 289" dur="2s" fill="freeze"/>
+            </circle>
+          </svg>
+          <svg class="checkmark" id="checkmarkSvg" viewBox="0 0 40 40">
+            <polyline points="10 20 18 28 30 12"/>
+          </svg>
         </div>
-    </footer>
-    <script>
-    (function() {
-        function addTags(k,v){(window._rgba_tags=window._rgba_tags||[]).push(Object.defineProperty({},k,{value:v,enumerable:true}))}
-        addTags('LandingPage','ts-ppc-2');
-        var u=new URLSearchParams(window.location.search);
-        if(u.get('utm_campaign'))addTags('UTM_Campaign',u.get('utm_campaign'));
-        if(u.get('utm_source'))addTags('UTM_Source',u.get('utm_source'));
-        document.addEventListener('click',function(e){if(e.target.closest('a[href^="tel:"]'))addTags('CallInitiated','true')});
-        var sel=document.getElementById('resort-select'),btn=document.getElementById('btn-step1');
-        sel.addEventListener('change',function(){btn.disabled=!this.value;if(this.value)addTags('FormStarted','true')});
-        btn.addEventListener('click',function(){
-            if(!sel.value)return;
-            addTags('Resort',sel.value);addTags('FormCompleted','true');
-            document.getElementById('step-1').classList.remove('active');
-            document.getElementById('step-2').classList.add('active');
-            runLoading();
-        });
-        function runLoading(){
-            var items=document.querySelectorAll('#loading-list li'),d=0;
-            items.forEach(function(item){
-                item.className='';
-                setTimeout(function(){item.classList.add('show','loading');item.querySelector('.check-icon').innerHTML='<span class="loading-spinner"></span>'},d);
-                d+=700;
-                setTimeout(function(){item.classList.remove('loading');item.classList.add('done');item.querySelector('.check-icon').innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>'},d);
-                d+=500;
-            });
-            setTimeout(function(){document.getElementById('step-2').classList.remove('active');document.getElementById('step-3').classList.add('active');document.getElementById('stickyCall').classList.add('show')},d+400);
-        }
-    })();
-    </script>
+      </div>
+    </div>
+
+    <!-- Step: Call CTA -->
+    <div class="step" id="step-call">
+      <h2 class="call-heading">We evaluated your timeshare &#128588;</h2>
+      <p class="call-sub">Your timeshare could be eligible for <u>cancellation</u> and <u>refund</u>. Speak with a specialist to confirm your options.</p>
+      <div class="call-card">
+        <p class="call-card-label">Speak with a cancellation specialist</p>
+        <a href="tel:+18337870370" class="phone-cta" onclick="tagEvent('CallInitiated')">833-787-0370 &rarr;</a>
+        <p class="call-hours">Available Mon-Sat, 8am-8pm ET</p>
+        <div class="call-badges">
+          <span class="call-badge"><span class="call-badge-check">&#10003;</span> Free Assessment</span>
+          <span class="call-badge"><span class="call-badge-check">&#10003;</span> No Obligation</span>
+          <span class="call-badge"><span class="call-badge-check">&#10003;</span> Attorney-Backed</span>
+        </div>
+      </div>
+      <div class="call-context"><strong>What to expect on the call:</strong>Your specialist will ask a few questions about your contract, explain your legal options, and let you know if your case qualifies for cancellation. The call takes about 3 minutes. There is no cost and no obligation.</div>
+      <div class="bbb-section">
+        <img src="https://assets.prd.heyflow.com/flows/p4DnVxFGKf6aNGcqU4BE/www/assets/b58dc580-3d4a-4c53-9f7c-142dd3e0a361/original.webp" alt="BBB Accredited">
+        <div class="bbb-text">
+          <h6>The Stonegate Firm, LLC</h6>
+          <p>BBB Accredited and A+ Rated.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- Sticky call bar -->
+<div class="sticky-call" id="stickyCall">
+  <a href="tel:+18337870370" onclick="tagEvent('CallInitiated')">833-787-0370<span class="sticky-sub">Tap to speak with a specialist</span></a>
+</div>
+
+<footer class="site-footer">
+  <div class="featured-label">As featured in</div>
+  <div class="featured-logos">
+    <img src="https://assets.prd.heyflow.com/flows/p4DnVxFGKf6aNGcqU4BE/www/assets/fb4af1c0-c297-4314-9b4f-a487c565be0b.png" alt="Wall Street Journal">
+    <img src="https://assets.prd.heyflow.com/flows/p4DnVxFGKf6aNGcqU4BE/www/assets/0df4e375-ea2b-4b86-a3d2-e996dda9c037.png" alt="Forbes">
+    <img src="https://assets.prd.heyflow.com/flows/p4DnVxFGKf6aNGcqU4BE/www/assets/b6f422cc-9c43-432c-af36-900a2a267aff.png" alt="Readers Digest">
+    <img src="https://assets.prd.heyflow.com/flows/p4DnVxFGKf6aNGcqU4BE/www/assets/885ed6dd-539c-4765-b0ae-681547e8c79d.png" alt="FOX">
+  </div>
+  <div class="footer-links">
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms of Service</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var params = new URLSearchParams(window.location.search);
+  var utmCampaign = params.get('utm_campaign') || '';
+  var utmSource = params.get('utm_source') || '';
+  var selectedResort = '';
+
+  function tagEvent(name, extra) {
+    if (typeof window.__rba === 'undefined') window.__rba = [];
+    window.__rba.push(['tag', name]);
+    if (extra) {
+      for (var k in extra) {
+        if (extra.hasOwnProperty(k)) window.__rba.push(['tag', k, extra[k]]);
+      }
+    }
+  }
+  window.tagEvent = tagEvent;
+
+  // Initial tags
+  tagEvent('LandingPage', { LandingPage: 'ts-ppc-2' });
+  if (utmCampaign) tagEvent('UTM_Campaign', { UTM_Campaign: utmCampaign });
+  if (utmSource) tagEvent('UTM_Source', { UTM_Source: utmSource });
+
+  // Custom dropdown logic
+  var trigger = document.getElementById('dropdownTrigger');
+  var panel = document.getElementById('dropdownPanel');
+  var label = document.getElementById('dropdownLabel');
+  var btnCheck = document.getElementById('btnCheck');
+  var options = document.querySelectorAll('.dropdown-option');
+
+  trigger.addEventListener('click', function(e) {
+    e.stopPropagation();
+    var isOpen = panel.classList.contains('open');
+    if (isOpen) {
+      panel.classList.remove('open');
+      trigger.classList.remove('open');
+    } else {
+      panel.classList.add('open');
+      trigger.classList.add('open');
+    }
+  });
+
+  for (var i = 0; i < options.length; i++) {
+    options[i].addEventListener('click', function(e) {
+      e.stopPropagation();
+      var val = this.getAttribute('data-value');
+      selectedResort = val;
+      label.textContent = val;
+      label.classList.remove('placeholder');
+      // Remove selected from all
+      for (var j = 0; j < options.length; j++) options[j].classList.remove('selected');
+      this.classList.add('selected');
+      // Close panel
+      panel.classList.remove('open');
+      trigger.classList.remove('open');
+      // Enable button
+      btnCheck.disabled = false;
+    });
+  }
+
+  // Close on outside click
+  document.addEventListener('click', function() {
+    panel.classList.remove('open');
+    trigger.classList.remove('open');
+  });
+
+  function showStep(id) {
+    var steps = document.querySelectorAll('.step');
+    for (var i = 0; i < steps.length; i++) {
+      steps[i].classList.remove('active', 'slide-in');
+    }
+    var el = document.getElementById(id);
+    el.classList.add('active', 'slide-in');
+  }
+
+  btnCheck.addEventListener('click', function() {
+    if (!selectedResort) return;
+
+    tagEvent('FormStarted');
+    tagEvent('Resort', { Resort: selectedResort });
+
+    showStep('step-loading');
+
+    setTimeout(function() {
+      document.getElementById('checkmarkSvg').classList.add('show');
+    }, 2200);
+
+    setTimeout(function() {
+      tagEvent('FormCompleted');
+      showStep('step-call');
+      document.getElementById('stickyCall').classList.add('show');
+    }, 3500);
+  });
+})();
+</script>
 </body>
 </html>
