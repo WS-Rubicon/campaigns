@@ -421,7 +421,7 @@
     // Exit intent (desktop)
     var exitShown = false;
     document.addEventListener('mouseout', function(e) {
-      if (e.clientY > 50 || exitShown) return;
+      if (e.clientY >= 0 || exitShown) return;
       exitShown = true;
       showExitOverlay();
     });
