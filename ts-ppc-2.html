@@ -549,27 +549,16 @@
 
     <script>
     (function() {
-        var SG_URL = 'https://here.everydayamericanoffers.com/68e374a8246ae5e16b8347ea';
-        var DQ_RESORTS = ['Westgate'];
-
         function addTags(key, value) {
             (window._rgba_tags = window._rgba_tags || []).push(
                 Object.defineProperty({}, key, { value: value, enumerable: true })
             );
         }
 
-        function buildSgUrl() {
-            var params = new URLSearchParams(window.location.search);
-            var dest = new URL(SG_URL);
-            ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','sub1','sub2','sub3','sub4','sub5','sub6','sub7','sub8'].forEach(function(k) {
-                if (params.has(k)) dest.searchParams.set(k, params.get(k));
-            });
-            return dest.toString();
-        }
-
         addTags('LandingPage', 'ts-ppc-2');
         var urlParams = new URLSearchParams(window.location.search);
         if (urlParams.get('utm_campaign')) addTags('UTM_Campaign', urlParams.get('utm_campaign'));
+        if (urlParams.get('utm_source')) addTags('UTM_Source', urlParams.get('utm_source'));
 
         var resortBtns = document.querySelectorAll('.resort-btn');
 
@@ -580,13 +569,6 @@
                 addTags('Resort', resort);
                 addTags('FormStarted', 'true');
                 addTags('FormCompleted', 'true');
-
-                var isDQ = DQ_RESORTS.indexOf(resort) !== -1;
-
-                if (isDQ) {
-                    setTimeout(function() { window.location.href = buildSgUrl(); }, 50);
-                    return;
-                }
 
                 showLoading(resort);
             });
