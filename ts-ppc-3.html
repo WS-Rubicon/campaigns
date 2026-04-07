@@ -457,8 +457,8 @@
 
     <!-- Hero -->
     <section class="hero">
-        <h1>UPDATE: Some Timeshare Owners May Be Entitled To Cancellation &amp; Refunds</h1>
-        <p>Our legal team will make sure your timeshare is legally cancelled, and that you receive any cash settlement you may be owed.</p>
+        <h1>What The Resort Industry And Contract Structure That Keep Owners Paying For Years Hope You Never Find Out</h1>
+        <p>I looked at the bill again. Then I saw how waiting helped the resort industry. And contract structure that keep owners paying for years, not me.</p>
         <img src="https://start.timesharecancellation.co/sgf-01-timeshare-relief/0ea6c942-736b-49f8-27bf-d70d0e036300.webp" alt="Consumer advocacy firm turns up heat on timeshare resorts" style="width:auto; max-width:480px; height:auto; border-radius:8px; margin:16px auto 0; display:block;">
     </section>
 
@@ -469,7 +469,7 @@
 
                 <!-- Step 1: Resort Selection -->
                 <div class="step active" id="step-1" data-step="1">
-                    <p class="step-question">Which Company Did You Purchase Your Timeshare From?</p>
+                    <p class="step-question">Which Resort Company Is Still Taking Your Money Every Year?</p>
                     <select class="form-select" id="resort-select">
                         <option value="" disabled selected>Select Resort</option>
                         <option value="Bluegreen">Bluegreen</option>
@@ -516,35 +516,8 @@
                     <button class="btn-continue" id="btn-step1" disabled>Continue</button>
                 </div>
 
-                <!-- Step 2: Misled -->
+                <!-- Step 2: Loading -->
                 <div class="step" id="step-2" data-step="2">
-                    <p class="step-question">Were you lied to or misled when buying your timeshare?</p>
-                    <div class="choice-group">
-                        <button class="btn-choice" onclick="answerChoice(2, 'misled', 'Yes')">Yes</button>
-                        <button class="btn-choice" onclick="answerChoice(2, 'misled', 'No')">No</button>
-                    </div>
-                </div>
-
-                <!-- Step 3: Mortgage -->
-                <div class="step" id="step-3" data-step="3">
-                    <p class="step-question">Do you have a mortgage on your timeshare?</p>
-                    <div class="choice-group">
-                        <button class="btn-choice" onclick="answerChoice(3, 'mortgage', 'Yes')">Yes</button>
-                        <button class="btn-choice" onclick="answerChoice(3, 'mortgage', 'No')">No</button>
-                    </div>
-                </div>
-
-                <!-- Step 4: Reward -->
-                <div class="step" id="step-4" data-step="4">
-                    <p class="step-question">Were you offered a reward to attend the timeshare sales presentation?</p>
-                    <div class="choice-group">
-                        <button class="btn-choice" onclick="answerChoice(4, 'reward', 'Yes')">Yes</button>
-                        <button class="btn-choice" onclick="answerChoice(4, 'reward', 'No')">No</button>
-                    </div>
-                </div>
-
-                <!-- Step 5: Loading -->
-                <div class="step" id="step-5" data-step="5">
                     <p class="step-question">Reviewing your information...</p>
                     <ul class="loading-list" id="loading-list">
                         <li id="load-item-1">
@@ -568,11 +541,11 @@
                     </ul>
                 </div>
 
-                <!-- Step 6: Call CTA (replaces lead form) -->
-                <div class="step" id="step-6" data-step="6">
+                <!-- Step 3: Call -->
+                <div class="step" id="step-3" data-step="3">
                     <div class="good-news-header">
                         <h2>Good News! You May Qualify!</h2>
-                        <p>Based on your answers, there are strong indications your contract may be eligible for cancellation. Speak with a specialist to confirm your options.</p>
+                        <p>Based on what you told us. There are strong signs your contract has the kind of language that gets people out. A specialist can look at your situation and tell you for sure.</p>
                     </div>
 
                     <div class="call-card">
@@ -587,8 +560,8 @@
                     </div>
 
                     <div class="call-context">
-                        <strong>What to expect on the call:</strong>
-                        Your specialist will ask a few questions about your contract, explain your legal options, and let you know if your case qualifies for cancellation. The call takes about 3 minutes. There is no cost and no obligation.
+                        <strong>What happens when you call:</strong>
+                        They ask you a couple questions about your contract. They tell you if your situation has grounds for getting out. The whole thing takes about 3 minutes. Nobody asks for money. Nobody asks for a credit card. If you don't qualify they just tell you that and you hang up.
                     </div>
                 </div>
 
@@ -641,7 +614,7 @@
             );
         }
 
-        addTags('LandingPage', 'ts-ppc-3');
+        addTags('LandingPage', 'ts-ppc-3-dumb');
         var urlParams = new URLSearchParams(window.location.search);
         if (urlParams.get('utm_campaign')) addTags('UTM_Campaign', urlParams.get('utm_campaign'));
         if (urlParams.get('utm_source')) addTags('UTM_Source', urlParams.get('utm_source'));
@@ -653,35 +626,6 @@
             }
         });
 
-        // Quiz data
-        var quizData = {};
-        var currentStep = 1;
-
-        // Step navigation
-        function goToStep(n) {
-            document.querySelectorAll('.step').forEach(function(s) {
-                s.classList.remove('active');
-            });
-            var target = document.getElementById('step-' + n);
-            if (target) {
-                target.classList.add('active');
-                currentStep = n;
-            }
-
-            if (n === 5) {
-                runLoadingSequence();
-            }
-
-            if (n === 6) {
-                addTags('FormCompleted', 'true');
-                addTags('Resort', quizData.resort || '');
-                addTags('Misled', quizData.misled || '');
-                addTags('Mortgage', quizData.mortgage || '');
-                addTags('Reward', quizData.reward || '');
-                document.getElementById('stickyCall').classList.add('show');
-            }
-        }
-
         // Step 1: Resort select
         var resortSelect = document.getElementById('resort-select');
         var btnStep1 = document.getElementById('btn-step1');
@@ -692,44 +636,24 @@
         });
 
         btnStep1.addEventListener('click', function() {
-            if (resortSelect.value) {
-                quizData.resort = resortSelect.value;
-                goToStep(2);
-            }
+            if (!resortSelect.value) return;
+            addTags('Resort', resortSelect.value);
+            addTags('FormCompleted', 'true');
+            document.getElementById('step-1').classList.remove('active');
+            document.getElementById('step-2').classList.add('active');
+            runLoading();
         });
 
-        // Steps 2-4: Yes/No
-        window.answerChoice = function(step, key, value) {
-            quizData[key] = value;
-            goToStep(step + 1);
-        };
-
-        // Step 5: Loading sequence
-        function runLoadingSequence() {
-            var items = document.querySelectorAll('#loading-list li');
-            var delay = 0;
-
-            items.forEach(function(item, i) {
+        function runLoading() {
+            var items = document.querySelectorAll('#loading-list li'), d = 0;
+            items.forEach(function(item) {
                 item.className = '';
-                setTimeout(function() {
-                    item.classList.add('show', 'loading');
-                    item.querySelector('.check-icon').innerHTML = '<span class="loading-spinner"></span>';
-                }, delay);
-
-                delay += 700;
-
-                setTimeout(function() {
-                    item.classList.remove('loading');
-                    item.classList.add('done');
-                    item.querySelector('.check-icon').innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
-                }, delay);
-
-                delay += 500;
+                setTimeout(function() { item.classList.add('show', 'loading'); item.querySelector('.check-icon').innerHTML = '<span class="loading-spinner"></span>'; }, d);
+                d += 700;
+                setTimeout(function() { item.classList.remove('loading'); item.classList.add('done'); item.querySelector('.check-icon').innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>'; }, d);
+                d += 500;
             });
-
-            setTimeout(function() {
-                goToStep(6);
-            }, delay + 400);
+            setTimeout(function() { document.getElementById('step-2').classList.remove('active'); document.getElementById('step-3').classList.add('active'); document.getElementById('stickyCall').classList.add('show'); }, d + 400);
         }
     })();
     </script>
