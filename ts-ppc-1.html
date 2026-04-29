@@ -153,12 +153,41 @@ p.sub-text{font-family:'Roboto',sans-serif;font-size:19px;color:#000;line-height
       </div>
     </div>
 
+    <!-- Step: Paid-in-full Call CTA -->
+    <div class="step" id="step-call-paid-in-full">
+      <h2 class="call-heading">We evaluated your timeshare &#128588;</h2>
+      <p class="call-sub">Your timeshare could be eligible for <u>cancellation</u> and <u>refund</u>. Speak with a specialist to confirm your options.</p>
+      <div class="call-card">
+        <p class="call-card-label">Speak with a cancellation specialist</p>
+        <a href="tel:+18337870370" class="phone-cta" onclick="tagEvent('CallInitiated'); tagEvent('PaidInFullCallInitiated')">833-787-0370 &rarr;</a>
+        <p class="call-hours">Available Mon-Sat, 8am-8pm ET</p>
+        <div class="call-badges">
+          <span class="call-badge"><span class="call-badge-check">&#10003;</span> Free Assessment</span>
+          <span class="call-badge"><span class="call-badge-check">&#10003;</span> No Obligation</span>
+          <span class="call-badge"><span class="call-badge-check">&#10003;</span> Attorney-Backed</span>
+        </div>
+      </div>
+      <div class="call-context"><strong>What to expect on the call:</strong>Your specialist will ask a few questions about your contract, explain your legal options, and let you know if your case qualifies for cancellation. The call takes about 3 minutes. There is no cost and no obligation.</div>
+      <div class="bbb-section">
+        <img src="https://assets.prd.heyflow.com/flows/p4DnVxFGKf6aNGcqU4BE/www/assets/b58dc580-3d4a-4c53-9f7c-142dd3e0a361/original.webp" alt="BBB Accredited">
+        <div class="bbb-text">
+          <h6>The Stonegate Firm, LLC</h6>
+          <p>BBB Accredited and A+ Rated.</p>
+        </div>
+      </div>
+    </div>
+
   </div>
 </main>
 
 <!-- Sticky call bar -->
 <div class="sticky-call" id="stickyCall">
   <a href="tel:+18337870370" onclick="tagEvent('CallInitiated')">833-787-0370<span class="sticky-sub">Tap to speak with a specialist</span></a>
+</div>
+
+<!-- Paid-in-full sticky call bar -->
+<div class="sticky-call" id="stickyCallPaidInFull">
+  <a href="tel:+18337870370" onclick="tagEvent('CallInitiated'); tagEvent('PaidInFullCallInitiated')">833-787-0370<span class="sticky-sub">Tap to speak with a specialist</span></a>
 </div>
 
 <footer class="site-footer">
@@ -181,7 +210,6 @@ p.sub-text{font-family:'Roboto',sans-serif;font-size:19px;color:#000;line-height
   var params = new URLSearchParams(window.location.search);
   var utmCampaign = params.get('utm_campaign') || '';
   var utmSource = params.get('utm_source') || '';
-  var paidInFullUrl = 'https://hpkpn.ttrk.io/click';
 
   function tagEvent(name, extra) {
     if (typeof window.__rba === 'undefined') window.__rba = [];
@@ -211,12 +239,11 @@ p.sub-text{font-family:'Roboto',sans-serif;font-size:19px;color:#000;line-height
     el.classList.add('active', 'slide-in');
   }
 
-  function buildRedirectUrl(baseUrl) {
-    var url = new URL(baseUrl, window.location.href);
-    params.forEach(function(value, key) {
-      if (!url.searchParams.has(key)) url.searchParams.set(key, value);
-    });
-    return url.toString();
+  function hideStickyCalls() {
+    var stickyBars = document.querySelectorAll('.sticky-call');
+    for (var i = 0; i < stickyBars.length; i++) {
+      stickyBars[i].classList.remove('show');
+    }
   }
 
   window.selectMortgageStatus = function(btn) {
@@ -232,16 +259,8 @@ p.sub-text{font-family:'Roboto',sans-serif;font-size:19px;color:#000;line-height
 
     // Go to loading after brief delay
     setTimeout(function() {
+      hideStickyCalls();
       showStep('step-loading');
-
-      if (answer === 'Paid In Full') {
-        tagEvent('FormCompleted');
-        tagEvent('PaidInFullRedirect');
-        setTimeout(function() {
-          window.location.href = buildRedirectUrl(paidInFullUrl);
-        }, 900);
-        return;
-      }
 
       // Show checkmark at 2.2s
       setTimeout(function() {
@@ -251,6 +270,13 @@ p.sub-text{font-family:'Roboto',sans-serif;font-size:19px;color:#000;line-height
       // Show call step at 3.5s
       setTimeout(function() {
         tagEvent('FormCompleted');
+        if (answer === 'Paid In Full') {
+          tagEvent('PaidInFullCallShown');
+          showStep('step-call-paid-in-full');
+          document.getElementById('stickyCallPaidInFull').classList.add('show');
+          return;
+        }
+
         showStep('step-call');
         document.getElementById('stickyCall').classList.add('show');
       }, 3500);
