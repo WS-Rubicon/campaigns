@@ -101,13 +101,13 @@ p.sub-text{font-family:'Roboto',sans-serif;font-size:19px;color:#000;line-height
 <main class="main-content">
   <div class="form-container">
 
-    <!-- Step 1: Misled question -->
+    <!-- Step 1: Mortgage filter question -->
     <div class="step active" id="step-question">
-      <h2 class="main-heading">Were you misled during the purchase of your timeshare?</h2>
-      <p class="sub-text">Some owners may qualify for a refund of fees paid.</p>
+      <h2 class="main-heading">Do you currently have a mortgage or loan on your timeshare?</h2>
+      <p class="sub-text">This helps route you to the right timeshare exit option.</p>
       <div class="choices horizontal">
-        <button class="choice-btn" data-answer="Yes" onclick="selectMisled(this)"><span>YES</span><span class="radio-circle"></span></button>
-        <button class="choice-btn" data-answer="No" onclick="selectMisled(this)"><span>NO</span><span class="radio-circle"></span></button>
+        <button class="choice-btn" data-answer="Has Mortgage" onclick="selectMortgageStatus(this)"><span>YES</span><span class="radio-circle"></span></button>
+        <button class="choice-btn" data-answer="Paid In Full" onclick="selectMortgageStatus(this)"><span>PAID IN FULL</span><span class="radio-circle"></span></button>
       </div>
     </div>
 
@@ -181,6 +181,7 @@ p.sub-text{font-family:'Roboto',sans-serif;font-size:19px;color:#000;line-height
   var params = new URLSearchParams(window.location.search);
   var utmCampaign = params.get('utm_campaign') || '';
   var utmSource = params.get('utm_source') || '';
+  var paidInFullUrl = 'https://hpkpn.ttrk.io/click';
 
   function tagEvent(name, extra) {
     if (typeof window.__rba === 'undefined') window.__rba = [];
@@ -210,7 +211,15 @@ p.sub-text{font-family:'Roboto',sans-serif;font-size:19px;color:#000;line-height
     el.classList.add('active', 'slide-in');
   }
 
-  window.selectMisled = function(btn) {
+  function buildRedirectUrl(baseUrl) {
+    var url = new URL(baseUrl, window.location.href);
+    params.forEach(function(value, key) {
+      if (!url.searchParams.has(key)) url.searchParams.set(key, value);
+    });
+    return url.toString();
+  }
+
+  window.selectMortgageStatus = function(btn) {
     var answer = btn.getAttribute('data-answer');
     // Highlight selection
     var btns = document.querySelectorAll('.choice-btn');
@@ -219,11 +228,20 @@ p.sub-text{font-family:'Roboto',sans-serif;font-size:19px;color:#000;line-height
 
     // Tag events
     tagEvent('FormStarted');
-    tagEvent('Misled', { Misled: answer });
+    tagEvent('TimeshareMortgage', { TimeshareMortgage: answer });
 
     // Go to loading after brief delay
     setTimeout(function() {
       showStep('step-loading');
+
+      if (answer === 'Paid In Full') {
+        tagEvent('FormCompleted');
+        tagEvent('PaidInFullRedirect');
+        setTimeout(function() {
+          window.location.href = buildRedirectUrl(paidInFullUrl);
+        }, 900);
+        return;
+      }
 
       // Show checkmark at 2.2s
       setTimeout(function() {
