@@ -45,6 +45,8 @@ p.sub-text{font-family:'Roboto',sans-serif;font-size:19px;color:#000;line-height
 .btn-primary:hover,.btn-cta:hover{background:#0558d4}
 .btn-primary .arrow,.btn-cta .arrow{font-size:22px;opacity:0.8}
 .btn-primary:disabled{opacity:0.6;cursor:not-allowed}
+.phone-cta{display:inline-flex;align-items:center;gap:12px;padding:16px 40px;font-family:'Roboto',sans-serif;font-size:22px;font-weight:700;color:#1a56db;background:rgba(63,135,246,0.1);border:1px solid #bfdbfe;border-radius:5px;text-decoration:none;transition:background .2s;letter-spacing:.02em;font-variant-numeric:tabular-nums}
+.phone-cta:hover{background:rgba(63,135,246,0.18)}
 .micro-copy{font-family:'Roboto',sans-serif;font-size:16px;color:#000;text-align:center;margin-top:20px;line-height:1.6;max-width:380px;margin-left:auto;margin-right:auto}
 .loader-screen{text-align:center;padding:60px 20px}
 .loader-screen h2{font-family:'DM Serif Display',serif;font-size:38px;font-weight:400;color:#161616;margin-bottom:12px}
@@ -91,6 +93,7 @@ p.sub-text{font-family:'Roboto',sans-serif;font-size:19px;color:#000;line-height
   h2.main-heading,.call-heading,.loader-screen h2{font-size:30px}
   .main-content{padding:24px 16px 16px}
   .btn-cta,.btn-primary{font-size:17px;padding:14px 20px}
+  .phone-cta{font-size:18px;padding:14px 28px}
   .call-badges{flex-direction:column;align-items:center;gap:8px}
 }
 </style>
@@ -175,8 +178,8 @@ p.sub-text{font-family:'Roboto',sans-serif;font-size:19px;color:#000;line-height
       <h2 class="call-heading">We checked your solar company</h2>
       <p class="call-sub">Your solar contract may qualify for a free review. A specialist can look at your lease, PPA, or financing agreement and tell you what options are available.</p>
       <div class="call-card">
-        <p class="call-card-label">Continue to free solar contract review</p>
-        <a href="https://hpkpn.ttrk.io/click" class="btn-cta js-offer-link" onclick="tagEvent('ReviewClick')"><span>See My Review Options</span><span class="arrow">&rarr;</span></a>
+        <p class="call-card-label">Speak with a solar contract specialist</p>
+        <a href="tel:+18557690047" class="phone-cta" onclick="tagEvent('CallInitiated')">855-769-0047 &rarr;</a>
         <p class="call-hours">No SSN required. No upfront commitment.</p>
         <div class="call-badges">
           <span class="call-badge"><span class="call-badge-check">&#10003;</span> Free Review</span>
@@ -198,7 +201,7 @@ p.sub-text{font-family:'Roboto',sans-serif;font-size:19px;color:#000;line-height
 </main>
 
 <div class="sticky-cta" id="stickyCta">
-  <a href="https://hpkpn.ttrk.io/click" class="js-offer-link" onclick="tagEvent('StickyReviewClick')">See My Review Options<span class="sticky-sub">Continue to free solar contract review</span></a>
+  <a href="tel:+18557690047" onclick="tagEvent('CallInitiated')">855-769-0047<span class="sticky-sub">Tap to speak with a specialist</span></a>
 </div>
 
 <footer class="site-footer">
@@ -217,26 +220,6 @@ p.sub-text{font-family:'Roboto',sans-serif;font-size:19px;color:#000;line-height
 
 <script>
 (function(){
-  var BASE_URL = 'https://hpkpn.ttrk.io/click';
-  var params = new URLSearchParams(window.location.search);
-  var selectedCompany = '';
-  var trackingKeys = ['cmpid','sub1','sub2','sub3','sub4','sub5','sub6','sub7','sub8','sub9','sub10','utm_source','utm_medium','utm_campaign','ref_id','clickid','rt_clickid','rtkcid'];
-  var trackingParams = {};
-
-  function clean(v) {
-    if (!v) return '';
-    v = String(v).trim();
-    return v && v !== 'undefined' && v !== 'null' ? v : '';
-  }
-
-  for (var i = 0; i < trackingKeys.length; i++) {
-    var key = trackingKeys[i];
-    var val = clean(params.get(key));
-    if (val) trackingParams[key] = val;
-  }
-
-  if (trackingParams.rtkcid && !trackingParams.clickid) trackingParams.clickid = trackingParams.rtkcid;
-
   function tagEvent(name, extra) {
     if (typeof window.__rba === 'undefined') window.__rba = [];
     window.__rba.push(['tag', name]);
@@ -248,29 +231,14 @@ p.sub-text{font-family:'Roboto',sans-serif;font-size:19px;color:#000;line-height
   }
   window.tagEvent = tagEvent;
 
+  var params = new URLSearchParams(window.location.search);
   tagEvent('LandingPage', { LandingPage: 'se-ppc-1' });
-  if (trackingParams.utm_campaign) tagEvent('UTM_Campaign', { UTM_Campaign: trackingParams.utm_campaign });
-  if (trackingParams.utm_source) tagEvent('UTM_Source', { UTM_Source: trackingParams.utm_source });
+  var utmCampaign = params.get('utm_campaign');
+  var utmSource = params.get('utm_source');
+  if (utmCampaign) tagEvent('UTM_Campaign', { UTM_Campaign: utmCampaign });
+  if (utmSource) tagEvent('UTM_Source', { UTM_Source: utmSource });
 
-  function applyTrackingLinks() {
-    var links = document.querySelectorAll('.js-offer-link');
-    for (var i = 0; i < links.length; i++) {
-      try {
-        var u = new URL(BASE_URL);
-        for (var k in trackingParams) {
-          if (trackingParams.hasOwnProperty(k) && k !== 'rtkcid') u.searchParams.set(k, trackingParams[k]);
-        }
-        u.searchParams.set('sub3', 'solar-exit-company-check');
-        u.searchParams.set('sub4', 'Wesley');
-        u.searchParams.set('sub5', 'se-ppc-1');
-        if (selectedCompany) u.searchParams.set('sub10', selectedCompany);
-        links[i].href = u.toString();
-      } catch (e) {
-        links[i].href = BASE_URL;
-      }
-    }
-  }
-
+  var selectedCompany = '';
   var trigger = document.getElementById('dropdownTrigger');
   var panel = document.getElementById('dropdownPanel');
   var label = document.getElementById('dropdownLabel');
@@ -295,7 +263,6 @@ p.sub-text{font-family:'Roboto',sans-serif;font-size:19px;color:#000;line-height
       panel.classList.remove('open');
       trigger.classList.remove('open');
       btnCheck.disabled = false;
-      applyTrackingLinks();
     });
   }
 
@@ -325,11 +292,8 @@ p.sub-text{font-family:'Roboto',sans-serif;font-size:19px;color:#000;line-height
       tagEvent('FormCompleted');
       showStep('step-result');
       document.getElementById('stickyCta').classList.add('show');
-      applyTrackingLinks();
     }, 3500);
   });
-
-  applyTrackingLinks();
 })();
 </script>
 <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
