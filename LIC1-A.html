@@ -249,6 +249,35 @@
             background: #e9f7f0;
         }
 
+        /* ── Answer Affirmation ── */
+        .affirm {
+            display: none;
+            align-items: flex-start;
+            gap: 10px;
+            margin-top: 14px;
+            padding: 12px 14px;
+            background: #e2fbef;
+            border: 1px solid #7fd8ab;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #0b5c40;
+            line-height: 1.45;
+        }
+        .affirm.show { display: flex; animation: fadeUp 0.25s ease; }
+        .affirm .affirm-check {
+            width: 18px; height: 18px;
+            background: #0b6c5f;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
         /* ── Processing Screen ── */
         .processing-text {
             text-align: center;
@@ -454,11 +483,12 @@
                     <p class="q-label">Question 1 of 3</p>
                     <p class="q-text">What is your age range?</p>
                     <div class="answers">
-                        <button class="answer-btn" data-next="2" data-echo="30 to 39"><span class="radio"></span>30 to 39</button>
-                        <button class="answer-btn" data-next="2" data-echo="40 to 49"><span class="radio"></span>40 to 49</button>
-                        <button class="answer-btn" data-next="2" data-echo="50 to 59"><span class="radio"></span>50 to 59</button>
-                        <button class="answer-btn" data-next="2" data-echo="60 to 70"><span class="radio"></span>60 to 70</button>
+                        <button class="answer-btn" data-next="2" data-echo="30 to 39" data-affirm="Great news. Applicants in their 30s often see the lowest available rates."><span class="radio"></span>30 to 39</button>
+                        <button class="answer-btn" data-next="2" data-echo="40 to 49" data-affirm="Great news. Your 40s are still a strong window for low rate options."><span class="radio"></span>40 to 49</button>
+                        <button class="answer-btn" data-next="2" data-echo="50 to 59" data-affirm="Good news. Many applicants in their 50s still qualify for full coverage options."><span class="radio"></span>50 to 59</button>
+                        <button class="answer-btn" data-next="2" data-echo="60 to 70" data-affirm="Good news. Coverage options in this age range are still open, including no exam options."><span class="radio"></span>60 to 70</button>
                     </div>
+                    <div class="affirm"><span class="affirm-check">&#10003;</span><span class="affirm-text"></span></div>
                 </div>
 
                 <!-- Q2: status question -->
@@ -466,11 +496,12 @@
                     <p class="q-label">Question 2 of 3</p>
                     <p class="q-text">How much coverage would you want in place for your family?</p>
                     <div class="answers">
-                        <button class="answer-btn" data-next="3"><span class="radio"></span>$250,000</button>
-                        <button class="answer-btn" data-next="3"><span class="radio"></span>$500,000</button>
-                        <button class="answer-btn" data-next="3"><span class="radio"></span>$1,000,000</button>
-                        <button class="answer-btn" data-next="3"><span class="radio"></span>Not sure, show me what I may qualify for</button>
+                        <button class="answer-btn" data-next="3" data-affirm="Smart pick. $250,000 is one of the most common amounts families lock in."><span class="radio"></span>$250,000</button>
+                        <button class="answer-btn" data-next="3" data-affirm="Smart pick. $500,000 is one of the most requested amounts for family protection."><span class="radio"></span>$500,000</button>
+                        <button class="answer-btn" data-next="3" data-affirm="Great choice. Your review will include options up to $1,000,000."><span class="radio"></span>$1,000,000</button>
+                        <button class="answer-btn" data-next="3" data-affirm="No problem. Your specialist can walk you through every amount you may qualify for."><span class="radio"></span>Not sure, show me what I may qualify for</button>
                     </div>
+                    <div class="affirm"><span class="affirm-check">&#10003;</span><span class="affirm-text"></span></div>
                 </div>
 
                 <!-- Q3: desire question, primes the call page benefit list -->
@@ -478,11 +509,12 @@
                     <p class="q-label">Question 3 of 3</p>
                     <p class="q-text">Who would this coverage help protect?</p>
                     <div class="answers">
-                        <button class="answer-btn" data-next="processing"><span class="radio"></span>My spouse</button>
-                        <button class="answer-btn" data-next="processing"><span class="radio"></span>My children &amp; grandchildren</button>
-                        <button class="answer-btn" data-next="processing"><span class="radio"></span>My family home &amp; mortgage</button>
-                        <button class="answer-btn" data-next="processing"><span class="radio"></span>Final expenses &amp; funeral costs</button>
+                        <button class="answer-btn" data-next="processing" data-affirm="That is exactly what this coverage is built for. Checking spousal protection options now."><span class="radio"></span>My spouse</button>
+                        <button class="answer-btn" data-next="processing" data-affirm="Noted. Family protection options will be prioritized in your review."><span class="radio"></span>My children &amp; grandchildren</button>
+                        <button class="answer-btn" data-next="processing" data-affirm="Noted. Mortgage protection is one of the most common uses of this benefit."><span class="radio"></span>My family home &amp; mortgage</button>
+                        <button class="answer-btn" data-next="processing" data-affirm="Noted. Final expense protection options will be included in your review."><span class="radio"></span>Final expenses &amp; funeral costs</button>
                     </div>
+                    <div class="affirm"><span class="affirm-check">&#10003;</span><span class="affirm-text"></span></div>
                 </div>
 
                 <!-- Processing -->
@@ -556,8 +588,10 @@
                 var next = btn.getAttribute('data-next');
                 var screen = btn.closest('.screen');
 
-                // visual select
+                // visual select + lock this screen's answers
                 btn.classList.add('selected');
+                var answersBox = screen.querySelector('.answers');
+                if (answersBox) answersBox.style.pointerEvents = 'none';
 
                 // Q1 answer echo into result headline
                 var echo = btn.getAttribute('data-echo');
@@ -566,6 +600,16 @@
                     if (titleEl) {
                         titleEl.textContent = 'Based on Your Age Range (' + echo + '), You May Qualify';
                     }
+                }
+
+                // personal affirmation line before advancing
+                var advanceDelay = 300;
+                var affirmMsg = btn.getAttribute('data-affirm');
+                var affirmEl = screen.querySelector('.affirm');
+                if (affirmMsg && affirmEl) {
+                    affirmEl.querySelector('.affirm-text').textContent = affirmMsg;
+                    affirmEl.classList.add('show');
+                    advanceDelay = 1500;
                 }
 
                 setTimeout(function() {
@@ -594,7 +638,7 @@
                         label.textContent = (nextNum - 1) + ' of ' + total;
                         document.getElementById('s' + next).classList.add('active');
                     }
-                }, 300);
+                }, advanceDelay);
             });
         });
         /* Reservation countdown (10 minutes) */
