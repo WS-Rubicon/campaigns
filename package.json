@@ -1,0 +1,8 @@
+{
+  "name": "campaigns-landers",
+  "private": true,
+  "description": "Static landers + Netlify functions for clearpathbenefitstoday.com",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.74.0"
+  }
+}
