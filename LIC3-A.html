@@ -74,17 +74,17 @@
             gap: 12px;
         }
         .bot-avatar {
-            width: 42px; height: 42px;
+            width: 44px; height: 44px;
             border-radius: 50%;
-            background: #062f2c;
-            color: #43ec9b;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 15px;
-            font-weight: 900;
             flex-shrink: 0;
             position: relative;
+        }
+        .bot-avatar img {
+            width: 100%; height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            border: 2px solid #dbe8e3;
         }
         .bot-avatar::after {
             content: '';
@@ -305,10 +305,10 @@
     <main class="main">
         <div class="card">
             <div class="chat-head">
-                <div class="bot-avatar">AI</div>
+                <div class="bot-avatar"><img src="/lic3-avatar.jpg" alt="Sarah, coverage desk"></div>
                 <div>
-                    <div class="chat-title">Coverage Assistant</div>
-                    <div class="chat-sub"><span class="live-dot"></span>Online now. Ask anything about life insurance.</div>
+                    <div class="chat-title">Sarah</div>
+                    <div class="chat-sub"><span class="live-dot"></span>Coverage Desk. Online now.</div>
                 </div>
             </div>
 
@@ -337,8 +337,9 @@
         </div>
         <div class="footer-note">
             This is an advertisement. Life Coverage Benefit Review is an independent insurance
-            marketing website and is not affiliated with any government agency. The assistant
-            provides general information only and is not a licensed agent. Life insurance
+            marketing website and is not affiliated with any government agency. Chat is an
+            automated virtual assistant, provides general information only, and is not a
+            licensed agent. Life insurance
             coverage, premiums, no-medical-exam availability, and eligibility vary by age, health
             profile, coverage amount, state, insurer, and underwriting. Not a commitment to insure.
         </div>
@@ -357,15 +358,15 @@
         var MAX_TURNS = 5;
         var busy = false;
 
-        var OPENER = "Good news, you're approved for the no-cost phone review. Before you claim it, ask me anything, I'll give it to you straight. What do you want to know?";
+        var OPENER = "Good news, you're approved for the free phone review. Ask me anything before you claim it.";
         var QUICK = [
-            "How much coverage can I get?",
+            "How much can I get?",
             "Do I need a medical exam?",
-            "What's this going to cost me?",
+            "What's it going to cost me?",
             "Is this legit?"
         ];
-        var CLOSER = "Look, I could talk all day, but the specialist is the one who locks in your actual number. Free, about 5 minutes, no obligation, and you're already approved. Hit the green button and claim your review before life gets in the way.";
-        var ERRMSG = "My line just dropped, but yours is still open. Your review is approved and the licensed specialist can answer everything in about 5 minutes. Hit the green button below.";
+        var CLOSER = "That's all me, the rest is the specialist. Free call, about 5 minutes, you're already approved. Hit the green button.";
+        var ERRMSG = "Hiccup on my end, but your review is still approved. Hit the green button, the specialist takes it from here.";
 
         function scrollBottom() { windowEl.scrollTop = windowEl.scrollHeight; }
 
