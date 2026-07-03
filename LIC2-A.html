@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Coverage Calculator &mdash; Life Coverage Benefit Review</title>
+    <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; }
+        html, body { margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #062f2c;
+            color: #102d28;
+            line-height: 1.5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ── Header ── */
+        .site-header {
+            background: #075b50;
+            border-bottom: 4px solid #dbe8e3;
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .seal {
+            width: 42px; height: 42px;
+            background: #dbe8e3;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+        .site-title { color: #fff; font-size: 17px; font-weight: 700; }
+        .site-subtitle { color: #bfe3d8; font-size: 12px; margin-top: 1px; }
+
+        /* ── Main ── */
+        .main {
+            flex: 1;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 24px 14px 40px;
+            background:
+                radial-gradient(circle at 50% 0%, rgba(67, 236, 155, 0.14), transparent 42%),
+                linear-gradient(180deg, #062f2c 0%, #075b50 70%, #dbe8e3 100%);
+        }
+
+        .card {
+            background: #fffdf6;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-top: 6px solid #43ec9b;
+            border-radius: 10px;
+            max-width: 540px;
+            width: 100%;
+            box-shadow: 0 24px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .card-inner { padding: 22px 22px 28px; }
+
+        .ai-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            background: #062f2c;
+            color: #43ec9b;
+            border-radius: 999px;
+            padding: 6px 14px;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+        }
+        .ai-dot {
+            width: 8px; height: 8px;
+            background: #43ec9b;
+            border-radius: 50%;
+            animation: blink 1.4s ease infinite;
+        }
+        @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.25; } }
+
+        .headline {
+            font-size: 24px;
+            font-weight: 800;
+            color: #062f2c;
+            margin: 12px 0 4px;
+            line-height: 1.2;
+        }
+        .subline {
+            font-size: 14px;
+            color: #5d716b;
+            margin: 0 0 18px;
+        }
+
+        /* ── Live Amount Display ── */
+        .amount-panel {
+            background: #062f2c;
+            border-radius: 10px;
+            padding: 18px 16px 14px;
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        .amount-panel::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -60%;
+            width: 40%; height: 100%;
+            background: linear-gradient(100deg, transparent, rgba(67,236,155,0.08), transparent);
+            animation: sweep 3.2s ease infinite;
+        }
+        @keyframes sweep { to { left: 120%; } }
+        .amount-label {
+            color: #bfe3d8;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+        }
+        .amount-value {
+            color: #43ec9b;
+            font-size: clamp(36px, 10vw, 48px);
+            font-weight: 900;
+            font-variant-numeric: tabular-nums;
+            line-height: 1.1;
+            margin: 6px 0 2px;
+            transition: text-shadow 0.2s ease;
+        }
+        .amount-value.pulse { text-shadow: 0 0 22px rgba(67,236,155,0.85); }
+        .amount-status {
+            color: #8fb8ab;
+            font-size: 12px;
+            min-height: 18px;
+        }
+
+        /* ── Profile Strength ── */
+        .strength-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .strength-track {
+            flex: 1;
+            height: 8px;
+            background: #d3ddd9;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .strength-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #0b6c5f, #43ec9b);
+            border-radius: 4px;
+            transition: width 0.4s ease;
+        }
+        .strength-label {
+            font-size: 12px;
+            font-weight: 800;
+            color: #5d716b;
+            white-space: nowrap;
+            min-width: 118px;
+            text-align: right;
+        }
+
+        /* ── Levers ── */
+        .lever { margin-bottom: 20px; }
+        .lever-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+        }
+        .lever-title {
+            font-size: 13px;
+            font-weight: 800;
+            color: #062f2c;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .lever-value {
+            font-size: 16px;
+            font-weight: 900;
+            color: #0b6c5f;
+            font-variant-numeric: tabular-nums;
+        }
+
+        input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: 34px;
+            background: transparent;
+            cursor: pointer;
+            margin: 0;
+        }
+        input[type="range"]::-webkit-slider-runnable-track {
+            height: 10px;
+            background: #d3ddd9;
+            border-radius: 6px;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 30px; height: 30px;
+            margin-top: -10px;
+            background: #43ec9b;
+            border: 3px solid #062f2c;
+            border-radius: 50%;
+            box-shadow: 0 3px 10px rgba(6,47,44,0.35);
+        }
+        input[type="range"]::-moz-range-track {
+            height: 10px;
+            background: #d3ddd9;
+            border-radius: 6px;
+        }
+        input[type="range"]::-moz-range-thumb {
+            width: 24px; height: 24px;
+            background: #43ec9b;
+            border: 3px solid #062f2c;
+            border-radius: 50%;
+            box-shadow: 0 3px 10px rgba(6,47,44,0.35);
+        }
+        .slider-ends {
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            color: #8a9a94;
+            margin-top: 2px;
+        }
+
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .chip {
+            border: 2px solid #5d716b;
+            background: #fff;
+            color: #062f2c;
+            border-radius: 999px;
+            padding: 10px 16px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+        .chip:hover { border-color: #075b50; background: #e9f7f0; }
+        .chip.on {
+            border-color: #075b50;
+            background: #075b50;
+            color: #fff;
+        }
+        .chip.on::before { content: '\2713\00a0'; color: #43ec9b; }
+
+        /* ── Lock CTA ── */
+        .lock-btn {
+            display: block;
+            width: 100%;
+            border: none;
+            border-radius: 8px;
+            padding: 17px 20px;
+            font-size: 17px;
+            font-weight: 800;
+            text-align: center;
+            cursor: pointer;
+            background: #d3ddd9;
+            color: #7d8d87;
+            transition: all 0.2s ease;
+        }
+        .lock-btn.armed {
+            background: #43ec9b;
+            color: #062f2c;
+            animation: armedpulse 1.6s ease infinite;
+        }
+        @keyframes armedpulse {
+            0%,100% { box-shadow: 0 12px 26px rgba(36,193,120,0.35); }
+            50% { box-shadow: 0 12px 34px rgba(36,193,120,0.65); }
+        }
+        .lock-fine {
+            text-align: center;
+            font-size: 12px;
+            color: #8a9a94;
+            margin-top: 10px;
+        }
+
+        /* ── Compute / Result Screens ── */
+        .screen-hidden { display: none !important; }
+        .fade-in { animation: fadeUp 0.35s ease; }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .compute-box { text-align: center; padding: 46px 10px; }
+        .spinner {
+            width: 42px; height: 42px;
+            border: 4px solid #d3ddd9;
+            border-top-color: #075b50;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 18px;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .compute-line { font-size: 15px; font-weight: 700; color: #062f2c; }
+        .compute-sub { font-size: 13px; color: #5d716b; margin-top: 4px; min-height: 20px; }
+
+        .result-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #e2fbef;
+            border: 1px solid #7fd8ab;
+            color: #0b5c40;
+            padding: 6px 14px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 14px;
+        }
+        .result-badge .check {
+            width: 18px; height: 18px;
+            background: #0b6c5f;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .result-title {
+            font-size: 22px;
+            font-weight: 800;
+            color: #062f2c;
+            margin: 0 0 6px;
+            line-height: 1.25;
+        }
+        .result-amount {
+            font-size: 38px;
+            font-weight: 900;
+            color: #0b6c5f;
+            margin: 12px 0;
+            font-variant-numeric: tabular-nums;
+        }
+        .result-desc {
+            font-size: 15px;
+            color: #5d716b;
+            margin: 0 0 22px;
+            line-height: 1.6;
+        }
+        .result-desc strong { color: #102d28; }
+
+        .cta-btn {
+            display: block;
+            width: 100%;
+            background: #43ec9b;
+            color: #062f2c;
+            border: none;
+            border-radius: 8px;
+            padding: 18px 24px;
+            font-size: 18px;
+            font-weight: 800;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.15s ease;
+        }
+        .cta-btn:hover { background: #57f3a9; color: #062f2c; }
+        .cta-fine {
+            text-align: center;
+            font-size: 12px;
+            color: #5d716b;
+            margin-top: 12px;
+        }
+        .reservation-timer {
+            text-align: center;
+            margin-top: 14px;
+            padding: 10px 16px;
+            background: #fbf6e9;
+            border: 1px solid #ecdfc0;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #7a6420;
+            font-weight: 600;
+        }
+        .reservation-timer .timer-value { font-weight: 700; font-variant-numeric: tabular-nums; }
+
+        .estimate-note {
+            font-size: 11px;
+            color: #8a9a94;
+            text-align: center;
+            margin-top: 14px;
+            line-height: 1.5;
+        }
+
+        /* ── Footer ── */
+        .site-footer {
+            background: #062f2c;
+            color: #a9beb8;
+            text-align: center;
+            padding: 20px 16px;
+            font-size: 12px;
+        }
+        .footer-links { margin-bottom: 8px; }
+        .footer-links a { color: #a9beb8; text-decoration: none; margin: 0 12px; }
+        .footer-note {
+            color: #6e847e;
+            font-size: 11px;
+            max-width: 640px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 380px) {
+            .card-inner { padding: 18px 14px 22px; }
+            .headline { font-size: 21px; }
+            .chip { padding: 9px 12px; font-size: 13px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="seal">&#128737;&#65039;</div>
+        <div>
+            <div class="site-title">Life Coverage Benefit Review</div>
+            <div class="site-subtitle">Smart Coverage Calculator &bull; Family Coverage Review</div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="card">
+            <div class="card-inner">
+
+                <!-- Calculator Screen -->
+                <div id="calcScreen">
+                    <div class="ai-pill"><span class="ai-dot"></span> AI Coverage Calculator</div>
+                    <h1 class="headline">Build Your Coverage Estimate</h1>
+                    <p class="subline">Move the 3 levers below. Your estimate updates live as you go.</p>
+
+                    <div class="amount-panel">
+                        <div class="amount-label">Estimated coverage you may qualify for</div>
+                        <div class="amount-value" id="amountValue">$470,000</div>
+                        <div class="amount-status" id="amountStatus">Set your age, family, and income to lock this in</div>
+                    </div>
+
+                    <div class="strength-row">
+                        <div class="strength-track"><div class="strength-fill" id="strengthFill"></div></div>
+                        <div class="strength-label" id="strengthLabel">Profile strength: 0%</div>
+                    </div>
+
+                    <!-- Lever 1: Age -->
+                    <div class="lever">
+                        <div class="lever-head">
+                            <div class="lever-title">1. Your age</div>
+                            <div class="lever-value" id="ageValue">45</div>
+                        </div>
+                        <input type="range" id="ageSlider" min="30" max="70" step="1" value="45" aria-label="Your age">
+                        <div class="slider-ends"><span>30</span><span>70</span></div>
+                    </div>
+
+                    <!-- Lever 2: Who counts on you -->
+                    <div class="lever">
+                        <div class="lever-head">
+                            <div class="lever-title">2. Who counts on you?</div>
+                            <div class="lever-value" id="whoValue">&nbsp;</div>
+                        </div>
+                        <div class="chips" id="whoChips">
+                            <button class="chip" data-who="spouse">My spouse</button>
+                            <button class="chip" data-who="kids">My kids</button>
+                            <button class="chip" data-who="grandkids">My grandkids</button>
+                            <button class="chip" data-who="me">Just me</button>
+                        </div>
+                    </div>
+
+                    <!-- Lever 3: Income -->
+                    <div class="lever">
+                        <div class="lever-head">
+                            <div class="lever-title">3. Household income</div>
+                            <div class="lever-value" id="incomeValue">$60,000/yr</div>
+                        </div>
+                        <input type="range" id="incomeSlider" min="25000" max="150000" step="5000" value="60000" aria-label="Household income">
+                        <div class="slider-ends"><span>$25,000</span><span>$150,000+</span></div>
+                    </div>
+
+                    <button class="lock-btn" id="lockBtn" disabled>Set all 3 levers to lock your estimate</button>
+                    <p class="lock-fine" id="lockFine">Takes about 20 seconds. No SSN. No medical exam to check.</p>
+                    <p class="estimate-note">Estimates only, based on common income replacement guidelines. Not a commitment to insure. Coverage and eligibility vary by health profile, state, insurer, and underwriting.</p>
+                </div>
+
+                <!-- Compute Screen -->
+                <div id="computeScreen" class="screen-hidden">
+                    <div class="compute-box">
+                        <div class="spinner"></div>
+                        <div class="compute-line">Locking your estimate&hellip;</div>
+                        <div class="compute-sub" id="computeSub">Checking carrier guidelines for your profile</div>
+                    </div>
+                </div>
+
+                <!-- Result Screen -->
+                <div id="resultScreen" class="screen-hidden">
+                    <div class="result-badge"><span class="check">&#10003;</span> Approved for Review</div>
+                    <h2 class="result-title" id="resultTitle">Your Estimate Is Locked</h2>
+                    <div class="result-amount" id="resultAmount">Up to $470,000</div>
+                    <p class="result-desc" id="resultDesc">
+                        Based on the profile you built, you are approved for a no-cost phone
+                        review. <strong>The final step is one quick phone call.</strong> On the
+                        next page you&rsquo;ll see your dedicated review line, and a licensed
+                        specialist will confirm the coverage amount and monthly rate you may
+                        qualify for. Most reviews take about 5 minutes.
+                    </p>
+                    <a href="https://y.getmorelocalhelp.com/click" class="js-offer-link cta-link cta-btn">
+                        Claim My Approved Review &rarr;
+                    </a>
+                    <p class="cta-fine">Free review &bull; No obligation &bull; Licensed specialist &bull; About 5 minutes</p>
+                    <div class="reservation-timer">
+                        Your approval is reserved for <span class="timer-value" id="reservationTimer">10:00</span>
+                    </div>
+                    <p class="estimate-note">Estimates only. Not a commitment to insure. Coverage and eligibility vary by health profile, state, insurer, and underwriting.</p>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+            <a href="#">Accessibility</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="footer-note">
+            This is an advertisement. Life Coverage Benefit Review is an independent insurance
+            marketing website and is not affiliated with any government agency. Life insurance
+            coverage, premiums, no-medical-exam availability, and eligibility vary by age, health
+            profile, coverage amount, state, insurer, and underwriting. Not a commitment to insure.
+        </div>
+    </footer>
+
+    <!-- Calculator Logic -->
+    <script>
+    (function() {
+        var ageSlider = document.getElementById('ageSlider');
+        var incomeSlider = document.getElementById('incomeSlider');
+        var whoChips = document.getElementById('whoChips');
+        var amountEl = document.getElementById('amountValue');
+        var statusEl = document.getElementById('amountStatus');
+        var strengthFill = document.getElementById('strengthFill');
+        var strengthLabel = document.getElementById('strengthLabel');
+        var lockBtn = document.getElementById('lockBtn');
+
+        var touched = { age: false, who: false, income: false };
+        var who = {};
+        var displayed = 0;
+        var animFrame = null;
+        var statusTimer = null;
+
+        function fmt(n) {
+            return '$' + n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        }
+
+        function computeCoverage() {
+            var age = parseInt(ageSlider.value, 10);
+            var income = parseInt(incomeSlider.value, 10);
+            var mult = 10 - 0.15 * (age - 30);
+            var bonus = 1;
+            if (who.spouse) bonus += 0.10;
+            if (who.kids) bonus += 0.15;
+            if (who.grandkids) bonus += 0.08;
+            var cov = income * mult * bonus;
+            var onlyMe = who.me && !who.spouse && !who.kids && !who.grandkids;
+            if (onlyMe) cov = Math.min(cov, 250000);
+            cov = Math.round(cov / 10000) * 10000;
+            return Math.max(100000, Math.min(1000000, cov));
+        }
+
+        function animateTo(target) {
+            if (animFrame) cancelAnimationFrame(animFrame);
+            var start = displayed || target;
+            var t0 = null;
+            var dur = 420;
+            function step(ts) {
+                if (!t0) t0 = ts;
+                var p = Math.min(1, (ts - t0) / dur);
+                var eased = 1 - Math.pow(1 - p, 3);
+                var val = Math.round((start + (target - start) * eased) / 10000) * 10000;
+                amountEl.textContent = fmt(val);
+                if (p < 1) { animFrame = requestAnimationFrame(step); }
+                else { displayed = target; }
+            }
+            animFrame = requestAnimationFrame(step);
+            amountEl.classList.add('pulse');
+            setTimeout(function() { amountEl.classList.remove('pulse'); }, 350);
+        }
+
+        function statusLine() {
+            var parts = [];
+            if (touched.age) parts.push('age ' + ageSlider.value);
+            if (touched.who) {
+                var names = [];
+                if (who.spouse) names.push('spouse');
+                if (who.kids) names.push('kids');
+                if (who.grandkids) names.push('grandkids');
+                if (who.me && !names.length) names.push('you');
+                if (names.length) parts.push('protecting ' + names.join(' + '));
+            }
+            if (touched.income) parts.push(fmt(parseInt(incomeSlider.value, 10)) + ' income');
+            if (!parts.length) return 'Set your age, family, and income to lock this in';
+            return 'Live estimate for ' + parts.join(', ');
+        }
+
+        function refresh() {
+            animateTo(computeCoverage());
+            if (statusTimer) clearTimeout(statusTimer);
+            statusEl.textContent = 'Recalculating…';
+            statusTimer = setTimeout(function() { statusEl.textContent = statusLine(); }, 480);
+
+            var n = (touched.age ? 1 : 0) + (touched.who ? 1 : 0) + (touched.income ? 1 : 0);
+            var pct = Math.round(n / 3 * 100);
+            strengthFill.style.width = pct + '%';
+            strengthLabel.textContent = 'Profile strength: ' + pct + '%';
+            if (n === 3) {
+                lockBtn.disabled = false;
+                lockBtn.classList.add('armed');
+                lockBtn.textContent = 'Lock In My ' + fmt(computeCoverage()) + ' Estimate →';
+            }
+        }
+
+        ageSlider.addEventListener('input', function() {
+            document.getElementById('ageValue').textContent = ageSlider.value;
+            touched.age = true;
+            refresh();
+        });
+
+        incomeSlider.addEventListener('input', function() {
+            var v = parseInt(incomeSlider.value, 10);
+            document.getElementById('incomeValue').textContent = fmt(v) + (v >= 150000 ? '+/yr' : '/yr');
+            touched.income = true;
+            refresh();
+        });
+
+        whoChips.addEventListener('click', function(e) {
+            var chip = e.target.closest('.chip');
+            if (!chip) return;
+            var key = chip.getAttribute('data-who');
+            if (key === 'me') {
+                who = { me: !who.me };
+                whoChips.querySelectorAll('.chip').forEach(function(c) { c.classList.remove('on'); });
+                if (who.me) chip.classList.add('on');
+            } else {
+                delete who.me;
+                whoChips.querySelector('[data-who="me"]').classList.remove('on');
+                who[key] = !who[key];
+                chip.classList.toggle('on');
+            }
+            touched.who = !!(who.spouse || who.kids || who.grandkids || who.me);
+            document.getElementById('whoValue').innerHTML = touched.who ? '&#10003;' : '&nbsp;';
+            refresh();
+        });
+
+        /* Lock flow: compute overlay then approved result */
+        var computeLines = [
+            'Checking carrier guidelines for your profile',
+            'Matching no exam options for age {age}',
+            'Reserving your phone review window'
+        ];
+
+        lockBtn.addEventListener('click', function() {
+            if (lockBtn.disabled) return;
+            var cov = computeCoverage();
+            var age = ageSlider.value;
+            document.getElementById('calcScreen').classList.add('screen-hidden');
+            var comp = document.getElementById('computeScreen');
+            comp.classList.remove('screen-hidden');
+            comp.classList.add('fade-in');
+
+            var sub = document.getElementById('computeSub');
+            var i = 0;
+            var lineTimer = setInterval(function() {
+                i++;
+                if (i < computeLines.length) {
+                    sub.textContent = computeLines[i].replace('{age}', age);
+                } else {
+                    clearInterval(lineTimer);
+                }
+            }, 800);
+
+            setTimeout(function() {
+                clearInterval(lineTimer);
+                comp.classList.add('screen-hidden');
+                document.getElementById('resultTitle').textContent =
+                    'Your Estimate at Age ' + age + ' Is Locked';
+                document.getElementById('resultAmount').textContent = 'Up to ' + fmt(cov);
+                var res = document.getElementById('resultScreen');
+                res.classList.remove('screen-hidden');
+                res.classList.add('fade-in');
+                startReservationTimer();
+            }, 2500);
+        });
+
+        function startReservationTimer() {
+            var timerEl = document.getElementById('reservationTimer');
+            if (!timerEl) return;
+            var remaining = 10 * 60;
+            function tick() {
+                var min = Math.floor(remaining / 60);
+                var sec = remaining % 60;
+                timerEl.textContent = min + ':' + (sec < 10 ? '0' : '') + sec;
+                if (remaining > 0) { remaining--; setTimeout(tick, 1000); }
+            }
+            tick();
+        }
+    })();
+    </script>
+    <!-- Redirect click handler -->
+    <script>
+    (function() {
+        function handleButtonClick(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            window.location.href = this.href;
+        }
+        document.querySelectorAll('a.js-offer-link').forEach(function(btn) {
+            btn.addEventListener('click', handleButtonClick);
+        });
+    })();
+    </script>
+    <!-- Click ID passthrough -->
+    <script>
+    (function(){
+        var p=new URLSearchParams(window.location.search);
+        var c=p.get('rtkcid')||p.get('sub2')||p.get('clickid')||p.get('rt_clickid');
+        if(c){document.querySelectorAll('a.js-offer-link,a.cta-link').forEach(function(l){
+            var s=l.href.indexOf('?')>-1?'&':'?';
+            l.href=l.href+s+'sub2='+encodeURIComponent(c)
+        })}
+    })();
+    </script>
+    <!-- RedTrack track.js -->
+    <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
+</body>
+</html>
