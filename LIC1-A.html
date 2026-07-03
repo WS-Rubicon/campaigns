@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Life Coverage Benefit Review &mdash; Eligibility Screening</title>
+    <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; }
+        html, body { margin: 0; padding: 0; height: 100%; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #f2f5f4;
+            color: #102d28;
+            line-height: 1.5;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* ── Top Banner ── */
+        .top-banner {
+            background: #062f2c;
+            color: #fff;
+            font-size: 12px;
+            padding: 6px 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .top-banner .mark { font-size: 14px; }
+        .top-banner span { opacity: 0.85; }
+
+        /* ── Header ── */
+        .site-header {
+            background: #075b50;
+            border-bottom: 4px solid #dbe8e3;
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .seal {
+            width: 46px; height: 46px;
+            background: #dbe8e3;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+        .site-title {
+            color: #fff;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+        }
+        .site-subtitle {
+            color: #bfe3d8;
+            font-size: 12px;
+            margin-top: 1px;
+        }
+
+        /* ── Alert Bar ── */
+        .alert-bar {
+            background: #e2fbef;
+            border-left: 5px solid #0b6c5f;
+            padding: 10px 24px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #0b3d34;
+        }
+
+        /* ── Main Content Area ── */
+        .main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 32px 16px;
+        }
+
+        .card {
+            background: #fffdf6;
+            border: 1px solid #d3ddd9;
+            border-top: 6px solid #075b50;
+            border-radius: 4px;
+            max-width: 560px;
+            width: 100%;
+            padding: 0;
+            box-shadow: 0 2px 8px rgba(6,47,44,0.08);
+        }
+
+        .card-header {
+            padding: 28px 32px 0;
+        }
+
+        .card-body {
+            padding: 20px 32px 32px;
+        }
+
+        .form-number {
+            font-size: 11px;
+            color: #5d716b;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0 0 6px;
+        }
+
+        .card-title {
+            font-size: 26px;
+            font-weight: 700;
+            color: #062f2c;
+            margin: 0 0 4px;
+            line-height: 1.2;
+        }
+
+        .card-subtitle {
+            font-size: 14px;
+            color: #5d716b;
+            margin: 0 0 20px;
+            line-height: 1.5;
+        }
+
+        /* ── Progress ── */
+        .progress-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        .progress-track {
+            flex: 1;
+            height: 8px;
+            background: #d3ddd9;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            background: #075b50;
+            border-radius: 4px;
+            transition: width 0.45s ease;
+        }
+        .progress-label {
+            font-size: 13px;
+            color: #5d716b;
+            white-space: nowrap;
+            min-width: 80px;
+            text-align: right;
+        }
+
+        /* ── Divider ── */
+        .divider {
+            border: none;
+            border-top: 1px solid #dfe6e3;
+            margin: 0 0 24px;
+        }
+
+        /* ── Quiz Screens ── */
+        .screen { display: none; }
+        .screen.active { display: block; animation: fadeUp 0.3s ease; }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .q-label {
+            font-size: 11px;
+            color: #5d716b;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin: 0 0 8px;
+            font-weight: 600;
+        }
+
+        .q-text {
+            font-size: 20px;
+            font-weight: 700;
+            color: #062f2c;
+            margin: 0 0 24px;
+            line-height: 1.3;
+        }
+
+        .answers {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .answer-btn {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+            background: #fff;
+            border: 2px solid #5d716b;
+            border-radius: 6px;
+            padding: 16px 18px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #062f2c;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            text-align: left;
+        }
+
+        .answer-btn:hover {
+            border-color: #075b50;
+            background: #e9f7f0;
+        }
+
+        .answer-btn:active {
+            background: #d6f0e3;
+        }
+
+        .answer-btn .radio {
+            width: 22px; height: 22px;
+            border: 2px solid #5d716b;
+            border-radius: 50%;
+            flex-shrink: 0;
+            position: relative;
+            transition: all 0.15s ease;
+        }
+
+        .answer-btn:hover .radio {
+            border-color: #075b50;
+        }
+
+        .answer-btn.selected .radio {
+            border-color: #075b50;
+            background: #075b50;
+        }
+
+        .answer-btn.selected .radio::after {
+            content: '';
+            position: absolute;
+            top: 4px; left: 4px;
+            width: 10px; height: 10px;
+            background: #fff;
+            border-radius: 50%;
+        }
+
+        .answer-btn.selected {
+            border-color: #075b50;
+            background: #e9f7f0;
+        }
+
+        /* ── Processing Screen ── */
+        .processing-text {
+            text-align: center;
+            padding: 40px 0;
+        }
+        .processing-text .spinner {
+            width: 40px; height: 40px;
+            border: 4px solid #d3ddd9;
+            border-top-color: #075b50;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 16px;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .processing-text p {
+            font-size: 16px;
+            color: #5d716b;
+            margin: 4px 0;
+        }
+        .processing-text .bold { color: #062f2c; font-weight: 700; }
+
+        /* ── Result Screen ── */
+        .result-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #e2fbef;
+            border: 1px solid #7fd8ab;
+            color: #0b5c40;
+            padding: 6px 14px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+        }
+        .result-badge .check {
+            width: 18px; height: 18px;
+            background: #0b6c5f;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .result-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #062f2c;
+            margin: 0 0 8px;
+            line-height: 1.25;
+        }
+
+        .result-amount {
+            font-size: 40px;
+            font-weight: 700;
+            color: #0b6c5f;
+            margin: 16px 0;
+        }
+
+        .result-desc {
+            font-size: 15px;
+            color: #5d716b;
+            margin: 0 0 24px;
+            line-height: 1.6;
+        }
+        .result-desc strong { color: #102d28; }
+
+        .cta-btn {
+            display: block;
+            width: 100%;
+            background: #43ec9b;
+            color: #062f2c;
+            border: none;
+            border-radius: 6px;
+            padding: 18px 24px;
+            font-size: 18px;
+            font-weight: 700;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.15s ease;
+        }
+        .cta-btn:hover { background: #57f3a9; color: #062f2c; }
+        .cta-btn:active { background: #34d689; }
+
+        .cta-fine {
+            text-align: center;
+            font-size: 12px;
+            color: #5d716b;
+            margin-top: 12px;
+        }
+        .cta-fine svg {
+            vertical-align: middle;
+            margin-right: 2px;
+        }
+
+        .reservation-timer {
+            text-align: center;
+            margin-top: 16px;
+            padding: 10px 16px;
+            background: #fbf6e9;
+            border: 1px solid #ecdfc0;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #7a6420;
+            font-weight: 600;
+        }
+        .reservation-timer .timer-value {
+            font-weight: 700;
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* ── Footer ── */
+        .site-footer {
+            background: #062f2c;
+            color: #a9beb8;
+            text-align: center;
+            padding: 20px 16px;
+            font-size: 12px;
+        }
+        .footer-links {
+            margin-bottom: 8px;
+        }
+        .footer-links a {
+            color: #a9beb8;
+            text-decoration: none;
+            margin: 0 12px;
+        }
+        .footer-links a:hover { color: #fff; }
+        .footer-note {
+            color: #6e847e;
+            font-size: 11px;
+            max-width: 640px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+        /* ── Mobile ── */
+        @media (max-width: 600px) {
+            .site-header { padding: 10px 16px; }
+            .site-title { font-size: 15px; }
+            .seal { width: 38px; height: 38px; font-size: 20px; }
+            .card-header { padding: 22px 20px 0; }
+            .card-body { padding: 16px 20px 28px; }
+            .card-title { font-size: 22px; }
+            .q-text { font-size: 18px; }
+            .answer-btn { padding: 14px 14px; font-size: 15px; }
+            .result-amount { font-size: 32px; }
+            .cta-btn { padding: 16px 20px; font-size: 16px; }
+            .main { padding: 20px 12px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Banner -->
+    <div class="top-banner">
+        <span class="mark">&#128737;&#65039;</span>
+        <span>Independent benefit review service &nbsp;|&nbsp; Life Coverage Benefit Review</span>
+    </div>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="seal">&#128737;&#65039;</div>
+        <div>
+            <div class="site-title">Life Coverage Benefit Review</div>
+            <div class="site-subtitle">Family Coverage Review &bull; Eligibility Screening Portal</div>
+        </div>
+    </header>
+
+    <!-- Alert: positive update framing (AK-2 winning component) -->
+    <div class="alert-bar">
+        &#9989; July 2026 Update: New coverage options up to $1,000,000 now open for qualifying applicants
+    </div>
+
+    <!-- Main -->
+    <main class="main">
+        <div class="card">
+            <div class="card-header">
+                <p class="form-number">Reference LIFE-CALL-2026 &bull; Coverage Pre-Screening</p>
+                <!-- Question title with dollar anchor (AK-1 winning component) -->
+                <h1 class="card-title">Could You Qualify for Up to $1,000,000 in Life Insurance Coverage?</h1>
+                <p class="card-subtitle">Answer 3 quick questions to see the coverage amount you may qualify for, up to <strong>$1,000,000</strong>. No medical exam options may be available.</p>
+            </div>
+            <div class="card-body">
+
+                <!-- Progress -->
+                <div class="progress-row" id="progressRow">
+                    <div class="progress-track">
+                        <div class="progress-fill" id="progressFill" style="width:0%"></div>
+                    </div>
+                    <div class="progress-label" id="progressLabel">0 of 3</div>
+                </div>
+
+                <hr class="divider">
+
+                <!-- Q1: concrete screening fact, echoed in result headline (AA-1 winning component) -->
+                <div class="screen active" id="s1">
+                    <p class="q-label">Question 1 of 3</p>
+                    <p class="q-text">What is your age range?</p>
+                    <div class="answers">
+                        <button class="answer-btn" data-next="2" data-echo="Under 50"><span class="radio"></span>Under 50</button>
+                        <button class="answer-btn" data-next="2" data-echo="50 to 59"><span class="radio"></span>50 to 59</button>
+                        <button class="answer-btn" data-next="2" data-echo="60 to 69"><span class="radio"></span>60 to 69</button>
+                        <button class="answer-btn" data-next="2" data-echo="70 or Older"><span class="radio"></span>70 or older</button>
+                    </div>
+                </div>
+
+                <!-- Q2: status question -->
+                <div class="screen" id="s2">
+                    <p class="q-label">Question 2 of 3</p>
+                    <p class="q-text">Do you currently have life insurance in place?</p>
+                    <div class="answers">
+                        <button class="answer-btn" data-next="3"><span class="radio"></span>Yes, but I may need more</button>
+                        <button class="answer-btn" data-next="3"><span class="radio"></span>No, not right now</button>
+                        <button class="answer-btn" data-next="3"><span class="radio"></span>I&rsquo;m not sure</button>
+                    </div>
+                </div>
+
+                <!-- Q3: desire question, primes the call page benefit list -->
+                <div class="screen" id="s3">
+                    <p class="q-label">Question 3 of 3</p>
+                    <p class="q-text">Who would this coverage protect?</p>
+                    <div class="answers">
+                        <button class="answer-btn" data-next="processing"><span class="radio"></span>My spouse</button>
+                        <button class="answer-btn" data-next="processing"><span class="radio"></span>My children &amp; grandchildren</button>
+                        <button class="answer-btn" data-next="processing"><span class="radio"></span>My family home &amp; mortgage</button>
+                        <button class="answer-btn" data-next="processing"><span class="radio"></span>Final expenses &amp; funeral costs</button>
+                    </div>
+                </div>
+
+                <!-- Processing -->
+                <div class="screen" id="sProcessing">
+                    <div class="processing-text">
+                        <div class="spinner"></div>
+                        <p class="bold">Checking available coverage options&hellip;</p>
+                        <p>Reviewing your responses against current program guidelines</p>
+                    </div>
+                </div>
+
+                <!-- Result -->
+                <div class="screen" id="sResult">
+                    <div class="result-badge">
+                        <span class="check">&#10003;</span> Review Ready
+                    </div>
+                    <!-- Result headline echoes Q1 answer (AA-1 winning component, dynamic) -->
+                    <h2 class="result-title" id="resultTitle">Based on Your Age Range, You May Qualify</h2>
+                    <div class="result-amount">Up to $1,000,000</div>
+                    <p class="result-desc">
+                        Based on your pre-screening responses, you appear to meet the initial
+                        criteria. Your no-cost benefit review is now ready.
+                        <strong>The final step is one quick phone call.</strong> On the next page
+                        you&rsquo;ll see your dedicated review line, and a licensed specialist will
+                        confirm your exact coverage amount and monthly rate. Most reviews take
+                        about 5 minutes.
+                    </p>
+                    <a href="https://y.getmorelocalhelp.com/click" class="js-offer-link cta-link cta-btn">
+                        Start My Free Benefit Review &rarr;
+                    </a>
+                    <p class="cta-fine">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#5d716b" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        Free review &bull; No obligation &bull; Licensed specialist &bull; About 5 minutes
+                    </p>
+                    <!-- 10-min reservation timer (AA-2 winning component) -->
+                    <div class="reservation-timer">
+                        Your review window is reserved for <span class="timer-value" id="reservationTimer">10:00</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+            <a href="#">Accessibility</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="footer-note">
+            This is an advertisement. Life Coverage Benefit Review is an independent insurance
+            marketing website and is not affiliated with any government agency. Life insurance
+            coverage, premiums, no-medical-exam availability, and eligibility vary by age, health
+            profile, coverage amount, state, insurer, and underwriting. Not a commitment to insure.
+        </div>
+    </footer>
+
+    <!-- Quiz Logic -->
+    <script>
+    (function() {
+        var fill = document.getElementById('progressFill');
+        var label = document.getElementById('progressLabel');
+        var total = 3;
+        var current = 1;
+
+        document.querySelectorAll('.answer-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var next = btn.getAttribute('data-next');
+                var screen = btn.closest('.screen');
+
+                // visual select
+                btn.classList.add('selected');
+
+                // Q1 answer echo into result headline
+                var echo = btn.getAttribute('data-echo');
+                if (echo) {
+                    var titleEl = document.getElementById('resultTitle');
+                    if (titleEl) {
+                        titleEl.textContent = 'Based on Your Age Range (' + echo + '), You May Qualify';
+                    }
+                }
+
+                setTimeout(function() {
+                    screen.classList.remove('active');
+
+                    if (next === 'processing') {
+                        // update progress to full
+                        fill.style.width = '100%';
+                        label.textContent = '3 of 3';
+
+                        var proc = document.getElementById('sProcessing');
+                        proc.classList.add('active');
+
+                        // fake processing delay then show result
+                        setTimeout(function() {
+                            proc.classList.remove('active');
+                            document.getElementById('sResult').classList.add('active');
+                            document.getElementById('progressRow').style.display = 'none';
+                            startReservationTimer();
+                        }, 2200);
+
+                    } else {
+                        var nextNum = parseInt(next);
+                        current = nextNum;
+                        fill.style.width = ((nextNum - 1) / total * 100) + '%';
+                        label.textContent = (nextNum - 1) + ' of ' + total;
+                        document.getElementById('s' + next).classList.add('active');
+                    }
+                }, 300);
+            });
+        });
+        /* Reservation countdown (10 minutes) */
+        function startReservationTimer() {
+            var timerEl = document.getElementById('reservationTimer');
+            if (!timerEl) return;
+            var remaining = 10 * 60;
+            function tick() {
+                var min = Math.floor(remaining / 60);
+                var sec = remaining % 60;
+                timerEl.textContent = min + ':' + (sec < 10 ? '0' : '') + sec;
+                if (remaining > 0) {
+                    remaining--;
+                    setTimeout(tick, 1000);
+                }
+            }
+            tick();
+        }
+    })();
+    </script>
+    <!-- Redirect click handler -->
+    <script>
+    (function() {
+        function handleButtonClick(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            window.location.href = this.href;
+        }
+        document.querySelectorAll('a.js-offer-link').forEach(function(btn) {
+            btn.addEventListener('click', handleButtonClick);
+        });
+    })();
+    </script>
+    <!-- Click ID passthrough -->
+    <script>
+    (function(){
+        var p=new URLSearchParams(window.location.search);
+        var c=p.get('rtkcid')||p.get('sub2')||p.get('clickid')||p.get('rt_clickid');
+        if(c){document.querySelectorAll('a.js-offer-link,a.cta-link').forEach(function(l){
+            var s=l.href.indexOf('?')>-1?'&':'?';
+            l.href=l.href+s+'sub2='+encodeURIComponent(c)
+        })}
+    })();
+    </script>
+    <!-- RedTrack track.js -->
+    <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
+</body>
+</html>
