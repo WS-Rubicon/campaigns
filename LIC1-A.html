@@ -496,10 +496,10 @@
                     <p class="q-label">Question 2 of 3</p>
                     <p class="q-text">How much coverage would you want in place for your family?</p>
                     <div class="answers">
-                        <button class="answer-btn" data-next="3" data-affirm="Smart pick. $250,000 is one of the most common amounts families lock in."><span class="radio"></span>$250,000</button>
-                        <button class="answer-btn" data-next="3" data-affirm="Smart pick. $500,000 is one of the most requested amounts for family protection."><span class="radio"></span>$500,000</button>
-                        <button class="answer-btn" data-next="3" data-affirm="Great choice. Your review will include options up to $1,000,000."><span class="radio"></span>$1,000,000</button>
-                        <button class="answer-btn" data-next="3" data-affirm="No problem. Your specialist can walk you through every amount you may qualify for."><span class="radio"></span>Not sure, show me what I may qualify for</button>
+                        <button class="answer-btn" data-next="3" data-amount="Up to $250,000" data-affirm="Smart pick. $250,000 is one of the most common amounts families lock in."><span class="radio"></span>$250,000</button>
+                        <button class="answer-btn" data-next="3" data-amount="Up to $500,000" data-affirm="Smart pick. $500,000 is one of the most requested amounts for family protection."><span class="radio"></span>$500,000</button>
+                        <button class="answer-btn" data-next="3" data-amount="Up to $1,000,000" data-affirm="Great choice. Your review will include options up to $1,000,000."><span class="radio"></span>$1,000,000</button>
+                        <button class="answer-btn" data-next="3" data-amount="$250,000 to $1,000,000" data-affirm="No problem. Your specialist can walk you through every amount you may qualify for."><span class="radio"></span>Not sure, show me what I may qualify for</button>
                     </div>
                     <div class="affirm"><span class="affirm-check">&#10003;</span><span class="affirm-text"></span></div>
                 </div>
@@ -533,7 +533,7 @@
                     </div>
                     <!-- Result headline echoes Q1 answer (AA-1 winning component, dynamic) -->
                     <h2 class="result-title" id="resultTitle">Based on Your Age Range, You May Qualify</h2>
-                    <div class="result-amount">Up to $1,000,000</div>
+                    <div class="result-amount" id="resultAmount">Up to $1,000,000</div>
                     <p class="result-desc">
                         Based on your pre-screening responses, you appear to meet the initial
                         criteria. Your no-cost benefit review is now ready.
@@ -600,6 +600,13 @@
                     if (titleEl) {
                         titleEl.textContent = 'Based on Your Age Range (' + echo + '), You May Qualify';
                     }
+                }
+
+                // Q2 amount echo into result amount line
+                var amount = btn.getAttribute('data-amount');
+                if (amount) {
+                    var amountEl = document.getElementById('resultAmount');
+                    if (amountEl) amountEl.textContent = amount;
                 }
 
                 // personal affirmation line before advancing
