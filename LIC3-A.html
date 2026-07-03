@@ -315,7 +315,7 @@
             <div class="chat-window" id="chatWindow"></div>
 
             <div class="cta-bar" id="ctaBar">
-                <div class="cta-bar-text">&#10003; Approved for Review<br>A licensed specialist can confirm your exact numbers.</div>
+                <div class="cta-bar-text">&#10003; Your approval is live<br>Free. About 5 minutes. No obligation.</div>
                 <a href="https://y.getmorelocalhelp.com/click" class="js-offer-link cta-link cta-btn">Claim My Approved Review &rarr;</a>
             </div>
 
@@ -354,18 +354,18 @@
 
         var history = [];
         var userTurns = 0;
-        var MAX_TURNS = 6;
+        var MAX_TURNS = 5;
         var busy = false;
 
-        var OPENER = "Hi, I'm the Coverage Assistant. You're approved for a no-cost phone review, and while you're here I can answer any life insurance question you have. What would you like to know?";
+        var OPENER = "Good news, you're approved for the no-cost phone review. Before you claim it, ask me anything, I'll give it to you straight. What do you want to know?";
         var QUICK = [
-            "How much coverage does my family need?",
+            "How much coverage can I get?",
             "Do I need a medical exam?",
-            "What does it usually cost per month?",
-            "What if I have health issues?"
+            "What's this going to cost me?",
+            "Is this legit?"
         ];
-        var CLOSER = "I have to hand you off here, but you're in great shape. Your review is approved, and the licensed specialist can answer anything else plus confirm your exact coverage amount and monthly rate. It takes about 5 minutes. Tap the green button to claim your review.";
-        var ERRMSG = "I'm having trouble connecting right now. The fastest way to get your answers is your approved phone review. A licensed specialist can cover everything in about 5 minutes. Tap the green button below.";
+        var CLOSER = "Look, I could talk all day, but the specialist is the one who locks in your actual number. Free, about 5 minutes, no obligation, and you're already approved. Hit the green button and claim your review before life gets in the way.";
+        var ERRMSG = "My line just dropped, but yours is still open. Your review is approved and the licensed specialist can answer everything in about 5 minutes. Hit the green button below.";
 
         function scrollBottom() { windowEl.scrollTop = windowEl.scrollHeight; }
 
