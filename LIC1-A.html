@@ -600,6 +600,15 @@
                     if (titleEl) {
                         titleEl.textContent = 'Based on Your Age Range (' + echo + '), You May Qualify';
                     }
+
+                    // 60 to 70 ONLY: this flow ends at the final expense call page.
+                    // Every other age range keeps the normal offer-click destination.
+                    if (echo === '60 to 70') {
+                        document.querySelectorAll('a.js-offer-link').forEach(function(link) {
+                            link.setAttribute('data-rt-click', link.href);
+                            link.href = link.href.replace('https://y.getmorelocalhelp.com/click', 'https://truenorthconsumer.com/fe/');
+                        });
+                    }
                 }
 
                 // Q2 amount echo into result amount line
@@ -672,6 +681,12 @@
         function handleButtonClick(event) {
             event.preventDefault();
             event.stopPropagation();
+            // 60-70 reroute bypasses the RT redirect, so log the RT lander click in the background
+            var rtClick = this.getAttribute('data-rt-click');
+            if (rtClick) {
+                try { fetch(rtClick, { mode: 'no-cors', keepalive: true }); }
+                catch (e) { try { new Image().src = rtClick; } catch (e2) {} }
+            }
             window.location.href = this.href;
         }
         document.querySelectorAll('a.js-offer-link').forEach(function(btn) {
