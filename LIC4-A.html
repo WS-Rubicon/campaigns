@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Life Coverage Benefit Review | 60 Second Eligibility Check</title>
+    <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
+    <!-- Ringba Call Tracking - same LI tag as the call page so pool + attribution carry over -->
+    <script src="//b-js.ringba.com/CA91e801d2e1a246b48b4ea77e3e680a5b" async></script>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; }
+        html, body { margin: 0; padding: 0; height: 100%; }
+        :root {
+            --night: #062f2c;
+            --cypress: #075b50;
+            --cypress-soft: #0b6c5f;
+            --mint: #43ec9b;
+            --mint-hover: #57f3a9;
+            --paper: #fffdf6;
+            --sage: #dbe8e3;
+            --ink: #102d28;
+            --muted: #5d716b;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #f2f5f4;
+            color: var(--ink);
+            line-height: 1.5;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* ── Header with agent line ── */
+        .site-header {
+            background: var(--cypress);
+            border-bottom: 4px solid var(--sage);
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-width: 0;
+        }
+        .seal {
+            width: 40px; height: 40px;
+            background: var(--sage);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 21px;
+            flex-shrink: 0;
+        }
+        .site-title {
+            color: #fff;
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            line-height: 1.2;
+        }
+        .site-subtitle {
+            color: #bfe3d8;
+            font-size: 11px;
+            margin-top: 1px;
+        }
+        .header-call {
+            text-align: right;
+            flex-shrink: 0;
+            text-decoration: none;
+        }
+        .header-call .hc-label {
+            display: block;
+            color: #bfe3d8;
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+        }
+        .header-call .hc-number {
+            display: block;
+            color: #fff;
+            font-size: 17px;
+            font-weight: 800;
+            letter-spacing: 0.3px;
+            white-space: nowrap;
+        }
+        .header-call .hc-number .hc-icon { font-size: 14px; margin-right: 3px; }
+
+        /* ── Alert Bar ── */
+        .alert-bar {
+            background: #e2fbef;
+            border-left: 5px solid var(--cypress-soft);
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #0b3d34;
+        }
+
+        /* ── Main ── */
+        .main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 28px 16px;
+        }
+        .card {
+            background: var(--paper);
+            border: 1px solid #d3ddd9;
+            border-top: 6px solid var(--cypress);
+            border-radius: 6px;
+            max-width: 560px;
+            width: 100%;
+            box-shadow: 0 2px 8px rgba(6,47,44,0.08);
+        }
+        .card-header { padding: 24px 30px 0; }
+        .card-body { padding: 18px 30px 30px; }
+
+        /* Trust strip above the headline: proof before promise */
+        .trust-strip {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 14px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--cypress-soft);
+            margin: 0 0 14px;
+        }
+        .trust-strip span::before {
+            content: "\2713\00a0";
+            font-weight: 700;
+        }
+
+        .card-title {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 27px;
+            font-weight: 700;
+            color: var(--night);
+            margin: 0 0 6px;
+            line-height: 1.18;
+        }
+        .card-subtitle {
+            font-size: 14px;
+            color: var(--muted);
+            margin: 0 0 18px;
+            line-height: 1.5;
+        }
+
+        /* ── Progress ── */
+        .progress-row { display: flex; align-items: center; gap: 12px; margin-bottom: 22px; }
+        .progress-track { flex: 1; height: 8px; background: #d3ddd9; border-radius: 4px; overflow: hidden; }
+        .progress-fill { height: 100%; background: var(--cypress); border-radius: 4px; transition: width 0.45s ease; }
+        .progress-label { font-size: 13px; color: var(--muted); white-space: nowrap; min-width: 60px; text-align: right; }
+
+        .divider { border: none; border-top: 1px solid #dfe6e3; margin: 0 0 22px; }
+
+        /* ── Quiz Screens ── */
+        .screen { display: none; }
+        .screen.active { display: block; animation: fadeUp 0.3s ease; }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .q-label {
+            font-size: 11px;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin: 0 0 8px;
+            font-weight: 600;
+        }
+        .q-text {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--night);
+            margin: 0 0 22px;
+            line-height: 1.3;
+        }
+        .answers { display: flex; flex-direction: column; gap: 10px; }
+        .answer-btn {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+            background: #fff;
+            border: 2px solid var(--muted);
+            border-radius: 8px;
+            padding: 16px 18px;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--night);
+            cursor: pointer;
+            transition: all 0.15s ease;
+            text-align: left;
+        }
+        .answer-btn:hover { border-color: var(--cypress); background: #e9f7f0; }
+        .answer-btn:active { background: #d6f0e3; }
+        .answer-btn .radio {
+            width: 22px; height: 22px;
+            border: 2px solid var(--muted);
+            border-radius: 50%;
+            flex-shrink: 0;
+            position: relative;
+            transition: all 0.15s ease;
+        }
+        .answer-btn:hover .radio { border-color: var(--cypress); }
+        .answer-btn.selected { border-color: var(--cypress); background: #e9f7f0; }
+        .answer-btn.selected .radio { border-color: var(--cypress); background: var(--cypress); }
+        .answer-btn.selected .radio::after {
+            content: '';
+            position: absolute;
+            top: 4px; left: 4px;
+            width: 10px; height: 10px;
+            background: #fff;
+            border-radius: 50%;
+        }
+
+        /* ── Affirmation ── */
+        .affirm {
+            display: none;
+            align-items: flex-start;
+            gap: 10px;
+            margin-top: 14px;
+            padding: 12px 14px;
+            background: #e2fbef;
+            border: 1px solid #7fd8ab;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #0b5c40;
+            line-height: 1.45;
+        }
+        .affirm.show { display: flex; animation: fadeUp 0.25s ease; }
+        .affirm .affirm-check {
+            width: 18px; height: 18px;
+            background: var(--cypress-soft);
+            border-radius: 50%;
+            color: #fff;
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        /* ── Processing ── */
+        .processing-text { text-align: center; padding: 40px 0; }
+        .processing-text .spinner {
+            width: 40px; height: 40px;
+            border: 4px solid #d3ddd9;
+            border-top-color: var(--cypress);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 16px;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .processing-text p { font-size: 16px; color: var(--muted); margin: 4px 0; }
+        .processing-text .bold { color: var(--night); font-weight: 700; }
+
+        /* ── Result ── */
+        .result-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #e2fbef;
+            border: 1px solid #7fd8ab;
+            color: #0b5c40;
+            padding: 6px 14px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 14px;
+        }
+        .result-badge .check {
+            width: 18px; height: 18px;
+            background: var(--cypress-soft);
+            border-radius: 50%;
+            color: #fff;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .result-title {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--night);
+            margin: 0 0 6px;
+            line-height: 1.25;
+        }
+        .result-amount {
+            font-size: 38px;
+            font-weight: 800;
+            color: var(--cypress-soft);
+            margin: 14px 0;
+            line-height: 1.1;
+        }
+        .result-desc {
+            font-size: 15px;
+            color: var(--muted);
+            margin: 0 0 22px;
+            line-height: 1.6;
+        }
+        .result-desc strong { color: var(--ink); }
+
+        .phone-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 64px;
+            width: 100%;
+            border: 1px solid var(--mint);
+            border-radius: 999px;
+            background: var(--mint);
+            color: var(--night);
+            text-decoration: none;
+            font-size: 27px;
+            font-weight: 800;
+            line-height: 1;
+            white-space: nowrap;
+            box-shadow: 0 14px 28px rgba(36, 193, 120, 0.28);
+            transition: transform 0.15s ease, background 0.15s ease;
+        }
+        .phone-button:hover, .phone-button:focus {
+            outline: none;
+            background: var(--mint-hover);
+            transform: translateY(-1px);
+        }
+        .call-label {
+            margin: 12px 0 0;
+            color: var(--ink);
+            font-size: 15px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-align: center;
+        }
+        .reference {
+            margin-top: 8px;
+            color: var(--muted);
+            font-size: 12px;
+            font-weight: 700;
+            text-align: center;
+        }
+        .availability {
+            margin-top: 10px;
+            padding: 10px 16px;
+            background: #fbf6e9;
+            border: 1px solid #ecdfc0;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #7a6420;
+            font-weight: 600;
+            text-align: center;
+        }
+        .availability .countdown { font-weight: 700; font-variant-numeric: tabular-nums; }
+
+        .alt-link-row {
+            text-align: center;
+            margin-top: 16px;
+            font-size: 14px;
+        }
+        .alt-link-row a {
+            color: var(--cypress-soft);
+            font-weight: 600;
+            text-decoration: underline;
+        }
+        .cta-fine {
+            text-align: center;
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 12px;
+        }
+
+        /* ── Footer ── */
+        .site-footer {
+            background: var(--night);
+            color: #a9beb8;
+            text-align: center;
+            padding: 20px 16px;
+            font-size: 12px;
+        }
+        .footer-links { margin-bottom: 8px; }
+        .footer-links a { color: #a9beb8; text-decoration: none; margin: 0 12px; }
+        .footer-links a:hover { color: #fff; }
+        .footer-note {
+            color: #6e847e;
+            font-size: 11px;
+            max-width: 640px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+        /* ── Mobile ── */
+        @media (max-width: 600px) {
+            .site-header { padding: 8px 12px; }
+            .site-title { font-size: 13px; }
+            .site-subtitle { display: none; }
+            .seal { width: 34px; height: 34px; font-size: 18px; }
+            .header-call .hc-number { font-size: 15px; }
+            .card-header { padding: 20px 18px 0; }
+            .card-body { padding: 14px 18px 26px; }
+            .card-title { font-size: 23px; }
+            .q-text { font-size: 18px; }
+            .answer-btn { padding: 14px 14px; font-size: 15px; }
+            .result-amount { font-size: 31px; }
+            .phone-button { min-height: 60px; font-size: 23px; }
+            .main { padding: 18px 12px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header with persistent agent line -->
+    <header class="site-header">
+        <div class="brand">
+            <div class="seal">&#128737;&#65039;</div>
+            <div>
+                <div class="site-title">Life Coverage Benefit Review</div>
+                <div class="site-subtitle">Family Coverage Review &bull; Eligibility Screening Portal</div>
+            </div>
+        </div>
+        <a href="tel:+18338520696" class="header-call js-tel">
+            <span class="hc-label">Speak to a licensed agent</span>
+            <span class="hc-number"><span class="hc-icon">&#128222;</span><span class="js-number">833-852-0696</span></span>
+        </a>
+    </header>
+
+    <!-- Alert: positive update framing, amount matched to the ad -->
+    <div class="alert-bar">
+        &#9989; July 2026 Update: New coverage options up to <span class="js-amount">$150,000</span> now open for qualifying applicants
+    </div>
+
+    <!-- Main -->
+    <main class="main">
+        <div class="card">
+            <div class="card-header">
+                <div class="trust-strip">
+                    <span>Coverage through A rated insurers</span>
+                    <span>Licensed specialists</span>
+                    <span>No cost review</span>
+                </div>
+                <h1 class="card-title">Could You Qualify for Up to <span class="js-amount">$150,000</span> in Life Insurance Coverage?</h1>
+                <p class="card-subtitle">Answer 2 quick health questions to see what you may qualify for. No medical exam options may be available.</p>
+            </div>
+            <div class="card-body">
+
+                <!-- Progress -->
+                <div class="progress-row" id="progressRow">
+                    <div class="progress-track">
+                        <div class="progress-fill" id="progressFill" style="width:0%"></div>
+                    </div>
+                    <div class="progress-label" id="progressLabel">0 of 2</div>
+                </div>
+
+                <hr class="divider">
+
+                <!-- Q1: age range, echoed in result headline; 65+ routes to the final expense result -->
+                <div class="screen active" id="s1">
+                    <p class="q-label">Question 1 of 2</p>
+                    <p class="q-text">What is your age range?</p>
+                    <div class="answers">
+                        <button class="answer-btn" data-next="2" data-echo="25 to 34" data-affirm="Great news. Applicants in their late 20s and early 30s often see the lowest available rates."><span class="radio"></span>25 to 34</button>
+                        <button class="answer-btn" data-next="2" data-echo="35 to 44" data-affirm="Great news. This age range is a strong window for low rate options."><span class="radio"></span>35 to 44</button>
+                        <button class="answer-btn" data-next="2" data-echo="45 to 54" data-affirm="Good news. Many applicants in this range still qualify for full coverage options."><span class="radio"></span>45 to 54</button>
+                        <button class="answer-btn" data-next="2" data-echo="55 to 64" data-affirm="Good news. Coverage options in this age range are still open, including no exam options."><span class="radio"></span>55 to 64</button>
+                        <button class="answer-btn" data-next="2" data-echo="65 or older" data-senior="1" data-affirm="Good news. Protection plans built for your age range are open right now."><span class="radio"></span>65 or older</button>
+                    </div>
+                    <div class="affirm"><span class="affirm-check">&#10003;</span><span class="affirm-text"></span></div>
+                </div>
+
+                <!-- Q2: quick health check, delivers the ad's "few quick health questions" promise
+                     and pre-sets the plan tier for the phone agent -->
+                <div class="screen" id="s2">
+                    <p class="q-label">Question 2 of 2</p>
+                    <p class="q-text">Quick health check. Do any of these apply to you?</p>
+                    <div class="answers">
+                        <button class="answer-btn" data-next="processing" data-health="none" data-affirm="Great news. A clean health profile usually opens the widest range of plans and rates."><span class="radio"></span>None of these</button>
+                        <button class="answer-btn" data-next="processing" data-health="tobacco" data-affirm="Noted. Plans that accept tobacco users will be included in your review."><span class="radio"></span>I use tobacco or nicotine</button>
+                        <button class="answer-btn" data-next="processing" data-health="condition" data-affirm="Noted. There are plans designed specifically for people managing health conditions."><span class="radio"></span>A serious health condition, like heart disease, cancer, or oxygen use</button>
+                    </div>
+                    <div class="affirm"><span class="affirm-check">&#10003;</span><span class="affirm-text"></span></div>
+                </div>
+
+                <!-- Processing -->
+                <div class="screen" id="sProcessing">
+                    <div class="processing-text">
+                        <div class="spinner"></div>
+                        <p class="bold">Checking available coverage options&hellip;</p>
+                        <p>Reviewing your answers against current program guidelines</p>
+                    </div>
+                </div>
+
+                <!-- Result: phone number lives HERE, no second page hop -->
+                <div class="screen" id="sResult">
+                    <div class="result-badge">
+                        <span class="check">&#10003;</span> Approved for Review
+                    </div>
+                    <h2 class="result-title" id="resultTitle">Based on Your Answers, You May Qualify</h2>
+                    <div class="result-amount" id="resultAmount">Up to $150,000</div>
+                    <p class="result-desc" id="resultDesc">
+                        Based on your answers, you appear to meet the initial criteria and you are
+                        approved for a no cost phone review. <strong>The final step is one quick
+                        phone call.</strong> A licensed specialist walks you through the exact
+                        coverage amount and monthly rate you may qualify for. Most reviews take
+                        about 5 minutes.
+                    </p>
+                    <a href="tel:+18338520696" class="phone-button js-tel"><span class="js-number">833-852-0696</span></a>
+                    <div class="call-label">Tap to call. Your review is ready now.</div>
+                    <div class="reference" id="referenceNumber">Reference: LIFE-CALL-2026</div>
+                    <div class="availability">
+                        Specialist availability window:
+                        <span class="countdown"><span id="minutes">05</span>:<span id="seconds">00</span></span>
+                    </div>
+                    <div class="alt-link-row">
+                        Prefer not to call yet?
+                        <a href="https://y.getmorelocalhelp.com/click" class="js-offer-link cta-link">Open your review page</a>
+                    </div>
+                    <p class="cta-fine">
+                        Free review &bull; No obligation &bull; Licensed specialist &bull; About 5 minutes
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+            <a href="#">Accessibility</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="footer-note">
+            This is an advertisement. Life Coverage Benefit Review is an independent insurance
+            marketing website and is not affiliated with any government agency. Life insurance
+            coverage, premiums, no medical exam availability, and eligibility vary by age, health
+            profile, coverage amount, state, insurer, and underwriting. Coverage amounts and
+            pricing references are illustrative, reflect a range of available options, and do not
+            represent an approved or guaranteed benefit amount. Not a commitment to insure.
+        </div>
+    </footer>
+
+    <!-- Quiz Logic -->
+    <script>
+    (function() {
+        var fill = document.getElementById('progressFill');
+        var label = document.getElementById('progressLabel');
+        var total = 2;
+        var isSenior = false;
+        var healthPick = '';
+        var ageEcho = '';
+
+        /* Per-ad amount matching: ?amt= whitelist, default $150,000 (A2 ad promise) */
+        var AMOUNTS = { '100000': '$100,000', '150000': '$150,000', '250000': '$250,000', '500000': '$500,000' };
+        var amtParam = new URLSearchParams(window.location.search).get('amt');
+        var amountText = AMOUNTS[amtParam] || '$150,000';
+        document.querySelectorAll('.js-amount').forEach(function(el) { el.textContent = amountText; });
+
+        function addTags(key, value) {
+            var newTag = {};
+            newTag[key] = value;
+            newTag.type = "User";
+            (window._rgba_tags = window._rgba_tags || []).push(newTag);
+        }
+        window.__licAddTags = addTags;
+
+        document.querySelectorAll('.answer-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var next = btn.getAttribute('data-next');
+                var screen = btn.closest('.screen');
+
+                btn.classList.add('selected');
+                var answersBox = screen.querySelector('.answers');
+                if (answersBox) answersBox.style.pointerEvents = 'none';
+
+                var echo = btn.getAttribute('data-echo');
+                if (echo) {
+                    ageEcho = echo;
+                    isSenior = btn.getAttribute('data-senior') === '1';
+                    addTags('Quiz Age Range', echo);
+                }
+                var health = btn.getAttribute('data-health');
+                if (health) {
+                    healthPick = health;
+                    addTags('Quiz Health', health);
+                }
+
+                var advanceDelay = 300;
+                var affirmMsg = btn.getAttribute('data-affirm');
+                var affirmEl = screen.querySelector('.affirm');
+                if (affirmMsg && affirmEl) {
+                    affirmEl.querySelector('.affirm-text').textContent = affirmMsg;
+                    affirmEl.classList.add('show');
+                    advanceDelay = 1500;
+                }
+
+                setTimeout(function() {
+                    screen.classList.remove('active');
+
+                    if (next === 'processing') {
+                        fill.style.width = '100%';
+                        label.textContent = '2 of 2';
+
+                        var proc = document.getElementById('sProcessing');
+                        proc.classList.add('active');
+
+                        setTimeout(function() {
+                            proc.classList.remove('active');
+                            buildResult();
+                            document.getElementById('sResult').classList.add('active');
+                            document.getElementById('progressRow').style.display = 'none';
+                            startCountdown();
+                        }, 1800);
+
+                    } else {
+                        var nextNum = parseInt(next);
+                        fill.style.width = ((nextNum - 1) / total * 100) + '%';
+                        label.textContent = (nextNum - 1) + ' of ' + total;
+                        document.getElementById('s' + next).classList.add('active');
+                    }
+                }, advanceDelay);
+            });
+        });
+
+        function buildResult() {
+            var titleEl = document.getElementById('resultTitle');
+            var amountEl = document.getElementById('resultAmount');
+            var descEl = document.getElementById('resultDesc');
+
+            if (isSenior) {
+                /* Honest final expense framing: right sized amounts and a real price range
+                   so the caller hears a number they already expect */
+                titleEl.textContent = 'Good News. Plans for Your Age Range (' + ageEcho + ') Are Open';
+                amountEl.textContent = '$10,000 to $25,000';
+                descEl.innerHTML = 'Final expense plans for your age range are open now, including no ' +
+                    'medical exam options. Most plans in this range run about $60 to $200 per month ' +
+                    'depending on your age and health answers. <strong>The final step is one quick ' +
+                    'phone call.</strong> A licensed specialist confirms the exact plan and monthly ' +
+                    'rate you may qualify for. Most reviews take about 5 minutes.';
+                addTags('Quiz Result', 'Senior FE ' + ageEcho);
+            } else {
+                titleEl.textContent = 'Based on Your Age Range (' + ageEcho + '), You May Qualify';
+                amountEl.textContent = 'Up to ' + amountText;
+                if (healthPick === 'condition') {
+                    descEl.innerHTML = 'There are plans designed for people managing health conditions, ' +
+                        'and you are approved for a no cost phone review. <strong>The final step is one ' +
+                        'quick phone call.</strong> A licensed specialist walks you through the plans ' +
+                        'and monthly rate you may qualify for. Most reviews take about 5 minutes.';
+                } else if (healthPick === 'tobacco') {
+                    descEl.innerHTML = 'Plans that accept tobacco users are included in your review, and ' +
+                        'you are approved for a no cost phone review. <strong>The final step is one quick ' +
+                        'phone call.</strong> A licensed specialist walks you through the exact coverage ' +
+                        'amount and monthly rate you may qualify for. Most reviews take about 5 minutes.';
+                }
+                addTags('Quiz Result', 'Term ' + ageEcho + ' ' + (healthPick || 'none'));
+            }
+        }
+
+        /* Specialist availability countdown (5 minutes) */
+        var countdownInterval = null;
+        function startCountdown() {
+            if (countdownInterval) clearInterval(countdownInterval);
+            var totalSeconds = 300;
+            function tick() {
+                var minutes = Math.floor(totalSeconds / 60);
+                var seconds = totalSeconds % 60;
+                document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+                document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+                if (totalSeconds > 0) { totalSeconds -= 1; }
+                else { clearInterval(countdownInterval); }
+            }
+            tick();
+            countdownInterval = setInterval(tick, 1000);
+        }
+
+        /* Dynamic reference year */
+        document.getElementById('referenceNumber').textContent =
+            'Reference: LIFE-CALL-' + new Date().getFullYear();
+    })();
+    </script>
+    <!-- Ringba tags: capture ad params + page identity, mirror the call page convention -->
+    <script>
+    (function() {
+        function addTags(key, value) {
+            var newTag = {};
+            newTag[key] = value;
+            newTag.type = "User";
+            (window._rgba_tags = window._rgba_tags || []).push(newTag);
+        }
+
+        var urlParams = new URLSearchParams(window.location.search);
+        var clickid = urlParams.get('rtkcid') || urlParams.get('sub2') ||
+                      urlParams.get('clickid') || urlParams.get('rt_clickid') || '';
+
+        var paramMap = {
+            transaction_id: "tracking_transaction_id",
+            source_id: "tracking_source_id",
+            aff_id: "tracking_affiliate_id",
+            sub1: "tracking_sub1",
+            sub3: "tracking_sub3",
+            sub4: "tracking_sub4",
+            sub5: "tracking_sub5",
+            utm_source: "utm_source",
+            utm_medium: "utm_medium",
+            utm_campaign: "utm_campaign"
+        };
+        Object.keys(paramMap).forEach(function(param) {
+            var value = urlParams.get(param) || "";
+            if (value) addTags(paramMap[param], value);
+        });
+        /* clickid always lands in tracking_sub2, matching the call page convention */
+        if (clickid) addTags("tracking_sub2", clickid);
+
+        addTags("Vertical", "Life Insurance");
+        addTags("Flow", "Quiz Result Direct Call");
+        addTags("Page Variant", "LIC4-A Quiz Direct Call v1");
+
+        /* On tel tap: tag the click and best-effort ping the RT offer click so the
+           lp_click is logged without leaving the page (diagnostic only; conversion
+           attribution rides the Ringba clickid tag) */
+        document.addEventListener("click", function(event) {
+            var phoneLink = event.target.closest('a[href^="tel:"]');
+            if (!phoneLink) return;
+            addTags("Call Click", "Life Insurance LIC4-A");
+            try {
+                var ping = new Image();
+                ping.src = 'https://y.getmorelocalhelp.com/click?attribution=pixel' +
+                    (clickid ? '&clickid=' + encodeURIComponent(clickid) +
+                               '&sub2=' + encodeURIComponent(clickid) : '');
+            } catch (e) {}
+        });
+    })();
+    </script>
+    <!-- Redirect click handler for the secondary review page path -->
+    <script>
+    (function() {
+        function handleButtonClick(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            window.location.href = this.href;
+        }
+        document.querySelectorAll('a.js-offer-link').forEach(function(btn) {
+            btn.addEventListener('click', handleButtonClick);
+        });
+    })();
+    </script>
+    <!-- Click ID passthrough -->
+    <script>
+    (function(){
+        var p=new URLSearchParams(window.location.search);
+        var c=p.get('rtkcid')||p.get('sub2')||p.get('clickid')||p.get('rt_clickid');
+        if(c){document.querySelectorAll('a.js-offer-link,a.cta-link').forEach(function(l){
+            var s=l.href.indexOf('?')>-1?'&':'?';
+            l.href=l.href+s+'sub2='+encodeURIComponent(c)
+        })}
+    })();
+    </script>
+    <!-- RedTrack track.js -->
+    <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
+</body>
+</html>
