@@ -523,7 +523,7 @@
         var c=p.get('rtkcid')||p.get('sub2')||p.get('clickid')||p.get('rt_clickid');
         if(c){document.querySelectorAll('a.js-offer-link,a.cta-link').forEach(function(l){
             var s=l.href.indexOf('?')>-1?'&':'?';
-            l.href=l.href+s+'sub2='+encodeURIComponent(c)
+            l.href=l.href+s+'sub2='+encodeURIComponent(c)+'&clickid='+encodeURIComponent(c)
         })}
     })();
     </script>
