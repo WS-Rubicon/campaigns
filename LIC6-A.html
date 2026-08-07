@@ -5,6 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
     <title>Life Insurance Coverage - Life Insurance Guardians</title>
+    <!-- No-click-context self-heal: bare opens bounce once through the campaign link so RT mints a clickid (first-party) and the age tap can resolve /click. Real ad traffic (rtkcid present) never bounces. -->
+    <script>
+    (function(){
+        try{
+            var p=new URLSearchParams(window.location.search);
+            var cid=p.get('rtkcid')||p.get('sub2')||p.get('clickid')||p.get('rt_clickid');
+            var amt=p.get('amt');
+            if(amt){sessionStorage.setItem('lic6_amt',amt);}
+            if(!cid){
+                var b=parseInt(sessionStorage.getItem('lic6_bounced')||'0',10);
+                if(!b||Date.now()-b>60000){
+                    sessionStorage.setItem('lic6_bounced',String(Date.now()));
+                    window.location.replace('https://y.getmorelocalhelp.com/6a351081c8efd67aae4119ea?sub1=organic-direct');
+                }
+            }
+        }catch(_){}
+    })();
+    </script>
     <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -472,6 +490,7 @@
     (function() {
         var ALLOWED = { '50000': '$50,000', '100000': '$100,000', '150000': '$150,000', '250000': '$250,000', '500000': '$500,000' };
         var amt = new URLSearchParams(window.location.search).get('amt');
+        try{ amt = amt || sessionStorage.getItem('lic6_amt'); }catch(_){}
         var display = ALLOWED[amt] || '$500,000';
         document.querySelectorAll('.js-amt').forEach(function(el) {
             el.textContent = display;
