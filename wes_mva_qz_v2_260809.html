@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Crash Claim Check | Before You Accept the Insurance Number</title>
+    <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; }
+        html, body { margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #f1f5f9;
+            color: #0f172a;
+            line-height: 1.6;
+            font-size: 17px;
+            min-height: 100vh;
+        }
+        .topbar {
+            background: #0f766e;
+            color: #ffffff;
+            text-align: center;
+            padding: 12px 16px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .shell { max-width: 460px; margin: 0 auto; padding: 24px 18px 60px; }
+        .progress-track {
+            background: #dbe4ec;
+            border-radius: 99px;
+            height: 8px;
+            margin: 4px 0 6px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            background: #0f766e;
+            height: 100%;
+            width: 10%;
+            border-radius: 99px;
+            transition: width 0.3s ease;
+        }
+        .progress-label {
+            font-size: 13px;
+            color: #64748b;
+            text-align: right;
+            margin-bottom: 16px;
+            min-height: 18px;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+            padding: 28px 22px;
+            display: none;
+        }
+        .card.active { display: block; }
+        .card h1 { font-size: 26px; line-height: 1.25; margin: 0 0 12px; }
+        .card h2 { font-size: 22px; line-height: 1.3; margin: 0 0 18px; }
+        .card p.lead { color: #475569; margin: 0 0 22px; font-size: 16px; }
+        .answers { display: flex; flex-direction: column; gap: 12px; }
+        button.answer {
+            font-family: inherit;
+            font-size: 17px;
+            text-align: left;
+            background: #f8fafc;
+            border: 2px solid #cbd5e1;
+            border-radius: 12px;
+            padding: 15px 16px;
+            min-height: 52px;
+            cursor: pointer;
+            color: #0f172a;
+            width: 100%;
+        }
+        button.answer:active { border-color: #0f766e; background: #ecfdf5; }
+        button.start-btn {
+            font-family: inherit;
+            display: block;
+            width: 100%;
+            background: #ea580c;
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: 700;
+            border: none;
+            border-radius: 12px;
+            padding: 17px 20px;
+            min-height: 52px;
+            cursor: pointer;
+        }
+        button.start-btn:active { background: #c2410c; }
+        .trust-line {
+            font-size: 13px;
+            color: #64748b;
+            text-align: center;
+            margin-top: 14px;
+        }
+        .skip-line {
+            text-align: center;
+            margin-top: 18px;
+            font-size: 14px;
+        }
+        .skip-line a { color: #475569; text-decoration: underline; }
+        .result-badge {
+            display: inline-block;
+            background: #ecfdf5;
+            color: #047857;
+            border: 1px solid #a7f3d0;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 99px;
+            padding: 6px 14px;
+            margin-bottom: 14px;
+        }
+        .case-line {
+            background: #f8fafc;
+            border: 1px dashed #cbd5e1;
+            border-radius: 12px;
+            padding: 14px 16px;
+            font-size: 15px;
+            color: #334155;
+            margin: 18px 0;
+        }
+        .case-line .note { display: block; font-size: 12.5px; color: #64748b; margin-top: 8px; }
+        a.cta-go {
+            display: block;
+            width: 100%;
+            background: #ea580c;
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: 700;
+            text-decoration: none;
+            text-align: center;
+            border-radius: 12px;
+            padding: 17px 20px;
+            min-height: 52px;
+        }
+        a.cta-go:active { background: #c2410c; }
+        .repeat-link { text-align: center; margin-top: 16px; font-size: 15px; }
+        .repeat-link a { color: #0f766e; font-weight: 600; text-decoration: underline; }
+        footer {
+            max-width: 460px;
+            margin: 30px auto 0;
+            padding: 20px 18px 40px;
+            font-size: 12px;
+            line-height: 1.6;
+            color: #64748b;
+            border-top: 1px solid #dbe4ec;
+        }
+        footer p { margin: 0 0 10px; }
+        @media (min-width: 700px) {
+            .shell { padding-top: 48px; }
+            .card { padding: 34px 30px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="topbar">Crash Claim Check &middot; 2026</div>
+    <div class="shell">
+        <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="progress-label" id="progressLabel"></div>
+
+        <div class="card active" id="cardIntro">
+            <h1>Before you accept the insurance number, take this 60 second check.</h1>
+            <p class="lead">Four quick questions show whether the offer on your crash claim can still be reviewed. No paperwork, and nothing gets signed here.</p>
+            <button class="start-btn" id="startBtn" type="button">Start My 60-Second Check</button>
+            <div class="trust-line">Free &middot; No obligation &middot; Takes about a minute</div>
+            <div class="skip-line">
+                In a hurry? <a href="https://y.getmorelocalhelp.com/click?clickid=__rtkcid__&amp;sub3=offer-check&amp;sub4=wesley&amp;sub5=mva-lp-offer-check-v1" class="js-offer-link cta-link">Skip ahead to the free claim review</a>
+            </div>
+        </div>
+
+        <div class="card" id="cardQ1">
+            <h2>When was the crash?</h2>
+            <div class="answers">
+                <button class="answer" type="button" data-next="2">Within the last month</button>
+                <button class="answer" type="button" data-next="2">1 to 6 months ago</button>
+                <button class="answer" type="button" data-next="2">6 months to 2 years ago</button>
+                <button class="answer" type="button" data-next="2">More than 2 years ago</button>
+            </div>
+        </div>
+
+        <div class="card" id="cardQ2">
+            <h2>Has the insurance company made you an offer yet?</h2>
+            <div class="answers">
+                <button class="answer" type="button" data-next="3">Yes, there is already a number</button>
+                <button class="answer" type="button" data-next="3">Not yet, still going back and forth</button>
+                <button class="answer" type="button" data-next="3">They are asking me to sign something</button>
+            </div>
+        </div>
+
+        <div class="card" id="cardQ3">
+            <h2>Have you signed a final release or cashed a final check?</h2>
+            <div class="answers">
+                <button class="answer" type="button" data-next="4" data-signed="no">No, nothing final yet</button>
+                <button class="answer" type="button" data-next="4" data-signed="unsure">I am not sure</button>
+                <button class="answer" type="button" data-next="4" data-signed="yes">Yes, everything is signed</button>
+            </div>
+        </div>
+
+        <div class="card" id="cardQ4">
+            <h2>Are crash related bills or costs still showing up?</h2>
+            <div class="answers">
+                <button class="answer" type="button" data-next="result">Yes, they keep coming</button>
+                <button class="answer" type="button" data-next="result">Mostly settled now</button>
+                <button class="answer" type="button" data-next="result">Not sure yet</button>
+            </div>
+        </div>
+
+        <div class="card" id="cardResult">
+            <span class="result-badge" id="resultBadge">Check complete</span>
+            <h2 id="resultHeadline">Your claim may still be open to a full review.</h2>
+            <p class="lead" id="resultBody">Based on your answers, nothing final appears to be signed. That means the current number can still be looked at by a claim specialist before anything becomes permanent.</p>
+            <div class="case-line">
+                In one reviewed case, a first offer of $5,900 ended near $68,000 once the full costs were counted.
+                <span class="note">Every claim is different. Results vary and no outcome can be promised.</span>
+            </div>
+            <a href="https://y.getmorelocalhelp.com/click?clickid=__rtkcid__&amp;sub3=offer-check&amp;sub4=wesley&amp;sub5=mva-lp-offer-check-v1" class="js-offer-link cta-link cta-go">See What My Claim May Actually Be Worth</a>
+            <div class="trust-line">Free review &middot; No obligation &middot; Nothing is signed on this page</div>
+            <div class="repeat-link">
+                <a href="https://y.getmorelocalhelp.com/click?clickid=__rtkcid__&amp;sub3=offer-check&amp;sub4=wesley&amp;sub5=mva-lp-offer-check-v1" class="js-offer-link cta-link">Check before you accept the first insurance number</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>This is an advertisement. This site provides general consumer information and is not legal advice.</p>
+        <p>This site is not a law firm and is not an attorney referral service. Using this site or requesting a review does not create an attorney-client relationship. The check above is informational only and its result is not a legal opinion or a promise about any claim. Case results mentioned reflect the individual circumstances of those cases. Every claim is different, results vary, and no outcome is promised or implied.</p>
+        <p>This site is not affiliated with any insurance company or any government agency. Information entered on the following page is collected under the review operator's privacy policy.</p>
+        <p>&copy; 2026 Crash Claim Check. All rights reserved.</p>
+    </footer>
+
+    <script>
+    (function(){
+        var order = ['cardIntro','cardQ1','cardQ2','cardQ3','cardQ4','cardResult'];
+        var fill = document.getElementById('progressFill');
+        var label = document.getElementById('progressLabel');
+        var signedState = 'no';
+        function show(id){
+            order.forEach(function(cid){
+                document.getElementById(cid).classList.toggle('active', cid === id);
+            });
+            var qIndex = order.indexOf(id);
+            if (id === 'cardIntro') { fill.style.width = '10%'; label.textContent = ''; }
+            else if (id === 'cardResult') {
+                fill.style.width = '100%';
+                label.textContent = 'Complete';
+                if (signedState === 'yes') {
+                    document.getElementById('resultHeadline').textContent = 'A review can still explain what was signed.';
+                    document.getElementById('resultBody').textContent = 'Because a final release appears to be signed, options may be limited. A free review can still walk through what the paperwork means and whether anything remains open.';
+                    document.getElementById('resultBadge').textContent = 'Check complete';
+                }
+                window.scrollTo(0, 0);
+            }
+            else {
+                fill.style.width = (qIndex * 22) + '%';
+                label.textContent = 'Question ' + qIndex + ' of 4';
+                window.scrollTo(0, 0);
+            }
+        }
+        document.getElementById('startBtn').addEventListener('click', function(){ show('cardQ1'); });
+        document.querySelectorAll('button.answer').forEach(function(btn){
+            btn.addEventListener('click', function(){
+                if (btn.dataset.signed) { signedState = btn.dataset.signed; }
+                var next = btn.dataset.next;
+                show(next === 'result' ? 'cardResult' : 'cardQ' + next);
+            });
+        });
+    })();
+    </script>
+
+    <!-- Redirect click handler -->
+    <script>
+    (function() {
+        function handleButtonClick(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            window.location.href = this.href;
+        }
+        document.querySelectorAll('a.js-offer-link').forEach(function(btn) {
+            btn.addEventListener('click', handleButtonClick);
+        });
+    })();
+    </script>
+    <!-- Click ID passthrough -->
+    <script>
+    (function(){
+    // rubicon_clickid_passthrough_v3
+    var p=new URLSearchParams(window.location.search);
+    var _clean=function(v){
+        if(v===null||v===undefined) return null;
+        var s=String(v).trim();
+        if(!s) return null;
+        if(/^\{[a-zA-Z0-9_]+\}$/.test(s)) return null;
+        if(/^\{\{[a-zA-Z0-9_]+\}\}$/.test(s)) return null;
+        if(/^__[a-zA-Z0-9_]+__$/.test(s)) return null;
+        return s;
+    };
+    var rtkcid=_clean(p.get('rtkcid'));
+    var clickid=_clean(p.get('clickid'));
+    var rt_clickid=_clean(p.get('rt_clickid'));
+    var tblci=_clean(p.get('tblci'));
+    var raw_sub1=_clean(p.get('sub1'));
+    var raw_sub2=_clean(p.get('sub2'));
+    var raw_sub3=_clean(p.get('sub3'));
+    var raw_sub4=_clean(p.get('sub4'));
+    var raw_sub5=_clean(p.get('sub5'));
+    var rt_ad=_clean(p.get('rt_ad'));
+    var rt_source=_clean(p.get('rt_source'));
+    var rt_adgroup=_clean(p.get('rt_adgroup'));
+    var rt_campaign=_clean(p.get('rt_campaign'));
+    var ef_transaction_id=_clean(p.get('_ef_transaction_id'))||_clean(p.get('ef_transaction_id'))||_clean(p.get('transaction_id'));
+    var _cookieValue=function(keys,prefix){
+        try{
+            var parts=document.cookie.split(';');
+            for(var i=0;i<parts.length;i+=1){
+                var entry=parts[i].trim();
+                if(!entry) continue;
+                var eq=entry.indexOf('=');
+                if(eq<=0) continue;
+                var key=entry.slice(0,eq).trim().toLowerCase();
+                var value=_clean(decodeURIComponent(entry.slice(eq+1)));
+                if(!value) continue;
+                for(var j=0;j<keys.length;j+=1){if(key===keys[j]) return value;}
+                if(prefix&&key.indexOf(prefix)===0) return value;
+            }
+        }catch(_){}
+        return null;
+    };
+    var _storedIdentityValue=function(name){
+        var buckets=[];
+        try{if(window.localStorage){buckets.push(window.localStorage.getItem('_rb_external_click_identity'));}}catch(_){}
+        try{if(window.sessionStorage){buckets.push(window.sessionStorage.getItem('_rb_external_click_identity'));}}catch(_){}
+        buckets.push(_cookieValue(['_rb_external_click_identity'], null));
+        for(var i=0;i<buckets.length;i+=1){
+            var raw=buckets[i];
+            if(!raw) continue;
+            try{
+                var parsed=JSON.parse(raw);
+                var value=_clean(parsed&&parsed[name]);
+                if(value) return value;
+            }catch(_){}
+        }
+        return null;
+    };
+    if(!ef_transaction_id){
+        ef_transaction_id=_cookieValue(['transaction_id','ef_transaction_id','_ef_transaction_id'],'ef_tid_')||_storedIdentityValue('everflow_transaction_id');
+    }
+    var _isDigits=function(s){return !!s&&/^[0-9]+$/.test(s)};
+    var _looksLikeClickId=function(s){return !!s&&/^[A-Za-z0-9][A-Za-z0-9._:-]{11,}$/.test(String(s).trim())};
+    var _isSourceToken=function(s){
+        if(!s) return false;
+        var t=String(s).trim().toLowerCase();
+        return ['facebook','fb','meta','instagram','google','taboola','outbrain','tiktok','snapchat','newsbreak','native'].indexOf(t)>=0;
+    };
+    var _canonicalFlowReady=function(){
+        var canonicalClickId=raw_sub3||rtkcid||clickid||rt_clickid;
+        return !!(raw_sub1&&raw_sub2&&raw_sub4&&raw_sub5&&_looksLikeClickId(canonicalClickId));
+    };
+    var _applyTrackingContext=function(u,c){
+        try{
+            Array.from(u.searchParams.entries()).forEach(function(pair){
+                var key=pair[0];
+                var value=pair[1];
+                if(_clean(value)===null){u.searchParams.delete(key)}
+            });
+            var trackedPairs=[['transaction_id',ef_transaction_id],['ef_transaction_id',ef_transaction_id],['_ef_transaction_id',ef_transaction_id]];
+            if(c){
+                trackedPairs.push(['clickid',c],['click_id',c],['rtkcid',c],['rt_clickid',c],['rtkclickid',c]);
+            }
+            if(tblci){trackedPairs.push(['tblci',tblci]);}
+            if(_canonicalFlowReady()){
+                trackedPairs.push(
+                    ['sub1',raw_sub1],
+                    ['sub2',raw_sub2],
+                    ['sub3',_looksLikeClickId(raw_sub3)?raw_sub3:c],
+                    ['sub4',raw_sub4],
+                    ['sub5',raw_sub5]
+                );
+            } else {
+                if(c){trackedPairs.push(['sub2',c]);}
+                trackedPairs.push(
+                    ['sub1',rt_ad||raw_sub1],
+                    ['sub3',rt_source||raw_sub3],
+                    ['sub4',rt_adgroup||raw_sub4],
+                    ['sub5',rt_campaign||raw_sub5]
+                );
+            }
+            trackedPairs.forEach(function(pair){
+                var key=pair[0], value=pair[1];
+                if(value&&!_clean(u.searchParams.get(key))){u.searchParams.set(key,value)}
+            });
+        }catch(_){}
+        return u;
+    };
+    var c=rtkcid||clickid||rt_clickid||tblci||(function(){
+        if(raw_sub2&&raw_sub3){
+            if(_isSourceToken(raw_sub3)&&!_isSourceToken(raw_sub2)) return raw_sub2;
+            if(_isSourceToken(raw_sub2)&&!_isSourceToken(raw_sub3)) return raw_sub3;
+            if(_isDigits(raw_sub2)&&!_isDigits(raw_sub3)) return raw_sub3;
+            if(_isDigits(raw_sub3)&&!_isDigits(raw_sub2)) return raw_sub2;
+            if(raw_sub3.length>raw_sub2.length+2) return raw_sub3;
+            return raw_sub2;
+        }
+        return raw_sub3||raw_sub2;
+    })();
+    document.querySelectorAll('a.js-offer-link,a.cta-link,a.cta-button').forEach(function(l){
+        try{var u=new URL(l.href,window.location.origin);_applyTrackingContext(u,c);l.href=u.toString()}catch(_){
+            var pairs=[];
+            if(ef_transaction_id){pairs.push('_ef_transaction_id='+encodeURIComponent(ef_transaction_id));pairs.push('transaction_id='+encodeURIComponent(ef_transaction_id))}
+            if(c){pairs.push('clickid='+encodeURIComponent(c));pairs.push('rtkcid='+encodeURIComponent(c));pairs.push('rt_clickid='+encodeURIComponent(c))}
+            if(tblci){pairs.push('tblci='+encodeURIComponent(tblci))}
+            if(_canonicalFlowReady()){
+                pairs.push('sub1='+encodeURIComponent(raw_sub1));
+                pairs.push('sub2='+encodeURIComponent(raw_sub2));
+                pairs.push('sub3='+encodeURIComponent((_looksLikeClickId(raw_sub3)?raw_sub3:c)||''));
+                pairs.push('sub4='+encodeURIComponent(raw_sub4));
+                pairs.push('sub5='+encodeURIComponent(raw_sub5));
+            } else {
+                if(c){pairs.push('sub2='+encodeURIComponent(c))}
+                if(rt_ad||raw_sub1){pairs.push('sub1='+encodeURIComponent(rt_ad||raw_sub1))}
+                if(rt_source||raw_sub3){pairs.push('sub3='+encodeURIComponent(rt_source||raw_sub3))}
+                if(rt_adgroup||raw_sub4){pairs.push('sub4='+encodeURIComponent(rt_adgroup||raw_sub4))}
+                if(rt_campaign||raw_sub5){pairs.push('sub5='+encodeURIComponent(rt_campaign||raw_sub5))}
+            }
+            if(pairs.length){var s=l.href.indexOf('?')>-1?'&':'?';l.href=l.href+s+pairs.join('&')}
+        }
+    });
+})();
+    </script>
+    <!-- RedTrack track.js -->
+    <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
+</body>
+</html>
