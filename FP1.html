@@ -835,6 +835,20 @@
              console.log(window._rgba_tags);
         }
 
+        /* Call-attribute tags (additive 2026-08-11): push funnel-known consumer
+           attributes from the arrival URL so call-intel can cut billable rate and
+           revenue-per-call by attribute. State arrives as Everflow's region param
+           on every click; amount is the coverage token the ad promised. */
+        (function tagCallAttributes() {
+            try {
+                var params = new URLSearchParams(window.location.search);
+                var state = params.get('region') || params.get('state') || '';
+                var amount = params.get('amount') || params.get('amt') || '';
+                if (state && state.length <= 40) addTags('State', state);
+                if (amount && amount.length <= 20) addTags('Amount', amount);
+            } catch (e) {}
+        })();
+
         // Add click handlers to age buttons
         document.addEventListener('DOMContentLoaded', function() {
             var ageButtons = document.querySelectorAll('.age-button');
