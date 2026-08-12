@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Still in Pain After the Crash, but the X-Rays Came Back Clean?</title>
+    <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; }
+        html, body { margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            background: #ffffff;
+            color: #1f2937;
+            line-height: 1.65;
+            font-size: 17px;
+        }
+        .wrap { max-width: 600px; margin: 0 auto; padding: 0 20px 70px; }
+        .sheet-head {
+            border-bottom: 2px solid #1f2937;
+            padding: 18px 0 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .sheet-title {
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #1f2937;
+        }
+        .sheet-date { font-size: 12px; color: #6b7280; }
+        h1 {
+            font-size: 27px;
+            line-height: 1.3;
+            margin: 24px 0 14px;
+            font-weight: 700;
+        }
+        .lede { font-size: 17px; color: #4b5563; margin: 0 0 22px; }
+        p { margin: 0 0 18px; }
+        .check-panel {
+            background: #f4f7fa;
+            border: 1px solid #dbe3ec;
+            border-radius: 10px;
+            padding: 20px 18px;
+            margin: 24px 0;
+        }
+        .check-panel h2 { font-size: 19px; margin: 0 0 14px; }
+        .check-list { margin: 0; padding: 0; list-style: none; }
+        .check-list li { margin: 0 0 10px; }
+        .check-list button {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            width: 100%;
+            background: #ffffff;
+            border: 1.5px solid #c8d3e0;
+            border-radius: 8px;
+            padding: 13px 14px;
+            font-family: inherit;
+            font-size: 16px;
+            color: #1f2937;
+            text-align: left;
+            cursor: pointer;
+            min-height: 48px;
+        }
+        .check-list button .box {
+            flex: 0 0 auto;
+            width: 22px;
+            height: 22px;
+            border: 2px solid #93a5bc;
+            border-radius: 5px;
+            margin-top: 1px;
+            position: relative;
+        }
+        .check-list button.on { border-color: #1f2937; background: #eef3f8; }
+        .check-list button.on .box { border-color: #1f2937; background: #1f2937; }
+        .check-list button.on .box::after {
+            content: "";
+            position: absolute;
+            left: 6px; top: 2px;
+            width: 6px; height: 11px;
+            border: solid #ffffff;
+            border-width: 0 2.5px 2.5px 0;
+            transform: rotate(45deg);
+        }
+        .validate {
+            display: none;
+            border-left: 4px solid #b91c1c;
+            background: #fdf3f3;
+            border-radius: 0 8px 8px 0;
+            padding: 14px 16px;
+            margin: 16px 0 4px;
+            font-size: 16px;
+        }
+        .validate.show { display: block; }
+        .validate strong { color: #b91c1c; }
+        .mech h2 { font-size: 21px; margin: 30px 0 12px; }
+        .case-card {
+            background: #f4f7fa;
+            border: 1px solid #dbe3ec;
+            border-radius: 10px;
+            padding: 18px 20px;
+            margin: 24px 0;
+        }
+        .case-card .case-tag {
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #6b7280;
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+        .case-card p { margin: 0 0 10px; }
+        .case-card .case-note { font-size: 13px; color: #6b7280; margin: 0; }
+        .amount { font-weight: 700; }
+        .cta-block { margin: 28px 0; text-align: center; }
+        a.cta-btn {
+            display: block;
+            width: 100%;
+            background: #0f766e;
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: 700;
+            text-decoration: none;
+            text-align: center;
+            padding: 16px 20px;
+            border-radius: 10px;
+            min-height: 48px;
+        }
+        a.cta-btn:active { background: #0b5a54; }
+        .trust-line { font-size: 13px; color: #6b7280; margin-top: 9px; }
+        .sticky-cta {
+            position: fixed;
+            left: 0; right: 0; bottom: 0;
+            background: #1f2937;
+            padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+            display: none;
+            z-index: 50;
+        }
+        .sticky-cta.show { display: block; }
+        .sticky-cta a.cta-btn { font-size: 16px; padding: 13px 16px; border-radius: 8px; }
+        footer {
+            margin-top: 50px;
+            border-top: 1px solid #dbe3ec;
+            padding-top: 20px;
+            font-size: 12px;
+            line-height: 1.6;
+            color: #6b7280;
+        }
+        footer p { margin: 0 0 10px; }
+        @media (min-width: 700px) {
+            h1 { font-size: 32px; }
+            a.cta-btn { display: inline-block; width: auto; padding: 16px 44px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="sheet-head">
+            <span class="sheet-title">Injury Claim Notes</span>
+            <span class="sheet-date">Updated August 12, 2026</span>
+        </div>
+
+        <h1>Still in pain after the crash, but the X-rays came back clean?</h1>
+        <p class="lede">That gap between what you feel and what the scans show is not in your head. It is the single most common place injury claims lose value.</p>
+
+        <div class="check-panel">
+            <h2>Check any that sound familiar</h2>
+            <ul class="check-list">
+                <li><button type="button"><span class="box"></span><span>Neck or back that aches by the end of every day</span></button></li>
+                <li><button type="button"><span class="box"></span><span>Headaches that started after the accident</span></button></li>
+                <li><button type="button"><span class="box"></span><span>Pain that comes back whenever you sit or drive too long</span></button></li>
+                <li><button type="button"><span class="box"></span><span>Sleep that has not been right since the crash</span></button></li>
+                <li><button type="button"><span class="box"></span><span>An adjuster who keeps telling you the scans look fine</span></button></li>
+            </ul>
+            <div class="validate" id="validateMsg">
+                <p style="margin:0"><strong>What you are describing fits a soft tissue injury pattern.</strong> The pain is real. The problem is what the insurer's file says about it, and that part can be checked.</p>
+            </div>
+        </div>
+
+        <div class="mech">
+            <h2>Why the file says less than you feel</h2>
+            <p>Soft tissue injuries like whiplash often do not show up on X-rays. Insurers know this, and claim files get valued on what imaging and paperwork can show. When the scan is clean, the injury gets treated as minor, whatever your days actually feel like.</p>
+            <p>That gap is where these claims get discounted. Not because the pain is not real, but because nobody made the file prove it. Treatment records, specialist notes, and documented time off work are what close that gap, and most first offers arrive before any of it is counted.</p>
+        </div>
+
+        <div class="case-card">
+            <span class="case-tag">From one reviewed case</span>
+            <p>One driver with a soft tissue injury was first offered <span class="amount">$4,200</span>. After treatment records, specialist notes, and lost work were fully counted, the claim ended near <span class="amount">$47,500</span>.</p>
+            <p class="case-note">Every claim is different. Results vary and no outcome can be promised.</p>
+        </div>
+
+        <div class="cta-block">
+            <a href="https://y.getmorelocalhelp.com/click?clickid=__rtkcid__&amp;sub3=invisible-injury&amp;sub4=wesley&amp;sub5=mva-lp-invisible-injury-v1" class="js-offer-link cta-link cta-btn">See What My Claim May Be Worth</a>
+            <div class="trust-line">Free case review. No obligation. Nothing is signed on this page.</div>
+        </div>
+
+        <p>More and more people whose scans came back clean are having their claim reviewed before accepting anything. The review looks at what your file shows today, what it is missing, and what the current number leaves out.</p>
+
+        <p>Maybe your claim is one of the larger ones. Maybe it is not. Either way, you find out what the paperwork says about your injury before a signature closes the question for good.</p>
+
+        <div class="cta-block">
+            <a href="https://y.getmorelocalhelp.com/click?clickid=__rtkcid__&amp;sub3=invisible-injury&amp;sub4=wesley&amp;sub5=mva-lp-invisible-injury-v1" class="js-offer-link cta-link cta-btn">Check My Claim Before I Accept</a>
+            <div class="trust-line">Free. No obligation. Takes about a minute to start.</div>
+        </div>
+
+        <footer>
+            <p>This is an advertisement. This site provides general consumer information and is not legal advice or medical advice. If you are experiencing symptoms, see a qualified medical professional.</p>
+            <p>This site is not a law firm and is not an attorney referral service. Using this site or requesting a review does not create an attorney-client relationship. Case results mentioned reflect the individual circumstances of those cases. Every claim is different, results vary, and no outcome is promised or implied for any other claim.</p>
+            <p>This site is not affiliated with any insurance company or any government agency. Information entered on the following page is collected under the review operator's privacy policy.</p>
+            <p>&copy; 2026 Injury Claim Notes. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <div class="sticky-cta" id="stickyBar">
+        <a href="https://y.getmorelocalhelp.com/click?clickid=__rtkcid__&amp;sub3=invisible-injury&amp;sub4=wesley&amp;sub5=mva-lp-invisible-injury-v1" class="js-offer-link cta-link cta-btn">See What My Claim May Be Worth</a>
+    </div>
+
+    <script>
+    (function(){
+        var items = document.querySelectorAll('.check-list button');
+        var msg = document.getElementById('validateMsg');
+        function anyOn(){
+            for (var i = 0; i < items.length; i += 1) {
+                if (items[i].classList.contains('on')) return true;
+            }
+            return false;
+        }
+        items.forEach(function(btn){
+            btn.addEventListener('click', function(){
+                btn.classList.toggle('on');
+                if (anyOn()) { msg.classList.add('show'); }
+                else { msg.classList.remove('show'); }
+            });
+        });
+        var bar = document.getElementById('stickyBar');
+        var shown = false;
+        window.addEventListener('scroll', function(){
+            var past = window.scrollY > 700;
+            if (past && !shown) { bar.classList.add('show'); shown = true; }
+            if (!past && shown) { bar.classList.remove('show'); shown = false; }
+        }, { passive: true });
+    })();
+    </script>
+
+    <!-- Redirect click handler -->
+    <script>
+    (function() {
+        function handleButtonClick(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            window.location.href = this.href;
+        }
+        document.querySelectorAll('a.js-offer-link').forEach(function(btn) {
+            btn.addEventListener('click', handleButtonClick);
+        });
+    })();
+    </script>
+    <!-- Click ID passthrough -->
+    <script>
+    (function(){
+    // rubicon_clickid_passthrough_v3
+    var p=new URLSearchParams(window.location.search);
+    var _clean=function(v){
+        if(v===null||v===undefined) return null;
+        var s=String(v).trim();
+        if(!s) return null;
+        if(/^\{[a-zA-Z0-9_]+\}$/.test(s)) return null;
+        if(/^\{\{[a-zA-Z0-9_]+\}\}$/.test(s)) return null;
+        if(/^__[a-zA-Z0-9_]+__$/.test(s)) return null;
+        return s;
+    };
+    var rtkcid=_clean(p.get('rtkcid'));
+    var clickid=_clean(p.get('clickid'));
+    var rt_clickid=_clean(p.get('rt_clickid'));
+    var tblci=_clean(p.get('tblci'));
+    var raw_sub1=_clean(p.get('sub1'));
+    var raw_sub2=_clean(p.get('sub2'));
+    var raw_sub3=_clean(p.get('sub3'));
+    var raw_sub4=_clean(p.get('sub4'));
+    var raw_sub5=_clean(p.get('sub5'));
+    var rt_ad=_clean(p.get('rt_ad'));
+    var rt_source=_clean(p.get('rt_source'));
+    var rt_adgroup=_clean(p.get('rt_adgroup'));
+    var rt_campaign=_clean(p.get('rt_campaign'));
+    var ef_transaction_id=_clean(p.get('_ef_transaction_id'))||_clean(p.get('ef_transaction_id'))||_clean(p.get('transaction_id'));
+    var _cookieValue=function(keys,prefix){
+        try{
+            var parts=document.cookie.split(';');
+            for(var i=0;i<parts.length;i+=1){
+                var entry=parts[i].trim();
+                if(!entry) continue;
+                var eq=entry.indexOf('=');
+                if(eq<=0) continue;
+                var key=entry.slice(0,eq).trim().toLowerCase();
+                var value=_clean(decodeURIComponent(entry.slice(eq+1)));
+                if(!value) continue;
+                for(var j=0;j<keys.length;j+=1){if(key===keys[j]) return value;}
+                if(prefix&&key.indexOf(prefix)===0) return value;
+            }
+        }catch(_){}
+        return null;
+    };
+    var _storedIdentityValue=function(name){
+        var buckets=[];
+        try{if(window.localStorage){buckets.push(window.localStorage.getItem('_rb_external_click_identity'));}}catch(_){}
+        try{if(window.sessionStorage){buckets.push(window.sessionStorage.getItem('_rb_external_click_identity'));}}catch(_){}
+        buckets.push(_cookieValue(['_rb_external_click_identity'], null));
+        for(var i=0;i<buckets.length;i+=1){
+            var raw=buckets[i];
+            if(!raw) continue;
+            try{
+                var parsed=JSON.parse(raw);
+                var value=_clean(parsed&&parsed[name]);
+                if(value) return value;
+            }catch(_){}
+        }
+        return null;
+    };
+    if(!ef_transaction_id){
+        ef_transaction_id=_cookieValue(['transaction_id','ef_transaction_id','_ef_transaction_id'],'ef_tid_')||_storedIdentityValue('everflow_transaction_id');
+    }
+    var _isDigits=function(s){return !!s&&/^[0-9]+$/.test(s)};
+    var _looksLikeClickId=function(s){return !!s&&/^[A-Za-z0-9][A-Za-z0-9._:-]{11,}$/.test(String(s).trim())};
+    var _isSourceToken=function(s){
+        if(!s) return false;
+        var t=String(s).trim().toLowerCase();
+        return ['facebook','fb','meta','instagram','google','taboola','outbrain','tiktok','snapchat','newsbreak','native'].indexOf(t)>=0;
+    };
+    var _canonicalFlowReady=function(){
+        var canonicalClickId=raw_sub3||rtkcid||clickid||rt_clickid;
+        return !!(raw_sub1&&raw_sub2&&raw_sub4&&raw_sub5&&_looksLikeClickId(canonicalClickId));
+    };
+    var _applyTrackingContext=function(u,c){
+        try{
+            Array.from(u.searchParams.entries()).forEach(function(pair){
+                var key=pair[0];
+                var value=pair[1];
+                if(_clean(value)===null){u.searchParams.delete(key)}
+            });
+            var trackedPairs=[['transaction_id',ef_transaction_id],['ef_transaction_id',ef_transaction_id],['_ef_transaction_id',ef_transaction_id]];
+            if(c){
+                trackedPairs.push(['clickid',c],['click_id',c],['rtkcid',c],['rt_clickid',c],['rtkclickid',c]);
+            }
+            if(tblci){trackedPairs.push(['tblci',tblci]);}
+            if(_canonicalFlowReady()){
+                trackedPairs.push(
+                    ['sub1',raw_sub1],
+                    ['sub2',raw_sub2],
+                    ['sub3',_looksLikeClickId(raw_sub3)?raw_sub3:c],
+                    ['sub4',raw_sub4],
+                    ['sub5',raw_sub5]
+                );
+            } else {
+                if(c){trackedPairs.push(['sub2',c]);}
+                trackedPairs.push(
+                    ['sub1',rt_ad||raw_sub1],
+                    ['sub3',rt_source||raw_sub3],
+                    ['sub4',rt_adgroup||raw_sub4],
+                    ['sub5',rt_campaign||raw_sub5]
+                );
+            }
+            trackedPairs.forEach(function(pair){
+                var key=pair[0], value=pair[1];
+                if(value&&!_clean(u.searchParams.get(key))){u.searchParams.set(key,value)}
+            });
+        }catch(_){}
+        return u;
+    };
+    var c=rtkcid||clickid||rt_clickid||tblci||(function(){
+        if(raw_sub2&&raw_sub3){
+            if(_isSourceToken(raw_sub3)&&!_isSourceToken(raw_sub2)) return raw_sub2;
+            if(_isSourceToken(raw_sub2)&&!_isSourceToken(raw_sub3)) return raw_sub3;
+            if(_isDigits(raw_sub2)&&!_isDigits(raw_sub3)) return raw_sub3;
+            if(_isDigits(raw_sub3)&&!_isDigits(raw_sub2)) return raw_sub2;
+            if(raw_sub3.length>raw_sub2.length+2) return raw_sub3;
+            return raw_sub2;
+        }
+        return raw_sub3||raw_sub2;
+    })();
+    document.querySelectorAll('a.js-offer-link,a.cta-link,a.cta-button').forEach(function(l){
+        try{var u=new URL(l.href,window.location.origin);_applyTrackingContext(u,c);l.href=u.toString()}catch(_){
+            var pairs=[];
+            if(ef_transaction_id){pairs.push('_ef_transaction_id='+encodeURIComponent(ef_transaction_id));pairs.push('transaction_id='+encodeURIComponent(ef_transaction_id))}
+            if(c){pairs.push('clickid='+encodeURIComponent(c));pairs.push('rtkcid='+encodeURIComponent(c));pairs.push('rt_clickid='+encodeURIComponent(c))}
+            if(tblci){pairs.push('tblci='+encodeURIComponent(tblci))}
+            if(_canonicalFlowReady()){
+                pairs.push('sub1='+encodeURIComponent(raw_sub1));
+                pairs.push('sub2='+encodeURIComponent(raw_sub2));
+                pairs.push('sub3='+encodeURIComponent((_looksLikeClickId(raw_sub3)?raw_sub3:c)||''));
+                pairs.push('sub4='+encodeURIComponent(raw_sub4));
+                pairs.push('sub5='+encodeURIComponent(raw_sub5));
+            } else {
+                if(c){pairs.push('sub2='+encodeURIComponent(c))}
+                if(rt_ad||raw_sub1){pairs.push('sub1='+encodeURIComponent(rt_ad||raw_sub1))}
+                if(rt_source||raw_sub3){pairs.push('sub3='+encodeURIComponent(rt_source||raw_sub3))}
+                if(rt_adgroup||raw_sub4){pairs.push('sub4='+encodeURIComponent(rt_adgroup||raw_sub4))}
+                if(rt_campaign||raw_sub5){pairs.push('sub5='+encodeURIComponent(rt_campaign||raw_sub5))}
+            }
+            if(pairs.length){var s=l.href.indexOf('?')>-1?'&':'?';l.href=l.href+s+pairs.join('&')}
+        }
+    });
+})();
+    </script>
+    <!-- RedTrack track.js -->
+    <script type="text/javascript" src="//hpkpn.ttrk.io/track.js"></script>
+</body>
+</html>
